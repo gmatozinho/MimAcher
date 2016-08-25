@@ -62,7 +62,14 @@
     <AndroidResource Include="Resources\layout\EscolherFoto.axml" />
     <AndroidResource Include="Resources\layout\Inscrever.axml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
-    <AndroidResource Include="Resources\layout\TelaOpcoes.axml" />
+    <AndroidResource Include="Resources\layout\Competencias.axml" />
+    <AndroidResource Include="Resources\layout\Gostos.axml" />
+    <AndroidResource Include="Resources\layout\Interesses.axml" />
+    <AndroidResource Include="Resources\layout\OpcoesArte.axml" />
+    <AndroidResource Include="Resources\layout\OpcoesDisciplinas.axml" />
+    <AndroidResource Include="Resources\layout\OpcoesEsporte.axml" />
+    <AndroidResource Include="Resources\layout\OpcoesMusica.axml" />
+    <AndroidResource Include="Resources\layout\Resultado.axml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -90,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\losango.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
