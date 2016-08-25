@@ -8,10 +8,10 @@ using Android.OS;
 
 namespace MimAcher
 {
-    [Activity(Label = "MimAcher", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
     public class MainActivity : Activity
     {
-        int count = 1;
+
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -20,11 +20,16 @@ namespace MimAcher
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            //Initializing button from layout
+            Button inscrevase = FindViewById<Button>(Resource.Id.inscrevase);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            //Login button click action
+            inscrevase.Click += delegate {
+                StartActivity(typeof(InscreverActivity));
+            };
+
+            //TODO Configurar recepção das informações nos campos
+
         }
     }
 }
