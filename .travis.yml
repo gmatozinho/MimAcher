@@ -1,0 +1,8 @@
+language: csharp
+solution: MimAcher.sln
+mono:
+  - latest
+script:
+  - xbuild
+  
+  
