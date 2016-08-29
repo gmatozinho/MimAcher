@@ -78,80 +78,152 @@ namespace MimAcher
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f060017
-			public const int Buttonsline = 2131099671;
-			
-			// aapt resource value: 0x7f060000
-			public const int Logo = 2131099648;
-			
-			// aapt resource value: 0x7f06000e
-			public const int Nome_line = 2131099662;
-			
-			// aapt resource value: 0x7f06000c
-			public const int Senha_line = 2131099660;
+			// aapt resource value: 0x7f06002f
+			public const int Buttonsline = 2131099695;
 			
 			// aapt resource value: 0x7f06000a
-			public const int Usuario_line = 2131099658;
+			public const int Logo = 2131099658;
 			
-			// aapt resource value: 0x7f060015
-			public const int avançar = 2131099669;
+			// aapt resource value: 0x7f06001c
+			public const int Nome_line = 2131099676;
 			
-			// aapt resource value: 0x7f060002
-			public const int avançar2 = 2131099650;
-			
-			// aapt resource value: 0x7f060007
-			public const int avançar3 = 2131099655;
-			
-			// aapt resource value: 0x7f06000f
-			public const int email = 2131099663;
-			
-			// aapt resource value: 0x7f060010
-			public const int email_line = 2131099664;
-			
-			// aapt resource value: 0x7f060016
-			public const int entrar = 2131099670;
-			
-			// aapt resource value: 0x7f060001
-			public const int exibirfoto = 2131099649;
-			
-			// aapt resource value: 0x7f060011
-			public const int idade = 2131099665;
-			
-			// aapt resource value: 0x7f060012
-			public const int idade_line = 2131099666;
+			// aapt resource value: 0x7f06001a
+			public const int Senha_line = 2131099674;
 			
 			// aapt resource value: 0x7f060018
-			public const int inscrevase = 2131099672;
+			public const int Usuario_line = 2131099672;
 			
-			// aapt resource value: 0x7f060003
-			public const int linearLayout1 = 2131099651;
-			
-			// aapt resource value: 0x7f060008
-			public const int logo = 2131099656;
-			
-			// aapt resource value: 0x7f060004
-			public const int name_user = 2131099652;
-			
-			// aapt resource value: 0x7f060005
-			public const int name_user_line = 2131099653;
-			
-			// aapt resource value: 0x7f06000d
-			public const int nome = 2131099661;
+			// aapt resource value: 0x7f060012
+			public const int arte1 = 2131099666;
 			
 			// aapt resource value: 0x7f060006
-			public const int o_que_vc_gosta = 2131099654;
+			public const int arte2 = 2131099654;
 			
-			// aapt resource value: 0x7f06000b
-			public const int senha = 2131099659;
+			// aapt resource value: 0x7f06002a
+			public const int arte3 = 2131099690;
 			
-			// aapt resource value: 0x7f060013
-			public const int telefone = 2131099667;
+			// aapt resource value: 0x7f060023
+			public const int avançar = 2131099683;
 			
-			// aapt resource value: 0x7f060014
-			public const int telefone_line = 2131099668;
+			// aapt resource value: 0x7f060015
+			public const int avançar1 = 2131099669;
 			
 			// aapt resource value: 0x7f060009
-			public const int usuario = 2131099657;
+			public const int avançar2 = 2131099657;
+			
+			// aapt resource value: 0x7f06002d
+			public const int avançar3 = 2131099693;
+			
+			// aapt resource value: 0x7f060013
+			public const int disciplinas1 = 2131099667;
+			
+			// aapt resource value: 0x7f060007
+			public const int disciplinas2 = 2131099655;
+			
+			// aapt resource value: 0x7f06002b
+			public const int disciplinas3 = 2131099691;
+			
+			// aapt resource value: 0x7f06001d
+			public const int email = 2131099677;
+			
+			// aapt resource value: 0x7f06001e
+			public const int email_line = 2131099678;
+			
+			// aapt resource value: 0x7f06002e
+			public const int entrar = 2131099694;
+			
+			// aapt resource value: 0x7f060011
+			public const int esporte1 = 2131099665;
+			
+			// aapt resource value: 0x7f060005
+			public const int esporte2 = 2131099653;
+			
+			// aapt resource value: 0x7f060029
+			public const int esporte3 = 2131099689;
+			
+			// aapt resource value: 0x7f06000b
+			public const int exibirfoto = 2131099659;
+			
+			// aapt resource value: 0x7f06001f
+			public const int idade = 2131099679;
+			
+			// aapt resource value: 0x7f060020
+			public const int idade_line = 2131099680;
+			
+			// aapt resource value: 0x7f060030
+			public const int inscrevase = 2131099696;
+			
+			// aapt resource value: 0x7f060016
+			public const int logo = 2131099670;
+			
+			// aapt resource value: 0x7f060010
+			public const int musica1 = 2131099664;
+			
+			// aapt resource value: 0x7f060004
+			public const int musica2 = 2131099652;
+			
+			// aapt resource value: 0x7f060028
+			public const int musica3 = 2131099688;
+			
+			// aapt resource value: 0x7f06000e
+			public const int name_user_line1 = 2131099662;
+			
+			// aapt resource value: 0x7f060002
+			public const int name_user_line2 = 2131099650;
+			
+			// aapt resource value: 0x7f060026
+			public const int name_user_line3 = 2131099686;
+			
+			// aapt resource value: 0x7f06001b
+			public const int nome = 2131099675;
+			
+			// aapt resource value: 0x7f06000d
+			public const int nome_user1 = 2131099661;
+			
+			// aapt resource value: 0x7f060001
+			public const int nome_user2 = 2131099649;
+			
+			// aapt resource value: 0x7f060025
+			public const int nome_user3 = 2131099685;
+			
+			// aapt resource value: 0x7f060027
+			public const int o_que_vc_aprender = 2131099687;
+			
+			// aapt resource value: 0x7f060003
+			public const int o_que_vc_ensinar = 2131099651;
+			
+			// aapt resource value: 0x7f06000f
+			public const int o_que_vc_gosta = 2131099663;
+			
+			// aapt resource value: 0x7f060014
+			public const int outros1 = 2131099668;
+			
+			// aapt resource value: 0x7f060008
+			public const int outros2 = 2131099656;
+			
+			// aapt resource value: 0x7f06002c
+			public const int outros3 = 2131099692;
+			
+			// aapt resource value: 0x7f060019
+			public const int senha = 2131099673;
+			
+			// aapt resource value: 0x7f060021
+			public const int telefone = 2131099681;
+			
+			// aapt resource value: 0x7f060022
+			public const int telefone_line = 2131099682;
+			
+			// aapt resource value: 0x7f060017
+			public const int usuario = 2131099671;
+			
+			// aapt resource value: 0x7f06000c
+			public const int view_image1 = 2131099660;
+			
+			// aapt resource value: 0x7f060000
+			public const int view_image2 = 2131099648;
+			
+			// aapt resource value: 0x7f060024
+			public const int view_image3 = 2131099684;
 			
 			static Id()
 			{
