@@ -52,11 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditarPerfilActivity.cs" />
     <Compile Include="EscolherFotoActivity.cs" />
     <Compile Include="InscreverActivity.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultadoActivity.cs" />
+    <Compile Include="ResultadoInformacoesActivity.cs" />
     <Compile Include="SplashScreen.cs" />
   </ItemGroup>
   <ItemGroup>
