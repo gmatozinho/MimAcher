@@ -211,7 +211,7 @@ namespace MimAcher
 			public const int nome_user3 = 2131099699;
 			
 			// aapt resource value: 0x7f060045
-			public const int nome_user8 = 2131099717;
+			public const int nome_user_result = 2131099717;
 			
 			// aapt resource value: 0x7f060001
 			public const int nova_senha = 2131099649;
