@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Aplicacao", "MimAc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Apresentacao", "MimAcher.Apresentacao\MimAcher.Apresentacao.csproj", "{9E43D46D-54D2-4CAC-B262-04DAB1311CD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.WebService", "MimAcher.WebService\MimAcher.WebService.csproj", "{18BB90E4-98CD-47A4-8688-ECF9ACB27755}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,10 +35,6 @@ Global
 		{9E43D46D-54D2-4CAC-B262-04DAB1311CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E43D46D-54D2-4CAC-B262-04DAB1311CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E43D46D-54D2-4CAC-B262-04DAB1311CD9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18BB90E4-98CD-47A4-8688-ECF9ACB27755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18BB90E4-98CD-47A4-8688-ECF9ACB27755}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18BB90E4-98CD-47A4-8688-ECF9ACB27755}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18BB90E4-98CD-47A4-8688-ECF9ACB27755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
