@@ -21,7 +21,7 @@ namespace MimAcher.SourceCode
         //Set functions to read and write stuff to database
         public static void write(Aluno a)
         {
-
+            //TODO
         }
 
         public static Dictionary<string, List<Aluno>> match(Aluno a)
@@ -32,22 +32,24 @@ namespace MimAcher.SourceCode
             matchs["interesses"] = new List<Aluno>();
             matchs["competencias"] = new List<Aluno>();
 
+            //TODO: buscar os matchs no banco
+
             return matchs;
         }
 
         private static void  writeGosto(Aluno a, string s)
         {
-
+            //TODO
         }
 
         private static void writeInteresse(Aluno a, string s)
         {
-
+            //TODO
         }
 
         private static void writeCompetencia(Aluno a, string s)
         {
-
+            //TODO
         }
     }
 }

@@ -16,12 +16,20 @@ namespace MimAcher.SourceCode
     {
         private static int tipoUsuario = 2;
         private string nomeRepresentante;
-        //geography local;
 
-        public NAC(string id, string senha, string nomeRepresentante/*, geography local*/) : base(id, senha)
+        public NAC(Dictionary<string, string> atributos) : base(atributos)
         {
-            this.nomeRepresentante = nomeRepresentante;
-            //this.local = local;
+            this.NomeRepresentante = atributos["nomeRepresentante"];
+        }
+
+        public string NomeRepresentante {
+            get {
+                return nomeRepresentante;
+            }
+
+            set {
+                nomeRepresentante = value;
+            }
         }
     }
 }

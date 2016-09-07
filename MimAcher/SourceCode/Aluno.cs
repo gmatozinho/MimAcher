@@ -18,76 +18,127 @@ namespace MimAcher.SourceCode
         private List<string> interesses;
         private List<string> competencias;
         private string nome;
-        private int idade;
+        private DateTime nascimento;
         private string email;
         private string telefone;
-        //private Geography localizacao;
 
         public static int tipoUsuario = 1;
-        
-        internal List<string> Gostos
-        {
-            get
-            {
+
+        //Properties
+        public List<string> Gostos {
+            get {
                 return gostos;
             }
+
+            private set {
+                gostos = value;
+            }
         }
 
-        internal List<string> Interesses
-        {
-            get
-            {
+        public List<string> Interesses {
+            get {
                 return interesses;
             }
-        }
 
-        internal List<string> Competencias
-        {
-            get
-            {
-                return competencias;
+            private set {
+                interesses = value;
             }
         }
 
+        public List<string> Competencias {
+            get {
+                return competencias;
+            }
+
+            private set {
+                competencias = value;
+            }
+        }
+
+        public string Nome {
+            get {
+                return nome;
+            }
+
+            set {
+                nome = value;
+            }
+        }
+
+        public DateTime Nascimento {
+            get {
+                return nascimento;
+            }
+
+            set {
+                nascimento = value;
+            }
+        }
+
+        public string Email {
+            get {
+                return email;
+            }
+
+            set {
+                email = value;
+            }
+        }
+
+        public string Telefone {
+            get {
+                return telefone;
+            }
+
+            set {
+                telefone = value;
+            }
+        }
+
+
         //Construtor
-        public Aluno(string id, string senha, string nome, int idade, string email, string telefone/*, geography localizacao*/) : base(id, senha)
+        public Aluno(Dictionary<string, string> atributos) : base(atributos)
         {
-            gostos = new List<string>();
-            interesses = new List<string>();
-            competencias = new List<string>();
-            this.nome = nome;
-            this.idade = idade;
-            this.email = email;
-            this.telefone = telefone;
-            //this.localizacao = localizacao;
+            Gostos = new List<string>();
+            Interesses = new List<string>();
+            Competencias = new List<string>();
+            
+            this.Nome = atributos["nome"];
+            this.Nascimento = DateTime.Parse(atributos["nascimento"]);
+            this.Email = atributos["email"];
+            this.Telefone = atributos["telefone"];
         }
 
         //Adicionar strings individualmente
-        public void addGosto(string a)
+        public void adicionarGosto(string a)
         {
-            gostos.Add(a);
+            Gostos.Add(a);
         }
-        public void addInteresse(string a)
+
+        public void adicionarInteresse(string a)
         {
-            interesses.Add(a);
+            Interesses.Add(a);
         }
-        public void addCompetencia(string a)
+
+        public void adicionarCompetencia(string a)
         {
-            competencias.Add(a);
+            Competencias.Add(a);
         }
 
         //Remover strings individualmente
-        public void removeGosto(string a)
+        public void removerGosto(string a)
         {
-            gostos.Remove(a);
+            Gostos.Remove(a);
         }
-        public void removeInteresse(string a)
+
+        public void removerInteresse(string a)
         {
-            interesses.Remove(a);
+            Interesses.Remove(a);
         }
-        public void removeCompetencia(string a)
+
+        public void removerCompetencia(string a)
         {
-            competencias.Remove(a);
+            Competencias.Remove(a);
         }
 
         //Funções para trabalhar no banco de dados

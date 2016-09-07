@@ -17,15 +17,35 @@ namespace MimAcher.SourceCode
         private string id;
         private string senha;
 
-        public Usuario(string id, string senha)
+        public Usuario(Dictionary<string, string> atributos)
         {
-            this.id = id;
-            this.senha = senha;
+            this.Id = atributos["id"];
+            this.Senha = atributos["senha"];
+        }
+
+        public string Id {
+            get {
+                return id;
+            }
+
+            set {
+                id = value;
+            }
+        }
+
+        private string Senha {
+            get {
+                return senha;
+            }
+
+            set {
+                senha = value;
+            }
         }
 
         public Boolean login(string password)
         {
-            if (password.Equals(this.senha))
+            if (password.Equals(this.Senha))
             {
                 return true;
             }
