@@ -23,6 +23,10 @@ namespace MimAcher
             SetContentView(Resource.Layout.Inscrever);
             //Initializing button from layout
             Button avançar = FindViewById<Button>(Resource.Id.avançar);
+
+
+            //Pegar as informações inseridas
+
             //Choose Picture button click action
             avançar.Click += delegate {
                 StartActivity(typeof(EscolherFotoActivity));
