@@ -52,22 +52,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EditarPerfilActivity.cs" />
-    <Compile Include="EscolherFotoActivity.cs" />
-    <Compile Include="GostosActivity.cs" />
-    <Compile Include="InscreverActivity.cs" />
-    <Compile Include="MainActivity.cs" />
-    <Compile Include="QueroAprenderActivity.cs" />
-    <Compile Include="QueroEnsinarActivity.cs" />
+    <Compile Include="Activitys\EditarPerfilActivity.cs" />
+    <Compile Include="Activitys\EscolherFotoActivity.cs" />
+    <Compile Include="Activitys\GostosActivity.cs" />
+    <Compile Include="Activitys\InscreverActivity.cs" />
+    <Compile Include="Activitys\MainActivity.cs" />
+    <Compile Include="Activitys\QueroAprenderActivity.cs" />
+    <Compile Include="Activitys\QueroEnsinarActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultadoActivity.cs" />
-    <Compile Include="ResultadoInformacoesActivity.cs" />
+    <Compile Include="Activitys\ResultadoActivity.cs" />
+    <Compile Include="Activitys\ResultadoInformacoesActivity.cs" />
     <Compile Include="SourceCode\Aluno.cs" />
     <Compile Include="SourceCode\Cursor.cs" />
     <Compile Include="SourceCode\NAC.cs" />
     <Compile Include="SourceCode\Usuario.cs" />
-    <Compile Include="SplashScreen.cs" />
+    <Compile Include="Activitys\SplashScreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
