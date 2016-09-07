@@ -21,14 +21,15 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             //PEGAR NOME DO USUARIO DE OUTRA ACTIVITY
-            string nome_usuario = Intent.GetStringExtra("user");
+            String user = "Fulano";
+            user = Intent.GetStringExtra("user");
 
             // Create your application here
             SetContentView(Resource.Layout.Resultado);
             
             //Alterando a informação no botão fulano
             Button nome_user_result = FindViewById<Button>(Resource.Id.nome_user_result);
-            nome_user_result.Text = nome_usuario.ToString();
+            nome_user_result.Text = user;
 
             nome_user_result.Click += delegate {
                 StartActivity(typeof(EditarPerfilActivity));

@@ -53,8 +53,7 @@ namespace MimAcher
             inscrevase.Click += delegate {
                 StartActivity(typeof(InscreverActivity));
             };
-
-
+            
         }
     }
 }

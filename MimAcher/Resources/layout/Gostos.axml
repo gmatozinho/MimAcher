@@ -12,7 +12,7 @@
         android:layout_marginBottom="2dp"
         android:src="@drawable/round_button" />
     <Button
-        android:id="@+id/nome_user1"
+        android:id="@+id/nome_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/view_image1"
@@ -163,7 +163,7 @@
         android:textColor="@android:color/black"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:id="@+id/ok1"
+        android:id="@+id/ok"
         android:layout_below="@+id/outros1"
         android:layout_marginLeft="70dp"
         android:layout_marginRight="70dp"

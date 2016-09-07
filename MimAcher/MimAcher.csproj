@@ -54,8 +54,11 @@
   <ItemGroup>
     <Compile Include="EditarPerfilActivity.cs" />
     <Compile Include="EscolherFotoActivity.cs" />
+    <Compile Include="GostosActivity.cs" />
     <Compile Include="InscreverActivity.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="QueroAprenderActivity.cs" />
+    <Compile Include="QueroEnsinarActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultadoActivity.cs" />

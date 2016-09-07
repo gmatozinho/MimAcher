@@ -61,16 +61,17 @@ namespace MimAcher
 
             telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
                 phone = p.Text.ToString();
-
             };
 
             //Inserir informações no banco, porém antes checar persistência
-            
+            //trabalhar com envio do objeto
             
 
             //Choose Picture button click action
             avançar.Click += delegate {
-                StartActivity(typeof(EscolherFotoActivity));
+                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
+                escolherfotoactivity.PutExtra("user", user);
+                StartActivity(escolherfotoactivity);
             };
 
             //TODO Configurar recepção das informações nos campos

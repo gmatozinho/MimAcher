@@ -18,10 +18,13 @@ namespace MimAcher
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            String user = "Fulano";
+            user = Intent.GetStringExtra("user");
 
             // Create your application here
             // Set our view from the "inscrever" layout resource
             SetContentView(Resource.Layout.EscolherFoto);
+            Button avançar = FindViewById<Button>(Resource.Id.avançar);
 
             //Create button
             ImageView escolher_foto = FindViewById<ImageView>(Resource.Id.exibirfoto);
@@ -32,6 +35,14 @@ namespace MimAcher
                 imageIntent.SetAction(Intent.ActionGetContent);
                 StartActivityForResult(
                     Intent.CreateChooser(imageIntent, "Select photo"), 0);
+            };
+            //botar a foto no banco
+
+            avançar.Click += delegate {
+                var gostosactivity = new Intent(this, typeof(GostosActivity));
+                //mudar para trabalhar com objeto do banco
+                gostosactivity.PutExtra("user", user);
+                StartActivity(gostosactivity);
             };
         }
 
