@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MimAcher.SourceCode;
 
 namespace MimAcher
 {
@@ -18,17 +19,16 @@ namespace MimAcher
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            String user = "Fulano";
-            user = Intent.GetStringExtra("user");
 
+            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
             // Create your application here
-            // Set our view from the "inscrever" layout resource
             SetContentView(Resource.Layout.EscolherFoto);
-            Button avançar = FindViewById<Button>(Resource.Id.avançar);
 
             //Create button
+            Button avançar = FindViewById<Button>(Resource.Id.avançar);
             ImageView escolher_foto = FindViewById<ImageView>(Resource.Id.exibirfoto);
 
+            //escolher a imagem
             escolher_foto.Click += delegate {
                 var imageIntent = new Intent();
                 imageIntent.SetType("image/*");
@@ -40,8 +40,7 @@ namespace MimAcher
 
             avançar.Click += delegate {
                 var gostosactivity = new Intent(this, typeof(GostosActivity));
-                //mudar para trabalhar com objeto do banco
-                gostosactivity.PutExtra("user", user);
+                gostosactivity.PutExtra("aluno", aluno_bundle);
                 StartActivity(gostosactivity);
             };
         }

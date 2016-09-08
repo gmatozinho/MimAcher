@@ -14,8 +14,11 @@ namespace MimAcher.SourceCode
 {
     public class NAC : Usuario
     {
-        private static int tipoUsuario = 2;
         private string nomeRepresentante;
+
+        public static int TipoUsuario {
+            get { return 2; }
+        }
 
         public NAC(Dictionary<string, string> atributos) : base(atributos)
         {
