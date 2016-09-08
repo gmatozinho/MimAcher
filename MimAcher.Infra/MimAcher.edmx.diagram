@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a8ec756ffcf04d87914496eef725b273" Name="Diagram1">
+        <EntityTypeShape EntityType="MIMACHERModel.ALUNO" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.ALUNO_APRENDER" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.ALUNO_ENSINAR" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.ALUNO_GOSTO" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.APRENDER" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.ENSINAR" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.GOSTO" Width="1.5" PointX="3" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.IMAGEM_USUARIO" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.NAC_CAMPUS" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.USUARIO" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO__USUARIO_login" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_APRENDER__ALUNO_login" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_ENSINAR__ALUNO_login" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_GOSTO__ALUNO_login" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_APRENDER__APRENDER_cod_a" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_ENSINAR__ENSINAR_cod_e" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_ALUNO_GOSTO__GOSTO_cod_g" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_IMAGEM_USUARIO__USUARIO_login" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_NAC_CAMPUS__USUARIO_login" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

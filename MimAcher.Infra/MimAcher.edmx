@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MIMACHERModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ALUNO">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dt_nascimento" Type="datetime" Nullable="false" />
+          <Property Name="telefone" Type="int" Nullable="false" />
+          <Property Name="e_mail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="geolocalizacao" Type="geography" />
+        </EntityType>
+        <EntityType Name="ALUNO_APRENDER">
+          <Key>
+            <PropertyRef Name="cod_aa" />
+          </Key>
+          <Property Name="cod_aa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cod_a" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ALUNO_ENSINAR">
+          <Key>
+            <PropertyRef Name="cod_ae" />
+          </Key>
+          <Property Name="cod_ae" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cod_e" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ALUNO_GOSTO">
+          <Key>
+            <PropertyRef Name="cod_ag" />
+          </Key>
+          <Property Name="cod_ag" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cod_g" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="APRENDER">
+          <Key>
+            <PropertyRef Name="cod_a" />
+          </Key>
+          <Property Name="cod_a" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ENSINAR">
+          <Key>
+            <PropertyRef Name="cod_e" />
+          </Key>
+          <Property Name="cod_e" Type="int" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="GOSTO">
+          <Key>
+            <PropertyRef Name="cod_g" />
+          </Key>
+          <Property Name="cod_g" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMAGEM_USUARIO">
+          <Key>
+            <PropertyRef Name="cod_i" />
+          </Key>
+          <Property Name="cod_i" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imagem" Type="varbinary" MaxLength="1" Nullable="false" />
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NAC_CAMPUS">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nome_representante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="geolocalizacao" Type="geography" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="identificador" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ALUNO__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_APRENDER__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_APRENDER" Type="Self.ALUNO_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_APRENDER">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_APRENDER__APRENDER_cod_a">
+          <End Role="APRENDER" Type="Self.APRENDER" Multiplicity="1" />
+          <End Role="ALUNO_APRENDER" Type="Self.ALUNO_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APRENDER">
+              <PropertyRef Name="cod_a" />
+            </Principal>
+            <Dependent Role="ALUNO_APRENDER">
+              <PropertyRef Name="cod_a" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_ENSINAR__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_ENSINAR" Type="Self.ALUNO_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_ENSINAR">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_ENSINAR__ENSINAR_cod_e">
+          <End Role="ENSINAR" Type="Self.ENSINAR" Multiplicity="1" />
+          <End Role="ALUNO_ENSINAR" Type="Self.ALUNO_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSINAR">
+              <PropertyRef Name="cod_e" />
+            </Principal>
+            <Dependent Role="ALUNO_ENSINAR">
+              <PropertyRef Name="cod_e" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_GOSTO__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_GOSTO" Type="Self.ALUNO_GOSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_GOSTO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_GOSTO__GOSTO_cod_g">
+          <End Role="GOSTO" Type="Self.GOSTO" Multiplicity="1" />
+          <End Role="ALUNO_GOSTO" Type="Self.ALUNO_GOSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GOSTO">
+              <PropertyRef Name="cod_g" />
+            </Principal>
+            <Dependent Role="ALUNO_GOSTO">
+              <PropertyRef Name="cod_g" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMAGEM_USUARIO__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="IMAGEM_USUARIO" Type="Self.IMAGEM_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="IMAGEM_USUARIO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAC_CAMPUS__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="NAC_CAMPUS" Type="Self.NAC_CAMPUS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="NAC_CAMPUS">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MIMACHERModelStoreContainer">
+          <EntitySet Name="ALUNO" EntityType="Self.ALUNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_APRENDER" EntityType="Self.ALUNO_APRENDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_ENSINAR" EntityType="Self.ALUNO_ENSINAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ALUNO_GOSTO" EntityType="Self.ALUNO_GOSTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="APRENDER" EntityType="Self.APRENDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ENSINAR" EntityType="Self.ENSINAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GOSTO" EntityType="Self.GOSTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IMAGEM_USUARIO" EntityType="Self.IMAGEM_USUARIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NAC_CAMPUS" EntityType="Self.NAC_CAMPUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ALUNO__USUARIO_login" Association="Self.FK_ALUNO__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ALUNO" EntitySet="ALUNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_APRENDER__ALUNO_login" Association="Self.FK_ALUNO_APRENDER__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_APRENDER" EntitySet="ALUNO_APRENDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_APRENDER__APRENDER_cod_a" Association="Self.FK_ALUNO_APRENDER__APRENDER_cod_a">
+            <End Role="APRENDER" EntitySet="APRENDER" />
+            <End Role="ALUNO_APRENDER" EntitySet="ALUNO_APRENDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_ENSINAR__ALUNO_login" Association="Self.FK_ALUNO_ENSINAR__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_ENSINAR" EntitySet="ALUNO_ENSINAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_ENSINAR__ENSINAR_cod_e" Association="Self.FK_ALUNO_ENSINAR__ENSINAR_cod_e">
+            <End Role="ENSINAR" EntitySet="ENSINAR" />
+            <End Role="ALUNO_ENSINAR" EntitySet="ALUNO_ENSINAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_GOSTO__ALUNO_login" Association="Self.FK_ALUNO_GOSTO__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_GOSTO" EntitySet="ALUNO_GOSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_GOSTO__GOSTO_cod_g" Association="Self.FK_ALUNO_GOSTO__GOSTO_cod_g">
+            <End Role="GOSTO" EntitySet="GOSTO" />
+            <End Role="ALUNO_GOSTO" EntitySet="ALUNO_GOSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMAGEM_USUARIO__USUARIO_login" Association="Self.FK_IMAGEM_USUARIO__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="IMAGEM_USUARIO" EntitySet="IMAGEM_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAC_CAMPUS__USUARIO_login" Association="Self.FK_NAC_CAMPUS__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="NAC_CAMPUS" EntitySet="NAC_CAMPUS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MIMACHERModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ALUNO">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dt_nascimento" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="telefone" Type="Int32" Nullable="false" />
+          <Property Name="e_mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="geolocalizacao" Type="Geography" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_ALUNO__USUARIO_login" FromRole="ALUNO" ToRole="USUARIO" />
+          <NavigationProperty Name="ALUNO_APRENDER" Relationship="Self.FK_ALUNO_APRENDER__ALUNO_login" FromRole="ALUNO" ToRole="ALUNO_APRENDER" />
+          <NavigationProperty Name="ALUNO_ENSINAR" Relationship="Self.FK_ALUNO_ENSINAR__ALUNO_login" FromRole="ALUNO" ToRole="ALUNO_ENSINAR" />
+          <NavigationProperty Name="ALUNO_GOSTO" Relationship="Self.FK_ALUNO_GOSTO__ALUNO_login" FromRole="ALUNO" ToRole="ALUNO_GOSTO" />
+        </EntityType>
+        <EntityType Name="ALUNO_APRENDER">
+          <Key>
+            <PropertyRef Name="cod_aa" />
+          </Key>
+          <Property Name="cod_aa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_a" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO_APRENDER__ALUNO_login" FromRole="ALUNO_APRENDER" ToRole="ALUNO" />
+          <NavigationProperty Name="APRENDER" Relationship="Self.FK_ALUNO_APRENDER__APRENDER_cod_a" FromRole="ALUNO_APRENDER" ToRole="APRENDER" />
+        </EntityType>
+        <EntityType Name="ALUNO_ENSINAR">
+          <Key>
+            <PropertyRef Name="cod_ae" />
+          </Key>
+          <Property Name="cod_ae" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_e" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO_ENSINAR__ALUNO_login" FromRole="ALUNO_ENSINAR" ToRole="ALUNO" />
+          <NavigationProperty Name="ENSINAR" Relationship="Self.FK_ALUNO_ENSINAR__ENSINAR_cod_e" FromRole="ALUNO_ENSINAR" ToRole="ENSINAR" />
+        </EntityType>
+        <EntityType Name="ALUNO_GOSTO">
+          <Key>
+            <PropertyRef Name="cod_ag" />
+          </Key>
+          <Property Name="cod_ag" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cod_g" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO_GOSTO__ALUNO_login" FromRole="ALUNO_GOSTO" ToRole="ALUNO" />
+          <NavigationProperty Name="GOSTO" Relationship="Self.FK_ALUNO_GOSTO__GOSTO_cod_g" FromRole="ALUNO_GOSTO" ToRole="GOSTO" />
+        </EntityType>
+        <EntityType Name="APRENDER">
+          <Key>
+            <PropertyRef Name="cod_a" />
+          </Key>
+          <Property Name="cod_a" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ALUNO_APRENDER" Relationship="Self.FK_ALUNO_APRENDER__APRENDER_cod_a" FromRole="APRENDER" ToRole="ALUNO_APRENDER" />
+        </EntityType>
+        <EntityType Name="ENSINAR">
+          <Key>
+            <PropertyRef Name="cod_e" />
+          </Key>
+          <Property Name="cod_e" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ALUNO_ENSINAR" Relationship="Self.FK_ALUNO_ENSINAR__ENSINAR_cod_e" FromRole="ENSINAR" ToRole="ALUNO_ENSINAR" />
+        </EntityType>
+        <EntityType Name="GOSTO">
+          <Key>
+            <PropertyRef Name="cod_g" />
+          </Key>
+          <Property Name="cod_g" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ALUNO_GOSTO" Relationship="Self.FK_ALUNO_GOSTO__GOSTO_cod_g" FromRole="GOSTO" ToRole="ALUNO_GOSTO" />
+        </EntityType>
+        <EntityType Name="IMAGEM_USUARIO">
+          <Key>
+            <PropertyRef Name="cod_i" />
+          </Key>
+          <Property Name="cod_i" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imagem" Type="Binary" MaxLength="1" FixedLength="false" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_IMAGEM_USUARIO__USUARIO_login" FromRole="IMAGEM_USUARIO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="NAC_CAMPUS">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nome_representante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="geolocalizacao" Type="Geography" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_NAC_CAMPUS__USUARIO_login" FromRole="NAC_CAMPUS" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="login" />
+          </Key>
+          <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="identificador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ALUNO" Relationship="Self.FK_ALUNO__USUARIO_login" FromRole="USUARIO" ToRole="ALUNO" />
+          <NavigationProperty Name="IMAGEM_USUARIO" Relationship="Self.FK_IMAGEM_USUARIO__USUARIO_login" FromRole="USUARIO" ToRole="IMAGEM_USUARIO" />
+          <NavigationProperty Name="NAC_CAMPUS" Relationship="Self.FK_NAC_CAMPUS__USUARIO_login" FromRole="USUARIO" ToRole="NAC_CAMPUS" />
+        </EntityType>
+        <Association Name="FK_ALUNO__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_APRENDER__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_APRENDER" Type="Self.ALUNO_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_APRENDER">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_ENSINAR__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_ENSINAR" Type="Self.ALUNO_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_ENSINAR">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_GOSTO__ALUNO_login">
+          <End Role="ALUNO" Type="Self.ALUNO" Multiplicity="1" />
+          <End Role="ALUNO_GOSTO" Type="Self.ALUNO_GOSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ALUNO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="ALUNO_GOSTO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_APRENDER__APRENDER_cod_a">
+          <End Role="APRENDER" Type="Self.APRENDER" Multiplicity="1" />
+          <End Role="ALUNO_APRENDER" Type="Self.ALUNO_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="APRENDER">
+              <PropertyRef Name="cod_a" />
+            </Principal>
+            <Dependent Role="ALUNO_APRENDER">
+              <PropertyRef Name="cod_a" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_ENSINAR__ENSINAR_cod_e">
+          <End Role="ENSINAR" Type="Self.ENSINAR" Multiplicity="1" />
+          <End Role="ALUNO_ENSINAR" Type="Self.ALUNO_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ENSINAR">
+              <PropertyRef Name="cod_e" />
+            </Principal>
+            <Dependent Role="ALUNO_ENSINAR">
+              <PropertyRef Name="cod_e" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALUNO_GOSTO__GOSTO_cod_g">
+          <End Role="GOSTO" Type="Self.GOSTO" Multiplicity="1" />
+          <End Role="ALUNO_GOSTO" Type="Self.ALUNO_GOSTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GOSTO">
+              <PropertyRef Name="cod_g" />
+            </Principal>
+            <Dependent Role="ALUNO_GOSTO">
+              <PropertyRef Name="cod_g" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IMAGEM_USUARIO__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="IMAGEM_USUARIO" Type="Self.IMAGEM_USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="IMAGEM_USUARIO">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NAC_CAMPUS__USUARIO_login">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="NAC_CAMPUS" Type="Self.NAC_CAMPUS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="login" />
+            </Principal>
+            <Dependent Role="NAC_CAMPUS">
+              <PropertyRef Name="login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MIMACHEREntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ALUNO" EntityType="Self.ALUNO" />
+          <EntitySet Name="ALUNO_APRENDER" EntityType="Self.ALUNO_APRENDER" />
+          <EntitySet Name="ALUNO_ENSINAR" EntityType="Self.ALUNO_ENSINAR" />
+          <EntitySet Name="ALUNO_GOSTO" EntityType="Self.ALUNO_GOSTO" />
+          <EntitySet Name="APRENDER" EntityType="Self.APRENDER" />
+          <EntitySet Name="ENSINAR" EntityType="Self.ENSINAR" />
+          <EntitySet Name="GOSTO" EntityType="Self.GOSTO" />
+          <EntitySet Name="IMAGEM_USUARIO" EntityType="Self.IMAGEM_USUARIO" />
+          <EntitySet Name="NAC_CAMPUS" EntityType="Self.NAC_CAMPUS" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK_ALUNO__USUARIO_login" Association="Self.FK_ALUNO__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ALUNO" EntitySet="ALUNO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_APRENDER__ALUNO_login" Association="Self.FK_ALUNO_APRENDER__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_APRENDER" EntitySet="ALUNO_APRENDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_ENSINAR__ALUNO_login" Association="Self.FK_ALUNO_ENSINAR__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_ENSINAR" EntitySet="ALUNO_ENSINAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_GOSTO__ALUNO_login" Association="Self.FK_ALUNO_GOSTO__ALUNO_login">
+            <End Role="ALUNO" EntitySet="ALUNO" />
+            <End Role="ALUNO_GOSTO" EntitySet="ALUNO_GOSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_APRENDER__APRENDER_cod_a" Association="Self.FK_ALUNO_APRENDER__APRENDER_cod_a">
+            <End Role="APRENDER" EntitySet="APRENDER" />
+            <End Role="ALUNO_APRENDER" EntitySet="ALUNO_APRENDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_ENSINAR__ENSINAR_cod_e" Association="Self.FK_ALUNO_ENSINAR__ENSINAR_cod_e">
+            <End Role="ENSINAR" EntitySet="ENSINAR" />
+            <End Role="ALUNO_ENSINAR" EntitySet="ALUNO_ENSINAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALUNO_GOSTO__GOSTO_cod_g" Association="Self.FK_ALUNO_GOSTO__GOSTO_cod_g">
+            <End Role="GOSTO" EntitySet="GOSTO" />
+            <End Role="ALUNO_GOSTO" EntitySet="ALUNO_GOSTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IMAGEM_USUARIO__USUARIO_login" Association="Self.FK_IMAGEM_USUARIO__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="IMAGEM_USUARIO" EntitySet="IMAGEM_USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NAC_CAMPUS__USUARIO_login" Association="Self.FK_NAC_CAMPUS__USUARIO_login">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="NAC_CAMPUS" EntitySet="NAC_CAMPUS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MIMACHERModelStoreContainer" CdmEntityContainer="MIMACHEREntities">
+          <EntitySetMapping Name="ALUNO">
+            <EntityTypeMapping TypeName="MIMACHERModel.ALUNO">
+              <MappingFragment StoreEntitySet="ALUNO">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="dt_nascimento" ColumnName="dt_nascimento" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="e_mail" ColumnName="e_mail" />
+                <ScalarProperty Name="geolocalizacao" ColumnName="geolocalizacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO_APRENDER">
+            <EntityTypeMapping TypeName="MIMACHERModel.ALUNO_APRENDER">
+              <MappingFragment StoreEntitySet="ALUNO_APRENDER">
+                <ScalarProperty Name="cod_aa" ColumnName="cod_aa" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="cod_a" ColumnName="cod_a" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO_ENSINAR">
+            <EntityTypeMapping TypeName="MIMACHERModel.ALUNO_ENSINAR">
+              <MappingFragment StoreEntitySet="ALUNO_ENSINAR">
+                <ScalarProperty Name="cod_ae" ColumnName="cod_ae" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="cod_e" ColumnName="cod_e" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ALUNO_GOSTO">
+            <EntityTypeMapping TypeName="MIMACHERModel.ALUNO_GOSTO">
+              <MappingFragment StoreEntitySet="ALUNO_GOSTO">
+                <ScalarProperty Name="cod_ag" ColumnName="cod_ag" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="cod_g" ColumnName="cod_g" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="APRENDER">
+            <EntityTypeMapping TypeName="MIMACHERModel.APRENDER">
+              <MappingFragment StoreEntitySet="APRENDER">
+                <ScalarProperty Name="cod_a" ColumnName="cod_a" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ENSINAR">
+            <EntityTypeMapping TypeName="MIMACHERModel.ENSINAR">
+              <MappingFragment StoreEntitySet="ENSINAR">
+                <ScalarProperty Name="cod_e" ColumnName="cod_e" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GOSTO">
+            <EntityTypeMapping TypeName="MIMACHERModel.GOSTO">
+              <MappingFragment StoreEntitySet="GOSTO">
+                <ScalarProperty Name="cod_g" ColumnName="cod_g" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IMAGEM_USUARIO">
+            <EntityTypeMapping TypeName="MIMACHERModel.IMAGEM_USUARIO">
+              <MappingFragment StoreEntitySet="IMAGEM_USUARIO">
+                <ScalarProperty Name="cod_i" ColumnName="cod_i" />
+                <ScalarProperty Name="imagem" ColumnName="imagem" />
+                <ScalarProperty Name="login" ColumnName="login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NAC_CAMPUS">
+            <EntityTypeMapping TypeName="MIMACHERModel.NAC_CAMPUS">
+              <MappingFragment StoreEntitySet="NAC_CAMPUS">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="nome_representante" ColumnName="nome_representante" />
+                <ScalarProperty Name="geolocalizacao" ColumnName="geolocalizacao" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="MIMACHERModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="identificador" ColumnName="identificador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
