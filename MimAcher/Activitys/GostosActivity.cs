@@ -28,8 +28,7 @@ namespace MimAcher
 
             // Create your application here
 
-            //Checkbox Variables
-            
+              
             //Buttons
             Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button ok = FindViewById<Button>(Resource.Id.ok);
@@ -64,6 +63,7 @@ namespace MimAcher
 
         private Dictionary<string, bool> criarDicionarioGostos()
         {
+            //Checkbox Variables
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
             CheckBox rock = FindViewById<CheckBox>(Resource.Id.rock);
             CheckBox games = FindViewById<CheckBox>(Resource.Id.games);
