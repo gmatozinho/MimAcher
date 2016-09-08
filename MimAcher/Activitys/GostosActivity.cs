@@ -19,11 +19,9 @@ namespace MimAcher
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            String user = "Fulano";
+
             Bundle b = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(b);
-            //String aluno = Intent.GetStringExtra("aluno");
-            
+            Aluno aluno = AlunoFactory.criarAluno(b);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -48,6 +46,7 @@ namespace MimAcher
             nome_user.Text = aluno.Nome;
 
             //Gostos dicitionary creation and add
+            //Criar metodo
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
             Gostos.Add(rock.Text, rock.Checked);
             Gostos.Add(games.Text, games.Checked);
@@ -58,20 +57,22 @@ namespace MimAcher
             Gostos.Add(viajar.Text, viajar.Checked);
             Gostos.Add(analise_sistemas.Text, analise_sistemas.Checked);
 
-            /*foreach(String strKey in Gostos.Keys)
+            //Criar metodo
+            //checa quais gostos foram marcados e adiciona no objeto aluno
+            foreach(String strKey in Gostos.Keys)
             {
                 if (Gostos[strKey]) {
                     aluno.adicionarGosto(strKey);
                 }
             }
-            aluno.commit();*/
+            aluno.commit();
 
 
             //Button name to perfil
             nome_user.Click += delegate {
                 var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                //mudar para trabalhar com objeto do banco
-                editaractivity.PutExtra("user", user);
+                //só falta atualizar
+                editaractivity.PutExtra("aluno", b);
                 StartActivity(editaractivity);
             };
 
@@ -79,7 +80,7 @@ namespace MimAcher
             ok.Click += delegate {
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
                 //mudar para trabalhar com objeto do banco
-                queroaprenderactivity.PutExtra("user", user);
+                queroaprenderactivity.PutExtra("aluno", b);
                 StartActivity(queroaprenderactivity);
             };
 

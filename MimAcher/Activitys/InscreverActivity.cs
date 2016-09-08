@@ -30,7 +30,7 @@ namespace MimAcher
             string nascimento = null;
             string telefone = null;
 
-            //Resgatando o que foi digitado nos EditText
+            //Resgatando o que foi digitado nos EditText e button
             Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
             EditText campo_usuario = FindViewById<EditText>(Resource.Id.usuario);
             EditText campo_senha = FindViewById<EditText>(Resource.Id.senha);
@@ -64,30 +64,25 @@ namespace MimAcher
                 telefone = t.Text.ToString();
             };
 
-            //Criando dicionário com as informações inseridas do usuário
-            Dictionary<string, string> informacoes = new Dictionary<string, string>();
-            
-
-            //Criando o objeto aluno
-            //
-
             //Inserir informações no banco, porém antes checar persistência
-            //trabalhar com envio do objeto
-            //aluno.commit();
-
-
+            
             //Choose Picture button click action
             botao_avançar.Click += delegate {
+                //Criando dicionário com as informações inseridas do usuário
+                //Criar metodo
+                Dictionary<string, string> informacoes = new Dictionary<string, string>();
                 informacoes["id"] = usuario;
                 informacoes["senha"] = senha;
                 informacoes["email"] = email;
                 informacoes["nome"] = nome;
                 informacoes["telefone"] = telefone;
                 informacoes["nascimento"] = nascimento;
+                //Criando o objeto aluno
                 Aluno aluno = new Aluno(informacoes);
+                aluno.commit();
+
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
                 escolherfotoactivity.PutExtra("aluno", aluno.toBundle());
-                //escolherfotoactivity.PutExtra("aluno", nome);
                 StartActivity(escolherfotoactivity);
             };
 

@@ -20,17 +20,17 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
+            //recebimento do bundle
             Bundle aluno = Intent.GetBundleExtra("aluno");
-
-            //String aluno = Intent.GetStringExtra("aluno");
             // Create your application here
             // Set our view from the "inscrever" layout resource
             SetContentView(Resource.Layout.EscolherFoto);
-            Button avançar = FindViewById<Button>(Resource.Id.avançar);
 
             //Create button
+            Button avançar = FindViewById<Button>(Resource.Id.avançar);
             ImageView escolher_foto = FindViewById<ImageView>(Resource.Id.exibirfoto);
 
+            //escolher a imagem
             escolher_foto.Click += delegate {
                 var imageIntent = new Intent();
                 imageIntent.SetType("image/*");

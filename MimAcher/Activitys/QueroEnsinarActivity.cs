@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MimAcher.SourceCode;
 
 namespace MimAcher
 {
@@ -20,27 +21,32 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             // Create your application here
-            String user = "Fulano";
-            user = Intent.GetStringExtra("user");
+            //Recebimento do bundle
+            Bundle b = Intent.GetBundleExtra("aluno");
+            //conversao em aluno
+            Aluno aluno = AlunoFactory.criarAluno(b);
+
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroEnsinar);
 
             // Create your application here
+            //Buttons
             Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button ok = FindViewById<Button>(Resource.Id.ok);
-            nome_user.Text = user;
+            //Button change text
+            nome_user.Text = aluno.Nome;
 
             nome_user.Click += delegate {
                 var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                 //mudar para trabalhar com objeto do banco
-                editaractivity.PutExtra("user", user);
+                editaractivity.PutExtra("aluno", b);
                 StartActivity(editaractivity);
             };
 
             ok.Click += delegate {
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
-                resultadoactivity.PutExtra("user", user);
+                resultadoactivity.PutExtra("aluno", b);
                 StartActivity(resultadoactivity);
             };
         }

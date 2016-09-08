@@ -12,7 +12,7 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
-    [Serializable]
+    
     public abstract class Usuario
     {
         private string id;
