@@ -29,15 +29,7 @@ namespace MimAcher
             // Create your application here
 
             //Checkbox Variables
-            CheckBox rock = FindViewById<CheckBox>(Resource.Id.rock);
-            CheckBox games = FindViewById<CheckBox>(Resource.Id.games);
-            CheckBox futebol = FindViewById<CheckBox>(Resource.Id.futebol);
-            CheckBox pop = FindViewById<CheckBox>(Resource.Id.pop);
-            CheckBox programacao = FindViewById<CheckBox>(Resource.Id.programacao);
-            CheckBox empreender = FindViewById<CheckBox>(Resource.Id.empreender);
-            CheckBox viajar = FindViewById<CheckBox>(Resource.Id.viajar);
-            CheckBox analise_sistemas = FindViewById<CheckBox>(Resource.Id.analise_sistemas);
-
+            
             //Buttons
             Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button ok = FindViewById<Button>(Resource.Id.ok);
