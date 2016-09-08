@@ -22,6 +22,8 @@ namespace MimAcher
             String user = "Fulano";
             Bundle b = Intent.GetBundleExtra("aluno");
             Aluno aluno = AlunoFactory.criarAluno(b);
+            //String aluno = Intent.GetStringExtra("aluno");
+            
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -56,13 +58,13 @@ namespace MimAcher
             Gostos.Add(viajar.Text, viajar.Checked);
             Gostos.Add(analise_sistemas.Text, analise_sistemas.Checked);
 
-            foreach(String strKey in Gostos.Keys)
+            /*foreach(String strKey in Gostos.Keys)
             {
                 if (Gostos[strKey]) {
                     aluno.adicionarGosto(strKey);
                 }
             }
-            aluno.commit();
+            aluno.commit();*/
 
 
             //Button name to perfil

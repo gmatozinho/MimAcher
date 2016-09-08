@@ -22,6 +22,7 @@ namespace MimAcher
 
             Bundle aluno = Intent.GetBundleExtra("aluno");
 
+            //String aluno = Intent.GetStringExtra("aluno");
             // Create your application here
             // Set our view from the "inscrever" layout resource
             SetContentView(Resource.Layout.EscolherFoto);

@@ -23,12 +23,12 @@ namespace MimAcher
             // Create your application here
             SetContentView(Resource.Layout.Inscrever);
             //Initializing button and variables from layout
-            String usuario = "Fulano";
-            String senha = null;
-            String nome = null;
-            String email = null;
-            String nascimento = null;
-            String telefone = null;
+            string usuario = "Fulano";
+            string senha = null;
+            string nome = null;
+            string email = null;
+            string nascimento = null;
+            string telefone = null;
 
             //Resgatando o que foi digitado nos EditText
             Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
@@ -74,17 +74,19 @@ namespace MimAcher
             informacoes["nascimento"] = nascimento;
 
             //Criando o objeto aluno
-            Aluno aluno = new Aluno(informacoes);
+            //
 
             //Inserir informações no banco, porém antes checar persistência
             //trabalhar com envio do objeto
-            aluno.commit();
-            
+            //aluno.commit();
+
 
             //Choose Picture button click action
             botao_avançar.Click += delegate {
-                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));              
-                escolherfotoactivity.PutExtra("aluno",aluno.toBundle());
+                Aluno aluno = new Aluno(informacoes);
+                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
+                escolherfotoactivity.PutExtra("aluno", aluno.toBundle());
+                //escolherfotoactivity.PutExtra("aluno", nome);
                 StartActivity(escolherfotoactivity);
             };
 
