@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace MimAcher.SourceCode
+namespace MimAcher.Entidades
 {
     public static class AlunoFactory
     {

@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace MimAcher.SourceCode
+namespace MimAcher.Entidades
 {
     //TODO: implementar esta classe utilizando Entity
     internal static class Cursor
