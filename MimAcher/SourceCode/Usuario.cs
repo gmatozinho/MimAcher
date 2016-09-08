@@ -12,6 +12,7 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
+    [Serializable]
     public abstract class Usuario
     {
         private string id;
@@ -33,7 +34,7 @@ namespace MimAcher.SourceCode
             }
         }
 
-        private string Senha {
+        protected string Senha {
             get {
                 return senha;
             }

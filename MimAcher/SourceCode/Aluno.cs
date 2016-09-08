@@ -12,6 +12,7 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
+    [Serializable]
     public class Aluno : Usuario
     {
         private List<string> gostos;
@@ -22,7 +23,9 @@ namespace MimAcher.SourceCode
         private string email;
         private string telefone;
 
-        public static int tipoUsuario = 1;
+        public static int TipoUsuario {
+            get { return 1; }
+        }
 
         //Properties
         public List<string> Gostos {
@@ -109,6 +112,7 @@ namespace MimAcher.SourceCode
             this.Telefone = atributos["telefone"];
         }
 
+
         //Adicionar strings individualmente
         public void adicionarGosto(string a)
         {
@@ -152,6 +156,22 @@ namespace MimAcher.SourceCode
             Dictionary<string, List<Aluno>> matchs = Cursor.match(this);
 
             return matchs;
+        }
+
+        //Função para utilizar Bundle e enviar objeto entre activities
+        public Bundle toBundle()
+        {
+            Bundle b = new Bundle();
+
+            b.PutString("nome", this.Nome);
+            b.PutString("id", this.Id);
+            b.PutString("senha", this.Senha);
+            b.PutString("email", this.Email);
+            b.PutString("telefone", this.Telefone);
+            string nascimento = (this.Nascimento).ToString();
+            b.PutString("nascimento", nascimento);
+
+            return b;
         }
     }
 }
