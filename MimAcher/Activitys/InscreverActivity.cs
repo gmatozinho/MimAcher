@@ -66,12 +66,7 @@ namespace MimAcher
 
             //Criando dicionário com as informações inseridas do usuário
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
-            informacoes["id"] = usuario;
-            informacoes["senha"] = senha;
-            informacoes["email"] = email;
-            informacoes["nome"] = nome;
-            informacoes["telefone"] = telefone;
-            informacoes["nascimento"] = nascimento;
+            
 
             //Criando o objeto aluno
             //
@@ -83,6 +78,12 @@ namespace MimAcher
 
             //Choose Picture button click action
             botao_avançar.Click += delegate {
+                informacoes["id"] = usuario;
+                informacoes["senha"] = senha;
+                informacoes["email"] = email;
+                informacoes["nome"] = nome;
+                informacoes["telefone"] = telefone;
+                informacoes["nascimento"] = nascimento;
                 Aluno aluno = new Aluno(informacoes);
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
                 escolherfotoactivity.PutExtra("aluno", aluno.toBundle());
