@@ -26,24 +26,26 @@ namespace MimAcher
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
 
+            // Create your application here
+
+            //Checkbox Variables
+            CheckBox rock = FindViewById<CheckBox>(Resource.Id.rock);
+            CheckBox games = FindViewById<CheckBox>(Resource.Id.games);
+            CheckBox futebol = FindViewById<CheckBox>(Resource.Id.futebol);
+            CheckBox pop = FindViewById<CheckBox>(Resource.Id.pop);
+            CheckBox programacao = FindViewById<CheckBox>(Resource.Id.programacao);
+            CheckBox empreender = FindViewById<CheckBox>(Resource.Id.empreender);
+            CheckBox viajar = FindViewById<CheckBox>(Resource.Id.viajar);
+            CheckBox analise_sistemas = FindViewById<CheckBox>(Resource.Id.analise_sistemas);
+
             //Buttons
             Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button ok = FindViewById<Button>(Resource.Id.ok);
 
             //Change button text
             nome_user.Text = aluno.Nome;
-
-            //Gostos dicitionary creation and add
-            Dictionary<string, bool> Gostos = criarDicionarioGostos() ;
-
-            //checa quais gostos foram marcados e adiciona no objeto aluno
-            foreach(String strKey in Gostos.Keys)
-            {
-                if (Gostos[strKey]) {
-                    aluno.adicionarGosto(strKey);
-                }
-            }
-            aluno.commit();
+            
+            
 
 
             //Button name to perfil
@@ -56,6 +58,10 @@ namespace MimAcher
 
             //Button ok to nextpage
             ok.Click += delegate {
+                Dictionary<string, bool> Gostos = criarDicionarioGostos();
+                preencherGostosAluno(Gostos, aluno);
+                aluno.commit();
+
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
                 //mudar para trabalhar com objeto do banco
                 queroaprenderactivity.PutExtra("aluno", b);
@@ -64,7 +70,7 @@ namespace MimAcher
 
         }
 
-        public Dictionary<string, bool> criarDicionarioGostos()
+        private Dictionary<string, bool> criarDicionarioGostos()
         {
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
             CheckBox rock = FindViewById<CheckBox>(Resource.Id.rock);
@@ -86,6 +92,17 @@ namespace MimAcher
             Gostos.Add(analise_sistemas.Text, analise_sistemas.Checked);
 
             return Gostos;
+        }
+
+        private void preencherGostosAluno(Dictionary<string, bool> Gostos, Aluno aluno)
+        {
+            foreach (String strKey in Gostos.Keys)
+            {
+                if (Gostos[strKey])
+                {
+                    aluno.adicionarGosto(strKey);
+                }
+            }
         }
     }
 }
