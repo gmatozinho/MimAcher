@@ -94,7 +94,7 @@
         android:textColor="#A9A9A9"
         android:paddingStart="6dp" />
     <CheckBox
-        android:id="@+id/mobile"
+        android:id="@+id/desenvolvimento_mobile"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginTop="20dp"
@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/mobile"
+        android:layout_below="@+id/desenvolvimento_mobile"
         android:text="Angular JS"
         android:button="@drawable/selector_check"
         android:layout_marginStart="35dp"

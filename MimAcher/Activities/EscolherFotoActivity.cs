@@ -20,10 +20,8 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
-            //recebimento do bundle
-            Bundle aluno = Intent.GetBundleExtra("aluno");
+            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
             // Create your application here
-            // Set our view from the "inscrever" layout resource
             SetContentView(Resource.Layout.EscolherFoto);
 
             //Create button
@@ -42,8 +40,7 @@ namespace MimAcher
 
             avançar.Click += delegate {
                 var gostosactivity = new Intent(this, typeof(GostosActivity));
-                //mudar para trabalhar com objeto do banco
-                gostosactivity.PutExtra("aluno", aluno);
+                gostosactivity.PutExtra("aluno", aluno_bundle);
                 StartActivity(gostosactivity);
             };
         }

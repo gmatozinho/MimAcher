@@ -31,7 +31,7 @@ namespace MimAcher
 
             // Create your application here
             SetContentView(Resource.Layout.Inscrever);
-            //Resgatando o que foi digitado nos EditText e button
+
             Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
             EditText campo_usuario = FindViewById<EditText>(Resource.Id.usuario);
             EditText campo_senha = FindViewById<EditText>(Resource.Id.senha);
@@ -65,7 +65,6 @@ namespace MimAcher
                 telefone = t.Text.ToString();
             };
             
-            //Choose Picture button click action
             botao_avançar.Click += delegate {
                 Aluno aluno = this.criarAluno();
                 aluno.commit();
@@ -74,8 +73,7 @@ namespace MimAcher
                 escolherfotoactivity.PutExtra("aluno", aluno.toBundle());
                 StartActivity(escolherfotoactivity);
             };
-
-            //TODO Configurar recepção das informações nos campos
+            
         }
 
         private Aluno criarAluno()

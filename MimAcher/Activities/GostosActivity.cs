@@ -18,36 +18,28 @@ namespace MimAcher
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            //TODO ACERTAR OS OUTROS
             base.OnCreate(savedInstanceState);
 
-            Bundle b = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(b);          
+            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
+            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
 
             // Create your application here
-
-              
-            //Buttons
             Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button ok = FindViewById<Button>(Resource.Id.ok);
-
-            //Change button text
+            
             nome_user.Text = aluno.Nome;
             
-            
-
-
-            //Button name to perfil
             nome_user.Click += delegate {
                 var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                 //só falta atualizar
-                editaractivity.PutExtra("aluno", b);
+                editaractivity.PutExtra("aluno", aluno_bundle);
                 StartActivity(editaractivity);
             };
-
-            //Button ok to nextpage
+            
             ok.Click += delegate {
                 Dictionary<string, bool> Gostos = criarDicionarioGostos();
                 preencherGostosAluno(Gostos, aluno);
@@ -55,7 +47,7 @@ namespace MimAcher
 
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
                 //mudar para trabalhar com objeto do banco
-                queroaprenderactivity.PutExtra("aluno", b);
+                queroaprenderactivity.PutExtra("aluno", aluno_bundle);
                 StartActivity(queroaprenderactivity);
             };
 

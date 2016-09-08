@@ -16,8 +16,8 @@ namespace MimAcher.SourceCode
     public class Aluno : Usuario
     {
         private List<string> gostos;
-        private List<string> interesses;
-        private List<string> competencias;
+        private List<string> aprender;
+        private List<string> ensinar;
         private string nome;
         private string nascimento;
         private string email;
@@ -38,23 +38,23 @@ namespace MimAcher.SourceCode
             }
         }
 
-        public List<string> Interesses {
+        public List<string> Aprender {
             get {
-                return interesses;
+                return aprender;
             }
 
             private set {
-                interesses = value;
+                aprender = value;
             }
         }
 
-        public List<string> Competencias {
+        public List<string> Ensinar {
             get {
-                return competencias;
+                return ensinar;
             }
 
             private set {
-                competencias = value;
+                ensinar = value;
             }
         }
 
@@ -103,8 +103,8 @@ namespace MimAcher.SourceCode
         public Aluno(Dictionary<string, string> atributos) : base(atributos)
         {
             Gostos = new List<string>();
-            Interesses = new List<string>();
-            Competencias = new List<string>();
+            Aprender = new List<string>();
+            Ensinar = new List<string>();
             
             this.Nome = atributos["nome"];
             this.Nascimento = atributos["nascimento"];
@@ -119,14 +119,14 @@ namespace MimAcher.SourceCode
             Gostos.Add(a);
         }
 
-        public void adicionarInteresse(string a)
+        public void adicionarAprender(string a)
         {
-            Interesses.Add(a);
+            Aprender.Add(a);
         }
 
-        public void adicionarCompetencia(string a)
+        public void adicionarEnsinar(string a)
         {
-            Competencias.Add(a);
+            Ensinar.Add(a);
         }
 
         //Remover strings individualmente
@@ -135,14 +135,14 @@ namespace MimAcher.SourceCode
             Gostos.Remove(a);
         }
 
-        public void removerInteresse(string a)
+        public void removerAprender(string a)
         {
-            Interesses.Remove(a);
+            Aprender.Remove(a);
         }
 
-        public void removerCompetencia(string a)
+        public void removerEnsinar(string a)
         {
-            Competencias.Remove(a);
+            Ensinar.Remove(a);
         }
 
         //Funções para trabalhar no banco de dados
