@@ -10,7 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace MimAcher.SourceCode
+namespace MimAcher.Entidades
 {
     
     public abstract class Usuario

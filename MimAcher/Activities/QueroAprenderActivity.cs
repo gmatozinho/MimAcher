@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MimAcher.SourceCode;
+using MimAcher.Entidades;
 
 namespace MimAcher
 {
