@@ -1,6 +1,0 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MimAcher.Apresentacao.SiteMaster" %>
-
-<%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
-
-<!DOCTYPE html>
-
