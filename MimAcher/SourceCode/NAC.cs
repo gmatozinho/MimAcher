@@ -12,7 +12,6 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
-    [Serializable]
     public class NAC : Usuario
     {
         private string nomeRepresentante;
