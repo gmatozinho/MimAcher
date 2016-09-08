@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MimAcher.SourceCode;
 
 namespace MimAcher
 {
@@ -22,55 +23,68 @@ namespace MimAcher
             // Create your application here
             SetContentView(Resource.Layout.Inscrever);
             //Initializing button and variables from layout
-            String user = "Fulano";
-            String password = null;
-            String name = null;
+            String usuario = "Fulano";
+            String senha = null;
+            String nome = null;
             String email = null;
-            String age = null;
-            String phone = null;
+            String nascimento = null;
+            String telefone = null;
 
             //Resgatando o que foi digitado nos EditText
-            Button avançar = FindViewById<Button>(Resource.Id.avançar);
-            EditText usuario = FindViewById<EditText>(Resource.Id.usuario);
-            EditText senha = FindViewById<EditText>(Resource.Id.senha);
-            EditText nome = FindViewById<EditText>(Resource.Id.nome);
-            EditText e_mail = FindViewById<EditText>(Resource.Id.email);
-            EditText idade = FindViewById<EditText>(Resource.Id.idade);
-            EditText telefone = FindViewById<EditText>(Resource.Id.telefone);
+            Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
+            EditText campo_usuario = FindViewById<EditText>(Resource.Id.usuario);
+            EditText campo_senha = FindViewById<EditText>(Resource.Id.senha);
+            EditText campo_nome = FindViewById<EditText>(Resource.Id.nome);
+            EditText campo_e_mail = FindViewById<EditText>(Resource.Id.email);
+            EditText campo_dt_nascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
+            EditText campo_telefone = FindViewById<EditText>(Resource.Id.telefone);
 
             //Pegar as informações inseridas
-            usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
-                user = u.Text.ToString();
+            campo_usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
+                usuario = u.Text.ToString();
             };
 
-            senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                password = p.Text.ToString();
+            campo_senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
+                senha = p.Text.ToString();
             };
 
-            nome.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
-                name = n.Text.ToString();
+            campo_nome.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
+                nome = n.Text.ToString();
             };
 
-            e_mail.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
+            campo_e_mail.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
                 email = e.Text.ToString();
             };
 
-            idade.TextChanged += (object sender, Android.Text.TextChangedEventArgs a) => {
-                age = a.Text.ToString();
+            campo_dt_nascimento.TextChanged += (object sender, Android.Text.TextChangedEventArgs b) => {
+                nascimento = b.Text.ToString();
             };
 
-            telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                phone = p.Text.ToString();
+            campo_telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs c) => {
+                telefone = c.Text.ToString();
             };
+
+            //Criando dicionário com as informações inseridas do usuário
+            Dictionary<string, string> informacoes = new Dictionary<string, string>();
+            informacoes["id"] = usuario;
+            informacoes["senha"] = senha;
+            informacoes["email"] = email;
+            informacoes["nome"] = nome;
+            informacoes["telefone"] = telefone;
+            informacoes["nascimento"] = nascimento;
+
+            //Criando o objeto aluno
+            Aluno aluno = new Aluno(informacoes);
 
             //Inserir informações no banco, porém antes checar persistência
             //trabalhar com envio do objeto
             
+            
 
             //Choose Picture button click action
-            avançar.Click += delegate {
-                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
-                escolherfotoactivity.PutExtra("user", user);
+            botao_avançar.Click += delegate {
+                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));              
+                escolherfotoactivity.PutExtra("aluno",aluno);
                 StartActivity(escolherfotoactivity);
             };
 

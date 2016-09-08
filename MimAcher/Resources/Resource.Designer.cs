@@ -117,6 +117,9 @@ namespace MimAcher
 			// aapt resource value: 0x7f06003a
 			public const int dota2 = 2131099706;
 			
+			// aapt resource value: 0x7f06002a
+			public const int dt_nascimento = 2131099690;
+			
 			// aapt resource value: 0x7f060028
 			public const int email = 2131099688;
 			
@@ -149,9 +152,6 @@ namespace MimAcher
 			
 			// aapt resource value: 0x7f060019
 			public const int games = 2131099673;
-			
-			// aapt resource value: 0x7f06002a
-			public const int idade = 2131099690;
 			
 			// aapt resource value: 0x7f06000e
 			public const int idade_info_user = 2131099662;

@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using MimAcher.SourceCode;
 
 namespace MimAcher
 {
@@ -19,7 +20,8 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
             String user = "Fulano";
-            user = Intent.GetStringExtra("user");
+            var aluno = Intent.GetParcelableExtra("aluno");
+            Aluno Aluno = aluno.;
 
             // Create your application here
             // Set our view from the "inscrever" layout resource

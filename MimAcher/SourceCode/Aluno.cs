@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Permissions;
+using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
 
@@ -12,7 +14,7 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
-    public class Aluno : Usuario
+    public class Aluno : Usuario,ISerializable
     {
         private List<string> gostos;
         private List<string> interesses;
@@ -95,6 +97,8 @@ namespace MimAcher.SourceCode
             }
         }
 
+       
+
 
         //Construtor
         public Aluno(Dictionary<string, string> atributos) : base(atributos)
@@ -152,6 +156,11 @@ namespace MimAcher.SourceCode
             Dictionary<string, List<Aluno>> matchs = Cursor.match(this);
 
             return matchs;
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            ((ISerializable)nascimento).GetObjectData(info, context);
         }
     }
 }
