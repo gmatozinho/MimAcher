@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Security.Permissions;
-using System.Runtime.Serialization;
 
 using Android.App;
 using Android.Content;
@@ -13,7 +11,8 @@ using Android.Views;
 using Android.Widget;
 
 namespace MimAcher.SourceCode
-{   
+{
+    [Serializable]
     public abstract class Usuario
     {
         private string id;
@@ -35,7 +34,7 @@ namespace MimAcher.SourceCode
             }
         }
 
-        private string Senha {
+        protected string Senha {
             get {
                 return senha;
             }

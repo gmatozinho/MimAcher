@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Security.Permissions;
-using System.Runtime.Serialization;
 using System.Linq;
 using System.Text;
 
@@ -14,7 +12,8 @@ using Android.Widget;
 
 namespace MimAcher.SourceCode
 {
-    public class Aluno : Usuario,ISerializable
+    [Serializable]
+    public class Aluno : Usuario
     {
         private List<string> gostos;
         private List<string> interesses;
@@ -24,7 +23,9 @@ namespace MimAcher.SourceCode
         private string email;
         private string telefone;
 
-        public static int tipoUsuario = 1;
+        public static int TipoUsuario {
+            get { return 1; }
+        }
 
         //Properties
         public List<string> Gostos {
@@ -97,8 +98,6 @@ namespace MimAcher.SourceCode
             }
         }
 
-       
-
 
         //Construtor
         public Aluno(Dictionary<string, string> atributos) : base(atributos)
@@ -112,6 +111,7 @@ namespace MimAcher.SourceCode
             this.Email = atributos["email"];
             this.Telefone = atributos["telefone"];
         }
+
 
         //Adicionar strings individualmente
         public void adicionarGosto(string a)
@@ -158,9 +158,20 @@ namespace MimAcher.SourceCode
             return matchs;
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        //Função para utilizar Bundle e enviar objeto entre activities
+        public Bundle toBundle()
         {
-            ((ISerializable)nascimento).GetObjectData(info, context);
+            Bundle b = new Bundle();
+
+            b.PutString("nome", this.Nome);
+            b.PutString("id", this.Id);
+            b.PutString("senha", this.Senha);
+            b.PutString("email", this.Email);
+            b.PutString("telefone", this.Telefone);
+            string nascimento = (this.Nascimento).ToString();
+            b.PutString("nascimento", nascimento);
+
+            return b;
         }
     }
 }

@@ -64,6 +64,7 @@
     <Compile Include="Activitys\ResultadoActivity.cs" />
     <Compile Include="Activitys\ResultadoInformacoesActivity.cs" />
     <Compile Include="SourceCode\Aluno.cs" />
+    <Compile Include="SourceCode\AlunoFactory.cs" />
     <Compile Include="SourceCode\Cursor.cs" />
     <Compile Include="SourceCode\NAC.cs" />
     <Compile Include="SourceCode\Usuario.cs" />
