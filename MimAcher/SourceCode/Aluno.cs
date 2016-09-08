@@ -19,7 +19,7 @@ namespace MimAcher.SourceCode
         private List<string> interesses;
         private List<string> competencias;
         private string nome;
-        private DateTime nascimento;
+        private string nascimento;
         private string email;
         private string telefone;
 
@@ -68,7 +68,7 @@ namespace MimAcher.SourceCode
             }
         }
 
-        public DateTime Nascimento {
+        public string Nascimento {
             get {
                 return nascimento;
             }
@@ -107,7 +107,7 @@ namespace MimAcher.SourceCode
             Competencias = new List<string>();
             
             this.Nome = atributos["nome"];
-            this.Nascimento = DateTime.Parse(atributos["nascimento"]);
+            this.Nascimento = atributos["nascimento"];
             this.Email = atributos["email"];
             this.Telefone = atributos["telefone"];
         }
@@ -168,8 +168,7 @@ namespace MimAcher.SourceCode
             b.PutString("senha", this.Senha);
             b.PutString("email", this.Email);
             b.PutString("telefone", this.Telefone);
-            string nascimento = (this.Nascimento).ToString();
-            b.PutString("nascimento", nascimento);
+            b.PutString("nascimento",this.Nascimento);
 
             return b;
         }

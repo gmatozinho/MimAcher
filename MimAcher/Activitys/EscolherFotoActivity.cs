@@ -19,9 +19,8 @@ namespace MimAcher
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            String user = "Fulano";
-            var aluno = Intent.GetParcelableExtra("aluno");
-            Aluno Aluno = aluno.;
+
+            Bundle aluno = Intent.GetBundleExtra("aluno");
 
             // Create your application here
             // Set our view from the "inscrever" layout resource
@@ -43,7 +42,7 @@ namespace MimAcher
             avançar.Click += delegate {
                 var gostosactivity = new Intent(this, typeof(GostosActivity));
                 //mudar para trabalhar com objeto do banco
-                gostosactivity.PutExtra("user", user);
+                gostosactivity.PutExtra("aluno", aluno);
                 StartActivity(gostosactivity);
             };
         }

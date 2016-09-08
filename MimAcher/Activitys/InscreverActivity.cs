@@ -44,8 +44,8 @@ namespace MimAcher
                 usuario = u.Text.ToString();
             };
 
-            campo_senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                senha = p.Text.ToString();
+            campo_senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs s) => {
+                senha = s.Text.ToString();
             };
 
             campo_nome.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
@@ -56,12 +56,12 @@ namespace MimAcher
                 email = e.Text.ToString();
             };
 
-            campo_dt_nascimento.TextChanged += (object sender, Android.Text.TextChangedEventArgs b) => {
-                nascimento = b.Text.ToString();
+            campo_dt_nascimento.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
+                nascimento = n.Text.ToString();
             };
 
-            campo_telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs c) => {
-                telefone = c.Text.ToString();
+            campo_telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) => {
+                telefone = t.Text.ToString();
             };
 
             //Criando dicionário com as informações inseridas do usuário
@@ -78,13 +78,13 @@ namespace MimAcher
 
             //Inserir informações no banco, porém antes checar persistência
             //trabalhar com envio do objeto
-            
+            aluno.commit();
             
 
             //Choose Picture button click action
             botao_avançar.Click += delegate {
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));              
-                escolherfotoactivity.PutExtra("aluno",aluno);
+                escolherfotoactivity.PutExtra("aluno",aluno.toBundle());
                 StartActivity(escolherfotoactivity);
             };
 

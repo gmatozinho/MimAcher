@@ -20,7 +20,8 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
             String user = "Fulano";
-            user = Intent.GetStringExtra("user");
+            Bundle b = Intent.GetBundleExtra("aluno");
+            Aluno aluno = AlunoFactory.criarAluno(b);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -42,7 +43,7 @@ namespace MimAcher
             Button ok = FindViewById<Button>(Resource.Id.ok);
 
             //Change button text
-            nome_user.Text = user;
+            nome_user.Text = aluno.Nome;
 
             //Gostos dicitionary creation and add
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
@@ -55,7 +56,13 @@ namespace MimAcher
             Gostos.Add(viajar.Text, viajar.Checked);
             Gostos.Add(analise_sistemas.Text, analise_sistemas.Checked);
 
-            
+            foreach(String strKey in Gostos.Keys)
+            {
+                if (Gostos[strKey]) {
+                    aluno.adicionarGosto(strKey);
+                }
+            }
+            aluno.commit();
 
 
             //Button name to perfil
