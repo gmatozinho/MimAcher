@@ -16,20 +16,21 @@ namespace MimAcher
     [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
     public class InscreverActivity : Activity
     {
+        //Initializing variables from layout
+        string usuario = "Fulano";
+        string senha = null;
+        string nome = null;
+        string email = null;
+        string nascimento = null;
+        string telefone = null;
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             // Create your application here
             SetContentView(Resource.Layout.Inscrever);
-            //Initializing button and variables from layout
-            string usuario = "Fulano";
-            string senha = null;
-            string nome = null;
-            string email = null;
-            string nascimento = null;
-            string telefone = null;
-
             //Resgatando o que foi digitado nos EditText e button
             Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
             EditText campo_usuario = FindViewById<EditText>(Resource.Id.usuario);
@@ -63,22 +64,10 @@ namespace MimAcher
             campo_telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) => {
                 telefone = t.Text.ToString();
             };
-
-            //Inserir informações no banco, porém antes checar persistência
             
             //Choose Picture button click action
             botao_avançar.Click += delegate {
-                //Criando dicionário com as informações inseridas do usuário
-                //Criar metodo
-                Dictionary<string, string> informacoes = new Dictionary<string, string>();
-                informacoes["id"] = usuario;
-                informacoes["senha"] = senha;
-                informacoes["email"] = email;
-                informacoes["nome"] = nome;
-                informacoes["telefone"] = telefone;
-                informacoes["nascimento"] = nascimento;
-                //Criando o objeto aluno
-                Aluno aluno = new Aluno(informacoes);
+                Aluno aluno = this.criarAluno();
                 aluno.commit();
 
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
@@ -87,6 +76,21 @@ namespace MimAcher
             };
 
             //TODO Configurar recepção das informações nos campos
+        }
+
+        private Aluno criarAluno()
+        {
+            Dictionary<string, string> informacoes = new Dictionary<string, string>();
+            informacoes["id"] = usuario;
+            informacoes["senha"] = senha;
+            informacoes["email"] = email;
+            informacoes["nome"] = nome;
+            informacoes["telefone"] = telefone;
+            informacoes["nascimento"] = nascimento;
+            
+            Aluno aluno = new Aluno(informacoes);
+
+            return aluno;
         }
     }
 }
