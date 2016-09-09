@@ -10,6 +10,10 @@ O projeto Mim Acher procura oferecer um cadastro interativo de alunos e seus hob
 #Componentes
 
 Cayo Donatti - cayopdonatti@gmail.com
-Gustavo Matozinho - gustavomatozinho@gmail.com 
-Paulo  
+
+Gustavo Matozinho - gustavomatozinho@gmail.com
+
+Paulo 
+
 Neimar  
+
