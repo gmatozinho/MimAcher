@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@android:color/white">
+    <ImageView
+        android:id="@+id/view_image14"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="false"
+        android:layout_marginBottom="2dp"
+        android:src="@drawable/round_button" />
+    <Button
+        android:id="@+id/nome_user14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/view_image14"
+        android:text="Fulano"
+        android:textSize="20dp"
+        android:background="@android:color/white"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp" />
+    <View
+        android:layout_width="wrap_content"
+        android:background="@android:color/black"
+        android:layout_height="1dp"
+        android:id="@+id/name_user_line14"
+        android:layout_below="@+id/view_image14"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="40dp" />
+    <Button
+        android:id="@+id/telefone_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Telefone"
+        android:layout_below="@+id/name_user_line14"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp" />
+    <TextView
+        android:text="27 6666-6947"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tel_number_user"
+        android:textColor="#A9A9A9"
+        android:textSize="20dp"
+        android:layout_below="@id/name_user_line14"
+        android:layout_toRightOf="@id/telefone_user"
+        android:paddingStart="20sp" />
+    <Button
+        android:id="@+id/email_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="E-mail"
+        android:layout_below="@+id/telefone_user"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp" />
+    <TextView
+        android:text="fulanoeinsten@gmail.com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email_info_user"
+        android:textColor="#A9A9A9"
+        android:textSize="20dp"
+        android:layout_below="@id/telefone_user"
+        android:layout_toRightOf="@id/email_user"
+        android:layout_alignStart="@id/tel_number_user"
+        android:paddingStart="20sp" />
+    <Button
+        android:id="@+id/idade_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Idade"
+        android:layout_below="@+id/email_user"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/white"
+        android:textSize="20dp"
+        android:layout_marginBottom="15dp" />
+    <TextView
+        android:text="21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/idade_info_user"
+        android:textColor="#A9A9A9"
+        android:textSize="20dp"
+        android:layout_below="@id/email_user"
+        android:layout_toRightOf="@id/idade_user"
+        android:layout_alignStart="@id/tel_number_user"
+        android:paddingStart="20sp" />
+    <Button
+        android:id="@+id/alterar_senha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Alterar Senha"
+        android:layout_below="@+id/idade_user"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/white"
+        android:textSize="20dp" />
+    <Button
+        android:text="Salvar"
+        android:textColor="@android:color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:id="@+id/salvar"
+        android:layout_below="@+id/alterar_senha"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:textSize="22dp"
+        android:clickable="true"
+        android:textStyle="normal"
+        android:background="#DCDCDC"
+        android:layout_marginTop="280dp" />
+</RelativeLayout>
