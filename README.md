@@ -6,3 +6,10 @@ O projeto Mim Acher procura oferecer um cadastro interativo de alunos e seus hob
 
 ## PITCH
 [![PITCH](https://img.youtube.com/vi/jpqICXZHj28/0.jpg)](https://www.youtube.com/watch?v=jpqICXZHj28)
+
+#Componentes
+
+Cayo Donatti
+Gustavo Matozinho
+Paulo 
+Neimar
