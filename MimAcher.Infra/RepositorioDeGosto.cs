@@ -16,34 +16,39 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<GOSTO> ObterTodosOsRegistrosDoQueSePodeEnsinado()
+        public MA_GOSTO ObterGostoPorId(int id)
         {
-            return this.Contexto.GOSTO.ToList();
+            return this.Contexto.MA_GOSTO.Find(id);
         }
 
-        public List<GOSTO> ObterTodosOsRegistrosDeGostoPorNome(String nome)
+        public List<MA_GOSTO> ObterTodosOsRegistrosDoQueSePodeEnsinado()
         {
-            return this.Contexto.GOSTO.Where(l => l.nome.Equals(nome)).ToList();
+            return this.Contexto.MA_GOSTO.ToList();
         }
 
-        public void InserirNovoGosto(GOSTO gosto)
+        public List<MA_GOSTO> ObterTodosOsRegistrosDeGostoPorNome(String nome)
         {
-            this.Contexto.GOSTO.Add(gosto);
+            return this.Contexto.MA_GOSTO.Where(l => l.nome.Equals(nome)).ToList();
+        }
+
+        public void InserirNovoGosto(MA_GOSTO gosto)
+        {
+            this.Contexto.MA_GOSTO.Add(gosto);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.GOSTO.Count();
+            return this.Contexto.MA_GOSTO.Count();
         }
 
-        public void RemoverGosto(GOSTO gosto)
+        public void RemoverGosto(MA_GOSTO gosto)
         {
-            this.Contexto.GOSTO.Remove(gosto);
+            this.Contexto.MA_GOSTO.Remove(gosto);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarGosto(GOSTO gosto)
+        public void AtualizarGosto(MA_GOSTO gosto)
         {
             this.Contexto.Entry(gosto).State = EntityState.Modified;
             this.Contexto.SaveChanges();

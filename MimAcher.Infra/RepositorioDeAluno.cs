@@ -16,40 +16,44 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<ALUNO> ObterTodosOsAlunos()
+        public MA_ALUNO ObterAlunoPorId(int id)
         {
-            return this.Contexto.ALUNO.ToList();
+            return this.Contexto.MA_ALUNO.Find(id);
         }
 
-        public List<ALUNO> ObterTodosOsAlunosPorNome(String nome)
+        public List<MA_ALUNO> ObterTodosOsAlunos()
         {
-            return this.Contexto.ALUNO.Where(l => l.nome.Equals(nome)).ToList();            
+            return this.Contexto.MA_ALUNO.ToList();
         }
 
-        public ALUNO ObterAlunoPorLogin(String login)
+        public List<MA_ALUNO> ObterTodosOsAlunosPorNome(String nome)
         {
-            return this.Contexto.ALUNO.Where(l => l.login.Equals(login)).SingleOrDefault();
+            return this.Contexto.MA_ALUNO.Where(l => l.nome.Equals(nome)).ToList();            
         }
 
+        public MA_ALUNO ObterAlunoPorLogin(String login)
+        {
+            return this.Contexto.MA_ALUNO.Where(l => l.MA_USUARIO.login.Equals(login)).SingleOrDefault();
+        }
         
-        public void InserirAluno(ALUNO Aluno)
+        public void InserirAluno(MA_ALUNO Aluno)
         {            
-            this.Contexto.ALUNO.Add(Aluno);
+            this.Contexto.MA_ALUNO.Add(Aluno);
             this.Contexto.SaveChanges();         
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.ALUNO.Count();
+            return this.Contexto.MA_ALUNO.Count();
         }
                 
-        public void RemoverAluno(ALUNO Aluno)
+        public void RemoverAluno(MA_ALUNO Aluno)
         {
-            this.Contexto.ALUNO.Remove(Aluno);
+            this.Contexto.MA_ALUNO.Remove(Aluno);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarAluno(ALUNO Aluno)
+        public void AtualizarAluno(MA_ALUNO Aluno)
         {            
             this.Contexto.Entry(Aluno).State = EntityState.Modified;
             this.Contexto.SaveChanges();            

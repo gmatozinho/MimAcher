@@ -51,28 +51,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ALUNO.cs">
+    <Compile Include="MA_ALUNO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="ALUNO_APRENDER.cs">
+    <Compile Include="MA_ALUNO_APRENDER.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="ALUNO_ENSINAR.cs">
+    <Compile Include="MA_ALUNO_ENSINAR.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="ALUNO_GOSTO.cs">
+    <Compile Include="MA_ALUNO_GOSTO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="APRENDER.cs">
+    <Compile Include="MA_APRENDER.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="ENSINAR.cs">
+    <Compile Include="MA_ENSINAR.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="GOSTO.cs">
+    <Compile Include="MA_GOSTO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="IMAGEM_USUARIO.cs">
+    <Compile Include="MA_IMAGEM_USUARIO.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_NAC_CAMPUS.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_USUARIO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MimAcher.Context.cs">
@@ -90,9 +96,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MimAcher.edmx</DependentUpon>
     </Compile>
-    <Compile Include="NAC_CAMPUS.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioDeAluno.cs" />
     <Compile Include="RepositorioDeAprender.cs" />
@@ -104,9 +107,6 @@
     <Compile Include="RepositorioDeImagemDeUsuario.cs" />
     <Compile Include="RepositorioDeNACCampus.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
-    <Compile Include="USUARIO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

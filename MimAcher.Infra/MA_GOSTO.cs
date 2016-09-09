@@ -12,18 +12,18 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class GOSTO
+    public partial class MA_GOSTO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public GOSTO()
+        public MA_GOSTO()
         {
-            this.ALUNO_GOSTO = new HashSet<ALUNO_GOSTO>();
+            this.MA_ALUNO_GOSTO = new HashSet<MA_ALUNO_GOSTO>();
         }
     
         public int cod_g { get; set; }
         public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALUNO_GOSTO> ALUNO_GOSTO { get; set; }
+        public virtual ICollection<MA_ALUNO_GOSTO> MA_ALUNO_GOSTO { get; set; }
     }
 }

@@ -7,46 +7,51 @@ using System.Data.Entity;
 
 namespace MimAcher.Infra
 {
-    public class RepositorioDeUsuario
+    public class RepositorioDeMA_USUARIO
     {
         public MIMACHEREntities Contexto { get; set; }
 
-        public RepositorioDeUsuario()
+        public RepositorioDeMA_USUARIO()
         {
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<USUARIO> ObterTodosOsUsuarios()
+        public MA_USUARIO ObterUsuarioPorId(int id)
         {
-            return this.Contexto.USUARIO.ToList();
+            return this.Contexto.MA_USUARIO.Find(id);
+        }
+
+        public List<MA_USUARIO> ObterTodosOsMA_USUARIOs()
+        {
+            return this.Contexto.MA_USUARIO.ToList();
         }
         
-        public USUARIO ObterUsuarioPorLogin(String login)
+        public MA_USUARIO ObterMA_USUARIOPorLogin(String login)
         {
-            return this.Contexto.USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
+            return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
         }
 
 
-        public void InserirUsuario(USUARIO Usuario)
+        public void InserirMA_USUARIO(MA_USUARIO MA_USUARIO)
         {
-            this.Contexto.USUARIO.Add(Usuario);
+            this.Contexto.MA_USUARIO.Add(MA_USUARIO);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.USUARIO.Count();
+            return this.Contexto.MA_USUARIO.Count();
         }
 
-        public void RemoverUsuario(USUARIO Usuario)
+        public void RemoverMA_USUARIO(MA_USUARIO MA_USUARIO)
         {
-            this.Contexto.USUARIO.Remove(Usuario);
+            this.Contexto.MA_USUARIO.Remove(MA_USUARIO);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarUsuario(USUARIO Usuario)
+        public void AtualizarMA_USUARIO(MA_USUARIO MA_USUARIO)
         {
-            this.Contexto.Entry(Usuario).State = EntityState.Modified;
+            this.Contexto.Entry(MA_USUARIO).State = EntityState.Modified;
             this.Contexto.SaveChanges();
         }
     }

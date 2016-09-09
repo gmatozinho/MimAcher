@@ -12,12 +12,13 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class NAC_CAMPUS
+    public partial class MA_NAC_CAMPUS
     {
-        public string login { get; set; }
+        public int cod_nc { get; set; }
+        public int cod_us { get; set; }
         public string nome_representante { get; set; }
         public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
+        public virtual MA_USUARIO MA_USUARIO { get; set; }
     }
 }

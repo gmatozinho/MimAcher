@@ -16,35 +16,39 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<IMAGEM_USUARIO> ObterTodosOsImagens()
+        public MA_IMAGEM_USUARIO ObterImagemDeUsuarioPorId(int id)
         {
-            return this.Contexto.IMAGEM_USUARIO.ToList();
+            return this.Contexto.MA_IMAGEM_USUARIO.Find(id);
+        }
+
+        public List<MA_IMAGEM_USUARIO> ObterTodosOsImagens()
+        {
+            return this.Contexto.MA_IMAGEM_USUARIO.ToList();
         }
         
-        public IMAGEM_USUARIO ObterImagemPorLogin(String login)
+        public MA_IMAGEM_USUARIO ObterImagemPorIdDeUsuario(int id_usuario)
         {
-            return this.Contexto.IMAGEM_USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
+            return this.Contexto.MA_IMAGEM_USUARIO.Where(l => l.cod_us == id_usuario).SingleOrDefault();
         }
-
-
-        public void InserirImagem(IMAGEM_USUARIO Imagem)
+        
+        public void InserirImagem(MA_IMAGEM_USUARIO Imagem)
         {
-            this.Contexto.IMAGEM_USUARIO.Add(Imagem);
+            this.Contexto.MA_IMAGEM_USUARIO.Add(Imagem);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.IMAGEM_USUARIO.Count();
+            return this.Contexto.MA_IMAGEM_USUARIO.Count();
         }
 
-        public void RemoverImagem(IMAGEM_USUARIO Imagem)
+        public void RemoverImagem(MA_IMAGEM_USUARIO Imagem)
         {
-            this.Contexto.IMAGEM_USUARIO.Remove(Imagem);
+            this.Contexto.MA_IMAGEM_USUARIO.Remove(Imagem);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarImagem(IMAGEM_USUARIO Imagem)
+        public void AtualizarImagem(MA_IMAGEM_USUARIO Imagem)
         {
             this.Contexto.Entry(Imagem).State = EntityState.Modified;
             this.Contexto.SaveChanges();

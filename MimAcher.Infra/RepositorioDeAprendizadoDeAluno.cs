@@ -16,34 +16,34 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<ALUNO_APRENDER> ObterTodosOsRegistros()
+        public MA_ALUNO_APRENDER ObterAprendizadoDoAlunoPorId(int id)
         {
-            return this.Contexto.ALUNO_APRENDER.ToList();
+            return this.Contexto.MA_ALUNO_APRENDER.Find(id);
         }
 
-        public List<ALUNO_APRENDER> ObterTodosOsRegistrosDeAprendizadoDeAlunoPorLogin(String login)
+        public List<MA_ALUNO_APRENDER> ObterTodosOsRegistros()
         {
-            return this.Contexto.ALUNO_APRENDER.Where(l => l.login.Equals(login)).ToList();
+            return this.Contexto.MA_ALUNO_APRENDER.ToList();
         }
 
-        public void InserirNovoAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void InserirNovoAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
-            this.Contexto.ALUNO_APRENDER.Add(alunoaprender);
+            this.Contexto.MA_ALUNO_APRENDER.Add(alunoaprender);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.ALUNO_APRENDER.Count();
+            return this.Contexto.MA_ALUNO_APRENDER.Count();
         }
 
-        public void RemoverAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void RemoverAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
-            this.Contexto.ALUNO_APRENDER.Remove(alunoaprender);
+            this.Contexto.MA_ALUNO_APRENDER.Remove(alunoaprender);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void AtualizarAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
             this.Contexto.Entry(alunoaprender).State = EntityState.Modified;
             this.Contexto.SaveChanges();

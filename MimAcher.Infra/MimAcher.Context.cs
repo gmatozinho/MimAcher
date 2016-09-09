@@ -25,15 +25,15 @@ namespace MimAcher.Infra
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ALUNO> ALUNO { get; set; }
-        public virtual DbSet<ALUNO_APRENDER> ALUNO_APRENDER { get; set; }
-        public virtual DbSet<ALUNO_ENSINAR> ALUNO_ENSINAR { get; set; }
-        public virtual DbSet<ALUNO_GOSTO> ALUNO_GOSTO { get; set; }
-        public virtual DbSet<APRENDER> APRENDER { get; set; }
-        public virtual DbSet<ENSINAR> ENSINAR { get; set; }
-        public virtual DbSet<GOSTO> GOSTO { get; set; }
-        public virtual DbSet<IMAGEM_USUARIO> IMAGEM_USUARIO { get; set; }
-        public virtual DbSet<NAC_CAMPUS> NAC_CAMPUS { get; set; }
-        public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<MA_ALUNO> MA_ALUNO { get; set; }
+        public virtual DbSet<MA_ALUNO_APRENDER> MA_ALUNO_APRENDER { get; set; }
+        public virtual DbSet<MA_ALUNO_ENSINAR> MA_ALUNO_ENSINAR { get; set; }
+        public virtual DbSet<MA_ALUNO_GOSTO> MA_ALUNO_GOSTO { get; set; }
+        public virtual DbSet<MA_APRENDER> MA_APRENDER { get; set; }
+        public virtual DbSet<MA_ENSINAR> MA_ENSINAR { get; set; }
+        public virtual DbSet<MA_GOSTO> MA_GOSTO { get; set; }
+        public virtual DbSet<MA_IMAGEM_USUARIO> MA_IMAGEM_USUARIO { get; set; }
+        public virtual DbSet<MA_NAC_CAMPUS> MA_NAC_CAMPUS { get; set; }
+        public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
     }
 }

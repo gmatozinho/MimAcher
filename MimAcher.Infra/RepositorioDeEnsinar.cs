@@ -16,34 +16,39 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<ENSINAR> ObterTodosOsRegistrosDoQueSePodeEnsinado()
+        public MA_ENSINAR ObterTipoDeEnsinoPorId(int id)
         {
-            return this.Contexto.ENSINAR.ToList();
+            return this.Contexto.MA_ENSINAR.Find(id);
         }
 
-        public List<ENSINAR> ObterTodosOsRegistrosDoQuePodemSerEnsinadosPorNome(String nome)
+        public List<MA_ENSINAR> ObterTodosOsRegistrosDoQueSePodeEnsinado()
         {
-            return this.Contexto.ENSINAR.Where(l => l.nome.Equals(nome)).ToList();
+            return this.Contexto.MA_ENSINAR.ToList();
         }
 
-        public void InserirNovoEnsino(ENSINAR ensino)
+        public List<MA_ENSINAR> ObterTodosOsRegistrosDoQuePodemSerEnsinadosPorNome(String nome)
         {
-            this.Contexto.ENSINAR.Add(ensino);
+            return this.Contexto.MA_ENSINAR.Where(l => l.nome.Equals(nome)).ToList();
+        }
+
+        public void InserirNovoEnsino(MA_ENSINAR ensino)
+        {
+            this.Contexto.MA_ENSINAR.Add(ensino);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.ENSINAR.Count();
+            return this.Contexto.MA_ENSINAR.Count();
         }
 
-        public void RemoverEnsino(ENSINAR ensino)
+        public void RemoverEnsino(MA_ENSINAR ensino)
         {
-            this.Contexto.ENSINAR.Remove(ensino);
+            this.Contexto.MA_ENSINAR.Remove(ensino);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarEnsino(ENSINAR ensino)
+        public void AtualizarEnsino(MA_ENSINAR ensino)
         {
             this.Contexto.Entry(ensino).State = EntityState.Modified;
             this.Contexto.SaveChanges();

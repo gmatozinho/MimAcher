@@ -16,34 +16,34 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<ALUNO_ENSINAR> ObterTodosOsRegistros()
+        public MA_ALUNO_ENSINAR ObterRelacaoDoQueOAlunoEnsinaPorId(int id)
         {
-            return this.Contexto.ALUNO_ENSINAR  .ToList();
+            return this.Contexto.MA_ALUNO_ENSINAR.Find(id);
         }
 
-        public List<ALUNO_ENSINAR> ObterTodosOsRegistrosDeEnsinamentoDeAlunoPorLogin(String login)
+        public List<MA_ALUNO_ENSINAR> ObterTodosOsRegistros()
         {
-            return this.Contexto.ALUNO_ENSINAR.Where(l => l.login.Equals(login)).ToList();
+            return this.Contexto.MA_ALUNO_ENSINAR  .ToList();
         }
-
-        public void InserirNovoEnsinamentoDeAluno(ALUNO_ENSINAR alunoensinar)
+        
+        public void InserirNovoEnsinamentoDeAluno(MA_ALUNO_ENSINAR alunoensinar)
         {
-            this.Contexto.ALUNO_ENSINAR.Add(alunoensinar);
+            this.Contexto.MA_ALUNO_ENSINAR.Add(alunoensinar);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.ALUNO_ENSINAR.Count();
+            return this.Contexto.MA_ALUNO_ENSINAR.Count();
         }
 
-        public void RemoverEnsinamentoDeAluno(ALUNO_ENSINAR alunoensinar)
+        public void RemoverEnsinamentoDeAluno(MA_ALUNO_ENSINAR alunoensinar)
         {
-            this.Contexto.ALUNO_ENSINAR.Remove(alunoensinar);
+            this.Contexto.MA_ALUNO_ENSINAR.Remove(alunoensinar);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarEnsinamentoDeAluno(ALUNO_ENSINAR alunoensinar)
+        public void AtualizarEnsinamentoDeAluno(MA_ALUNO_ENSINAR alunoensinar)
         {
             this.Contexto.Entry(alunoensinar).State = EntityState.Modified;
             this.Contexto.SaveChanges();

@@ -12,29 +12,26 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class ALUNO
+    public partial class MA_USUARIO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ALUNO()
+        public MA_USUARIO()
         {
-            this.ALUNO_APRENDER = new HashSet<ALUNO_APRENDER>();
-            this.ALUNO_ENSINAR = new HashSet<ALUNO_ENSINAR>();
-            this.ALUNO_GOSTO = new HashSet<ALUNO_GOSTO>();
+            this.MA_ALUNO = new HashSet<MA_ALUNO>();
+            this.MA_IMAGEM_USUARIO = new HashSet<MA_IMAGEM_USUARIO>();
+            this.MA_NAC_CAMPUS = new HashSet<MA_NAC_CAMPUS>();
         }
     
+        public int cod_us { get; set; }
         public string login { get; set; }
-        public string nome { get; set; }
-        public System.DateTime dt_nascimento { get; set; }
-        public int telefone { get; set; }
-        public string e_mail { get; set; }
-        public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
+        public string senha { get; set; }
+        public int identificador { get; set; }
     
-        public virtual USUARIO USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALUNO_APRENDER> ALUNO_APRENDER { get; set; }
+        public virtual ICollection<MA_ALUNO> MA_ALUNO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALUNO_ENSINAR> ALUNO_ENSINAR { get; set; }
+        public virtual ICollection<MA_IMAGEM_USUARIO> MA_IMAGEM_USUARIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ALUNO_GOSTO> ALUNO_GOSTO { get; set; }
+        public virtual ICollection<MA_NAC_CAMPUS> MA_NAC_CAMPUS { get; set; }
     }
 }

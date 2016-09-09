@@ -16,34 +16,34 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
-        public List<ALUNO_GOSTO> ObterTodosOsRegistros()
+        public MA_ALUNO_GOSTO ObterGostoDoAlunoPorId(int id)
         {
-            return this.Contexto.ALUNO_GOSTO.ToList();
+            return this.Contexto.MA_ALUNO_GOSTO.Find(id);
         }
 
-        public List<ALUNO_GOSTO> ObterTodosOsRegistrosDeGostoDeAlunoPorLogin(String login)
+        public List<MA_ALUNO_GOSTO> ObterTodosOsRegistros()
         {
-            return this.Contexto.ALUNO_GOSTO.Where(l => l.login.Equals(login)).ToList();
+            return this.Contexto.MA_ALUNO_GOSTO.ToList();
         }
-
-        public void InserirNovoGostoDeAluno(ALUNO_GOSTO gostoaluno)
+                
+        public void InserirNovoGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
-            this.Contexto.ALUNO_GOSTO.Add(gostoaluno);
+            this.Contexto.MA_ALUNO_GOSTO.Add(gostoaluno);
             this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.ALUNO_GOSTO.Count();
+            return this.Contexto.MA_ALUNO_GOSTO.Count();
         }
 
-        public void RemoverGostoDeAluno(ALUNO_GOSTO gostoaluno)
+        public void RemoverGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
-            this.Contexto.ALUNO_GOSTO.Remove(gostoaluno);
+            this.Contexto.MA_ALUNO_GOSTO.Remove(gostoaluno);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarGostoDeAluno(ALUNO_GOSTO gostoaluno)
+        public void AtualizarGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
             this.Contexto.Entry(gostoaluno).State = EntityState.Modified;
             this.Contexto.SaveChanges();
