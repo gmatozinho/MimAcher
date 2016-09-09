@@ -44,8 +44,9 @@ namespace MimAcher.Aplicacao
 
         public void RemoverAluno(ALUNO Aluno)
         {
-            return this.RepositorioDeAluno.RemoverAluno(Aluno);
+            this.RepositorioDeAluno.RemoverAluno(Aluno);
         }
 
 
     }
+}
