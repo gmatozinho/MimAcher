@@ -4,7 +4,6 @@ using System.Security.Claims;
 using System.Web;
 using System.Web.UI;
 using Ext.Net;
-using Newtonsoft.Json;
 
 namespace MimAcher.Apresentacao
 {
