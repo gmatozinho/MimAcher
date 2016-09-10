@@ -110,7 +110,7 @@
         android:background="#ffffff"
         android:textColorHint="#A9A9A9"
         android:layout_marginTop="10dp"
-        android:inputType="text" />
+        android:inputType="date" />
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"

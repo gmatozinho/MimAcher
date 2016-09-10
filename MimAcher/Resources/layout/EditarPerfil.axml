@@ -5,7 +5,7 @@
     android:padding="10dp"
     android:background="@android:color/white">
     <ImageView
-        android:id="@+id/view_image14"
+        android:id="@+id/view_image"
         android:layout_width="50sp"
         android:layout_height="50sp"
         android:layout_alignParentTop="true"
@@ -13,10 +13,10 @@
         android:layout_marginBottom="2dp"
         android:src="@drawable/round_button" />
     <Button
-        android:id="@+id/nome_user14"
+        android:id="@+id/nome_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/view_image14"
+        android:layout_toRightOf="@+id/view_image"
         android:text="Fulano"
         android:textSize="20dp"
         android:background="@android:color/white"
@@ -26,8 +26,8 @@
         android:layout_width="wrap_content"
         android:background="@android:color/black"
         android:layout_height="1dp"
-        android:id="@+id/name_user_line14"
-        android:layout_below="@+id/view_image14"
+        android:id="@+id/name_user_line"
+        android:layout_below="@+id/view_image"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="40dp" />
     <Button
@@ -36,21 +36,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:text="Telefone"
-        android:layout_below="@+id/name_user_line14"
+        android:layout_below="@+id/name_user_line"
         android:layout_marginLeft="15dp"
         android:background="@android:color/white"
         android:textSize="20dp"
         android:layout_marginBottom="15dp" />
-    <TextView
-        android:text="27 6666-6947"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tel_number_user"
         android:textColor="#A9A9A9"
         android:textSize="20dp"
-        android:layout_below="@id/name_user_line14"
+        android:background="#ffffff"
+        android:layout_below="@id/name_user_line"
         android:layout_toRightOf="@id/telefone_user"
-        android:paddingStart="20sp" />
+        android:paddingStart="20sp"
+        android:hint="27 6666-6947" />
     <Button
         android:id="@+id/email_user"
         android:layout_width="wrap_content"
@@ -62,46 +63,49 @@
         android:background="@android:color/white"
         android:textSize="20dp"
         android:layout_marginBottom="15dp" />
-    <TextView
-        android:text="fulanoeinsten@gmail.com"
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/email_info_user"
         android:textColor="#A9A9A9"
         android:textSize="20dp"
+        android:background="#ffffff"
         android:layout_below="@id/telefone_user"
         android:layout_toRightOf="@id/email_user"
         android:layout_alignStart="@id/tel_number_user"
-        android:paddingStart="20sp" />
+        android:paddingStart="20sp"
+        android:hint="fulanoeinsten@gmail.com" />
     <Button
-        android:id="@+id/idade_user"
+        android:id="@+id/dt_nascimento_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:text="Idade"
+        android:text="Nascimento"
         android:layout_below="@+id/email_user"
         android:layout_marginLeft="15dp"
         android:background="@android:color/white"
         android:textSize="20dp"
         android:layout_marginBottom="15dp" />
-    <TextView
-        android:text="21"
-        android:layout_width="match_parent"
+    <EditText
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/idade_info_user"
+        android:id="@+id/dt_nascimento_info_user"
         android:textColor="#A9A9A9"
         android:textSize="20dp"
+        android:background="#ffffff"
         android:layout_below="@id/email_user"
-        android:layout_toRightOf="@id/idade_user"
+        android:layout_toRightOf="@id/dt_nascimento_user"
         android:layout_alignStart="@id/tel_number_user"
-        android:paddingStart="20sp" />
+        android:hint="21/10/1995"
+        android:layout_marginStart="50dp"
+        android:inputType="date" />
     <Button
         android:id="@+id/alterar_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:text="Alterar Senha"
-        android:layout_below="@+id/idade_user"
+        android:layout_below="@+id/dt_nascimento_user"
         android:layout_marginLeft="15dp"
         android:background="@android:color/white"
         android:textSize="20dp" />
