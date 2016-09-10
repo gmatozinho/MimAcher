@@ -16,18 +16,22 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeUsuario = new RepositorioDeUsuario();
         }
 
-        public List<USUARIO> ObterTodosOsUsuarios()
+        public MA_USUARIO ObterUsuarioPorId(int id)
         {
-            return this.ObterTodosOsUsuarios();
+            return this.RepositorioDeUsuario.ObterUsuarioPorId(id);
         }
 
-        public USUARIO ObterUsuarioPorLogin(String login)
+        public List<MA_USUARIO> ObterTodosOsUsuarios()
+        {
+            return this.RepositorioDeUsuario.ObterTodosOsUsuarios();
+        }
+
+        public MA_USUARIO ObterUsuarioPorLogin(String login)
         {
             return this.RepositorioDeUsuario.ObterUsuarioPorLogin(login);
         }
 
-
-        public void InserirUsuario(USUARIO usuario)
+        public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);
         }
@@ -37,12 +41,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeUsuario.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverUsuario(USUARIO usuario)
+        public void RemoverUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.RemoverUsuario(usuario);
         }
 
-        public void AtualizarUsuario(USUARIO usuario)
+        public void AtualizarUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.AtualizarUsuario(usuario);
         }

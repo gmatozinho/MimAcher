@@ -21,13 +21,12 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeUsuario = new GestorDeUsuario();
         }
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                //this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
-                //this.StoreUsuarioId.DataBind();
+                this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
+                this.StoreUsuarioId.DataBind();
             }
         }
 
@@ -62,10 +61,14 @@ namespace MimAcher.Apresentacao.App
         //Cadastro do usuário no banco
         protected void Save(object sender, DirectEventArgs e)
         {
-            Usuario usuario = new Usuario();
-            
+            MA_USUARIO usuario = new MA_USUARIO();
+
+            usuario.login = this.loginId.Text;
+            usuario.senha = this.senhaId.Text;
+            usuario.identificador = Int32.Parse(this.identificadorId.Text);
+                
             //Caso o form não possui código, será inserido um novo usuário
-            /*if (this.cd_usuarioId.Text == "")
+            if (this.cod_usId.Text == "")
             {
                 GestorDeUsuario.InserirUsuario(usuario);
                 this.UsuarioWindowId.Close();
@@ -74,11 +77,11 @@ namespace MimAcher.Apresentacao.App
             //Caso contrário, o form será atualizado
             else
             {
-                //usuario.cd_usuario = Int32.Parse(this.cd_usuarioId.Text);
+                usuario.cod_us = Int32.Parse(this.cod_usId.Text);
                 GestorDeUsuario.AtualizarUsuario(usuario);
                 this.UsuarioWindowId.Close();
                 this.LimpaForm();
-            }*/
+            }
         }
 
         //Abre a janela de edição
@@ -94,9 +97,9 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado usuário do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            Usuario usuario = new Usuario();
-            //usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cd_usuarioId.Text));
-            //GestorDeUsuario.RemoverUsuario(usuario);
+            MA_USUARIO usuario = new MA_USUARIO();
+            usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cod_usId.Text));
+            GestorDeUsuario.RemoverUsuario(usuario);
             this.LimpaForm();
         }
 

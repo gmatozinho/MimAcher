@@ -16,17 +16,17 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeAprendizadoDeAluno = new RepositorioDeAprendizadoDeAluno();
         }
 
-        public List<ALUNO_APRENDER> ObterTodosOsRegistros()
+        public MA_ALUNO_APRENDER ObterAprendizadoDoAlunoPorId(int id)
+        {
+            return this.RepositorioDeAprendizadoDeAluno.ObterAprendizadoDoAlunoPorId(id);
+        }
+
+        public List<MA_ALUNO_APRENDER> ObterTodosOsRegistros()
         {
             return this.RepositorioDeAprendizadoDeAluno.ObterTodosOsRegistros();
         }
 
-        public List<ALUNO_APRENDER> ObterTodosOsRegistrosDeAprendizadoDeAlunoPorLogin(String login)
-        {
-            return this.RepositorioDeAprendizadoDeAluno.ObterTodosOsRegistrosDeAprendizadoDeAlunoPorLogin(login);
-        }
-
-        public void InserirNovoAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void InserirNovoAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
             this.RepositorioDeAprendizadoDeAluno.InserirNovoAprendizadoDeAluno(alunoaprender);
         }
@@ -36,12 +36,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAprendizadoDeAluno.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void RemoverAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
             this.RepositorioDeAprendizadoDeAluno.RemoverAprendizadoDeAluno(alunoaprender);
         }
 
-        public void AtualizarAprendizadoDeAluno(ALUNO_APRENDER alunoaprender)
+        public void AtualizarAprendizadoDeAluno(MA_ALUNO_APRENDER alunoaprender)
         {
             this.RepositorioDeAprendizadoDeAluno.AtualizarAprendizadoDeAluno(alunoaprender);
         }

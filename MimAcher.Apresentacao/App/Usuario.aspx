@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
     <%-- Window --%>
-    <ext:Window ID="UsuarioWindowId" Width="540" Height="340" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="UsuarioWindowId" Width="540" Height="240" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>
@@ -21,15 +21,18 @@
                         <ext:Parameter Name="MsgTarget" Value="side" />                                
                     </Defaults>
                     <Items>
-                                                
+                        
+                        <%-- Código do Usuário --%>
+                        <ext:TextField ID="cod_usId" Name="cod_us"  runat="server" FieldLabel="Código" />                       
+                         
                         <%-- Login do Usuário --%>
                         <ext:TextField ID="loginId" Name="login" Width="470" AllowBlank="false" runat="server" FieldLabel="Login" />
 
                         <%-- Senha do Usuário --%>
-                        <ext:TextField ID="senhaId" Name="senha" Width="470" AllowBlank="false" runat="server" FieldLabel="Nome" />
+                        <ext:TextField InputType="Password" ID="senhaId" Name="senha" Width="470" AllowBlank="false" runat="server" FieldLabel="Senha" />
 
                         <%-- Identificador do Usuário --%>
-                        <ext:TextField ID="identificadorId" Name="identificador" Width="470"  runat="server" FieldLabel="Código" />
+                        <ext:TextField ID="identificadorId" Name="identificador" Width="470"  runat="server" FieldLabel="Identificador" />
                                                 
 
                     </Items>
@@ -62,8 +65,9 @@
             RemoteSort="true" 
             AutoLoad="true">
             <Model>
-                <ext:Model ID="ModelUsuarioId" runat="server" IDProperty="cd_usuario">
-                    <Fields>                        
+                <ext:Model ID="ModelUsuarioId" runat="server" IDProperty="cod_us">
+                    <Fields>                   
+                        <ext:ModelField Name="cod_us" Type="Int" />     
                         <ext:ModelField Name="login" Type="String" />
                         <ext:ModelField Name="senha" Type="String" />
                         <ext:ModelField Name="identificador" Type="Int" />                                                
@@ -87,8 +91,9 @@
         <%-- Colunas da Grid --%>
         <ColumnModel>
             <Columns>                
+                <ext:Column ID="cod_usColumnId" runat="server" Text="Código" DataIndex="cod_us" Visible="false" />
                 <ext:Column ID="loginColumnId" runat="server" Text="Login" Flex="1" DataIndex="login" />                  
-                <ext:Column ID="senhaColumnId" runat="server" Text="Senha" Flex="1" DataIndex="senha" />                                                  
+                <ext:Column ID="senhaColumnId" runat="server" Text="Senha" Flex="1" DataIndex="senha" Visible="false" />                                                  
                 <ext:Column ID="identificadorColumnId" runat="server" Text="Identificador" DataIndex="identificador" Visible="false" />                            
             </Columns>            
         </ColumnModel>    
@@ -115,7 +120,7 @@
                         <DirectEvents>
                             <Click OnEvent="Edit">
                                 <ExtraParams>
-                                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{UsuarioGridPanelId}.getRowsValues({selectedOnly : true})[0].tp_acesso" />                                
+                                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{UsuarioGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_us" />                                
                                 </ExtraParams>
                             </Click>
                         </DirectEvents>
@@ -153,7 +158,7 @@
             <ItemDblClick OnEvent="Edit">
                 <ExtraParams>
                     <%--<ext:Parameter Name="grow" Value="record.get('Id')" Mode="Raw" />--%>
-                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{UsuarioGridPanelId}.getRowsValues({selectedOnly : true})[0].tp_acesso" />                                
+                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{UsuarioGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_us" />                                
                 </ExtraParams>
             </ItemDblClick>
         </DirectEvents>

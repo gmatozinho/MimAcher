@@ -16,19 +16,24 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeAprender = new RepositorioDeAprender();
         }
 
-        public List<APRENDER> ObterTodosOsRegistrosDoQueSePodeAprender()
+        public MA_APRENDER ObterAprendizadoPorId(int id)
         {
-            return RepositorioDeAprender.ObterTodosOsRegistrosDoQueSePodeAprender();
+            return this.RepositorioDeAprender.ObterAprendizadoPorId(id);
         }
 
-        public List<APRENDER> ObterTodosOsRegistrosDoQueSePodeAprenderPorNome(String nome)
+        public List<MA_APRENDER> ObterTodosOsRegistrosDoQueSePodeAprender()
+        {
+            return this.RepositorioDeAprender.ObterTodosOsRegistrosDoQueSePodeAprender();
+        }
+
+        public List<MA_APRENDER> ObterTodosOsRegistrosDoQueSePodeAprenderPorNome(String nome)
         {
             return this.RepositorioDeAprender.ObterTodosOsRegistrosDoQueSePodeAprenderPorNome(nome);
         }
 
-        public void InserirNovoAprendizado(APRENDER aprender)
+        public void InserirNovoAprendizado(MA_APRENDER aprender)
         {
-            this.InserirNovoAprendizado(aprender);
+            this.RepositorioDeAprender.InserirNovoAprendizado(aprender);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -36,12 +41,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAprender.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverAprendizado(APRENDER aprender)
+        public void RemoverAprendizado(MA_APRENDER aprender)
         {
             this.RepositorioDeAprender.RemoverAprendizado(aprender);
         }
 
-        public void AtualizarAprendizado(APRENDER aprender)
+        public void AtualizarAprendizado(MA_APRENDER aprender)
         {
             this.RepositorioDeAprender.AtualizarAprendizado(aprender);
         }

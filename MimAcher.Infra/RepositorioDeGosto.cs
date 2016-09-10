@@ -21,7 +21,7 @@ namespace MimAcher.Infra
             return this.Contexto.MA_GOSTO.Find(id);
         }
 
-        public List<MA_GOSTO> ObterTodosOsRegistrosDoQueSePodeEnsinado()
+        public List<MA_GOSTO> ObterTodosOsGostos()
         {
             return this.Contexto.MA_GOSTO.ToList();
         }

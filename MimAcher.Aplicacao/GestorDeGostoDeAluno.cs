@@ -16,17 +16,17 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeGostoDeAluno = new RepositorioDeGostoDeAluno();
         }
 
-        public List<ALUNO_GOSTO> ObterTodosOsRegistros()
+        public MA_ALUNO_GOSTO ObterGostoDoAlunoPorId(int id)
+        {
+            return this.RepositorioDeGostoDeAluno.ObterGostoDoAlunoPorId(id);
+        }
+
+        public List<MA_ALUNO_GOSTO> ObterTodosOsRegistros()
         {
             return this.RepositorioDeGostoDeAluno.ObterTodosOsRegistros();
         }
 
-        public List<ALUNO_GOSTO> ObterTodosOsRegistrosDeGostoDeAlunoPorLogin(String login)
-        {
-            return this.RepositorioDeGostoDeAluno.ObterTodosOsRegistrosDeGostoDeAlunoPorLogin(login);
-        }
-
-        public void InserirNovoGostoDeAluno(ALUNO_GOSTO gostoaluno)
+        public void InserirNovoGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
             this.RepositorioDeGostoDeAluno.InserirNovoGostoDeAluno(gostoaluno);
         }
@@ -36,12 +36,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeGostoDeAluno.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverGostoDeAluno(ALUNO_GOSTO gostoaluno)
+        public void RemoverGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
             this.RepositorioDeGostoDeAluno.RemoverGostoDeAluno(gostoaluno);
         }
 
-        public void AtualizarGostoDeAluno(ALUNO_GOSTO gostoaluno)
+        public void AtualizarGostoDeAluno(MA_ALUNO_GOSTO gostoaluno)
         {
             this.RepositorioDeGostoDeAluno.AtualizarGostoDeAluno(gostoaluno);
         }

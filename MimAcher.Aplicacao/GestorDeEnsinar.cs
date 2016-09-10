@@ -16,17 +16,22 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeEnsinar = new RepositorioDeEnsinar();
         }
 
-        public List<ENSINAR> ObterTodosOsRegistrosDoQueSePodeEnsinado()
+        public MA_ENSINAR ObterTipoDeEnsinoPorId(int id)
+        {
+            return this.RepositorioDeEnsinar.ObterTipoDeEnsinoPorId(id);
+        }
+
+        public List<MA_ENSINAR> ObterTodosOsRegistrosDoQueSePodeEnsinado()
         {
             return this.RepositorioDeEnsinar.ObterTodosOsRegistrosDoQueSePodeEnsinado();
         }
 
-        public List<ENSINAR> ObterTodosOsRegistrosDoQuePodemSerEnsinadosPorNome(String nome)
+        public List<MA_ENSINAR> ObterTodosOsRegistrosDoQuePodemSerEnsinadosPorNome(String nome)
         {
             return this.RepositorioDeEnsinar.ObterTodosOsRegistrosDoQuePodemSerEnsinadosPorNome(nome);
         }
 
-        public void InserirNovoEnsino(ENSINAR ensino)
+        public void InserirNovoEnsino(MA_ENSINAR ensino)
         {
             this.RepositorioDeEnsinar.InserirNovoEnsino(ensino);
         }
@@ -36,12 +41,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeEnsinar.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverEnsino(ENSINAR ensino)
+        public void RemoverEnsino(MA_ENSINAR ensino)
         {
             this.RepositorioDeEnsinar.RemoverEnsino(ensino);
         }
 
-        public void AtualizarEnsino(ENSINAR ensino)
+        public void AtualizarEnsino(MA_ENSINAR ensino)
         {
             this.RepositorioDeEnsinar.AtualizarEnsino(ensino);
         }

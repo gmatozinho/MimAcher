@@ -16,25 +16,29 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeAluno = new RepositorioDeAluno();
         }
 
-        public List<ALUNO> ObterTodosOsAlunos()
+        public MA_ALUNO ObterAlunoPorId(int id)
+        {
+            return this.RepositorioDeAluno.ObterAlunoPorId(id);
+        }
+
+        public List<MA_ALUNO> ObterTodosOsAlunos()
         {
             return this.RepositorioDeAluno.ObterTodosOsAlunos();
         }
 
-        public List<ALUNO> ObterTodosOsAlunosPorNome(String nome)
+        public List<MA_ALUNO> ObterTodosOsAlunosPorNome(String nome)
         {
             return this.RepositorioDeAluno.ObterTodosOsAlunosPorNome(nome);
         }
 
-        public ALUNO ObterAlunoPorLogin(String login)
+        public MA_ALUNO ObterAlunoPorLogin(String login)
         {
             return this.RepositorioDeAluno.ObterAlunoPorLogin(login);
         }
 
-
-        public void InserirAluno(ALUNO Aluno)
+        public void InserirAluno(MA_ALUNO aluno)
         {
-            this.RepositorioDeAluno.InserirAluno(Aluno);
+            this.RepositorioDeAluno.InserirAluno(aluno);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -42,11 +46,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAluno.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverAluno(ALUNO Aluno)
+        public void RemoverAluno(MA_ALUNO aluno)
         {
-            this.RepositorioDeAluno.RemoverAluno(Aluno);
+            this.RepositorioDeAluno.RemoverAluno(aluno);
         }
 
-
+        public void AtualizarAluno(MA_ALUNO aluno)
+        {
+            this.RepositorioDeAluno.AtualizarAluno(aluno);
+        }
     }
 }

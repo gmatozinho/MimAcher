@@ -43,7 +43,7 @@
     <Compile Include="GestorDeAluno.cs" />
     <Compile Include="GestorDeAprender.cs" />
     <Compile Include="GestorDeAprendizadoDeAluno.cs" />
-    <Compile Include="GestorDeEnsinamentoDeAluno.cs" />
+    <Compile Include="GestorDeEnsinoDeAluno.cs" />
     <Compile Include="GestorDeEnsinar.cs" />
     <Compile Include="GestorDeGosto.cs" />
     <Compile Include="GestorDeGostoDeAluno.cs" />

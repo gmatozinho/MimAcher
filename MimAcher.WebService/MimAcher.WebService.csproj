@@ -197,8 +197,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AlunoAprenderController.cs" />
+    <Compile Include="Controllers\AlunoController.cs" />
+    <Compile Include="Controllers\AlunoEnsinarController.cs" />
+    <Compile Include="Controllers\AlunoGostoController.cs" />
+    <Compile Include="Controllers\AprenderController.cs" />
+    <Compile Include="Controllers\EnsinarController.cs" />
+    <Compile Include="Controllers\GostoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImagemUsuarioController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NACCampusController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,10 +296,31 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AlunoAprender\" />
+    <Folder Include="Views\AlunoEnsinar\" />
+    <Folder Include="Views\AlunoGosto\" />
+    <Folder Include="Views\Aluno\" />
+    <Folder Include="Views\Aprender\" />
+    <Folder Include="Views\Ensinar\" />
+    <Folder Include="Views\Equipamento\" />
+    <Folder Include="Views\Gosto\" />
+    <Folder Include="Views\ImagemUsuario\" />
+    <Folder Include="Views\NACCampus\" />
+    <Folder Include="Views\Usuario\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MimAcher.Aplicacao\MimAcher.Aplicacao.csproj">
+      <Project>{610c47c2-988b-47d7-993a-b3ac135a485e}</Project>
+      <Name>MimAcher.Aplicacao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MimAcher.Infra\MimAcher.Infra.csproj">
+      <Project>{9b027f70-9628-4e22-8b2c-acc951acebac}</Project>
+      <Name>MimAcher.Infra</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

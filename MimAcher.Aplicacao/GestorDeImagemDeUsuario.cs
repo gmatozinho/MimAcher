@@ -16,20 +16,24 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeImagemDeUsuario = new RepositorioDeImagemDeUsuario();
         }
 
-        public List<IMAGEM_USUARIO> ObterTodosOsImagens()
+        public MA_IMAGEM_USUARIO ObterImagemDeUsuarioPorId(int id)
+        {
+            return this.RepositorioDeImagemDeUsuario.ObterImagemDeUsuarioPorId(id);
+        }
+
+        public List<MA_IMAGEM_USUARIO> ObterTodosOsImagens()
         {
             return this.RepositorioDeImagemDeUsuario.ObterTodosOsImagens();
         }
 
-        public IMAGEM_USUARIO ObterImagemPorLogin(String login)
+        public MA_IMAGEM_USUARIO ObterImagemPorIdDeUsuario(int id_usuario)
         {
-            return this.RepositorioDeImagemDeUsuario.ObterImagemPorLogin(login);
+            return this.RepositorioDeImagemDeUsuario.ObterImagemPorIdDeUsuario(id_usuario);
         }
 
-
-        public void InserirImagem(IMAGEM_USUARIO imagem)
+        public void InserirImagem(MA_IMAGEM_USUARIO Imagem)
         {
-            this.RepositorioDeImagemDeUsuario.InserirImagem(imagem);
+            this.RepositorioDeImagemDeUsuario.InserirImagem(Imagem);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -37,14 +41,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeImagemDeUsuario.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverImagem(IMAGEM_USUARIO imagem)
+        public void RemoverImagem(MA_IMAGEM_USUARIO Imagem)
         {
-            this.RepositorioDeImagemDeUsuario.RemoverImagem(imagem);
+            this.RepositorioDeImagemDeUsuario.RemoverImagem(Imagem);
         }
 
-        public void AtualizarImagem(IMAGEM_USUARIO imagem)
+        public void AtualizarImagem(MA_IMAGEM_USUARIO Imagem)
         {
-            this.RepositorioDeImagemDeUsuario.AtualizarImagem(imagem);
+            this.RepositorioDeImagemDeUsuario.AtualizarImagem(Imagem);
         }
     }
 }

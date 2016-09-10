@@ -100,7 +100,7 @@
     <Compile Include="RepositorioDeAluno.cs" />
     <Compile Include="RepositorioDeAprender.cs" />
     <Compile Include="RepositorioDeAprendizadoDeAluno.cs" />
-    <Compile Include="RepositorioDeEnsinamentoDeAluno.cs" />
+    <Compile Include="RepositorioDeEnsinoDeAluno.cs" />
     <Compile Include="RepositorioDeEnsinar.cs" />
     <Compile Include="RepositorioDeGosto.cs" />
     <Compile Include="RepositorioDeGostoDeAluno.cs" />

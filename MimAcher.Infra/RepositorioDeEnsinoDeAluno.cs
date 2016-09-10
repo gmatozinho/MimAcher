@@ -7,11 +7,11 @@ using System.Data.Entity;
 
 namespace MimAcher.Infra
 {
-    public class RepositorioDeEnsinamentoDeAluno
+    public class RepositorioDeEnsinoDeAluno
     {
         public MIMACHEREntities Contexto { get; set; }
 
-        public RepositorioDeEnsinamentoDeAluno()
+        public RepositorioDeEnsinoDeAluno()
         {
             this.Contexto = new MIMACHEREntities();
         }

@@ -7,11 +7,11 @@ using System.Data.Entity;
 
 namespace MimAcher.Infra
 {
-    public class RepositorioDeMA_USUARIO
+    public class RepositorioDeUsuario
     {
         public MIMACHEREntities Contexto { get; set; }
 
-        public RepositorioDeMA_USUARIO()
+        public RepositorioDeUsuario()
         {
             this.Contexto = new MIMACHEREntities();
         }
@@ -21,20 +21,19 @@ namespace MimAcher.Infra
             return this.Contexto.MA_USUARIO.Find(id);
         }
 
-        public List<MA_USUARIO> ObterTodosOsMA_USUARIOs()
+        public List<MA_USUARIO> ObterTodosOsUsuarios()
         {
             return this.Contexto.MA_USUARIO.ToList();
         }
         
-        public MA_USUARIO ObterMA_USUARIOPorLogin(String login)
+        public MA_USUARIO ObterUsuarioPorLogin(String login)
         {
             return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
         }
-
-
-        public void InserirMA_USUARIO(MA_USUARIO MA_USUARIO)
+        
+        public void InserirUsuario(MA_USUARIO usuario)
         {
-            this.Contexto.MA_USUARIO.Add(MA_USUARIO);
+            this.Contexto.MA_USUARIO.Add(usuario);
             this.Contexto.SaveChanges();
         }
 
@@ -43,15 +42,15 @@ namespace MimAcher.Infra
             return this.Contexto.MA_USUARIO.Count();
         }
 
-        public void RemoverMA_USUARIO(MA_USUARIO MA_USUARIO)
+        public void RemoverUsuario(MA_USUARIO usuario)
         {
-            this.Contexto.MA_USUARIO.Remove(MA_USUARIO);
+            this.Contexto.MA_USUARIO.Remove(usuario);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarMA_USUARIO(MA_USUARIO MA_USUARIO)
+        public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            this.Contexto.Entry(MA_USUARIO).State = EntityState.Modified;
+            this.Contexto.Entry(usuario).State = EntityState.Modified;
             this.Contexto.SaveChanges();
         }
     }

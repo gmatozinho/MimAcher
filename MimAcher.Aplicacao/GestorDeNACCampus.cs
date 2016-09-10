@@ -16,23 +16,27 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeNACCampus = new RepositorioDeNACCampus();
         }
 
-        public List<NAC_CAMPUS> ObterTodosOsNACCampus()
+        public MA_NAC_CAMPUS ObterNACCampusPorId(int id)
+        {
+            return this.RepositorioDeNACCampus.ObterNACCampusPorId(id);
+        }
+
+        public List<MA_NAC_CAMPUS> ObterTodosOsNACCampus()
         {
             return this.RepositorioDeNACCampus.ObterTodosOsNACCampus();
         }
 
-        public List<NAC_CAMPUS> ObterTodosOsNACCampusPorNomeDoRepresentante(String nomerepresentante)
+        public List<MA_NAC_CAMPUS> ObterTodosOsNACCampusPorNomeDoRepresentante(String nomerepresentante)
         {
             return this.RepositorioDeNACCampus.ObterTodosOsNACCampusPorNomeDoRepresentante(nomerepresentante);
         }
 
-        public NAC_CAMPUS ObterNACCampusPorLogin(String login)
+        public MA_NAC_CAMPUS ObterNACCampusPorIdDeUsuario(int id_usuario)
         {
-            return this.RepositorioDeNACCampus.ObterNACCampusPorLogin(login);
+            return this.RepositorioDeNACCampus.ObterNACCampusPorIdDeUsuario(id_usuario);
         }
-
-
-        public void InserirNACCampus(NAC_CAMPUS naccampus)
+        
+        public void InserirNACCampus(MA_NAC_CAMPUS naccampus)
         {
             this.RepositorioDeNACCampus.InserirNACCampus(naccampus);
         }
@@ -42,12 +46,12 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeNACCampus.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverNACCampus(NAC_CAMPUS naccampus)
+        public void RemoverNACCampus(MA_NAC_CAMPUS naccampus)
         {
             this.RepositorioDeNACCampus.RemoverNACCampus(naccampus);
         }
 
-        public void AtualizarNACCampus(NAC_CAMPUS naccampus)
+        public void AtualizarNACCampus(MA_NAC_CAMPUS naccampus)
         {
             this.RepositorioDeNACCampus.AtualizarNACCampus(naccampus);
         }
