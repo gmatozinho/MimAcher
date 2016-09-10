@@ -1,33 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
     android:background="@android:color/white">
-    <ImageView
-        android:id="@+id/view_image8"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="false"
-        android:layout_marginBottom="2dp"
-        android:src="@drawable/round_button" />
-    <Button
-        android:id="@+id/nome_user_result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/view_image8"
-        android:text="Fulano"
-        android:textSize="20dp"
-        android:background="@android:color/white"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:inputType="text" />
-    <View
-        android:layout_width="wrap_content"
-        android:background="@android:color/black"
-        android:layout_height="1dp"
-        android:id="@+id/name_user_line8"
-        android:layout_below="@+id/view_image8"
-        android:layout_marginTop="5dp" />
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+        <ImageView
+            android:id="@+id/view_image"
+            android:layout_width="50sp"
+            android:layout_height="50sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="false"
+            android:layout_marginBottom="2dp"
+            android:src="@drawable/round_button" />
+        <Button
+            android:id="@+id/nome_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/view_image"
+            android:text="Fulano"
+            android:textSize="20dp"
+            android:background="@android:color/white"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:paddingStart="10dp" />
+        <View
+            android:layout_width="wrap_content"
+            android:background="@android:color/black"
+            android:layout_height="1dp"
+            android:id="@+id/name_user_line"
+            android:layout_below="@+id/view_image"
+            android:layout_marginTop="5dp" />
+        <TabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/name_user_line">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TabWidget xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" />
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp" />
+            </LinearLayout>
+        </TabHost>
+    </RelativeLayout>
+</LinearLayout>
