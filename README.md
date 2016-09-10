@@ -1,8 +1,5 @@
-# MimAcher 
+# MimAcher    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162/branch/master?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher/branch/master)
 
-##Master    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162/branch/master?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher/branch/master)
-
-##Branch    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher)
 
 
 ## Descrição do Propósito do Sistema
