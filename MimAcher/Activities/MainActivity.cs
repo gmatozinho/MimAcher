@@ -5,12 +5,20 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MimAcher.Entidades;
+using System.Collections.Generic;
 
 namespace MimAcher
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
     public class MainActivity : Activity
     {
+        string usuario = null;
+        string senha = null;
+        string nome = "Gasparzinho";
+        string email = null;
+        string nascimento = null;
+        string telefone = null;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,18 +29,16 @@ namespace MimAcher
             SetContentView(Resource.Layout.Main);
 
             //Iniciando váriaveis
-            String user = "Fulano";
-            String password = null;
             EditText usuario = FindViewById<EditText>(Resource.Id.usuario);
             EditText senha = FindViewById<EditText>(Resource.Id.senha);
 
             // Resgatando o que foi digitado nos EditText
             usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
-                user = u.Text.ToString();
+                String user = u.Text.ToString();
             };
 
             senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                password = p.Text.ToString();
+                String password = p.Text.ToString();
             };
 
 
@@ -42,8 +48,9 @@ namespace MimAcher
 
             //Login button click action, e passando o nome do usuário para próxima activity
             entrar.Click += delegate {
+                Aluno aluno = this.criarAluno();
                 var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
-                resultadoActivity.PutExtra("user",user);
+                resultadoActivity.PutExtra("aluno",aluno.toBundle());
                 StartActivity(resultadoActivity);
             };
             //Tenho que fazer a autenticação no banco de dados
@@ -53,7 +60,22 @@ namespace MimAcher
             inscrevase.Click += delegate {
                 StartActivity(typeof(InscreverActivity));
             };
-            
+        }
+
+        //função temporaria
+        private Aluno criarAluno()
+        {
+            Dictionary<string, string> informacoes = new Dictionary<string, string>();
+            informacoes["id"] = usuario;
+            informacoes["senha"] = senha;
+            informacoes["email"] = email;
+            informacoes["nome"] = nome;
+            informacoes["telefone"] = telefone;
+            informacoes["nascimento"] = nascimento;
+
+            Aluno aluno = new Aluno(informacoes);
+
+            return aluno;
         }
     }
 }
