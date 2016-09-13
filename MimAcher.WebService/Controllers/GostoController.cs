@@ -12,6 +12,11 @@ namespace MimAcher.WebService.Controllers
     {
         public GestorDeGosto GestorDeGosto { get; set; }
 
+        public GostoController()
+        {
+            this.GestorDeGosto = new GestorDeGosto();
+        }
+
         // GET: Gosto
         public ActionResult Index()
         {

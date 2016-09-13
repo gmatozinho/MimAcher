@@ -17,7 +17,6 @@ namespace MimAcher.WebService.Controllers
             this.GestorDeAluno = new GestorDeAluno();
         }
 
-
         // GET: Aluno
         public ActionResult Index()
         {
