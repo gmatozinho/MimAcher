@@ -5,13 +5,13 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-    <ext:Window ID="AlunoWindowId" Width="400" Height="290" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="AlunoWindowId" Width="600" Height="400" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>
         <ext:FormPanel ID="AlunoFormPanelId" runat="server" Title="Aluno" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
-            <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
+            <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
                                                         
             <Items> 
             
@@ -29,7 +29,7 @@
                         <ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
 
                         <%-- Data de Nascimento --%>
-                        <ext:DateField ID="dt_nascimentoId" Name="dt_nascimento" AllowBlank="false" runat="server" FieldLabel="Data de Nascimento"  Margins="0 10 0 0"  LabelAlign="Top" Width="144"/>
+                        <ext:DateField ID="dt_nascimentoId" Name="dt_nascimento" AllowBlank="false" runat="server" FieldLabel="Data de Nascimento" Width="250"/>
 
                         <%-- Telefone --%>
                         <ext:TextField ID="telefoneId" Name="telefone" AllowBlank="false" runat="server" FieldLabel="Telefone" />
@@ -38,10 +38,10 @@
                         <ext:TextField ID="e_mailId" Name="e_mail" AllowBlank="false" runat="server" FieldLabel="Email" />
 
                         <%-- Latitude --%>
-						<ext:TextField ID="latitudeId" Name="latitude" AllowBlank="true" runat="server" FieldLabel="Latitude" Margins="0 10 0 0"  LabelAlign="Top" Width="144" />                                        
+						<ext:TextField ID="latitudeId" Name="latitude" AllowBlank="true" runat="server" FieldLabel="Latitude" />                                        
 
 						<%-- Longitude --%>
-						<ext:TextField ID="longitudeId" Name="longitude" AllowBlank="true" runat="server" FieldLabel="Longitude" Margins="0 10 0 0"  LabelAlign="Top" Width="144" />                                        
+						<ext:TextField ID="longitudeId" Name="longitude" AllowBlank="true" runat="server" FieldLabel="Longitude"/>                                        
 
                         <%-- Combobox do Usuário --%>
                         <ext:ComboBox ID="cod_usId" Width="300" Name="cod_us" AllowBlank="false" runat="server" FieldLabel="Login do Usuário" ValueField="cod_us_combo" DisplayField="login_combo">
@@ -50,8 +50,8 @@
                                     <Model>
                                         <ext:Model ID="ModelUsuarioId" runat="server">
                                             <Fields>
-                                                <ext:ModelField Name="cod_us_combo" Mapping="tp_usuario" />
-                                                <ext:ModelField Name="login_combo" Mapping="ds_tp_usuario" />
+                                                <ext:ModelField Name="cod_us_combo" Mapping="cod_us" />
+                                                <ext:ModelField Name="login_combo" Mapping="login" />
                                             </Fields>
                                         </ext:Model>
                                     </Model>

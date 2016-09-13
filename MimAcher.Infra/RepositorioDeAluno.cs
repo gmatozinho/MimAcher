@@ -10,7 +10,7 @@ namespace MimAcher.Infra
     public class RepositorioDeAluno
     {
         public MIMACHEREntities Contexto { get; set; }
-
+        
         public RepositorioDeAluno()
         {
             this.Contexto = new MIMACHEREntities();

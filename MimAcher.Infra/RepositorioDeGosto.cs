@@ -23,6 +23,8 @@ namespace MimAcher.Infra
 
         public List<MA_GOSTO> ObterTodosOsGostos()
         {
+            List<MA_GOSTO> lista =  this.Contexto.MA_GOSTO.ToList();
+
             return this.Contexto.MA_GOSTO.ToList();
         }
 

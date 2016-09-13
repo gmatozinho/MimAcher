@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-    <ext:Window ID="NACCampusWindowId" Width="400" Height="290" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="NACCampusWindowId" Width="600" Height="350" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>
@@ -41,8 +41,8 @@
                                     <Model>
                                         <ext:Model ID="ModelUsuarioId" runat="server">
                                             <Fields>
-                                                <ext:ModelField Name="cod_us_combo" Mapping="tp_usuario" />
-                                                <ext:ModelField Name="login_combo" Mapping="ds_tp_usuario" />
+                                                <ext:ModelField Name="cod_us_combo" Mapping="cod_us" />
+                                                <ext:ModelField Name="login_combo" Mapping="login" />
                                             </Fields>
                                         </ext:Model>
                                     </Model>

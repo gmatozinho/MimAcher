@@ -15,7 +15,7 @@ namespace MimAcher.Aplicacao
         {
             this.RepositorioDeAluno = new RepositorioDeAluno();
         }
-
+        
         public MA_ALUNO ObterAlunoPorId(int id)
         {
             return this.RepositorioDeAluno.ObterAlunoPorId(id);
