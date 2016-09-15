@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MimAcher.Infra;
 using MimAcher.Aplicacao;
+using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -26,7 +27,20 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_USUARIO> listausuario = GestorDeUsuario.ObterTodosOsUsuarios();
+            List<MA_USUARIO> listausuariooriginal = GestorDeUsuario.ObterTodosOsUsuarios();
+            List<Usuario> listausuario = new List<Usuario>();
+
+            foreach(MA_USUARIO u in listausuariooriginal)
+            {
+                Usuario usuario = new Usuario();
+
+                usuario.cod_us = u.cod_us;
+                usuario.identificador = u.identificador;
+                usuario.login = u.login;
+                usuario.senha = u.senha;
+
+                listausuario.Add(usuario);
+            }
 
             JsonResult jsonResult = Json(new
             {

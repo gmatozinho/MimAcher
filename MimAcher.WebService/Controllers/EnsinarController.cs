@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MimAcher.Infra;
 using MimAcher.Aplicacao;
+using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -26,11 +27,22 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_ENSINAR> listaensino = GestorDeEnsinar.ObterTodosOsRegistrosDoQueSePodeEnsinado();
+            List<MA_ENSINAR> listaensinooriginal = GestorDeEnsinar.ObterTodosOsRegistrosDoQueSePodeEnsinado();
+            List<Ensinar> listaensinar = new List<Ensinar>();
+
+            foreach(MA_ENSINAR e in listaensinooriginal)
+            {
+                Ensinar ensinar = new Ensinar();
+
+                ensinar.cod_e = e.cod_e;
+                ensinar.nome = e.nome;
+
+                listaensinar.Add(ensinar);
+            }
 
             JsonResult jsonResult = Json(new
             {
-                data = listaensino
+                data = listaensinar
             }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;

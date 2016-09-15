@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MimAcher.Infra;
 using MimAcher.Aplicacao;
+using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -26,7 +27,21 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC_CAMPUS> listanaccampus = GestorDeNACCampus.ObterTodosOsNACCampus();
+            List<MA_NAC_CAMPUS> listanaccampusoriginal = GestorDeNACCampus.ObterTodosOsNACCampus();
+            List<NACCampus> listanaccampus = new List<NACCampus>();
+
+            foreach(MA_NAC_CAMPUS nc in listanaccampusoriginal)
+            {
+                NACCampus naccampus = new NACCampus();
+
+                naccampus.cod_nc = nc.cod_nc;
+                naccampus.cod_us = nc.cod_us;
+                naccampus.latitude = nc.geolocalizacao.Latitude;
+                naccampus.longitude = nc.geolocalizacao.Longitude;
+                naccampus.nomerepresentante = nc.nome_representante;
+
+                listanaccampus.Add(naccampus);
+            }
 
             JsonResult jsonResult = Json(new
             {
