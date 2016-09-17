@@ -22,7 +22,7 @@ namespace MimAcher
             // Create your application here
             SetContentView(Resource.Layout.EditarPerfil);
 
-            //EDITAR
+            //EDITA
 
             //Mostrar as informações do usuário retiradas do banco
         }
