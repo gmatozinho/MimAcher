@@ -82,11 +82,8 @@
         ID="UsuarioGridPanelId"
         runat="server" 
         Title="Unidademento de Usuário"
-        StoreID="StoreUsuarioId"
-        Layout="FitLayout">         
+        StoreID="StoreUsuarioId">         
         <%--Height="1500"--%>        
-
-
 
         <%-- Colunas da Grid --%>
         <ColumnModel>
@@ -170,3 +167,5 @@
     </ext:GridPanel>
 
 </asp:Content>
+
+

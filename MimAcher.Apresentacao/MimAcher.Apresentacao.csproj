@@ -82,7 +82,6 @@
     <Content Include="Styles\customizado.css" />
     <Content Include="Styles\estilo.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -97,68 +96,77 @@
   <ItemGroup>
     <Compile Include="App\Aluno.aspx.cs">
       <DependentUpon>Aluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\Aluno.aspx.designer.cs">
       <DependentUpon>Aluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Aprender.aspx.cs">
       <DependentUpon>Aprender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\Aprender.aspx.designer.cs">
       <DependentUpon>Aprender.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\AprendizadoAluno.aspx.cs">
       <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\AprendizadoAluno.aspx.designer.cs">
       <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\EnsinamentoAluno.aspx.cs">
       <DependentUpon>EnsinamentoAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\EnsinamentoAluno.aspx.designer.cs">
       <DependentUpon>EnsinamentoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Ensinar.aspx.cs">
       <DependentUpon>Ensinar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\Ensinar.aspx.designer.cs">
       <DependentUpon>Ensinar.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Gosto.aspx.cs">
       <DependentUpon>Gosto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\Gosto.aspx.designer.cs">
       <DependentUpon>Gosto.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\GostoAluno.aspx.cs">
       <DependentUpon>GostoAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\GostoAluno.aspx.designer.cs">
       <DependentUpon>GostoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\ImagemUsuario.aspx.cs">
       <DependentUpon>ImagemUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\ImagemUsuario.aspx.designer.cs">
       <DependentUpon>ImagemUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\NACCampus.aspx.cs">
       <DependentUpon>NACCampus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\NACCampus.aspx.designer.cs">
       <DependentUpon>NACCampus.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Usuario.aspx.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\Usuario.aspx.designer.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -169,15 +177,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="ViewSwitcher.ascx.designer.cs">
-      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +244,10 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
@@ -256,14 +262,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

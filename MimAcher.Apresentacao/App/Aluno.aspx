@@ -79,7 +79,13 @@
 
     <%-- Store da Grid --%>
     <Store>
-        <ext:Store ID="StoreAlunoId" runat="server" PageSize="31" OnReadData="List" RemoteSort="true" AutoLoad="true">
+        <ext:Store 
+            ID="StoreAlunoId" 
+            runat="server" 
+            PageSize="31" 
+            OnReadData="List" 
+            RemoteSort="true" 
+            AutoLoad="true">
             <Model>
                 <ext:Model ID="ModelAlunoId" runat="server" IDProperty="cod_al">
                     <Fields>
@@ -104,9 +110,7 @@
         runat="server" 
         Title="Gerenciamento de Aluno"
         StoreID="StoreAlunoId">         
-        <%--Height="1500"--%>        
-
-
+        <%--Height="1500"--%>    
 
         <%-- Colunas da Grid --%>
         <ColumnModel>

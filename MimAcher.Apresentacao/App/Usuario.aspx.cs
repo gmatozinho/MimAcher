@@ -20,7 +20,7 @@ namespace MimAcher.Apresentacao.App
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
         }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
@@ -66,7 +66,7 @@ namespace MimAcher.Apresentacao.App
             usuario.login = this.loginId.Text;
             usuario.senha = this.senhaId.Text;
             usuario.identificador = Int32.Parse(this.identificadorId.Text);
-                
+
             //Caso o form não possui código, será inserido um novo usuário
             if (this.cod_usId.Text == "")
             {
@@ -89,7 +89,7 @@ namespace MimAcher.Apresentacao.App
         {
             //var tipousuario = JSON.Deserialize(e.ExtraParams["RecordGrid"]);
             var tipousuario = Int32.Parse(e.ExtraParams["RecordGrid"]);
-            
+
 
             this.UsuarioWindowId.Show();
         }
