@@ -13,9 +13,9 @@ using System.Text.RegularExpressions;
 
 namespace MimAcher.Entidades
 {
-    public class Validador
+    public static class Validador
     {
-        public Boolean ValidarEmail(String email)
+        public static Boolean ValidarEmail(String email)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace MimAcher.Entidades
             }
         }
 
-        public Boolean ValidarNome(String nome)
+        public static Boolean ValidarNome(String nome)
         {
             if (nome.Equals(""))
             {
@@ -37,7 +37,7 @@ namespace MimAcher.Entidades
             return true;
         }
 
-        public Boolean ValidarData(String data)
+        public static Boolean ValidarData(String data)
         {
             DateTime saida;
             bool isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
@@ -46,7 +46,7 @@ namespace MimAcher.Entidades
             return isValid;
         }
 
-        public Boolean ValidarTelefone(String telefone)
+        public static Boolean ValidarTelefone(String telefone)
         {
             if (Regex.Match("(27)"+ telefone, @"^[2-9][0-9]{7,8}$").Success)
                 return true;
@@ -54,7 +54,7 @@ namespace MimAcher.Entidades
             return false;
         }
 
-        public List<string> ValidarEntradas(Dictionary<string, string> entradas)
+        public static List<string> ValidarEntradas(Dictionary<string, string> entradas)
         {
             List<string> erros = new List<string>();
 
