@@ -10,14 +10,14 @@ using MimAcher.Aplicacao;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class EnsinamentoAluno : System.Web.UI.Page
+    public partial class EnsinoAluno : System.Web.UI.Page
     {
         //Declaração dos Gestores
         public GestorDeEnsinoDeAluno GestorDeEnsinoDeAluno { get; set; }
         public GestorDeAluno GestorDeAluno { get; set; }
         public GestorDeEnsinar GestorDeEnsinar { get; set; }
 
-        public EnsinamentoAluno()
+        public EnsinoAluno()
         {
             //Inicialização dos Gestores
             this.GestorDeEnsinoDeAluno = new GestorDeEnsinoDeAluno();

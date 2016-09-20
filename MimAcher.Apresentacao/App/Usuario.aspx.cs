@@ -21,6 +21,7 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeUsuario = new GestorDeUsuario();
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
@@ -42,14 +43,7 @@ namespace MimAcher.Apresentacao.App
             this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
             this.StoreUsuarioId.DataBind();
         }
-
-        //Lista os usuários do banco de dados na grid
-        protected void List(object sender, DirectEventArgs e)
-        {
-            this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
-            this.StoreUsuarioId.DataBind();
-        }
-
+        
         //Lista os usuários do banco de dados na grid
         protected void List()
         {

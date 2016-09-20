@@ -13,31 +13,31 @@ namespace MimAcher.Apresentacao.App {
     public partial class EnsinamentoAluno {
         
         /// <summary>
-        /// EnsinamentoAlunoWindowId control.
+        /// EnsinoAlunoWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window EnsinamentoAlunoWindowId;
+        protected global::Ext.Net.Window EnsinoAlunoWindowId;
         
         /// <summary>
-        /// EnsinamentoAlunoFormPanelId control.
+        /// EnsinoAlunoFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel EnsinamentoAlunoFormPanelId;
+        protected global::Ext.Net.FormPanel EnsinoAlunoFormPanelId;
         
         /// <summary>
-        /// EnsinamentoAlunoFieldSetId control.
+        /// EnsinoAlunoFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet EnsinamentoAlunoFieldSetId;
+        protected global::Ext.Net.FieldSet EnsinoAlunoFieldSetId;
         
         /// <summary>
         /// cod_aeId control.
@@ -85,22 +85,22 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.ComboBox cod_eId;
         
         /// <summary>
-        /// StoreEnsinamentoId control.
+        /// StoreEnsinoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreEnsinamentoId;
+        protected global::Ext.Net.Store StoreEnsinoId;
         
         /// <summary>
-        /// ModelEnsinamentoId control.
+        /// ModelEnsinoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelEnsinamentoId;
+        protected global::Ext.Net.Model ModelEnsinoId;
         
         /// <summary>
         /// AlunoBarId control.
@@ -130,22 +130,22 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StoreEnsinamentoAlunoId control.
+        /// StoreEnsinoAlunoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreEnsinamentoAlunoId;
+        protected global::Ext.Net.Store StoreEnsinoAlunoId;
         
         /// <summary>
-        /// ModelEnsinamentoAlunoId control.
+        /// ModelEnsinoAlunoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelEnsinamentoAlunoId;
+        protected global::Ext.Net.Model ModelEnsinoAlunoId;
         
         /// <summary>
         /// EnsinoAlunoGridPanelId control.
@@ -184,13 +184,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
-        /// EnsinamentoAlunoRowSelectionModelId control.
+        /// EnsinoAlunoRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.RowSelectionModel EnsinamentoAlunoRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel EnsinoAlunoRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.

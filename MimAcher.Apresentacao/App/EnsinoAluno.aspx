@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EnsinamentoAluno.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.EnsinamentoAluno" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EnsinoAluno.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.EnsinoAluno" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 

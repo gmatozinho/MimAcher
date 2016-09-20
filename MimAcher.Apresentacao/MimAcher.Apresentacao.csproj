@@ -49,6 +49,7 @@
     <Content Include="App\AprendizadoAluno.aspx" />
     <Content Include="App\EnsinamentoAluno.aspx" />
     <Content Include="App\Ensinar.aspx" />
+    <Content Include="App\EnsinoAluno.aspx" />
     <Content Include="App\Gosto.aspx" />
     <Content Include="App\GostoAluno.aspx" />
     <Content Include="App\ImagemUsuario.aspx" />
@@ -57,34 +58,12 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\WebForms\DetailsView.js" />
-    <Content Include="Scripts\WebForms\Focus.js" />
-    <Content Include="Scripts\WebForms\GridView.js" />
-    <Content Include="Scripts\WebForms\Menu.js" />
-    <Content Include="Scripts\WebForms\MenuStandards.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
-    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
-    <Content Include="Scripts\WebForms\SmartNav.js" />
-    <Content Include="Scripts\WebForms\TreeView.js" />
-    <Content Include="Scripts\WebForms\WebForms.js" />
-    <Content Include="Scripts\WebForms\WebParts.js" />
-    <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="Styles\customizado.css" />
     <Content Include="Styles\estilo.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
-    <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\mimacherforms.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -128,6 +107,13 @@
     </Compile>
     <Compile Include="App\Ensinar.aspx.designer.cs">
       <DependentUpon>Ensinar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\EnsinoAluno.aspx.cs">
+      <DependentUpon>EnsinoAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\EnsinoAluno.aspx.designer.cs">
+      <DependentUpon>EnsinoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Gosto.aspx.cs">
       <DependentUpon>Gosto.aspx</DependentUpon>
@@ -186,6 +172,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Imagem\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MimAcher.Aplicacao\MimAcher.Aplicacao.csproj">

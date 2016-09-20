@@ -108,7 +108,7 @@
 									 <Menu>
 										<ext:Menu ID="AfinidadeMenu" runat="server">
 											<Items>
-												<ext:MenuItem ID="AlunoEnsinarMenuItemId" Text="O que alunos ensinam" OnClientClick="window.location.href='/App/EnsinamentoAluno.aspx'" />                                
+												<ext:MenuItem ID="AlunoEnsinarMenuItemId" Text="O que alunos ensinam" OnClientClick="window.location.href='/App/EnsinoAluno.aspx'" />                                
 												<ext:MenuItem ID="AlunoGostoMenuItemId" Text="Gostos do aluno" OnClientClick="window.location.href='/App/GostoAluno.aspx'" />                                                                                                                                
                                                 <ext:MenuItem ID="AlunoAprenderMenuItemId" Text="O que desejam aprender" OnClientClick="window.location.href='/App/Aprender.aspx'" />                                                                                                                                
 											</Items>

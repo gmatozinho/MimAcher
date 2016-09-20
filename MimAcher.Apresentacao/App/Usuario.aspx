@@ -83,7 +83,6 @@
         runat="server" 
         Title="Unidademento de Usuário"
         StoreID="StoreUsuarioId">         
-        <%--Height="1500"--%>        
 
         <%-- Colunas da Grid --%>
         <ColumnModel>
@@ -160,12 +159,11 @@
             </ItemDblClick>
         </DirectEvents>
 
-        <%-- <BottomBar>
+        <BottomBar>
             <ext:PagingToolbar ID="PagingToolbarId" runat="server" />
-        </BottomBar> --%>
+        </BottomBar>
 
     </ext:GridPanel>
 
 </asp:Content>
-
 
