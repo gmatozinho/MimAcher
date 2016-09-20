@@ -79,6 +79,7 @@
     <Compile Include="Activities\TAB\ResultEnsinarActivity.cs" />
     <Compile Include="Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="Activities\TAB\ResultGostosActivity.cs" />
+    <Compile Include="Entidades\Validador.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\ResultadoActivity.cs" />
