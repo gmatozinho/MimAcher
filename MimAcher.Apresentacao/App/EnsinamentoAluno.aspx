@@ -123,7 +123,12 @@
             <ext:Toolbar ID="ToolbarId" runat="server">
                 <Items>
                     <%-- Incluir --%>
-                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{AlunoWindowId}.show();#{AlunoFormPanelId}.getForm().reset();" />
+                    <%--<ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{EnsinoAlunoWindowId}.show();#{EnsinoAlunoFormPanelId}.getForm().reset();" />--%>
+                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registros" Icon="PageAdd" Disabled="false" >
+                        <DirectEvents>
+                            <Click OnEvent="Add"></Click>                                
+                        </DirectEvents>
+                    </ext:Button>
 
                     <%-- Edit --%>
                     <ext:Button ID="EditButtonId" runat="server" Text="Editar" Icon="PageEdit" Disabled="true" >

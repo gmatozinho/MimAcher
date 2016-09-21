@@ -13,4 +13,6 @@ insert into ma_gosto values('Violão')
 insert into ma_aprender values('Tocar Violão')
 insert into ma_aprender values('Cálculo')
 
---Tabela Aprender
+--Tabela Aluno Ensinar
+insert into ma_ensinar values('Programação')
+insert into ma_ensinar values('Montagem e Manutenção')

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Ext.Net;
 using MimAcher.Infra;
 using MimAcher.Aplicacao;
 using System.Data.Entity.Spatial;
+using Ext.Net;
 
 namespace MimAcher.Apresentacao.App
 {

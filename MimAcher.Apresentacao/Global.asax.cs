@@ -19,7 +19,7 @@ namespace MimAcher.Apresentacao
             //SqlServerTypes.Utilities.LoadNativeAssemblies(Server.MapPath("~/bin"));
 
         }
-        
+
         void Application_End(object sender, EventArgs e)
         {
             //  Code that runs on application shutdown

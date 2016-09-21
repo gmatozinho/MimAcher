@@ -123,6 +123,7 @@
 											<Items>
 												<ext:MenuItem ID="ItemNACCampusMenuItemId" Text="NAC CAmpus" OnClientClick="window.location.href='/App/NACCampus.aspx'" />                                                                                
 												<ext:MenuItem ID="ItemUsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" />                                
+                                                <ext:MenuItem ID="ItemUsuarioPrincipalMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/UsuarioPrincipal.aspx'" />                                
 												<ext:MenuItem ID="ItemAlunoMenuItemId" Text="Aluno" OnClientClick="window.location.href='/App/Aluno.aspx'" />                                                                                												
 											</Items>
 										</ext:Menu>
