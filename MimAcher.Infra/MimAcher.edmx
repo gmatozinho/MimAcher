@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="cod_e" />
           </Key>
-          <Property Name="cod_e" Type="int" Nullable="false" />
+          <Property Name="cod_e" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="MA_GOSTO">
@@ -354,7 +354,7 @@
           <Key>
             <PropertyRef Name="cod_e" />
           </Key>
-          <Property Name="cod_e" Type="Int32" Nullable="false" />
+          <Property Name="cod_e" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MA_ALUNO_ENSINAR" Relationship="MIMACHERModel.FK_MA_ALUNO_ENSINAR_MA_ENSINAR_cod_e" FromRole="MA_ENSINAR" ToRole="MA_ALUNO_ENSINAR" />
         </EntityType>

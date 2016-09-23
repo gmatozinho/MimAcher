@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.WebService", "MimA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Aplicacao", "MimAcher.Aplicacao\MimAcher.Aplicacao.csproj", "{610C47C2-988B-47D7-993A-B3AC135A485E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.TesteWefForms", "MimAcher.TesteWefForms\MimAcher.TesteWefForms.csproj", "{09CCFFFD-6A80-473A-BB88-1A3475C47677}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Apresentacao", "MimAcher.Apresentacao\MimAcher.Apresentacao.csproj", "{4F03FDE7-A6EB-4762-8009-C88FE8236036}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Apresentacao.Tests", "MimAcher.Apresentacao.Tests\MimAcher.Apresentacao.Tests.csproj", "{84DDDC3B-42E3-47D7-8A19-1A74EC775582}"
@@ -33,10 +31,6 @@ Global
 		{610C47C2-988B-47D7-993A-B3AC135A485E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{610C47C2-988B-47D7-993A-B3AC135A485E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{610C47C2-988B-47D7-993A-B3AC135A485E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09CCFFFD-6A80-473A-BB88-1A3475C47677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09CCFFFD-6A80-473A-BB88-1A3475C47677}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09CCFFFD-6A80-473A-BB88-1A3475C47677}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09CCFFFD-6A80-473A-BB88-1A3475C47677}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F03FDE7-A6EB-4762-8009-C88FE8236036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F03FDE7-A6EB-4762-8009-C88FE8236036}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F03FDE7-A6EB-4762-8009-C88FE8236036}.Release|Any CPU.ActiveCfg = Release|Any CPU

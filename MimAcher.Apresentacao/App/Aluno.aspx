@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-    <ext:Window ID="AlunoWindowId" Width="600" Height="400" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="AlunoWindowId" Width="600" Height="355" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>

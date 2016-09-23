@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-    <ext:Window ID="EnsinoAlunoWindowId" Width="400" Height="290" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="EnsinoAlunoWindowId" Width="400" Height="205" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>
@@ -84,7 +84,7 @@
                         <ext:ModelField Name="cod_ae" Type="Int" />
                         <ext:ModelField Name="cod_al" Type="Int" />
                         <ext:ModelField Name="cod_e" Type="Int" />
-                        <ext:ModelField Name="nomea"  Mapping="nome" Type="String" ServerMapping="MA_ALUNO.nome"  />
+                        <ext:ModelField Name="nomea" Type="String" ServerMapping="MA_ALUNO.nome"  />
                         <ext:ModelField Name="nome" Type="String" ServerMapping="MA_ENSINAR.nome"  />                        
                     </Fields>
                 </ext:Model>
@@ -123,8 +123,8 @@
             <ext:Toolbar ID="ToolbarId" runat="server">
                 <Items>
                     <%-- Incluir --%>
-                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{AlunoWindowId}.show();#{AlunoFormPanelId}.getForm().reset();" />
-
+                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{EnsinoAlunoWindowId}.show();#{EnsinoAlunoFormPanelId}.getForm().reset();" />
+                    
                     <%-- Edit --%>
                     <ext:Button ID="EditButtonId" runat="server" Text="Editar" Icon="PageEdit" Disabled="true" >
                         <DirectEvents>

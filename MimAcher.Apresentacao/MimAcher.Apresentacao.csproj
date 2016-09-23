@@ -153,7 +153,6 @@
     <Content Include="App\Aluno.aspx" />
     <Content Include="App\Aprender.aspx" />
     <Content Include="App\AprendizadoAluno.aspx" />
-    <Content Include="App\EnsinamentoAluno.aspx" />
     <Content Include="App\Ensinar.aspx" />
     <Content Include="App\EnsinoAluno.aspx" />
     <Content Include="App\Gosto.aspx" />
@@ -176,10 +175,14 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="Styles\customizado.css" />
+    <Content Include="Styles\estilo.css" />
+    <Content Include="Styles\Site.css" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\IIS Servidor.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -208,13 +211,6 @@
     </Compile>
     <Compile Include="App\AprendizadoAluno.aspx.designer.cs">
       <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\EnsinamentoAluno.aspx.cs">
-      <DependentUpon>EnsinamentoAluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\EnsinamentoAluno.aspx.designer.cs">
-      <DependentUpon>EnsinamentoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Ensinar.aspx.cs">
       <DependentUpon>Ensinar.aspx</DependentUpon>

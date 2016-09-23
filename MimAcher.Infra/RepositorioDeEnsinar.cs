@@ -33,8 +33,10 @@ namespace MimAcher.Infra
 
         public void InserirNovoEnsino(MA_ENSINAR ensino)
         {
-            this.Contexto.MA_ENSINAR.Add(ensino);
-            this.Contexto.SaveChanges();
+            MIMACHEREntities Contexto = new MIMACHEREntities();
+            
+            Contexto.MA_ENSINAR.Add(ensino);
+            Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
@@ -50,8 +52,10 @@ namespace MimAcher.Infra
 
         public void AtualizarEnsino(MA_ENSINAR ensino)
         {
-            this.Contexto.Entry(ensino).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            MIMACHEREntities Contexto = new MIMACHEREntities();
+
+            Contexto.Entry(ensino).State = EntityState.Modified;
+            Contexto.SaveChanges();
         }
     }
 }

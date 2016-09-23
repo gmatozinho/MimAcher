@@ -40,7 +40,7 @@ CREATE TABLE MA_GOSTO (
 )
 
 CREATE TABLE MA_ENSINAR (
-	cod_e 				INTEGER PRIMARY KEY,
+	cod_e 				integer not null identity(1,1),
 	nome 				VARCHAR(30)
 )
 
