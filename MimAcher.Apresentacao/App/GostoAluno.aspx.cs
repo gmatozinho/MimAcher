@@ -15,14 +15,14 @@ namespace MimAcher.Apresentacao.App
         //Declaração dos Gestores
         public GestorDeGostoDeAluno GestorDeGostoDeAluno { get; set; }
         public GestorDeAluno GestorDeAluno { get; set; }
-        public GestorDeAprender GestorDeAprender { get; set; }
+        public GestorDeGosto GestorDeGosto { get; set; }
 
         public GostoAluno()
         {
             //Inicialização dos Gestores
             this.GestorDeGostoDeAluno = new GestorDeGostoDeAluno();
             this.GestorDeAluno = new GestorDeAluno();
-            this.GestorDeAprender = new GestorDeAprender();
+            this.GestorDeGosto = new GestorDeGosto();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace MimAcher.Apresentacao.App
                 this.StoreAlunoId.DataSource = this.GestorDeAluno.ObterTodosOsAlunos().OrderBy(l => l.nome);
                 this.StoreAlunoId.DataBind();
 
-                this.StoreGostoId.DataSource = this.GestorDeAprender.ObterTodosOsRegistrosDoQueSePodeAprender().OrderBy(l => l.nome);
+                this.StoreGostoId.DataSource = this.GestorDeGosto.ObterTodosOsGostos().OrderBy(l => l.nome);
                 this.StoreGostoId.DataBind();
             }
         }
@@ -72,12 +72,13 @@ namespace MimAcher.Apresentacao.App
         protected void Save(object sender, DirectEventArgs e)
         {
             MA_ALUNO_GOSTO alunogosto = new MA_ALUNO_GOSTO();
+
             
             alunogosto.cod_al = Int32.Parse(this.cod_alId.SelectedItem.Value);
             alunogosto.cod_g = Int32.Parse(this.cod_gId.SelectedItem.Value);
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (this.cod_alId.Text == "")
+            if (this.cod_agId.Text == "")
             {
                 GestorDeGostoDeAluno.InserirNovoGostoDeAluno(alunogosto);
                 this.GostoAlunoWindowId.Close();

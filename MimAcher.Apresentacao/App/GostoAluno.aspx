@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-    <ext:Window ID="GostoAlunoWindowId" Width="400" Height="290" Modal="true" runat="server" Hidden="true">
+    <ext:Window ID="GostoAlunoWindowId" Width="400" Height="205" Modal="true" runat="server" Hidden="true">
         <Items>
 
         <%-- Form --%>
@@ -84,7 +84,7 @@
                         <ext:ModelField Name="cod_ag" Type="Int" />
                         <ext:ModelField Name="cod_al" Type="Int" />
                         <ext:ModelField Name="cod_g" Type="Int" />
-                        <ext:ModelField Name="nomea"  Mapping="nome" Type="String" ServerMapping="MA_ALUNO.nome"  />
+                        <ext:ModelField Name="nomea" Type="String" ServerMapping="MA_ALUNO.nome"  />
                         <ext:ModelField Name="nome" Type="String" ServerMapping="MA_GOSTO.nome"  />                        
                     </Fields>
                 </ext:Model>
@@ -123,14 +123,14 @@
             <ext:Toolbar ID="ToolbarId" runat="server">
                 <Items>
                     <%-- Incluir --%>
-                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{AlunoWindowId}.show();#{AlunoFormPanelId}.getForm().reset();" />
+                    <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{GostoAlunoWindowId}.show();#{GostoAlunoFormPanelId}.getForm().reset();" />
 
                     <%-- Edit --%>
                     <ext:Button ID="EditButtonId" runat="server" Text="Editar" Icon="PageEdit" Disabled="true" >
                         <DirectEvents>
                             <Click OnEvent="Edit">
                                 <ExtraParams>
-                                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{AlunoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_ag" />                                
+                                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{GostoAlunoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_ag" />                                
                                 </ExtraParams>
                             </Click>
                         </DirectEvents>
@@ -155,7 +155,7 @@
         <DirectEvents>
             <ItemDblClick OnEvent="Edit">
                 <ExtraParams>                    
-                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{AlunoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_ag" />                                
+                    <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{GostoAlunoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_ag" />                                
                 </ExtraParams>
             </ItemDblClick>
         </DirectEvents>
