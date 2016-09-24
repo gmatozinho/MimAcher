@@ -19,7 +19,7 @@ namespace MimAcher.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);
+            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
 
             base.OnCreate(savedInstanceState);
 

@@ -19,12 +19,12 @@ namespace MimAcher.Entidades
 
 
         //Set functions to read and write stuff to database
-        public static void write(Aluno a)
+        public static void Write(Aluno a)
         {
             //TODO
         }
 
-        public static Dictionary<string, List<Aluno>> match(Aluno a)
+        public static Dictionary<string, List<Aluno>> Match(Aluno a)
         {
             Dictionary<string, List<Aluno>> matchs = new Dictionary<string, List<Aluno>>();
 
@@ -37,17 +37,17 @@ namespace MimAcher.Entidades
             return matchs;
         }
 
-        private static void  writeGosto(Aluno a, string s)
+        private static void  WriteGosto(Aluno a, string s)
         {
             //TODO
         }
 
-        private static void writeInteresse(Aluno a, string s)
+        private static void WriteInteresse(Aluno a, string s)
         {
             //TODO
         }
 
-        private static void writeCompetencia(Aluno a, string s)
+        private static void WriteCompetencia(Aluno a, string s)
         {
             //TODO
         }

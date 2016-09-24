@@ -22,7 +22,7 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);          
+            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -41,9 +41,9 @@ namespace MimAcher
             };
             
             ok.Click += delegate {
-                Dictionary<string, bool> Gostos = criarDicionarioGostos();
-                preencherGostosAluno(Gostos, aluno);
-                aluno.commit();
+                Dictionary<string, bool> Gostos = CriarDicionarioGostos();
+                PreencherGostosAluno(Gostos, aluno);
+                aluno.Commit();
 
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
                 //mudar para trabalhar com objeto do banco
@@ -53,7 +53,7 @@ namespace MimAcher
 
         }
 
-        private Dictionary<string, bool> criarDicionarioGostos()
+        private Dictionary<string, bool> CriarDicionarioGostos()
         {
             //Checkbox Variables
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
@@ -78,13 +78,13 @@ namespace MimAcher
             return Gostos;
         }
 
-        private void preencherGostosAluno(Dictionary<string, bool> Gostos, Aluno aluno)
+        private void PreencherGostosAluno(Dictionary<string, bool> Gostos, Aluno aluno)
         {
             foreach (String strKey in Gostos.Keys)
             {
                 if (Gostos[strKey])
                 {
-                    aluno.adicionarGosto(strKey);
+                    aluno.AdicionarGosto(strKey);
                 }
             }
         }

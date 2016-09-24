@@ -26,7 +26,7 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);
+            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
 
             // Create your application here
             SetContentView(Resource.Layout.EditarPerfil);
@@ -73,8 +73,8 @@ namespace MimAcher
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
                 //deverá rolar um commit para salvar alterações no banco
-                alterarAluno(aluno);
-                resultadoactivity.PutExtra("aluno", aluno.toBundle());
+                AlterarAluno(aluno);
+                resultadoactivity.PutExtra("aluno", aluno.ToBundle());
                 StartActivity(resultadoactivity);
             };
 
@@ -82,7 +82,7 @@ namespace MimAcher
 
             //Mostrar as informações do usuário retiradas do banco
         }
-        private void alterarAluno(Aluno aluno)
+        private void AlterarAluno(Aluno aluno)
         {
             aluno.Email = email;
             aluno.Telefone = telefone;

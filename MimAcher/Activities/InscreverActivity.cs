@@ -66,17 +66,17 @@ namespace MimAcher
             };
             
             botao_avançar.Click += delegate {
-                Aluno aluno = this.criarAluno();
-                aluno.commit();
+                Aluno aluno = this.CriarAluno();
+                aluno.Commit();
 
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
-                escolherfotoactivity.PutExtra("aluno", aluno.toBundle());
+                escolherfotoactivity.PutExtra("aluno", aluno.ToBundle());
                 StartActivity(escolherfotoactivity);
             };
             
         }
 
-        private Aluno criarAluno()
+        private Aluno CriarAluno()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
             informacoes["id"] = usuario;
