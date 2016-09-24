@@ -15,88 +15,27 @@ namespace MimAcher.Entidades
     [Serializable]
     public class Aluno : Usuario
     {
-        private List<string> gostos;
-        private List<string> aprender;
-        private List<string> ensinar;
-        private string nome;
-        private string nascimento;
-        private string email;
-        private string telefone;
-
         public static int TipoUsuario {
             get { return 1; }
         }
 
         //Properties
-        public List<string> Gostos {
-            get {
-                return gostos;
-            }
+        public List<string> Gostos { get; set;}
+        
 
-            private set {
-                gostos = value;
-            }
-        }
+        public List<string> Aprender {get; set;}
+        
 
-        public List<string> Aprender {
-            get {
-                return aprender;
-            }
+        public List<string> Ensinar { get; set; }
+        
 
-            private set {
-                aprender = value;
-            }
-        }
+        public string Nome { get; set; }
 
-        public List<string> Ensinar {
-            get {
-                return ensinar;
-            }
+        public string Nascimento { get; set; }
 
-            private set {
-                ensinar = value;
-            }
-        }
+        public string Email { get; set; }
 
-        public string Nome {
-            get {
-                return nome;
-            }
-
-            set {
-                nome = value;
-            }
-        }
-
-        public string Nascimento {
-            get {
-                return nascimento;
-            }
-
-            set {
-                nascimento = value;
-            }
-        }
-
-        public string Email {
-            get {
-                return email;
-            }
-
-            set {
-                email = value;
-            }
-        }
-
-        public string Telefone {
-            get {
-                return telefone;
-            }
-
-            set {
-                telefone = value;
-            }
-        }
+        public string Telefone { get; set; }
 
 
         //Construtor
@@ -114,52 +53,52 @@ namespace MimAcher.Entidades
 
 
         //Adicionar strings individualmente
-        public void adicionarGosto(string a)
+        public void AdicionarGosto(string a)
         {
             Gostos.Add(a);
         }
 
-        public void adicionarAprender(string a)
+        public void AdicionarAprender(string a)
         {
             Aprender.Add(a);
         }
 
-        public void adicionarEnsinar(string a)
+        public void AdicionarEnsinar(string a)
         {
             Ensinar.Add(a);
         }
 
         //Remover strings individualmente
-        public void removerGosto(string a)
+        public void RemoverGosto(string a)
         {
             Gostos.Remove(a);
         }
 
-        public void removerAprender(string a)
+        public void RemoverAprender(string a)
         {
             Aprender.Remove(a);
         }
 
-        public void removerEnsinar(string a)
+        public void RemoverEnsinar(string a)
         {
             Ensinar.Remove(a);
         }
 
         //Funções para trabalhar no banco de dados
-        public void commit()
+        public void Commit()
         {
-            Cursor.write(this);
+            Cursor.Write(this);
         }
 
-        public Dictionary<string, List<Aluno>> match()
+        public Dictionary<string, List<Aluno>> Match()
         {
-            Dictionary<string, List<Aluno>> matchs = Cursor.match(this);
+            Dictionary<string, List<Aluno>> matchs = Cursor.Match(this);
 
             return matchs;
         }
 
         //Função para utilizar Bundle e enviar objeto entre activities
-        public Bundle toBundle()
+        public Bundle ToBundle()
         {
             Bundle b = new Bundle();
 

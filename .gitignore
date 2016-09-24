@@ -35,6 +35,9 @@ bld/
 *.VisualState.xml
 TestResult.xml
 
+# Ant Working Directory
+.sonarqube/
+
 # Build Results of an ATL Project
 [Dd]ebugPS/
 [Rr]eleasePS/
