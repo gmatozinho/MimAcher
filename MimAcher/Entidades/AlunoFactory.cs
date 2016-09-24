@@ -14,7 +14,7 @@ namespace MimAcher.Entidades
 {
     public static class AlunoFactory
     {
-        public static Aluno criarAluno(Bundle b)
+        public static Aluno CriarAluno(Bundle b)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
 

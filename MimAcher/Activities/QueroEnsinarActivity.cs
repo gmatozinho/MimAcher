@@ -21,7 +21,7 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);
+            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroEnsinar);
@@ -40,9 +40,9 @@ namespace MimAcher
             };
 
             ok.Click += delegate {
-                Dictionary<string, bool> Ensinar = criarDicionarioEnsinar();
-                preencherEnsinarAluno(Ensinar, aluno);
-                aluno.commit();
+                Dictionary<string, bool> Ensinar = CriarDicionarioEnsinar();
+                PreencherEnsinarAluno(Ensinar, aluno);
+                aluno.Commit();
 
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
@@ -51,7 +51,7 @@ namespace MimAcher
             };
         }
 
-        private Dictionary<string, bool> criarDicionarioEnsinar()
+        private Dictionary<string, bool> CriarDicionarioEnsinar()
         {
             //Checkbox Variables
             Dictionary<string, bool> Ensinar = new Dictionary<string, bool>();
@@ -76,13 +76,13 @@ namespace MimAcher
             return Ensinar;
         }
 
-        private void preencherEnsinarAluno(Dictionary<string, bool> Ensinar, Aluno aluno)
+        private void PreencherEnsinarAluno(Dictionary<string, bool> Ensinar, Aluno aluno)
         {
             foreach (String strKey in Ensinar.Keys)
             {
                 if (Ensinar[strKey])
                 {
-                    aluno.adicionarEnsinar(strKey);
+                    aluno.AdicionarEnsinar(strKey);
                 }
             }
         }
