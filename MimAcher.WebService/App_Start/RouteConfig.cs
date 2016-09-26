@@ -12,7 +12,7 @@ namespace MimAcher.WebService
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
@@ -20,10 +20,10 @@ namespace MimAcher.WebService
             );
 
             routes.MapRoute(
-                name: "AlunoAprender",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AlunoAprender", action = "Index", id = UrlParameter.Optional }
-            );
+               name: "AlunoAprender",
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "AlunoAprender", action = "Index", id = UrlParameter.Optional }
+           );
 
             routes.MapRoute(
                 name: "Aluno",

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MimAcher.WebService")]
+[assembly: AssemblyTitle("MimAcher.WebService.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MimAcher.WebService")]
+[assembly: AssemblyProduct("MimAcher.WebService.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("abd730cf-ade0-4ee4-a931-388928963d45")]
+[assembly: Guid("f2a6de0c-185e-4ca3-a73d-98c86cf64c06")]
 
 // Version information for an assembly consists of the following four values:
 //
