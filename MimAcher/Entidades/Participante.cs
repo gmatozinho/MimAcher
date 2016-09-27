@@ -37,6 +37,8 @@ namespace MimAcher.Entidades
 
         public string Telefone { get; set; }
 
+        public string Campus { get; set; }
+
 
         //Construtor
         public Participante(Dictionary<string, string> atributos) : base(atributos)
@@ -108,6 +110,7 @@ namespace MimAcher.Entidades
             b.PutString("email", this.Email);
             b.PutString("telefone", this.Telefone);
             b.PutString("nascimento",this.Nascimento);
+            b.PutString("campus", this.Campus);
 
             return b;
         }
