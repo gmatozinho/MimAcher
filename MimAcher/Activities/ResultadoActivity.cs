@@ -26,7 +26,7 @@ namespace MimAcher
             base.OnCreate(bundle);
 
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
+            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
 
             SetContentView(Resource.Layout.Resultado);
 

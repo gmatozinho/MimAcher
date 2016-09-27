@@ -19,35 +19,35 @@ namespace MimAcher.Entidades
 
 
         //Set functions to read and write stuff to database
-        public static void Write(Aluno a)
+        public static void Write(Participante a)
         {
             //TODO
         }
 
-        public static Dictionary<string, List<Aluno>> Match(Aluno a)
+        public static Dictionary<string, List<Participante>> Match(Participante a)
         {
-            Dictionary<string, List<Aluno>> matchs = new Dictionary<string, List<Aluno>>();
+            Dictionary<string, List<Participante>> matchs = new Dictionary<string, List<Participante>>();
 
-            matchs["gostos"] = new List<Aluno>();
-            matchs["interesses"] = new List<Aluno>();
-            matchs["competencias"] = new List<Aluno>();
+            matchs["gostos"] = new List<Participante>();
+            matchs["interesses"] = new List<Participante>();
+            matchs["competencias"] = new List<Participante>();
 
             //TODO: buscar os matchs no banco
 
             return matchs;
         }
 
-        private static void  WriteGosto(Aluno a, string s)
+        private static void  WriteGosto(Participante a, string s)
         {
             //TODO
         }
 
-        private static void WriteInteresse(Aluno a, string s)
+        private static void WriteInteresse(Participante a, string s)
         {
             //TODO
         }
 
-        private static void WriteCompetencia(Aluno a, string s)
+        private static void WriteCompetencia(Participante a, string s)
         {
             //TODO
         }

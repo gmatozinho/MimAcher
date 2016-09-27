@@ -22,7 +22,7 @@ namespace MimAcher
             base.OnCreate(savedInstanceState);
 
             Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);          
+            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -78,7 +78,7 @@ namespace MimAcher
             return Gostos;
         }
 
-        private void PreencherGostosAluno(Dictionary<string, bool> Gostos, Aluno aluno)
+        private void PreencherGostosAluno(Dictionary<string, bool> Gostos, Participante aluno)
         {
             foreach (String strKey in Gostos.Keys)
             {

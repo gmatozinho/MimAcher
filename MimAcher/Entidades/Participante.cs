@@ -13,7 +13,7 @@ using Android.Widget;
 namespace MimAcher.Entidades
 {
     [Serializable]
-    public class Aluno : Usuario
+    public class Participante : Usuario
     {
         public static int TipoUsuario {
             get { return 1; }
@@ -39,7 +39,7 @@ namespace MimAcher.Entidades
 
 
         //Construtor
-        public Aluno(Dictionary<string, string> atributos) : base(atributos)
+        public Participante(Dictionary<string, string> atributos) : base(atributos)
         {
             Gostos = new List<string>();
             Aprender = new List<string>();
@@ -90,9 +90,9 @@ namespace MimAcher.Entidades
             Cursor.Write(this);
         }
 
-        public Dictionary<string, List<Aluno>> Match()
+        public Dictionary<string, List<Participante>> Match()
         {
-            Dictionary<string, List<Aluno>> matchs = Cursor.Match(this);
+            Dictionary<string, List<Participante>> matchs = Cursor.Match(this);
 
             return matchs;
         }

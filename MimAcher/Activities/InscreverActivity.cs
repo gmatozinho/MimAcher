@@ -66,7 +66,7 @@ namespace MimAcher
             };
             
             botao_avançar.Click += delegate {
-                Aluno aluno = this.CriarAluno();
+                Participante aluno = this.CriarAluno();
                 aluno.Commit();
 
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
@@ -76,7 +76,7 @@ namespace MimAcher
             
         }
 
-        private Aluno CriarAluno()
+        private Participante CriarAluno()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
             informacoes["id"] = usuario;
@@ -86,7 +86,7 @@ namespace MimAcher
             informacoes["telefone"] = telefone;
             informacoes["nascimento"] = nascimento;
             
-            Aluno aluno = new Aluno(informacoes);
+            Participante aluno = new Participante(informacoes);
 
             return aluno;
         }
