@@ -16,28 +16,25 @@ namespace MimAcher
     [Activity(Label = "QueroEnsinarActivity", Theme = "@style/Theme.Splash")]
     public class QueroEnsinarActivity : Activity
     {
+        public Bundle aluno_bundle;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
+            aluno_bundle = Intent.GetBundleExtra("aluno");
             Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroEnsinar);
 
-            // Create your application here
-            Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
-            Button ok = FindViewById<Button>(Resource.Id.ok);
-            
-            nome_user.Text = aluno.Nome;
+            var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            //Toolbar will now take on default Action Bar characteristics
+            SetActionBar(toolbar);
+            //You can now use and reference the ActionBar
+            ActionBar.Title = aluno.Nome;
 
-            nome_user.Click += delegate {
-                var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                //mudar para trabalhar com objeto do banco
-                editaractivity.PutExtra("aluno", aluno_bundle);
-                StartActivity(editaractivity);
-            };
+            Button ok = FindViewById<Button>(Resource.Id.ok);
 
             ok.Click += delegate {
                 Dictionary<string, bool> Ensinar = CriarDicionarioEnsinar();
@@ -49,6 +46,30 @@ namespace MimAcher
                 resultadoactivity.PutExtra("aluno", aluno_bundle);
                 StartActivity(resultadoactivity);
             };
+        }
+
+        //Cria o menu de opções
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+
+        //Define as funcionalidades destes menus
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_preferences:
+                    //do something
+                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
+                    //mudar para trabalhar com objeto do banco
+                    editaractivity.PutExtra("aluno", aluno_bundle);
+                    StartActivity(editaractivity);
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         private Dictionary<string, bool> CriarDicionarioEnsinar()

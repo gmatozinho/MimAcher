@@ -1,43 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp">
-        <ImageView
-            android:id="@+id/view_image"
-            android:layout_width="50sp"
-            android:layout_height="50sp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="false"
-            android:layout_marginBottom="2dp"
-            android:src="@drawable/round_button" />
-        <Button
-            android:id="@+id/nome_user"
-            android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?android:attr/actionBarSize"
+            android:background="?android:attr/colorPrimary"
+            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+            android:popupTheme="@android:style/ThemeOverlay.Material.Light"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/view_image"
-            android:text="Fulano"
-            android:textSize="20dp"
-            android:background="@android:color/white"
-            android:layout_marginTop="15dp"
-            android:inputType="text"
-            android:paddingStart="10dp" />
-        <View
-            android:layout_width="wrap_content"
-            android:background="@android:color/black"
-            android:layout_height="1dp"
-            android:id="@+id/name_user_line"
-            android:layout_below="@+id/view_image"
-            android:layout_marginTop="5dp" />
+            android:title="Fulano" />
         <TabHost
             android:id="@android:id/tabhost"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/name_user_line">
+            android:layout_below="@+id/toolbar">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"

@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
+using static Android.Resource;
 
 namespace MimAcher
 {
@@ -17,9 +18,9 @@ namespace MimAcher
     public class InscreverActivity : Activity
     {
         //Initializing variables from layout
-        string usuario = "Fulano";
+        string usuario = null;
         string senha = null;
-        string nome = null;
+        string nome = "Fulano";
         string email = null;
         string nascimento = null;
         string telefone = null;
@@ -31,7 +32,7 @@ namespace MimAcher
 
             // Create your application here
             SetContentView(Resource.Layout.Inscrever);
-
+            
             Button botao_avançar = FindViewById<Button>(Resource.Id.avançar);
             EditText campo_usuario = FindViewById<EditText>(Resource.Id.usuario);
             EditText campo_senha = FindViewById<EditText>(Resource.Id.senha);
