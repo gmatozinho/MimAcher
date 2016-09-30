@@ -30,7 +30,15 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
         }
-        
+
+        public MA_USUARIO ObterUsuarioPorLoginESenha(String login, String senha)
+        {
+            MA_USUARIO usuario = this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login) && l.senha.Equals(senha)).SingleOrDefault();
+
+            //return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login) && l.senha.Equals(senha)).SingleOrDefault();
+            return usuario;
+        }
+
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.Contexto.MA_USUARIO.Add(usuario);
