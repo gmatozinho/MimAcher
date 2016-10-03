@@ -84,8 +84,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\ResultadoActivity.cs" />
     <Compile Include="Activities\ResultadoInformacoesActivity.cs" />
-    <Compile Include="Entidades\Aluno.cs" />
-    <Compile Include="Entidades\AlunoFactory.cs" />
+    <Compile Include="Entidades\Participante.cs" />
+    <Compile Include="Entidades\ParticipanteFactory.cs" />
     <Compile Include="Entidades\Cursor.cs" />
     <Compile Include="Entidades\NAC.cs" />
     <Compile Include="Entidades\Usuario.cs" />

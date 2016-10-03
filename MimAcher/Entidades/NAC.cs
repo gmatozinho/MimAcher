@@ -21,9 +21,11 @@ namespace MimAcher.Entidades
         public Nac(Dictionary<string, string> atributos) : base(atributos)
         {
             this.NomeRepresentante = atributos["nomeRepresentante"];
+            this.Campus = atributos["campus"];
         }
 
         private string NomeRepresentante { get; set; }
+        private string Campus { get; set; }
         
     }
 }

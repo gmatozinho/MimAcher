@@ -12,9 +12,9 @@ using Android.Widget;
 
 namespace MimAcher.Entidades
 {
-    public static class AlunoFactory
+    public static class ParticipanteFactory
     {
-        public static Aluno CriarAluno(Bundle b)
+        public static Participante CriarParticipante(Bundle b)
         {
             Dictionary<string, string> dictionary = new Dictionary<string, string>();
 
@@ -25,7 +25,7 @@ namespace MimAcher.Entidades
             dictionary["nascimento"] = b.GetString("nascimento");
             dictionary["telefone"] = b.GetString("telefone");
 
-            return new Aluno(dictionary);
+            return new Participante(dictionary);
         }
     }
 }

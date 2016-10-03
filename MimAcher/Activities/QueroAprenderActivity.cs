@@ -21,8 +21,8 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
-            aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
+            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
+            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroAprender);
@@ -96,7 +96,7 @@ namespace MimAcher
             return Aprender;
         }
 
-        private void PreencherAprenderAluno(Dictionary<string, bool> Aprender, Aluno aluno)
+        private void PreencherAprenderAluno(Dictionary<string, bool> Aprender, Participante aluno)
         {
             foreach (String strKey in Aprender.Keys)
             {
