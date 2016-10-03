@@ -16,14 +16,14 @@ namespace MimAcher
     [Activity(Label = "QueroEnsinarActivity", Theme = "@style/Theme.Splash")]
     public class QueroEnsinarActivity : Activity
     {
-        public Bundle aluno_bundle;
+        public Bundle participante_bundle;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante aluno = Participante.BundleToParticipante(participante_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroEnsinar);
@@ -38,12 +38,12 @@ namespace MimAcher
 
             ok.Click += delegate {
                 Dictionary<string, bool> Ensinar = CriarDicionarioEnsinar();
-                PreencherEnsinarAluno(Ensinar, aluno);
+                PreencherEnsinarParticipante(Ensinar, aluno);
                 aluno.Commit();
 
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
-                resultadoactivity.PutExtra("aluno", aluno_bundle);
+                resultadoactivity.PutExtra("member", participante_bundle);
                 StartActivity(resultadoactivity);
             };
         }
@@ -65,7 +65,7 @@ namespace MimAcher
                     //do something
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("aluno", aluno_bundle);
+                    editaractivity.PutExtra("member", participante_bundle);
                     StartActivity(editaractivity);
                     return true;
             }
@@ -97,13 +97,13 @@ namespace MimAcher
             return Ensinar;
         }
 
-        private void PreencherEnsinarAluno(Dictionary<string, bool> Ensinar, Participante aluno)
+        private void PreencherEnsinarParticipante(Dictionary<string, bool> Ensinar, Participante Participante)
         {
             foreach (String strKey in Ensinar.Keys)
             {
                 if (Ensinar[strKey])
                 {
-                    aluno.AdicionarEnsinar(strKey);
+                    Participante.AdicionarEnsinar(strKey);
                 }
             }
         }

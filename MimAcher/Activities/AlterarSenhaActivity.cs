@@ -18,8 +18,8 @@ namespace MimAcher.Activities
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
+            Bundle participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             base.OnCreate(savedInstanceState);
 

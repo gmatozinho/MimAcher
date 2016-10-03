@@ -17,7 +17,7 @@ namespace MimAcher
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
     public class EditarPerfilActivity : Activity
     {
-        public Bundle aluno_bundle;
+        public Bundle participante_bundle;
         string email;
         string nascimento;
         string telefone;
@@ -26,8 +26,8 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             // Create your application here
             SetContentView(Resource.Layout.EditarPerfil);
@@ -42,16 +42,16 @@ namespace MimAcher
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = aluno.Nome;
+            ActionBar.Title = participante.Nome;
 
-            telefone_info_user.Hint = aluno.Telefone;
-            email_info_user.Hint = aluno.Email;
-            dt_nascimento_info_user.Hint = aluno.Nascimento;
+            telefone_info_user.Hint = participante.Telefone;
+            email_info_user.Hint = participante.Email;
+            dt_nascimento_info_user.Hint = participante.Nascimento;
 
             //Para alterar
-            email = aluno.Email;
-            telefone = aluno.Telefone;
-            nascimento = aluno.Nascimento;
+            email = participante.Email;
+            telefone = participante.Telefone;
+            nascimento = participante.Nascimento;
 
             //Pegar as informações inseridas
             email_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
@@ -74,7 +74,7 @@ namespace MimAcher
             {
                 var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
                 //mudar para trabalhar com objeto do banco
-                alterarsenhaactivity.PutExtra("aluno", aluno_bundle);
+                alterarsenhaactivity.PutExtra("member", participante_bundle);
                 StartActivity(alterarsenhaactivity);
             };
 
@@ -83,8 +83,8 @@ namespace MimAcher
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
                 //deverá rolar um commit para salvar alterações no banco
-                AlterarAluno(aluno);
-                resultadoactivity.PutExtra("aluno", aluno.ToBundle());
+                AlterarParticipante(participante);
+                resultadoactivity.PutExtra("member", participante.ParticipanteToBundle());
                 StartActivity(resultadoactivity);
             };
         }
@@ -109,13 +109,12 @@ namespace MimAcher
             return base.OnOptionsItemSelected(item);
         }
 
-            //Mostrar as informações do usuário retiradas do banco
-        }
-        private void AlterarAluno(Participante aluno)
+         
+        private void AlterarParticipante(Participante participante)
         {
-            aluno.Email = email;
-            aluno.Telefone = telefone;
-            aluno.Nascimento = nascimento;
+            participante.Email = email;
+            participante.Telefone = telefone;
+            participante.Nascimento = nascimento;
         }
     }
 }

@@ -20,15 +20,15 @@ namespace MimAcher
     public class ResultadoActivity : TabActivity
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
-        public Bundle aluno_bundle;
+        public Bundle participante_bundle;
 
         protected override void OnCreate(Bundle bundle)
         {
 
             base.OnCreate(bundle);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             SetContentView(Resource.Layout.Resultado);
 
@@ -36,7 +36,7 @@ namespace MimAcher
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = aluno.Nome;
+            ActionBar.Title = participante.Nome;
 
             CreateTab(typeof(ResultGostosActivity), "gosto", "Gosto", Resource.Drawable.abc_tab_indicator_material);
             CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material);
@@ -65,7 +65,7 @@ namespace MimAcher
                     //do something
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("aluno", aluno_bundle);
+                    editaractivity.PutExtra("aluno", participante_bundle);
                     StartActivity(editaractivity);
                     return true;
             }

@@ -41,6 +41,7 @@ namespace MimAcher
             EditText campo_dt_nascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             EditText campo_telefone = FindViewById<EditText>(Resource.Id.telefone);
 
+
             //Pegar as informações inseridas
             campo_usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
                 usuario = u.Text.ToString();
@@ -66,18 +67,20 @@ namespace MimAcher
                 telefone = t.Text.ToString();
             };
             
+
             botao_avançar.Click += delegate {
-                Participante aluno = this.CriarAluno();
-                aluno.Commit();
+                Participante participante = this.CriarParticipante();
+                participante.Commit();
 
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
-                escolherfotoactivity.PutExtra("aluno", aluno.ToBundle());
+                escolherfotoactivity.PutExtra("member", participante.ParticipanteToBundle());
                 StartActivity(escolherfotoactivity);
             };
             
         }
 
-        private Participante CriarAluno()
+
+        private Participante CriarParticipante()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
             informacoes["id"] = usuario;
@@ -86,10 +89,10 @@ namespace MimAcher
             informacoes["nome"] = nome;
             informacoes["telefone"] = telefone;
             informacoes["nascimento"] = nascimento;
-            
-            Participante aluno = new Participante(informacoes);
 
-            return aluno;
+            Participante participante = new Participante(informacoes);
+
+            return participante;
         }
     }
 }

@@ -17,14 +17,14 @@ namespace MimAcher
     [Activity(Label = "GostosActivity", Theme = "@style/Theme.Splash")]
     public class GostosActivity : Activity
     {
-        public Bundle aluno_bundle;
+        public Bundle participante_bundle;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Participante aluno = ParticipanteFactory.CriarParticipante(aluno_bundle);          
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
@@ -33,7 +33,7 @@ namespace MimAcher
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = aluno.Nome;
+            ActionBar.Title = participante.Nome;
 
 
             //Button
@@ -41,11 +41,11 @@ namespace MimAcher
 
             ok.Click += delegate {
                 Dictionary<string, bool> Gostos = CriarDicionarioGostos();
-                PreencherGostosAluno(Gostos, aluno);
-                aluno.Commit();
+                PreencherGostosParticipante(Gostos, participante);
+                participante.Commit();
 
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
-                queroaprenderactivity.PutExtra("aluno", aluno_bundle);
+                queroaprenderactivity.PutExtra("member", participante_bundle);
                 StartActivity(queroaprenderactivity);
             };
 
@@ -68,7 +68,7 @@ namespace MimAcher
                     //do something
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("aluno", aluno_bundle);
+                    editaractivity.PutExtra("member", participante_bundle);
                     StartActivity(editaractivity);
                     return true;
             }
@@ -100,7 +100,7 @@ namespace MimAcher
             return Gostos;
         }
 
-        private void PreencherGostosAluno(Dictionary<string, bool> Gostos, Participante aluno)
+        private void PreencherGostosParticipante(Dictionary<string, bool> Gostos, Participante aluno)
         {
             foreach (String strKey in Gostos.Keys)
             {

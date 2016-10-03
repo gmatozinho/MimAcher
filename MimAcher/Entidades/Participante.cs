@@ -99,8 +99,22 @@ namespace MimAcher.Entidades
             return matchs;
         }
 
+        public static Participante BundleToParticipante(Bundle b)
+        {
+            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+
+            dictionary["nome"] = b.GetString("nome");
+            dictionary["id"] = b.GetString("id");
+            dictionary["senha"] = b.GetString("senha");
+            dictionary["email"] = b.GetString("email");
+            dictionary["nascimento"] = b.GetString("nascimento");
+            dictionary["telefone"] = b.GetString("telefone");
+
+            return new Participante(dictionary);
+        }
+
         //Função para utilizar Bundle e enviar objeto entre activities
-        public Bundle ToBundle()
+        public Bundle ParticipanteToBundle()
         {
             Bundle b = new Bundle();
 
@@ -114,5 +128,6 @@ namespace MimAcher.Entidades
 
             return b;
         }
+
     }
 }
