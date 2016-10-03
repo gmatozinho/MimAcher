@@ -65,7 +65,7 @@ namespace MimAcher
                     //do something
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("aluno", participante_bundle);
+                    editaractivity.PutExtra("member", participante_bundle);
                     StartActivity(editaractivity);
                     return true;
             }

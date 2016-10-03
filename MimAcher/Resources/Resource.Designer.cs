@@ -1660,8 +1660,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0073
 			public const int email = 2131427443;
 			
-			// aapt resource value: 0x7f0b009d
-			public const int email_info = 2131427485;
+			// aapt resource value: 0x7f0b009b
+			public const int email_info = 2131427483;
 			
 			// aapt resource value: 0x7f0b005a
 			public const int email_info_user = 2131427418;
@@ -1669,8 +1669,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0074
 			public const int email_line = 2131427444;
 			
-			// aapt resource value: 0x7f0b009c
-			public const int email_result = 2131427484;
+			// aapt resource value: 0x7f0b009a
+			public const int email_result = 2131427482;
 			
 			// aapt resource value: 0x7f0b0059
 			public const int email_user = 2131427417;
@@ -1744,11 +1744,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0081
 			public const int media_actions = 2131427457;
 			
-			// aapt resource value: 0x7f0b009e
-			public const int menu_preferences = 2131427486;
+			// aapt resource value: 0x7f0b009c
+			public const int menu_preferences = 2131427484;
 			
-			// aapt resource value: 0x7f0b009f
-			public const int menu_search = 2131427487;
+			// aapt resource value: 0x7f0b009d
+			public const int menu_search = 2131427485;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int middle = 2131427355;
@@ -1756,8 +1756,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0014
 			public const int multiply = 2131427348;
 			
-			// aapt resource value: 0x7f0b0099
-			public const int name_user_line13 = 2131427481;
+			// aapt resource value: 0x7f0b0097
+			public const int name_user_line13 = 2131427479;
 			
 			// aapt resource value: 0x7f0b001f
 			public const int never = 2131427359;
@@ -1765,8 +1765,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0071
 			public const int nome = 2131427441;
 			
-			// aapt resource value: 0x7f0b0098
-			public const int nome_user13 = 2131427480;
+			// aapt resource value: 0x7f0b0096
+			public const int nome_user13 = 2131427478;
 			
 			// aapt resource value: 0x7f0b000e
 			public const int none = 2131427342;
@@ -1783,8 +1783,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b008b
 			public const int o_que_vc_aprender = 2131427467;
 			
-			// aapt resource value: 0x7f0b0095
-			public const int o_que_vc_ensinar = 2131427477;
+			// aapt resource value: 0x7f0b0094
+			public const int o_que_vc_ensinar = 2131427476;
 			
 			// aapt resource value: 0x7f0b0062
 			public const int o_que_vc_gosta = 2131427426;
@@ -1793,13 +1793,7 @@ namespace MimAcher
 			public const int ok = 2131427436;
 			
 			// aapt resource value: 0x7f0b006b
-			public const int outros1 = 2131427435;
-			
-			// aapt resource value: 0x7f0b0094
-			public const int outros2 = 2131427476;
-			
-			// aapt resource value: 0x7f0b0096
-			public const int outros3 = 2131427478;
+			public const int outros = 2131427435;
 			
 			// aapt resource value: 0x7f0b002d
 			public const int parentPanel = 2131427373;
@@ -1924,8 +1918,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b000b
 			public const int tabMode = 2131427339;
 			
-			// aapt resource value: 0x7f0b009b
-			public const int tel_number = 2131427483;
+			// aapt resource value: 0x7f0b0099
+			public const int tel_number = 2131427481;
 			
 			// aapt resource value: 0x7f0b0058
 			public const int tel_number_user = 2131427416;
@@ -1936,8 +1930,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0078
 			public const int telefone_line = 2131427448;
 			
-			// aapt resource value: 0x7f0b009a
-			public const int telefone_result = 2131427482;
+			// aapt resource value: 0x7f0b0098
+			public const int telefone_result = 2131427480;
 			
 			// aapt resource value: 0x7f0b0057
 			public const int telefone_user = 2131427415;
@@ -1981,8 +1975,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f0b0069
 			public const int viajar = 2131427433;
 			
-			// aapt resource value: 0x7f0b0097
-			public const int view_image13 = 2131427479;
+			// aapt resource value: 0x7f0b0095
+			public const int view_image13 = 2131427477;
 			
 			// aapt resource value: 0x7f0b008c
 			public const int violao = 2131427468;
