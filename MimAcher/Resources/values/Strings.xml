@@ -2,4 +2,5 @@
 <resources>
     <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">MimAcher</string>
+    <string name="Text">Escolha uma Opção:</string>
 </resources>

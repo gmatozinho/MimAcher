@@ -16,39 +16,59 @@ namespace MimAcher
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
     public class QueroAprenderActivity : Activity
     {
+        public Bundle participante_bundle;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.CriarAluno(aluno_bundle);
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroAprender);
 
-            // Create your application here
-            Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
+            var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            //Toolbar will now take on default Action Bar characteristics
+            SetActionBar(toolbar);
+            //You can now use and reference the ActionBar
+            ActionBar.Title = participante.Nome;
+
             Button ok = FindViewById<Button>(Resource.Id.ok);
-
-            nome_user.Text = aluno.Nome;
-
-            nome_user.Click += delegate {
-                var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                //mudar para trabalhar com objeto do banco
-                editaractivity.PutExtra("aluno", aluno_bundle);
-                StartActivity(editaractivity);
-            };
 
             ok.Click += delegate {
                 Dictionary<string, bool> Aprender = CriarDicionarioAprender();
-                PreencherAprenderAluno(Aprender, aluno);
-                aluno.Commit();
+                PreencherAprenderParticipante(Aprender, participante);
+                participante.Commit();
 
                 var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
                 //mudar para trabalhar com objeto do banco
-                queroensinaractivity.PutExtra("aluno", aluno_bundle);
+                queroensinaractivity.PutExtra("member", participante_bundle);
                 StartActivity(queroensinaractivity);
             };
+        }
+
+        //Cria o menu de opções
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+
+        //Define as funcionalidades destes menus
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_preferences:
+                    //do something
+                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
+                    //mudar para trabalhar com objeto do banco
+                    editaractivity.PutExtra("member", participante_bundle);
+                    StartActivity(editaractivity);
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
         }
 
         private Dictionary<string, bool> CriarDicionarioAprender()
@@ -76,13 +96,13 @@ namespace MimAcher
             return Aprender;
         }
 
-        private void PreencherAprenderAluno(Dictionary<string, bool> Aprender, Aluno aluno)
+        private void PreencherAprenderParticipante(Dictionary<string, bool> Aprender, Participante participante)
         {
             foreach (String strKey in Aprender.Keys)
             {
                 if (Aprender[strKey])
                 {
-                    aluno.AdicionarAprender(strKey);
+                    participante.AdicionarAprender(strKey);
                 }
             }
         }

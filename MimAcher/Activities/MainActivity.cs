@@ -48,9 +48,9 @@ namespace MimAcher
 
             //Login button click action, e passando o nome do usuário para próxima activity
             entrar.Click += delegate {
-                Aluno aluno = this.CriarAluno();
+                Participante aluno = this.CriarParticipante();
                 var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
-                resultadoActivity.PutExtra("aluno",aluno.ToBundle());
+                resultadoActivity.PutExtra("member",aluno.ParticipanteToBundle());
                 StartActivity(resultadoActivity);
             };
             //Tenho que fazer a autenticação no banco de dados
@@ -63,7 +63,8 @@ namespace MimAcher
         }
 
         //função temporaria
-        private Aluno CriarAluno()
+        //deve pegar o usuario no banco
+        private Participante CriarParticipante()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
             informacoes["id"] = usuario;
@@ -73,7 +74,7 @@ namespace MimAcher
             informacoes["telefone"] = telefone;
             informacoes["nascimento"] = nascimento;
 
-            Aluno aluno = new Aluno(informacoes);
+            Participante aluno = new Participante(informacoes);
 
             return aluno;
         }
