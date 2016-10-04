@@ -12,27 +12,20 @@ using Android.Widget;
 
 namespace MimAcher.Entidades
 {
-    public class NAC : Usuario
+    public class Nac : Usuario
     {
-        private string nomeRepresentante;
-
         public static int TipoUsuario {
             get { return 2; }
         }
 
-        public NAC(Dictionary<string, string> atributos) : base(atributos)
+        public Nac(Dictionary<string, string> atributos) : base(atributos)
         {
             this.NomeRepresentante = atributos["nomeRepresentante"];
+            this.Campus = atributos["campus"];
         }
 
-        public string NomeRepresentante {
-            get {
-                return nomeRepresentante;
-            }
-
-            set {
-                nomeRepresentante = value;
-            }
-        }
+        private string NomeRepresentante { get; set; }
+        private string Campus { get; set; }
+        
     }
 }

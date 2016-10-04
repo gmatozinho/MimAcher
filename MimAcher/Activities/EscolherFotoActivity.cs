@@ -20,7 +20,7 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
+            Bundle participante_bundle = Intent.GetBundleExtra("member");
             // Create your application here
             SetContentView(Resource.Layout.EscolherFoto);
 
@@ -40,7 +40,7 @@ namespace MimAcher
 
             avançar.Click += delegate {
                 var gostosactivity = new Intent(this, typeof(GostosActivity));
-                gostosactivity.PutExtra("aluno", aluno_bundle);
+                gostosactivity.PutExtra("member", participante_bundle);
                 StartActivity(gostosactivity);
             };
         }

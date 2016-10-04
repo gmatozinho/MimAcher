@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -16,44 +17,65 @@ namespace MimAcher
     [Activity(Label = "GostosActivity", Theme = "@style/Theme.Splash")]
     public class GostosActivity : Activity
     {
+        public Bundle participante_bundle;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            //TODO ACERTAR OS OUTROS
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);          
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);          
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Gostos);
 
-            // Create your application here
-            Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
+            var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            //Toolbar will now take on default Action Bar characteristics
+            SetActionBar(toolbar);
+            //You can now use and reference the ActionBar
+            ActionBar.Title = participante.Nome;
+
+
+            //Button
             Button ok = FindViewById<Button>(Resource.Id.ok);
-            
-            nome_user.Text = aluno.Nome;
-            
-            nome_user.Click += delegate {
-                var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                //só falta atualizar
-                editaractivity.PutExtra("aluno", aluno_bundle);
-                StartActivity(editaractivity);
-            };
-            
+
             ok.Click += delegate {
-                Dictionary<string, bool> Gostos = criarDicionarioGostos();
-                preencherGostosAluno(Gostos, aluno);
-                aluno.commit();
+                Dictionary<string, bool> Gostos = CriarDicionarioGostos();
+                PreencherGostosParticipante(Gostos, participante);
+                participante.Commit();
 
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
-                //mudar para trabalhar com objeto do banco
-                queroaprenderactivity.PutExtra("aluno", aluno_bundle);
+                queroaprenderactivity.PutExtra("member", participante_bundle);
                 StartActivity(queroaprenderactivity);
             };
 
         }
 
-        private Dictionary<string, bool> criarDicionarioGostos()
+        //Cria o menu de opções
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+
+        //Define as funcionalidades destes menus
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_preferences:
+                    //do something
+                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
+                    //mudar para trabalhar com objeto do banco
+                    editaractivity.PutExtra("member", participante_bundle);
+                    StartActivity(editaractivity);
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+        
+        private Dictionary<string, bool> CriarDicionarioGostos()
         {
             //Checkbox Variables
             Dictionary<string, bool> Gostos = new Dictionary<string, bool>();
@@ -78,13 +100,13 @@ namespace MimAcher
             return Gostos;
         }
 
-        private void preencherGostosAluno(Dictionary<string, bool> Gostos, Aluno aluno)
+        private void PreencherGostosParticipante(Dictionary<string, bool> Gostos, Participante aluno)
         {
             foreach (String strKey in Gostos.Keys)
             {
                 if (Gostos[strKey])
                 {
-                    aluno.adicionarGosto(strKey);
+                    aluno.AdicionarGosto(strKey);
                 }
             }
         }
