@@ -48,5 +48,37 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        [HttpPost]
+        public ActionResult Add(List<Gosto> gosto)
+        {
+            JsonResult jsonResult;
+            
+            MA_GOSTO ma_gosto = new MA_GOSTO();
+
+            ma_gosto.nome = gosto[0].nome;
+
+            if(gosto[0].nome == null)
+            {
+                jsonResult = Json(new
+                {
+                    data = "Valor Incorreto"
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+
+            GestorDeGosto.InserirNovoGosto(ma_gosto);
+
+
+            jsonResult = Json(new
+            {
+                data = ma_gosto
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
     }
 }
