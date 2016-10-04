@@ -10,16 +10,28 @@
         android:layout_height="130dp"
         android:layout_gravity="center"
         android:id="@+id/logo"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginRight="40dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/campus"
+        android:layout_height="40sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:id="@+id/campus_line" />
     <EditText xmlns:p3="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:id="@+id/usuario"
         android:textColor="#A9A9A9"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="0.0dp"
+        android:layout_marginTop="10dp"
         android:textSize="22dp"
         android:hint="Usuário"
         android:background="#ffffff"
@@ -140,8 +152,44 @@
         android:layout_marginLeft="42dp"
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
-        android:layout_marginBottom="40dp"
         android:id="@+id/telefone_line" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/user_type"
+        android:layout_height="40sp"
+        android:layout_marginTop="6dp"
+        android:tag="@string/Text"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:id="@+id/spinner_user_type_line" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dt_fimcurso"
+        android:textSize="22dp"
+        android:textColor="#A9A9A9"
+        android:visibility="invisible"
+        android:layout_marginLeft="50dp"
+        android:hint="Data de Formação"
+        android:background="#ffffff"
+        android:textColorHint="#A9A9A9"
+        android:layout_marginTop="10dp"
+        android:inputType="date" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="2dp"
+        android:visibility="invisible"
+        android:id="@+id/conclusão_curso_line" />
     <Button
         android:text="AVANÇAR"
         android:textColor="@android:color/black"
@@ -154,5 +202,5 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC"
-        android:layout_marginTop="0.0dp" />
+        android:layout_marginTop="22dp" />
 </LinearLayout>
