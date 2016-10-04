@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+    <!--Other widgets-->
+    <!--Custom second toolbar at the bottom with an accent color for the background.
+            Additionally, you can set any custom property and make the height larger or smaller.-->
+        <Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?android:attr/actionBarSize"
+            android:background="?android:attr/colorAccent"
+            android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
+            android:popupTheme="@android:style/ThemeOverlay.Material.Light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+ </LinearLayout>

@@ -17,6 +17,7 @@ namespace MimAcher
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
     public class EditarPerfilActivity : Activity
     {
+        public Bundle participante_bundle;
         string email;
         string nascimento;
         string telefone;
@@ -25,68 +26,95 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle aluno_bundle = Intent.GetBundleExtra("aluno");
-            Aluno aluno = AlunoFactory.criarAluno(aluno_bundle);
+            participante_bundle = Intent.GetBundleExtra("member");
+            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             // Create your application here
             SetContentView(Resource.Layout.EditarPerfil);
 
-            Button nome_user = FindViewById<Button>(Resource.Id.nome_user);
             Button salvar = FindViewById<Button>(Resource.Id.salvar);
-            Button alterar_senha = FindViewById<Button>(Resource.Id.alterar_senha);
+            TextView alterar_senha = FindViewById<TextView>(Resource.Id.alterar_senha);
             EditText telefone_info_user = FindViewById<EditText>(Resource.Id.tel_number_user);
             EditText email_info_user = FindViewById<EditText>(Resource.Id.email_info_user);
             EditText dt_nascimento_info_user = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
 
-            nome_user.Text = aluno.Nome;
-            telefone_info_user.Hint = aluno.Telefone;
-            email_info_user.Hint = aluno.Email;
-            dt_nascimento_info_user.Hint = aluno.Nascimento;
+            var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            //Toolbar will now take on default Action Bar characteristics
+            SetActionBar(toolbar);
+            //You can now use and reference the ActionBar
+            ActionBar.Title = participante.Nome;
+
+            telefone_info_user.Hint = participante.Telefone;
+            email_info_user.Hint = participante.Email;
+            dt_nascimento_info_user.Hint = participante.Nascimento;
 
             //Para alterar
-            email = aluno.Email;
-            telefone = aluno.Telefone;
-            nascimento = aluno.Nascimento;
+            email = participante.Email;
+            telefone = participante.Telefone;
+            nascimento = participante.Nascimento;
 
             //Pegar as informações inseridas
-            email_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
+            email_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+            {
                 email = e.Text.ToString();
             };
 
-            dt_nascimento_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
+            dt_nascimento_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) =>
+            {
                 nascimento = n.Text.ToString();
             };
 
-            telefone_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) => {
+            telefone_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) =>
+            {
                 telefone = t.Text.ToString();
             };
 
 
-            alterar_senha.Click += delegate {
+            alterar_senha.Click += delegate
+            {
                 var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
                 //mudar para trabalhar com objeto do banco
-                alterarsenhaactivity.PutExtra("aluno", aluno_bundle);
+                alterarsenhaactivity.PutExtra("member", participante_bundle);
                 StartActivity(alterarsenhaactivity);
             };
 
-            salvar.Click += delegate {
+            salvar.Click += delegate
+            {
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
                 //deverá rolar um commit para salvar alterações no banco
-                alterarAluno(aluno);
-                resultadoactivity.PutExtra("aluno", aluno.toBundle());
+                AlterarParticipante(participante);
+                resultadoactivity.PutExtra("member", participante.ParticipanteToBundle());
                 StartActivity(resultadoactivity);
             };
-
-
-
-            //Mostrar as informações do usuário retiradas do banco
         }
-        private void alterarAluno(Aluno aluno)
+
+            //Cria o menu de opções
+        public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            aluno.Email = email;
-            aluno.Telefone = telefone;
-            aluno.Nascimento = nascimento;
+            MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+
+        //Define as funcionalidades destes menus
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_preferences:
+                    //do something
+                    return true;
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
+         
+        private void AlterarParticipante(Participante participante)
+        {
+            participante.Email = email;
+            participante.Telefone = telefone;
+            participante.Nascimento = nascimento;
         }
     }
 }
