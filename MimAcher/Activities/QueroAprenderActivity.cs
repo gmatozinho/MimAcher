@@ -60,6 +60,14 @@ namespace MimAcher
         {
             switch (item.ItemId)
             {
+                case Resource.Id.menu_home:
+                    //do something
+                    var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
+                    //mudar para trabalhar com objeto do banco
+                    resultadoctivity.PutExtra("member", participante_bundle);
+                    StartActivity(resultadoctivity);
+                    return true;
+
                 case Resource.Id.menu_preferences:
                     //do something
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
