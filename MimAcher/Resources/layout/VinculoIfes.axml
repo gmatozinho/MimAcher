@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="?android:attr/colorPrimary"
+        android:popupTheme="@android:style/ThemeOverlay.Material.Light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:title="Vínculo com a Instituição"
+        android:titleTextColor="#ffffffff"
+        android:subtitleTextColor="#ffff0000"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="150dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:id="@+id/logo"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp" />
+    <TextView xmlns:p3="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/text_campus"
+        android:textColor="#A9A9A9"
+        android:layout_marginLeft="42dp"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text="Escolha um Campus:"
+        android:background="#ffffff"
+        android:singleLine="true"
+        android:lines="1"
+        android:textColorHint="#A9A9A9"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/campus"
+        android:layout_height="30sp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:id="@+id/campus_line" />
+    <TextView xmlns:p3="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:id="@+id/text_vinculo"
+        android:textColor="#A9A9A9"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:text="Escolha sua Função:"
+        android:background="#ffffff"
+        android:singleLine="true"
+        android:lines="1"
+        android:textColorHint="#A9A9A9"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="42dp"
+        android:layout_marginBottom="5dp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/user_type"
+        android:layout_height="30sp"
+        android:tag="@string/Text"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:id="@+id/spinner_user_type_line" />
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/dt_fimcurso"
+        android:textSize="20dp"
+        android:textColor="#A9A9A9"
+        android:visibility="invisible"
+        android:layout_marginLeft="50dp"
+        android:hint="Data de Formação"
+        android:background="#ffffff"
+        android:textColorHint="#A9A9A9"
+        android:layout_marginTop="15dp"
+        android:inputType="date" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#A9A9A9"
+        android:layout_height="1dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:layout_marginTop="2dp"
+        android:visibility="invisible"
+        android:id="@+id/conclusão_curso_line" />
+    <Button
+        android:text="AVANÇAR"
+        android:textColor="@android:color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:id="@+id/avançar"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:textStyle="normal"
+        android:background="#DCDCDC"
+        android:layout_marginTop="60dp" />
+</LinearLayout>
