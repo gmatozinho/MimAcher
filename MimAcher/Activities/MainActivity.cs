@@ -7,6 +7,7 @@ using Android.Widget;
 using Android.OS;
 using MimAcher.Entidades;
 using System.Collections.Generic;
+using MimAcher.Activities;
 
 namespace MimAcher
 {
@@ -58,7 +59,7 @@ namespace MimAcher
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
             inscrevase.Click += delegate {
-                StartActivity(typeof(InscreverActivity));
+                StartActivity(typeof(VinculoIfesActivity));
             };
         }
 
