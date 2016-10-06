@@ -48,6 +48,12 @@ namespace MimAcher.Activities
             var escolha_campus = campus.SelectedItem;
             campus.ItemSelected += spinner_ItemSelected_campus;
 
+            var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            //Toolbar will now take on default Action Bar characteristics
+            SetActionBar(toolbar);
+            //You can now use and reference the ActionBar
+            //ActionBar.SetLogo(Resource.Drawable.icone_actionbar);
+
 
             //Escolhendo tipo de usuário
             var opcoes_tipo_usuario = new List<string>() { "Aluno", "Ex-Aluno", "Servidor" };

@@ -37,6 +37,7 @@ namespace MimAcher
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = participante.Nome;
+            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
 
             CreateTab(typeof(ResultGostosActivity), "gosto", "Gosto", Resource.Drawable.abc_tab_indicator_material);
             CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material);

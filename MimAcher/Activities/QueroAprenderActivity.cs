@@ -32,6 +32,7 @@ namespace MimAcher
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = participante.Nome;
+            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
 
             Button ok = FindViewById<Button>(Resource.Id.ok);
 

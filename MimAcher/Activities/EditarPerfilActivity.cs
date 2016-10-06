@@ -43,6 +43,7 @@ namespace MimAcher
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = participante.Nome;
+            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
 
             telefone_info_user.Hint = participante.Telefone;
             email_info_user.Hint = participante.Email;
