@@ -109,6 +109,7 @@ namespace MimAcher.Entidades
             dictionary["email"] = b.GetString("email");
             dictionary["nascimento"] = b.GetString("nascimento");
             dictionary["telefone"] = b.GetString("telefone");
+            dictionary["campus"] = b.GetString("campus");
 
             return new Participante(dictionary);
         }
