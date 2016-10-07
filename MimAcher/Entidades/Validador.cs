@@ -30,11 +30,7 @@ namespace MimAcher.Entidades
 
         public static Boolean ValidarNome(String nome)
         {
-            if (nome.Equals(""))
-            {
-                return false;
-            }
-            return true;
+            return !nome.Equals("");
         }
 
         public static Boolean ValidarData(String data)
@@ -48,10 +44,8 @@ namespace MimAcher.Entidades
 
         public static Boolean ValidarTelefone(String telefone)
         {
-            if (Regex.Match("(27)"+ telefone, @"^[2-9][0-9]{7,8}$").Success)
-                return true;
-
-            return false;
+            Regex r = new Regex(@"^[2-9][0-9]{7,8}$");
+            return ((r.Match("27" + telefone)).Success);
         }
 
         public static List<string> ValidarEntradas(Dictionary<string, string> entradas)

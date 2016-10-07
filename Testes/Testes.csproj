@@ -59,55 +59,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestarFuncoesDeValidacaoDeCamposSteps.cs" />
     <Compile Include="Tests.cs" />
-    <Compile Include="ValidateBundlePassing.feature.cs" />
-    <Compile Include="ValidateBundlePassing1.feature.cs">
+    <Compile Include="ValidarCampos.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ValidateBundlePassing.feature</DependentUpon>
+      <DependentUpon>ValidarCampos.feature</DependentUpon>
     </Compile>
-    <Compile Include="ValidateFields.feature.cs" />
-    <Compile Include="ValidateFields1.feature.cs">
+    <Compile Include="ValidarCursor.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ValidateFields.feature</DependentUpon>
+      <DependentUpon>ValidarCursor.feature</DependentUpon>
     </Compile>
-    <Compile Include="ValidateFieldsSteps.cs" />
-    <Compile Include="ValidateLogin.feature.cs" />
-    <Compile Include="ValidateLogin1.feature.cs">
+    <Compile Include="ValidarMatchs.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ValidateLogin.feature</DependentUpon>
+      <DependentUpon>ValidarMatchs.feature</DependentUpon>
     </Compile>
-    <Compile Include="ValidateMatches.feature.cs" />
-    <Compile Include="ValidateMatches1.feature.cs">
+    <Compile Include="ValidarParticipanteBundle.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ValidateMatches.feature</DependentUpon>
+      <DependentUpon>ValidarParticipanteBundle.feature</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="ValidateBundlePassing.feature">
+    <None Include="ValidarCampos.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidateBundlePassing1.feature.cs</LastGenOutput>
+      <LastGenOutput>ValidarCampos.feature.cs</LastGenOutput>
     </None>
-    <None Include="ValidateFields.feature">
+    <None Include="ValidarCursor.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidateFields1.feature.cs</LastGenOutput>
+      <LastGenOutput>ValidarCursor.feature.cs</LastGenOutput>
     </None>
-    <None Include="ValidateLogin.feature">
+    <None Include="ValidarMatchs.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidateLogin1.feature.cs</LastGenOutput>
+      <LastGenOutput>ValidarMatchs.feature.cs</LastGenOutput>
     </None>
-    <None Include="ValidateMatches.feature">
+    <None Include="ValidarParticipanteBundle.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidateMatches1.feature.cs</LastGenOutput>
+      <LastGenOutput>ValidarParticipanteBundle.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MimAcher\MimAcher.csproj">
+      <Project>{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}</Project>
+      <Name>MimAcher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

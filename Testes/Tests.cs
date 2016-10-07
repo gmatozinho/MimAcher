@@ -1,9 +1,5 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Xamarin.UITest;
-using Xamarin.UITest.Queries;
 using Xamarin.UITest.Android;
 
 namespace UITest1
@@ -18,7 +14,7 @@ namespace UITest1
         {
             app = ConfigureApp
                 .Android
-                .ApkFile("C:/Users/Cayo/Source/Repos/MimAcher/MimAcher/bin/Release/MimAcher.MimAcher.apk")
+                .ApkFile("../../../MimAcher/bin/Release/MimAcher.MimAcher.apk")
                 .StartApp();
         }
 
@@ -26,7 +22,7 @@ namespace UITest1
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
-
         }
+        
     }
 }
