@@ -44,8 +44,8 @@ namespace MimAcher.Entidades
 
         public static Boolean ValidarTelefone(String telefone)
         {
-            Regex r = new Regex(@"^[2-9][0-9]{7,8}$");
-            return ((r.Match("27" + telefone)).Success);
+            int numero;
+            return int.TryParse(telefone, out numero);
         }
 
         public static List<string> ValidarEntradas(Dictionary<string, string> entradas)
