@@ -30,8 +30,7 @@ namespace MimAcher.Entidades
 
             using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
             {
-                string json = "{\"user\":\"test\"," +
-                              "\"password\":\"bla\"}";
+                string json = "";
 
                 streamWriter.Write(json);
                 streamWriter.Flush();
