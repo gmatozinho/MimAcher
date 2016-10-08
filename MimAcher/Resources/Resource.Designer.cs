@@ -32,14 +32,20 @@ namespace MimAcher
 			global::com.refractored.fab.Resource.Attribute.fab_colorRipple = global::MimAcher.Resource.Attribute.fab_colorRipple;
 			global::com.refractored.fab.Resource.Attribute.fab_shadow = global::MimAcher.Resource.Attribute.fab_shadow;
 			global::com.refractored.fab.Resource.Attribute.fab_size = global::MimAcher.Resource.Attribute.fab_size;
+			global::com.refractored.fab.Resource.Attribute.layoutManager = global::MimAcher.Resource.Attribute.layoutManager;
+			global::com.refractored.fab.Resource.Attribute.reverseLayout = global::MimAcher.Resource.Attribute.reverseLayout;
+			global::com.refractored.fab.Resource.Attribute.spanCount = global::MimAcher.Resource.Attribute.spanCount;
+			global::com.refractored.fab.Resource.Attribute.stackFromEnd = global::MimAcher.Resource.Attribute.stackFromEnd;
 			global::com.refractored.fab.Resource.Color.fab_material_blue_500 = global::MimAcher.Resource.Color.fab_material_blue_500;
 			global::com.refractored.fab.Resource.Dimension.fab_elevation_lollipop = global::MimAcher.Resource.Dimension.fab_elevation_lollipop;
 			global::com.refractored.fab.Resource.Dimension.fab_scroll_threshold = global::MimAcher.Resource.Dimension.fab_scroll_threshold;
 			global::com.refractored.fab.Resource.Dimension.fab_shadow_size = global::MimAcher.Resource.Dimension.fab_shadow_size;
 			global::com.refractored.fab.Resource.Dimension.fab_size_mini = global::MimAcher.Resource.Dimension.fab_size_mini;
 			global::com.refractored.fab.Resource.Dimension.fab_size_normal = global::MimAcher.Resource.Dimension.fab_size_normal;
+			global::com.refractored.fab.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame = global::MimAcher.Resource.Dimension.item_touch_helper_max_drag_scroll_per_frame;
 			global::com.refractored.fab.Resource.Drawable.fab_shadow = global::MimAcher.Resource.Drawable.fab_shadow;
 			global::com.refractored.fab.Resource.Drawable.fab_shadow_mini = global::MimAcher.Resource.Drawable.fab_shadow_mini;
+			global::com.refractored.fab.Resource.Id.item_touch_helper_previous_elevation = global::MimAcher.Resource.Id.item_touch_helper_previous_elevation;
 			global::com.refractored.fab.Resource.Id.mini = global::MimAcher.Resource.Id.mini;
 			global::com.refractored.fab.Resource.Id.normal = global::MimAcher.Resource.Id.normal;
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton = global::MimAcher.Resource.Styleable.FloatingActionButton;
@@ -49,6 +55,12 @@ namespace MimAcher
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_colorRipple = global::MimAcher.Resource.Styleable.FloatingActionButton_fab_colorRipple;
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_shadow = global::MimAcher.Resource.Styleable.FloatingActionButton_fab_shadow;
 			global::com.refractored.fab.Resource.Styleable.FloatingActionButton_fab_size = global::MimAcher.Resource.Styleable.FloatingActionButton_fab_size;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView = global::MimAcher.Resource.Styleable.RecyclerView;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_android_orientation = global::MimAcher.Resource.Styleable.RecyclerView_android_orientation;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_layoutManager = global::MimAcher.Resource.Styleable.RecyclerView_layoutManager;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::MimAcher.Resource.Styleable.RecyclerView_reverseLayout;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::MimAcher.Resource.Styleable.RecyclerView_spanCount;
+			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::MimAcher.Resource.Styleable.RecyclerView_stackFromEnd;
 		}
 		
 		public partial class Animation
