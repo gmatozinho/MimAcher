@@ -15,7 +15,6 @@ namespace MimAcher.Entidades
 {
     public class ListaItens
     {
-
         public List<string> Itens { get; set; }
 
         public ListaItens()
