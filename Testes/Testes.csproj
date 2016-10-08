@@ -70,7 +70,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidarCampos.feature</DependentUpon>
     </Compile>
-    <Compile Include="ValidarConversoesEntreParticipanteEBundleSteps.cs" />
     <Compile Include="ValidarComunicacaoBD.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
