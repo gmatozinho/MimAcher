@@ -14,7 +14,6 @@ using System.IO;
 
 namespace MimAcher.Entidades
 {
-    //TODO: implementar esta classe utilizando Entity
     internal static class CursorBD
     {
         //Set attributes to connect to database
