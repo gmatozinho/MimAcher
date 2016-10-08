@@ -82,7 +82,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Ler matchs do BD")]
-        [NUnit.Framework.TestCaseAttribute("gosto", "gosto", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("hobbie", "hobbie", new string[0])]
         [NUnit.Framework.TestCaseAttribute("aprender", "ensinar", new string[0])]
         [NUnit.Framework.TestCaseAttribute("ensinar", "aprender", new string[0])]
         public virtual void LerMatchsDoBD(string relacao, string relacaoCompativel, string[] exampleTags)

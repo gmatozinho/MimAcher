@@ -21,7 +21,6 @@ namespace Testes
             dict["email"] = "cayo@email.com";
             dict["telefone"] = "33263639";
             dict["nascimento"] = "24/01/1994";
-            dict["id"] = "cayodonatti";
             dict["senha"] = "1234batata";
             dict["campus"] = "Serra";
 
@@ -33,7 +32,6 @@ namespace Testes
         {
             Bundle b = new Bundle();
             b.PutString("nome", "gustavo");
-            b.PutString("id", "gmatozinho");
             b.PutString("senha", "gustavo123");
             b.PutString("email", "gustavo@email.com");
             b.PutString("telefone", "12345678");
@@ -62,7 +60,6 @@ namespace Testes
             Assert.AreEqual(participante.Email, bundleConvertido.GetString("email"));
             Assert.AreEqual(participante.Nascimento, bundleConvertido.GetString("nascimento"));
             Assert.AreEqual(participante.Telefone, bundleConvertido.GetString("telefone"));
-            Assert.AreEqual(participante.Id, bundleConvertido.GetString("id"));
             Assert.AreEqual(participante.Campus, bundleConvertido.GetString("campus"));
             Assert.AreEqual(participante.Login(bundleConvertido.GetString("senha")), true);
         }
@@ -74,7 +71,6 @@ namespace Testes
             Assert.AreEqual(participanteConvertido.Email, bundle.GetString("email"));
             Assert.AreEqual(participanteConvertido.Nascimento, bundle.GetString("nascimento"));
             Assert.AreEqual(participanteConvertido.Telefone, bundle.GetString("telefone"));
-            Assert.AreEqual(participanteConvertido.Id, bundle.GetString("id"));
             Assert.AreEqual(participanteConvertido.Campus, bundle.GetString("campus"));
             Assert.AreEqual(participanteConvertido.Login(bundle.GetString("senha")), true);
         }

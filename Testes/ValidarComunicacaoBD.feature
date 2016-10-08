@@ -12,6 +12,6 @@ Scenario Outline: Ler matchs do BD
 
 	Examples:
 		|    relacao     |    relacaoCompativel    |
-		|     gosto      |          gosto          |
+		|     hobbie     |         hobbie          |
 		|    aprender    |         ensinar         |
 		|    ensinar     |         aprender        |
