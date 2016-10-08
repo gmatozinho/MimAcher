@@ -359,12 +359,6 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_exit_to_app_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <XamarinComponentReference Include="fab">
-      <Visible>False</Visible>
-      <Version>1.3.0</Version>
-    </XamarinComponentReference>
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable-hdpi\ic_add_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
