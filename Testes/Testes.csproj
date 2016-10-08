@@ -70,15 +70,10 @@
       <DependentUpon>ValidarCampos.feature</DependentUpon>
     </Compile>
     <Compile Include="ValidarConversoesEntreParticipanteEBundleSteps.cs" />
-    <Compile Include="ValidarCursor.feature.cs">
+    <Compile Include="ValidarComunicacaoBD.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ValidarCursor.feature</DependentUpon>
-    </Compile>
-    <Compile Include="ValidarMatchs.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidarMatchs.feature</DependentUpon>
+      <DependentUpon>ValidarComunicacaoBD.feature</DependentUpon>
     </Compile>
     <Compile Include="ValidarParticipanteBundle.feature.cs">
       <AutoGen>True</AutoGen>
@@ -93,13 +88,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ValidarCampos.feature.cs</LastGenOutput>
     </None>
-    <None Include="ValidarCursor.feature">
+    <None Include="ValidarComunicacaoBD.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidarCursor.feature.cs</LastGenOutput>
-    </None>
-    <None Include="ValidarMatchs.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidarMatchs.feature.cs</LastGenOutput>
+      <LastGenOutput>ValidarComunicacaoBD.feature.cs</LastGenOutput>
     </None>
     <None Include="ValidarParticipanteBundle.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
