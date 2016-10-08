@@ -23,7 +23,7 @@ namespace MimAcher.Entidades
         }
 
         //adicionar itens
-        public void AdicionarItem(string item, Context activity, string text)
+        public void AdicionarItemWithMessage(string item, Context activity, string text)
         {
             if (item != "" && item != null)
             {
@@ -43,6 +43,19 @@ namespace MimAcher.Entidades
                 string toast = string.Format("Nada Inserido");
                 Toast.MakeText(activity, toast, ToastLength.Long).Show();
             }
+        }
+
+        public void AdicionarItem(string item, List<string> list)
+        {
+            if (!Itens.Contains(item) && !list.Contains(item) && item != "" && item != null)
+            {
+                Itens.Add(item);
+            }
+        }
+
+        public void Clear()
+        {
+            Itens = new List<string>();
         }
 
         //Remover itens

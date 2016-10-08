@@ -12,15 +12,19 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
 using MimAcher.Activities.TAB;
+using com.refractored.fab;
 
 namespace MimAcher
 {
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
-    public class HobbiesActivity : ListActivity
+    public class HobbiesActivity : Activity
     {
         private Bundle participante_bundle;
         private Participante participante;
         private ListaItens Hobbies = new ListaItens();
+        private ListView listView;
+
+        internal ListAdapterHAE ListAdapter { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -42,22 +46,29 @@ namespace MimAcher
 
             //Start Context activity    
             Button ok = FindViewById<Button>(Resource.Id.ok);
-            Button add_hobbie = FindViewById<Button>(Resource.Id.add_hobbie);
+            FloatingActionButton add_hobbie = FindViewById<FloatingActionButton>(Resource.Id.add_hobbie);
             EditText campo_hobbie = FindViewById<EditText>(Resource.Id.digite_hobbies);
-            
+                   
+            listView = FindViewById<ListView>(Resource.Id.list);
+
+            //listView.Adapter = new ListAdapterHAE(this, Hobbies.Itens);
+
 
             campo_hobbie.TextChanged += (object sender, Android.Text.TextChangedEventArgs h) => {
                 hobbie = h.Text.ToString();
             };
 
             add_hobbie.Click += delegate {
-                Hobbies.AdicionarItem(hobbie,this,"Hobbie");                
+                Hobbies.AdicionarItem(hobbie, participante.Hobbies.Itens);
+                participante.Hobbies.AdicionarItemWithMessage(hobbie,this,"Hobbie");
                 campo_hobbie.Text = null;
+                listView.Adapter = new ListAdapterHAE(this, Hobbies.Itens);
             };
 
             ok.Click += delegate {
-                participante.PreencherItensParticipante(Hobbies.Itens, participante.Hobbies);
                 participante.Commit();
+                Hobbies.Clear();
+                listView.Adapter = null;
 
                 var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
                 queroaprenderactivity.PutExtra("member", participante.ParticipanteToBundle());
@@ -81,8 +92,9 @@ namespace MimAcher
             {
                 case Resource.Id.menu_home:
                     //do something
-                    participante.PreencherItensParticipante(Hobbies.Itens, participante.Hobbies);
                     participante.Commit();
+                    Hobbies.Clear();
+                    listView.Adapter = null;
 
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
                     //mudar para trabalhar com objeto do banco
@@ -92,7 +104,8 @@ namespace MimAcher
 
                 case Resource.Id.menu_preferences:
                     //do something
-                    participante.PreencherItensParticipante(Hobbies.Itens, participante.Hobbies);
+                    Hobbies.Clear();
+                    listView.Adapter = null;
                     participante.Commit();
 
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));

@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
+using MimAcher.Activities.TAB;
+using com.refractored.fab;
 
 namespace MimAcher
 {
@@ -19,6 +21,7 @@ namespace MimAcher
         private Bundle participante_bundle;
         private Participante participante;
         private ListaItens ListAprender = new ListaItens();
+        private ListView listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,22 +44,26 @@ namespace MimAcher
             //Button
             
             Button ok = FindViewById<Button>(Resource.Id.ok);
-            Button add_aprender = FindViewById<Button>(Resource.Id.add_aprender);
+            FloatingActionButton add_aprender= FindViewById<FloatingActionButton>(Resource.Id.add_aprender);
             EditText campo_aprender = FindViewById<EditText>(Resource.Id.digite_aprender);
+
+            listView = FindViewById<ListView>(Resource.Id.list);
 
             campo_aprender.TextChanged += (object sender, Android.Text.TextChangedEventArgs a) => {
                 aprender = a.Text.ToString();
             };
 
             add_aprender.Click += delegate {
-                ListAprender.AdicionarItem(aprender, this,"Algo para aprender");
+                ListAprender.AdicionarItem(aprender, participante.Aprender.Itens);
+                participante.Aprender.AdicionarItemWithMessage(aprender, this,"Algo para aprender");
                 campo_aprender.Text = null;
+                listView.Adapter = new ListAdapterHAE(this, ListAprender.Itens);
             };
 
             ok.Click += delegate {
-                //participante.Aprender.Itens = ListAprender.Itens;
-                participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
                 participante.Commit();
+                ListAprender.Clear();
+                listView.Adapter = null;
 
                 var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
                 queroensinaractivity.PutExtra("member", participante.ParticipanteToBundle());
@@ -79,8 +86,9 @@ namespace MimAcher
             {
                 case Resource.Id.menu_home:
                     //do something
-                    participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
                     participante.Commit();
+                    ListAprender.Clear();
+                    listView.Adapter = null;
 
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
                     //mudar para trabalhar com objeto do banco
@@ -90,19 +98,21 @@ namespace MimAcher
 
                 case Resource.Id.menu_preferences:
                     //do something
-                    participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
                     participante.Commit();
+                    ListAprender.Clear();
+                    listView.Adapter = null;
 
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
                     editaractivity.PutExtra("member", participante.ParticipanteToBundle());
                     StartActivity(editaractivity);
-                    return true;
+                    return true;                
             }
             return base.OnOptionsItemSelected(item);
         }
 
         
+
 
     }
 }

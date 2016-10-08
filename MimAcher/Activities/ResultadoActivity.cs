@@ -11,7 +11,7 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Activities.TAB;
 using MimAcher.Entidades;
-
+using com.refractored.fab;
 
 namespace MimAcher
 {
@@ -21,7 +21,7 @@ namespace MimAcher
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         public Bundle participante_bundle;
-
+        FloatingActionButton fab;
         protected override void OnCreate(Bundle bundle)
         {
 
@@ -31,8 +31,8 @@ namespace MimAcher
             Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             SetContentView(Resource.Layout.Resultado);
-
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
+            fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             //Toolbar will now take on default Action Bar characteristics
             //You can now use and reference the ActionBar
             SetActionBar(toolbar);
@@ -43,9 +43,45 @@ namespace MimAcher
             CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
             CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
 
+            FabOptions();           
 
         }
 
+        private void FabOptions()
+        {
+            fab.Click += (s, arg) => {
+                PopupMenu menu = new PopupMenu(this, fab);
+                menu.Inflate(Resource.Drawable.button_result_menu);
+
+                menu.MenuItemClick += (s1, arg1) =>
+                {
+                    Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
+
+                    Intent intent = null;
+
+                    switch (arg1.Item.TitleFormatted.ToString())
+                    {
+                        case "Hobbies":
+                            intent = new Intent(this, typeof(HobbiesActivity));
+                            break;
+                        case "Aprender":
+                            intent = new Intent(this, typeof(QueroAprenderActivity));
+                            break;
+                        case "Ensinar":
+                            intent = new Intent(this, typeof(QueroEnsinarActivity));
+                            break;
+                    }
+
+                    if (intent != null)
+                    {
+                        intent.PutExtra("member", participante_bundle);
+                        StartActivity(intent);
+                    }
+                };
+                menu.Show();
+            };
+
+        }
 
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -53,7 +89,6 @@ namespace MimAcher
             MenuInflater.Inflate(Resource.Drawable.top_menus_search, menu);
             return base.OnCreateOptionsMenu(menu);
         }
-
 
         //Define as funcionalidades destes menus
         public override bool OnOptionsItemSelected(IMenuItem item)
@@ -73,6 +108,8 @@ namespace MimAcher
             }
             return base.OnOptionsItemSelected(item);
         }
+
+
 
 
         private void CreateTab(Type activityType, string tag, string label, int drawableId,Bundle participante)

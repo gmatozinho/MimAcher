@@ -10,6 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
+using MimAcher.Activities.TAB;
+using com.refractored.fab;
 
 namespace MimAcher
 {
@@ -18,7 +20,8 @@ namespace MimAcher
     {
         private Bundle participante_bundle;
         private Participante participante;
-        ListaItens ListEnsinar = new ListaItens();
+        private ListaItens ListEnsinar = new ListaItens();
+        private ListView listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -40,21 +43,26 @@ namespace MimAcher
 
             //Start context itens            
             Button ok = FindViewById<Button>(Resource.Id.ok);
-            Button add_ensinar = FindViewById<Button>(Resource.Id.add_ensinar);
+            FloatingActionButton add_ensinar = FindViewById<FloatingActionButton>(Resource.Id.add_ensinar);
             EditText campo_ensinar = FindViewById<EditText>(Resource.Id.digite_ensinar);
+
+            listView = FindViewById<ListView>(Resource.Id.list);
 
             campo_ensinar.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
                 ensinar = e.Text.ToString();
             };
 
             add_ensinar.Click += delegate {
-                ListEnsinar.AdicionarItem(ensinar, this,"Algo para ensinar");
+                ListEnsinar.AdicionarItem(ensinar, participante.Ensinar.Itens);
+                participante.Ensinar.AdicionarItemWithMessage(ensinar, this,"Algo para ensinar");
                 campo_ensinar.Text = null;
+                listView.Adapter = new ListAdapterHAE(this, ListEnsinar.Itens);
             };
 
             ok.Click += delegate {
-                participante.PreencherItensParticipante(ListEnsinar.Itens, participante.Ensinar);
                 participante.Commit();
+                ListEnsinar.Clear();
+                listView.Adapter = null;
 
                 var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
                 //mudar para trabalhar com objeto do banco
@@ -78,8 +86,9 @@ namespace MimAcher
             {
                 case Resource.Id.menu_home:
                     //do something
-                    participante.PreencherItensParticipante(ListEnsinar.Itens, participante.Ensinar);
                     participante.Commit();
+                    ListEnsinar.Clear();
+                    listView.Adapter = null;
 
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
                     //mudar para trabalhar com objeto do banco
@@ -89,8 +98,9 @@ namespace MimAcher
 
                 case Resource.Id.menu_preferences:
                     //do something
-                    participante.PreencherItensParticipante(ListEnsinar.Itens, participante.Ensinar);
                     participante.Commit();
+                    ListEnsinar.Clear();
+                    listView.Adapter = null;
 
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco

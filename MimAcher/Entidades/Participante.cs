@@ -46,19 +46,7 @@ namespace MimAcher.Entidades
             Telefone = atributos["telefone"];
             Campus = atributos["campus"];
         }
-
-        public void PreencherItensParticipante(List<string> itens, ListaItens lista)
-        {
-            foreach (string item in itens)
-            {
-                if (!lista.Itens.Contains(item))
-                {
-                    lista.Itens.Add(item);
-                }
-            }
-        }
-
-
+        
         //Funções para trabalhar no banco de dados
         public void Commit()
         {

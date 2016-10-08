@@ -1878,97 +1878,103 @@ namespace MimAcher
 			public const int abc_textfield_search_material = 2130837578;
 			
 			// aapt resource value: 0x7f02004b
-			public const int design_fab_background = 2130837579;
+			public const int button_result_menu = 2130837579;
 			
 			// aapt resource value: 0x7f02004c
-			public const int design_snackbar_background = 2130837580;
+			public const int design_fab_background = 2130837580;
 			
 			// aapt resource value: 0x7f02004d
-			public const int escolherfoto = 2130837581;
+			public const int design_snackbar_background = 2130837581;
 			
 			// aapt resource value: 0x7f02004e
-			public const int fab_shadow = 2130837582;
+			public const int escolherfoto = 2130837582;
 			
 			// aapt resource value: 0x7f02004f
-			public const int fab_shadow_mini = 2130837583;
+			public const int fab_shadow = 2130837583;
 			
 			// aapt resource value: 0x7f020050
-			public const int fundo = 2130837584;
+			public const int fab_shadow_mini = 2130837584;
 			
 			// aapt resource value: 0x7f020051
-			public const int ic_account_circle_white_36dp = 2130837585;
+			public const int fundo = 2130837585;
 			
 			// aapt resource value: 0x7f020052
-			public const int ic_action_content_create = 2130837586;
+			public const int ic_account_circle_white_36dp = 2130837586;
 			
 			// aapt resource value: 0x7f020053
-			public const int ic_action_content_save = 2130837587;
+			public const int ic_action_content_create = 2130837587;
 			
 			// aapt resource value: 0x7f020054
-			public const int ic_add_box_white_24dp = 2130837588;
+			public const int ic_action_content_save = 2130837588;
 			
 			// aapt resource value: 0x7f020055
-			public const int ic_add_white_24dp = 2130837589;
+			public const int ic_add_box_white_24dp = 2130837589;
 			
 			// aapt resource value: 0x7f020056
-			public const int ic_clear_white_24dp = 2130837590;
+			public const int ic_add_white_24dp = 2130837590;
 			
 			// aapt resource value: 0x7f020057
-			public const int ic_done_white_24dp = 2130837591;
+			public const int ic_assignment_white_24dp = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int ic_exit_to_app_white_24dp = 2130837592;
+			public const int ic_clear_white_24dp = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int ic_home_white_36dp = 2130837593;
+			public const int ic_done_white_24dp = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int ic_launcher = 2130837594;
+			public const int ic_exit_to_app_white_24dp = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_menu_copy_holo_dark = 2130837595;
+			public const int ic_home_white_36dp = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_menu_cut_holo_dark = 2130837596;
+			public const int ic_launcher = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int ic_menu_paste_holo_dark = 2130837597;
+			public const int ic_menu_copy_holo_dark = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int ic_menu_search_holo_dark = 2130837598;
+			public const int ic_menu_cut_holo_dark = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int icone = 2130837599;
+			public const int ic_menu_paste_holo_dark = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int logo = 2130837600;
+			public const int ic_menu_search_holo_dark = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int losango = 2130837601;
+			public const int icone = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int mais = 2130837602;
-			
-			// aapt resource value: 0x7f020069
-			public const int notification_template_icon_bg = 2130837609;
+			public const int logo = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int round_button = 2130837603;
+			public const int losango = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int spinner_dropdown_item = 2130837604;
+			public const int mais = 2130837604;
+			
+			// aapt resource value: 0x7f02006b
+			public const int notification_template_icon_bg = 2130837611;
 			
 			// aapt resource value: 0x7f020065
-			public const int spinner_item = 2130837605;
+			public const int round_button = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int splash = 2130837606;
+			public const int spinner_dropdown_item = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int top_menus_nosearch = 2130837607;
+			public const int spinner_item = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int top_menus_search = 2130837608;
+			public const int splash = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int top_menus_nosearch = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int top_menus_search = 2130837610;
 			
 			static Drawable()
 			{
@@ -1986,14 +1992,14 @@ namespace MimAcher
 			// aapt resource value: 0x7f060081
 			public const int Logo = 2131099777;
 			
-			// aapt resource value: 0x7f06008f
-			public const int Nome_line = 2131099791;
+			// aapt resource value: 0x7f060090
+			public const int Nome_line = 2131099792;
 			
-			// aapt resource value: 0x7f060093
-			public const int Senha_line = 2131099795;
+			// aapt resource value: 0x7f060094
+			public const int Senha_line = 2131099796;
 			
-			// aapt resource value: 0x7f0600a0
-			public const int action0 = 2131099808;
+			// aapt resource value: 0x7f0600a1
+			public const int action0 = 2131099809;
 			
 			// aapt resource value: 0x7f06005a
 			public const int action_bar = 2131099738;
@@ -2019,8 +2025,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f06005b
 			public const int action_context_bar = 2131099739;
 			
-			// aapt resource value: 0x7f0600a4
-			public const int action_divider = 2131099812;
+			// aapt resource value: 0x7f0600a5
+			public const int action_divider = 2131099813;
 			
 			// aapt resource value: 0x7f060003
 			public const int action_menu_divider = 2131099651;
@@ -2040,11 +2046,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f06003d
 			public const int activity_chooser_view_content = 2131099709;
 			
-			// aapt resource value: 0x7f0600b0
-			public const int add_aprender = 2131099824;
+			// aapt resource value: 0x7f0600b1
+			public const int add_aprender = 2131099825;
 			
-			// aapt resource value: 0x7f0600b4
-			public const int add_ensinar = 2131099828;
+			// aapt resource value: 0x7f0600b6
+			public const int add_ensinar = 2131099830;
 			
 			// aapt resource value: 0x7f060087
 			public const int add_hobbie = 2131099783;
@@ -2058,8 +2064,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f06001e
 			public const int always = 2131099678;
 			
-			// aapt resource value: 0x7f0600af
-			public const int aprender_line = 2131099823;
+			// aapt resource value: 0x7f0600c1
+			public const int aprender = 2131099841;
+			
+			// aapt resource value: 0x7f0600b0
+			public const int aprender_line = 2131099824;
 			
 			// aapt resource value: 0x7f060083
 			public const int avançar = 2131099779;
@@ -2073,17 +2082,17 @@ namespace MimAcher
 			// aapt resource value: 0x7f060044
 			public const int buttonPanel = 2131099716;
 			
-			// aapt resource value: 0x7f06009e
-			public const int buttonsline = 2131099806;
-			
-			// aapt resource value: 0x7f06008c
-			public const int campus = 2131099788;
+			// aapt resource value: 0x7f06009f
+			public const int buttonsline = 2131099807;
 			
 			// aapt resource value: 0x7f06008d
-			public const int campus_line = 2131099789;
+			public const int campus = 2131099789;
 			
-			// aapt resource value: 0x7f0600a1
-			public const int cancel_action = 2131099809;
+			// aapt resource value: 0x7f06008e
+			public const int campus_line = 2131099790;
+			
+			// aapt resource value: 0x7f0600a2
+			public const int cancel_action = 2131099810;
 			
 			// aapt resource value: 0x7f06002b
 			public const int center = 2131099691;
@@ -2097,8 +2106,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f060052
 			public const int checkbox = 2131099730;
 			
-			// aapt resource value: 0x7f0600a7
-			public const int chronometer = 2131099815;
+			// aapt resource value: 0x7f0600a8
+			public const int chronometer = 2131099816;
 			
 			// aapt resource value: 0x7f060033
 			public const int clip_horizontal = 2131099699;
@@ -2112,11 +2121,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f06006e
 			public const int confirmar = 2131099758;
 			
-			// aapt resource value: 0x7f060094
-			public const int confirmar_senha = 2131099796;
-			
 			// aapt resource value: 0x7f060095
-			public const int confirmar_senha_line = 2131099797;
+			public const int confirmar_senha = 2131099797;
+			
+			// aapt resource value: 0x7f060096
+			public const int confirmar_senha_line = 2131099798;
 			
 			// aapt resource value: 0x7f06004a
 			public const int contentPanel = 2131099722;
@@ -2148,11 +2157,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f060074
 			public const int design_navigation_view = 2131099764;
 			
-			// aapt resource value: 0x7f0600ae
-			public const int digite_aprender = 2131099822;
+			// aapt resource value: 0x7f0600af
+			public const int digite_aprender = 2131099823;
 			
-			// aapt resource value: 0x7f0600b2
-			public const int digite_ensinar = 2131099826;
+			// aapt resource value: 0x7f0600b4
+			public const int digite_ensinar = 2131099828;
 			
 			// aapt resource value: 0x7f060085
 			public const int digite_hobbies = 2131099781;
@@ -2160,8 +2169,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f06000e
 			public const int disableHome = 2131099662;
 			
-			// aapt resource value: 0x7f060096
-			public const int dt_nascimento = 2131099798;
+			// aapt resource value: 0x7f060097
+			public const int dt_nascimento = 2131099799;
 			
 			// aapt resource value: 0x7f06007e
 			public const int dt_nascimento_info_user = 2131099774;
@@ -2172,20 +2181,20 @@ namespace MimAcher
 			// aapt resource value: 0x7f06005c
 			public const int edit_query = 2131099740;
 			
-			// aapt resource value: 0x7f060090
-			public const int email = 2131099792;
+			// aapt resource value: 0x7f060091
+			public const int email = 2131099793;
 			
-			// aapt resource value: 0x7f0600bb
-			public const int email_info = 2131099835;
+			// aapt resource value: 0x7f0600bf
+			public const int email_info = 2131099839;
 			
 			// aapt resource value: 0x7f06007c
 			public const int email_info_user = 2131099772;
 			
-			// aapt resource value: 0x7f060091
-			public const int email_line = 2131099793;
+			// aapt resource value: 0x7f060092
+			public const int email_line = 2131099794;
 			
-			// aapt resource value: 0x7f0600ba
-			public const int email_result = 2131099834;
+			// aapt resource value: 0x7f0600be
+			public const int email_result = 2131099838;
 			
 			// aapt resource value: 0x7f06007b
 			public const int email_user = 2131099771;
@@ -2193,11 +2202,14 @@ namespace MimAcher
 			// aapt resource value: 0x7f06001c
 			public const int end = 2131099676;
 			
-			// aapt resource value: 0x7f0600ac
-			public const int end_padder = 2131099820;
+			// aapt resource value: 0x7f0600ad
+			public const int end_padder = 2131099821;
 			
-			// aapt resource value: 0x7f0600b3
-			public const int ensinar_line = 2131099827;
+			// aapt resource value: 0x7f0600c2
+			public const int ensinar = 2131099842;
+			
+			// aapt resource value: 0x7f0600b5
+			public const int ensinar_line = 2131099829;
 			
 			// aapt resource value: 0x7f060023
 			public const int enterAlways = 2131099683;
@@ -2205,8 +2217,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f060024
 			public const int enterAlwaysCollapsed = 2131099684;
 			
-			// aapt resource value: 0x7f06009d
-			public const int entrar = 2131099805;
+			// aapt resource value: 0x7f06009e
+			public const int entrar = 2131099806;
 			
 			// aapt resource value: 0x7f060082
 			public const int exibirfoto = 2131099778;
@@ -2220,6 +2232,9 @@ namespace MimAcher
 			// aapt resource value: 0x7f060051
 			public const int expanded_menu = 2131099729;
 			
+			// aapt resource value: 0x7f0600b8
+			public const int fab = 2131099832;
+			
 			// aapt resource value: 0x7f060035
 			public const int fill = 2131099701;
 			
@@ -2231,6 +2246,9 @@ namespace MimAcher
 			
 			// aapt resource value: 0x7f060038
 			public const int @fixed = 2131099704;
+			
+			// aapt resource value: 0x7f0600c0
+			public const int hobbies = 2131099840;
 			
 			// aapt resource value: 0x7f060086
 			public const int hobbies_line = 2131099782;
@@ -2244,8 +2262,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f060042
 			public const int icon = 2131099714;
 			
-			// aapt resource value: 0x7f060097
-			public const int idade_line = 2131099799;
+			// aapt resource value: 0x7f060098
+			public const int idade_line = 2131099800;
 			
 			// aapt resource value: 0x7f060020
 			public const int ifRoom = 2131099680;
@@ -2253,11 +2271,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f06003f
 			public const int image = 2131099711;
 			
-			// aapt resource value: 0x7f0600ab
-			public const int info = 2131099819;
+			// aapt resource value: 0x7f0600ac
+			public const int info = 2131099820;
 			
-			// aapt resource value: 0x7f06009f
-			public const int inscrevase = 2131099807;
+			// aapt resource value: 0x7f0600a0
+			public const int inscrevase = 2131099808;
 			
 			// aapt resource value: 0x7f060000
 			public const int item_touch_helper_previous_elevation = 2131099648;
@@ -2265,14 +2283,23 @@ namespace MimAcher
 			// aapt resource value: 0x7f06002f
 			public const int left = 2131099695;
 			
-			// aapt resource value: 0x7f0600a5
-			public const int line1 = 2131099813;
+			// aapt resource value: 0x7f0600a6
+			public const int line1 = 2131099814;
 			
-			// aapt resource value: 0x7f0600a9
-			public const int line3 = 2131099817;
+			// aapt resource value: 0x7f0600aa
+			public const int line3 = 2131099818;
+			
+			// aapt resource value: 0x7f060089
+			public const int list = 2131099785;
 			
 			// aapt resource value: 0x7f06000b
 			public const int listMode = 2131099659;
+			
+			// aapt resource value: 0x7f0600b2
+			public const int list_aprender = 2131099826;
+			
+			// aapt resource value: 0x7f0600b7
+			public const int list_ensinar = 2131099831;
 			
 			// aapt resource value: 0x7f060088
 			public const int list_hobbies = 2131099784;
@@ -2283,17 +2310,17 @@ namespace MimAcher
 			// aapt resource value: 0x7f060069
 			public const int logo = 2131099753;
 			
-			// aapt resource value: 0x7f0600a3
-			public const int media_actions = 2131099811;
+			// aapt resource value: 0x7f0600a4
+			public const int media_actions = 2131099812;
 			
-			// aapt resource value: 0x7f0600bc
-			public const int menu_home = 2131099836;
+			// aapt resource value: 0x7f0600c3
+			public const int menu_home = 2131099843;
 			
-			// aapt resource value: 0x7f0600bd
-			public const int menu_preferences = 2131099837;
+			// aapt resource value: 0x7f0600c4
+			public const int menu_preferences = 2131099844;
 			
-			// aapt resource value: 0x7f0600be
-			public const int menu_search = 2131099838;
+			// aapt resource value: 0x7f0600c5
+			public const int menu_search = 2131099845;
 			
 			// aapt resource value: 0x7f06001d
 			public const int middle = 2131099677;
@@ -2304,8 +2331,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f060016
 			public const int multiply = 2131099670;
 			
-			// aapt resource value: 0x7f0600b7
-			public const int name_user_line13 = 2131099831;
+			// aapt resource value: 0x7f0600bb
+			public const int name_user_line13 = 2131099835;
 			
 			// aapt resource value: 0x7f060073
 			public const int navigation_header_container = 2131099763;
@@ -2313,11 +2340,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f060021
 			public const int never = 2131099681;
 			
-			// aapt resource value: 0x7f06008e
-			public const int nome = 2131099790;
+			// aapt resource value: 0x7f06008f
+			public const int nome = 2131099791;
 			
-			// aapt resource value: 0x7f0600b6
-			public const int nome_user13 = 2131099830;
+			// aapt resource value: 0x7f0600ba
+			public const int nome_user13 = 2131099834;
 			
 			// aapt resource value: 0x7f060010
 			public const int none = 2131099664;
@@ -2331,17 +2358,17 @@ namespace MimAcher
 			// aapt resource value: 0x7f06006b
 			public const int nova_senha_line = 2131099755;
 			
-			// aapt resource value: 0x7f0600ad
-			public const int o_que_vc_aprender = 2131099821;
+			// aapt resource value: 0x7f0600ae
+			public const int o_que_vc_aprender = 2131099822;
 			
-			// aapt resource value: 0x7f0600b1
-			public const int o_que_vc_ensinar = 2131099825;
-			
-			// aapt resource value: 0x7f060089
-			public const int ok = 2131099785;
+			// aapt resource value: 0x7f0600b3
+			public const int o_que_vc_ensinar = 2131099827;
 			
 			// aapt resource value: 0x7f06008a
-			public const int outros = 2131099786;
+			public const int ok = 2131099786;
+			
+			// aapt resource value: 0x7f06008b
+			public const int outros = 2131099787;
 			
 			// aapt resource value: 0x7f060028
 			public const int parallax = 2131099688;
@@ -2424,11 +2451,11 @@ namespace MimAcher
 			// aapt resource value: 0x7f060068
 			public const int select_dialog_listview = 2131099752;
 			
-			// aapt resource value: 0x7f060092
-			public const int senha = 2131099794;
+			// aapt resource value: 0x7f060093
+			public const int senha = 2131099795;
 			
-			// aapt resource value: 0x7f06009c
-			public const int senha_line = 2131099804;
+			// aapt resource value: 0x7f06009d
+			public const int senha_line = 2131099805;
 			
 			// aapt resource value: 0x7f060084
 			public const int seus_hobbies = 2131099780;
@@ -2472,8 +2499,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f060031
 			public const int start = 2131099697;
 			
-			// aapt resource value: 0x7f0600a2
-			public const int status_bar_latest_event_content = 2131099810;
+			// aapt resource value: 0x7f0600a3
+			public const int status_bar_latest_event_content = 2131099811;
 			
 			// aapt resource value: 0x7f060065
 			public const int submit_area = 2131099749;
@@ -2481,38 +2508,38 @@ namespace MimAcher
 			// aapt resource value: 0x7f06000d
 			public const int tabMode = 2131099661;
 			
-			// aapt resource value: 0x7f0600b9
-			public const int tel_number = 2131099833;
+			// aapt resource value: 0x7f0600bd
+			public const int tel_number = 2131099837;
 			
 			// aapt resource value: 0x7f06007a
 			public const int tel_number_user = 2131099770;
 			
-			// aapt resource value: 0x7f060098
-			public const int telefone = 2131099800;
-			
 			// aapt resource value: 0x7f060099
-			public const int telefone_line = 2131099801;
+			public const int telefone = 2131099801;
 			
-			// aapt resource value: 0x7f0600b8
-			public const int telefone_result = 2131099832;
+			// aapt resource value: 0x7f06009a
+			public const int telefone_line = 2131099802;
+			
+			// aapt resource value: 0x7f0600bc
+			public const int telefone_result = 2131099836;
 			
 			// aapt resource value: 0x7f060079
 			public const int telefone_user = 2131099769;
 			
-			// aapt resource value: 0x7f0600aa
-			public const int text = 2131099818;
+			// aapt resource value: 0x7f0600ab
+			public const int text = 2131099819;
 			
-			// aapt resource value: 0x7f0600a8
-			public const int text2 = 2131099816;
+			// aapt resource value: 0x7f0600a9
+			public const int text2 = 2131099817;
 			
 			// aapt resource value: 0x7f06004d
 			public const int textSpacerNoButtons = 2131099725;
 			
-			// aapt resource value: 0x7f06008b
-			public const int text_campus = 2131099787;
+			// aapt resource value: 0x7f06008c
+			public const int text_campus = 2131099788;
 			
-			// aapt resource value: 0x7f0600a6
-			public const int time = 2131099814;
+			// aapt resource value: 0x7f0600a7
+			public const int time = 2131099815;
 			
 			// aapt resource value: 0x7f060043
 			public const int title = 2131099715;
@@ -2538,14 +2565,14 @@ namespace MimAcher
 			// aapt resource value: 0x7f060014
 			public const int useLogo = 2131099668;
 			
-			// aapt resource value: 0x7f06009a
-			public const int usuario = 2131099802;
-			
 			// aapt resource value: 0x7f06009b
-			public const int usuario_line = 2131099803;
+			public const int usuario = 2131099803;
 			
-			// aapt resource value: 0x7f0600b5
-			public const int view_image13 = 2131099829;
+			// aapt resource value: 0x7f06009c
+			public const int usuario_line = 2131099804;
+			
+			// aapt resource value: 0x7f0600b9
+			public const int view_image13 = 2131099833;
 			
 			// aapt resource value: 0x7f06000a
 			public const int view_offset_helper = 2131099658;

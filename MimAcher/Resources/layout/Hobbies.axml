@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
@@ -21,7 +22,6 @@
         android:id="@+id/seus_hobbies"
         android:textColor="#A9A9A9"
         android:layout_marginLeft="5dp"
-        android:layout_marginBottom="10dp"
         android:textSize="20dp"
         android:layout_below="@id/toolbar"
         android:layout_marginTop="4dp"
@@ -39,7 +39,8 @@
         android:lines="1"
         android:layout_below="@+id/seus_hobbies"
         android:textColorHint="#A9A9A9"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -49,19 +50,17 @@
         android:layout_marginTop="2dp"
         android:layout_below="@+id/digite_hobbies"
         android:id="@+id/hobbies_line" />
-    <Button
-        android:layout_width="24dp"
-        android:layout_height="24dp"
+    <com.refractored.fab.FloatingActionButton
         android:id="@+id/add_hobbie"
-        android:backgroundTint="#ffffffff"
-        android:drawableTint="#ffb4b4b4"
-        android:drawableBottom="@drawable/ic_add_box_white_24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_white_24dp"
         android:layout_below="@+id/seus_hobbies"
-        android:contextClickable="true"
         android:layout_alignEnd="@+id/digite_hobbies"
-        android:background="#DCDCDC"
-        android:backgroundTintMode="screen"
-        android:elevation="@dimen/abc_action_bar_subtitle_bottom_margin_material" />
+        fab:fab_colorNormal="@color/accent"
+        fab:fab_colorPressed="@color/accent_pressed"
+        fab:fab_colorRipple="@color/ripple"
+        fab:fab_size="mini" />
     <FrameLayout
         android:id="@+id/list_hobbies"
         android:layout_width="match_parent"
@@ -70,7 +69,12 @@
         android:layout_below="@+id/hobbies_line"
         android:layout_marginTop="6dp"
         android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp" />
+        android:layout_marginRight="2dp">
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
     <Button
         android:text="OK"
         android:textColor="@android:color/black"
