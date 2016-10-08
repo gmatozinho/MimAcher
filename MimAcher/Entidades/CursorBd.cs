@@ -16,7 +16,7 @@ namespace MimAcher.Entidades
     internal static class CursorBD
     {
         //Set attributes to connect to database
-
+        private static string webServiceId = "string";
 
         //Set functions to read and write stuff to database
         public static void Write(Participante a)
