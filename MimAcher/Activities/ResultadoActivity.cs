@@ -10,8 +10,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Activities.TAB;
-using static Android.Widget.TabHost;
 using MimAcher.Entidades;
+
 
 namespace MimAcher
 {
@@ -34,16 +34,18 @@ namespace MimAcher
 
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             //Toolbar will now take on default Action Bar characteristics
-            SetActionBar(toolbar);
             //You can now use and reference the ActionBar
+            SetActionBar(toolbar);
+
             ActionBar.Title = participante.Nome;
 
-            CreateTab(typeof(ResultGostosActivity), "gosto", "Gosto", Resource.Drawable.abc_tab_indicator_material);
-            CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material);
-            CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar", Resource.Drawable.abc_tab_indicator_material);
+            CreateTab(typeof(ResultHobbiesActivity), "hobbies", "Hobbies", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
+            CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
+            CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
 
-         
+
         }
+
 
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -73,11 +75,11 @@ namespace MimAcher
         }
 
 
-        private void CreateTab(Type activityType, string tag, string label, int drawableId)
+        private void CreateTab(Type activityType, string tag, string label, int drawableId,Bundle participante)
         {
             var intent = new Intent(this, activityType);
             intent.AddFlags(ActivityFlags.NewTask);
-
+            intent.PutExtra("member", participante_bundle);
             var spec = TabHost.NewTabSpec(tag);
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
             var drawableIcon = Resources.GetDrawable(drawableId);
@@ -87,8 +89,5 @@ namespace MimAcher
 
             TabHost.AddTab(spec);
         }
-
-
     }
-
 }

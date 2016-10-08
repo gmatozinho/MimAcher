@@ -246,3 +246,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Components/fab-1.3.0

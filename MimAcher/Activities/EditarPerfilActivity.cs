@@ -43,6 +43,7 @@ namespace MimAcher
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
             ActionBar.Title = participante.Nome;
+            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
 
             telefone_info_user.Hint = participante.Telefone;
             email_info_user.Hint = participante.Email;
@@ -102,6 +103,14 @@ namespace MimAcher
         {
             switch (item.ItemId)
             {
+                case Resource.Id.menu_home:
+                    //do something
+                    var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
+                    //mudar para trabalhar com objeto do banco
+                    resultadoctivity.PutExtra("member", participante_bundle);
+                    StartActivity(resultadoctivity);
+                    return true;
+
                 case Resource.Id.menu_preferences:
                     //do something
                     return true;

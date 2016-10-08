@@ -9,11 +9,11 @@ namespace MimAcher.Entidades
         
         public Usuario(Dictionary<string, string> atributos)
         {
-            this.Id = atributos["id"];
+            this.Email = atributos["email"];
             this.Senha = atributos["senha"];
         }
 
-        public string Id { get; set; }
+        public string Email { get; set; }
 
         protected string Senha {get; set;}
 
@@ -27,6 +27,11 @@ namespace MimAcher.Entidades
             {
                 return false;
             }
+        }
+
+        public void DesativarConta()
+        {
+            //código para excluir o usuário do banco
         }
     }
 }
