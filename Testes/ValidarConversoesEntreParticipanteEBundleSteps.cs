@@ -1,9 +1,9 @@
-﻿using Android.OS;
-using MimAcher.Entidades;
+﻿using MimAcher.Entidades;
 using System;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using static NUnit.Core.NUnitFramework;
+using Android.OS;
 
 namespace Testes
 {
