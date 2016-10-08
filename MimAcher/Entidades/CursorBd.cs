@@ -16,7 +16,7 @@ namespace MimAcher.Entidades
     internal static class CursorBD
     {
         //Set attributes to connect to database
-        private static string webServiceId = "string";
+        private static string webServiceId = "http://ghoststation.ddns.net:8091/";
 
         //Set functions to read and write stuff to database
         public static void Write(Participante a)
