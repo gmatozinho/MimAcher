@@ -8,7 +8,7 @@ namespace UITest1
     public class Tests
     {
         AndroidApp app;
-
+        /*
         [SetUp]
         public void BeforeEachTest()
         {
@@ -17,12 +17,12 @@ namespace UITest1
                 .ApkFile("../../../MimAcher/bin/Release/MimAcher.MimAcher.apk")
                 .StartApp();
         }
-
+        
         [Test]
         public void AppLaunches()
         {
             app.Screenshot("First screen.");
         }
-        
+        */
     }
 }
