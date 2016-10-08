@@ -26,6 +26,7 @@ namespace MimAcher
         {
             base.OnCreate(savedInstanceState);
 
+
             participante_bundle = Intent.GetBundleExtra("member");
             Participante participante = Participante.BundleToParticipante(participante_bundle);
 
