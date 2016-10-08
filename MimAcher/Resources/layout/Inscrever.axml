@@ -21,15 +21,15 @@
         android:layout_height="130dp"
         android:layout_gravity="center"
         android:id="@+id/logo"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_marginTop="15dp" />
+        android:layout_marginTop="10dp" />
     <TextView xmlns:p3="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:id="@+id/text_campus"
         android:textColor="#A9A9A9"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="42dp"
         android:textSize="20dp"
         android:text="Escolha um Campus:"
         android:background="#ffffff"
@@ -51,19 +51,24 @@
         android:layout_marginLeft="42dp"
         android:layout_marginRight="42dp"
         android:id="@+id/campus_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/nome"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:hint="Nome"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp"
-        android:inputType="text" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nome"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:hint="Nome"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp"
+            android:inputType="text" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -72,19 +77,24 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/Nome_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/email"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:hint="E-mail"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp"
-        android:inputType="textEmailAddress" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/email"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:hint="E-mail"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp"
+            android:inputType="textEmailAddress" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -93,19 +103,24 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/email_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/senha"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:password="true"
-        android:hint="Senha"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/senha"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:password="true"
+            android:hint="Senha"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -114,19 +129,24 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/Senha_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/confirmar_senha"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:password="true"
-        android:hint="Confirmar Senha"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirmar_senha"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:password="true"
+            android:hint="Confirmar Senha"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -135,19 +155,24 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/confirmar_senha_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/dt_nascimento"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:hint="Data Nascimento"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp"
-        android:inputType="date" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dt_nascimento"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:hint="Data Nascimento"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp"
+            android:inputType="date" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -156,20 +181,25 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/idade_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/telefone"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:hint="Telefone"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="8dp"
-        android:numeric="integer"
-        android:inputType="phone" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/telefone"
+            android:textSize="20dp"
+            android:textColor="#A9A9A9"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:hint="Telefone"
+            android:background="#ffffff"
+            android:textColorHint="#A9A9A9"
+            android:layout_marginTop="8dp"
+            android:numeric="integer"
+            android:inputType="phone" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -190,5 +220,5 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="30dp" />
 </LinearLayout>

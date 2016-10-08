@@ -24,48 +24,56 @@
         android:layout_below="@id/toolbar"
         android:layout_marginTop="4dp"
         android:paddingStart="10dp" />
-    <EditText xmlns:p3="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:id="@+id/digite_aprender"
-        android:textColor="#A9A9A9"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:textSize="20dp"
-        android:layout_marginTop="8dp"
-        android:hint="Digite algo para aprender"
-        android:background="#ffffff"
-        android:singleLine="true"
-        android:lines="1"
-        android:layout_below="@+id/o_que_vc_aprender"
+    <android.support.design.widget.TextInputLayout
+        android:layout_height="50dp"
         android:textColorHint="#A9A9A9"
-        android:layout_height="wrap_content" />
-    <View
-        android:layout_width="match_parent"
-        android:background="#A9A9A9"
-        android:layout_height="1dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="2dp"
-        android:layout_below="@+id/digite_aprender"
-        android:id="@+id/aprender_line" />
+        android:id="@+id/text_box"
+        android:layout_below="@+id/o_que_vc_aprender"
+        android:layout_width="match_parent">
+        <EditText xmlns:p3="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:id="@+id/digite_aprender"
+            android:textColor="#A9A9A9"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textSize="20dp"
+            android:layout_marginTop="8dp"
+            android:hint="Digite algo para aprender"
+            android:background="#ffffff"
+            android:singleLine="true"
+            android:lines="1"
+            android:layout_below="@+id/o_que_vc_aprender"
+            android:textColorHint="#A9A9A9"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:background="#A9A9A9"
+            android:layout_height="1dp"
+            android:layout_marginLeft="42dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="2dp"
+            android:layout_below="@+id/digite_aprender"
+            android:id="@+id/aprender_line" />
+    </android.support.design.widget.TextInputLayout>
     <com.refractored.fab.FloatingActionButton
         android:id="@+id/add_aprender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_white_24dp"
         android:layout_below="@+id/o_que_vc_aprender"
-        android:layout_alignEnd="@+id/digite_aprender"
+        android:layout_alignEnd="@+id/text_box"
         fab:fab_colorNormal="@color/accent"
         fab:fab_colorPressed="@color/accent_pressed"
         fab:fab_colorRipple="@color/ripple"
-        fab:fab_size="mini" />
+        fab:fab_size="mini"
+        android:layout_marginRight="50dp" />
     <FrameLayout
         android:id="@+id/list_aprender"
         android:layout_width="match_parent"
         android:layout_height="370dp"
         android:padding="5dp"
         android:layout_below="@+id/aprender_line"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="136dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp">
         <ListView

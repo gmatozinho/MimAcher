@@ -14,20 +14,25 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginTop="80dp" />
-    <EditText xmlns:p3="http://schemas.android.com/tools"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:id="@+id/usuario"
-        android:textColor="#A9A9A9"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="0.0dp"
-        android:textSize="20dp"
-        android:hint="Usuário"
-        android:background="#ffffff"
-        android:singleLine="true"
-        android:lines="1"
         android:textColorHint="#A9A9A9"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+        <EditText xmlns:p3="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:id="@+id/usuario"
+            android:textColor="#A9A9A9"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="0.0dp"
+            android:textSize="20dp"
+            android:hint="E-mail"
+            android:background="#ffffff"
+            android:singleLine="true"
+            android:lines="1"
+            android:textColorHint="#A9A9A9"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
@@ -36,20 +41,23 @@
         android:layout_marginRight="42dp"
         android:layout_marginTop="2dp"
         android:id="@+id/usuario_line" />
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/senha"
-        android:textSize="20dp"
-        android:textColor="#A9A9A9"
-        android:visibility="visible"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:password="true"
-        android:hint="Senha"
-        android:background="#ffffff"
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
-        android:layout_marginTop="10dp" />
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/senha"
+            android:textSize="20dp"
+            android:visibility="visible"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:password="true"
+            android:hint="Senha"
+            android:background="#ffffff"
+            android:layout_marginTop="10dp" />
+    </android.support.design.widget.TextInputLayout>
     <View
         android:layout_width="match_parent"
         android:background="#A9A9A9"
