@@ -16,34 +16,50 @@ namespace MimAcher
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
     public class QueroAprenderActivity : Activity
     {
-        public Bundle participante_bundle;
+        private Bundle participante_bundle;
+        private Participante participante;
+        private ListaItens ListAprender = new ListaItens();
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
             participante_bundle = Intent.GetBundleExtra("member");
-            Participante participante = Participante.BundleToParticipante(participante_bundle);
+            participante = Participante.BundleToParticipante(participante_bundle);
 
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.QueroAprender);
+
+            string aprender = null;
 
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = participante.Nome;
-            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
+            ActionBar.Title = "Aprender";
 
+            //Button
+            
             Button ok = FindViewById<Button>(Resource.Id.ok);
+            Button add_aprender = FindViewById<Button>(Resource.Id.add_aprender);
+            EditText campo_aprender = FindViewById<EditText>(Resource.Id.digite_aprender);
+
+            campo_aprender.TextChanged += (object sender, Android.Text.TextChangedEventArgs a) => {
+                aprender = a.Text.ToString();
+            };
+
+            add_aprender.Click += delegate {
+                ListAprender.AdicionarItem(aprender, this,"Algo para aprender");
+                campo_aprender.Text = null;
+            };
 
             ok.Click += delegate {
-                Dictionary<string, bool> Aprender = CriarDicionarioAprender();
-                PreencherAprenderParticipante(Aprender, participante);
+                //participante.Aprender.Itens = ListAprender.Itens;
+                participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
                 participante.Commit();
 
                 var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
-                //mudar para trabalhar com objeto do banco
-                queroensinaractivity.PutExtra("member", participante_bundle);
+                queroensinaractivity.PutExtra("member", participante.ParticipanteToBundle());
                 StartActivity(queroensinaractivity);
             };
         }
@@ -63,57 +79,30 @@ namespace MimAcher
             {
                 case Resource.Id.menu_home:
                     //do something
+                    participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
+                    participante.Commit();
+
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
                     //mudar para trabalhar com objeto do banco
-                    resultadoctivity.PutExtra("member", participante_bundle);
+                    resultadoctivity.PutExtra("member", participante.ParticipanteToBundle());
                     StartActivity(resultadoctivity);
                     return true;
 
                 case Resource.Id.menu_preferences:
                     //do something
+                    participante.PreencherItensParticipante(ListAprender.Itens, participante.Aprender);
+                    participante.Commit();
+
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
                     //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("member", participante_bundle);
+                    editaractivity.PutExtra("member", participante.ParticipanteToBundle());
                     StartActivity(editaractivity);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
         }
 
-        private Dictionary<string, bool> CriarDicionarioAprender()
-        {
-            //Checkbox Variables
-            Dictionary<string, bool> Aprender = new Dictionary<string, bool>();
-            CheckBox violao = FindViewById<CheckBox>(Resource.Id.violao);
-            CheckBox poker = FindViewById<CheckBox>(Resource.Id.poker);
-            CheckBox xadrez = FindViewById<CheckBox>(Resource.Id.xadrez);
-            CheckBox violino = FindViewById<CheckBox>(Resource.Id.violino);
-            CheckBox desenvolvimento_mobile = FindViewById<CheckBox>(Resource.Id.desenvolvimento_mobile);
-            CheckBox angular_js = FindViewById<CheckBox>(Resource.Id.angular_js);
-            CheckBox dota2 = FindViewById<CheckBox>(Resource.Id.dota2);
-            CheckBox php = FindViewById<CheckBox>(Resource.Id.php);
+        
 
-            Aprender.Add(violao.Text, violao.Checked);
-            Aprender.Add(poker.Text, poker.Checked);
-            Aprender.Add(xadrez.Text, xadrez.Checked);
-            Aprender.Add(violino.Text, violino.Checked);
-            Aprender.Add(desenvolvimento_mobile.Text, desenvolvimento_mobile.Checked);
-            Aprender.Add(angular_js.Text, angular_js.Checked);
-            Aprender.Add(dota2.Text, dota2.Checked);
-            Aprender.Add(php.Text, php.Checked);
-
-            return Aprender;
-        }
-
-        private void PreencherAprenderParticipante(Dictionary<string, bool> Aprender, Participante participante)
-        {
-            foreach (String strKey in Aprender.Keys)
-            {
-                if (Aprender[strKey])
-                {
-                    participante.AdicionarAprender(strKey);
-                }
-            }
-        }
     }
 }

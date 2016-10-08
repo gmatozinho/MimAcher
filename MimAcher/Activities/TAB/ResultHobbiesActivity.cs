@@ -13,21 +13,19 @@ using MimAcher.Entidades;
 
 namespace MimAcher.Activities.TAB
 {
-    [Activity(Label = "Ensinar", Theme = "@style/Theme.Splash")]
-    public class ResultEnsinarActivity : ListActivity
+    [Activity(Label = "Gostos", Theme = "@style/Theme.Splash")]
+    public class ResultHobbiesActivity : ListActivity
     {
         List<string> items;
         public Bundle participante_bundle;
-
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
             participante_bundle = Intent.GetBundleExtra("member");
             Participante participante = Participante.BundleToParticipante(participante_bundle);
 
-            //Listagem do que ensinar
-            items = participante.Ensinar.Itens;
+            //Listagem dos Hobbies
+            items = participante.Hobbies.Itens;
             ListAdapter = new ListAdapterHAE(this, items);
 
         }

@@ -7,35 +7,37 @@
         android:id="@+id/toolbar"
         android:minHeight="?android:attr/actionBarSize"
         android:background="?android:attr/colorPrimary"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
         android:popupTheme="@android:style/ThemeOverlay.Material.Light"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:titleTextColor="#ffffffff"
+        android:subtitleTextColor="#ffff0000"
+        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
     <TextView
-        android:text="O que você quer ensinar?"
+        android:text="Quais são os seus hobbies?"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/o_que_vc_ensinar"
+        android:id="@+id/seus_hobbies"
         android:textColor="#A9A9A9"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="10dp"
         android:textSize="20dp"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@id/toolbar"
         android:layout_marginTop="4dp"
         android:paddingStart="10dp" />
     <EditText xmlns:p3="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:id="@+id/digite_ensinar"
+        android:id="@+id/digite_hobbies"
         android:textColor="#A9A9A9"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:textSize="20dp"
-        android:hint="Digite algo para ensinar"
+        android:hint="Digite um Hobbie"
         android:background="#ffffff"
         android:singleLine="true"
         android:lines="1"
-        android:layout_below="@+id/o_que_vc_ensinar"
+        android:layout_below="@+id/seus_hobbies"
         android:textColorHint="#A9A9A9"
         android:layout_height="wrap_content" />
     <View
@@ -45,21 +47,30 @@
         android:layout_marginLeft="42dp"
         android:layout_marginRight="100dp"
         android:layout_marginTop="2dp"
-        android:layout_below="@+id/digite_ensinar"
-        android:id="@+id/ensinar_line" />
+        android:layout_below="@+id/digite_hobbies"
+        android:id="@+id/hobbies_line" />
     <Button
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:id="@+id/add_ensinar"
+        android:id="@+id/add_hobbie"
         android:backgroundTint="#ffffffff"
         android:drawableTint="#ffb4b4b4"
         android:drawableBottom="@drawable/ic_add_box_white_24dp"
-        android:layout_below="@+id/o_que_vc_ensinar"
+        android:layout_below="@+id/seus_hobbies"
         android:contextClickable="true"
-        android:layout_alignEnd="@+id/digite_ensinar"
+        android:layout_alignEnd="@+id/digite_hobbies"
         android:background="#DCDCDC"
         android:backgroundTintMode="screen"
         android:elevation="@dimen/abc_action_bar_subtitle_bottom_margin_material" />
+    <FrameLayout
+        android:id="@+id/list_hobbies"
+        android:layout_width="match_parent"
+        android:layout_height="370dp"
+        android:padding="5dp"
+        android:layout_below="@+id/hobbies_line"
+        android:layout_marginTop="6dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp" />
     <Button
         android:text="OK"
         android:textColor="@android:color/black"
@@ -73,5 +84,5 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC"
-        android:layout_marginTop="500dp" />
+        android:layout_marginTop="530dp" />
 </RelativeLayout>
