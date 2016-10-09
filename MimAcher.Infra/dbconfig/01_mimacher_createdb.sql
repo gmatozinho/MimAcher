@@ -5,68 +5,68 @@ begin tran
 
 
 CREATE TABLE MA_USUARIO (
-	cod_us 				integer not null identity(1,1),
-	login 				varchar(50) not null,
-	senha 				varchar(50) not null,
-	identificador 		integer not null
-)
-
-CREATE TABLE MA_IMAGEM_USUARIO (
-	cod_i 				integer not null identity(1,1),
-	imagem 				varbinary not null,
-	cod_us 				integer not null
+	cod_usuario				integer not null identity(1,1),
+	email 					varchar(100) not null,
+	senha 					varchar(50) not null	
 )
 
 CREATE TABLE MA_NAC_CAMPUS (
-	cod_nc 				integer not null identity(1,1),
-	cod_us 				integer not null,
-	nome_representante  varchar(50) not null,
-	geolocalizacao 		geography null
+	cod_nac_campus			integer not null identity(1,1),	
+	nome_representante		varchar(100) not null,
+	telefone				integer not null,
+	geolocalizacao 			geography null
 )
 
-CREATE TABLE MA_ALUNO (
-	cod_al 				integer not null identity(1,1),
-	cod_us 				integer not null,
-	nome 				varchar(50) not null,
-	dt_nascimento 		datetime not null,
-	telefone 			integer not null,
-	e_mail 				varchar(50) not null,
-	geolocalizacao 		geography null
+CREATE TABLE MA_AREA_ATUACAO (
+	cod_area_atuacao		integer not null identity(1,1),
+	nome 					varchar(50) not null
 )
 
-CREATE TABLE MA_GOSTO (
-	cod_g 				integer not null identity(1,1),
-	nome 				varchar(30) not null
+CREATE TABLE MA_NAC_AREA_ATUACAO (
+	cod_nac_area_atuacao	integer not null identity(1,1),
+	cod_nac_campus			integer not null,
+	cod_area_atuacao		integer not null
 )
 
-CREATE TABLE MA_ENSINAR (
-	cod_e 				integer not null identity(1,1),
-	nome 				VARCHAR(30)
+CREATE TABLE MA_PARTICIPANTE (
+	cod_participante		integer not null identity(1,1),
+	cod_usuario				integer not null,
+	cod_nac_campus			integer not null,
+	nome 					varchar(50) not null,	
+	telefone 				integer not null,
+	dt_nascimento 			datetime not null,	
+	geolocalizacao 			geography null
 )
 
-CREATE TABLE MA_APRENDER (
-	cod_a 				integer not null identity(1,1),
-	nome 				varchar(30) not null,
-	CONSTRAINT 			PK_MA_APRENDER_cod_a PRIMARY KEY(cod_a)
+CREATE TABLE MA_IMAGEM_PARTICIPANTE (
+	cod_imagem				integer not null identity(1,1),
+	cod_participante		integer not null,
+	imagem 					varbinary not null
 )
 
-CREATE TABLE MA_ALUNO_APRENDER (
-	cod_aa			 	integer not null identity(1,1),
-	cod_al 				integer not null,
-	cod_a 				integer not null
+CREATE TABLE MA_PARTICIPANTE_HOBBIE (
+	cod_p_hobbie			integer not null identity(1,1),
+	cod_item				integer not null,
+	cod_participante		integer not null
 )
 
-CREATE TABLE MA_ALUNO_GOSTO (
-	cod_ag 				integer not null identity(1,1),
-	cod_al 				integer not null,
-	cod_g 				integer not null	
+CREATE TABLE MA_PARTICIPANTE_APRENDER (
+	cod_p_aprender			integer not null identity(1,1),
+	cod_item				integer not null,
+	cod_participante		integer not null
 )
 
-CREATE TABLE MA_ALUNO_ENSINAR (
-	cod_ae			 	integer not null identity(1,1),
-	cod_al 				integer not null,
-	cod_e 				integer not null
+CREATE TABLE MA_PARTICIPANTE_ENSINAR (
+	cod_p_ensinar			integer not null identity(1,1),
+	cod_item				integer not null,
+	cod_participante		integer not null
 )
+
+CREATE TABLE MA_ITEM (
+	cod_item 				integer not null identity(1,1),
+	nome 					VARCHAR(50)
+)
+
 
 -- Criação das Primay Keys
 ALTER TABLE MA_USUARIO ADD CONSTRAINT PK_MA_USUARIO_cod_us PRIMARY KEY(cod_us);
