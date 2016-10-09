@@ -14,7 +14,7 @@ using System.IO;
 
 namespace MimAcher.Entidades
 {
-    internal static class CursorBD
+    public static class CursorBD
     {
         //Set attributes to connect to database
         private static string url = "http://ghoststation.ddns.net:8091/";
@@ -55,6 +55,13 @@ namespace MimAcher.Entidades
             //TODO: buscar os matchs no banco
 
             return matchs;
+        }
+
+        public static Participante GetParticipante(string email)
+        {
+            Participante participante = null;
+            //TODO
+            return participante;
         }
 
         private static void  WriteGosto(Participante a, string s)

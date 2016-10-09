@@ -82,19 +82,21 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Ler matchs do BD")]
-        [NUnit.Framework.TestCaseAttribute("hobbie", "hobbie", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("aprender", "ensinar", new string[0])]
-        [NUnit.Framework.TestCaseAttribute("ensinar", "aprender", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\'hobbie\'", "\'hobbie\'", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\'aprender\'", "\'ensinar\'", new string[0])]
+        [NUnit.Framework.TestCaseAttribute("\'ensinar\'", "\'aprender\'", new string[0])]
         public virtual void LerMatchsDoBD(string relacao, string relacaoCompativel, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Ler matchs do BD", exampleTags);
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
- testRunner.Given(string.Format("eu tenho um participante com {0} em um item", relacao), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("eu tenho os dados de um participante", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.When("eu buscar os matchs dessa relacao no BD", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And(string.Format("eu tenho um participante com {0} em um item", relacao), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
+ testRunner.When("eu buscar os matchs dessa relacao no BD", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
  testRunner.Then(string.Format("todo match deve ter {0} no mesmo item", relacaoCompativel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

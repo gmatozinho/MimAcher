@@ -75,6 +75,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidarComunicacaoBD.feature</DependentUpon>
     </Compile>
+    <Compile Include="ValidarComunicacaoComBancoDeDadosSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

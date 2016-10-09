@@ -45,6 +45,17 @@ namespace MimAcher.Entidades
             }
         }
 
+        public void AdicionarItem(string item)
+        {
+            if (item != "" && item != null)
+            {
+                if (!Itens.Contains(item))
+                {
+                    Itens.Add(item);
+                }
+            }
+        }
+
         //Remover itens
         public void RemoverItem(string item)
         {

@@ -6,12 +6,13 @@ Scenario: Enviar um Participante para o BD
 	Then o banco deve armazenar os mesmos dados
 
 Scenario Outline: Ler matchs do BD
-	Given eu tenho um participante com <relacao> em um item
+	Given eu tenho os dados de um participante
+	And eu tenho um participante com <relacao> em um item
 	When eu buscar os matchs dessa relacao no BD
 	Then todo match deve ter <relacaoCompativel> no mesmo item
 
 	Examples:
 		|    relacao     |    relacaoCompativel    |
-		|     hobbie     |         hobbie          |
-		|    aprender    |         ensinar         |
-		|    ensinar     |         aprender        |
+		|    'hobbie'    |       'hobbie'          |
+		|   'aprender'   |       'ensinar'         |
+		|   'ensinar'    |       'aprender'        |
