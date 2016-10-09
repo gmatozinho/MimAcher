@@ -75,11 +75,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ValidarComunicacaoBD.feature</DependentUpon>
     </Compile>
-    <Compile Include="ValidarParticipanteBundle.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidarParticipanteBundle.feature</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -91,10 +86,6 @@
     <None Include="ValidarComunicacaoBD.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ValidarComunicacaoBD.feature.cs</LastGenOutput>
-    </None>
-    <None Include="ValidarParticipanteBundle.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidarParticipanteBundle.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
