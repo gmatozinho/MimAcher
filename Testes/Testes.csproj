@@ -64,7 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TestarFuncoesDeValidacaoDeCamposSteps.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="TestesInterface.cs" />
     <Compile Include="ValidarCampos.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
