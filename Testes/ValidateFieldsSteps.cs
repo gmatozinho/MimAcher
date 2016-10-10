@@ -1,4 +1,5 @@
-﻿using System;
+﻿//View error
+/*using System;
 using TechTalk.SpecFlow;
 using Xamarin.UITest;
 
@@ -8,6 +9,8 @@ namespace UITest1
     public class ValidateFieldsSteps
     {
         readonly IApp app;
+
+               
 
         [Given(@"an user is making its registry")]
         public void GivenAnUserIsMakingItsRegistry()
@@ -28,4 +31,4 @@ namespace UITest1
             ScenarioContext.Current.Pending();
         }
     }
-}
+}*/
