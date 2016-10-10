@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <resources>
-  <color name="primary">#BDBDBD</color>
+  <color name="primary">#A9A9A9</color>
   <color name="primaryDark">#000000</color>
   <color name="accent">#26A69A</color>
   <color name="window_background">#ffffff</color>
+  <color name="ripple">#F06292</color>
+  <color name="accent_pressed">#C2185B</color>
 </resources>

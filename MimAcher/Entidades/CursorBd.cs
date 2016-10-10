@@ -13,7 +13,7 @@ using Android.Widget;
 namespace MimAcher.Entidades
 {
     //TODO: implementar esta classe utilizando Entity
-    internal static class Cursor
+    internal static class CursorBD
     {
         //Set attributes to connect to database
 
@@ -51,5 +51,7 @@ namespace MimAcher.Entidades
         {
             //TODO
         }
+
+        
     }
 }

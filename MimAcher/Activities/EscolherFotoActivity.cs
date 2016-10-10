@@ -39,9 +39,9 @@ namespace MimAcher
             //botar a foto no banco
 
             avançar.Click += delegate {
-                var gostosactivity = new Intent(this, typeof(GostosActivity));
-                gostosactivity.PutExtra("member", participante_bundle);
-                StartActivity(gostosactivity);
+                var hobbiesactivity = new Intent(this, typeof(HobbiesActivity));
+                hobbiesactivity.PutExtra("member", participante_bundle);
+                StartActivity(hobbiesactivity);
             };
         }
 
