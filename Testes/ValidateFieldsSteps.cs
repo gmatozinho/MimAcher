@@ -1,5 +1,5 @@
 ﻿//View error
-/*using System;
+using System;
 using TechTalk.SpecFlow;
 using Xamarin.UITest;
 
@@ -31,4 +31,4 @@ namespace UITest1
             ScenarioContext.Current.Pending();
         }
     }
-}*/
+}

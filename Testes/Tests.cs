@@ -18,7 +18,7 @@ namespace UITest1
         {
             app = ConfigureApp
                 .Android
-                .ApkFile("C:/Users/Cayo/Source/Repos/MimAcher/MimAcher/bin/Release/MimAcher.MimAcher.apk")
+                .ApkFile("C:/Users/gusta/Documents/Visual Studio 2015/Projects/MimAcher/MimAcher\bin/Release/MimAcher.MimAcher.apk")
                 .StartApp();
         }
 
