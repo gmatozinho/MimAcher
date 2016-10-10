@@ -93,7 +93,7 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MimAcher\MimAcher.csproj">
+    <ProjectReference Include="..\MimAcher\MimAcher.Mobile.csproj">
       <Project>{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}</Project>
       <Name>MimAcher</Name>
     </ProjectReference>

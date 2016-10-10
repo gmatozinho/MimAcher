@@ -54,6 +54,14 @@ namespace MimAcher.Entidades
             }
         }
 
+        public void AdicionarItem(string item, List<string> list)
+        {
+            if (!Itens.Contains(item) && !list.Contains(item) && item != "" && item != null)
+            {
+                Itens.Add(item);
+            }
+        }
+
         public void Clear()
         {
             Itens = new List<string>();
