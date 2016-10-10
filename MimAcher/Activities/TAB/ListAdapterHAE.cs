@@ -12,13 +12,13 @@ using Android.Widget;
 
 namespace MimAcher.Activities.TAB
 {
-    class ListAdapterHAE : BaseAdapter<string>
+    public class ListAdapterHae : BaseAdapter<string>
     {
 
-        List<string> items;
-        Activity context;
+        readonly List<string> items;
+        readonly Activity context;
 
-        public ListAdapterHAE(Activity context, List<string> items) : base()
+        public ListAdapterHae(Activity context, List<string> items) : base()
         {
             this.context = context;
             this.items = items;

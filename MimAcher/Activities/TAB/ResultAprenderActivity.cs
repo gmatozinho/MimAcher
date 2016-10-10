@@ -27,7 +27,7 @@ namespace MimAcher.Activities.TAB
 
             //Listagem do que aprender            
             items = participante.Aprender.Itens;            
-            ListAdapter = new ListAdapterHAE(this, items);
+            ListAdapter = new ListAdapterHae(this, items);
         }
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {

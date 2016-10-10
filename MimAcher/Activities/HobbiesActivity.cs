@@ -19,18 +19,17 @@ namespace MimAcher
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
     public class HobbiesActivity : Activity
     {
-        private Bundle participante_bundle;
         private Participante participante;
-        private ListaItens Hobbies = new ListaItens();
+        readonly ListaItens Hobbies = new ListaItens();
         private ListView listView;
 
-        internal ListAdapterHAE ListAdapter { get; private set; }
+        internal ListAdapterHae ListAdapter { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            participante_bundle = Intent.GetBundleExtra("member");
+            Bundle participante_bundle = Intent.GetBundleExtra("member");
             participante = Participante.BundleToParticipante(participante_bundle);          
 
             // Set our view from the "main" layout resource
@@ -51,9 +50,6 @@ namespace MimAcher
                    
             listView = FindViewById<ListView>(Resource.Id.list);
 
-            //listView.Adapter = new ListAdapterHAE(this, Hobbies.Itens);
-
-
             campo_hobbie.TextChanged += (object sender, Android.Text.TextChangedEventArgs h) => {
                 hobbie = h.Text.ToString();
             };
@@ -62,7 +58,7 @@ namespace MimAcher
                 Hobbies.AdicionarItem(hobbie, participante.Hobbies.Itens);
                 participante.Hobbies.AdicionarItemWithMessage(hobbie,this,"Hobbie");
                 campo_hobbie.Text = null;
-                listView.Adapter = new ListAdapterHAE(this, Hobbies.Itens);
+                listView.Adapter = new ListAdapterHae(this, Hobbies.Itens);
             };
 
             ok.Click += delegate {

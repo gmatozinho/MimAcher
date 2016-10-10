@@ -26,7 +26,7 @@ namespace MimAcher.Activities.TAB
 
             //Listagem dos Hobbies
             items = participante.Hobbies.Itens;
-            ListAdapter = new ListAdapterHAE(this, items);
+            ListAdapter = new ListAdapterHae(this, items);
 
         }
 

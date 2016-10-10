@@ -18,16 +18,15 @@ namespace MimAcher
     [Activity(Label = "QueroEnsinarActivity", Theme = "@style/Theme.Splash")]
     public class QueroEnsinarActivity : Activity
     {
-        private Bundle participante_bundle;
         private Participante participante;
-        private ListaItens ListEnsinar = new ListaItens();
+        readonly ListaItens ListEnsinar = new ListaItens();
         private ListView listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            participante_bundle = Intent.GetBundleExtra("member");
+            Bundle participante_bundle = Intent.GetBundleExtra("member");
             participante = Participante.BundleToParticipante(participante_bundle);
 
             // Set our view from the "main" layout resource
@@ -56,7 +55,7 @@ namespace MimAcher
                 ListEnsinar.AdicionarItem(ensinar, participante.Ensinar.Itens);
                 participante.Ensinar.AdicionarItemWithMessage(ensinar, this,"Algo para ensinar");
                 campo_ensinar.Text = null;
-                listView.Adapter = new ListAdapterHAE(this, ListEnsinar.Itens);
+                listView.Adapter = new ListAdapterHae(this, ListEnsinar.Itens);
             };
 
             ok.Click += delegate {
