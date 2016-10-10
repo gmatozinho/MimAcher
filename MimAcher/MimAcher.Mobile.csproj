@@ -124,7 +124,7 @@
     <Compile Include="Activities\EscolherFotoActivity.cs" />
     <Compile Include="Activities\HobbiesActivity.cs" />
     <Compile Include="Activities\InscreverActivity.cs" />
-    <Compile Include="Activities\TAB\ListAdapterHAE.cs" />
+    <Compile Include="Activities\TAB\ListAdapterHae.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\QueroAprenderActivity.cs" />
     <Compile Include="Activities\QueroEnsinarActivity.cs" />

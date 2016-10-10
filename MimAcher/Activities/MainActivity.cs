@@ -12,13 +12,15 @@ namespace MimAcher
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
     public class MainActivity : Activity
     {
-        string campus = null;
-        string senha = null;
-        string nome = "Gasparzinho";
-        string email = null;
-        string nascimento = null;
-        string telefone = null;
-
+        //até comunicar com o banco informações hipotéticas
+        readonly string campus = "Serra";
+        readonly string senha = null;
+        readonly string nome = "Gasparzinho";
+        readonly string email = null;
+        readonly string nascimento = "09/10/1995";
+        readonly string telefone = "00000000";
+        string user_email;
+        string user_password;
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -28,16 +30,16 @@ namespace MimAcher
             SetContentView(Resource.Layout.Main);
 
             //Iniciando váriaveis
-            EditText usuario = FindViewById<EditText>(Resource.Id.usuario);
-            EditText senha = FindViewById<EditText>(Resource.Id.senha);
+            EditText campo_e_mail = FindViewById<EditText>(Resource.Id.email);
+            EditText campo_senha = FindViewById<EditText>(Resource.Id.senha);
 
             // Resgatando o que foi digitado nos EditText
-            usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
-                string user = u.Text.ToString();
+            campo_e_mail.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) => {
+                user_email = e.Text.ToString();
             };
 
-            senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                string password = p.Text.ToString();
+            campo_senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
+                user_password = p.Text.ToString();
             };
 
 
