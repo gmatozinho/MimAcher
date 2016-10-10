@@ -29,6 +29,7 @@ namespace MimAcher
         string nascimento = null;
         string telefone = null;
         string campus = null;
+        string confirmar_senha;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -53,13 +54,11 @@ namespace MimAcher
             spinner_campus.Adapter = adapter_campus;
             var escolha_campus = spinner_campus.SelectedItem;
             campus = escolha_campus.ToString();
-            //spinner_campus.ItemSelected += spinner_ItemSelected_campus;
 
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            //ActionBar.SetLogo(Resource.Drawable.icone_actionbar);
 
             //Capturar telefone
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -87,7 +86,7 @@ namespace MimAcher
             };
 
             campo_confirmar_senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs c_s) => {
-                string confirmar_senha = c_s.Text.ToString();
+                confirmar_senha = c_s.Text.ToString();
             };
 
             campo_dt_nascimento.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
@@ -98,9 +97,18 @@ namespace MimAcher
                 telefone = t.Text.ToString();
             };
 
-            
-            //TODO Pegar informações de data fim curso e do tipo de usuário e campus
             botao_avançar.Click += delegate {
+                ValidarCadastro();                
+            };
+
+        }
+
+        private void ValidarCadastro()
+        {
+            if (confirmar_senha == senha && email != null)
+            {
+                string toast = ("Usuário Criado");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
                 //checar confirmar senha e usar validador
                 Participante participante = new Participante(CriarDicionarioDeInformacoes());
                 participante.Commit();
@@ -108,19 +116,19 @@ namespace MimAcher
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
                 escolherfotoactivity.PutExtra("member", participante.ParticipanteToBundle());
                 StartActivity(escolherfotoactivity);
-            };
+            }
+            else
+            {
+                string toast = ("Informações inválidas");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+                var inscreveractivity = new Intent(this, typeof(InscreverActivity));
+                StartActivity(inscreveractivity);
+            }
 
         }
 
-        /*private void spinner_ItemSelected_campus(object sender, AdapterView.ItemSelectedEventArgs e)
-        {
-            Spinner campus = (Spinner)sender;
-
-            //string toast = string.Format("Campus selecionado: {0}", campus.GetItemAtPosition(e.Position));
-            //Toast.MakeText(this, toast, ToastLength.Long).Show();
-
-        }*/
-
+        
         private Dictionary<string, string> CriarDicionarioDeInformacoes()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();

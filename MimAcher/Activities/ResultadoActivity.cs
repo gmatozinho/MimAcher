@@ -20,15 +20,14 @@ namespace MimAcher
     public class ResultadoActivity : TabActivity
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
-        public Bundle participante_bundle;
-        FloatingActionButton fab;
+        private Bundle participante_bundle;
+        private FloatingActionButton fab;
         protected override void OnCreate(Bundle bundle)
         {
 
             base.OnCreate(bundle);
 
             participante_bundle = Intent.GetBundleExtra("member");
-            Participante participante = Participante.BundleToParticipante(participante_bundle);
 
             SetContentView(Resource.Layout.Resultado);
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
@@ -39,9 +38,9 @@ namespace MimAcher
 
             ActionBar.Title = "Combinações";
 
-            CreateTab(typeof(ResultHobbiesActivity), "hobbies", "Hobbies", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
-            CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
-            CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
+            CreateTab(typeof(ResultHobbiesActivity), "hobbies", "Hobbies", Resource.Drawable.abc_tab_indicator_material);
+            CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material);
+            CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar", Resource.Drawable.abc_tab_indicator_material);
 
             FabOptions();           
 
@@ -112,7 +111,7 @@ namespace MimAcher
 
 
 
-        private void CreateTab(Type activityType, string tag, string label, int drawableId,Bundle participante)
+        private void CreateTab(Type activityType, string tag, string label, int drawableId)
         {
             var intent = new Intent(this, activityType);
             intent.AddFlags(ActivityFlags.NewTask);

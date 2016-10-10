@@ -59,7 +59,7 @@ namespace MimAcher.Activities
             if (repitasenha == novasenha)
             {
                 participante.Senha = novasenha;
-                string toast = string.Format("Senha Alterada");
+                string toast = ("Senha Alterada");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
 
                 var editarperfilactivity = new Intent(this, typeof(EditarPerfilActivity));
@@ -70,7 +70,7 @@ namespace MimAcher.Activities
             }
             else
             {
-                string toast = string.Format("As senhas estão diferentes");
+                string toast = ("As senhas estão diferentes");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
 
                 var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));

@@ -41,14 +41,14 @@ namespace MimAcher.Entidades
             }
             else
             {
-                string toast = string.Format("Nada Inserido");
+                string toast = ("Nada Inserido");
                 Toast.MakeText(activity, toast, ToastLength.Long).Show();
             }
         }
 
         public void AdicionarItem(string item)
         {
-            if (!Itens.Contains(item) && !Itens.Contains(item) && item != "" && item != null)
+            if (!Itens.Contains(item) && item != "" && item != null)
             {
                 Itens.Add(item);
             }

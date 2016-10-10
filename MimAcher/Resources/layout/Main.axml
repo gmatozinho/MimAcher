@@ -20,7 +20,7 @@
         android:layout_height="wrap_content">
         <EditText xmlns:p3="http://schemas.android.com/tools"
             android:layout_width="match_parent"
-            android:id="@+id/usuario"
+            android:id="@+id/email"
             android:textColor="#A9A9A9"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"

@@ -17,7 +17,7 @@ namespace MimAcher.Entidades
     public static class CursorBD
     {
         //Set attributes to connect to database
-        private static string url = "http://ghoststation.ddns.net:8091/";
+        //private static string url = "http://ghoststation.ddns.net:8091/";
 
         //Set functions to read and write stuff to database
         public static void Write(Participante a)

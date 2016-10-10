@@ -28,7 +28,7 @@ namespace MimAcher.Activities.TAB
 
             //Listagem do que ensinar
             items = participante.Ensinar.Itens;
-            ListAdapter = new ListAdapterHAE(this, items);
+            ListAdapter = new ListAdapterHae(this, items);
 
         }
 
