@@ -7,6 +7,8 @@ using static NUnit.Core.NUnitFramework;
 
 namespace Testes
 {
+    /* Testes prontos, aguardando finalização da classe cursor
+    
     [Binding]
     public class ValidarComunicacaoComBancoDeDadosSteps
     {
@@ -79,24 +81,21 @@ namespace Testes
         [Then(@"todo match deve ter '(.*)' no mesmo item")]
         public void ThenTodoMatchDeveTerNoMesmoItem(string relacaoCompativel)
         {
-            Dictionary<string, List<Participante>> todosMatchs = new Dictionary<string, List<Participante>>();
             List<Participante> matchsDesejados = null;
-
-            todosMatchs = CursorBD.Match(participante);
 
             switch (relacaoCompativel)
             {
                 case ("hobbie"):
-                    if ((todosMatchs.Keys.ToList()).Contains("hobbie"))
-                        matchsDesejados = todosMatchs["hobbie"];
+                    if ((matchs.Keys.ToList()).Contains("hobbie"))
+                        matchsDesejados = matchs["hobbie"];
                     break;
                 case ("aprender"):
-                    if ((todosMatchs.Keys.ToList()).Contains("ensinar"))
-                        matchsDesejados = todosMatchs["ensinar"];
+                    if ((matchs.Keys.ToList()).Contains("ensinar"))
+                        matchsDesejados = matchs["ensinar"];
                     break;
                 case ("ensinar"):
-                    if ((todosMatchs.Keys.ToList()).Contains("aprender"))
-                        matchsDesejados = todosMatchs["aprender"];
+                    if ((matchs.Keys.ToList()).Contains("aprender"))
+                        matchsDesejados = matchs["aprender"];
                     break;
             }
 
@@ -126,4 +125,5 @@ namespace Testes
             }
         }
     }
+    */
 }

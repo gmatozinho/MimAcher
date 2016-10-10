@@ -63,22 +63,6 @@ namespace MimAcher.Entidades
             //TODO
             return participante;
         }
-
-        private static void  WriteGosto(Participante a, string s)
-        {
-            //TODO
-        }
-
-        private static void WriteInteresse(Participante a, string s)
-        {
-            //TODO
-        }
-
-        private static void WriteCompetencia(Participante a, string s)
-        {
-            //TODO
-        }
-
         
     }
 }
