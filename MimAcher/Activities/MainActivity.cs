@@ -1,20 +1,18 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
 using MimAcher.Entidades;
 using System.Collections.Generic;
-using MimAcher.Activities;
 
 namespace MimAcher
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
     public class MainActivity : Activity
     {
-        string usuario = null;
+        string campus = null;
         string senha = null;
         string nome = "Gasparzinho";
         string email = null;
@@ -35,11 +33,11 @@ namespace MimAcher
 
             // Resgatando o que foi digitado nos EditText
             usuario.TextChanged += (object sender, Android.Text.TextChangedEventArgs u) => {
-                String user = u.Text.ToString();
+                string user = u.Text.ToString();
             };
 
             senha.TextChanged += (object sender, Android.Text.TextChangedEventArgs p) => {
-                String password = p.Text.ToString();
+                string password = p.Text.ToString();
             };
 
 
@@ -49,9 +47,9 @@ namespace MimAcher
 
             //Login button click action, e passando o nome do usuário para próxima activity
             entrar.Click += delegate {
-                Participante aluno = this.CriarParticipante();
+                Participante participante = new Participante(CriarDicionarioDeInformacoes());
                 var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
-                resultadoActivity.PutExtra("member",aluno.ParticipanteToBundle());
+                resultadoActivity.PutExtra("member",participante.ParticipanteToBundle());
                 StartActivity(resultadoActivity);
             };
             //Tenho que fazer a autenticação no banco de dados
@@ -59,26 +57,31 @@ namespace MimAcher
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
             inscrevase.Click += delegate {
-                StartActivity(typeof(VinculoIfesActivity));
+                StartActivity(typeof(InscreverActivity));
             };
         }
 
         //função temporaria
         //deve pegar o usuario no banco
-        private Participante CriarParticipante()
+        private Dictionary<string, string> CriarDicionarioDeInformacoes()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();
-            informacoes["id"] = usuario;
+            informacoes["campus"] = campus;
             informacoes["senha"] = senha;
             informacoes["email"] = email;
             informacoes["nome"] = nome;
             informacoes["telefone"] = telefone;
             informacoes["nascimento"] = nascimento;
 
-            Participante aluno = new Participante(informacoes);
-
-            return aluno;
+            return informacoes;
         }
+        
     }
+
+    
+
+
+
+
 }
 
