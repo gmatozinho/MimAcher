@@ -7,7 +7,7 @@ using Android.Widget;
 using Android.OS;
 using MimAcher.Entidades;
 using System.Collections.Generic;
-using MimAcher.Activities;
+//using Xamarin.Auth;
 
 namespace MimAcher
 {
@@ -78,5 +78,7 @@ namespace MimAcher
             return informacoes;
         }
     }
+
+
 }
 

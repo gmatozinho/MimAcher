@@ -2901,12 +2901,6 @@ namespace MimAcher
 			// aapt resource value: 0x7f070012
 			public const int abc_toolbar_collapse_description = 2131165202;
 			
-			// aapt resource value: 0x7f07001a
-			public const int about = 2131165210;
-			
-			// aapt resource value: 0x7f07001b
-			public const int about_body = 2131165211;
-			
 			// aapt resource value: 0x7f070014
 			public const int appbar_scrolling_view_behavior = 2131165204;
 			
@@ -2916,11 +2910,8 @@ namespace MimAcher
 			// aapt resource value: 0x7f070016
 			public const int character_counter_pattern = 2131165206;
 			
-			// aapt resource value: 0x7f07001d
-			public const int ic_done = 2131165213;
-			
-			// aapt resource value: 0x7f07001c
-			public const int ic_done_all = 2131165212;
+			// aapt resource value: 0x7f07001a
+			public const int facebook_app_id = 2131165210;
 			
 			// aapt resource value: 0x7f070013
 			public const int status_bar_notification_info_overflow = 2131165203;
