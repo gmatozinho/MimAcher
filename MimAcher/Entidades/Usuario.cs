@@ -29,6 +29,14 @@ namespace MimAcher.Entidades
             }
         }
 
+        public void AlterarSenha(string senhaAtual, string novaSenha)
+        {
+            if (senhaAtual.Equals("senha"))
+            {
+                this.Senha = novaSenha;
+            }
+        }
+
         public void DesativarConta()
         {
             //código para excluir o usuário do banco

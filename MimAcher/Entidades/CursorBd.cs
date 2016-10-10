@@ -9,19 +9,39 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using System.Net;
+using System.IO;
 
 namespace MimAcher.Entidades
 {
-    //TODO: implementar esta classe utilizando Entity
-    internal static class CursorBD
+    public static class CursorBD
     {
         //Set attributes to connect to database
-
+        private static string url = "http://ghoststation.ddns.net:8091/";
 
         //Set functions to read and write stuff to database
         public static void Write(Participante a)
         {
-            //TODO
+            /*
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("url" + "Participante");
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = "";
+
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
+            */
         }
 
         public static Dictionary<string, List<Participante>> Match(Participante a)
@@ -37,21 +57,12 @@ namespace MimAcher.Entidades
             return matchs;
         }
 
-        private static void  WriteGosto(Participante a, string s)
+        public static Participante GetParticipante(string email)
         {
+            Participante participante = null;
             //TODO
+            return participante;
         }
-
-        private static void WriteInteresse(Participante a, string s)
-        {
-            //TODO
-        }
-
-        private static void WriteCompetencia(Participante a, string s)
-        {
-            //TODO
-        }
-
         
     }
 }

@@ -72,6 +72,7 @@ namespace MimAcher.Entidades
             dictionary["senha"] = b.GetString("senha");
             dictionary["nascimento"] = b.GetString("nascimento");
             dictionary["telefone"] = b.GetString("telefone");
+            dictionary["campus"] = b.GetString("campus");
 
             Participante p = new Participante(dictionary);
 
