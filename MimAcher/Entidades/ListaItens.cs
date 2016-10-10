@@ -1,6 +1,15 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using Android.App;
 using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
 using Android.Widget;
+using MimAcher.Entidades;
 
 namespace MimAcher.Entidades
 {
@@ -10,7 +19,7 @@ namespace MimAcher.Entidades
 
         public ListaItens()
         {
-           Itens = new List<string>();            
+            Itens = new List<string>();
         }
 
         //adicionar itens
@@ -21,18 +30,27 @@ namespace MimAcher.Entidades
                 if (!Itens.Contains(item))
                 {
                     Itens.Add(item);
-                    string toast = string.Format("{1} Inserido: {0}", item,text);
+                    string toast = string.Format("{1} Inserido: {0}", item, text);
                     Toast.MakeText(activity, toast, ToastLength.Long).Show();
                 }
                 else
                 {
-                    string toast = string.Format("Voce já possui este {1}: {0} ", item,text);
+                    string toast = string.Format("Voce já possui este {1}: {0} ", item, text);
                     Toast.MakeText(activity, toast, ToastLength.Long).Show();
                 }
-            }else
+            }
+            else
             {
                 string toast = string.Format("Nada Inserido");
                 Toast.MakeText(activity, toast, ToastLength.Long).Show();
+            }
+        }
+
+        public void AdicionarItem(string item)
+        {
+            if (!Itens.Contains(item) && !Itens.Contains(item) && item != "" && item != null)
+            {
+                Itens.Add(item);
             }
         }
 
@@ -58,8 +76,5 @@ namespace MimAcher.Entidades
                 Itens.Remove(item);
             }
         }
-
-        
-
     }
 }

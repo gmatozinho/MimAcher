@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Mobile", "MimAcher\MimAcher.Mobile.csproj", "{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes", "Testes\Testes.csproj", "{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8} = {FCCB249C-6A6C-496C-A4BB-B210D2B329B8}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +22,10 @@ Global
 		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
