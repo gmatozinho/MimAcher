@@ -9,13 +9,13 @@ namespace MimAcher.Entidades
         
         public Usuario(Dictionary<string, string> atributos)
         {
-            this.Email = atributos["email"];
-            this.Senha = atributos["senha"];
+            Email = atributos["email"];
+            Senha = atributos["senha"];
         }
 
         public string Email { get; set; }
 
-        protected string Senha {get; set;}
+        public string Senha {get; set;}
 
         public Boolean Login(string password)
         {

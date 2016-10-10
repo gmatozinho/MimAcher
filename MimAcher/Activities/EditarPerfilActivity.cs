@@ -17,10 +17,10 @@ namespace MimAcher
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
     public class EditarPerfilActivity : Activity
     {
-        public Bundle participante_bundle;
-        string email;
-        string nascimento;
-        string telefone;
+        private Bundle participante_bundle;
+        private string nome;
+        private string nascimento;
+        private string telefone;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,29 +36,28 @@ namespace MimAcher
             Button salvar = FindViewById<Button>(Resource.Id.salvar);
             TextView alterar_senha = FindViewById<TextView>(Resource.Id.alterar_senha);
             EditText telefone_info_user = FindViewById<EditText>(Resource.Id.tel_number_user);
-            EditText email_info_user = FindViewById<EditText>(Resource.Id.email_info_user);
+            EditText nome_info_user = FindViewById<EditText>(Resource.Id.nome_info_user);
             EditText dt_nascimento_info_user = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
 
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
             //You can now use and reference the ActionBar
-            ActionBar.Title = participante.Nome;
-            ActionBar.SetLogo(Resource.Drawable.ic_account_circle_white_36dp);
+            ActionBar.Title = "Editar Perfil";
 
             telefone_info_user.Hint = participante.Telefone;
-            email_info_user.Hint = participante.Email;
+            nome_info_user.Hint = participante.Nome;
             dt_nascimento_info_user.Hint = participante.Nascimento;
 
             //Para alterar
-            email = participante.Email;
+            nome = participante.Nome;
             telefone = participante.Telefone;
             nascimento = participante.Nascimento;
 
             //Pegar as informações inseridas
-            email_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs e) =>
+            nome_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) =>
             {
-                email = e.Text.ToString();
+                nome = n.Text.ToString();
             };
 
             dt_nascimento_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) =>
@@ -122,7 +121,7 @@ namespace MimAcher
          
         private void AlterarParticipante(Participante participante)
         {
-            participante.Email = email;
+            participante.Nome = nome;
             participante.Telefone = telefone;
             participante.Nascimento = nascimento;
         }

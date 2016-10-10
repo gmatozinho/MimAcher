@@ -101,6 +101,7 @@ namespace MimAcher
             
             //TODO Pegar informações de data fim curso e do tipo de usuário e campus
             botao_avançar.Click += delegate {
+                //checar confirmar senha e usar validador
                 Participante participante = new Participante(CriarDicionarioDeInformacoes());
                 participante.Commit();
 

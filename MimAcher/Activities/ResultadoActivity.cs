@@ -37,7 +37,7 @@ namespace MimAcher
             //You can now use and reference the ActionBar
             SetActionBar(toolbar);
 
-            ActionBar.Title = participante.Nome;
+            ActionBar.Title = "Combinações";
 
             CreateTab(typeof(ResultHobbiesActivity), "hobbies", "Hobbies", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
             CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender", Resource.Drawable.abc_tab_indicator_material,participante_bundle);
