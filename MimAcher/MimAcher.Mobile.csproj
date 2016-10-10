@@ -465,4 +465,7 @@
 		<Target Name="AfterBuild">
 		</Target>
  -->
+ <PropertyGroup> 
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize> 
+</PropertyGroup>
 </Project>
