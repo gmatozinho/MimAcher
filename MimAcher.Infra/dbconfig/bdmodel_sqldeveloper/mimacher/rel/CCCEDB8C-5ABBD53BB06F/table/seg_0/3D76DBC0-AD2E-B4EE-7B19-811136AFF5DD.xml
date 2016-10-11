@@ -1,0 +1,87 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3D76DBC0-AD2E-B4EE-7B19-811136AFF5DD" name="PARTICIPANTE_ENSINAR">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:38:33 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_p_ensinar" id="616B5D0F-161F-AA41-CCA4-4B7F666348C1">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:39:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_participante" id="FD223FEB-7115-082C-16D3-E2B76CEFA033">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 02:11:52 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A9686A62-3A15-AE17-9AD7-C986BF4CDE53" referredColumn="28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1"/>
+</associations>
+</Column>
+<Column name="cod_item" id="1CB633D7-1338-3269-8583-991F3FB20BBD">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 02:12:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>A2B24694-565F-9D84-EB45-4D1BBF6561B0</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="03519B53-8C2E-9394-1A44-ED900B27C024" referredColumn="A2B24694-565F-9D84-EB45-4D1BBF6561B0"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D4E5C0B-274F-8252-B03B-1C7BE0C0101A" name="PK_MA_PARTICIPANTE_ENSINAR_cod_p_ensinar">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:39:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="616B5D0F-161F-AA41-CCA4-4B7F666348C1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E00098E7-0DB9-4AC9-DCEA-3A3042C764EE" name="FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 02:11:52 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FD223FEB-7115-082C-16D3-E2B76CEFA033"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3734C885-7520-BBB6-F46F-6160139A3CF4" name="FK_MA_PARTICIPANTE_ENSINAR_MA_ITEM_cod_item">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 02:12:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1CB633D7-1338-3269-8583-991F3FB20BBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

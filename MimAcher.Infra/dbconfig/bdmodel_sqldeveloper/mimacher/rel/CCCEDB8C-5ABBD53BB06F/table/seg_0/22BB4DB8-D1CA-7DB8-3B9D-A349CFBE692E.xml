@@ -1,0 +1,69 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="22BB4DB8-D1CA-7DB8-3B9D-A349CFBE692E" name="NAC_CAMPUS">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:23:28 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_nac_campus" id="F7183E21-1737-972E-522B-9C206B6FE078">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:26:22 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nome_representante" id="351246A1-4A53-0B9A-4B43-E5A10E9A5E23">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:26:22 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefone" id="5716A86E-C023-26B3-7DE2-A1D84C3F5C78">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:26:22 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="geolocalizacao" id="3F418FFE-EE59-D79C-9025-483658FB7CD2">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:26:22 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>3</use>
+<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1DFC005B-407B-5FF2-DD98-FA341738E758" name="PK_MA_NAC_CAMPUS_cod_nac_campus">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:26:22 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F7183E21-1737-972E-522B-9C206B6FE078"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

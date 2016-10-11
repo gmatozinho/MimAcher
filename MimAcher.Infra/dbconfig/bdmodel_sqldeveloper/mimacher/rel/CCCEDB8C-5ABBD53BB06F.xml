@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="MimAcher" id="CCCEDB8C-88AF-7830-1ADE-5ABBD53BB06F" mainViewID="F47DAAAD-9D8D-9E66-9405-E4D7DBB7B5A4">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:12:59 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>22943E51-0387-1F2A-CED9-5FB738BA5A0C</selectedRDBMSSite>
+</relationalModel>
