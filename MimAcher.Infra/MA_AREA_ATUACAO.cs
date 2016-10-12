@@ -12,18 +12,18 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_APRENDER
+    public partial class MA_AREA_ATUACAO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_APRENDER()
+        public MA_AREA_ATUACAO()
         {
-            this.MA_ALUNO_APRENDER = new HashSet<MA_ALUNO_APRENDER>();
+            this.MA_NAC_AREA_ATUACAO = new HashSet<MA_NAC_AREA_ATUACAO>();
         }
     
-        public int cod_a { get; set; }
+        public int cod_area_atuacao { get; set; }
         public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_ALUNO_APRENDER> MA_ALUNO_APRENDER { get; set; }
+        public virtual ICollection<MA_NAC_AREA_ATUACAO> MA_NAC_AREA_ATUACAO { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_ALUNO_GOSTO
+    public partial class MA_PARTICIPANTE_HOBBIE
     {
-        public int cod_ag { get; set; }
-        public int cod_al { get; set; }
-        public int cod_g { get; set; }
+        public int cod_p_hobbie { get; set; }
+        public int cod_item { get; set; }
+        public int cod_participante { get; set; }
     
-        public virtual MA_ALUNO MA_ALUNO { get; set; }
-        public virtual MA_GOSTO MA_GOSTO { get; set; }
+        public virtual MA_ITEM MA_ITEM { get; set; }
+        public virtual MA_PARTICIPANTE MA_PARTICIPANTE { get; set; }
     }
 }

@@ -17,21 +17,14 @@ namespace MimAcher.Infra
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MA_USUARIO()
         {
-            this.MA_ALUNO = new HashSet<MA_ALUNO>();
-            this.MA_IMAGEM_USUARIO = new HashSet<MA_IMAGEM_USUARIO>();
-            this.MA_NAC_CAMPUS = new HashSet<MA_NAC_CAMPUS>();
+            this.MA_PARTICIPANTE = new HashSet<MA_PARTICIPANTE>();
         }
     
-        public int cod_us { get; set; }
-        public string login { get; set; }
+        public int cod_usuario { get; set; }
+        public string email { get; set; }
         public string senha { get; set; }
-        public int identificador { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_ALUNO> MA_ALUNO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_IMAGEM_USUARIO> MA_IMAGEM_USUARIO { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_NAC_CAMPUS> MA_NAC_CAMPUS { get; set; }
+        public virtual ICollection<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
     }
 }

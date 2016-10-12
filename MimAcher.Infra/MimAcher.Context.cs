@@ -25,15 +25,15 @@ namespace MimAcher.Infra
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<MA_ALUNO> MA_ALUNO { get; set; }
-        public virtual DbSet<MA_ALUNO_APRENDER> MA_ALUNO_APRENDER { get; set; }
-        public virtual DbSet<MA_ALUNO_ENSINAR> MA_ALUNO_ENSINAR { get; set; }
-        public virtual DbSet<MA_ALUNO_GOSTO> MA_ALUNO_GOSTO { get; set; }
-        public virtual DbSet<MA_APRENDER> MA_APRENDER { get; set; }
-        public virtual DbSet<MA_ENSINAR> MA_ENSINAR { get; set; }
-        public virtual DbSet<MA_GOSTO> MA_GOSTO { get; set; }
-        public virtual DbSet<MA_IMAGEM_USUARIO> MA_IMAGEM_USUARIO { get; set; }
+        public virtual DbSet<MA_AREA_ATUACAO> MA_AREA_ATUACAO { get; set; }
+        public virtual DbSet<MA_IMAGEM_PARTICIPANTE> MA_IMAGEM_PARTICIPANTE { get; set; }
+        public virtual DbSet<MA_ITEM> MA_ITEM { get; set; }
+        public virtual DbSet<MA_NAC_AREA_ATUACAO> MA_NAC_AREA_ATUACAO { get; set; }
         public virtual DbSet<MA_NAC_CAMPUS> MA_NAC_CAMPUS { get; set; }
+        public virtual DbSet<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
+        public virtual DbSet<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
+        public virtual DbSet<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
+        public virtual DbSet<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
         public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
     }
 }

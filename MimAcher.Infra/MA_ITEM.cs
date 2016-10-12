@@ -12,23 +12,24 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_NAC_CAMPUS
+    public partial class MA_ITEM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_NAC_CAMPUS()
+        public MA_ITEM()
         {
-            this.MA_NAC_AREA_ATUACAO = new HashSet<MA_NAC_AREA_ATUACAO>();
-            this.MA_PARTICIPANTE = new HashSet<MA_PARTICIPANTE>();
+            this.MA_PARTICIPANTE_APRENDER = new HashSet<MA_PARTICIPANTE_APRENDER>();
+            this.MA_PARTICIPANTE_ENSINAR = new HashSet<MA_PARTICIPANTE_ENSINAR>();
+            this.MA_PARTICIPANTE_HOBBIE = new HashSet<MA_PARTICIPANTE_HOBBIE>();
         }
     
-        public int cod_nac_campus { get; set; }
-        public string nome_representante { get; set; }
-        public int telefone { get; set; }
-        public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
+        public int cod_item { get; set; }
+        public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_NAC_AREA_ATUACAO> MA_NAC_AREA_ATUACAO { get; set; }
+        public virtual ICollection<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
+        public virtual ICollection<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
     }
 }

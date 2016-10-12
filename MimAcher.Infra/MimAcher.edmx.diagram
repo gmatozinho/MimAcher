@@ -5,25 +5,27 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="a8ec756ffcf04d87914496eef725b273" Name="Diagram1">
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ALUNO" Width="1.5" PointX="3" PointY="6.375" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ALUNO_APRENDER" Width="1.5" PointX="5.25" PointY="3.875" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ALUNO_ENSINAR" Width="1.5" PointX="5.25" PointY="6.875" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ALUNO_GOSTO" Width="1.5" PointX="5.25" PointY="9.875" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_APRENDER" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ENSINAR" Width="1.5" PointX="3" PointY="13.125" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_GOSTO" Width="1.5" PointX="3" PointY="16.125" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_IMAGEM_USUARIO" Width="1.5" PointX="3" PointY="10.25" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_NAC_CAMPUS" Width="1.5" PointX="3" PointY="3.625" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_USUARIO" Width="1.5" PointX="0.75" PointY="6.625" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_APRENDER_MA_ALUNO_cod_al" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_ENSINAR_MA_ALUNO_cod_al" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_GOSTO_MA_ALUNO_cod_al" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_MA_USUARIO_cod_us" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_APRENDER_MA_APRENDER_cod_a" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_ENSINAR_MA_ENSINAR_cod_e" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_ALUNO_GOSTO_MA_GOSTO_cod_g" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_IMAGEM_USUARIO_MA_USUARIO_cod_us" />
-        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_CAMPUS_MA_USUARIO_cod_us" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_AREA_ATUACAO" Width="1.5" PointX="3.75" PointY="1" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_IMAGEM_PARTICIPANTE" Width="1.5" PointX="5.25" PointY="9.625" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_ITEM" Width="1.5" PointX="3" PointY="10.875" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_NAC_AREA_ATUACAO" Width="1.5" PointX="6" PointY="6.875" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_NAC_CAMPUS" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_APRENDER" Width="1.5" PointX="8.25" PointY="6.875" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_ENSINAR" Width="1.5" PointX="5.25" PointY="3.875" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_HOBBIE" Width="1.5" PointX="8.25" PointY="3.875" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_USUARIO" Width="1.5" PointX="0.75" PointY="3.875" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_ITEM_cod_item" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_ITEM_cod_item" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_ITEM_cod_item" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_AREA_ATUACAO_MA_NAC_CAMPUS_cod_nac_campus" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_NAC_CAMPUS_cod_nac_campus" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -51,31 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MA_ALUNO.cs">
+    <Compile Include="MA_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_ALUNO_APRENDER.cs">
+    <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_ALUNO_ENSINAR.cs">
+    <Compile Include="MA_ITEM.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_ALUNO_GOSTO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_APRENDER.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_ENSINAR.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_GOSTO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_IMAGEM_USUARIO.cs">
+    <Compile Include="MA_NAC_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_NAC_CAMPUS.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_PARTICIPANTE.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_PARTICIPANTE_APRENDER.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_PARTICIPANTE_ENSINAR.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_PARTICIPANTE_HOBBIE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_USUARIO.cs">
