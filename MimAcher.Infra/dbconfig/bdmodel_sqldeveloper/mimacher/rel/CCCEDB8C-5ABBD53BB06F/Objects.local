@@ -11,9 +11,9 @@
    <object objectType="Table" objectID="3D76DBC0-AD2E-B4EE-7B19-811136AFF5DD" name="PARTICIPANTE_ENSINAR" seqName="seg_0"/>
    <object objectType="Table" objectID="BB6DC990-1E62-2BB4-896A-BDD78779A152" name="PARTICIPANTE_HOBBIE" seqName="seg_0"/>
    <object objectType="Table" objectID="B23E5C4B-FBF3-494B-D715-573451046073" name="USUARIO" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="E031269F-8259-B871-C9C8-146E6EDFF6E7" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="B68CE974-A658-4790-2359-4E0207D81727" name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0421EF11-8B61-65C1-AB7B-D485E2A77E48" name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="E031269F-8259-B871-C9C8-146E6EDFF6E7" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="F3B73334-7E26-E4E5-059A-0A0D7EF9A34F" name="FK_MA_NAC_MA_CAMPUS_cod_campus" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="7054D838-C546-2849-FBE2-69EB3E562B1F" name="FK_MA_NAC_MA_USUARIO_cod_usuario" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="5C0EEF04-11EC-1E37-F1DB-1986B038D845" name="FK_MA_PARTICIPANTE_APRENDER_MA_ITEM_cod_item" seqName="seg_0"/>

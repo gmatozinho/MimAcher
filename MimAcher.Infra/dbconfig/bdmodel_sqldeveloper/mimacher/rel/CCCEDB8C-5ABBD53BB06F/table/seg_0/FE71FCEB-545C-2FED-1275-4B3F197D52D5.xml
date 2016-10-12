@@ -72,7 +72,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="DE0B8B9F-F943-7124-EE95-B250D994E3CD" name="NAC_PK">
+<ind_PK_UK id="DE0B8B9F-F943-7124-EE95-B250D994E3CD" name="MA_NAC_PK">
 <createdBy>pchan</createdBy>
 <createdTime>2016-10-12 16:24:16 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
