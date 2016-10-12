@@ -13,15 +13,15 @@ namespace MimAcher.Apresentacao.App
     public partial class GostoAluno : System.Web.UI.Page
     {
         //Declaração dos Gestores
-        public GestorDeGostoDeAluno GestorDeGostoDeAluno { get; set; }
-        public GestorDeAluno GestorDeAluno { get; set; }
+        public GestorDeHobbieDeParticipante GestorDeGostoDeAluno { get; set; }
+        public GestorDeParticipante GestorDeAluno { get; set; }
         public GestorDeGosto GestorDeGosto { get; set; }
 
         public GostoAluno()
         {
             //Inicialização dos Gestores
-            this.GestorDeGostoDeAluno = new GestorDeGostoDeAluno();
-            this.GestorDeAluno = new GestorDeAluno();
+            this.GestorDeGostoDeAluno = new GestorDeHobbieDeParticipante();
+            this.GestorDeAluno = new GestorDeParticipante();
             this.GestorDeGosto = new GestorDeGosto();
         }
 
@@ -63,7 +63,7 @@ namespace MimAcher.Apresentacao.App
         //Lista os Gostos de Alunos do banco de dados na grid
         protected void List()
         {
-            this.GestorDeGostoDeAluno = new GestorDeGostoDeAluno();
+            this.GestorDeGostoDeAluno = new GestorDeHobbieDeParticipante();
             this.StoreGostoAlunoId.DataSource = this.GestorDeGostoDeAluno.ObterTodosOsRegistros().OrderBy(l => l.MA_GOSTO.nome);
             this.StoreGostoAlunoId.DataBind();
         }

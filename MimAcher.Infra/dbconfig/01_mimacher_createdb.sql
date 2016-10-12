@@ -10,11 +10,17 @@ CREATE TABLE MA_USUARIO (
 	senha 					varchar(50) not null	
 )
 
-CREATE TABLE MA_NAC_CAMPUS (
-	cod_nac_campus			integer not null identity(1,1),	
+CREATE TABLE MA_NAC (
+	cod_nac					integer not null identity(1,1),	
+	cod_usuario				integer not null,
+	cod_campus				integer not null,
 	nome_representante		varchar(100) not null,
-	telefone				integer not null,
-	geolocalizacao 			geography null
+	telefone				integer not null
+)
+
+CREATE TABLE MA_CAMPUS (
+	cod_campus				integer not null identity(1,1),	
+	local					varchar(100) not null
 )
 
 CREATE TABLE MA_AREA_ATUACAO (
@@ -24,14 +30,14 @@ CREATE TABLE MA_AREA_ATUACAO (
 
 CREATE TABLE MA_NAC_AREA_ATUACAO (
 	cod_nac_area_atuacao	integer not null identity(1,1),
-	cod_nac_campus			integer not null,
+	cod_nac					integer not null,
 	cod_area_atuacao		integer not null
 )
 
 CREATE TABLE MA_PARTICIPANTE (
 	cod_participante		integer not null identity(1,1),
 	cod_usuario				integer not null,
-	cod_nac_campus			integer not null,
+	cod_campus				integer not null,
 	nome 					varchar(50) not null,	
 	telefone 				integer not null,
 	dt_nascimento 			datetime not null,	
@@ -70,7 +76,8 @@ CREATE TABLE MA_ITEM (
 -- Criação das Primay Key
 ALTER TABLE MA_USUARIO ADD CONSTRAINT PK_MA_USUARIO_cod_usuario PRIMARY KEY(cod_usuario);
 ALTER TABLE MA_IMAGEM_PARTICIPANTE ADD CONSTRAINT PK_MA_IMAGEM_PARTICIPANTE_cod_imagem PRIMARY KEY(cod_imagem);
-ALTER TABLE MA_NAC_CAMPUS ADD CONSTRAINT PK_MA_NAC_CAMPUS_cod_nac_campus PRIMARY KEY(cod_nac_campus);
+ALTER TABLE MA_NAC ADD CONSTRAINT PK_MA_NAC_cod_nac PRIMARY KEY(cod_nac);
+ALTER TABLE MA_CAMPUS ADD CONSTRAINT PK_MA_CAMPUS_cod_campus PRIMARY KEY(cod_campus);
 ALTER TABLE MA_NAC_AREA_ATUACAO ADD CONSTRAINT PK_MA_NAC_AREA_ATUACAO_cod_nac_area_atuacao PRIMARY KEY(cod_nac_area_atuacao);
 ALTER TABLE MA_AREA_ATUACAO ADD CONSTRAINT PK_MA_AREA_ATUACAO_cod_area_atuacao PRIMARY KEY(cod_area_atuacao);
 ALTER TABLE MA_PARTICIPANTE ADD CONSTRAINT PK_MA_PARTICIPANTE_cod_participante PRIMARY KEY(cod_participante);
@@ -84,9 +91,12 @@ ALTER TABLE MA_PARTICIPANTE_HOBBIE ADD CONSTRAINT PK_MA_PARTICIPANTE_HOBBIE_cod_
 ALTER TABLE MA_IMAGEM_PARTICIPANTE ADD CONSTRAINT FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante FOREIGN KEY (cod_participante) REFERENCES MA_PARTICIPANTE(cod_participante);
 
 ALTER TABLE MA_PARTICIPANTE ADD CONSTRAINT FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario FOREIGN KEY (cod_usuario) REFERENCES MA_USUARIO(cod_usuario);
-ALTER TABLE MA_PARTICIPANTE ADD CONSTRAINT FK_MA_PARTICIPANTE_MA_NAC_CAMPUS_cod_nac_campus FOREIGN KEY (cod_nac_campus) REFERENCES MA_NAC_CAMPUS(cod_nac_campus);
+ALTER TABLE MA_PARTICIPANTE ADD CONSTRAINT FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus FOREIGN KEY (cod_campus) REFERENCES MA_CAMPUS(cod_campus);
 
-ALTER TABLE MA_NAC_AREA_ATUACAO ADD CONSTRAINT FK_MA_NAC_AREA_ATUACAO_MA_NAC_CAMPUS_cod_nac_campus FOREIGN KEY (cod_nac_campus) REFERENCES MA_NAC_CAMPUS(cod_nac_campus);
+ALTER TABLE MA_NAC ADD CONSTRAINT FK_MA_NAC_MA_USUARIO_cod_usuario FOREIGN KEY (cod_usuario) REFERENCES MA_USUARIO(cod_usuario);
+ALTER TABLE MA_NAC ADD CONSTRAINT FK_MA_NAC_MA_CAMPUS_cod_campus FOREIGN KEY (cod_campus) REFERENCES MA_CAMPUS(cod_campus);
+
+ALTER TABLE MA_NAC_AREA_ATUACAO ADD CONSTRAINT FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac FOREIGN KEY (cod_nac) REFERENCES MA_NAC(cod_nac);
 ALTER TABLE MA_NAC_AREA_ATUACAO ADD CONSTRAINT FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao FOREIGN KEY (cod_area_atuacao) REFERENCES MA_AREA_ATUACAO(cod_area_atuacao);
 
 ALTER TABLE MA_PARTICIPANTE_APRENDER ADD CONSTRAINT FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante FOREIGN KEY (cod_participante) REFERENCES MA_PARTICIPANTE(cod_participante);

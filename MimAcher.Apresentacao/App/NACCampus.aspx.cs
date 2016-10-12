@@ -15,13 +15,13 @@ namespace MimAcher.Apresentacao.App
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
-        public GestorDeNACCampus GestorDeNACCampus { get; set; }
+        public GestorDeNAC GestorDeNACCampus { get; set; }
 
         public NACCampus()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
-            this.GestorDeNACCampus = new GestorDeNACCampus();
+            this.GestorDeNACCampus = new GestorDeNAC();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace MimAcher.Apresentacao.App
         //Lista os naccampuss do banco de dados na grid
         protected void List()
         {
-            this.GestorDeNACCampus = new GestorDeNACCampus();
+            this.GestorDeNACCampus = new GestorDeNAC();
             this.StoreNACCampusId.DataSource = this.GestorDeNACCampus.ObterTodosOsNACCampus().OrderBy(l => l.nome_representante);
             this.StoreNACCampusId.DataBind();
         }

@@ -26,14 +26,16 @@ namespace MimAcher.Infra
         }
     
         public virtual DbSet<MA_AREA_ATUACAO> MA_AREA_ATUACAO { get; set; }
+        public virtual DbSet<MA_CAMPUS> MA_CAMPUS { get; set; }
         public virtual DbSet<MA_IMAGEM_PARTICIPANTE> MA_IMAGEM_PARTICIPANTE { get; set; }
         public virtual DbSet<MA_ITEM> MA_ITEM { get; set; }
+        public virtual DbSet<MA_NAC> MA_NAC { get; set; }
         public virtual DbSet<MA_NAC_AREA_ATUACAO> MA_NAC_AREA_ATUACAO { get; set; }
-        public virtual DbSet<MA_NAC_CAMPUS> MA_NAC_CAMPUS { get; set; }
         public virtual DbSet<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
         public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

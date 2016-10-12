@@ -12,22 +12,20 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_NAC_CAMPUS
+    public partial class MA_CAMPUS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_NAC_CAMPUS()
+        public MA_CAMPUS()
         {
-            this.MA_NAC_AREA_ATUACAO = new HashSet<MA_NAC_AREA_ATUACAO>();
+            this.MA_NAC = new HashSet<MA_NAC>();
             this.MA_PARTICIPANTE = new HashSet<MA_PARTICIPANTE>();
         }
     
-        public int cod_nac_campus { get; set; }
-        public string nome_representante { get; set; }
-        public int telefone { get; set; }
-        public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
+        public int cod_campus { get; set; }
+        public string local { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_NAC_AREA_ATUACAO> MA_NAC_AREA_ATUACAO { get; set; }
+        public virtual ICollection<MA_NAC> MA_NAC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
     }

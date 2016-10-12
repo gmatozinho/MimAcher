@@ -16,13 +16,13 @@ namespace MimAcher.Apresentacao.App
 
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
-        public GestorDeImagemDeUsuario GestorDeImagemDeUsuario { get; set; }
+        public GestorDeImagemDeParticipante GestorDeImagemDeUsuario { get; set; }
 
         public ImagemUsuarioUsuario()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
-            this.GestorDeImagemDeUsuario = new GestorDeImagemDeUsuario();
+            this.GestorDeImagemDeUsuario = new GestorDeImagemDeParticipante();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace MimAcher.Apresentacao.App
         //Lista os imagems do banco de dados na grid
         protected void List()
         {
-            this.GestorDeImagemDeUsuario = new GestorDeImagemDeUsuario();
+            this.GestorDeImagemDeUsuario = new GestorDeImagemDeParticipante();
             this.StoreImagemUsuarioId.DataSource = this.GestorDeImagemDeUsuario.ObterTodosOsImagens().OrderBy(l => l.MA_USUARIO.login);
             this.StoreImagemUsuarioId.DataBind();
         }

@@ -11,11 +11,11 @@ namespace MimAcher.WebService.Controllers
 {
     public class AlunoController : Controller
     {
-        public GestorDeAluno GestorDeAluno { get; set; }
+        public GestorDeParticipante GestorDeAluno { get; set; }
 
         public AlunoController()
         {
-            this.GestorDeAluno = new GestorDeAluno();
+            this.GestorDeAluno = new GestorDeParticipante();
         }
 
         // GET: Aluno

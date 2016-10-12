@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="39576DCE-BE13-2FE1-387F-1C1079C27711" name="PARTICIPANTE">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE71FCEB-545C-2FED-1275-4B3F197D52D5" name="NAC">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:30:30 UTC</createdTime>
+<createdTime>2016-10-12 16:22:47 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="cod_participante" id="28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1">
+<Column name="cod_nac" id="0D15F660-6D16-42C5-6E71-839CA5A56C21">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -17,9 +17,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="cod_usuario" id="201D0C37-3592-6C67-D3C7-113C3CE109F4">
+<Column name="cod_usuario" id="5846B079-CB2E-631C-854E-7ACB3CA8F1D4">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:57:54 UTC</createdTime>
+<createdTime>2016-10-12 16:25:23 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -29,12 +29,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="550F4EEB-C4A7-230C-4DB6-9341CF3381F1" referredColumn="61F41A19-7A2C-DE54-0D69-0A63D3BB839E"/>
+<colAssociation fkAssociation="7054D838-C546-2849-FBE2-69EB3E562B1F" referredColumn="61F41A19-7A2C-DE54-0D69-0A63D3BB839E"/>
 </associations>
 </Column>
-<Column name="cod_campus" id="19857021-91FE-3BDA-353B-84F85BA6F121">
+<Column name="cod_campus" id="52B7C3CD-DA9F-D073-1FDE-D4799229A6A1">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-12 16:40:27 UTC</createdTime>
+<createdTime>2016-10-12 16:39:31 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -44,12 +44,12 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="0C214C0F-D38D-14A2-0891-3A1EAE9B808F" referredColumn="879F9F83-FE8B-F844-D121-CD7213FC73F6"/>
+<colAssociation fkAssociation="F3B73334-7E26-E4E5-059A-0A0D7EF9A34F" referredColumn="879F9F83-FE8B-F844-D121-CD7213FC73F6"/>
 </associations>
 </Column>
-<Column name="nome" id="5E2E3299-02E2-1133-A9CB-B59F63FE2D58">
+<Column name="nome_representante" id="FADE9C18-9F44-28BA-D248-03578BF2B3EF">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -59,9 +59,9 @@
 <dataTypeSize>100</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="telefone" id="E2EA2FE0-EF1C-182E-E327-28E3D488E1EF">
+<Column name="telefone" id="622D79D0-5EFB-FAC1-D4CB-6AC9368542AE">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -70,62 +70,40 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="dt_nascimento" id="243435E4-44AA-E83D-659D-8260A8183696">
-<createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT008</logicalDatatype>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="geolocalizacao" id="D9E06858-B3D6-D0FC-7670-6C79C30C0BDD">
-<createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>3</use>
-<structuredType>47E390DE-0671-C4B1-8428-0F45CBEE18F8</structuredType>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="B1AB7BD3-2448-1BEC-1811-62924CADBD16" name="PK_MA_PARTICIPANTE_cod_participante">
+<ind_PK_UK id="DE0B8B9F-F943-7124-EE95-B250D994E3CD" name="NAC_PK">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:32:01 UTC</createdTime>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1"/>
+<colUsage columnID="0D15F660-6D16-42C5-6E71-839CA5A56C21"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="E10D0915-C22B-9EED-C387-BF02941A9DDD" name="FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario">
+<ind_PK_UK id="5D17943B-E67E-456A-28DD-5DB5271A07AC" name="FK_MA_NAC_MA_USUARIO_cod_usuario">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-11 01:57:54 UTC</createdTime>
+<createdTime>2016-10-12 16:25:23 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="201D0C37-3592-6C67-D3C7-113C3CE109F4"/>
+<colUsage columnID="5846B079-CB2E-631C-854E-7ACB3CA8F1D4"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="AA2D1274-4789-C7E7-BCBC-026CAD82C538" name="FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus">
+<ind_PK_UK id="496B9CDE-F572-E0E6-1FA0-908C92747154" name="FK_MA_NAC_MA_CAMPUS_cod_campus">
 <createdBy>pchan</createdBy>
-<createdTime>2016-10-12 16:40:27 UTC</createdTime>
+<createdTime>2016-10-12 16:39:31 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="19857021-91FE-3BDA-353B-84F85BA6F121"/>
+<colUsage columnID="52B7C3CD-DA9F-D073-1FDE-D4799229A6A1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

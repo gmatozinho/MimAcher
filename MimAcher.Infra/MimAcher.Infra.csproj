@@ -54,16 +54,19 @@
     <Compile Include="MA_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
+    <Compile Include="MA_CAMPUS.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
     <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_ITEM.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_NAC_AREA_ATUACAO.cs">
+    <Compile Include="MA_NAC.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_NAC_CAMPUS.cs">
+    <Compile Include="MA_NAC_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_PARTICIPANTE.cs">
@@ -97,16 +100,20 @@
       <DependentUpon>MimAcher.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositorioDeAluno.cs" />
-    <Compile Include="RepositorioDeAprender.cs" />
-    <Compile Include="RepositorioDeAprendizadoDeAluno.cs" />
-    <Compile Include="RepositorioDeEnsinoDeAluno.cs" />
-    <Compile Include="RepositorioDeEnsinar.cs" />
-    <Compile Include="RepositorioDeGosto.cs" />
-    <Compile Include="RepositorioDeGostoDeAluno.cs" />
-    <Compile Include="RepositorioDeImagemDeUsuario.cs" />
-    <Compile Include="RepositorioDeNACCampus.cs" />
+    <Compile Include="RepositorioDeAreaDeAtuacao.cs" />
+    <Compile Include="RepositorioDeCampus.cs" />
+    <Compile Include="RepositorioDeNACAreaDeAtuacao.cs" />
+    <Compile Include="RepositorioDeParticipante.cs" />
+    <Compile Include="RepositorioDeParticipanteAprender..cs" />
+    <Compile Include="RepositorioDeParticipanteEnsinar.cs" />
+    <Compile Include="RepositorioDePartipanteHobbie.cs" />
+    <Compile Include="RepositorioDeImagemDeParticipante.cs" />
+    <Compile Include="RepositorioDeItem.cs" />
+    <Compile Include="RepositorioDeNAC.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

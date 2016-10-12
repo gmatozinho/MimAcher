@@ -17,21 +17,6 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="cod_nac_campus" id="CE1BB2BB-BFFD-36A3-BCBD-C50CB3317F56">
-<createdBy>pchan</createdBy>
-<createdTime>2016-10-11 02:03:40 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>F7183E21-1737-972E-522B-9C206B6FE078</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="7A0B314B-40B4-CBEC-EFB4-1CB0260478AF" referredColumn="F7183E21-1737-972E-522B-9C206B6FE078"/>
-</associations>
-</Column>
 <Column name="cod_area_atuacao" id="479FDF39-5A9D-56A1-0521-B6247DA3F852">
 <createdBy>pchan</createdBy>
 <createdTime>2016-10-11 02:04:10 UTC</createdTime>
@@ -45,6 +30,21 @@
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
 <colAssociation fkAssociation="0421EF11-8B61-65C1-AB7B-D485E2A77E48" referredColumn="02A664B0-7F96-553C-3FE0-181B70B2A436"/>
+</associations>
+</Column>
+<Column name="cod_nac" id="79024B1D-2FDD-A383-1525-90119F276043">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:42:58 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>0D15F660-6D16-42C5-6E71-839CA5A56C21</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E031269F-8259-B871-C9C8-146E6EDFF6E7" referredColumn="0D15F660-6D16-42C5-6E71-839CA5A56C21"/>
 </associations>
 </Column>
 </columns>
@@ -61,17 +61,6 @@
 <colUsage columnID="E1F05B2F-1591-4C7D-9830-331228F84828"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="6697E97A-DB0C-4E65-8C37-699A4A1C1A1F" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_CAMPUS_cod_nac_campus">
-<createdBy>pchan</createdBy>
-<createdTime>2016-10-11 02:03:40 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="CE1BB2BB-BFFD-36A3-BCBD-C50CB3317F56"/>
-</indexColumnUsage>
-</ind_PK_UK>
 <ind_PK_UK id="B902D4D1-5D98-13C5-4987-F0C3B358562C" name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao">
 <createdBy>pchan</createdBy>
 <createdTime>2016-10-11 02:04:10 UTC</createdTime>
@@ -81,6 +70,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="479FDF39-5A9D-56A1-0521-B6247DA3F852"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1C5E4610-D18C-30C1-03D5-B729F5FAFC9D" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:42:58 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="79024B1D-2FDD-A383-1525-90119F276043"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

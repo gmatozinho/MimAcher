@@ -40,15 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GestorDeAluno.cs" />
-    <Compile Include="GestorDeAprender.cs" />
-    <Compile Include="GestorDeAprendizadoDeAluno.cs" />
-    <Compile Include="GestorDeEnsinoDeAluno.cs" />
-    <Compile Include="GestorDeEnsinar.cs" />
-    <Compile Include="GestorDeGosto.cs" />
-    <Compile Include="GestorDeGostoDeAluno.cs" />
-    <Compile Include="GestorDeImagemDeUsuario.cs" />
-    <Compile Include="GestorDeNACCampus.cs" />
+    <Compile Include="GestorDeItem.cs" />
+    <Compile Include="GestorDeNACAreaDeAtuacao.cs" />
+    <Compile Include="GestorDeCampus.cs" />
+    <Compile Include="GestorDeParticipante.cs" />
+    <Compile Include="GestorDeParticipanteAprender.cs" />
+    <Compile Include="GestorDeAreaDeAtuacao.cs" />
+    <Compile Include="GestorDeParticipanteEnsinar.cs" />
+    <Compile Include="GestorDeHobbieDeParticipante.cs" />
+    <Compile Include="GestorDeImagemDeParticipante.cs" />
+    <Compile Include="GestorDeNAC.cs" />
     <Compile Include="GestorDeUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

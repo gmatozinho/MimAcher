@@ -11,11 +11,11 @@ namespace MimAcher.WebService.Controllers
 {
     public class NACCampusController : Controller
     {
-        public GestorDeNACCampus GestorDeNACCampus { get; set; }
+        public GestorDeNAC GestorDeNACCampus { get; set; }
 
         public NACCampusController()
         {
-            this.GestorDeNACCampus = new GestorDeNACCampus();
+            this.GestorDeNACCampus = new GestorDeNAC();
         }
 
         // GET: NACCampus

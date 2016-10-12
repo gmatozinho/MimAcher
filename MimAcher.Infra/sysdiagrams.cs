@@ -12,13 +12,12 @@ namespace MimAcher.Infra
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_NAC_AREA_ATUACAO
+    public partial class sysdiagrams
     {
-        public int cod_nac_area_atuacao { get; set; }
-        public int cod_nac { get; set; }
-        public int cod_area_atuacao { get; set; }
-    
-        public virtual MA_AREA_ATUACAO MA_AREA_ATUACAO { get; set; }
-        public virtual MA_NAC MA_NAC { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

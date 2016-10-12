@@ -10,11 +10,11 @@ namespace MimAcher.WebService.Controllers
 {
     public class ImagemUsuarioController : Controller
     {
-        public GestorDeImagemDeUsuario GestorDeImagemDeUsuario { get; set; }
+        public GestorDeImagemDeParticipante GestorDeImagemDeUsuario { get; set; }
 
         public ImagemUsuarioController()
         {
-            this.GestorDeImagemDeUsuario = new GestorDeImagemDeUsuario();
+            this.GestorDeImagemDeUsuario = new GestorDeImagemDeParticipante();
         }
 
         // GET: ImagemUsuario

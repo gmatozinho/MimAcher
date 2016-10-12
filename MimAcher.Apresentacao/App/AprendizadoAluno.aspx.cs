@@ -13,15 +13,15 @@ namespace MimAcher.Apresentacao.App
     public partial class AprendizadoAluno : System.Web.UI.Page
     {
         //Declaração dos Gestores
-        public GestorDeAprendizadoDeAluno GestorDeAprendizadoDeAluno { get; set; }
-        public GestorDeAluno GestorDeAluno { get; set; }
+        public GestorDeParticipanteAprender GestorDeAprendizadoDeAluno { get; set; }
+        public GestorDeParticipante GestorDeAluno { get; set; }
         public GestorDeAprender GestorDeAprender { get; set; }
 
         public AprendizadoAluno()
         {
             //Inicialização dos Gestores
-            this.GestorDeAprendizadoDeAluno = new GestorDeAprendizadoDeAluno();
-            this.GestorDeAluno = new GestorDeAluno();
+            this.GestorDeAprendizadoDeAluno = new GestorDeParticipanteAprender();
+            this.GestorDeAluno = new GestorDeParticipante();
             this.GestorDeAprender = new GestorDeAprender();
         }
 
@@ -63,7 +63,7 @@ namespace MimAcher.Apresentacao.App
         //Lista os Aprendizados de Alunos do banco de dados na grid
         protected void List()
         {
-            this.GestorDeAprendizadoDeAluno = new GestorDeAprendizadoDeAluno();
+            this.GestorDeAprendizadoDeAluno = new GestorDeParticipanteAprender();
             this.StoreAprendizadoAlunoId.DataSource = this.GestorDeAprendizadoDeAluno.ObterTodosOsRegistros().OrderBy(l => l.MA_APRENDER.nome);
             this.StoreAprendizadoAlunoId.DataBind();
         }

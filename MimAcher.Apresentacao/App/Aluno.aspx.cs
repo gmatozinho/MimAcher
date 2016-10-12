@@ -15,13 +15,13 @@ namespace MimAcher.Apresentacao.App
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
-        public GestorDeAluno GestorDeAluno { get; set; }
+        public GestorDeParticipante GestorDeAluno { get; set; }
         
         public Aluno()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
-            this.GestorDeAluno = new GestorDeAluno();            
+            this.GestorDeAluno = new GestorDeParticipante();            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -59,7 +59,7 @@ namespace MimAcher.Apresentacao.App
         //Lista os alunos do banco de dados na grid
         protected void List()
         {
-            this.GestorDeAluno = new GestorDeAluno();
+            this.GestorDeAluno = new GestorDeParticipante();
             this.StoreAlunoId.DataSource = this.GestorDeAluno.ObterTodosOsAlunos().OrderBy(l => l.nome);
             this.StoreAlunoId.DataBind();
         }

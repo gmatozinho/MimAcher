@@ -25,15 +25,15 @@ namespace MimAcher.Infra
     
         public int cod_participante { get; set; }
         public int cod_usuario { get; set; }
-        public int cod_nac_campus { get; set; }
+        public int cod_campus { get; set; }
         public string nome { get; set; }
         public int telefone { get; set; }
         public System.DateTime dt_nascimento { get; set; }
         public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
     
+        public virtual MA_CAMPUS MA_CAMPUS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_IMAGEM_PARTICIPANTE> MA_IMAGEM_PARTICIPANTE { get; set; }
-        public virtual MA_NAC_CAMPUS MA_NAC_CAMPUS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
