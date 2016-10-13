@@ -20,9 +20,7 @@ namespace MimAcher
     public class InscreverActivity : Activity
     {
         public Bundle participante_bundle;
-
-        //Initializing variables from layout
-        
+                
         string senha = null;
         string nome = "Fulano";
         string email = null;
@@ -56,9 +54,7 @@ namespace MimAcher
             campus = escolha_campus.ToString();
 
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
-            //Toolbar will now take on default Action Bar characteristics
             SetActionBar(toolbar);
-            //You can now use and reference the ActionBar
 
             //Capturar telefone
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -67,12 +63,9 @@ namespace MimAcher
             if (tel != null)
             {
                 campo_telefone.Text = tel;
-            }
-
-            
+            }                    
 
             //Pegar as informações inseridas
-
             campo_nome.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) => {
                 nome = n.Text.ToString();
             };
@@ -96,20 +89,15 @@ namespace MimAcher
             campo_telefone.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) => {
                 telefone = t.Text.ToString();
             };
-
-            botao_avançar.Click += delegate {
-                ValidarCadastro();                
-            };
-
+            
         }
 
         private void ValidarCadastro()
         {
-            if (confirmar_senha == senha && email != null)
+            if (senha != null && confirmar_senha == senha && email != null)
             {
                 string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //checar confirmar senha e usar validador
                 Participante participante = new Participante(CriarDicionarioDeInformacoes());
                 participante.Commit();
 
@@ -121,14 +109,37 @@ namespace MimAcher
             {
                 string toast = ("Informações inválidas");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-
                 var inscreveractivity = new Intent(this, typeof(InscreverActivity));
                 StartActivity(inscreveractivity);
             }
 
         }
 
-        
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Drawable.top_menus_inscrever, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        //Define as funcionalidades destes menus
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_done:
+                    ValidarCadastro();
+                    return true;
+                /*case Resource.Id.menu_preferences:
+                    //do something
+                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
+                    //mudar para trabalhar com objeto do banco
+                    editaractivity.PutExtra("member", participante_bundle);
+                    StartActivity(editaractivity);
+                    return true;*/
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
         private Dictionary<string, string> CriarDicionarioDeInformacoes()
         {
             Dictionary<string, string> informacoes = new Dictionary<string, string>();

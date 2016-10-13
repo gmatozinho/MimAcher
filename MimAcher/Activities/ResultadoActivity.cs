@@ -107,10 +107,6 @@ namespace MimAcher
             }
             return base.OnOptionsItemSelected(item);
         }
-
-
-
-
         private void CreateTab(Type activityType, string tag, string label, int drawableId)
         {
             var intent = new Intent(this, activityType);

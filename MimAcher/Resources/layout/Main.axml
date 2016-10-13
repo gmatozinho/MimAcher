@@ -47,7 +47,8 @@
             android:singleLine="true"
             android:lines="1"
             android:hint="Senha"
-            android:textColor="#A9A9A9" />
+            android:textColor="#A9A9A9"
+            android:visibility="visible" />
     </android.support.design.widget.TextInputLayout>
     <Button
         android:text="ENTRAR"
@@ -61,7 +62,7 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC"
-        android:layout_marginTop="100dp" />
+        android:layout_marginTop="70dp" />
     <View
         android:layout_width="match_parent"
         android:background="#ffffff"
