@@ -124,7 +124,7 @@
     <Compile Include="Activities\EscolherFotoActivity.cs" />
     <Compile Include="Activities\HobbiesActivity.cs" />
     <Compile Include="Activities\InscreverActivity.cs" />
-    <Compile Include="Activities\TAB\ListAdapterHae.cs" />
+    <Compile Include="Entidades\ListAdapterHae.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\QueroAprenderActivity.cs" />
     <Compile Include="Activities\QueroEnsinarActivity.cs" />
@@ -434,7 +434,7 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="xamandroidsupportdesign">
       <Visible>False</Visible>
-      <Version>23.4.0.1</Version>
+      <Version>24.2.1.0</Version>
     </XamarinComponentReference>
     <XamarinComponentReference Include="xamarin.auth">
       <Visible>False</Visible>

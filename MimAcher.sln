@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Mobile", "MimAcher\MimAcher.Mobile.csproj", "{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes", "Testes\Testes.csproj", "{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes.Mobile", "Testes\Testes.Mobile.csproj", "{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}"
 	ProjectSection(ProjectDependencies) = postProject
 		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8} = {FCCB249C-6A6C-496C-A4BB-B210D2B329B8}
 	EndProjectSection

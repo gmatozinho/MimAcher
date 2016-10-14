@@ -95,7 +95,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MimAcher\MimAcher.Mobile.csproj">
       <Project>{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}</Project>
-      <Name>MimAcher</Name>
+      <Name>MimAcher.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
