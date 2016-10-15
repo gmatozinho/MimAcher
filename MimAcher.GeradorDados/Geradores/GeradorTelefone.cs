@@ -11,7 +11,7 @@ namespace MimAcher.GeradorDados.Geradores
         private Random random = new Random();
         public int GerarTelefone()
         {
-            return random.Next(300000000, 99999999);
+            return random.Next(30000000, 99999999);
         }
     }
 }
