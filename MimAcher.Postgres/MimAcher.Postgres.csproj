@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{01E32BD5-94B3-4B42-A02B-C384AB2EF69F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{018DDEA6-EAC5-4796-9B69-0480343AC5A7}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MimAcher.GeradorDados</RootNamespace>
-    <AssemblyName>MimAcher.GeradorDados</AssemblyName>
+    <RootNamespace>MimAcher.Postgres</RootNamespace>
+    <AssemblyName>MimAcher.Postgres</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Npgsql, Version=3.1.8.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Npgsql.3.1.8\lib\net451\Npgsql.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,31 +47,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Builders\BuilderItem.cs" />
-    <Compile Include="Builders\BuilderParticipante.cs" />
-    <Compile Include="DiretorGeradores.cs" />
-    <Compile Include="Geradores\GeradorCampus.cs" />
-    <Compile Include="Geradores\GeradorEmail.cs" />
-    <Compile Include="Geradores\GeradorItem.cs" />
-    <Compile Include="Geradores\GeradorNascimento.cs" />
-    <Compile Include="Geradores\GeradorNome.cs" />
-    <Compile Include="Geradores\GeradorSenha.cs" />
-    <Compile Include="Geradores\GeradorTelefone.cs" />
+    <Compile Include="CursorPostgres.cs" />
+    <Compile Include="InserirDados.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MimAcher.GeradorDados\MimAcher.GeradorDados.csproj">
+      <Project>{01E32BD5-94B3-4B42-A02B-C384AB2EF69F}</Project>
+      <Name>MimAcher.GeradorDados</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MimAcher\MimAcher.Mobile.csproj">
       <Project>{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}</Project>
       <Name>MimAcher.Mobile</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Geradores\Dados\nomeMeio" />
-    <None Include="Geradores\Dados\sobrenome" />
-    <None Include="Geradores\Dados\nome" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

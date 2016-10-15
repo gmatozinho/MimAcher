@@ -12,7 +12,7 @@ namespace MimAcher.GeradorDados.Geradores
         private string email, prefixo, servidoeEmail;
         
         private static readonly List<string> servidores_email =
-            new List<string>() { "gmail.com", "hotmail.com", "", "bol.com.br", "live.com", "outlook.com", "ifes.edu.br", "yahoo.com.br"};
+            new List<string>() { "gmail.com", "hotmail.com", "bol.com.br", "live.com", "outlook.com", "ifes.edu.br", "yahoo.com.br"};
 
         public string GerarEmail(string nome)
         {
