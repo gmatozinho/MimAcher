@@ -16,7 +16,8 @@ namespace MimAcher.GeradorDados.Builders
         private GeradorNascimento geradorNascimento;
         private GeradorTelefone geradorTelefone;
         private GeradorSenha geradorSenha;
-        private Random random;
+        private GeradorCampus geradorCampus;
+        private Random random = new Random();
 
         public BuilderParticipante()
         {
@@ -25,6 +26,7 @@ namespace MimAcher.GeradorDados.Builders
             geradorNome = new GeradorNome();
             geradorTelefone = new GeradorTelefone();
             geradorSenha = new GeradorSenha();
+            geradorCampus = new GeradorCampus();
         }
 
         public Participante GerarParticipante()
@@ -36,6 +38,7 @@ namespace MimAcher.GeradorDados.Builders
             dadosParticipante.Add("nascimento", geradorNascimento.GerarDia().ToString());
             dadosParticipante.Add("telefone", geradorTelefone.GerarTelefone().ToString());
             dadosParticipante.Add("senha", geradorSenha.GerarSenha(random.Next(8, 16)));
+            dadosParticipante.Add("campus", geradorCampus.GerarCampus());
 
             participante = new Participante(dadosParticipante);
 

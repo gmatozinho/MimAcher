@@ -11,14 +11,11 @@ namespace MimAcher.GeradorDados
     public class DiretorGeradores
     {
         private BuilderParticipante builderParticipante;
-        private BuilderNac builderNac;
         private BuilderItem builderItem;
-        private Usuario usuario;
 
         public DiretorGeradores()
         {
             builderParticipante = new BuilderParticipante();
-            builderNac = new BuilderNac();
             builderItem = new BuilderItem();
         }
 
@@ -27,18 +24,11 @@ namespace MimAcher.GeradorDados
         {
             Participante participante = builderParticipante.GerarParticipante();
 
-            participante.Hobbies = builderItem.GerarListaItens(TipoUsuario.PARTICIPANTE);
-            participante.Ensinar = builderItem.GerarListaItens(TipoUsuario.PARTICIPANTE);
-            participante.Aprender = builderItem.GerarListaItens(TipoUsuario.PARTICIPANTE);
+            participante.Hobbies = builderItem.GerarListaItens();
+            participante.Ensinar = builderItem.GerarListaItens();
+            participante.Aprender = builderItem.GerarListaItens();
 
             return participante;
-        }
-
-        public Usuario GerarNac()
-        {
-            Nac nac = builderNac.GerarNac();
-
-            return nac;
         }
     }
 }

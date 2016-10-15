@@ -9,7 +9,7 @@ namespace MimAcher.GeradorDados.Geradores
     public class GeradorEmail
     {
         public Random _random = new Random();
-        private string email, prefixo, servidoeEmail, nomeCompleto;
+        private string email, prefixo, servidoeEmail;
         
         private static readonly List<string> servidores_email =
             new List<string>() { "gmail.com", "hotmail.com", "", "bol.com.br", "live.com", "outlook.com", "ifes.edu.br", "yahoo.com.br"};

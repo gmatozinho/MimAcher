@@ -41,17 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Builders\BuilderItem.cs" />
-    <Compile Include="Builders\BuilderNAC.cs" />
     <Compile Include="Builders\BuilderParticipante.cs" />
     <Compile Include="DiretorGeradores.cs" />
+    <Compile Include="Geradores\GeradorCampus.cs" />
     <Compile Include="Geradores\GeradorEmail.cs" />
     <Compile Include="Geradores\GeradorItem.cs" />
     <Compile Include="Geradores\GeradorNascimento.cs" />
     <Compile Include="Geradores\GeradorNome.cs" />
     <Compile Include="Geradores\GeradorSenha.cs" />
     <Compile Include="Geradores\GeradorTelefone.cs" />
-    <Compile Include="Builders\TipoUsuario.cs" />
-    <Compile Include="MainTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
