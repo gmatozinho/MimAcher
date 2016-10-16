@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ImagemUsuarioController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\NACController.cs" />
+    <Compile Include="Controllers\ParticipanteAprenderController.cs" />
     <Compile Include="Controllers\ParticipanteEnsinarController.cs" />
     <Compile Include="Controllers\ParticipanteHobbieController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -225,6 +226,7 @@
     <Folder Include="Views\Campus\" />
     <Folder Include="Views\Item\" />
     <Folder Include="Views\NAC\" />
+    <Folder Include="Views\ParticipanteAprender\" />
     <Folder Include="Views\ParticipanteEnsinar\" />
     <Folder Include="Views\ParticipanteHobbie\" />
     <Folder Include="Views\Participante\" />
