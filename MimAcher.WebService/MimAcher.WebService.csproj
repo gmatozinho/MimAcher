@@ -166,6 +166,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemUsuarioController.cs" />
     <Compile Include="Controllers\NACCampusController.cs" />
+    <Compile Include="Controllers\NACController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -177,6 +178,7 @@
     <Compile Include="Models\Aprender.cs" />
     <Compile Include="Models\Ensinar.cs" />
     <Compile Include="Models\Gosto.cs" />
+    <Compile Include="Models\NAC.cs" />
     <Compile Include="Models\NACCampus.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -222,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NAC\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
