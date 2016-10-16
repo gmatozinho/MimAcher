@@ -161,11 +161,11 @@
     <Compile Include="Controllers\AlunoEnsinarController.cs" />
     <Compile Include="Controllers\AlunoGostoController.cs" />
     <Compile Include="Controllers\AprenderController.cs" />
+    <Compile Include="Controllers\CampusController.cs" />
     <Compile Include="Controllers\EnsinarController.cs" />
     <Compile Include="Controllers\GostoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemUsuarioController.cs" />
-    <Compile Include="Controllers\NACCampusController.cs" />
     <Compile Include="Controllers\NACController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,10 +176,10 @@
     <Compile Include="Models\AlunoEnsinar.cs" />
     <Compile Include="Models\AlunoGosto.cs" />
     <Compile Include="Models\Aprender.cs" />
+    <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Ensinar.cs" />
     <Compile Include="Models\Gosto.cs" />
     <Compile Include="Models\NAC.cs" />
-    <Compile Include="Models\NACCampus.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Campus\" />
     <Folder Include="Views\NAC\" />
   </ItemGroup>
   <ItemGroup>
