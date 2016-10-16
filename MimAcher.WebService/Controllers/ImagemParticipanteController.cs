@@ -8,11 +8,11 @@ using MimAcher.Aplicacao;
 
 namespace MimAcher.WebService.Controllers
 {
-    public class ImagemUsuarioController : Controller
+    public class ImagemParticipanteController : Controller
     {
         public GestorDeImagemDeParticipante GestorDeImagemDeParticipante { get; set; }
 
-        public ImagemUsuarioController()
+        public ImagemParticipanteController()
         {
             this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
         }
