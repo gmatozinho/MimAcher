@@ -67,10 +67,10 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                foreach (Campus nc in listacampus)
+                foreach (Campus cp in listacampus)
                 {
                     MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.local = nc.local;                    
+                    campus.local = cp.local;                    
                 }
 
                 jsonResult = Json(new

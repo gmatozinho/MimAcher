@@ -34,9 +34,8 @@ namespace MimAcher.WebService.Controllers
             {
                 Usuario usuario = new Usuario();
 
-                usuario.cod_us = u.cod_us;
-                usuario.identificador = u.identificador;
-                usuario.login = u.login;
+                usuario.cod_usuario = u.cod_usuario;                
+                usuario.e_mail = u.e_mail;
                 usuario.senha = u.senha;
 
                 listausuario.Add(usuario);
@@ -49,6 +48,40 @@ namespace MimAcher.WebService.Controllers
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        public ActionResult Add(List<Usuario> listausuario)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listausuario == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (Usuario us in listausuario)
+                {
+                    MA_USUARIO usuario = new MA_USUARIO();
+                    usuario.e_mail = us.e_mail;
+                    usuario.senha = us.senha;                    
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
         }
     }
 }

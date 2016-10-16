@@ -7,9 +7,8 @@ namespace MimAcher.WebService.Models
 {
     public class Usuario
     {
-        public int cod_us { get; set; }
-        public String login { get; set; }
-        public String senha { get; set; }
-        public int identificador { get; set; }
+        public int cod_usuario { get; set; }
+        public String e_mail { get; set; }
+        public String senha { get; set; }        
     }
 }
