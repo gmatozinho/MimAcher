@@ -202,13 +202,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.GridPanel ParticipanteGridPanelId;
         
         /// <summary>
-        /// cod_usColumnId control.
+        /// cod_participanteColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column cod_usColumnId;
+        protected global::Ext.Net.Column cod_participanteColumnId;
         
         /// <summary>
         /// nomeColumnId control.

@@ -10,79 +10,61 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class Usuario {
+    public partial class AreaAtuacao {
         
         /// <summary>
-        /// UsuarioWindowId control.
+        /// AreaAtuacaoWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window UsuarioWindowId;
+        protected global::Ext.Net.Window AreaAtuacaoWindowId;
         
         /// <summary>
-        /// UsuarioFormPanelId control.
+        /// AreaAtuacaoFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel UsuarioFormPanelId;
+        protected global::Ext.Net.FormPanel AreaAtuacaoFormPanelId;
         
         /// <summary>
-        /// UsuarioFieldSetId control.
+        /// AreaAtuacaoFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet UsuarioFieldSetId;
+        protected global::Ext.Net.FieldSet AreaAtuacaoFieldSetId;
         
         /// <summary>
-        /// cod_usId control.
+        /// cod_area_atuacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_usId;
+        protected global::Ext.Net.TextField cod_area_atuacaoId;
         
         /// <summary>
-        /// loginId control.
+        /// nomeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField loginId;
+        protected global::Ext.Net.TextField nomeId;
         
         /// <summary>
-        /// senhaId control.
+        /// AreaAtuacaoBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField senhaId;
-        
-        /// <summary>
-        /// identificadorId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField identificadorId;
-        
-        /// <summary>
-        /// UsuarioBarId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.StatusBar UsuarioBarId;
+        protected global::Ext.Net.StatusBar AreaAtuacaoBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -103,85 +85,49 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// FormatType control.
+        /// StoreAreaAtuacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Hidden FormatType;
+        protected global::Ext.Net.Store StoreAreaAtuacaoId;
         
         /// <summary>
-        /// StoreUsuarioId control.
+        /// ModelAreaAtuacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreUsuarioId;
+        protected global::Ext.Net.Model ModelAreaAtuacaoId;
         
         /// <summary>
-        /// ModelUsuarioId control.
+        /// AreaAtuacaoGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelUsuarioId;
+        protected global::Ext.Net.GridPanel AreaAtuacaoGridPanelId;
         
         /// <summary>
-        /// UsuarioGridPanelId control.
+        /// nomeColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel UsuarioGridPanelId;
+        protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
-        /// cod_usColumnId control.
+        /// AreaAtuacaoRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column cod_usColumnId;
-        
-        /// <summary>
-        /// loginColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column loginColumnId;
-        
-        /// <summary>
-        /// senhaColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column senhaColumnId;
-        
-        /// <summary>
-        /// identificadorColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column identificadorColumnId;
-        
-        /// <summary>
-        /// UsuarioRowSelectionModelId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.RowSelectionModel UsuarioRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel AreaAtuacaoRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.

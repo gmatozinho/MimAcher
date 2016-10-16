@@ -160,6 +160,7 @@
   <ItemGroup>
     <Content Include="App\Aprender.aspx" />
     <Content Include="App\AprendizadoAluno.aspx" />
+    <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
     <Content Include="App\EnsinoAluno.aspx" />
     <Content Include="App\Gosto.aspx" />
@@ -168,7 +169,6 @@
     <Content Include="App\Item.aspx" />
     <Content Include="App\NACCampus.aspx" />
     <Content Include="App\Participante.aspx" />
-    <Content Include="App\Usuario.aspx" />
     <Content Include="App\UsuarioPrincipal.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -211,6 +211,13 @@
     </Compile>
     <Compile Include="App\AprendizadoAluno.aspx.designer.cs">
       <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\AreaAtuacao.aspx.cs">
+      <DependentUpon>AreaAtuacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\AreaAtuacao.aspx.designer.cs">
+      <DependentUpon>AreaAtuacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Campus.aspx.cs">
       <DependentUpon>Campus.aspx</DependentUpon>
@@ -267,13 +274,6 @@
     </Compile>
     <Compile Include="App\Participante.aspx.designer.cs">
       <DependentUpon>Participante.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\Usuario.aspx.cs">
-      <DependentUpon>Usuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\Usuario.aspx.designer.cs">
-      <DependentUpon>Usuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\UsuarioPrincipal.aspx.cs">
       <DependentUpon>UsuarioPrincipal.aspx</DependentUpon>
