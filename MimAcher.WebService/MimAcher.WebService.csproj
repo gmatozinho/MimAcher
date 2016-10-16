@@ -156,15 +156,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AlunoAprenderController.cs" />
-    <Compile Include="Controllers\AlunoController.cs" />
-    <Compile Include="Controllers\AlunoEnsinarController.cs" />
-    <Compile Include="Controllers\AlunoGostoController.cs" />
-    <Compile Include="Controllers\AprenderController.cs" />
     <Compile Include="Controllers\AreaAtuacaoController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
-    <Compile Include="Controllers\EnsinarController.cs" />
-    <Compile Include="Controllers\GostoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemUsuarioController.cs" />
     <Compile Include="Controllers\NACController.cs" />
