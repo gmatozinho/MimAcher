@@ -10,11 +10,11 @@ namespace MimAcher.WebService.Controllers
 {
     public class ImagemUsuarioController : Controller
     {
-        public GestorDeImagemDeParticipante GestorDeImagemDeUsuario { get; set; }
+        public GestorDeImagemDeParticipante GestorDeImagemDeParticipante { get; set; }
 
         public ImagemUsuarioController()
         {
-            this.GestorDeImagemDeUsuario = new GestorDeImagemDeParticipante();
+            this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
         }
 
         // GET: ImagemUsuario
@@ -26,11 +26,11 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_IMAGEM_USUARIO> listaimagemusuario = GestorDeImagemDeUsuario.ObterTodosOsImagens();
+            List<MA_IMAGEM_PARTICIPANTE> listaimagemparticipante = GestorDeImagemDeParticipante.ObterTodosOsImagens();
 
             JsonResult jsonResult = Json(new
             {
-                data = listaimagemusuario
+                data = listaimagemparticipante
             }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
