@@ -160,7 +160,7 @@
   <ItemGroup>
     <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
-    <Content Include="App\ImagemUsuario.aspx" />
+    <Content Include="App\ImagemParticipante.aspx" />
     <Content Include="App\Item.aspx" />
     <Content Include="App\NAC.aspx" />
     <Content Include="App\NACAreaAtuacao.aspx" />
@@ -212,12 +212,12 @@
     <Compile Include="App\Campus.aspx.designer.cs">
       <DependentUpon>Campus.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\ImagemUsuario.aspx.cs">
-      <DependentUpon>ImagemUsuario.aspx</DependentUpon>
+    <Compile Include="App\ImagemParticipante.aspx.cs">
+      <DependentUpon>ImagemParticipante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\ImagemUsuario.aspx.designer.cs">
-      <DependentUpon>ImagemUsuario.aspx</DependentUpon>
+    <Compile Include="App\ImagemParticipante.aspx.designer.cs">
+      <DependentUpon>ImagemParticipante.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Item.aspx.cs">
       <DependentUpon>Item.aspx</DependentUpon>

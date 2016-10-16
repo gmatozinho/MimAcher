@@ -10,79 +10,79 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class ImagemUsuarioUsuario {
+    public partial class ImagemParticipante {
         
         /// <summary>
-        /// ImagemUsuarioWindowId control.
+        /// ImagemParticipanteWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window ImagemUsuarioWindowId;
+        protected global::Ext.Net.Window ImagemParticipanteWindowId;
         
         /// <summary>
-        /// ImagemUsuarioFormPanelId control.
+        /// ImagemParticipanteFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel ImagemUsuarioFormPanelId;
+        protected global::Ext.Net.FormPanel ImagemParticipanteFormPanelId;
         
         /// <summary>
-        /// ImagemUsuarioFieldSetId control.
+        /// ImagemParticipanteFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet ImagemUsuarioFieldSetId;
+        protected global::Ext.Net.FieldSet ImagemParticipanteFieldSetId;
         
         /// <summary>
-        /// cod_iId control.
+        /// cod_imagemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_iId;
+        protected global::Ext.Net.TextField cod_imagemId;
         
         /// <summary>
-        /// cod_usId control.
+        /// cod_participanteId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cod_usId;
+        protected global::Ext.Net.ComboBox cod_participanteId;
         
         /// <summary>
-        /// StoreUsuarioId control.
+        /// StoreParticipanteId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreUsuarioId;
+        protected global::Ext.Net.Store StoreParticipanteId;
         
         /// <summary>
-        /// ModelUsuarioId control.
+        /// ModelParticipanteId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelUsuarioId;
+        protected global::Ext.Net.Model ModelParticipanteId;
         
         /// <summary>
-        /// ImagemUsuarioBarId control.
+        /// ImagemParticipanteBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.StatusBar ImagemUsuarioBarId;
+        protected global::Ext.Net.StatusBar ImagemParticipanteBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -103,58 +103,58 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StoreImagemUsuarioId control.
+        /// StoreImagemParticipanteId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreImagemUsuarioId;
+        protected global::Ext.Net.Store StoreImagemParticipanteId;
         
         /// <summary>
-        /// ModelImagemUsuarioId control.
+        /// ModelImagemParticipanteId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelImagemUsuarioId;
+        protected global::Ext.Net.Model ModelImagemParticipanteId;
         
         /// <summary>
-        /// ImagemUsuarioGridPanelId control.
+        /// ImagemParticipanteGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel ImagemUsuarioGridPanelId;
+        protected global::Ext.Net.GridPanel ImagemParticipanteGridPanelId;
         
         /// <summary>
-        /// cod_iColumnId control.
+        /// cod_imagemColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column cod_iColumnId;
+        protected global::Ext.Net.Column cod_imagemColumnId;
         
         /// <summary>
-        /// loginColumnId control.
+        /// nomeColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column loginColumnId;
+        protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
-        /// ImagemUsuarioRowSelectionModelId control.
+        /// ImagemParticipanteRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.RowSelectionModel ImagemUsuarioRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel ImagemParticipanteRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.
