@@ -61,8 +61,11 @@ namespace MimAcher.Activities
             if (tel != null)
             {
                 campoTelefone.Text = tel;
-            }                    
-            
+            }
+            ActionBar.Title = "Avançar";
+            ActionBar.Subtitle = "Informações Básicas";
+
+
             //Pegar as informações inseridas
             campoNome.TextChanged += (sender, n) => _nome = n.Text.ToString();
             campoEMail.TextChanged += (sender, e) => _email = e.Text.ToString();

@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:title="Informações Básicas"
         android:titleTextColor="#ffffffff"
-        android:subtitleTextColor="#ffff0000"
+        android:subtitleTextColor="#ffffffff"
         android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
     <ImageView
         android:src="@drawable/logo"

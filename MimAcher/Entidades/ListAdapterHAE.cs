@@ -1,59 +1,37 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace MimAcher.Activities.TAB
+namespace MimAcher.Entidades
 {
     public class ListAdapterHae : BaseAdapter<string>
     {
+        private readonly List<string> _items;
+        private readonly Activity _context;
 
-        readonly List<string> items;
-        readonly Activity context;
-
-        public ListAdapterHae(Activity context, List<string> items) : base()
+        public ListAdapterHae(Activity context, List<string> items)
         {
-            this.context = context;
-            this.items = items;
+            _context = context;
+            _items = items;
 
         }
-
-        
 
         public override long GetItemId(int position)
         {
             return position;
         }
 
-        public override string this[int position]
-        {
-            get { return items[position]; }
-        }
+        public override string this[int position] => _items[position];
 
-        public override int Count
-        {
-            get { return items.ToArray().Length;}
-        }
+        public override int Count => _items.ToArray().Length;
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            View view = convertView; // re-use an existing view, if one is available
-            if (view == null) // otherwise create a new one
-                view = context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
-            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = items[position];           
+            var view = convertView ?? _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
+            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = _items[position];           
             return view;
         }
-
-        
-        //Fill in cound here, currently 0
-
 
     }
 
