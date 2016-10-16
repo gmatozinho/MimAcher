@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ImagemUsuarioController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\NACController.cs" />
+    <Compile Include="Controllers\ParticipanteEnsinarController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -171,7 +172,10 @@
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\NAC.cs" />
     <Compile Include="Models\Participante.cs" />
-    <Compile Include="Models\ParticipanteController.cs" />
+    <Compile Include="Controllers\ParticipanteController.cs" />
+    <Compile Include="Models\ParticipanteAprender.cs" />
+    <Compile Include="Models\ParticipanteEnsinar.cs" />
+    <Compile Include="Models\ParticipanteHobbie.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -220,6 +224,7 @@
     <Folder Include="Views\Campus\" />
     <Folder Include="Views\Item\" />
     <Folder Include="Views\NAC\" />
+    <Folder Include="Views\ParticipanteEnsinar\" />
     <Folder Include="Views\Participante\" />
   </ItemGroup>
   <ItemGroup>
