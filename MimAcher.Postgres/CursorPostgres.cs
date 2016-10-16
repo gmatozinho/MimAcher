@@ -5,14 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Npgsql;
+using System.Data;
 
 namespace MimAcher.Postgres
 { 
     internal class CursorPostgres
     {
-        string server = "localhost", 
-               port = "5432",
-               userId = "postgres",
+        string username = "postgres",
                password = "ifes", 
                database = "mimacher";
 
@@ -20,22 +19,54 @@ namespace MimAcher.Postgres
         {
             try
             {
-                string stringConexao = string.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
-                    server, port, userId, password, database);
+                string stringConexao = string.Format("Server = 127.0.0.1; User Id = {0}; Password = {1}; Database = {2}; ",
+                    username, password, database);
 
                 NpgsqlConnection conexao = new NpgsqlConnection(stringConexao);
                 conexao.Open();
 
-                string comandoSql = "INSERT INTO participante(nome, email, senha, campus, nascimento, telefone " +
-                    "VALUES ({0}, {1}, {2}, {3}, {4}, {5});";
-                string.Format(comandoSql, participante.Nome, participante.Email, participante.Senha, participante.Campus,
-                              participante.Nascimento, participante.Telefone);
-                
-                NpgsqlCommand comandoPostgres = new NpgsqlCommand();
-                comandoPostgres.CommandText = comandoSql;
-                comandoPostgres.ExecuteNonQuery();
+                NpgsqlCommand comandoSQL = new NpgsqlCommand("inserir_participante", conexao);
+                comandoSQL.CommandType = CommandType.StoredProcedure;
 
-                foreach(string hobbie in participante.Hobbies.Itens)
+                var parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "nome_param";
+                parameter.DbType = System.Data.DbType.AnsiString;
+                parameter.Value = participante.Nome;
+                comandoSQL.Parameters.Add(parameter);
+                
+                parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "email_param";
+                parameter.DbType = System.Data.DbType.AnsiString;
+                parameter.Value = participante.Email;
+                comandoSQL.Parameters.Add(parameter);
+
+                parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "senha_param";
+                parameter.DbType = System.Data.DbType.AnsiString;
+                parameter.Value = participante.Senha;
+                comandoSQL.Parameters.Add(parameter);
+
+                parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "telefone_param";
+                parameter.DbType = System.Data.DbType.Int32;
+                parameter.Value = Int32.Parse(participante.Telefone);
+                comandoSQL.Parameters.Add(parameter);
+
+                parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "nascimento_param";
+                parameter.DbType = System.Data.DbType.Date;
+                parameter.Value = participante.Nascimento;
+                comandoSQL.Parameters.Add(parameter);
+
+                parameter = comandoSQL.CreateParameter();
+                parameter.ParameterName = "campus_param";
+                parameter.DbType = System.Data.DbType.AnsiString;
+                parameter.Value = participante.Campus;
+                comandoSQL.Parameters.Add(parameter);
+
+                comandoSQL.ExecuteNonQuery();
+
+                foreach (string hobbie in participante.Hobbies.Itens)
                 {
 
                 }
