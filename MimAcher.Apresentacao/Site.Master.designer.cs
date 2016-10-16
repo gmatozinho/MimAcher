@@ -157,76 +157,112 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.Menu AtributosMenu;
         
         /// <summary>
-        /// ItemAprendizadoMenuItemId control.
+        /// ItemMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ItemAprendizadoMenuItemId;
+        protected global::Ext.Net.MenuItem ItemMenuItemId;
         
         /// <summary>
-        /// ItemEnsinarMenuItemId control.
+        /// ParticipanteAprendertemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ItemEnsinarMenuItemId;
+        protected global::Ext.Net.MenuItem ParticipanteAprendertemId;
         
         /// <summary>
-        /// ItemGostoMenuItemId control.
+        /// ParticipanteEnsinarMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ItemGostoMenuItemId;
+        protected global::Ext.Net.MenuItem ParticipanteEnsinarMenuItemId;
         
         /// <summary>
-        /// AfinidadeMenuItemId control.
+        /// ParticipanteHobbieMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem AfinidadeMenuItemId;
+        protected global::Ext.Net.MenuItem ParticipanteHobbieMenuItemId;
         
         /// <summary>
-        /// AfinidadeMenu control.
+        /// NACMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Menu AfinidadeMenu;
+        protected global::Ext.Net.MenuItem NACMenuItemId;
         
         /// <summary>
-        /// AlunoEnsinarMenuItemId control.
+        /// NACMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem AlunoEnsinarMenuItemId;
+        protected global::Ext.Net.Menu NACMenu;
         
         /// <summary>
-        /// AlunoGostoMenuItemId control.
+        /// NACMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem AlunoGostoMenuItemId;
+        protected global::Ext.Net.MenuItem NACMenuItemId;
         
         /// <summary>
-        /// AlunoAprenderMenuItemId control.
+        /// NACAreaAtuacaoMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem AlunoAprenderMenuItemId;
+        protected global::Ext.Net.MenuItem NACAreaAtuacaoMenuItemId;
+        
+        /// <summary>
+        /// AreaAtuacaoMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem AreaAtuacaoMenuItemId;
+        
+        /// <summary>
+        /// CampusMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem CampusMenuItemId;
+        
+        /// <summary>
+        /// ParticipanteMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem ParticipanteMenuItemId;
+        
+        /// <summary>
+        /// ParticipanteMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Menu ParticipanteMenu;
         
         /// <summary>
         /// UsuarioMenuItemId control.
@@ -238,40 +274,22 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.MenuItem UsuarioMenuItemId;
         
         /// <summary>
-        /// UsuarioMenu control.
+        /// ParticipanteMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Menu UsuarioMenu;
+        protected global::Ext.Net.MenuItem ParticipanteMenuItemId;
         
         /// <summary>
-        /// ItemNACCampusMenuItemId control.
+        /// ImagemParticipanteMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ItemNACCampusMenuItemId;
-        
-        /// <summary>
-        /// ItemUsuarioMenuItemId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.MenuItem ItemUsuarioMenuItemId;
-        
-        /// <summary>
-        /// ItemAlunoMenuItemId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.MenuItem ItemAlunoMenuItemId;
+        protected global::Ext.Net.MenuItem ImagemParticipanteMenuItemId;
         
         /// <summary>
         /// PainelCentral control.

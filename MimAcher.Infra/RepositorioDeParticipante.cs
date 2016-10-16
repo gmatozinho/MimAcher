@@ -33,7 +33,7 @@ namespace MimAcher.Infra
 
         public MA_PARTICIPANTE ObterParticipantePorEmail(String email)
         {
-            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.email.Equals(email)).SingleOrDefault();
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.e_mail.Equals(email)).SingleOrDefault();
         }
         
         public void InserirParticipante(MA_PARTICIPANTE Participante)
