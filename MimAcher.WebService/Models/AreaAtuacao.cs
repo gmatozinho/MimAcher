@@ -5,9 +5,9 @@ using System.Web;
 
 namespace MimAcher.WebService.Models
 {
-    public class Aprender
+    public class AreaAtuacao
     {
-        public int cod_a { get; set; }
+        public int cod_area_atuacao { get; set; }
         public String nome { get; set; }
     }
 }

@@ -161,6 +161,7 @@
     <Compile Include="Controllers\AlunoEnsinarController.cs" />
     <Compile Include="Controllers\AlunoGostoController.cs" />
     <Compile Include="Controllers\AprenderController.cs" />
+    <Compile Include="Controllers\AreaAtuacaoController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
     <Compile Include="Controllers\EnsinarController.cs" />
     <Compile Include="Controllers\GostoController.cs" />
@@ -171,14 +172,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Aluno.cs" />
-    <Compile Include="Models\AlunoAprender.cs" />
-    <Compile Include="Models\AlunoEnsinar.cs" />
-    <Compile Include="Models\AlunoGosto.cs" />
-    <Compile Include="Models\Aprender.cs" />
+    <Compile Include="Models\AreaAtuacao.cs" />
     <Compile Include="Models\Campus.cs" />
-    <Compile Include="Models\Ensinar.cs" />
-    <Compile Include="Models\Gosto.cs" />
     <Compile Include="Models\NAC.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -224,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AreaAtuacao\" />
     <Folder Include="Views\Campus\" />
     <Folder Include="Views\NAC\" />
   </ItemGroup>
