@@ -62,7 +62,7 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="20dp" />
     <View
         android:layout_width="match_parent"
         android:background="#ffffff"
@@ -83,4 +83,5 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC" />
+    
 </LinearLayout>
