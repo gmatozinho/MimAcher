@@ -142,7 +142,7 @@
     <Compile Include="Entidades\NAC.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
-    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\ServiceForUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -43,7 +43,7 @@ namespace MimAcher.Activities
             
             //Login button click action, e passando o _nome do usuário para próxima activity
             entrar.Click += delegate {
-                var participante = new Participante(CriarDicionarioDeInformacoes());
+                var participante = new Participante(MontarUsuário());
                 var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
                 resultadoActivity.PutExtra("member",participante.ParticipanteToBundle());
                 StartActivity(resultadoActivity);
@@ -60,7 +60,7 @@ namespace MimAcher.Activities
 
         //função temporaria
         //deve pegar o usuario no banco
-        private Dictionary<string, string> CriarDicionarioDeInformacoes()
+        private Dictionary<string, string> MontarUsuário()
         {
             var informacoes = new Dictionary<string, string>
             {

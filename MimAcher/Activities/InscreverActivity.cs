@@ -7,6 +7,7 @@ using Android.Telephony;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
+using MimAcher.Services;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Activities
@@ -18,7 +19,7 @@ namespace MimAcher.Activities
         //Variaveis globais
         public Bundle ParticipanteBundle;
         private string _senha;
-        private string _nome = "Fulano";
+        private string _nome ;
         private string _email;
         private string _nascimento;
         private string _telefone;
@@ -77,13 +78,14 @@ namespace MimAcher.Activities
         }
 
         //Botar as validações do cayo
-        private void ValidarCadastro()
+        private void RegistrarParticipante(Context activity)
         {
-            if (_senha != null && _confirmarSenha == _senha && _email != null)
+            var participante = new Participante(UnirInformacoesUsuario());
+
+            if (ServiceForUser.ValidarCadastroParticipante(activity,participante,_confirmarSenha))
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                var participante = new Participante(CriarDicionarioDeInformacoes());
                 participante.Commit();
 
                 var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
@@ -92,8 +94,8 @@ namespace MimAcher.Activities
             }
             else
             {
-                const string toast = ("Informações inválidas");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                //const string toast = ("Informações inválidas");
+                //Toast.MakeText(this, toast, ToastLength.Long).Show();
                 var inscreveractivity = new Intent(this, typeof(InscreverActivity));
                 StartActivity(inscreveractivity);
             }
@@ -113,7 +115,7 @@ namespace MimAcher.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_done:
-                    ValidarCadastro();
+                    RegistrarParticipante(this);
                     return true;
                 /*case Resource.Id.menu_preferences:
                     //do something
@@ -127,7 +129,7 @@ namespace MimAcher.Activities
         }
 
         //Cria participante
-        private Dictionary<string, string> CriarDicionarioDeInformacoes()
+        private Dictionary<string, string> UnirInformacoesUsuario()
         {
             var informacoes = new Dictionary<string, string>
             {

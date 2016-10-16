@@ -30,7 +30,7 @@ namespace MimAcher.Entidades
 
         public static bool ValidarNome(string nome)
         {
-            return !nome.Equals("");
+            return !string.IsNullOrEmpty(nome);
         }
 
         public static bool ValidarData(string data)
@@ -48,14 +48,25 @@ namespace MimAcher.Entidades
             return int.TryParse(telefone, out numero);
         }
 
+        public static bool ValidarSenha(string senha)
+        {
+            return !string.IsNullOrEmpty(senha);
+        }
+
+        public static bool ValidarConfirmarSenha(string senha, string confirmarSenha)
+        {
+            return confirmarSenha == senha;
+        }
+
         public static List<string> ValidarEntradas(Dictionary<string, string> entradas)
         {
             var erros = new List<string>();
 
-            if (ValidarEmail(entradas["email"])) erros.Add("email");
-            if (ValidarData(entradas["data"])) erros.Add("data");
-            if (ValidarNome(entradas["nome"])) erros.Add("nome");
-            if (ValidarTelefone(entradas["telefone"])) erros.Add("telefone");
+            if (!ValidarEmail(entradas["email"])) erros.Add("E-mail");
+            if (!ValidarNome(entradas["nome"])) erros.Add("Nome");
+            if (!ValidarData(entradas["data"])) erros.Add("Data de Nascimento");
+            if (!ValidarSenha(entradas["senha"])) erros.Add("Senha");
+            if (!ValidarTelefone(entradas["telefone"])) erros.Add("Telefone");
 
             return erros;
         }
