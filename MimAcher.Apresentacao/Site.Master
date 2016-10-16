@@ -105,9 +105,9 @@
 								</ext:MenuItem>
 
 							  <%-- Menu do NAC --%>
-								<ext:MenuItem ID="NACMenuItemId" runat="server" Text="NAC/Campus" Icon="BulletBlue" HideOnClick="false">
+								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" Icon="BulletBlue" HideOnClick="false">
 									 <Menu>
-										<ext:Menu ID="NACMenu" runat="server">
+										<ext:Menu ID="NACCampusMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="NACMenuItemId" Text="NAC" OnClientClick="window.location.href='/App/NAC.aspx'" />                                
 												<ext:MenuItem ID="NACAreaAtuacaoMenuItemId" Text="NAC/Área de Atuação" OnClientClick="window.location.href='/App/NACAreaAtuacao.aspx'" />                                                                                                                                
@@ -119,9 +119,9 @@
 								</ext:MenuItem>
 
 								<%-- Gerenciamento de Usuário e Participante --%>
-								<ext:MenuItem ID="ParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" Icon="BulletBlue" HideOnClick="false">
+								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" Icon="BulletBlue" HideOnClick="false">
 									 <Menu>
-										<ext:Menu ID="ParticipanteMenu" runat="server">
+										<ext:Menu ID="UsuarioParticipanteMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="UsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" />                                                                                												                                
 												<ext:MenuItem ID="ParticipanteMenuItemId" Text="Participante" OnClientClick="window.location.href='/App/Participante.aspx'" />                                

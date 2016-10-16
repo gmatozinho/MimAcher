@@ -193,22 +193,22 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.MenuItem ParticipanteHobbieMenuItemId;
         
         /// <summary>
-        /// NACMenuItemId control.
+        /// NACCampusMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem NACMenuItemId;
+        protected global::Ext.Net.MenuItem NACCampusMenuItemId;
         
         /// <summary>
-        /// NACMenu control.
+        /// NACCampusMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Menu NACMenu;
+        protected global::Ext.Net.Menu NACCampusMenu;
         
         /// <summary>
         /// NACMenuItemId control.
@@ -247,22 +247,22 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.MenuItem CampusMenuItemId;
         
         /// <summary>
-        /// ParticipanteMenuItemId control.
+        /// UsuarioParticipanteMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ParticipanteMenuItemId;
+        protected global::Ext.Net.MenuItem UsuarioParticipanteMenuItemId;
         
         /// <summary>
-        /// ParticipanteMenu control.
+        /// UsuarioParticipanteMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Menu ParticipanteMenu;
+        protected global::Ext.Net.Menu UsuarioParticipanteMenu;
         
         /// <summary>
         /// UsuarioMenuItemId control.
