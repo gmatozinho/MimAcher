@@ -27,7 +27,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_ITEM> listaitemoriginal = GestorDeItem.ObterTodosOsItem();
+            List<MA_ITEM> listaitemoriginal = GestorDeItem.ObterTodosOsItems();
             List<Item> listaitem = new List<Item>();
 
             foreach (MA_ITEM it in listaitemoriginal)
