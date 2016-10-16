@@ -158,13 +158,8 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\Aprender.aspx" />
-    <Content Include="App\AprendizadoAluno.aspx" />
     <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
-    <Content Include="App\EnsinoAluno.aspx" />
-    <Content Include="App\Gosto.aspx" />
-    <Content Include="App\GostoAluno.aspx" />
     <Content Include="App\ImagemUsuario.aspx" />
     <Content Include="App\Item.aspx" />
     <Content Include="App\NAC.aspx" />
@@ -202,20 +197,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Aprender.aspx.cs">
-      <DependentUpon>Aprender.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\Aprender.aspx.designer.cs">
-      <DependentUpon>Aprender.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\AprendizadoAluno.aspx.cs">
-      <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\AprendizadoAluno.aspx.designer.cs">
-      <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App\AreaAtuacao.aspx.cs">
       <DependentUpon>AreaAtuacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,27 +210,6 @@
     </Compile>
     <Compile Include="App\Campus.aspx.designer.cs">
       <DependentUpon>Campus.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\EnsinoAluno.aspx.cs">
-      <DependentUpon>EnsinoAluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\EnsinoAluno.aspx.designer.cs">
-      <DependentUpon>EnsinoAluno.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\Gosto.aspx.cs">
-      <DependentUpon>Gosto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\Gosto.aspx.designer.cs">
-      <DependentUpon>Gosto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App\GostoAluno.aspx.cs">
-      <DependentUpon>GostoAluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\GostoAluno.aspx.designer.cs">
-      <DependentUpon>GostoAluno.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\ImagemUsuario.aspx.cs">
       <DependentUpon>ImagemUsuario.aspx</DependentUpon>
