@@ -11,18 +11,22 @@ namespace MimAcher.Postgres
 { 
     internal class CursorPostgres
     {
-        string username = "postgres",
+        static string username = "postgres",
                password = "ifes", 
                database = "mimacher";
+        string stringConexao = string.Format("Server = 127.0.0.1; User Id = {0}; Password = {1}; Database = {2}; ",
+                   username, password, database);
+        NpgsqlConnection conexao;
+
+        public CursorPostgres()
+        {
+            conexao = new NpgsqlConnection(stringConexao);
+        }
 
         public void InserirParticipante(Participante participante)
         {
             try
             {
-                string stringConexao = string.Format("Server = 127.0.0.1; User Id = {0}; Password = {1}; Database = {2}; ",
-                    username, password, database);
-
-                NpgsqlConnection conexao = new NpgsqlConnection(stringConexao);
                 conexao.Open();
 
                 NpgsqlCommand comandoSQL = new NpgsqlCommand("inserir_participante", conexao);
