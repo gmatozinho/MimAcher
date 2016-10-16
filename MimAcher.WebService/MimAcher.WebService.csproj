@@ -170,6 +170,8 @@
     <Compile Include="Models\Campus.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\NAC.cs" />
+    <Compile Include="Models\Participante.cs" />
+    <Compile Include="Models\ParticipanteController.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,6 +220,7 @@
     <Folder Include="Views\Campus\" />
     <Folder Include="Views\Item\" />
     <Folder Include="Views\NAC\" />
+    <Folder Include="Views\Participante\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
