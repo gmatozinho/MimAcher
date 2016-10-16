@@ -1,71 +1,69 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using MimAcher.Entidades;
-using MimAcher.Activities.TAB;
 using com.refractored.fab;
+using MimAcher.Activities.TAB;
+using MimAcher.Entidades;
 
-namespace MimAcher
+namespace MimAcher.Activities
 {
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
     public class QueroAprenderActivity : Activity
     {
-        private Participante participante;
-        readonly ListaItens ListAprender = new ListaItens();
-        private ListView listView;
+        //Variaveis globais
+        private Participante _participante;
+        private readonly ListaItens _listAprender = new ListaItens();
+        private ListView _listView;
 
+        //Metodos do controlador
+        //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            Bundle participante_bundle = Intent.GetBundleExtra("member");
-            participante = Participante.BundleToParticipante(participante_bundle);
+            //Recebendo e transformando o bundle(Objeto participante)
+            var participanteBundle = Intent.GetBundleExtra("member");
+            _participante = Participante.BundleToParticipante(participanteBundle);
 
-            // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.QueroAprender);
+            //Exibindo o layout .axml
+            SetContentView(Resource.Layout.Perfil);
 
-            string aprender = null;
-
+            //Iniciando as variaveis do contexto
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
-            //Toolbar will now take on default Action Bar characteristics
+            var pergunta = FindViewById<TextView>(Resource.Id.pergunta);
+            var campoAprender = FindViewById<EditText>(Resource.Id.digite_algo);
+            var ok = FindViewById<Button>(Resource.Id.ok);
+            var addAprender = FindViewById<FloatingActionButton>(Resource.Id.add_algo);
+            string aprender = null;
+            _listView = FindViewById<ListView>(Resource.Id.list);
+
             SetActionBar(toolbar);
-            //You can now use and reference the ActionBar
+
+            //Modificando a parte textual
             ActionBar.Title = "Aprender";
+            pergunta.Text = "O que você quer aprender?";
+            campoAprender.Hint = "Digite algo para aprender";
 
-            //Button
-            
-            Button ok = FindViewById<Button>(Resource.Id.ok);
-            FloatingActionButton add_aprender= FindViewById<FloatingActionButton>(Resource.Id.add_aprender);
-            EditText campo_aprender = FindViewById<EditText>(Resource.Id.digite_aprender);
+            //Funcionalidades
+            campoAprender.TextChanged += (sender, a) => aprender = a.Text.ToString();
 
-            listView = FindViewById<ListView>(Resource.Id.list);
-
-            campo_aprender.TextChanged += (object sender, Android.Text.TextChangedEventArgs a) => {
-                aprender = a.Text.ToString();
-            };
-
-            add_aprender.Click += delegate {
-                ListAprender.AdicionarItem(aprender, participante.Aprender.Itens);
-                participante.Aprender.AdicionarItemWithMessage(aprender, this,"Algo para aprender");
-                campo_aprender.Text = null;
-                listView.Adapter = new ListAdapterHae(this, ListAprender.Itens);
+            addAprender.Click += delegate {
+                _listAprender.AdicionarItem(aprender, _participante.Aprender.Itens);
+                _participante.Aprender.AdicionarItemWithMessage(aprender, this,"Algo para aprender");
+                campoAprender.Text = null;
+                _listView.Adapter = new ListAdapterHae(this, _listAprender.Itens);
             };
 
             ok.Click += delegate {
-                participante.Commit();
-                ListAprender.Clear();
-                listView.Adapter = null;
+                _participante.Commit();
+                _listAprender.Clear();
+                _listView.Adapter = null;
 
                 var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
-                queroensinaractivity.PutExtra("member", participante.ParticipanteToBundle());
+                //TODO mudar para trabalhar com objeto do banco
+                queroensinaractivity.PutExtra("member", _participante.ParticipanteToBundle());
                 StartActivity(queroensinaractivity);
             };
         }
@@ -78,32 +76,28 @@ namespace MimAcher
         }
 
 
-        //Define as funcionalidades destes menus
+        //Define as funcionalidades deste menu
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    //do something
-                    participante.Commit();
-                    ListAprender.Clear();
-                    listView.Adapter = null;
+                    _participante.Commit();
+                    _listAprender.Clear();
+                    _listView.Adapter = null;
 
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
-                    //mudar para trabalhar com objeto do banco
-                    resultadoctivity.PutExtra("member", participante.ParticipanteToBundle());
+                    resultadoctivity.PutExtra("member", _participante.ParticipanteToBundle());
                     StartActivity(resultadoctivity);
                     return true;
 
                 case Resource.Id.menu_preferences:
-                    //do something
-                    participante.Commit();
-                    ListAprender.Clear();
-                    listView.Adapter = null;
+                    _participante.Commit();
+                    _listAprender.Clear();
+                    _listView.Adapter = null;
 
                     var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                    //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("member", participante.ParticipanteToBundle());
+                    editaractivity.PutExtra("member", _participante.ParticipanteToBundle());
                     StartActivity(editaractivity);
                     return true;                
             }

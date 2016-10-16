@@ -1,20 +1,8 @@
+using System.Threading;
 using Android.App;
 using Android.OS;
-using System.Threading;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using MimAcher.Entidades;
-using MimAcher;
-
-namespace Splash_Screen
+namespace MimAcher.Activities
 {
     //Set MainLauncher = true makes this Activity Shown First on Running this Application  
     //Theme property set the Custom Theme for this Activity  
@@ -29,7 +17,7 @@ namespace Splash_Screen
             //Display Splash Screen for 4 Sec  
             Thread.Sleep(2000);
             //Start Activity1 Activity  
-            StartActivity(typeof(MimAcher.MainActivity));
+            StartActivity(typeof(MainActivity));
         }
 
     }

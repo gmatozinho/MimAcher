@@ -155,7 +155,7 @@
     <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Hobbies.axml">
+    <AndroidResource Include="Resources\layout\Perfil.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Resultado.axml">
@@ -163,12 +163,6 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AlterarSenha.axml" />
     <AndroidResource Include="Resources\layout\EditarPerfil.axml" />
-    <AndroidResource Include="Resources\layout\QueroAprender.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\QueroEnsinar.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\UsuarioResultado.axml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-hdpi\Thumbs.db" />
