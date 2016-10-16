@@ -13,11 +13,16 @@ namespace MimAcher.Postgres
         static void Main(string[] args)
         {
             DiretorGeradores dir = new DiretorGeradores();
-            Participante par = (Participante)dir.GerarParticipante();
+            Participante par;
 
             CursorPostgres cursor = new CursorPostgres();
 
-            cursor.InserirParticipante(par);
+            for (int i = 0;i < 250000; i++)
+            {
+                par = (Participante)dir.GerarParticipante();
+                Console.WriteLine("Inserindo participante " + par.Nome + "...");
+                cursor.InserirParticipante(par);
+            }
             
             Console.ReadLine();
         }

@@ -28,55 +28,100 @@ namespace MimAcher.Postgres
                 NpgsqlCommand comandoSQL = new NpgsqlCommand("inserir_participante", conexao);
                 comandoSQL.CommandType = CommandType.StoredProcedure;
 
-                var parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "nome_param";
-                parameter.DbType = System.Data.DbType.AnsiString;
-                parameter.Value = participante.Nome;
-                comandoSQL.Parameters.Add(parameter);
+                var parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "nome_param";
+                parametroFunction.DbType = System.Data.DbType.AnsiString;
+                parametroFunction.Value = participante.Nome;
+                comandoSQL.Parameters.Add(parametroFunction);
                 
-                parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "email_param";
-                parameter.DbType = System.Data.DbType.AnsiString;
-                parameter.Value = participante.Email;
-                comandoSQL.Parameters.Add(parameter);
+                parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "email_param";
+                parametroFunction.DbType = System.Data.DbType.AnsiString;
+                parametroFunction.Value = participante.Email;
+                comandoSQL.Parameters.Add(parametroFunction);
 
-                parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "senha_param";
-                parameter.DbType = System.Data.DbType.AnsiString;
-                parameter.Value = participante.Senha;
-                comandoSQL.Parameters.Add(parameter);
+                parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "senha_param";
+                parametroFunction.DbType = System.Data.DbType.AnsiString;
+                parametroFunction.Value = participante.Senha;
+                comandoSQL.Parameters.Add(parametroFunction);
 
-                parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "telefone_param";
-                parameter.DbType = System.Data.DbType.Int32;
-                parameter.Value = Int32.Parse(participante.Telefone);
-                comandoSQL.Parameters.Add(parameter);
+                parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "telefone_param";
+                parametroFunction.DbType = System.Data.DbType.Int32;
+                parametroFunction.Value = Int32.Parse(participante.Telefone);
+                comandoSQL.Parameters.Add(parametroFunction);
 
-                parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "nascimento_param";
-                parameter.DbType = System.Data.DbType.Date;
-                parameter.Value = participante.Nascimento;
-                comandoSQL.Parameters.Add(parameter);
+                parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "nascimento_param";
+                parametroFunction.DbType = System.Data.DbType.Date;
+                parametroFunction.Value = participante.Nascimento;
+                comandoSQL.Parameters.Add(parametroFunction);
 
-                parameter = comandoSQL.CreateParameter();
-                parameter.ParameterName = "campus_param";
-                parameter.DbType = System.Data.DbType.AnsiString;
-                parameter.Value = participante.Campus;
-                comandoSQL.Parameters.Add(parameter);
+                parametroFunction = comandoSQL.CreateParameter();
+                parametroFunction.ParameterName = "campus_param";
+                parametroFunction.DbType = System.Data.DbType.AnsiString;
+                parametroFunction.Value = participante.Campus;
+                comandoSQL.Parameters.Add(parametroFunction);
 
                 comandoSQL.ExecuteNonQuery();
 
                 foreach (string hobbie in participante.Hobbies.Itens)
                 {
+                    comandoSQL = new NpgsqlCommand("inserir_hobbie", conexao);
+                    comandoSQL.CommandType = CommandType.StoredProcedure;
 
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "nome_item";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = hobbie;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "email_participante";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = participante.Email;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    comandoSQL.ExecuteNonQuery();
                 }
                 foreach (string ensinar in participante.Ensinar.Itens)
                 {
+                    comandoSQL = new NpgsqlCommand("inserir_ensinar", conexao);
+                    comandoSQL.CommandType = CommandType.StoredProcedure;
 
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "nome_item";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = ensinar;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "email_participante";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = participante.Email;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    comandoSQL.ExecuteNonQuery();
                 }
-                foreach (string hobbie in participante.Aprender.Itens)
+                foreach (string aprender in participante.Aprender.Itens)
                 {
+                    comandoSQL = new NpgsqlCommand("inserir_aprender", conexao);
+                    comandoSQL.CommandType = CommandType.StoredProcedure;
 
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "nome_item";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = aprender;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    parametroFunction = comandoSQL.CreateParameter();
+                    parametroFunction.ParameterName = "email_participante";
+                    parametroFunction.DbType = System.Data.DbType.AnsiString;
+                    parametroFunction.Value = participante.Email;
+                    comandoSQL.Parameters.Add(parametroFunction);
+
+                    comandoSQL.ExecuteNonQuery();
                 }
             }
             catch
