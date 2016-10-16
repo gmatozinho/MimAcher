@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\NACController.cs" />
     <Compile Include="Controllers\ParticipanteEnsinarController.cs" />
+    <Compile Include="Controllers\ParticipanteHobbieController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,6 +226,7 @@
     <Folder Include="Views\Item\" />
     <Folder Include="Views\NAC\" />
     <Folder Include="Views\ParticipanteEnsinar\" />
+    <Folder Include="Views\ParticipanteHobbie\" />
     <Folder Include="Views\Participante\" />
   </ItemGroup>
   <ItemGroup>
