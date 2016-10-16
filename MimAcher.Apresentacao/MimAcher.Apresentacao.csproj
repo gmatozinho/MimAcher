@@ -158,10 +158,9 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\Aluno.aspx" />
     <Content Include="App\Aprender.aspx" />
     <Content Include="App\AprendizadoAluno.aspx" />
-    <Content Include="App\Ensinar.aspx" />
+    <Content Include="App\Campus.aspx" />
     <Content Include="App\EnsinoAluno.aspx" />
     <Content Include="App\Gosto.aspx" />
     <Content Include="App\GostoAluno.aspx" />
@@ -198,13 +197,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App\Aluno.aspx.cs">
-      <DependentUpon>Aluno.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\Aluno.aspx.designer.cs">
-      <DependentUpon>Aluno.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App\Aprender.aspx.cs">
       <DependentUpon>Aprender.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -219,12 +211,12 @@
     <Compile Include="App\AprendizadoAluno.aspx.designer.cs">
       <DependentUpon>AprendizadoAluno.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\Ensinar.aspx.cs">
-      <DependentUpon>Ensinar.aspx</DependentUpon>
+    <Compile Include="App\Campus.aspx.cs">
+      <DependentUpon>Campus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\Ensinar.aspx.designer.cs">
-      <DependentUpon>Ensinar.aspx</DependentUpon>
+    <Compile Include="App\Campus.aspx.designer.cs">
+      <DependentUpon>Campus.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\EnsinoAluno.aspx.cs">
       <DependentUpon>EnsinoAluno.aspx</DependentUpon>

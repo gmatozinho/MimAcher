@@ -10,133 +10,61 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class Aluno {
+    public partial class Campus {
         
         /// <summary>
-        /// AlunoWindowId control.
+        /// CampusWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window AlunoWindowId;
+        protected global::Ext.Net.Window CampusWindowId;
         
         /// <summary>
-        /// AlunoFormPanelId control.
+        /// CampusFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel AlunoFormPanelId;
+        protected global::Ext.Net.FormPanel CampusFormPanelId;
         
         /// <summary>
-        /// AlunoFieldSetId control.
+        /// CampusFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet AlunoFieldSetId;
+        protected global::Ext.Net.FieldSet CampusFieldSetId;
         
         /// <summary>
-        /// cod_alId control.
+        /// cod_campusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_alId;
+        protected global::Ext.Net.TextField cod_campusId;
         
         /// <summary>
-        /// nomeId control.
+        /// localId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField nomeId;
+        protected global::Ext.Net.TextField localId;
         
         /// <summary>
-        /// dt_nascimentoId control.
+        /// CampusBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.DateField dt_nascimentoId;
-        
-        /// <summary>
-        /// telefoneId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField telefoneId;
-        
-        /// <summary>
-        /// e_mailId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField e_mailId;
-        
-        /// <summary>
-        /// latitudeId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField latitudeId;
-        
-        /// <summary>
-        /// longitudeId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField longitudeId;
-        
-        /// <summary>
-        /// cod_usId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cod_usId;
-        
-        /// <summary>
-        /// StoreUsuarioId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store StoreUsuarioId;
-        
-        /// <summary>
-        /// ModelUsuarioId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Model ModelUsuarioId;
-        
-        /// <summary>
-        /// AlunoBarId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.StatusBar AlunoBarId;
+        protected global::Ext.Net.StatusBar CampusBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -157,85 +85,49 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StoreAlunoId control.
+        /// StoreCampusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreAlunoId;
+        protected global::Ext.Net.Store StoreCampusId;
         
         /// <summary>
-        /// ModelAlunoId control.
+        /// ModelCampusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelAlunoId;
+        protected global::Ext.Net.Model ModelCampusId;
         
         /// <summary>
-        /// AlunoGridPanelId control.
+        /// CampusGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel AlunoGridPanelId;
+        protected global::Ext.Net.GridPanel CampusGridPanelId;
         
         /// <summary>
-        /// cod_usColumnId control.
+        /// localColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column cod_usColumnId;
+        protected global::Ext.Net.Column localColumnId;
         
         /// <summary>
-        /// nomeColumnId control.
+        /// CampusRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column nomeColumnId;
-        
-        /// <summary>
-        /// loginColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column loginColumnId;
-        
-        /// <summary>
-        /// e_mailColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column e_mailColumnId;
-        
-        /// <summary>
-        /// telefoneColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column telefoneColumnId;
-        
-        /// <summary>
-        /// AlunoRowSelectionModelId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.RowSelectionModel AlunoRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel CampusRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.
