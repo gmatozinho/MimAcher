@@ -169,6 +169,7 @@
     <Content Include="App\Item.aspx" />
     <Content Include="App\NACCampus.aspx" />
     <Content Include="App\Participante.aspx" />
+    <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
     <Content Include="App\UsuarioPrincipal.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -275,6 +276,13 @@
     </Compile>
     <Compile Include="App\Participante.aspx.designer.cs">
       <DependentUpon>Participante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ParticipanteEnsinar.aspx.cs">
+      <DependentUpon>ParticipanteEnsinar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ParticipanteEnsinar.aspx.designer.cs">
+      <DependentUpon>ParticipanteEnsinar.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\ParticipanteHobbie.aspx.cs">
       <DependentUpon>ParticipanteHobbie.aspx</DependentUpon>
