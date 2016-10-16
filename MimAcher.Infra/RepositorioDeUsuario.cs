@@ -26,14 +26,14 @@ namespace MimAcher.Infra
             return this.Contexto.MA_USUARIO.ToList();
         }
         
-        public MA_USUARIO ObterUsuarioPorLogin(String login)
+        public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
-            return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login)).SingleOrDefault();
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email)).SingleOrDefault();
         }
 
-        public MA_USUARIO ObterUsuarioPorLoginESenha(String login, String senha)
+        public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            MA_USUARIO usuario = this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login) && l.senha.Equals(senha)).SingleOrDefault();
+            MA_USUARIO usuario = this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email) && l.senha.Equals(senha)).SingleOrDefault();
 
             //return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login) && l.senha.Equals(senha)).SingleOrDefault();
             return usuario;

@@ -6,7 +6,7 @@ begin tran
 
 CREATE TABLE MA_USUARIO (
 	cod_usuario				integer not null identity(1,1),
-	email 					varchar(100) not null,
+	e_mail 					varchar(100) not null,
 	senha 					varchar(50) not null	
 )
 

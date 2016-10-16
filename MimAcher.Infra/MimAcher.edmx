@@ -93,18 +93,8 @@
             <PropertyRef Name="cod_usuario" />
           </Key>
           <Property Name="cod_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="e_mail" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="senha" Type="varchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante">
           <End Role="MA_PARTICIPANTE" Type="Self.MA_PARTICIPANTE" Multiplicity="1" />
@@ -274,7 +264,6 @@
           <EntitySet Name="MA_PARTICIPANTE_ENSINAR" EntityType="Self.MA_PARTICIPANTE_ENSINAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_PARTICIPANTE_HOBBIE" EntityType="Self.MA_PARTICIPANTE_HOBBIE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_USUARIO" EntityType="Self.MA_USUARIO" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" Association="Self.FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante">
             <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
             <End Role="MA_IMAGEM_PARTICIPANTE" EntitySet="MA_IMAGEM_PARTICIPANTE" />
@@ -344,7 +333,6 @@
           <EntitySet Name="MA_PARTICIPANTE_ENSINAR" EntityType="MIMACHERModel.MA_PARTICIPANTE_ENSINAR" />
           <EntitySet Name="MA_PARTICIPANTE_HOBBIE" EntityType="MIMACHERModel.MA_PARTICIPANTE_HOBBIE" />
           <EntitySet Name="MA_USUARIO" EntityType="MIMACHERModel.MA_USUARIO" />
-          <EntitySet Name="sysdiagrams" EntityType="MIMACHERModel.sysdiagrams" />
           <AssociationSet Name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" Association="MIMACHERModel.FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao">
             <End Role="MA_AREA_ATUACAO" EntitySet="MA_AREA_ATUACAO" />
             <End Role="MA_NAC_AREA_ATUACAO" EntitySet="MA_NAC_AREA_ATUACAO" />
@@ -510,20 +498,10 @@
             <PropertyRef Name="cod_usuario" />
           </Key>
           <Property Name="cod_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="senha" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="MA_NAC" Relationship="MIMACHERModel.FK_MA_NAC_MA_USUARIO_cod_usuario" FromRole="MA_USUARIO" ToRole="MA_NAC" />
           <NavigationProperty Name="MA_PARTICIPANTE" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" FromRole="MA_USUARIO" ToRole="MA_PARTICIPANTE" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="e_mail" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao">
           <End Type="MIMACHERModel.MA_AREA_ATUACAO" Role="MA_AREA_ATUACAO" Multiplicity="1" />
@@ -783,20 +761,9 @@
           <EntitySetMapping Name="MA_USUARIO">
             <EntityTypeMapping TypeName="MIMACHERModel.MA_USUARIO">
               <MappingFragment StoreEntitySet="MA_USUARIO">
+                <ScalarProperty Name="e_mail" ColumnName="e_mail" />
                 <ScalarProperty Name="senha" ColumnName="senha" />
-                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="MIMACHERModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

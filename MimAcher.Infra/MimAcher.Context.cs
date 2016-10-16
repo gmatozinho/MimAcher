@@ -36,6 +36,5 @@ namespace MimAcher.Infra
         public virtual DbSet<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
         public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
     }
 }

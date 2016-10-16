@@ -30,7 +30,7 @@
     <form id="LoginFormId" runat="server">     
         <ext:Window ID="LoginWindowId" runat="server" Closable="false" Resizable="false" Height="150" Icon="Lock" Title="Login" Draggable="false" Width="350" Modal="false" BodyPadding="5" Layout="Form" StyleSpec="background-color:acacbd;">                
             <Items>
-                <ext:TextField AutoFocus="true" AutoFocusDelay="50" ID="loginId" runat="server" FieldLabel="Usuário" AllowBlank="true" BlankText="Usuário obrigatório." EnableKeyEvents="true">                                               
+                <ext:TextField AutoFocus="true" AutoFocusDelay="50" ID="emailId" runat="server" FieldLabel="Email" AllowBlank="true" BlankText="Email obrigatório." EnableKeyEvents="true">                                               
                     <Listeners>                    
                         <KeyPress Handler="if ((e.getKey() == e.ENTER)) { #{btnLogin}.fireEvent('click'); }" />
                     </Listeners>

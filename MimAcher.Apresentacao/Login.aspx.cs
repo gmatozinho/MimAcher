@@ -36,20 +36,20 @@ namespace MimAcher.Apresentacao
         protected void Logar_Click(object sender, DirectEventArgs e)
         {
             //Captura o conteúdo das variáveis de login e senha
-            string login = loginId.Text;
+            string email = emailId.Text;
             string senha = senhaId.Text;
 
             //Se os campos de login e senha estiverem não preenchidos, emite um aviso
-            if (String.IsNullOrEmpty(this.loginId.Text) || String.IsNullOrEmpty(this.senhaId.Text))
+            if (String.IsNullOrEmpty(this.emailId.Text) || String.IsNullOrEmpty(this.senhaId.Text))
             {
-                X.Msg.Alert("Erro", "Digite Login e Senha!").Show();
+                X.Msg.Alert("Erro", "Digite Email e Senha!").Show();
             }
             else
             {
                 //Senão, verifica se o usuário e senha digitados são correspondentes a alguém do banco de dados
-                if (GestorDeUsuario.VerificarExistenciaDeUsuarioPorLoginESenha(login, senha))
+                if (GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(email, senha))
                 {
-                    MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorLoginESenha(login, senha);
+                    MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
 
                     Session.Add("usuario", usuario);
                     this.LoginWindowId.Close();
@@ -59,7 +59,7 @@ namespace MimAcher.Apresentacao
                 //Senão, informe que o usuário e senha está inválidos.
                 else
                 {
-                    X.Msg.Alert("Erro", "Senha/Usuário inválidos... tente novamente...").Show();
+                    X.Msg.Alert("Erro", "Senha/Email inválidos... tente novamente...").Show();
                 }
             }
         }

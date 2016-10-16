@@ -111,9 +111,6 @@
     <Compile Include="RepositorioDeItem.cs" />
     <Compile Include="RepositorioDeNAC.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

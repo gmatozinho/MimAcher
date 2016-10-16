@@ -22,8 +22,8 @@ namespace MimAcher.Infra
         }
     
         public int cod_usuario { get; set; }
-        public string email { get; set; }
         public string senha { get; set; }
+        public string e_mail { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_NAC> MA_NAC { get; set; }

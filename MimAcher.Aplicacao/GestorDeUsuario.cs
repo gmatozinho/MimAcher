@@ -26,19 +26,19 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeUsuario.ObterTodosOsUsuarios();
         }
 
-        public MA_USUARIO ObterUsuarioPorLogin(String login)
+        public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
-            return this.RepositorioDeUsuario.ObterUsuarioPorLogin(login);
+            return this.RepositorioDeUsuario.ObterUsuarioPorEmail(email);
         }
 
-        public MA_USUARIO ObterUsuarioPorLoginESenha(String login, String senha)
+        public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            return this.RepositorioDeUsuario.ObterUsuarioPorLoginESenha(login, senha);
+            return this.RepositorioDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
         }
 
-        public Boolean VerificarExistenciaDeUsuarioPorLoginESenha(String login, String senha)
+        public Boolean VerificarExistenciaDeUsuarioPorEmailESenha(String email, String senha)
         {
-            if(ObterUsuarioPorLoginESenha(login, senha) != null)
+            if(ObterUsuarioPorEmailESenha(email, senha) != null)
             {
                 return true;
             }
