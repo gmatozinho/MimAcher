@@ -10,7 +10,7 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class UsuarioPrincipal {
+    public partial class Usuario {
         
         /// <summary>
         /// UsuarioWindowId control.
@@ -40,22 +40,22 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.FieldSet UsuarioFieldSetId;
         
         /// <summary>
-        /// cod_usId control.
+        /// cod_usuarioId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_usId;
+        protected global::Ext.Net.TextField cod_usuarioId;
         
         /// <summary>
-        /// loginId control.
+        /// e_mailId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField loginId;
+        protected global::Ext.Net.TextField e_mailId;
         
         /// <summary>
         /// senhaId control.
@@ -65,15 +65,6 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.TextField senhaId;
-        
-        /// <summary>
-        /// identificadorId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.TextField identificadorId;
         
         /// <summary>
         /// UsuarioBarId control.
@@ -139,22 +130,22 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.GridPanel UsuarioGridPanelId;
         
         /// <summary>
-        /// cod_usColumnId control.
+        /// cod_usuarioColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column cod_usColumnId;
+        protected global::Ext.Net.Column cod_usuarioColumnId;
         
         /// <summary>
-        /// loginColumnId control.
+        /// e_mailColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column loginColumnId;
+        protected global::Ext.Net.Column e_mailColumnId;
         
         /// <summary>
         /// senhaColumnId control.
@@ -164,15 +155,6 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Column senhaColumnId;
-        
-        /// <summary>
-        /// identificadorColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column identificadorColumnId;
         
         /// <summary>
         /// UsuarioRowSelectionModelId control.

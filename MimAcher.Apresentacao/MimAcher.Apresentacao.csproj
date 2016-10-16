@@ -169,7 +169,7 @@
     <Content Include="App\ParticipanteAprender.aspx" />
     <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
-    <Content Include="App\UsuarioPrincipal.aspx" />
+    <Content Include="App\Usuario.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -275,12 +275,12 @@
     <Compile Include="App\ParticipanteHobbie.aspx.designer.cs">
       <DependentUpon>ParticipanteHobbie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\UsuarioPrincipal.aspx.cs">
-      <DependentUpon>UsuarioPrincipal.aspx</DependentUpon>
+    <Compile Include="App\Usuario.aspx.cs">
+      <DependentUpon>Usuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\UsuarioPrincipal.aspx.designer.cs">
-      <DependentUpon>UsuarioPrincipal.aspx</DependentUpon>
+    <Compile Include="App\Usuario.aspx.designer.cs">
+      <DependentUpon>Usuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

@@ -4,18 +4,18 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Ext.Net;
-using MimAcher.Infra;
 using MimAcher.Aplicacao;
+using MimAcher.Infra;
+using Ext.Net;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class UsuarioPrincipal : System.Web.UI.Page
+    public partial class Usuario : System.Web.UI.Page
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
 
-        public UsuarioPrincipal()
+        public Usuario()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
@@ -26,7 +26,7 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
+                this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 this.StoreUsuarioId.DataBind();
             }
         }
@@ -40,7 +40,7 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
+            this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
             this.StoreUsuarioId.DataBind();
         }
 
@@ -48,7 +48,7 @@ namespace MimAcher.Apresentacao.App
         protected void List()
         {
             this.GestorDeUsuario = new GestorDeUsuario();
-            this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.login);
+            this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
             this.StoreUsuarioId.DataBind();
         }
 
@@ -57,12 +57,11 @@ namespace MimAcher.Apresentacao.App
         {
             MA_USUARIO usuario = new MA_USUARIO();
 
-            usuario.login = this.loginId.Text;
+            usuario.e_mail = this.e_mailId.Text;
             usuario.senha = this.senhaId.Text;
-            usuario.identificador = Int32.Parse(this.identificadorId.Text);
-
+            
             //Caso o form não possui código, será inserido um novo usuário
-            if (this.cod_usId.Text == "")
+            if (this.cod_usuarioId.Text == "")
             {
                 GestorDeUsuario.InserirUsuario(usuario);
                 this.UsuarioWindowId.Close();
@@ -71,7 +70,7 @@ namespace MimAcher.Apresentacao.App
             //Caso contrário, o form será atualizado
             else
             {
-                usuario.cod_us = Int32.Parse(this.cod_usId.Text);
+                usuario.cod_usuario = Int32.Parse(this.cod_usuarioId.Text);
                 GestorDeUsuario.AtualizarUsuario(usuario);
                 this.UsuarioWindowId.Close();
                 this.LimpaForm();
@@ -92,7 +91,7 @@ namespace MimAcher.Apresentacao.App
         protected void Delete(object sender, DirectEventArgs e)
         {
             MA_USUARIO usuario = new MA_USUARIO();
-            usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cod_usId.Text));
+            usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cod_usuarioId.Text));
             GestorDeUsuario.RemoverUsuario(usuario);
             this.LimpaForm();
         }
