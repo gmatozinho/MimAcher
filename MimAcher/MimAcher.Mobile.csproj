@@ -73,12 +73,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.Android.Support.CustomTabs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.Android.Support.CustomTabs.23.4.0.1\lib\MonoAndroid403\Xamarin.Android.Support.CustomTabs.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Xamarin.Android.Support.Design, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -113,8 +115,16 @@
       <HintPath>..\packages\Xamarin.GooglePlayServices.Ads.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Ads.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Base, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Base.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Base.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Xamarin.GooglePlayServices.Basement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Basement.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Basement.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xamarin.GooglePlayServices.Plus, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xamarin.GooglePlayServices.Plus.29.0.0.2\lib\MonoAndroid41\Xamarin.GooglePlayServices.Plus.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -124,7 +134,7 @@
     <Compile Include="Activities\EscolherFotoActivity.cs" />
     <Compile Include="Activities\HobbiesActivity.cs" />
     <Compile Include="Activities\InscreverActivity.cs" />
-    <Compile Include="Activities\TAB\ListAdapterHae.cs" />
+    <Compile Include="Entidades\ListAdapterHae.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\QueroAprenderActivity.cs" />
     <Compile Include="Activities\QueroEnsinarActivity.cs" />
@@ -142,6 +152,7 @@
     <Compile Include="Entidades\NAC.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
+    <Compile Include="Services\ServiceForUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -155,7 +166,7 @@
     <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\Hobbies.axml">
+    <AndroidResource Include="Resources\layout\Perfil.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\Resultado.axml">
@@ -163,12 +174,6 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AlterarSenha.axml" />
     <AndroidResource Include="Resources\layout\EditarPerfil.axml" />
-    <AndroidResource Include="Resources\layout\QueroAprender.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\QueroEnsinar.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\UsuarioResultado.axml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-hdpi\Thumbs.db" />
@@ -434,7 +439,7 @@
     </XamarinComponentReference>
     <XamarinComponentReference Include="xamandroidsupportdesign">
       <Visible>False</Visible>
-      <Version>23.4.0.1</Version>
+      <Version>24.2.1.0</Version>
     </XamarinComponentReference>
     <XamarinComponentReference Include="xamarin.auth">
       <Visible>False</Visible>
@@ -458,6 +463,24 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_assignment_white_24dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\top_menus_inscrever.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_done_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_done_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_done_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_done_white_36dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_done_white_36dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

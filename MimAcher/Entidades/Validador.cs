@@ -15,7 +15,7 @@ namespace MimAcher.Entidades
 {
     public static class Validador
     {
-        public static Boolean ValidarEmail(String email)
+        public static bool ValidarEmail(string email)
         {
             try
             {
@@ -28,34 +28,45 @@ namespace MimAcher.Entidades
             }
         }
 
-        public static Boolean ValidarNome(String nome)
+        public static bool ValidarNome(string nome)
         {
-            return !nome.Equals("");
+            return !string.IsNullOrEmpty(nome);
         }
 
-        public static Boolean ValidarData(String data)
+        public static bool ValidarData(string data)
         {
             DateTime saida;
-            bool isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
+            var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
                                                   System.Globalization.CultureInfo.InvariantCulture,
                                                   System.Globalization.DateTimeStyles.None, out saida);
             return isValid;
         }
 
-        public static Boolean ValidarTelefone(String telefone)
+        public static bool ValidarTelefone(string telefone)
         {
             int numero;
             return int.TryParse(telefone, out numero);
         }
 
+        public static bool ValidarSenha(string senha)
+        {
+            return !string.IsNullOrEmpty(senha);
+        }
+
+        public static bool ValidarConfirmarSenha(string senha, string confirmarSenha)
+        {
+            return confirmarSenha == senha;
+        }
+
         public static List<string> ValidarEntradas(Dictionary<string, string> entradas)
         {
-            List<string> erros = new List<string>();
+            var erros = new List<string>();
 
-            if (ValidarEmail(entradas["email"])) erros.Add("email");
-            if (ValidarData(entradas["data"])) erros.Add("data");
-            if (ValidarNome(entradas["nome"])) erros.Add("nome");
-            if (ValidarTelefone(entradas["telefone"])) erros.Add("telefone");
+            if (!ValidarEmail(entradas["email"])) erros.Add("E-mail");
+            if (!ValidarNome(entradas["nome"])) erros.Add("Nome");
+            if (!ValidarData(entradas["data"])) erros.Add("Data de Nascimento");
+            if (!ValidarSenha(entradas["senha"])) erros.Add("Senha");
+            if (!ValidarTelefone(entradas["telefone"])) erros.Add("Telefone");
 
             return erros;
         }
