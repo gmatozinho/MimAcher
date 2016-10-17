@@ -25,30 +25,30 @@ namespace MimAcher.Entidades
         //adicionar itens
         public void AdicionarItemWithMessage(string item, Context activity, string text)
         {
-            if (item != "" && item != null)
+            if (!string.IsNullOrEmpty(item))
             {
                 if (!Itens.Contains(item))
                 {
                     Itens.Add(item);
-                    string toast = string.Format("{1} Inserido: {0}", item, text);
+                    var toast = string.Format("{1} Inserido: {0}", item, text);
                     Toast.MakeText(activity, toast, ToastLength.Long).Show();
                 }
                 else
                 {
-                    string toast = string.Format("Voce já possui este {1}: {0} ", item, text);
+                    var toast = string.Format("Voce já possui este {1}: {0} ", item, text);
                     Toast.MakeText(activity, toast, ToastLength.Long).Show();
                 }
             }
             else
             {
-                string toast = ("Nada Inserido");
+                const string toast = ("Nada Inserido");
                 Toast.MakeText(activity, toast, ToastLength.Long).Show();
             }
         }
 
         public void AdicionarItem(string item)
         {
-            if (!Itens.Contains(item) && item != "" && item != null)
+            if (!Itens.Contains(item) && !string.IsNullOrEmpty(item))
             {
                 Itens.Add(item);
             }
@@ -56,7 +56,7 @@ namespace MimAcher.Entidades
 
         public void AdicionarItem(string item, List<string> list)
         {
-            if (!Itens.Contains(item) && !list.Contains(item) && item != "" && item != null)
+            if (!Itens.Contains(item) && !list.Contains(item) && !string.IsNullOrEmpty(item))
             {
                 Itens.Add(item);
             }

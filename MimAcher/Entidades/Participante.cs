@@ -55,30 +55,30 @@ namespace MimAcher.Entidades
 
         public Dictionary<string, List<Participante>> Match()
         {
-            Dictionary<string, List<Participante>> matchs = CursorBD.Match(this);
+            var matchs = CursorBD.Match(this);
 
             return matchs;
         }
 
         public static Participante BundleToParticipante(Bundle b)
         {
-            Dictionary<string, string> dictionary = new Dictionary<string, string>();
+            var dictionary = new Dictionary<string, string>
+            {
+                ["email"] = b.GetString("e_mail"),
+                ["nome"] = b.GetString("nome"),
+                ["campus"] = b.GetString("campus"),
+                ["senha"] = b.GetString("senha"),
+                ["nascimento"] = b.GetString("nascimento"),
+                ["telefone"] = b.GetString("telefone"),
+                ["campus"] = b.GetString("campus")
+            };
 
-            
-
-            dictionary["email"] = b.GetString("e_mail");
-            dictionary["nome"] = b.GetString("nome");
-            dictionary["campus"] = b.GetString("campus");
-            dictionary["senha"] = b.GetString("senha");
-            dictionary["nascimento"] = b.GetString("nascimento");
-            dictionary["telefone"] = b.GetString("telefone");
-            dictionary["campus"] = b.GetString("campus");
-
-            Participante p = new Participante(dictionary);
-
-            p.Hobbies.Itens = b.GetStringArrayList("hobbies").ToList();
-            p.Aprender.Itens = b.GetStringArrayList("aprender").ToList();
-            p.Ensinar.Itens = b.GetStringArrayList("ensinar").ToList();
+            var p = new Participante(dictionary)
+            {
+                Hobbies = {Itens = b.GetStringArrayList("hobbies").ToList()},
+                Aprender = {Itens = b.GetStringArrayList("aprender").ToList()},
+                Ensinar = {Itens = b.GetStringArrayList("ensinar").ToList()}
+            };
 
             return p;
         }
@@ -86,7 +86,7 @@ namespace MimAcher.Entidades
         //Função para utilizar Bundle e enviar objeto entre activities
         public Bundle ParticipanteToBundle()
         {
-            Bundle bundle = new Bundle();
+            var bundle = new Bundle();
 
             bundle.PutStringArrayList("hobbies", Hobbies.Itens);
             bundle.PutStringArrayList("aprender", Aprender.Itens);
@@ -100,8 +100,6 @@ namespace MimAcher.Entidades
 
             return bundle;
         }
-
-        
 
     }
 }

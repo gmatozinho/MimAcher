@@ -15,16 +15,15 @@ namespace MimAcher.Entidades
     public class Nac : Usuario
     {
         
-
         public Nac(Dictionary<string, string> atributos) : base(atributos)
         {
-            this.NomeRepresentante = atributos["nomeRepresentante"];
-            this.Campus = atributos["campus"];
-            this.Telefone = atributos["telefone"];
+            NomeRepresentante = atributos["nomeRepresentante"];
+            Campus = atributos["campus"];
+            Telefone = atributos["telefone"];
         }
 
-        private string NomeRepresentante { get; set; }
-        private string Campus { get; set; }
+        public string NomeRepresentante { get; set; }
+        public string Campus { get; set; }
         public string Telefone { get; set; }
     }
 }

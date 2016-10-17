@@ -1,81 +1,66 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
-using MimAcher.Activities;
 
-namespace MimAcher
+namespace MimAcher.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
     public class EditarPerfilActivity : Activity
     {
-        private Bundle participante_bundle;
-        private string nome;
-        private string nascimento;
-        private string telefone;
+        //Variaveis globais
+        private Bundle _participanteBundle;
+        private string _nome;
+        private string _nascimento;
+        private string _telefone;
 
+        //Metodos do controlador
+        //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
+            //Recebendo o bundle(Objeto participante)
+            _participanteBundle = Intent.GetBundleExtra("member");
+            var participante = Participante.BundleToParticipante(_participanteBundle);
 
-            participante_bundle = Intent.GetBundleExtra("member");
-            Participante participante = Participante.BundleToParticipante(participante_bundle);
-
-            // Create your application here
+            //Exibindo o layout .axml
             SetContentView(Resource.Layout.EditarPerfil);
 
-            Button salvar = FindViewById<Button>(Resource.Id.salvar);
-            TextView alterar_senha = FindViewById<TextView>(Resource.Id.alterar_senha);
-            EditText telefone_info_user = FindViewById<EditText>(Resource.Id.tel_number_user);
-            EditText nome_info_user = FindViewById<EditText>(Resource.Id.nome_info_user);
-            EditText dt_nascimento_info_user = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
-
+            //Iniciando as variaveis do contexto
+            var salvar = FindViewById<Button>(Resource.Id.salvar);
+            var alterarSenha = FindViewById<TextView>(Resource.Id.alterar_senha);
+            var telefoneInfoUser = FindViewById<EditText>(Resource.Id.tel_number_user);
+            var nomeInfoUser = FindViewById<EditText>(Resource.Id.nome_info_user);
+            var dtNascimentoInfoUser = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
-            //Toolbar will now take on default Action Bar characteristics
+            
             SetActionBar(toolbar);
-            //You can now use and reference the ActionBar
+
+            //Modificando a parte textual
             ActionBar.Title = "Editar Perfil";
+            telefoneInfoUser.Hint = participante.Telefone;
+            nomeInfoUser.Hint = participante.Nome;
+            dtNascimentoInfoUser.Hint = participante.Nascimento;
 
-            telefone_info_user.Hint = participante.Telefone;
-            nome_info_user.Hint = participante.Nome;
-            dt_nascimento_info_user.Hint = participante.Nascimento;
-
+            //Funcionalidades
             //Para alterar
-            nome = participante.Nome;
-            telefone = participante.Telefone;
-            nascimento = participante.Nascimento;
+            _nome = participante.Nome;
+            _telefone = participante.Telefone;
+            _nascimento = participante.Nascimento;
 
             //Pegar as informações inseridas
-            nome_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) =>
-            {
-                nome = n.Text.ToString();
-            };
+            nomeInfoUser.TextChanged += (sender, n) => _nome = n.Text.ToString();
+            dtNascimentoInfoUser.TextChanged += (sender, n) => _nascimento = n.Text.ToString();
+            telefoneInfoUser.TextChanged += (sender, t) => _telefone = t.Text.ToString();
 
-            dt_nascimento_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs n) =>
-            {
-                nascimento = n.Text.ToString();
-            };
-
-            telefone_info_user.TextChanged += (object sender, Android.Text.TextChangedEventArgs t) =>
-            {
-                telefone = t.Text.ToString();
-            };
-
-
-            alterar_senha.Click += delegate
+            alterarSenha.Click += delegate
             {
                 var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
                 //mudar para trabalhar com objeto do banco
-                alterarsenhaactivity.PutExtra("member", participante_bundle);
+                alterarsenhaactivity.PutExtra("member", _participanteBundle);
                 StartActivity(alterarsenhaactivity);
             };
 
@@ -90,7 +75,7 @@ namespace MimAcher
             };
         }
 
-            //Cria o menu de opções
+        //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
@@ -104,10 +89,9 @@ namespace MimAcher
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    //do something
                     var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
                     //mudar para trabalhar com objeto do banco
-                    resultadoctivity.PutExtra("member", participante_bundle);
+                    resultadoctivity.PutExtra("member", _participanteBundle);
                     StartActivity(resultadoctivity);
                     return true;
 
@@ -118,12 +102,12 @@ namespace MimAcher
             return base.OnOptionsItemSelected(item);
         }
 
-         
+        //Modifica o participante com as novas informações 
         private void AlterarParticipante(Participante participante)
         {
-            participante.Nome = nome;
-            participante.Telefone = telefone;
-            participante.Nascimento = nascimento;
+            participante.Nome = _nome;
+            participante.Telefone = _telefone;
+            participante.Nascimento = _nascimento;
         }
     }
 }
