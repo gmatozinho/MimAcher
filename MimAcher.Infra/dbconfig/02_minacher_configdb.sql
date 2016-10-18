@@ -1,18 +1,13 @@
 ﻿--Tabela Usuário
-insert into ma_usuario values('cayo','123',1)
-insert into ma_usuario values('paulo','123',1)
-insert into ma_usuario values('gustavo','123',1)
+insert into ma_usuario values('cayopdonatti@gmail.com','123')
+insert into ma_usuario values('paulovianna@yandex.com','123')
+insert into ma_usuario values('gmatozinho@mimacher.me','123')
 
---Tabela Gosto
-insert into ma_gosto values('Matemática')
-insert into ma_gosto values('Jogos de Luta')
-insert into ma_gosto values('Teoria dos Grafos')
-insert into ma_gosto values('Violão')
-
---Tabela Aprender
-insert into ma_aprender values('Tocar Violão')
-insert into ma_aprender values('Cálculo')
-
---Tabela Aluno Ensinar
-insert into ma_ensinar values('Programação')
-insert into ma_ensinar values('Montagem e Manutenção')
+--Tabela Item
+insert into ma_item values('Matemática')
+insert into ma_item values('Jogos de Luta')
+insert into ma_item values('Teoria dos Grafos')
+insert into ma_item values('Violão')
+insert into ma_item values('Cálculo')
+insert into ma_item values('Programção')
+insert into ma_item values('Montagem e Manutenção')
