@@ -1,11 +1,4 @@
-﻿using MimAcher.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using TechTalk.SpecFlow;
-using static NUnit.Core.NUnitFramework;
-
-namespace Testes
+﻿namespace Testes
 {
     /* Testes prontos, aguardando finalização da classe cursor
     

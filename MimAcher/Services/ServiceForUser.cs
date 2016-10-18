@@ -1,11 +1,9 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Android.Content;
 using Android.Widget;
-using MimAcher.Entidades;
-using static MimAcher.Entidades.Validador;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Services
+namespace MimAcher.Mobile.Services
 {
     public class ServiceForUser
     {
@@ -13,8 +11,8 @@ namespace MimAcher.Services
         {
 
             var informacoes = ParticipanteParaDictionaryParaValidar(participante);
-            var lista  = ValidarEntradas(informacoes);
-            var checar = ValidarConfirmarSenha(participante.Senha,confirmarSenha);
+            var lista  = Validador.ValidarEntradas(informacoes);
+            var checar = Validador.ValidarConfirmarSenha(participante.Senha,confirmarSenha);
 
             if (lista.Count == 0)
             {

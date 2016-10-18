@@ -1,8 +1,7 @@
 using Android.App;
 using Android.OS;
-using MimAcher.Resources;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "ResultadoInformacoesActivity", Theme = "@style/Theme.Splash")]
     public class ResultadoInformacoesActivity : Activity

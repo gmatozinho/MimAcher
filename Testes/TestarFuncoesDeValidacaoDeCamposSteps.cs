@@ -1,5 +1,4 @@
-﻿using MimAcher.Entidades;
-using System;
+﻿using MimAcher.Mobile.Entidades;
 using TechTalk.SpecFlow;
 using static NUnit.Core.NUnitFramework;
 

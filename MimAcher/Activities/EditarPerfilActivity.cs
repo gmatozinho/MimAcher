@@ -3,10 +3,9 @@ using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using MimAcher.Entidades;
-using MimAcher.Resources;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
     public class EditarPerfilActivity : Activity

@@ -1,10 +1,5 @@
-﻿using MimAcher.Entidades;
-using MimAcher.GeradorDados.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MimAcher.GeradorDados.Builders;
+using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.GeradorDados
 {
@@ -24,9 +19,12 @@ namespace MimAcher.GeradorDados
         {
             Participante participante = builderParticipante.GerarParticipante();
 
-            participante.Hobbies = builderItem.GerarListaItens();
-            participante.Ensinar = builderItem.GerarListaItens();
-            participante.Aprender = builderItem.GerarListaItens();
+            if (builderItem != null)
+            {
+                participante.Hobbies = builderItem.GerarListaItens();
+                participante.Ensinar = builderItem.GerarListaItens();
+                participante.Aprender = builderItem.GerarListaItens();
+            }
 
             return participante;
         }

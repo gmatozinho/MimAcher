@@ -6,14 +6,13 @@ using Android.OS;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
-using MimAcher.Entidades;
-using MimAcher.Services;
-using Resource = MimAcher.Resources.Resource;
+using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
-    
+
     [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
     public class InscreverActivity : Activity
     {

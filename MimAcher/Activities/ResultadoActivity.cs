@@ -5,10 +5,9 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
-using MimAcher.Activities.TAB;
-using Resource = MimAcher.Resources.Resource;
+using MimAcher.Mobile.Activities.TAB;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "ResultadoActivity", Theme = "@style/Theme.Splash")]
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto

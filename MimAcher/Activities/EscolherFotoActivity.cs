@@ -2,9 +2,8 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using MimAcher.Resources;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EscolherFotoActivity", Theme = "@style/Theme.Splash")]
     public class EscolherFotoActivity : Activity

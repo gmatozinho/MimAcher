@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MimAcher.Entidades
+namespace MimAcher.Mobile.Entidades
 {
 
     public abstract class Usuario

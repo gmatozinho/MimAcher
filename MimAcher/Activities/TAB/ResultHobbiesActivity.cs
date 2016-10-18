@@ -3,9 +3,9 @@ using Android.App;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
-using MimAcher.Entidades;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Activities.TAB
+namespace MimAcher.Mobile.Activities.TAB
 {
     [Activity(Label = "Gostos", Theme = "@style/Theme.Splash")]
     public class ResultHobbiesActivity : ListActivity

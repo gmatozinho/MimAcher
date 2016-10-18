@@ -1,18 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Widget;
-using MimAcher.Entidades;
-using System;
-using Android.Views;
-using System.Threading.Tasks;
-using Android.Gms.Common;
-using Android.Gms.Common.Apis;
-using Android.Support.V7.App;
-using MimAcher.Resources;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
     public class MainActivity : Activity
@@ -106,26 +100,6 @@ namespace MimAcher.Activities
             return informacoes;
         }
 
-
-        public void OnClick(View v)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnConnected(Bundle connectionHint)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnConnectionSuspended(int cause)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnConnectionFailed(ConnectionResult result)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
 

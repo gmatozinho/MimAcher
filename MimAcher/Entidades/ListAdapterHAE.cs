@@ -3,7 +3,7 @@ using Android.App;
 using Android.Views;
 using Android.Widget;
 
-namespace MimAcher.Entidades
+namespace MimAcher.Mobile.Entidades
 {
     public class ListAdapterHae : BaseAdapter<string>
     {

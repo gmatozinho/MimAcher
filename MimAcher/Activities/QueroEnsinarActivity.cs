@@ -4,11 +4,9 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
-using MimAcher.Activities.TAB;
-using MimAcher.Entidades;
-using Resource = MimAcher.Resources.Resource;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "QueroEnsinarActivity", Theme = "@style/Theme.Splash")]
     public class QueroEnsinarActivity : Activity

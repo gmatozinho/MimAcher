@@ -2,7 +2,7 @@ using System.Threading;
 using Android.App;
 using Android.OS;
 
-namespace MimAcher.Activities
+namespace MimAcher.Mobile.Activities
 {
     //Set MainLauncher = true makes this Activity Shown First on Running this Application  
     //Theme property set the Custom Theme for this Activity  
