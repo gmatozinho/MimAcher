@@ -8,13 +8,13 @@ using MimAcher.Mobile.Services;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "AlterarSenhaActivity", Theme = "@style/Theme.Splash")]
-    public class AlterarSenhaActivity : ServicoTelasSemProcedimento
+    public class AlterarSenhaActivity : FabricaTelasSemProcedimento
     {
         //Variaveis globais
         private string _novasenha;
         private string _repitasenha;
-        Participante _participante;
-        Pacote _pacote;
+        private Participante _participante;
+        private PacoteAbstrato _pacote;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -72,12 +72,5 @@ namespace MimAcher.Mobile.Activities
             _pacote = _participante;
             IniciarAlterarSenha(this, _pacote);
         }
-
-        
-
-        
-
-        
-
     }
 }

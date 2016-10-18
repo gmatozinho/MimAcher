@@ -9,7 +9,7 @@ using MimAcher.Mobile.Services;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
-    public class EditarPerfilActivity : ServicoTelasSemProcedimento
+    public class EditarPerfilActivity : FabricaTelasSemProcedimento
     {
         //Variaveis globais
         private Bundle _participanteBundle;
@@ -17,6 +17,7 @@ namespace MimAcher.Mobile.Activities
         private string _nascimento;
         private string _telefone;
         private Participante _participante;
+        private PacoteAbstrato _pacote;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -60,7 +61,8 @@ namespace MimAcher.Mobile.Activities
 
             alterarSenha.Click += delegate
             {
-                IniciarAlterarSenha();
+                _pacote = _participante;
+                IniciarAlterarSenha(this,_pacote);
             };
 
             salvar.Click += delegate
@@ -80,7 +82,8 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    IniciarHome();
+                    _pacote = _participante;
+                    IniciarHome(this,_pacote);
                     return true;
 
                 case Resource.Id.menu_preferences:
@@ -89,34 +92,15 @@ namespace MimAcher.Mobile.Activities
             }
             return base.OnOptionsItemSelected(item);
         }
-
-        private void IniciarAlterarSenha()
-        {
-            var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
-            //mudar para trabalhar com objeto do banco
-            IniciarOutraTela(alterarsenhaactivity);
-        }
-
-        private void IniciarHome()
-        {
-            var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
-            //mudar para trabalhar com objeto do banco
-            IniciarOutraTela(resultadoctivity);
-        }
         
         private void SalvarPerfilEditado()
         {
             var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
             AlterarParticipante(_participante);
-            IniciarOutraTela(resultadoactivity);
+            _pacote = _participante;
+            IniciarOutraTela(resultadoactivity,_pacote);
         }
-
-        public void IniciarOutraTela(Intent activitydesejada)
-        {
-            activitydesejada.PutExtra("member", _participante.ParticipanteToBundle());
-            StartActivity(activitydesejada);
-        }
-
+        
         private void AlterarParticipante(Participante participante)
         {
             participante.Nome = _nome;

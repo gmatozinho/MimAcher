@@ -1,9 +1,8 @@
 ﻿using Android.Widget;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Entidades
 {
-    public class PacotePadrao : Pacote
+    public class PacoteCompleto : PacoteAbstrato
     {
         //Properties
         public ListaItens ListaItens { get; set; }
@@ -13,7 +12,7 @@ namespace MimAcher.Mobile.Entidades
         public ListView ListView { get; set; }
 
         //Construtor
-        public PacotePadrao(ListaItens listaItens, Participante participante, ListView listView)
+        public PacoteCompleto(ListaItens listaItens, Participante participante, ListView listView)
         {
             ListaItens = listaItens;
             Participante = participante;

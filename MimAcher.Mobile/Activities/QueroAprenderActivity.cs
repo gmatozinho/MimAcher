@@ -5,16 +5,20 @@ using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
-    public class QueroAprenderActivity : Activity
+    public class QueroAprenderActivity : FabricaTelasComProcedimento
     {
         //Variaveis globais
         private Participante _participante;
         private readonly ListaItens _listAprender = new ListaItens();
         private ListView _listView;
+        private string _aprender;
+        private EditText _campoAprender;
+        private PacoteCompleto _pacoteCompleto;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -32,10 +36,9 @@ namespace MimAcher.Mobile.Activities
             //Iniciando as variaveis do contexto
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             var pergunta = FindViewById<TextView>(Resource.Id.pergunta);
-            var campoAprender = FindViewById<EditText>(Resource.Id.digite_algo);
             var ok = FindViewById<Button>(Resource.Id.ok);
             var addAprender = FindViewById<FloatingActionButton>(Resource.Id.add_algo);
-            string aprender = null;
+            _campoAprender = FindViewById<EditText>(Resource.Id.digite_algo);
             _listView = FindViewById<ListView>(Resource.Id.list);
 
             SetActionBar(toolbar);
@@ -43,27 +46,20 @@ namespace MimAcher.Mobile.Activities
             //Modificando a parte textual
             ActionBar.Title = "Aprender";
             pergunta.Text = "O que você quer aprender?";
-            campoAprender.Hint = "Digite algo para aprender";
+            _campoAprender.Hint = "Digite algo para aprender";
 
             //Funcionalidades
-            campoAprender.TextChanged += (sender, a) => aprender = a.Text.ToString();
+            _campoAprender.TextChanged += (sender, a) => _aprender = a.Text.ToString();
 
             addAprender.Click += delegate {
-                _listAprender.AdicionarItem(aprender, _participante.Aprender.Conteudo);
-                _participante.Aprender.AdicionarItemWithMessage(aprender, this,"Algo para aprender");
-                campoAprender.Text = null;
-                _listView.Adapter = new ListAdapterHae(this, _listAprender.Conteudo);
+                string[] values = { "Algo para Aprender", _aprender };
+                _pacoteCompleto = new PacoteCompleto(_listAprender, _participante, _listView);
+                InserirItem(_campoAprender, _pacoteCompleto, values);
             };
 
             ok.Click += delegate {
-                _participante.Commit();
-                _listAprender.Clear();
-                _listView.Adapter = null;
-
-                var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
-                //TODO mudar para trabalhar com objeto do banco
-                queroensinaractivity.PutExtra("member", _participante.ParticipanteToBundle());
-                StartActivity(queroensinaractivity);
+                _pacoteCompleto = new PacoteCompleto(_listAprender, _participante, _listView);
+                IniciarQueroEnsinarActivity(this, _pacoteCompleto);
             };
         }
 
@@ -81,30 +77,16 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    _participante.Commit();
-                    _listAprender.Clear();
-                    _listView.Adapter = null;
-
-                    var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
-                    resultadoctivity.PutExtra("member", _participante.ParticipanteToBundle());
-                    StartActivity(resultadoctivity);
+                    _pacoteCompleto = new PacoteCompleto(_listAprender, _participante, _listView);
+                    IniciarHome(this, _pacoteCompleto);
                     return true;
 
                 case Resource.Id.menu_preferences:
-                    _participante.Commit();
-                    _listAprender.Clear();
-                    _listView.Adapter = null;
-
-                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                    editaractivity.PutExtra("member", _participante.ParticipanteToBundle());
-                    StartActivity(editaractivity);
+                    _pacoteCompleto = new PacoteCompleto(_listAprender, _participante, _listView);
+                    IniciarEditarPerfil(this, _pacoteCompleto);
                     return true;                
             }
             return base.OnOptionsItemSelected(item);
         }
-
-        
-
-
     }
 }

@@ -142,7 +142,7 @@
     <Compile Include="Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="Activities\TAB\ResultHobbiesActivity.cs" />
     <Compile Include="Entidades\ListaItens.cs" />
-    <Compile Include="Entidades\PacotePadrao.cs" />
+    <Compile Include="Entidades\PacoteCompleto.cs" />
     <Compile Include="Entidades\Validador.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,10 +153,10 @@
     <Compile Include="Entidades\NAC.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
-    <Compile Include="Entidades\Pacote.cs" />
-    <Compile Include="Services\ServicoTelas.cs" />
-    <Compile Include="Services\ServicoTelasComProcedimento.cs" />
-    <Compile Include="Services\ServicoTelasSemProcedimento.cs" />
+    <Compile Include="Entidades\PacoteAbstrato.cs" />
+    <Compile Include="Entidades\FabricaAbstrataTelas.cs" />
+    <Compile Include="Entidades\FabricaTelasComProcedimento.cs" />
+    <Compile Include="Entidades\FabricaTelasSemProcedimento.cs" />
     <Compile Include="Services\ServicoUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

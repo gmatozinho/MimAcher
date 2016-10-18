@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Entidades
 {

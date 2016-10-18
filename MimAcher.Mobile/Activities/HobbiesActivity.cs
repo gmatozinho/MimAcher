@@ -10,7 +10,7 @@ using MimAcher.Mobile.Services;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
-    public class HobbiesActivity : ServicoTelasComProcedimento
+    public class HobbiesActivity : FabricaTelasComProcedimento
     {
         //Variaveis globais
         private Participante _participante;
@@ -18,7 +18,7 @@ namespace MimAcher.Mobile.Activities
         private ListView _listView;
         private string _hobbie;
         private EditText _campoHobbie;
-        private PacotePadrao _pacotePadrao;
+        private PacoteCompleto _pacoteCompleto;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -51,13 +51,14 @@ namespace MimAcher.Mobile.Activities
             _campoHobbie.TextChanged += (sender, hobbiecapturado) => _hobbie = hobbiecapturado.Text.ToString();
             
             addHobbie.Click += delegate {
-                _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
-                InserirItem(_pacotePadrao,_campoHobbie,_hobbie);
+                string[] values = {"Hobbie", _hobbie};
+                _pacoteCompleto = new PacoteCompleto(_hobbies, _participante, _listView);
+                InserirItem(_campoHobbie,_pacoteCompleto,values);
             };
 
             ok.Click += delegate {
-                _pacotePadrao = new PacotePadrao(_hobbies,_participante,_listView);
-                IniciarQueroAprenderActivity(this,_pacotePadrao);
+                _pacoteCompleto = new PacoteCompleto(_hobbies,_participante,_listView);
+                IniciarQueroAprenderActivity(this,_pacoteCompleto);
             };
         }
 
@@ -74,13 +75,13 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
-                    IniciarHome(this,_pacotePadrao);
+                    _pacoteCompleto = new PacoteCompleto(_hobbies, _participante, _listView);
+                    IniciarHome(this,_pacoteCompleto);
                     return true;
 
                 case Resource.Id.menu_preferences:
-                    _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
-                    IniciarEditarPerfil(this,_pacotePadrao);
+                    _pacoteCompleto = new PacoteCompleto(_hobbies, _participante, _listView);
+                    IniciarEditarPerfil(this,_pacoteCompleto);
                     return true;
             }
             return base.OnOptionsItemSelected(item);

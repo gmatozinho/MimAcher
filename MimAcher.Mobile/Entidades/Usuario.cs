@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Entidades
 {
 
-    public abstract class Usuario : Pacote
+    public abstract class Usuario : PacoteAbstrato
     {
         protected Usuario(Dictionary<string, string> atributos)
         {

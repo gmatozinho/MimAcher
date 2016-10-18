@@ -1,6 +1,6 @@
 ﻿namespace MimAcher.Mobile.Entidades
 {
-    public abstract class Pacote
+    public abstract class PacoteAbstrato
     {
         
     }

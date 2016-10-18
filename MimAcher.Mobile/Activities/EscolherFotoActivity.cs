@@ -3,14 +3,14 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EscolherFotoActivity", Theme = "@style/Theme.Splash")]
-    public class EscolherFotoActivity : Activity
+    public class EscolherFotoActivity : FabricaTelasSemProcedimento
     {
-        private Bundle _participanteBundle;
-        private Participante _participante;
+        
 
         //Metodos do controlador
         protected override void OnCreate(Bundle savedInstanceState)
@@ -18,8 +18,8 @@ namespace MimAcher.Mobile.Activities
             base.OnCreate(savedInstanceState);
 
             //Recebendo o bundle(Objeto participante)
-            _participanteBundle = Intent.GetBundleExtra("member");
-            _participante = Participante.BundleToParticipante(_participanteBundle);
+            var participanteBundle = Intent.GetBundleExtra("member");
+            PacoteAbstrato pacote = Participante.BundleToParticipante(participanteBundle);
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.EscolherFoto);
@@ -35,7 +35,7 @@ namespace MimAcher.Mobile.Activities
 
             //botar a foto no banco
             avançar.Click += delegate {
-                IniciarHobbies();
+                IniciarHobbies(this,pacote);
             };
         }
 
@@ -59,17 +59,9 @@ namespace MimAcher.Mobile.Activities
             imageView.SetImageURI(data.Data);
         }
 
-        public void IniciarHobbies()
-        {
-            var hobbiesactivity = new Intent(this, typeof(HobbiesActivity));
-            IniciarOutraTela(hobbiesactivity);
-        }
+        
 
-        public void IniciarOutraTela(Intent activitydesejada)
-        {
-            activitydesejada.PutExtra("member", _participante.ParticipanteToBundle());
-            StartActivity(activitydesejada);
-        }
+        
     }
 
 }
