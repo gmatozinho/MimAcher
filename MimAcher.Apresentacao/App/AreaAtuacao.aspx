@@ -122,11 +122,11 @@
 
         <%-- Double Click --%>
         <DirectEvents>
-            <AreaAtuacaoDblClick OnEvent="Edit">
+            <ItemDblClick OnEvent="Edit">
                 <ExtraParams>                    
                     <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{AreaAtuacaoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_area_atuacao" />                                
                 </ExtraParams>
-            </AreaAtuacaoDblClick>
+            </ItemDblClick>
         </DirectEvents>
 
         <BottomBar>

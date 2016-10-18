@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImagemParticipante.aspx.cs" CodeBehind="ImagemUsuario.aspx.cs" Inherits="MimAcher.Apresentacao.App.ImagemParticipante" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ImagemParticipante.aspx.cs" Inherits="MimAcher.Apresentacao.App.ImagemParticipante" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
