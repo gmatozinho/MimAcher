@@ -49,10 +49,10 @@ namespace MimAcher.Mobile.Activities
             campoAprender.TextChanged += (sender, a) => aprender = a.Text.ToString();
 
             addAprender.Click += delegate {
-                _listAprender.AdicionarItem(aprender, _participante.Aprender.Itens);
+                _listAprender.AdicionarItem(aprender, _participante.Aprender.Conteudo);
                 _participante.Aprender.AdicionarItemWithMessage(aprender, this,"Algo para aprender");
                 campoAprender.Text = null;
-                _listView.Adapter = new ListAdapterHae(this, _listAprender.Itens);
+                _listView.Adapter = new ListAdapterHae(this, _listAprender.Conteudo);
             };
 
             ok.Click += delegate {

@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Net.Mail;
+using Android.Content;
+using Android.Widget;
 
 namespace MimAcher.Mobile.Entidades
 {
@@ -9,8 +13,8 @@ namespace MimAcher.Mobile.Entidades
         {
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == email;
+                var enderecodeemail = new MailAddress(email);
+                return enderecodeemail.Address == email;
             }
             catch
             {
@@ -27,8 +31,8 @@ namespace MimAcher.Mobile.Entidades
         {
             DateTime saida;
             var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
-                                                  System.Globalization.CultureInfo.InvariantCulture,
-                                                  System.Globalization.DateTimeStyles.None, out saida);
+                                                  CultureInfo.InvariantCulture,
+                                                  DateTimeStyles.None, out saida);
             return isValid;
         }
 
@@ -60,5 +64,40 @@ namespace MimAcher.Mobile.Entidades
 
             return erros;
         }
+
+        public static bool ValidarCadastroParticipante(Context activity, Participante participante, string confirmarSenha)
+        {
+            var informacoes = ParticipanteParaDictionaryParaValidar(participante);
+            var listacominformacoesinvalidas = ValidarEntradas(informacoes);
+            var checarsenhasinseridas = ValidarConfirmarSenha(participante.Senha, confirmarSenha);
+
+            if (listacominformacoesinvalidas.Count == 0)
+            {
+                if (checarsenhasinseridas) return true;
+                const string toast = "As senhas não conferem!";
+                Toast.MakeText(activity, toast, ToastLength.Long).Show();
+            }
+            foreach (var valor in listacominformacoesinvalidas)
+            {
+                var toast = $"Informação Invalida: {valor}";
+                Toast.MakeText(activity, toast, ToastLength.Long).Show();
+            }
+
+            return false;
+        }
+
+        private static Dictionary<string, string> ParticipanteParaDictionaryParaValidar(Participante participante)
+        {
+            return new Dictionary<string, string>
+            {
+                ["email"] = participante.Email,
+                ["nome"] = participante.Nome,
+                ["data"] = participante.Nascimento,
+                ["senha"] = participante.Senha,
+                ["telefone"] = participante.Telefone
+
+            };
+        }
+
     }
 }

@@ -101,17 +101,17 @@
                 {
                     case ("hobbie"):
                         relacoesMatch = match.Hobbies;
-                        relacoes = relacoesMatch.Itens;
+                        relacoes = relacoesMatch.Conteudo;
                         Assert.AreEqual(relacoes.Contains("futebol"), true);
                         break;
                     case ("aprender"):
                         relacoesMatch = match.Aprender;
-                        relacoes = relacoesMatch.Itens;
+                        relacoes = relacoesMatch.Conteudo;
                         Assert.AreEqual(relacoes.Contains("guitarra"), true);
                         break;
                     case ("ensinar"):
                         relacoesMatch = match.Ensinar;
-                        relacoes = relacoesMatch.Itens;
+                        relacoes = relacoesMatch.Conteudo;
                         Assert.AreEqual(relacoes.Contains("violao"), true);
                         break;
                 }

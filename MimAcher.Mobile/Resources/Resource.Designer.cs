@@ -2526,9 +2526,6 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a00aa
 			public const int frame_perfil = 2131361962;
 			
-			// aapt resource value: 0x7f0a00b6
-			public const int hobbies = 2131361974;
-			
 			// aapt resource value: 0x7f0a0005
 			public const int home = 2131361797;
 			
@@ -2555,6 +2552,9 @@ namespace MimAcher.Mobile
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
+			
+			// aapt resource value: 0x7f0a00b6
+			public const int itens = 2131361974;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int left = 2131361847;

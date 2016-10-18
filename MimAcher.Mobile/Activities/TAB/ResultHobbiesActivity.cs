@@ -25,7 +25,7 @@ namespace MimAcher.Mobile.Activities.TAB
             var participante = Participante.BundleToParticipante(ParticipanteBundle);
 
             //Listagem dos Hobbies
-            _items = participante.Hobbies.Itens;
+            _items = participante.Hobbies.Conteudo;
             ListAdapter = new ListAdapterHae(this, _items);
 
         }

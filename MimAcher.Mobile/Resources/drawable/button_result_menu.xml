@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
-       android:id="@+id/hobbies"
+       android:id="@+id/itens"
        android:title="Hobbies" />
   <item
        android:id="@+id/aprender"

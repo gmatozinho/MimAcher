@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Entidades
 {
@@ -68,9 +69,9 @@ namespace MimAcher.Mobile.Entidades
 
             var p = new Participante(dictionary)
             {
-                Hobbies = {Itens = b.GetStringArrayList("hobbies").ToList()},
-                Aprender = {Itens = b.GetStringArrayList("aprender").ToList()},
-                Ensinar = {Itens = b.GetStringArrayList("ensinar").ToList()}
+                Hobbies = {Conteudo = b.GetStringArrayList("hobbies").ToList()},
+                Aprender = {Conteudo = b.GetStringArrayList("aprender").ToList()},
+                Ensinar = {Conteudo = b.GetStringArrayList("ensinar").ToList()}
             };
 
             return p;
@@ -81,9 +82,9 @@ namespace MimAcher.Mobile.Entidades
         {
             var bundle = new Bundle();
 
-            bundle.PutStringArrayList("hobbies", Hobbies.Itens);
-            bundle.PutStringArrayList("aprender", Aprender.Itens);
-            bundle.PutStringArrayList("ensinar", Ensinar.Itens);
+            bundle.PutStringArrayList("hobbies", Hobbies.Conteudo);
+            bundle.PutStringArrayList("aprender", Aprender.Conteudo);
+            bundle.PutStringArrayList("ensinar", Ensinar.Conteudo);
             bundle.PutString("nome", Nome);
             bundle.PutString("campus", Campus);
             bundle.PutString("senha", Senha);

@@ -82,7 +82,7 @@ namespace MimAcher.Mobile.Activities
         {
             var participante = new Participante(UnirInformacoesUsuario());
 
-            if (ServiceForUser.ValidarCadastroParticipante(activity,participante,_confirmarSenha))
+            if (Validador.ValidarCadastroParticipante(activity,participante,_confirmarSenha))
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();

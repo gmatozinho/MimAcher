@@ -6,11 +6,11 @@ namespace MimAcher.Mobile.Entidades
 {
     public class ListaItens
     {
-        public List<string> Itens { get; set; }
+        public List<string> Conteudo { get; set; }
 
         public ListaItens()
         {
-            Itens = new List<string>();
+            Conteudo = new List<string>();
         }
 
         //adicionar itens
@@ -18,9 +18,9 @@ namespace MimAcher.Mobile.Entidades
         {
             if (!string.IsNullOrEmpty(item))
             {
-                if (!Itens.Contains(item))
+                if (!Conteudo.Contains(item))
                 {
-                    Itens.Add(item);
+                    Conteudo.Add(item);
                     var toast = string.Format("{1} Inserido: {0}", item, text);
                     Toast.MakeText(activity, toast, ToastLength.Long).Show();
                 }
@@ -39,32 +39,32 @@ namespace MimAcher.Mobile.Entidades
 
         public void AdicionarItem(string item)
         {
-            if (!Itens.Contains(item) && !string.IsNullOrEmpty(item))
+            if (!Conteudo.Contains(item) && !string.IsNullOrEmpty(item))
             {
-                Itens.Add(item);
+                Conteudo.Add(item);
             }
         }
 
         public void AdicionarItem(string item, List<string> list)
         {
-            if (!Itens.Contains(item) && !list.Contains(item) && !string.IsNullOrEmpty(item))
+            if (!Conteudo.Contains(item) && !list.Contains(item) && !string.IsNullOrEmpty(item))
             {
-                Itens.Add(item);
+                Conteudo.Add(item);
             }
         }
 
         public void Clear()
         {
-            Itens = new List<string>();
+            Conteudo = new List<string>();
         }
 
         //Remover itens
         public void RemoverItem(string item)
         {
 
-            if (Itens.Contains(item))
+            if (Conteudo.Contains(item))
             {
-                Itens.Remove(item);
+                Conteudo.Remove(item);
             }
         }
     }

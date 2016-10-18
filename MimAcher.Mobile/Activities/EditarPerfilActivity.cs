@@ -4,17 +4,19 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
-    public class EditarPerfilActivity : Activity
+    public class EditarPerfilActivity : ServicoTelasSemProcedimento
     {
         //Variaveis globais
         private Bundle _participanteBundle;
         private string _nome;
         private string _nascimento;
         private string _telefone;
+        private Participante _participante;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -24,7 +26,7 @@ namespace MimAcher.Mobile.Activities
 
             //Recebendo o bundle(Objeto participante)
             _participanteBundle = Intent.GetBundleExtra("member");
-            var participante = Participante.BundleToParticipante(_participanteBundle);
+            _participante = Participante.BundleToParticipante(_participanteBundle);
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.EditarPerfil);
@@ -41,68 +43,80 @@ namespace MimAcher.Mobile.Activities
 
             //Modificando a parte textual
             ActionBar.Title = "Editar Perfil";
-            telefoneInfoUser.Hint = participante.Telefone;
-            nomeInfoUser.Hint = participante.Nome;
-            dtNascimentoInfoUser.Hint = participante.Nascimento;
+            telefoneInfoUser.Hint = _participante.Telefone;
+            nomeInfoUser.Hint = _participante.Nome;
+            dtNascimentoInfoUser.Hint = _participante.Nascimento;
 
             //Funcionalidades
-            //Para alterar
-            _nome = participante.Nome;
-            _telefone = participante.Telefone;
-            _nascimento = participante.Nascimento;
+            //Para Exibir
+            _nome = _participante.Nome;
+            _telefone = _participante.Telefone;
+            _nascimento = _participante.Nascimento;
 
             //Pegar as informações inseridas
-            nomeInfoUser.TextChanged += (sender, n) => _nome = n.Text.ToString();
-            dtNascimentoInfoUser.TextChanged += (sender, n) => _nascimento = n.Text.ToString();
-            telefoneInfoUser.TextChanged += (sender, t) => _telefone = t.Text.ToString();
+            nomeInfoUser.TextChanged += (sender, nomecapturado) => _nome = nomecapturado.Text.ToString();
+            dtNascimentoInfoUser.TextChanged += (sender, nascimentocapturado) => _nascimento = nascimentocapturado.Text.ToString();
+            telefoneInfoUser.TextChanged += (sender, telefonecapturado) => _telefone = telefonecapturado.Text.ToString();
 
             alterarSenha.Click += delegate
             {
-                var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
-                //mudar para trabalhar com objeto do banco
-                alterarsenhaactivity.PutExtra("member", _participanteBundle);
-                StartActivity(alterarsenhaactivity);
+                IniciarAlterarSenha();
             };
 
             salvar.Click += delegate
             {
-                var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
-                //mudar para trabalhar com objeto do banco
-                //deverá rolar um commit para salvar alterações no banco
-                AlterarParticipante(participante);
-                resultadoactivity.PutExtra("member", participante.ParticipanteToBundle());
-                StartActivity(resultadoactivity);
+                SalvarPerfilEditado();
             };
         }
-
-        //Cria o menu de opções
+        
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
-
-        //Define as funcionalidades destes menus
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
-                    //mudar para trabalhar com objeto do banco
-                    resultadoctivity.PutExtra("member", _participanteBundle);
-                    StartActivity(resultadoctivity);
+                    IniciarHome();
                     return true;
 
                 case Resource.Id.menu_preferences:
-                    //do something
+                    //chamar configurações??
                     return true;
             }
             return base.OnOptionsItemSelected(item);
         }
 
-        //Modifica o participante com as novas informações 
+        private void IniciarAlterarSenha()
+        {
+            var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
+            //mudar para trabalhar com objeto do banco
+            IniciarOutraTela(alterarsenhaactivity);
+        }
+
+        private void IniciarHome()
+        {
+            var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
+            //mudar para trabalhar com objeto do banco
+            IniciarOutraTela(resultadoctivity);
+        }
+        
+        private void SalvarPerfilEditado()
+        {
+            var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
+            AlterarParticipante(_participante);
+            IniciarOutraTela(resultadoactivity);
+        }
+
+        public void IniciarOutraTela(Intent activitydesejada)
+        {
+            activitydesejada.PutExtra("member", _participante.ParticipanteToBundle());
+            StartActivity(activitydesejada);
+        }
+
         private void AlterarParticipante(Participante participante)
         {
             participante.Nome = _nome;

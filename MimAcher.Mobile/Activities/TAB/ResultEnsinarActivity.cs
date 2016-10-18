@@ -25,7 +25,7 @@ namespace MimAcher.Mobile.Activities.TAB
             var participante = Participante.BundleToParticipante(ParticipanteBundle);
 
             //Listagem do que ensinar
-            _items = participante.Ensinar.Itens;
+            _items = participante.Ensinar.Conteudo;
             ListAdapter = new ListAdapterHae(this, _items);
 
         }

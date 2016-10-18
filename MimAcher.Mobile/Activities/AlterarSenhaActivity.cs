@@ -3,16 +3,18 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "AlterarSenhaActivity", Theme = "@style/Theme.Splash")]
-    public class AlterarSenhaActivity : Activity
+    public class AlterarSenhaActivity : ServicoTelasSemProcedimento
     {
         //Variaveis globais
         private string _novasenha;
         private string _repitasenha;
         Participante _participante;
+        Pacote _pacote;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -34,44 +36,48 @@ namespace MimAcher.Mobile.Activities
 
             //Funcionalidades
             //Pegar as informações inseridas
-            novaSenha.TextChanged += (sender, n) => _novasenha = n.Text.ToString();
-            repitaNovaSenha.TextChanged += (sender, r) => _repitasenha = r.Text.ToString();
+            novaSenha.TextChanged += (sender, novasenhacapturada) => _novasenha = novasenhacapturada.Text.ToString();
+            repitaNovaSenha.TextChanged += (sender, repitasenhacapturada) => _repitasenha = repitasenhacapturada.Text.ToString();
 
             confirmar.Click += delegate
             {
-                ChecarSenha();
-                
+                ChecarSenhas();
             };
             
         }
 
-        private void ChecarSenha()
+        private void ChecarSenhas()
         {
-            if (_repitasenha == _novasenha)
-            {
-                _participante.Senha = _novasenha;
-                const string toast = ("Senha Alterada");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-
-                var editarperfilactivity = new Intent(this, typeof(EditarPerfilActivity));
-                //mudar para trabalhar com objeto do banco
-                //deverá rolar um commit para salvar alterações no banco                
-                editarperfilactivity.PutExtra("member", _participante.ParticipanteToBundle());
-                StartActivity(editarperfilactivity);
-            }
+            if (Validador.ValidarConfirmarSenha(_novasenha, _repitasenha))
+                SalvarAlteracao();
             else
-            {
-                const string toast = ("As senhas estão diferentes");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                ManterUsuarioNaTela();
+        }
 
-                var alterarsenhaactivity = new Intent(this, typeof(AlterarSenhaActivity));
-                //mudar para trabalhar com objeto do banco
-                //deverá rolar um commit para salvar alterações no banco                
-                alterarsenhaactivity.PutExtra("member", _participante.ParticipanteToBundle());
-                StartActivity(alterarsenhaactivity);
-            }
+        public void SalvarAlteracao()
+        {
+            _participante.Senha = _novasenha;
+            const string toast = ("Senha Alterada");
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+            _pacote = _participante;
+            IniciarEditarPerfil(this,_pacote);
+        }
+
+        public void ManterUsuarioNaTela()
+        {
+            const string toast = ("As senhas estão diferentes");
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
+
+            _pacote = _participante;
+            IniciarAlterarSenha(this, _pacote);
         }
 
         
+
+        
+
+        
+
     }
 }

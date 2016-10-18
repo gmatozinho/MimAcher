@@ -5,16 +5,20 @@ using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
-    public class HobbiesActivity : Activity
+    public class HobbiesActivity : ServicoTelasComProcedimento
     {
         //Variaveis globais
         private Participante _participante;
         private readonly ListaItens _hobbies = new ListaItens();
         private ListView _listView;
+        private string _hobbie;
+        private EditText _campoHobbie;
+        private PacotePadrao _pacotePadrao;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -27,13 +31,13 @@ namespace MimAcher.Mobile.Activities
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Perfil);
+
             //Iniciando as variaveis do contexto
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
             var pergunta = FindViewById<TextView>(Resource.Id.pergunta);
-            var campoHobbie = FindViewById<EditText>(Resource.Id.digite_algo);
             var ok = FindViewById<Button>(Resource.Id.ok);
             var addHobbie = FindViewById<FloatingActionButton>(Resource.Id.add_algo);
-            string hobbie = null;
+            _campoHobbie = FindViewById<EditText>(Resource.Id.digite_algo);
             _listView = FindViewById<ListView>(Resource.Id.list);
             
             SetActionBar(toolbar);
@@ -41,29 +45,20 @@ namespace MimAcher.Mobile.Activities
             //Modificando a parte textual
             ActionBar.Title = "Hobbies";
             pergunta.Text = "Quais são os seus hobbies?";
-            campoHobbie.Hint = "Digite um Hobbie";
+            _campoHobbie.Hint = "Digite um Hobbie";
 
             //Funcionalidades
-            campoHobbie.TextChanged += (sender, h) => hobbie = h.Text.ToString();
+            _campoHobbie.TextChanged += (sender, hobbiecapturado) => _hobbie = hobbiecapturado.Text.ToString();
             
             addHobbie.Click += delegate {
-                _hobbies.AdicionarItem(hobbie, _participante.Hobbies.Itens);
-                _participante.Hobbies.AdicionarItemWithMessage(hobbie,this,"Hobbie");
-                campoHobbie.Text = null;
-                _listView.Adapter = new ListAdapterHae(this, _hobbies.Itens);
+                _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
+                InserirItem(_pacotePadrao,_campoHobbie,_hobbie);
             };
 
             ok.Click += delegate {
-                _participante.Commit();
-                _hobbies.Clear();
-                _listView.Adapter = null;
-
-                var queroaprenderactivity = new Intent(this, typeof(QueroAprenderActivity));
-                //TODO mudar para trabalhar com objeto do banco
-                queroaprenderactivity.PutExtra("member", _participante.ParticipanteToBundle());
-                StartActivity(queroaprenderactivity);
+                _pacotePadrao = new PacotePadrao(_hobbies,_participante,_listView);
+                IniciarQueroAprenderActivity(this,_pacotePadrao);
             };
-
         }
 
         //Cria o menu de opções
@@ -79,28 +74,16 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_home:
-                    _participante.Commit();
-                    _hobbies.Clear();
-                    _listView.Adapter = null;
-
-                    var resultadoctivity = new Intent(this, typeof(ResultadoActivity));
-                    resultadoctivity.PutExtra("member", _participante.ParticipanteToBundle());
-                    StartActivity(resultadoctivity);
+                    _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
+                    IniciarHome(this,_pacotePadrao);
                     return true;
 
                 case Resource.Id.menu_preferences:
-                    _hobbies.Clear();
-                    _listView.Adapter = null;
-                    _participante.Commit();
-
-                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                    editaractivity.PutExtra("member", _participante.ParticipanteToBundle());
-                    StartActivity(editaractivity);
+                    _pacotePadrao = new PacotePadrao(_hobbies, _participante, _listView);
+                    IniciarEditarPerfil(this,_pacotePadrao);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
         }
-
-        
     }
 }
