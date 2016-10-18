@@ -1,5 +1,6 @@
 using Android.App;
 using Android.OS;
+using MimAcher.Resources;
 
 namespace MimAcher.Activities
 {

@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
+using MimAcher.Resources;
 
 namespace MimAcher.Activities
 {

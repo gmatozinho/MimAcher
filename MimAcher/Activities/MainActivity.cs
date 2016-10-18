@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Android.Gms.Common;
 using Android.Gms.Common.Apis;
 using Android.Support.V7.App;
+using MimAcher.Resources;
 
 namespace MimAcher.Activities
 {

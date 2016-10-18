@@ -8,6 +8,7 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Entidades;
 using MimAcher.Services;
+using Resource = MimAcher.Resources.Resource;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Activities

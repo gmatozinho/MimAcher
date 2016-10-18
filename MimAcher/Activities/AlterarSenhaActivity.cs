@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Entidades;
+using MimAcher.Resources;
 
 namespace MimAcher.Activities
 {

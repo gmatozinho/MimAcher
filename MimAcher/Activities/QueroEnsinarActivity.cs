@@ -6,6 +6,7 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Activities.TAB;
 using MimAcher.Entidades;
+using Resource = MimAcher.Resources.Resource;
 
 namespace MimAcher.Activities
 {
