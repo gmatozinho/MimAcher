@@ -1,13 +1,14 @@
 ﻿using NUnit.Framework;
-using Xamarin.UITest;
 using Xamarin.UITest.Android;
 
-namespace UITest1
+namespace Testes
 {
     [TestFixture]
-    public class Tests
+    public class TestsInterface
     {
-        AndroidApp app;
+#pragma warning disable 169
+        //AndroidApp app;
+#pragma warning restore 169
         /*
         [SetUp]
         public void BeforeEachTest()
