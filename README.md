@@ -27,4 +27,6 @@ Gustavo Matozinho - gmatozinho@mimacher.me
 
 Paulo - paulovianna@yandex.com
 
+#Gráfico de rendimento 
+
 [![Throughput Graph](https://graphs.waffle.io/gmatozinho/MimAcher/throughput.svg)](https://waffle.io/gmatozinho/MimAcher/metrics/throughput)
