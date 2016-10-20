@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/gmatozinho/MimAcher.png?label=ready&title=Ready)](https://waffle.io/gmatozinho/MimAcher)
 # MimAcher    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162/branch/master?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher/branch/master)
 
 
