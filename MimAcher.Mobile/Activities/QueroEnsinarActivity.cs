@@ -1,11 +1,9 @@
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -87,15 +85,7 @@ namespace MimAcher.Mobile.Activities
             }
             return base.OnOptionsItemSelected(item);
         }
-
-        /*public void InserirItem()
-        {
-            _listEnsinar.AdicionarItem(_ensinar, _participante.Ensinar.Conteudo);
-            _participante.Hobbies.AdicionarItemWithMessage(_ensinar, this, "Algo para Ensinar");
-            _campoEnsinar.Text = null;
-            _listView.Adapter = new ListAdapterHae(this, _listEnsinar.Conteudo);
-        }*/
-
+        
 
     }
 }

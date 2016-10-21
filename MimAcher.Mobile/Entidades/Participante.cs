@@ -43,12 +43,12 @@ namespace MimAcher.Mobile.Entidades
         //Funções para trabalhar no banco de dados
         public void Commit()
         {
-            CursorBD.Write(this);
+            CursorBd.Write(this);
         }
 
         public Dictionary<string, List<Participante>> Match()
         {
-            var matchs = CursorBD.Match(this);
+            var matchs = CursorBd.Match(this);
 
             return matchs;
         }

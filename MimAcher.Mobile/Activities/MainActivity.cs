@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -16,16 +15,13 @@ namespace MimAcher.Mobile.Activities
         //até comunicar com o banco informações hipotéticas
         private readonly string _campus = "Serra";
         private readonly string _senha = null;
-        private string _nome = "Gustavo";
+        private readonly string _nome = "Gustavo";
         private readonly string _email = null;
         private readonly string _nascimento = "09/10/1995";
         private readonly string _telefone = "00000000";
         private string _userEmail;
         private string _userPassword;
-
-
-        private static readonly TaskScheduler UiScheduler = TaskScheduler.FromCurrentSynchronizationContext();
-
+        
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
@@ -51,7 +47,6 @@ namespace MimAcher.Mobile.Activities
             //Login button click action, e passando o _nome do usuário para próxima activity
             entrar.Click += delegate
             {
-                ValidaLogin(_userEmail, _userPassword);
                 var participante = new Participante(MontarUsuário());
                 var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
                 resultadoActivity.PutExtra("member", participante.ParticipanteToBundle());
@@ -70,19 +65,6 @@ namespace MimAcher.Mobile.Activities
         }
 
         
-
-
-        private static bool ValidaLogin(string email, string senha)
-        {
-            bool check;
-            if (true)
-            {
-                check = true;
-            }
-
-            return check;
-        }
-
         //função temporaria
         //deve pegar o usuario no banco
         private Dictionary<string, string> MontarUsuário()

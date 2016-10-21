@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace MimAcher.Mobile.Entidades
 {
-    public static class CursorBD
+    public static class CursorBd
     {
         //Set attributes to connect to database
         //private static string url = "http://ghoststation.ddns.net:8091/";
@@ -34,11 +34,13 @@ namespace MimAcher.Mobile.Entidades
 
         public static Dictionary<string, List<Participante>> Match(Participante a)
         {
-            Dictionary<string, List<Participante>> matchs = new Dictionary<string, List<Participante>>();
+            var matchs = new Dictionary<string, List<Participante>>
+            {
+                ["gostos"] = new List<Participante>(),
+                ["interesses"] = new List<Participante>(),
+                ["competencias"] = new List<Participante>()
+            };
 
-            matchs["gostos"] = new List<Participante>();
-            matchs["interesses"] = new List<Participante>();
-            matchs["competencias"] = new List<Participante>();
 
             //TODO: buscar os matchs no banco
 

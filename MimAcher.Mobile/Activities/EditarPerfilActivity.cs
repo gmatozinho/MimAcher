@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -12,7 +11,6 @@ namespace MimAcher.Mobile.Activities
     public class EditarPerfilActivity : FabricaTelasSemProcedimento
     {
         //Variaveis globais
-        private Bundle _participanteBundle;
         private string _nome;
         private string _nascimento;
         private string _telefone;
@@ -26,8 +24,8 @@ namespace MimAcher.Mobile.Activities
             base.OnCreate(savedInstanceState);
 
             //Recebendo o bundle(Objeto participante)
-            _participanteBundle = Intent.GetBundleExtra("member");
-            _participante = Participante.BundleToParticipante(_participanteBundle);
+            var participanteBundle = Intent.GetBundleExtra("member");
+            _participante = Participante.BundleToParticipante(participanteBundle);
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.EditarPerfil);

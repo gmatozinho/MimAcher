@@ -93,8 +93,8 @@ namespace MimAcher.Mobile.Activities
             }
             else
             {
-                //const string toast = ("Informações inválidas");
-                //Toast.MakeText(this, toast, ToastLength.Long).Show();
+                /*const string toast = ("Informações inválidas");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();*/
                 var inscreveractivity = new Intent(this, typeof(InscreverActivity));
                 StartActivity(inscreveractivity);
             }
@@ -116,13 +116,6 @@ namespace MimAcher.Mobile.Activities
                 case Resource.Id.menu_done:
                     RegistrarParticipante(this);
                     return true;
-                /*case Resource.Id.menu_preferences:
-                    //do something
-                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                    //mudar para trabalhar com objeto do banco
-                    editaractivity.PutExtra("member", participante_bundle);
-                    StartActivity(editaractivity);
-                    return true;*/
             }
             return base.OnOptionsItemSelected(item);
         }

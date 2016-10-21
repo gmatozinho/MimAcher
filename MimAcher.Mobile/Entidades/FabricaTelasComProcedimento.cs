@@ -43,8 +43,6 @@ namespace MimAcher.Mobile.Entidades
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Hobbies.Conteudo);
                     pacoteCompleto.Participante.Hobbies.AdicionarItemWithMessage(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo, pacoteCompleto.ListView, pacoteCompleto.ListaItens);
-                    /*campo.Text = null;
-                    pacoteCompleto.ListView.Adapter = new ListAdapterHae(this, pacoteCompleto.ListaItens.Conteudo);*/
                     break;
                 case "Algo para Aprender":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Aprender.Conteudo);
@@ -59,7 +57,7 @@ namespace MimAcher.Mobile.Entidades
             }
         }
 
-        private void LimparEListar(EditText campo, ListView listar, ListaItens lista)
+        private void LimparEListar(TextView campo, ListView listar, ListaItens lista)
         {
             campo.Text = null;
             listar.Adapter = new ListAdapterHae(this, lista.Conteudo);

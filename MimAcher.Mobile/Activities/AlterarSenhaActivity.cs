@@ -1,9 +1,7 @@
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Services;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -14,7 +12,7 @@ namespace MimAcher.Mobile.Activities
         private string _novasenha;
         private string _repitasenha;
         private Participante _participante;
-        private PacoteAbstrato _pacote;
+        
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -60,8 +58,8 @@ namespace MimAcher.Mobile.Activities
             const string toast = ("Senha Alterada");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-            _pacote = _participante;
-            IniciarEditarPerfil(this,_pacote);
+            PacoteAbstrato pacote = _participante;
+            IniciarEditarPerfil(this,pacote);
         }
 
         public void ManterUsuarioNaTela()
@@ -69,8 +67,8 @@ namespace MimAcher.Mobile.Activities
             const string toast = ("As senhas estão diferentes");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
 
-            _pacote = _participante;
-            IniciarAlterarSenha(this, _pacote);
+            PacoteAbstrato pacote = _participante;
+            IniciarAlterarSenha(this, pacote);
         }
     }
 }

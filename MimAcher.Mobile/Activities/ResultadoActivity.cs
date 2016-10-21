@@ -59,7 +59,6 @@ namespace MimAcher.Mobile.Activities
 
                 menu.MenuItemClick += (s1, arg1) =>
                 {
-                    Console.WriteLine("{0} selected", arg1.Item.TitleFormatted);
                     Intent intent = null;
 
                     switch (arg1.Item.TitleFormatted.ToString())
