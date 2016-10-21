@@ -1,5 +1,6 @@
 ﻿using MimAcher.Entidades;
 using MimAcher.GeradorDados;
+using MimAcher.Postgres.Conexao;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -62,8 +62,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CursorPostgresOtimizado.cs" />
+    <Compile Include="Conexao\CursorPostgres.cs" />
+    <Compile Include="Conexao\Parametros\FabricaDate.cs" />
+    <Compile Include="Conexao\Parametros\FabricaInt.cs" />
+    <Compile Include="Conexao\Parametros\FabricaParametros.cs" />
+    <Compile Include="Conexao\Parametros\FabricaString.cs" />
+    <Compile Include="Conexao\Parametros\Parametro.cs" />
     <Compile Include="InserirDados.cs" />
+    <Compile Include="Conexao\Parametros\ParametroDate.cs" />
+    <Compile Include="Conexao\Parametros\ParametroInt.cs" />
+    <Compile Include="Conexao\Parametros\ParametroString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
