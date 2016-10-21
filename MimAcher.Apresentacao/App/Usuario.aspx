@@ -9,7 +9,7 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="UsuarioFormPanelId" runat="server" Title="Usuário" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="UsuarioFormPanelId" runat="server" Title="Adicionar/Editar Usuário" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
