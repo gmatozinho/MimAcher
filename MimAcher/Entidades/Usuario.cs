@@ -6,9 +6,9 @@ namespace MimAcher.Entidades
 
     public abstract class Usuario
     {
-        
-        public Usuario(Dictionary<string, string> atributos)
+        protected Usuario(Dictionary<string, string> atributos)
         {
+            if (atributos == null) throw new ArgumentNullException(nameof(atributos));
             Email = atributos["email"];
             Senha = atributos["senha"];
         }
@@ -17,23 +17,16 @@ namespace MimAcher.Entidades
 
         public string Senha {get; set;}
 
-        public Boolean Login(string password)
+        public bool Login(string password)
         {
-            if (password.Equals(this.Senha))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return password.Equals(Senha);
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)
         {
             if (senhaAtual.Equals("senha"))
             {
-                this.Senha = novaSenha;
+                Senha = novaSenha;
             }
         }
 

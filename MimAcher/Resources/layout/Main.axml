@@ -24,49 +24,32 @@
             android:textColor="#A9A9A9"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
-            android:layout_marginTop="0.0dp"
             android:textSize="20dp"
             android:hint="E-mail"
-            android:background="#ffffff"
             android:singleLine="true"
             android:lines="1"
             android:textColorHint="#A9A9A9"
             android:layout_height="wrap_content" />
     </android.support.design.widget.TextInputLayout>
-    <View
-        android:layout_width="match_parent"
-        android:background="#A9A9A9"
-        android:layout_height="1dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginRight="42dp"
-        android:layout_marginTop="2dp"
-        android:id="@+id/usuario_line" />
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:textColorHint="#A9A9A9"
         android:layout_height="wrap_content">
         <EditText
-            android:layout_width="300dp"
+            android:textColorHint="#A9A9A9"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/senha"
             android:textSize="20dp"
-            android:visibility="visible"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:password="true"
+            android:singleLine="true"
+            android:lines="1"
             android:hint="Senha"
-            android:background="#ffffff"
-            android:layout_marginTop="10dp" />
+            android:textColor="#A9A9A9"
+            android:visibility="visible" />
     </android.support.design.widget.TextInputLayout>
-    <View
-        android:layout_width="match_parent"
-        android:background="#A9A9A9"
-        android:layout_height="1dp"
-        android:layout_marginLeft="42dp"
-        android:layout_marginRight="42dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="40dp"
-        android:id="@+id/senha_line" />
     <Button
         android:text="ENTRAR"
         android:textColor="@android:color/black"
@@ -100,4 +83,5 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC" />
+    
 </LinearLayout>
