@@ -76,7 +76,7 @@
  <ext:GridPanel 
         ID="UsuarioGridPanelId"
         runat="server" 
-        Title="Unidademento de Usuário"
+        Title="Lista de Usuários"
         StoreID="StoreUsuarioId">         
 
         <%-- Colunas da Grid --%>
