@@ -11,14 +11,46 @@ namespace MimAcher.GeradorDados.Geradores
         public Random _random = new Random();
         private string nomeCompleto, primeiroNome, nomeMeio, ultimoNome;
 
-        private static readonly List<string> nomes =
-            new List<string>() { "Cayo", "Gustavo", "Moises", "Joao", "Ricardo" };
+        private List<string> nomes = new List<string>();
 
-        private static readonly List<string> nomes_meio =
-            new List<string>() { "Paulo", "Matozinho", "", "da Silva", "Costa" };
+        private List<string> nomes_meio = new List<string>();
 
-        private static readonly List<string> sobrenomes =
-            new List<string>() { "Donatti", "Lima", "Pandolfi", "Pereira", "Schrodinger" };
+        private List<string> sobrenomes = new List<string>();
+
+        public GeradorNome()
+        {
+            string linha; //Indica uma linha lida de um arquivo
+
+            //Lendo arquivo de nomes
+            System.IO.StreamReader file =
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nome");
+            while ((linha = file.ReadLine()) != null)
+            {
+                nomes.Add(linha.Trim().ToLower());
+            }
+
+            file.Close();
+
+            //Lendo arquivo de nomes do meio
+            file =
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nomeMeio");
+            while ((linha = file.ReadLine()) != null)
+            {
+                nomes_meio.Add(linha.Trim().ToLower());
+            }
+
+            file.Close();
+
+            //Lendo arquivo de sobrenomes
+            file =
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\sobrenome");
+            while ((linha = file.ReadLine()) != null)
+            {
+                sobrenomes.Add(linha.Trim().ToLower());
+            }
+
+            file.Close();
+        }
 
         public string GerarNome()
         {
