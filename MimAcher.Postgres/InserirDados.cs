@@ -19,12 +19,14 @@ namespace MimAcher.Postgres
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
-            for (int i = 0;i < 250000; i++)
+            for (int i = 0; i < 250000; i++)
             {
                 par = (Participante)dir.GerarParticipante();
                 Console.WriteLine("Inserindo participante " + par.Nome + "...");
                 cursor.InserirParticipante(par);
             }
+
+            cursor.Close();
 
             watch.Stop();
             Console.WriteLine("Tempo: " + watch.Elapsed);
