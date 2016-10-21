@@ -10,7 +10,7 @@
 	  
 	<link href="~/Styles/customizado.css" rel="stylesheet" type="text/css" />
 
-	<link rel="shortcut icon" href="~/Imagem/favicon.ico" type="image/x-icon"/>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
 	<ext:ResourceManager ID="ResourceManager1" runat="server" DisableViewState="false" Theme="Gray"/>    
 	<asp:ContentPlaceHolder ID="head" runat="server" />    

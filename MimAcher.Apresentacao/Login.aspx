@@ -10,6 +10,7 @@
     <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Gray">
     </ext:ResourceManager>
     <link rel="stylesheet" type="text/css" href="~/Styles/estilo.css"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 </head>
 <body style="background-color:white;">
     <div id="ext-comp-1003" class=" x-panel x-panel-noborder x-border-panel" style="left: 0px; top: 0px; ">
