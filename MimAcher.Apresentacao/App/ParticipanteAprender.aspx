@@ -89,7 +89,7 @@
 					<Fields>
 						<ext:ModelField Name="cod_nac_area_atuacao" Type="Int" />																		
 						<ext:ModelField Name="cod_nac" Type="Int" />
-						<ext:ModelField Name="nome" ServerMapping="MA_NAC.nome" />                         
+						<ext:ModelField Name="nome_representante" ServerMapping="MA_NAC.nome_representante" />                         
 						<ext:ModelField Name="cod_area_atuacao"  Type="Int" />
 						<ext:ModelField Name="nome" ServerMapping="MA_AREA_ATUACAO.nome" />                                                                                                                                       
 					</Fields>
