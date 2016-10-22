@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal class ParametroString : Parametro
+    internal static class ParametroString
     {
         public static void Construir(string nome_parametro, NpgsqlCommand comando)
         {

@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal class ParametroDate : Parametro
+    internal static class ParametroDate
     {
         public static void Construir(string nome_parametro, NpgsqlCommand comando)
         {

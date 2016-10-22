@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal class Parametro
+    internal static class Parametro
     {
         public static void AtribuirValor(string nome_parametro, NpgsqlCommand comando, object valor)
         {

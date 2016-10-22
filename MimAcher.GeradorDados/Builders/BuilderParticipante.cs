@@ -2,6 +2,7 @@
 using MimAcher.GeradorDados.Geradores;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,14 +11,13 @@ namespace MimAcher.GeradorDados.Builders
 {
    internal class BuilderParticipante
     {
-        private Participante participante;
-        private GeradorNome geradorNome;
-        private GeradorEmail geradorEmail;
-        private GeradorNascimento geradorNascimento;
-        private GeradorTelefone geradorTelefone;
-        private GeradorSenha geradorSenha;
-        private GeradorCampus geradorCampus;
-        private Random random = new Random();
+        private readonly GeradorNome geradorNome;
+        private readonly GeradorEmail geradorEmail;
+        private readonly GeradorNascimento geradorNascimento;
+        private readonly GeradorTelefone geradorTelefone;
+        private readonly GeradorSenha geradorSenha;
+        private readonly GeradorCampus geradorCampus;
+        private readonly Random random = new Random();
 
         public BuilderParticipante()
         {
@@ -35,14 +35,12 @@ namespace MimAcher.GeradorDados.Builders
 
             dadosParticipante.Add("nome", geradorNome.GerarNome());
             dadosParticipante.Add("email", geradorEmail.GerarEmail(dadosParticipante["nome"]));
-            dadosParticipante.Add("nascimento", geradorNascimento.GerarDia().ToString());
+            dadosParticipante.Add("nascimento", geradorNascimento.GerarDia().ToString(CultureInfo.InvariantCulture));
             dadosParticipante.Add("telefone", geradorTelefone.GerarTelefone().ToString());
             dadosParticipante.Add("senha", geradorSenha.GerarSenha(random.Next(8, 16)));
             dadosParticipante.Add("campus", geradorCampus.GerarCampus());
 
-            participante = new Participante(dadosParticipante);
-
-            return participante;
+            return new Participante(dadosParticipante);
         }
     }
 }

@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal class FabricaDate
+    internal static class FabricaDate
     {
         public static void MontarParametroNascimento(NpgsqlCommand comando, object valor)
         {

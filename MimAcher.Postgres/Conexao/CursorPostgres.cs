@@ -12,15 +12,15 @@ namespace MimAcher.Postgres.Conexao
 {
     class CursorPostgres
     {
-        protected Dictionary<string, int> campi;
-        protected static string username = "postgres",
+        private Dictionary<string, int> campi;
+        private static string username = "postgres",
                                 password = "ifes",
                                 database = "mimacher";
 
-        protected static string stringConexao = string.Format("Server = 127.0.0.1; User Id = {0};" + 
+        private static string stringConexao = string.Format("Server = 127.0.0.1; User Id = {0};" + 
                                                               "Password = {1}; Database = {2}; ",
                                                                username, password, database);
-        protected NpgsqlConnection conexao;
+        private readonly NpgsqlConnection conexao;
 
         public CursorPostgres()
         {

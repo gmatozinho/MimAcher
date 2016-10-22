@@ -10,8 +10,8 @@ namespace MimAcher.GeradorDados
 {
     public class DiretorGeradores
     {
-        private BuilderParticipante builderParticipante;
-        private BuilderItem builderItem;
+        private readonly BuilderParticipante builderParticipante;
+        private readonly BuilderItem builderItem;
 
         public DiretorGeradores()
         {

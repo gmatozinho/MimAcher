@@ -10,8 +10,8 @@ namespace MimAcher.GeradorDados.Builders
 {
     internal class BuilderItem
     {
-        private GeradorItem geradorItens = new GeradorItem();
-        private Random random = new Random();
+        private readonly GeradorItem geradorItens = new GeradorItem();
+        private readonly Random random = new Random();
 
         public ListaItens GerarListaItens()
         {

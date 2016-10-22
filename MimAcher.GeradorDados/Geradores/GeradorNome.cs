@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,14 +9,13 @@ namespace MimAcher.GeradorDados.Geradores
 {
     public class GeradorNome
     {
-        public Random _random = new Random();
-        private string nomeCompleto, primeiroNome, nomeMeio, ultimoNome;
+        public readonly Random random = new Random();
 
-        private List<string> nomes = new List<string>();
+        private readonly List<string> nomes = new List<string>();
 
-        private List<string> nomes_meio = new List<string>();
+        private readonly List<string> nomes_meio = new List<string>();
 
-        private List<string> sobrenomes = new List<string>();
+        private readonly List<string> sobrenomes = new List<string>();
 
         public GeradorNome()
         {
@@ -26,7 +26,7 @@ namespace MimAcher.GeradorDados.Geradores
                new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nome");
             while ((linha = file.ReadLine()) != null)
             {
-                nomes.Add(linha.Trim().ToLower());
+                nomes.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));
             }
 
             file.Close();
@@ -36,7 +36,7 @@ namespace MimAcher.GeradorDados.Geradores
                new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nomeMeio");
             while ((linha = file.ReadLine()) != null)
             {
-                nomes_meio.Add(linha.Trim().ToLower());
+                nomes_meio.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));
             }
 
             file.Close();
@@ -46,7 +46,7 @@ namespace MimAcher.GeradorDados.Geradores
                new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\sobrenome");
             while ((linha = file.ReadLine()) != null)
             {
-                sobrenomes.Add(linha.Trim().ToLower());
+                sobrenomes.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));
             }
 
             file.Close();
@@ -54,10 +54,10 @@ namespace MimAcher.GeradorDados.Geradores
 
         public string GerarNome()
         {
-            primeiroNome = nomes[_random.Next(0, nomes.Count)];
-            nomeMeio = nomes_meio[_random.Next(0, nomes_meio.Count)];
-            ultimoNome = sobrenomes[_random.Next(0, sobrenomes.Count)];
-            nomeCompleto = string.Format("{0} {1} {2}", primeiroNome, nomeMeio, ultimoNome);
+            string primeiroNome = nomes[random.Next(0, nomes.Count)];
+            string nomeMeio = nomes_meio[random.Next(0, nomes_meio.Count)];
+            string ultimoNome = sobrenomes[random.Next(0, sobrenomes.Count)];
+            string nomeCompleto = string.Format("{0} {1} {2}", primeiroNome, nomeMeio, ultimoNome);
 
             return nomeCompleto;
         }

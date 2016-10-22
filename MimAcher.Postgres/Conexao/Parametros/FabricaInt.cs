@@ -7,7 +7,7 @@ using Npgsql;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal class FabricaInt
+    internal static class FabricaInt
     {
         public static void MontarParametroTelefone(NpgsqlCommand comando, object valor)
         {

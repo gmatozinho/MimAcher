@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace MimAcher.Postgres
 {
-    class InserirDados
+    static class InserirDados
     {
-        static void Main(string[] args)
+        static void Main()
         {
             DiretorGeradores dir = new DiretorGeradores();
             Participante par;
