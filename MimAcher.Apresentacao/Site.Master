@@ -96,7 +96,7 @@
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" />                                
-												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprendere.aspx'" />                                
+												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" />                                
 												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" />                                
 												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" />                                												
 											</Items>
