@@ -9,7 +9,7 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="AreaAtuacaoFormPanelId" runat="server" Title="AreaAtuacao" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="AreaAtuacaoFormPanelId" runat="server" Title="Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
@@ -64,7 +64,7 @@
  <ext:GridPanel 
         ID="AreaAtuacaoGridPanelId"
         runat="server" 
-        Title="Gerenciamento de AreaAtuacao"
+        Title="Gerenciamento de Área de Atuação"
         StoreID="StoreAreaAtuacaoId">         
         <%--Height="1500"--%>        
 
