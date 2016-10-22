@@ -118,7 +118,7 @@
 		<ColumnModel>
 			<Columns>
 				<ext:Column ID="cod_nacColumnId" runat="server" Text="Código" DataIndex="cod_nac" Visible="false" />
-				<ext:Column ID="nomeRepresentanteColumnId" runat="server" Text="Descrição" Flex="2" DataIndex="nome_representante" />                                  
+				<ext:Column ID="nomeRepresentanteColumnId" runat="server" Text="Nome Representante" Flex="2" DataIndex="nome_representante" />                                  
 				<ext:Column ID="localColumnId" runat="server" Text="Local" Flex="2" DataIndex="local" />                                  
 				<ext:Column ID="e_mailColumnId" runat="server" Text="Email" Flex="2" DataIndex="e_mail" />                                                  
 				<ext:Column ID="telefoneColumnId" runat="server" Text="Telefone" DataIndex="telefone" />                                  
