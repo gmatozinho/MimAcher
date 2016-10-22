@@ -42,7 +42,7 @@ namespace MimAcher.Mobile.Entidades
             return int.TryParse(telefone, out numero);
         }
 
-        public static bool ValidarSenha(string senha)
+        private static bool ValidarSenha(string senha)
         {
             return !string.IsNullOrEmpty(senha);
         }
@@ -52,7 +52,7 @@ namespace MimAcher.Mobile.Entidades
             return confirmarSenha == senha;
         }
 
-        public static List<string> ValidarEntradas(Dictionary<string, string> entradas)
+        private static List<string> ValidarEntradas(Dictionary<string, string> entradas)
         {
             var erros = new List<string>();
 

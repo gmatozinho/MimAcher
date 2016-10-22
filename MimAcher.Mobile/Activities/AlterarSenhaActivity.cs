@@ -52,7 +52,7 @@ namespace MimAcher.Mobile.Activities
                 ManterUsuarioNaTela();
         }
 
-        public void SalvarAlteracao()
+        private void SalvarAlteracao()
         {
             _participante.Senha = _novasenha;
             const string toast = ("Senha Alterada");
@@ -62,7 +62,7 @@ namespace MimAcher.Mobile.Activities
             IniciarEditarPerfil(this,pacote);
         }
 
-        public void ManterUsuarioNaTela()
+        private void ManterUsuarioNaTela()
         {
             const string toast = ("As senhas estão diferentes");
             Toast.MakeText(this, toast, ToastLength.Long).Show();

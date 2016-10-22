@@ -38,7 +38,7 @@ namespace MimAcher.Mobile.Activities
             };
         }
 
-        public void SelecionarFoto()
+        private void SelecionarFoto()
         {
             var imageIntent = new Intent();
             imageIntent.SetType("image/*");

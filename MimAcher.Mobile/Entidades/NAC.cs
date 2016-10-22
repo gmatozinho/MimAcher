@@ -2,6 +2,7 @@ using System.Collections.Generic;
 
 namespace MimAcher.Mobile.Entidades
 {
+/*
     public class Nac : Usuario
     {
         
@@ -12,8 +13,9 @@ namespace MimAcher.Mobile.Entidades
             Telefone = atributos["telefone"];
         }
 
-        public string NomeRepresentante { get; set; }
-        public string Campus { get; set; }
-        public string Telefone { get; set; }
+        private string NomeRepresentante { get; set; }
+        private string Campus { get; set; }
+        private string Telefone { get; set; }
     }
+*/
 }

@@ -24,7 +24,7 @@ namespace MimAcher.Mobile.Entidades
         
         public string Telefone { get; set; }
 
-        public string Campus { get; set; }
+        private string Campus { get; }
 
 
         //Construtor
@@ -46,12 +46,14 @@ namespace MimAcher.Mobile.Entidades
             CursorBd.Write(this);
         }
 
+/*
         public Dictionary<string, List<Participante>> Match()
         {
             var matchs = CursorBd.Match(this);
 
             return matchs;
         }
+*/
 
         public static Participante BundleToParticipante(Bundle b)
         {

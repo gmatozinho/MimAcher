@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
@@ -8,7 +7,7 @@ using MimAcher.Mobile.Entidades;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
-    public class MainActivity : Activity
+    public class MainActivity : FabricaTelasSemProcedimento
     {
         
         //Variaveis globais
@@ -27,7 +26,6 @@ namespace MimAcher.Mobile.Activities
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Main);
@@ -48,9 +46,7 @@ namespace MimAcher.Mobile.Activities
             entrar.Click += delegate
             {
                 var participante = new Participante(MontarUsuário());
-                var resultadoActivity = new Intent(this, typeof(ResultadoActivity));
-                resultadoActivity.PutExtra("member", participante.ParticipanteToBundle());
-                StartActivity(resultadoActivity);
+                IniciarHome(this,participante);
             };
 
             //Tenho que fazer a autenticação no banco de dados
@@ -58,10 +54,8 @@ namespace MimAcher.Mobile.Activities
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
             inscrevase.Click += delegate {
-                StartActivity(typeof(InscreverActivity));
+                IniciarInscrever();
             };
-
-
         }
 
         

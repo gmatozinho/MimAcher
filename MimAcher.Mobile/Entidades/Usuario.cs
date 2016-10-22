@@ -13,15 +13,18 @@ namespace MimAcher.Mobile.Entidades
             Senha = atributos["senha"];
         }
 
-        public string Email { get; set; }
+        public string Email { get; private set; }
 
         public string Senha {get; set;}
 
+/*
         public bool Login(string password)
         {
             return password.Equals(Senha);
         }
+*/
 
+/*
         public void AlterarSenha(string senhaAtual, string novaSenha)
         {
             if (senhaAtual.Equals("senha"))
@@ -29,10 +32,13 @@ namespace MimAcher.Mobile.Entidades
                 Senha = novaSenha;
             }
         }
+*/
 
+/*
         public void DesativarConta()
         {
             //código para excluir o usuário do banco
         }
+*/
     }
 }

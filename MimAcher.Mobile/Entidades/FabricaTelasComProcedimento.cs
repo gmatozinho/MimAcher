@@ -6,7 +6,7 @@ namespace MimAcher.Mobile.Entidades
 {
     public class FabricaTelasComProcedimento : FabricaAbstrataTelas
     {
-        public override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
+        protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
             var pacotePadrao = (PacoteCompleto)pacote;
             ProcedimentoPadrao(pacotePadrao);
@@ -14,28 +14,28 @@ namespace MimAcher.Mobile.Entidades
             StartActivity(activitydesejada);
         }
 
-        public void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
+        protected void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroaprenderactivity = new Intent(contexto, typeof(QueroAprenderActivity));
             //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroaprenderactivity,pacote);
         }
 
-        public void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
+        protected void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
         {
-            var queroensinaractivity = new Intent(this, typeof(QueroEnsinarActivity));
+            var queroensinaractivity = new Intent(contexto, typeof(QueroEnsinarActivity));
             //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroensinaractivity, pacote);
         }
 
-        public void ProcedimentoPadrao(PacoteCompleto pacote)
+        private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
             pacote.Participante.Commit();
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;
         }
 
-        public void InserirItem(EditText campo, PacoteCompleto pacoteCompleto, string[] mensagemEItem)
+        protected void InserirItem(EditText campo, PacoteCompleto pacoteCompleto, string[] mensagemEItem)
         {
             switch (mensagemEItem[0])
             {

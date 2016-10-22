@@ -13,10 +13,9 @@ namespace MimAcher.Mobile.Activities
 {
 
     [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
-    public class InscreverActivity : Activity
+    public class InscreverActivity : FabricaTelasSemProcedimento
     {
         //Variaveis globais
-        public Bundle ParticipanteBundle;
         private string _senha;
         private string _nome ;
         private string _email;
@@ -62,7 +61,8 @@ namespace MimAcher.Mobile.Activities
             {
                 campoTelefone.Text = tel;
             }
-            ActionBar.Title = "Avançar";
+
+            ActionBar.Title = "Cadastrar";
             ActionBar.Subtitle = "Informações Básicas";
 
 
@@ -79,7 +79,7 @@ namespace MimAcher.Mobile.Activities
         //Botar as validações do cayo
         private void RegistrarParticipante(Context activity)
         {
-            var participante = new Participante(UnirInformacoesUsuario());
+            var participante = new Participante(CriarDicionarioParaMontarParticipante());
 
             if (Validador.ValidarCadastroParticipante(activity,participante,_confirmarSenha))
             {
@@ -87,16 +87,13 @@ namespace MimAcher.Mobile.Activities
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 participante.Commit();
 
-                var escolherfotoactivity = new Intent(this, typeof(EscolherFotoActivity));
-                escolherfotoactivity.PutExtra("member", participante.ParticipanteToBundle());
-                StartActivity(escolherfotoactivity);
+                IniciarEscolherFoto(this,participante);
             }
             else
             {
                 /*const string toast = ("Informações inválidas");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();*/
-                var inscreveractivity = new Intent(this, typeof(InscreverActivity));
-                StartActivity(inscreveractivity);
+                IniciarInscrever();
             }
 
         }
@@ -121,7 +118,7 @@ namespace MimAcher.Mobile.Activities
         }
 
         //Cria participante
-        private Dictionary<string, string> UnirInformacoesUsuario()
+        private Dictionary<string, string> CriarDicionarioParaMontarParticipante()
         {
             var informacoes = new Dictionary<string, string>
             {

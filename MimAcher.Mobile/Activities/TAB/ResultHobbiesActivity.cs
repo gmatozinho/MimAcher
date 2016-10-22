@@ -12,7 +12,7 @@ namespace MimAcher.Mobile.Activities.TAB
     {
         //Variaveis globais
         private List<string> _items;
-        public Bundle ParticipanteBundle;
+        private Bundle _participanteBundle;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -21,8 +21,8 @@ namespace MimAcher.Mobile.Activities.TAB
             base.OnCreate(savedInstanceState);
 
             //Recebendo e transformando o bundle(Objeto participante)
-            ParticipanteBundle = Intent.GetBundleExtra("member");
-            var participante = Participante.BundleToParticipante(ParticipanteBundle);
+            _participanteBundle = Intent.GetBundleExtra("member");
+            var participante = Participante.BundleToParticipante(_participanteBundle);
 
             //Listagem dos Hobbies
             _items = participante.Hobbies.Conteudo;

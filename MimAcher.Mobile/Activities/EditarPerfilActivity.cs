@@ -93,7 +93,7 @@ namespace MimAcher.Mobile.Activities
         
         private void SalvarPerfilEditado()
         {
-            var resultadoactivity = new Intent(this, typeof(ResultadoActivity));
+            var resultadoactivity = new Intent(this, typeof(HomeActivity));
             AlterarParticipante(_participante);
             _pacote = _participante;
             IniciarOutraTela(resultadoactivity,_pacote);

@@ -47,12 +47,14 @@ namespace MimAcher.Mobile.Entidades
             return matchs;
         }
 
+/*
         public static Participante GetParticipante(string email)
         {
             Participante participante = null;
             //TODO
             return participante;
         }
+*/
         
     }
 }
