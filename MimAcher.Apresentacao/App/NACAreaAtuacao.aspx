@@ -50,7 +50,7 @@
 										<ext:Model ID="ModelNACId" runat="server">
 											<Fields>
 												<ext:ModelField Name="cod_nac_combo" Mapping="cod_nac" />
-												<ext:ModelField Name="nome_representante_combo" Mapping="nome" />
+												<ext:ModelField Name="nome_representante_combo" Mapping="nome_representante" />
 											</Fields>
 										</ext:Model>
 									</Model>

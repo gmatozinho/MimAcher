@@ -74,7 +74,7 @@ namespace MimAcher.Apresentacao.App
             MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
 
             nacareaatuacao.cod_nac = Int32.Parse(this.cod_nacId.SelectedItem.Value);
-            nacareaatuacao.cod_nac_area_atuacao = Int32.Parse(this.cod_area_atuacaoId.SelectedItem.Value);
+            nacareaatuacao.cod_area_atuacao = Int32.Parse(this.cod_area_atuacaoId.SelectedItem.Value);
 
 
             //Caso o form não possui código, será inserido um novo aprender de participante
