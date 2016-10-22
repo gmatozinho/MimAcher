@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NAC.aspx.cs" Inherits="MimAcher.Apresentacao.App.NAC" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NAC.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.NAC" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
