@@ -22,7 +22,7 @@ namespace MimAcher.Aplicacao
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
-        {
+        {            
             return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
         }
 

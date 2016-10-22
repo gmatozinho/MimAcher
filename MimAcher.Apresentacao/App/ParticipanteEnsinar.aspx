@@ -103,7 +103,7 @@
  <ext:GridPanel 
 		ID="ParticipanteEnsinarGridPanelId"
 		runat="server" 
-		Title="Gerenciamento de ParticipanteEnsinar"
+		Title="Gerenciamento de Participante Ensinar"
 		StoreID="StoreParticipanteEnsinarId">         
 		<%--Height="1500"--%>    
 

@@ -21,7 +21,7 @@ namespace MimAcher.Apresentacao.App
         {
             //Inicialização dos Gestores            
             this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
-
+            this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
         }
 
@@ -32,7 +32,8 @@ namespace MimAcher.Apresentacao.App
                 this.StoreParticipanteEnsinarId.DataSource = this.GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
                 this.StoreParticipanteEnsinarId.DataBind();
 
-                this.StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                
+                this.StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);                
                 this.StoreParticipanteId.DataBind();
 
                 this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
