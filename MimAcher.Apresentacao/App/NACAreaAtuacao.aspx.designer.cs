@@ -49,33 +49,6 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.TextField cod_nac_area_atuacaoId;
         
         /// <summary>
-        /// cod_nacId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cod_nacId;
-        
-        /// <summary>
-        /// StoreNACId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store StoreNACId;
-        
-        /// <summary>
-        /// ModeNACId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Model ModeNACId;
-        
-        /// <summary>
         /// cod_area_atuacaoId control.
         /// </summary>
         /// <remarks>
@@ -101,6 +74,33 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Model ModelAreaAtuacaoId;
+        
+        /// <summary>
+        /// cod_nacId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.ComboBox cod_nacId;
+        
+        /// <summary>
+        /// StoreNACId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store StoreNACId;
+        
+        /// <summary>
+        /// ModelNACId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Model ModelNACId;
         
         /// <summary>
         /// NACAreaAtuacaoBarId control.
@@ -166,6 +166,15 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Column codNACAreaAtuacaoColumnId;
         
         /// <summary>
+        /// nomeAreaAtuacaoColumnId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Column nomeAreaAtuacaoColumnId;
+        
+        /// <summary>
         /// nomeRepresentanteColumnId control.
         /// </summary>
         /// <remarks>
@@ -173,15 +182,6 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Column nomeRepresentanteColumnId;
-        
-        /// <summary>
-        /// nomeColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
         /// NACAreaAtuacaoRowSelectionModelId control.
