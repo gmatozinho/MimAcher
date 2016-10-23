@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Android.OS;
+using MimAcher.Mobile.Utilitarios;
 
 namespace MimAcher.Mobile.Entidades
 {
@@ -43,7 +44,7 @@ namespace MimAcher.Mobile.Entidades
         //Funções para trabalhar no banco de dados
         public void Commit()
         {
-            CursorBd.EnviarParticipante(this);
+            CursorBD.EnviarParticipante(this);
         }
 
 /*
