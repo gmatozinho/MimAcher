@@ -24,7 +24,7 @@ namespace MimAcher.Mobile.Entidades
         
         public string Telefone { get; set; }
 
-        private string Campus { get; }
+        public string Campus { get; }
 
 
         //Construtor

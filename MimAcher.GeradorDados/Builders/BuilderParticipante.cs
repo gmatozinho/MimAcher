@@ -1,11 +1,8 @@
-﻿using MimAcher.Entidades;
-using MimAcher.GeradorDados.Geradores;
+﻿using MimAcher.GeradorDados.Geradores;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.GeradorDados.Builders
 {

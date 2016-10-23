@@ -1,12 +1,9 @@
-﻿using MimAcher.Entidades;
-using MimAcher.Postgres.Conexao.Parametros;
+﻿using MimAcher.Postgres.Conexao.Parametros;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.Postgres.Conexao
 {
@@ -53,7 +50,7 @@ namespace MimAcher.Postgres.Conexao
                 leitor.Close();
                 leitor.Dispose();
 
-                InserirItens(participante, codigo_participante);
+                InserirConteudo(participante, codigo_participante);
             }
             catch (Exception ex)
             {
@@ -61,11 +58,11 @@ namespace MimAcher.Postgres.Conexao
             }
         }
 
-        public void InserirItens(Participante participante, int codigo_participante)
+        public void InserirConteudo(Participante participante, int codigo_participante)
         {
             NpgsqlCommand comandoSQL;
 
-            foreach (string hobbie in participante.Hobbies.Itens)
+            foreach (string hobbie in participante.Hobbies.Conteudo)
             {
                 comandoSQL = new NpgsqlCommand("inserir_hobbie", conexao);
                 comandoSQL.CommandType = CommandType.StoredProcedure;
@@ -75,7 +72,7 @@ namespace MimAcher.Postgres.Conexao
                 comandoSQL.ExecuteNonQuery();
             }
 
-            foreach (string ensinar in participante.Ensinar.Itens)
+            foreach (string ensinar in participante.Ensinar.Conteudo)
             {
                 comandoSQL = new NpgsqlCommand("inserir_ensinar", conexao);
                 comandoSQL.CommandType = CommandType.StoredProcedure;
@@ -85,7 +82,7 @@ namespace MimAcher.Postgres.Conexao
                 comandoSQL.ExecuteNonQuery();
             }
 
-            foreach (string aprender in participante.Aprender.Itens)
+            foreach (string aprender in participante.Aprender.Conteudo)
             {
                 comandoSQL = new NpgsqlCommand("inserir_aprender", conexao);
                 comandoSQL.CommandType = CommandType.StoredProcedure;

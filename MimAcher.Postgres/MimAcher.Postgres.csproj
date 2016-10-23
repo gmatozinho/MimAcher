@@ -83,8 +83,8 @@
       <Project>{01E32BD5-94B3-4B42-A02B-C384AB2EF69F}</Project>
       <Name>MimAcher.GeradorDados</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MimAcher\MimAcher.Mobile.csproj">
-      <Project>{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}</Project>
+    <ProjectReference Include="..\MimAcher.Mobile\MimAcher.Mobile.csproj">
+      <Project>{fccb249c-6a6c-496c-a4bb-b210d2b329b8}</Project>
       <Name>MimAcher.Mobile</Name>
     </ProjectReference>
   </ItemGroup>
