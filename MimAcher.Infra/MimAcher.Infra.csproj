@@ -133,6 +133,7 @@
     <Content Include="dbconfig\02_minacher_configdb.sql" />
     <Content Include="dbconfig\03_mimacher_restartdb.sql" />
     <Content Include="dbconfig\diagrama_bd.png" />
+    <Content Include="dbconfig\EntityDesignerDiagram.png" />
     <Content Include="dbconfig\inf.txt" />
     <Content Include="MimAcher.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
