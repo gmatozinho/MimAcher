@@ -46,29 +46,25 @@
         </Items>   
     </ext:Window>
 
-    <%-- Store da Grid --%>
-    <Store>
-        <ext:Store ID="StoreAreaAtuacaoId" runat="server" PageSize="31" OnReadData="List" RemoteSort="true" AutoLoad="true">
-            <Model>
-                <ext:Model ID="ModelAreaAtuacaoId" runat="server" IDProperty="cod_area_atuacao">
-                    <Fields>
-                        <ext:ModelField Name="cod_area_atuacao" Type="Int" />
-                        <ext:ModelField Name="nome" Type="String" />                        
-                    </Fields>
-                </ext:Model>
-            </Model>
-        </ext:Store>
-    </Store>
-
  <%-- Grid --%> 
  <ext:GridPanel 
         ID="AreaAtuacaoGridPanelId"
         runat="server" 
-        Title="Gerenciamento de Área de Atuação"
-        StoreID="StoreAreaAtuacaoId">         
+        Title="Gerenciamento de Área de Atuação">         
         <%--Height="1500"--%>        
 
-
+         <Store>
+            <ext:Store ID="StoreAreaAtuacaoId" runat="server" PageSize="31" OnReadData="List" RemoteSort="true" AutoLoad="true">
+                <Model>
+                    <ext:Model ID="ModelAreaAtuacaoId" runat="server" IDProperty="cod_area_atuacao">
+                        <Fields>
+                            <ext:ModelField Name="cod_area_atuacao" Type="Int" />
+                            <ext:ModelField Name="nome" Type="String" />                        
+                        </Fields>
+                    </ext:Model>
+                </Model>
+            </ext:Store>
+        </Store>
 
         <%-- Colunas da Grid --%>
         <ColumnModel>

@@ -21,7 +21,7 @@ namespace MimAcher.Apresentacao.App
         {
             //Inicialização dos Gestores            
             this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
-
+            this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
         }
 

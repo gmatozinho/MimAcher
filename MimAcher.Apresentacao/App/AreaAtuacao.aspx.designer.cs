@@ -85,6 +85,15 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
+        /// AreaAtuacaoGridPanelId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.GridPanel AreaAtuacaoGridPanelId;
+        
+        /// <summary>
         /// StoreAreaAtuacaoId control.
         /// </summary>
         /// <remarks>
@@ -101,15 +110,6 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Model ModelAreaAtuacaoId;
-        
-        /// <summary>
-        /// AreaAtuacaoGridPanelId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.GridPanel AreaAtuacaoGridPanelId;
         
         /// <summary>
         /// nomeColumnId control.

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MimAcher.Infra;
 using MimAcher.Aplicacao;
+using System.Data.Entity.Spatial;
 
 namespace MimAcher.WebService.Models
 {
@@ -38,7 +39,7 @@ namespace MimAcher.WebService.Models
                 participante.cod_campus = pt.cod_participante;
                 participante.nome = pt.nome;
                 participante.telefone = pt.telefone;
-                participante.dt_nascimento = pt.dt_nascimento.ToString();
+                participante.dt_nascimento = pt.dt_nascimento;
                 participante.latitude = pt.geolocalizacao.Latitude;
                 participante.longitude = pt.geolocalizacao.Longitude;
 
@@ -80,9 +81,8 @@ namespace MimAcher.WebService.Models
                     participante.cod_campus = pt.cod_participante;
                     participante.nome = pt.nome;
                     participante.telefone = pt.telefone;
-                    //participante.dt_nascimento = (DateTime) pt.dt_nascimento;
-                    //participante.latitude = pt.geolocalizacao.Latitude;
-                    //participante.longitude = pt.geolocalizacao.Longitude;
+                    participante.dt_nascimento = pt.dt_nascimento;
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude + "  " + pt.longitude + ")");                    
                 }
 
                 jsonResult = Json(new
