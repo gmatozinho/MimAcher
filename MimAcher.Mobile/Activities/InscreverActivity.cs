@@ -7,6 +7,7 @@ using Android.Telephony;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Mobile.Activities

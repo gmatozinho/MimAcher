@@ -3,6 +3,7 @@ using Android.Content;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.Activities
 {

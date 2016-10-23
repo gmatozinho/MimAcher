@@ -70,7 +70,7 @@ namespace MimAcher.Mobile.Entidades
 
             var p = new Participante(dictionary)
             {
-                Hobbies = {Conteudo = b.GetStringArrayList("hobbies").ToList()},
+                Hobbies = {Conteudo = b.GetStringArrayList("hobbie").ToList()},
                 Aprender = {Conteudo = b.GetStringArrayList("aprender").ToList()},
                 Ensinar = {Conteudo = b.GetStringArrayList("ensinar").ToList()}
             };
@@ -83,7 +83,7 @@ namespace MimAcher.Mobile.Entidades
         {
             var bundle = new Bundle();
 
-            bundle.PutStringArrayList("hobbies", Hobbies.Conteudo);
+            bundle.PutStringArrayList("hobbie", Hobbies.Conteudo);
             bundle.PutStringArrayList("aprender", Aprender.Conteudo);
             bundle.PutStringArrayList("ensinar", Ensinar.Conteudo);
             bundle.PutString("nome", Nome);

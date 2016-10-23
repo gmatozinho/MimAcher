@@ -86,6 +86,11 @@ namespace MimAcher.Mobile.Entidades
             return false;
         }
 
+        public static bool ValidadorDeLogin(string usuario, string senha)
+        {
+            return ValidarEmail(usuario) && ValidarSenha(senha);
+        }
+
         private static Dictionary<string, string> ParticipanteParaDictionaryParaValidar(Participante participante)
         {
             return new Dictionary<string, string>

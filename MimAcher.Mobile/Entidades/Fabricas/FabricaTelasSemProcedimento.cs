@@ -1,9 +1,9 @@
 using Android.Content;
 using MimAcher.Mobile.Activities;
 
-namespace MimAcher.Mobile.Entidades
+namespace MimAcher.Mobile.Entidades.Fabricas
 {
-    public class FabricaTelasSemProcedimento : FabricaAbstrataTelas
+    public class FabricaTelasSemProcedimento : FabricaAbstrataTelasNormais
     {
         protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
@@ -35,11 +35,6 @@ namespace MimAcher.Mobile.Entidades
             var inscreveractivity = new Intent(this, typeof(InscreverActivity));
             StartActivity(inscreveractivity);
         }
-
-        
-
-
-
 
     }
 }

@@ -3,6 +3,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -18,8 +19,8 @@ namespace MimAcher.Mobile.Activities
         private readonly string _email = null;
         private readonly string _nascimento = "09/10/1995";
         private readonly string _telefone = "00000000";
-        private string _userEmail;
-        private string _userPassword;
+        private string _emailInserido;
+        private string _senhaInserida;
         
         //Metodos do controlador
         //Cria e controla a activity
@@ -38,13 +39,12 @@ namespace MimAcher.Mobile.Activities
 
             //Funcionalidades
             //Resgatando o que foi digitado nos EditText
-            campoEmail.TextChanged += (sender, e) => _userEmail = e.Text.ToString();
-            campoSenha.TextChanged += (sender, p) => _userPassword = p.Text.ToString();
+            campoEmail.TextChanged += (sender, texto) => _emailInserido = texto.Text.ToString();
+            campoSenha.TextChanged += (sender, texto) => _senhaInserida = texto.Text.ToString();
 
-            
-            //Login button click action, e passando o _nome do usuário para próxima activity
             entrar.Click += delegate
             {
+                Usuario.Login(_emailInserido, _senhaInserida);
                 var participante = new Participante(MontarUsuário());
                 IniciarHome(this,participante);
             };

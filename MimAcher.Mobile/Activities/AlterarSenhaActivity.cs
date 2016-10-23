@@ -2,6 +2,7 @@ using Android.App;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -39,12 +40,12 @@ namespace MimAcher.Mobile.Activities
 
             confirmar.Click += delegate
             {
-                ChecarSenhas();
+                ChecarAlteracao();
             };
             
         }
 
-        private void ChecarSenhas()
+        private void ChecarAlteracao()
         {
             if (Validador.ValidarConfirmarSenha(_novasenha, _repitasenha))
                 SalvarAlteracao();
@@ -54,7 +55,7 @@ namespace MimAcher.Mobile.Activities
 
         private void SalvarAlteracao()
         {
-            _participante.Senha = _novasenha;
+            _participante.AlterarSenha(_participante.Senha, _novasenha);
             const string toast = ("Senha Alterada");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
 

@@ -2,9 +2,9 @@ using Android.Content;
 using Android.Widget;
 using MimAcher.Mobile.Activities;
 
-namespace MimAcher.Mobile.Entidades
+namespace MimAcher.Mobile.Entidades.Fabricas
 {
-    public class FabricaTelasComProcedimento : FabricaAbstrataTelas
+    public class FabricaTelasComProcedimento : FabricaAbstrataTelasNormais
     {
         protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
@@ -56,6 +56,7 @@ namespace MimAcher.Mobile.Entidades
                     break;
             }
         }
+
 
         private void LimparEListar(TextView campo, ListView listar, ListaItens lista)
         {

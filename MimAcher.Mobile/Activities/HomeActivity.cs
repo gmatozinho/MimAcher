@@ -5,19 +5,24 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Activities.TAB;
+using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 using FloatingActionButton = com.refractored.fab.FloatingActionButton;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "ResultadoActivity", Theme = "@style/Theme.Splash")]
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
-    public class HomeActivity : TabActivity
+    public class HomeActivity : FabricaTelasComTab
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
-        private Bundle _participanteBundle;
+        private Participante _participante;
         private FloatingActionButton _fab;
-        
+#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+        private readonly TabActivity _tab = new TabActivity();
+#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
@@ -26,7 +31,8 @@ namespace MimAcher.Mobile.Activities
             base.OnCreate(bundle);
 
             //Recebendo o bundle(Objeto participante)
-            _participanteBundle = Intent.GetBundleExtra("member");
+            var participanteBundle = Intent.GetBundleExtra("member");
+            _participante = Participante.BundleToParticipante(participanteBundle);
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Home);
@@ -57,30 +63,29 @@ namespace MimAcher.Mobile.Activities
 
                 menu.MenuItemClick += (s1, arg1) =>
                 {
-                    Intent intent = null;
+                    Intent activityescolhida = null;
 
                     switch (arg1.Item.TitleFormatted.ToString())
                     {
                         case "Hobbies":
-                            intent = new Intent(this, typeof(HobbiesActivity));
+                            activityescolhida = new Intent(this, typeof(HobbiesActivity));
                             break;
                         case "Aprender":
-                            intent = new Intent(this, typeof(QueroAprenderActivity));
+                            activityescolhida = new Intent(this, typeof(QueroAprenderActivity));
                             break;
                         case "Ensinar":
-                            intent = new Intent(this, typeof(QueroEnsinarActivity));
+                            activityescolhida = new Intent(this, typeof(QueroEnsinarActivity));
                             break;
                     }
 
-                    if (intent == null) return;
-                    intent.PutExtra("member", _participanteBundle);
-                    StartActivity(intent);
+                    if (activityescolhida != null) IniciarOutraTela(activityescolhida, _participante);
+                    
                 };
                 menu.Show();
             };
 
         }
-
+        
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -97,21 +102,19 @@ namespace MimAcher.Mobile.Activities
                     //do something
                     return true;
                 case Resource.Id.menu_preferences:
-                    var editaractivity = new Intent(this, typeof(EditarPerfilActivity));
-                    editaractivity.PutExtra("member", _participanteBundle);
-                    StartActivity(editaractivity);
+                    IniciarEditarPerfil(this, _participante);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
         }
 
         //Cria os tabs
-        
         private void CreateTab(Type activityType, string tag, string label)
         {
+            
             var intent = new Intent(this, activityType);
             intent.AddFlags(ActivityFlags.NewTask);
-            intent.PutExtra("member", _participanteBundle);
+            intent.PutExtra("member", _participante.ParticipanteToBundle());
             var spec = TabHost.NewTabSpec(tag);
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
             var drawableIcon = Resources.GetDrawable(Resource.Drawable.abc_tab_indicator_material);
@@ -123,5 +126,8 @@ namespace MimAcher.Mobile.Activities
         }
 
 
+        
     }
+
 }
+
