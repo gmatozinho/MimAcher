@@ -43,7 +43,7 @@ namespace MimAcher.Mobile.Entidades
         //Funções para trabalhar no banco de dados
         public void Commit()
         {
-            CursorBd.Write(this);
+            CursorBd.EnviarParticipante(this);
         }
 
 /*

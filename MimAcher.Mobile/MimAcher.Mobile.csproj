@@ -157,7 +157,7 @@
     <Compile Include="Activities\HomeActivity.cs" />
     <Compile Include="Activities\ResultadoInformacoesActivity.cs" />
     <Compile Include="Entidades\Participante.cs" />
-    <Compile Include="Entidades\CursorBD.cs" />
+    <Compile Include="Utilitarios\CursorBD.cs" />
     <Compile Include="Entidades\NAC.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Activities\SplashScreen.cs" />
@@ -166,6 +166,9 @@
     <Compile Include="Entidades\Fabricas\FabricaTelasComProcedimento.cs" />
     <Compile Include="Entidades\Fabricas\FabricaTelasSemProcedimento.cs" />
     <Compile Include="Services\ServicoUsuario.cs" />
+    <Compile Include="Utilitarios\JsonParser.cs" />
+    <Compile Include="Utilitarios\MontadorWebRequest.cs" />
+    <Compile Include="Utilitarios\TipoItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
