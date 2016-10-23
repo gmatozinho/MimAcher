@@ -15,7 +15,7 @@ namespace MimAcher.Mobile.Utilitarios
 {
     public static class MontardorRequisicao
     {
-        private static string url = "http://ghoststation.ddns.net:8091/";
+        private static string url = "http://ghoststation.ddns.net:8092/";
 
         public static WebRequest MontarRequisicaoUsuario()
         {
