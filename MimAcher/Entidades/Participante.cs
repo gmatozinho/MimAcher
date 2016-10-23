@@ -50,7 +50,7 @@ namespace MimAcher.Entidades
         //Funções para trabalhar no banco de dados
         public void Commit()
         {
-            CursorBD.Write(this);
+            CursorBD.EnviarParticipante(this);
         }
 
         public Dictionary<string, List<Participante>> Match()
