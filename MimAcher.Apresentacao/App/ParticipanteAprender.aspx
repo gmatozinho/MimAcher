@@ -90,9 +90,9 @@
 					<Fields>
 						<ext:ModelField Name="cod_p_aprender" Type="Int" />												
 						<ext:ModelField Name="cod_participante"  Type="Int" />
-						<ext:ModelField Name="nome_participante" Mapping="nome" ServerMapping="MA_PARTICIPANTE.nome" />                                                                                
+						<ext:ModelField Name="nome_participante" Mapping="nome_participante" ServerMapping="MA_PARTICIPANTE.nome" />                                                                                
 						<ext:ModelField Name="cod_item" Type="Int" />
-						<ext:ModelField Name="nome_item" Mapping="nome" ServerMapping="MA_ITEM.nome" />                                                                                
+						<ext:ModelField Name="nome_item" Mapping="nome_item" ServerMapping="MA_ITEM.nome" />                                                                                
 					</Fields>
 				</ext:Model>
 			</Model>
