@@ -30,11 +30,16 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static bool ValidarData(string data)
         {
+            var dataatual = DateTime.Today;
+            
             DateTime saida;
             var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
                                                   CultureInfo.InvariantCulture,
                                                   DateTimeStyles.None, out saida);
-            return isValid;
+
+            if (!isValid) return false;
+            var compare = DateTime.Compare(saida, dataatual);
+            return compare <= 0;
         }
 
         public static bool ValidarTelefone(string telefone)
@@ -45,7 +50,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         private static bool ValidarSenha(string senha)
         {
-            return !string.IsNullOrEmpty(senha);
+            return !string.IsNullOrEmpty(senha) && senha.Length >= 8;
         }
 
         public static bool ValidarConfirmarSenha(string senha, string confirmarSenha)
@@ -53,7 +58,7 @@ namespace MimAcher.Mobile.Utilitarios
             return confirmarSenha == senha;
         }
 
-        private static List<string> ValidarEntradas(Dictionary<string, string> entradas)
+        private static List<string> ValidarEntradas(IReadOnlyDictionary<string, string> entradas)
         {
             var erros = new List<string>();
 
@@ -66,7 +71,7 @@ namespace MimAcher.Mobile.Utilitarios
             return erros;
         }
 
-        public static bool ValidarCadastroParticipante(Context activity, Participante participante, string confirmarSenha)
+        public static bool ValidarCadastroParticipante(Context contexto, Participante participante, string confirmarSenha)
         {
             var informacoes = ParticipanteParaDictionaryParaValidar(participante);
             var listacominformacoesinvalidas = ValidarEntradas(informacoes);
@@ -75,13 +80,19 @@ namespace MimAcher.Mobile.Utilitarios
             if (listacominformacoesinvalidas.Count == 0)
             {
                 if (checarsenhasinseridas) return true;
-                const string toast = "As senhas não conferem!";
-                Toast.MakeText(activity, toast, ToastLength.Long).Show();
+                Mensagens.MensagemDeConfirmarSenhaInvalido(contexto);
             }
             foreach (var valor in listacominformacoesinvalidas)
             {
-                var toast = $"Informação Invalida: {valor}";
-                Toast.MakeText(activity, toast, ToastLength.Long).Show();
+                if (valor == "Senha")
+                {
+                    Mensagens.MensagemDeSenhaInvalida(contexto);
+                }
+                else if (valor == "Data de Nascimento")
+                {
+                    Mensagens.MensagemDeDataInvalida(contexto);
+                }
+                else Mensagens.MensagemDeInformacaoInvalidaPadrao(contexto,valor);
             }
 
             return false;

@@ -3,6 +3,7 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
@@ -55,6 +56,7 @@ namespace MimAcher.Mobile.Activities
             //Escolhendo o Campus
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
+            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
             var escolhaCampus = spinnerCampus.SelectedItem;
             _campus = escolhaCampus.ToString();
             
@@ -87,16 +89,16 @@ namespace MimAcher.Mobile.Activities
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                participante.Commit();
+                //participante.Commit();
 
                 IniciarEscolherFoto(this,participante);
             }
-            else
+            /*else
             {
-                /*const string toast = ("Informações inválidas");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();*/
-                IniciarInscrever();
-            }
+                const string toast = ("Informações inválidas");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                //IniciarInscrever();
+            }*/
 
         }
 
