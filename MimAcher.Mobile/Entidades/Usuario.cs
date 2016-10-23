@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MimAcher.Mobile.Utilitarios;
 
 namespace MimAcher.Mobile.Entidades
 {

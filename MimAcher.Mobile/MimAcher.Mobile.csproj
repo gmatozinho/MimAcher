@@ -149,9 +149,9 @@
     <Compile Include="Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="Activities\TAB\ResultHobbiesActivity.cs" />
     <Compile Include="Entidades\ListaItens.cs" />
-    <Compile Include="Entidades\Mascaras.cs" />
+    <Compile Include="Utilitarios\Mascaras.cs" />
     <Compile Include="Entidades\PacoteCompleto.cs" />
-    <Compile Include="Entidades\Validador.cs" />
+    <Compile Include="Utilitarios\Validador.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\HomeActivity.cs" />

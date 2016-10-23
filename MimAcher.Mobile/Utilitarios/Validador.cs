@@ -4,8 +4,9 @@ using System.Globalization;
 using System.Net.Mail;
 using Android.Content;
 using Android.Widget;
+using MimAcher.Mobile.Entidades;
 
-namespace MimAcher.Mobile.Entidades
+namespace MimAcher.Mobile.Utilitarios
 {
     public static class Validador
     {
