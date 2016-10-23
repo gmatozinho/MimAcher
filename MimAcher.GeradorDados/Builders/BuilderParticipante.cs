@@ -30,9 +30,11 @@ namespace MimAcher.GeradorDados.Builders
         {
             Dictionary<string, string> dadosParticipante = new Dictionary<string, string>();
 
+            var culture_info = new CultureInfo("pt-BR");
+
             dadosParticipante.Add("nome", geradorNome.GerarNome());
             dadosParticipante.Add("email", geradorEmail.GerarEmail(dadosParticipante["nome"]));
-            dadosParticipante.Add("nascimento", geradorNascimento.GerarDia().ToString(CultureInfo.InvariantCulture));
+            dadosParticipante.Add("nascimento", geradorNascimento.GerarDia().ToString(culture_info));
             dadosParticipante.Add("telefone", geradorTelefone.GerarTelefone().ToString());
             dadosParticipante.Add("senha", geradorSenha.GerarSenha(random.Next(8, 16)));
             dadosParticipante.Add("campus", geradorCampus.GerarCampus());
