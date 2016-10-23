@@ -17,28 +17,21 @@ namespace MimAcher.Mobile.Utilitarios
     {
         private static string MontarJsonItem(string nome_item)
         {
-            string json_base = "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \"{0}\" }] }";
-
-            return string.Format(json_base, nome_item);
+            return "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \""+ nome_item + "\" }] }";
         }
 
         public static string MontarJsonUsuario(Participante participante)
         {
-            string json_base = "{ \"listausuario\":[{\"cod_usuario\": 0, \"email\":{0}\", \"senha\": \"{1}\"}]}";
-            string json_final = string.Format(json_base, participante.Email, participante.Senha);
-
-            return json_final;
+            return "{ \"listausuario\":[{\"cod_usuario\": 0, \"email\":\""+ participante.Email + 
+                                "\", \"senha\": \""+ participante.Senha + "\"}]}";
         }
 
         public static string MontarJsonParticipante(Participante participante)
         {
-            string json_base = "{ \"listparticipante\": [{ \"cod_participante\": 0, \"cod_usuario\": 0," +
-                                    "\"cod_campus\": 1, \"nome\": \"{0}\", \"dt_nascimento\":" +
-                                    "\"{1}\", \"latitude\": 0, " +
+            return "{ \"listparticipante\": [{ \"cod_participante\": 0, \"cod_usuario\": 0," +
+                                    "\"cod_campus\": 1, \"nome\": \""+ participante.Nome +"\", \"dt_nascimento\":" +
+                                    "\""+ participante.Nascimento +"\", \"latitude\": 0, " +
                                     "\"longitude\": 0 }]}";
-            string json_final = string.Format(json_base, participante.Nome, participante.Nascimento);
-
-            return json_final;
         }
 
         private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)
