@@ -43,7 +43,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)
         {
-
+            return "vazio";
         }
     }
 }
