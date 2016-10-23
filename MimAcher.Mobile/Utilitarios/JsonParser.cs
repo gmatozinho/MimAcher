@@ -24,7 +24,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonUsuario(Participante participante)
         {
-            string json_base = "\"listausuario\":[{\"cod_usuario\": 0, \"email\":{0}\", \"senha\": \"{1}\"}]}";
+            string json_base = "{ \"listausuario\":[{\"cod_usuario\": 0, \"email\":{0}\", \"senha\": \"{1}\"}]}";
             string json_final = string.Format(json_base, participante.Email, participante.Senha);
 
             return json_final;
@@ -35,10 +35,15 @@ namespace MimAcher.Mobile.Utilitarios
             string json_base = "{ \"listparticipante\": [{ \"cod_participante\": 0, \"cod_usuario\": 0," +
                                     "\"cod_campus\": 1, \"nome\": \"{0}\", \"dt_nascimento\":" +
                                     "\"{1}\", \"latitude\": 0, " +
-                                    "\"longitude\": 0 }";
+                                    "\"longitude\": 0 }]}";
             string json_final = string.Format(json_base, participante.Nome, participante.Nascimento);
 
             return json_final;
+        }
+
+        private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)
+        {
+
         }
     }
 }
