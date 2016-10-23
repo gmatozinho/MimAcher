@@ -73,11 +73,11 @@ namespace MimAcher.Apresentacao.App
         {
             MA_NAC nac = new MA_NAC();
 
-            nac.nome_representante = this.nome_representanteId.Text;            
+            nac.nome_representante = this.nome_representanteId.Text;
             nac.telefone = Int32.Parse(this.telefoneId.Text);
             nac.cod_campus = Int32.Parse(this.cod_campusId.SelectedItem.Value);
             nac.cod_usuario = Int32.Parse(this.cod_usuarioId.SelectedItem.Value);
-            
+
             //Caso o form não possui código, será inserido um novo usuário
             if (this.cod_nacId.Text == "")
             {

@@ -165,6 +165,7 @@
     <Content Include="App\NAC.aspx" />
     <Content Include="App\NACAreaAtuacao.aspx" />
     <Content Include="App\Participante.aspx" />
+    <Content Include="App\ParticipanteAprender.aspx" />
     <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
     <Content Include="App\Usuario.aspx" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="App\Participante.aspx.designer.cs">
       <DependentUpon>Participante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ParticipanteAprender.aspx.cs">
+      <DependentUpon>ParticipanteAprender.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ParticipanteAprender.aspx.designer.cs">
+      <DependentUpon>ParticipanteAprender.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\ParticipanteEnsinar.aspx.cs">
       <DependentUpon>ParticipanteEnsinar.aspx</DependentUpon>
