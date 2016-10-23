@@ -73,6 +73,8 @@ namespace MimAcher.WebService.Controllers
                     MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
                     participantehobbie.cod_participante = pe.cod_participante;
                     participantehobbie.cod_item = pe.cod_item;
+
+                    GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
                 }
 
                 jsonResult = Json(new

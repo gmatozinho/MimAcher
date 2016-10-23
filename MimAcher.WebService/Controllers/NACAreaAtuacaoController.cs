@@ -74,6 +74,8 @@ namespace MimAcher.WebService.Controllers
 
                     nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
                     nacareaatuacao.cod_nac = na.cod_nac;
+
+                    GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
                 }
 
                 jsonResult = Json(new

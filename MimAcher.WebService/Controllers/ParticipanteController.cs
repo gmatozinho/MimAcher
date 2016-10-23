@@ -82,7 +82,9 @@ namespace MimAcher.WebService.Models
                     participante.nome = pt.nome;
                     participante.telefone = pt.telefone;
                     participante.dt_nascimento = pt.dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude + "  " + pt.longitude + ")");                    
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude + "  " + pt.longitude + ")");
+
+                    GestorDeParticipante.InserirParticipante(participante);
                 }
 
                 jsonResult = Json(new

@@ -73,6 +73,8 @@ namespace MimAcher.WebService.Controllers
                     MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
                     participanteensinar.cod_participante = pe.cod_participante;
                     participanteensinar.cod_item = pe.cod_item;
+
+                    GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
                 }
 
                 jsonResult = Json(new

@@ -71,6 +71,8 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_ITEM item = new MA_ITEM();
                     item.nome = it.nome;
+
+                    GestorDeItem.InserirItem(item);
                 }
 
                 jsonResult = Json(new

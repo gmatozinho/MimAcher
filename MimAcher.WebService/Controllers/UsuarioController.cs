@@ -71,7 +71,9 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_USUARIO usuario = new MA_USUARIO();
                     usuario.e_mail = us.e_mail;
-                    usuario.senha = us.senha;                    
+                    usuario.senha = us.senha;
+
+                    GestorDeUsuario.InserirUsuario(usuario);
                 }
 
                 jsonResult = Json(new

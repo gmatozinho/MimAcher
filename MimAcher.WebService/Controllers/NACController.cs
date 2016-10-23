@@ -74,6 +74,8 @@ namespace MimAcher.WebService.Controllers
                     nac.cod_campus = nc.cod_campus;
                     nac.nome_representante = nc.nomerepresentante;
                     nac.telefone = nc.telefone;
+
+                    GestorDeNAC.InserirNAC(nac);
                 }
 
                 jsonResult = Json(new

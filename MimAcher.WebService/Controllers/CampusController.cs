@@ -70,7 +70,9 @@ namespace MimAcher.WebService.Controllers
                 foreach (Campus cp in listacampus)
                 {
                     MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.local = cp.local;                    
+                    campus.local = cp.local;
+
+                    GestorDeCampus.InserirCampus(campus);
                 }
 
                 jsonResult = Json(new

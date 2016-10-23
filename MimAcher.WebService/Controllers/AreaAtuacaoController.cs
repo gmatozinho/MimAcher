@@ -72,6 +72,8 @@ namespace MimAcher.WebService.Controllers
                     MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
                     areaatuacao.nome = aa.nome;
+
+                    GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
                 }
 
                 jsonResult = Json(new
