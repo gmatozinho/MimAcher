@@ -15,7 +15,7 @@ namespace MimAcher.GeradorDados.Geradores
 
         public DateTime GerarDia()
         {
-            return dataInicio.AddDays(random.Next(rangeDias));
+            return (dataInicio.AddDays(random.Next(rangeDias)));
         }
     }
 }
