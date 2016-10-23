@@ -33,6 +33,13 @@ namespace MimAcher.Mobile.Utilitarios
 
         }
 
+        public static int EnviarItem(TipoItem tipo, string item)
+        {
+            int codigo_item = 1;
+
+            return codigo_item;
+        }
+
         public static Dictionary<string, List<Participante>> Match(Participante a)
         {
             var matchs = new Dictionary<string, List<Participante>>

@@ -24,7 +24,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonUsuario(Participante participante)
         {
-            string json_base = "\"listausuario\":[{\"cod_usuario\": 0, \"email: \"{0}\", \"senha\": \"{1}\"}]}";
+            string json_base = "\"listausuario\":[{\"cod_usuario\": 0, \"email\":{0}\", \"senha\": \"{1}\"}]}";
             string json_final = string.Format(json_base, participante.Email, participante.Senha);
 
             return json_final;
