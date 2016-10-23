@@ -31,7 +31,7 @@ namespace MimAcher.Mobile.Utilitarios
         {
             return s.Replace(".", "").Replace("-", "")
                 .Replace("/", "").Replace("(", "")
-                .Replace(")", "").Replace(" ","");
+                .Replace(")", "").Replace(" ","").Replace("+27","");
         }
 
         public void AfterTextChanged(IEditable s)

@@ -56,7 +56,8 @@ namespace MimAcher.Mobile.Activities
             //Escolhendo o Campus
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
-            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(27) #####-####"));
+            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
+            campoTelefone.Text = "27";
             var escolhaCampus = spinnerCampus.SelectedItem;
             _campus = escolhaCampus.ToString();
             
