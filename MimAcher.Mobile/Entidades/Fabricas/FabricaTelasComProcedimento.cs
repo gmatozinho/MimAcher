@@ -30,7 +30,7 @@ namespace MimAcher.Mobile.Entidades.Fabricas
 
         private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
-            pacote.Participante.Commit();
+            //pacote.Participante.Commit();
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;
         }

@@ -61,6 +61,1294 @@ namespace MimAcher.Mobile
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_reverseLayout;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_spanCount;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_stackFromEnd;
+			global::com.refractored.Resource.Animation.abc_fade_in = global::MimAcher.Mobile.Resource.Animation.abc_fade_in;
+			global::com.refractored.Resource.Animation.abc_fade_out = global::MimAcher.Mobile.Resource.Animation.abc_fade_out;
+			global::com.refractored.Resource.Animation.abc_grow_fade_in_from_bottom = global::MimAcher.Mobile.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::com.refractored.Resource.Animation.abc_popup_enter = global::MimAcher.Mobile.Resource.Animation.abc_popup_enter;
+			global::com.refractored.Resource.Animation.abc_popup_exit = global::MimAcher.Mobile.Resource.Animation.abc_popup_exit;
+			global::com.refractored.Resource.Animation.abc_shrink_fade_out_from_bottom = global::MimAcher.Mobile.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::com.refractored.Resource.Animation.abc_slide_in_bottom = global::MimAcher.Mobile.Resource.Animation.abc_slide_in_bottom;
+			global::com.refractored.Resource.Animation.abc_slide_in_top = global::MimAcher.Mobile.Resource.Animation.abc_slide_in_top;
+			global::com.refractored.Resource.Animation.abc_slide_out_bottom = global::MimAcher.Mobile.Resource.Animation.abc_slide_out_bottom;
+			global::com.refractored.Resource.Animation.abc_slide_out_top = global::MimAcher.Mobile.Resource.Animation.abc_slide_out_top;
+			global::com.refractored.Resource.Attribute.actionBarDivider = global::MimAcher.Mobile.Resource.Attribute.actionBarDivider;
+			global::com.refractored.Resource.Attribute.actionBarItemBackground = global::MimAcher.Mobile.Resource.Attribute.actionBarItemBackground;
+			global::com.refractored.Resource.Attribute.actionBarPopupTheme = global::MimAcher.Mobile.Resource.Attribute.actionBarPopupTheme;
+			global::com.refractored.Resource.Attribute.actionBarSize = global::MimAcher.Mobile.Resource.Attribute.actionBarSize;
+			global::com.refractored.Resource.Attribute.actionBarSplitStyle = global::MimAcher.Mobile.Resource.Attribute.actionBarSplitStyle;
+			global::com.refractored.Resource.Attribute.actionBarStyle = global::MimAcher.Mobile.Resource.Attribute.actionBarStyle;
+			global::com.refractored.Resource.Attribute.actionBarTabBarStyle = global::MimAcher.Mobile.Resource.Attribute.actionBarTabBarStyle;
+			global::com.refractored.Resource.Attribute.actionBarTabStyle = global::MimAcher.Mobile.Resource.Attribute.actionBarTabStyle;
+			global::com.refractored.Resource.Attribute.actionBarTabTextStyle = global::MimAcher.Mobile.Resource.Attribute.actionBarTabTextStyle;
+			global::com.refractored.Resource.Attribute.actionBarTheme = global::MimAcher.Mobile.Resource.Attribute.actionBarTheme;
+			global::com.refractored.Resource.Attribute.actionBarWidgetTheme = global::MimAcher.Mobile.Resource.Attribute.actionBarWidgetTheme;
+			global::com.refractored.Resource.Attribute.actionButtonStyle = global::MimAcher.Mobile.Resource.Attribute.actionButtonStyle;
+			global::com.refractored.Resource.Attribute.actionDropDownStyle = global::MimAcher.Mobile.Resource.Attribute.actionDropDownStyle;
+			global::com.refractored.Resource.Attribute.actionLayout = global::MimAcher.Mobile.Resource.Attribute.actionLayout;
+			global::com.refractored.Resource.Attribute.actionMenuTextAppearance = global::MimAcher.Mobile.Resource.Attribute.actionMenuTextAppearance;
+			global::com.refractored.Resource.Attribute.actionMenuTextColor = global::MimAcher.Mobile.Resource.Attribute.actionMenuTextColor;
+			global::com.refractored.Resource.Attribute.actionModeBackground = global::MimAcher.Mobile.Resource.Attribute.actionModeBackground;
+			global::com.refractored.Resource.Attribute.actionModeCloseButtonStyle = global::MimAcher.Mobile.Resource.Attribute.actionModeCloseButtonStyle;
+			global::com.refractored.Resource.Attribute.actionModeCloseDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeCloseDrawable;
+			global::com.refractored.Resource.Attribute.actionModeCopyDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeCopyDrawable;
+			global::com.refractored.Resource.Attribute.actionModeCutDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeCutDrawable;
+			global::com.refractored.Resource.Attribute.actionModeFindDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeFindDrawable;
+			global::com.refractored.Resource.Attribute.actionModePasteDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModePasteDrawable;
+			global::com.refractored.Resource.Attribute.actionModePopupWindowStyle = global::MimAcher.Mobile.Resource.Attribute.actionModePopupWindowStyle;
+			global::com.refractored.Resource.Attribute.actionModeSelectAllDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeSelectAllDrawable;
+			global::com.refractored.Resource.Attribute.actionModeShareDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeShareDrawable;
+			global::com.refractored.Resource.Attribute.actionModeSplitBackground = global::MimAcher.Mobile.Resource.Attribute.actionModeSplitBackground;
+			global::com.refractored.Resource.Attribute.actionModeStyle = global::MimAcher.Mobile.Resource.Attribute.actionModeStyle;
+			global::com.refractored.Resource.Attribute.actionModeWebSearchDrawable = global::MimAcher.Mobile.Resource.Attribute.actionModeWebSearchDrawable;
+			global::com.refractored.Resource.Attribute.actionOverflowButtonStyle = global::MimAcher.Mobile.Resource.Attribute.actionOverflowButtonStyle;
+			global::com.refractored.Resource.Attribute.actionOverflowMenuStyle = global::MimAcher.Mobile.Resource.Attribute.actionOverflowMenuStyle;
+			global::com.refractored.Resource.Attribute.actionProviderClass = global::MimAcher.Mobile.Resource.Attribute.actionProviderClass;
+			global::com.refractored.Resource.Attribute.actionViewClass = global::MimAcher.Mobile.Resource.Attribute.actionViewClass;
+			global::com.refractored.Resource.Attribute.activityChooserViewStyle = global::MimAcher.Mobile.Resource.Attribute.activityChooserViewStyle;
+			global::com.refractored.Resource.Attribute.alertDialogButtonGroupStyle = global::MimAcher.Mobile.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::com.refractored.Resource.Attribute.alertDialogCenterButtons = global::MimAcher.Mobile.Resource.Attribute.alertDialogCenterButtons;
+			global::com.refractored.Resource.Attribute.alertDialogStyle = global::MimAcher.Mobile.Resource.Attribute.alertDialogStyle;
+			global::com.refractored.Resource.Attribute.alertDialogTheme = global::MimAcher.Mobile.Resource.Attribute.alertDialogTheme;
+			global::com.refractored.Resource.Attribute.allowStacking = global::MimAcher.Mobile.Resource.Attribute.allowStacking;
+			global::com.refractored.Resource.Attribute.arrowHeadLength = global::MimAcher.Mobile.Resource.Attribute.arrowHeadLength;
+			global::com.refractored.Resource.Attribute.arrowShaftLength = global::MimAcher.Mobile.Resource.Attribute.arrowShaftLength;
+			global::com.refractored.Resource.Attribute.autoCompleteTextViewStyle = global::MimAcher.Mobile.Resource.Attribute.autoCompleteTextViewStyle;
+			global::com.refractored.Resource.Attribute.background = global::MimAcher.Mobile.Resource.Attribute.background;
+			global::com.refractored.Resource.Attribute.backgroundSplit = global::MimAcher.Mobile.Resource.Attribute.backgroundSplit;
+			global::com.refractored.Resource.Attribute.backgroundStacked = global::MimAcher.Mobile.Resource.Attribute.backgroundStacked;
+			global::com.refractored.Resource.Attribute.backgroundTint = global::MimAcher.Mobile.Resource.Attribute.backgroundTint;
+			global::com.refractored.Resource.Attribute.backgroundTintMode = global::MimAcher.Mobile.Resource.Attribute.backgroundTintMode;
+			global::com.refractored.Resource.Attribute.barLength = global::MimAcher.Mobile.Resource.Attribute.barLength;
+			global::com.refractored.Resource.Attribute.borderlessButtonStyle = global::MimAcher.Mobile.Resource.Attribute.borderlessButtonStyle;
+			global::com.refractored.Resource.Attribute.buttonBarButtonStyle = global::MimAcher.Mobile.Resource.Attribute.buttonBarButtonStyle;
+			global::com.refractored.Resource.Attribute.buttonBarNegativeButtonStyle = global::MimAcher.Mobile.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::com.refractored.Resource.Attribute.buttonBarNeutralButtonStyle = global::MimAcher.Mobile.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::com.refractored.Resource.Attribute.buttonBarPositiveButtonStyle = global::MimAcher.Mobile.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::com.refractored.Resource.Attribute.buttonBarStyle = global::MimAcher.Mobile.Resource.Attribute.buttonBarStyle;
+			global::com.refractored.Resource.Attribute.buttonPanelSideLayout = global::MimAcher.Mobile.Resource.Attribute.buttonPanelSideLayout;
+			global::com.refractored.Resource.Attribute.buttonStyle = global::MimAcher.Mobile.Resource.Attribute.buttonStyle;
+			global::com.refractored.Resource.Attribute.buttonStyleSmall = global::MimAcher.Mobile.Resource.Attribute.buttonStyleSmall;
+			global::com.refractored.Resource.Attribute.buttonTint = global::MimAcher.Mobile.Resource.Attribute.buttonTint;
+			global::com.refractored.Resource.Attribute.buttonTintMode = global::MimAcher.Mobile.Resource.Attribute.buttonTintMode;
+			global::com.refractored.Resource.Attribute.checkboxStyle = global::MimAcher.Mobile.Resource.Attribute.checkboxStyle;
+			global::com.refractored.Resource.Attribute.checkedTextViewStyle = global::MimAcher.Mobile.Resource.Attribute.checkedTextViewStyle;
+			global::com.refractored.Resource.Attribute.closeIcon = global::MimAcher.Mobile.Resource.Attribute.closeIcon;
+			global::com.refractored.Resource.Attribute.closeItemLayout = global::MimAcher.Mobile.Resource.Attribute.closeItemLayout;
+			global::com.refractored.Resource.Attribute.collapseContentDescription = global::MimAcher.Mobile.Resource.Attribute.collapseContentDescription;
+			global::com.refractored.Resource.Attribute.collapseIcon = global::MimAcher.Mobile.Resource.Attribute.collapseIcon;
+			global::com.refractored.Resource.Attribute.color = global::MimAcher.Mobile.Resource.Attribute.color;
+			global::com.refractored.Resource.Attribute.colorAccent = global::MimAcher.Mobile.Resource.Attribute.colorAccent;
+			global::com.refractored.Resource.Attribute.colorButtonNormal = global::MimAcher.Mobile.Resource.Attribute.colorButtonNormal;
+			global::com.refractored.Resource.Attribute.colorControlActivated = global::MimAcher.Mobile.Resource.Attribute.colorControlActivated;
+			global::com.refractored.Resource.Attribute.colorControlHighlight = global::MimAcher.Mobile.Resource.Attribute.colorControlHighlight;
+			global::com.refractored.Resource.Attribute.colorControlNormal = global::MimAcher.Mobile.Resource.Attribute.colorControlNormal;
+			global::com.refractored.Resource.Attribute.colorPrimary = global::MimAcher.Mobile.Resource.Attribute.colorPrimary;
+			global::com.refractored.Resource.Attribute.colorPrimaryDark = global::MimAcher.Mobile.Resource.Attribute.colorPrimaryDark;
+			global::com.refractored.Resource.Attribute.colorSwitchThumbNormal = global::MimAcher.Mobile.Resource.Attribute.colorSwitchThumbNormal;
+			global::com.refractored.Resource.Attribute.commitIcon = global::MimAcher.Mobile.Resource.Attribute.commitIcon;
+			global::com.refractored.Resource.Attribute.contentInsetEnd = global::MimAcher.Mobile.Resource.Attribute.contentInsetEnd;
+			global::com.refractored.Resource.Attribute.contentInsetLeft = global::MimAcher.Mobile.Resource.Attribute.contentInsetLeft;
+			global::com.refractored.Resource.Attribute.contentInsetRight = global::MimAcher.Mobile.Resource.Attribute.contentInsetRight;
+			global::com.refractored.Resource.Attribute.contentInsetStart = global::MimAcher.Mobile.Resource.Attribute.contentInsetStart;
+			global::com.refractored.Resource.Attribute.controlBackground = global::MimAcher.Mobile.Resource.Attribute.controlBackground;
+			global::com.refractored.Resource.Attribute.customNavigationLayout = global::MimAcher.Mobile.Resource.Attribute.customNavigationLayout;
+			global::com.refractored.Resource.Attribute.defaultQueryHint = global::MimAcher.Mobile.Resource.Attribute.defaultQueryHint;
+			global::com.refractored.Resource.Attribute.dialogPreferredPadding = global::MimAcher.Mobile.Resource.Attribute.dialogPreferredPadding;
+			global::com.refractored.Resource.Attribute.dialogTheme = global::MimAcher.Mobile.Resource.Attribute.dialogTheme;
+			global::com.refractored.Resource.Attribute.displayOptions = global::MimAcher.Mobile.Resource.Attribute.displayOptions;
+			global::com.refractored.Resource.Attribute.divider = global::MimAcher.Mobile.Resource.Attribute.divider;
+			global::com.refractored.Resource.Attribute.dividerHorizontal = global::MimAcher.Mobile.Resource.Attribute.dividerHorizontal;
+			global::com.refractored.Resource.Attribute.dividerPadding = global::MimAcher.Mobile.Resource.Attribute.dividerPadding;
+			global::com.refractored.Resource.Attribute.dividerVertical = global::MimAcher.Mobile.Resource.Attribute.dividerVertical;
+			global::com.refractored.Resource.Attribute.drawableSize = global::MimAcher.Mobile.Resource.Attribute.drawableSize;
+			global::com.refractored.Resource.Attribute.drawerArrowStyle = global::MimAcher.Mobile.Resource.Attribute.drawerArrowStyle;
+			global::com.refractored.Resource.Attribute.dropDownListViewStyle = global::MimAcher.Mobile.Resource.Attribute.dropDownListViewStyle;
+			global::com.refractored.Resource.Attribute.dropdownListPreferredItemHeight = global::MimAcher.Mobile.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::com.refractored.Resource.Attribute.editTextBackground = global::MimAcher.Mobile.Resource.Attribute.editTextBackground;
+			global::com.refractored.Resource.Attribute.editTextColor = global::MimAcher.Mobile.Resource.Attribute.editTextColor;
+			global::com.refractored.Resource.Attribute.editTextStyle = global::MimAcher.Mobile.Resource.Attribute.editTextStyle;
+			global::com.refractored.Resource.Attribute.elevation = global::MimAcher.Mobile.Resource.Attribute.elevation;
+			global::com.refractored.Resource.Attribute.expandActivityOverflowButtonDrawable = global::MimAcher.Mobile.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::com.refractored.Resource.Attribute.gapBetweenBars = global::MimAcher.Mobile.Resource.Attribute.gapBetweenBars;
+			global::com.refractored.Resource.Attribute.goIcon = global::MimAcher.Mobile.Resource.Attribute.goIcon;
+			global::com.refractored.Resource.Attribute.height = global::MimAcher.Mobile.Resource.Attribute.height;
+			global::com.refractored.Resource.Attribute.hideOnContentScroll = global::MimAcher.Mobile.Resource.Attribute.hideOnContentScroll;
+			global::com.refractored.Resource.Attribute.homeAsUpIndicator = global::MimAcher.Mobile.Resource.Attribute.homeAsUpIndicator;
+			global::com.refractored.Resource.Attribute.homeLayout = global::MimAcher.Mobile.Resource.Attribute.homeLayout;
+			global::com.refractored.Resource.Attribute.icon = global::MimAcher.Mobile.Resource.Attribute.icon;
+			global::com.refractored.Resource.Attribute.iconifiedByDefault = global::MimAcher.Mobile.Resource.Attribute.iconifiedByDefault;
+			global::com.refractored.Resource.Attribute.imageButtonStyle = global::MimAcher.Mobile.Resource.Attribute.imageButtonStyle;
+			global::com.refractored.Resource.Attribute.indeterminateProgressStyle = global::MimAcher.Mobile.Resource.Attribute.indeterminateProgressStyle;
+			global::com.refractored.Resource.Attribute.initialActivityCount = global::MimAcher.Mobile.Resource.Attribute.initialActivityCount;
+			global::com.refractored.Resource.Attribute.isLightTheme = global::MimAcher.Mobile.Resource.Attribute.isLightTheme;
+			global::com.refractored.Resource.Attribute.itemPadding = global::MimAcher.Mobile.Resource.Attribute.itemPadding;
+			global::com.refractored.Resource.Attribute.layout = global::MimAcher.Mobile.Resource.Attribute.layout;
+			global::com.refractored.Resource.Attribute.listChoiceBackgroundIndicator = global::MimAcher.Mobile.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::com.refractored.Resource.Attribute.listDividerAlertDialog = global::MimAcher.Mobile.Resource.Attribute.listDividerAlertDialog;
+			global::com.refractored.Resource.Attribute.listItemLayout = global::MimAcher.Mobile.Resource.Attribute.listItemLayout;
+			global::com.refractored.Resource.Attribute.listLayout = global::MimAcher.Mobile.Resource.Attribute.listLayout;
+			global::com.refractored.Resource.Attribute.listPopupWindowStyle = global::MimAcher.Mobile.Resource.Attribute.listPopupWindowStyle;
+			global::com.refractored.Resource.Attribute.listPreferredItemHeight = global::MimAcher.Mobile.Resource.Attribute.listPreferredItemHeight;
+			global::com.refractored.Resource.Attribute.listPreferredItemHeightLarge = global::MimAcher.Mobile.Resource.Attribute.listPreferredItemHeightLarge;
+			global::com.refractored.Resource.Attribute.listPreferredItemHeightSmall = global::MimAcher.Mobile.Resource.Attribute.listPreferredItemHeightSmall;
+			global::com.refractored.Resource.Attribute.listPreferredItemPaddingLeft = global::MimAcher.Mobile.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::com.refractored.Resource.Attribute.listPreferredItemPaddingRight = global::MimAcher.Mobile.Resource.Attribute.listPreferredItemPaddingRight;
+			global::com.refractored.Resource.Attribute.logo = global::MimAcher.Mobile.Resource.Attribute.logo;
+			global::com.refractored.Resource.Attribute.logoDescription = global::MimAcher.Mobile.Resource.Attribute.logoDescription;
+			global::com.refractored.Resource.Attribute.maxButtonHeight = global::MimAcher.Mobile.Resource.Attribute.maxButtonHeight;
+			global::com.refractored.Resource.Attribute.measureWithLargestChild = global::MimAcher.Mobile.Resource.Attribute.measureWithLargestChild;
+			global::com.refractored.Resource.Attribute.multiChoiceItemLayout = global::MimAcher.Mobile.Resource.Attribute.multiChoiceItemLayout;
+			global::com.refractored.Resource.Attribute.navigationContentDescription = global::MimAcher.Mobile.Resource.Attribute.navigationContentDescription;
+			global::com.refractored.Resource.Attribute.navigationIcon = global::MimAcher.Mobile.Resource.Attribute.navigationIcon;
+			global::com.refractored.Resource.Attribute.navigationMode = global::MimAcher.Mobile.Resource.Attribute.navigationMode;
+			global::com.refractored.Resource.Attribute.overlapAnchor = global::MimAcher.Mobile.Resource.Attribute.overlapAnchor;
+			global::com.refractored.Resource.Attribute.paddingEnd = global::MimAcher.Mobile.Resource.Attribute.paddingEnd;
+			global::com.refractored.Resource.Attribute.paddingStart = global::MimAcher.Mobile.Resource.Attribute.paddingStart;
+			global::com.refractored.Resource.Attribute.panelBackground = global::MimAcher.Mobile.Resource.Attribute.panelBackground;
+			global::com.refractored.Resource.Attribute.panelMenuListTheme = global::MimAcher.Mobile.Resource.Attribute.panelMenuListTheme;
+			global::com.refractored.Resource.Attribute.panelMenuListWidth = global::MimAcher.Mobile.Resource.Attribute.panelMenuListWidth;
+			global::com.refractored.Resource.Attribute.popupMenuStyle = global::MimAcher.Mobile.Resource.Attribute.popupMenuStyle;
+			global::com.refractored.Resource.Attribute.popupTheme = global::MimAcher.Mobile.Resource.Attribute.popupTheme;
+			global::com.refractored.Resource.Attribute.popupWindowStyle = global::MimAcher.Mobile.Resource.Attribute.popupWindowStyle;
+			global::com.refractored.Resource.Attribute.preserveIconSpacing = global::MimAcher.Mobile.Resource.Attribute.preserveIconSpacing;
+			global::com.refractored.Resource.Attribute.progressBarPadding = global::MimAcher.Mobile.Resource.Attribute.progressBarPadding;
+			global::com.refractored.Resource.Attribute.progressBarStyle = global::MimAcher.Mobile.Resource.Attribute.progressBarStyle;
+			global::com.refractored.Resource.Attribute.pstsDividerColor = global::MimAcher.Mobile.Resource.Attribute.pstsDividerColor;
+			global::com.refractored.Resource.Attribute.pstsDividerPadding = global::MimAcher.Mobile.Resource.Attribute.pstsDividerPadding;
+			global::com.refractored.Resource.Attribute.pstsDividerWidth = global::MimAcher.Mobile.Resource.Attribute.pstsDividerWidth;
+			global::com.refractored.Resource.Attribute.pstsIndicatorColor = global::MimAcher.Mobile.Resource.Attribute.pstsIndicatorColor;
+			global::com.refractored.Resource.Attribute.pstsIndicatorHeight = global::MimAcher.Mobile.Resource.Attribute.pstsIndicatorHeight;
+			global::com.refractored.Resource.Attribute.pstsPaddingMiddle = global::MimAcher.Mobile.Resource.Attribute.pstsPaddingMiddle;
+			global::com.refractored.Resource.Attribute.pstsScrollOffset = global::MimAcher.Mobile.Resource.Attribute.pstsScrollOffset;
+			global::com.refractored.Resource.Attribute.pstsShouldExpand = global::MimAcher.Mobile.Resource.Attribute.pstsShouldExpand;
+			global::com.refractored.Resource.Attribute.pstsTabBackground = global::MimAcher.Mobile.Resource.Attribute.pstsTabBackground;
+			global::com.refractored.Resource.Attribute.pstsTabPaddingLeftRight = global::MimAcher.Mobile.Resource.Attribute.pstsTabPaddingLeftRight;
+			global::com.refractored.Resource.Attribute.pstsTextAllCaps = global::MimAcher.Mobile.Resource.Attribute.pstsTextAllCaps;
+			global::com.refractored.Resource.Attribute.pstsTextAlpha = global::MimAcher.Mobile.Resource.Attribute.pstsTextAlpha;
+			global::com.refractored.Resource.Attribute.pstsTextColorSelected = global::MimAcher.Mobile.Resource.Attribute.pstsTextColorSelected;
+			global::com.refractored.Resource.Attribute.pstsTextSelectedStyle = global::MimAcher.Mobile.Resource.Attribute.pstsTextSelectedStyle;
+			global::com.refractored.Resource.Attribute.pstsTextStyle = global::MimAcher.Mobile.Resource.Attribute.pstsTextStyle;
+			global::com.refractored.Resource.Attribute.pstsUnderlineColor = global::MimAcher.Mobile.Resource.Attribute.pstsUnderlineColor;
+			global::com.refractored.Resource.Attribute.pstsUnderlineHeight = global::MimAcher.Mobile.Resource.Attribute.pstsUnderlineHeight;
+			global::com.refractored.Resource.Attribute.queryBackground = global::MimAcher.Mobile.Resource.Attribute.queryBackground;
+			global::com.refractored.Resource.Attribute.queryHint = global::MimAcher.Mobile.Resource.Attribute.queryHint;
+			global::com.refractored.Resource.Attribute.radioButtonStyle = global::MimAcher.Mobile.Resource.Attribute.radioButtonStyle;
+			global::com.refractored.Resource.Attribute.ratingBarStyle = global::MimAcher.Mobile.Resource.Attribute.ratingBarStyle;
+			global::com.refractored.Resource.Attribute.ratingBarStyleIndicator = global::MimAcher.Mobile.Resource.Attribute.ratingBarStyleIndicator;
+			global::com.refractored.Resource.Attribute.ratingBarStyleSmall = global::MimAcher.Mobile.Resource.Attribute.ratingBarStyleSmall;
+			global::com.refractored.Resource.Attribute.searchHintIcon = global::MimAcher.Mobile.Resource.Attribute.searchHintIcon;
+			global::com.refractored.Resource.Attribute.searchIcon = global::MimAcher.Mobile.Resource.Attribute.searchIcon;
+			global::com.refractored.Resource.Attribute.searchViewStyle = global::MimAcher.Mobile.Resource.Attribute.searchViewStyle;
+			global::com.refractored.Resource.Attribute.seekBarStyle = global::MimAcher.Mobile.Resource.Attribute.seekBarStyle;
+			global::com.refractored.Resource.Attribute.selectableItemBackground = global::MimAcher.Mobile.Resource.Attribute.selectableItemBackground;
+			global::com.refractored.Resource.Attribute.selectableItemBackgroundBorderless = global::MimAcher.Mobile.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::com.refractored.Resource.Attribute.showAsAction = global::MimAcher.Mobile.Resource.Attribute.showAsAction;
+			global::com.refractored.Resource.Attribute.showDividers = global::MimAcher.Mobile.Resource.Attribute.showDividers;
+			global::com.refractored.Resource.Attribute.showText = global::MimAcher.Mobile.Resource.Attribute.showText;
+			global::com.refractored.Resource.Attribute.singleChoiceItemLayout = global::MimAcher.Mobile.Resource.Attribute.singleChoiceItemLayout;
+			global::com.refractored.Resource.Attribute.spinBars = global::MimAcher.Mobile.Resource.Attribute.spinBars;
+			global::com.refractored.Resource.Attribute.spinnerDropDownItemStyle = global::MimAcher.Mobile.Resource.Attribute.spinnerDropDownItemStyle;
+			global::com.refractored.Resource.Attribute.spinnerStyle = global::MimAcher.Mobile.Resource.Attribute.spinnerStyle;
+			global::com.refractored.Resource.Attribute.splitTrack = global::MimAcher.Mobile.Resource.Attribute.splitTrack;
+			global::com.refractored.Resource.Attribute.srcCompat = global::MimAcher.Mobile.Resource.Attribute.srcCompat;
+			global::com.refractored.Resource.Attribute.state_above_anchor = global::MimAcher.Mobile.Resource.Attribute.state_above_anchor;
+			global::com.refractored.Resource.Attribute.submitBackground = global::MimAcher.Mobile.Resource.Attribute.submitBackground;
+			global::com.refractored.Resource.Attribute.subtitle = global::MimAcher.Mobile.Resource.Attribute.subtitle;
+			global::com.refractored.Resource.Attribute.subtitleTextAppearance = global::MimAcher.Mobile.Resource.Attribute.subtitleTextAppearance;
+			global::com.refractored.Resource.Attribute.subtitleTextColor = global::MimAcher.Mobile.Resource.Attribute.subtitleTextColor;
+			global::com.refractored.Resource.Attribute.subtitleTextStyle = global::MimAcher.Mobile.Resource.Attribute.subtitleTextStyle;
+			global::com.refractored.Resource.Attribute.suggestionRowLayout = global::MimAcher.Mobile.Resource.Attribute.suggestionRowLayout;
+			global::com.refractored.Resource.Attribute.switchMinWidth = global::MimAcher.Mobile.Resource.Attribute.switchMinWidth;
+			global::com.refractored.Resource.Attribute.switchPadding = global::MimAcher.Mobile.Resource.Attribute.switchPadding;
+			global::com.refractored.Resource.Attribute.switchStyle = global::MimAcher.Mobile.Resource.Attribute.switchStyle;
+			global::com.refractored.Resource.Attribute.switchTextAppearance = global::MimAcher.Mobile.Resource.Attribute.switchTextAppearance;
+			global::com.refractored.Resource.Attribute.textAllCaps = global::MimAcher.Mobile.Resource.Attribute.textAllCaps;
+			global::com.refractored.Resource.Attribute.textAppearanceLargePopupMenu = global::MimAcher.Mobile.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::com.refractored.Resource.Attribute.textAppearanceListItem = global::MimAcher.Mobile.Resource.Attribute.textAppearanceListItem;
+			global::com.refractored.Resource.Attribute.textAppearanceListItemSmall = global::MimAcher.Mobile.Resource.Attribute.textAppearanceListItemSmall;
+			global::com.refractored.Resource.Attribute.textAppearanceSearchResultSubtitle = global::MimAcher.Mobile.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::com.refractored.Resource.Attribute.textAppearanceSearchResultTitle = global::MimAcher.Mobile.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::com.refractored.Resource.Attribute.textAppearanceSmallPopupMenu = global::MimAcher.Mobile.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::com.refractored.Resource.Attribute.textColorAlertDialogListItem = global::MimAcher.Mobile.Resource.Attribute.textColorAlertDialogListItem;
+			global::com.refractored.Resource.Attribute.textColorSearchUrl = global::MimAcher.Mobile.Resource.Attribute.textColorSearchUrl;
+			global::com.refractored.Resource.Attribute.theme = global::MimAcher.Mobile.Resource.Attribute.theme;
+			global::com.refractored.Resource.Attribute.thickness = global::MimAcher.Mobile.Resource.Attribute.thickness;
+			global::com.refractored.Resource.Attribute.thumbTextPadding = global::MimAcher.Mobile.Resource.Attribute.thumbTextPadding;
+			global::com.refractored.Resource.Attribute.title = global::MimAcher.Mobile.Resource.Attribute.title;
+			global::com.refractored.Resource.Attribute.titleMarginBottom = global::MimAcher.Mobile.Resource.Attribute.titleMarginBottom;
+			global::com.refractored.Resource.Attribute.titleMarginEnd = global::MimAcher.Mobile.Resource.Attribute.titleMarginEnd;
+			global::com.refractored.Resource.Attribute.titleMarginStart = global::MimAcher.Mobile.Resource.Attribute.titleMarginStart;
+			global::com.refractored.Resource.Attribute.titleMarginTop = global::MimAcher.Mobile.Resource.Attribute.titleMarginTop;
+			global::com.refractored.Resource.Attribute.titleMargins = global::MimAcher.Mobile.Resource.Attribute.titleMargins;
+			global::com.refractored.Resource.Attribute.titleTextAppearance = global::MimAcher.Mobile.Resource.Attribute.titleTextAppearance;
+			global::com.refractored.Resource.Attribute.titleTextColor = global::MimAcher.Mobile.Resource.Attribute.titleTextColor;
+			global::com.refractored.Resource.Attribute.titleTextStyle = global::MimAcher.Mobile.Resource.Attribute.titleTextStyle;
+			global::com.refractored.Resource.Attribute.toolbarNavigationButtonStyle = global::MimAcher.Mobile.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::com.refractored.Resource.Attribute.toolbarStyle = global::MimAcher.Mobile.Resource.Attribute.toolbarStyle;
+			global::com.refractored.Resource.Attribute.track = global::MimAcher.Mobile.Resource.Attribute.track;
+			global::com.refractored.Resource.Attribute.voiceIcon = global::MimAcher.Mobile.Resource.Attribute.voiceIcon;
+			global::com.refractored.Resource.Attribute.windowActionBar = global::MimAcher.Mobile.Resource.Attribute.windowActionBar;
+			global::com.refractored.Resource.Attribute.windowActionBarOverlay = global::MimAcher.Mobile.Resource.Attribute.windowActionBarOverlay;
+			global::com.refractored.Resource.Attribute.windowActionModeOverlay = global::MimAcher.Mobile.Resource.Attribute.windowActionModeOverlay;
+			global::com.refractored.Resource.Attribute.windowFixedHeightMajor = global::MimAcher.Mobile.Resource.Attribute.windowFixedHeightMajor;
+			global::com.refractored.Resource.Attribute.windowFixedHeightMinor = global::MimAcher.Mobile.Resource.Attribute.windowFixedHeightMinor;
+			global::com.refractored.Resource.Attribute.windowFixedWidthMajor = global::MimAcher.Mobile.Resource.Attribute.windowFixedWidthMajor;
+			global::com.refractored.Resource.Attribute.windowFixedWidthMinor = global::MimAcher.Mobile.Resource.Attribute.windowFixedWidthMinor;
+			global::com.refractored.Resource.Attribute.windowMinWidthMajor = global::MimAcher.Mobile.Resource.Attribute.windowMinWidthMajor;
+			global::com.refractored.Resource.Attribute.windowMinWidthMinor = global::MimAcher.Mobile.Resource.Attribute.windowMinWidthMinor;
+			global::com.refractored.Resource.Attribute.windowNoTitle = global::MimAcher.Mobile.Resource.Attribute.windowNoTitle;
+			global::com.refractored.Resource.Boolean.abc_action_bar_embed_tabs = global::MimAcher.Mobile.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::com.refractored.Resource.Boolean.abc_action_bar_embed_tabs_pre_jb = global::MimAcher.Mobile.Resource.Boolean.abc_action_bar_embed_tabs_pre_jb;
+			global::com.refractored.Resource.Boolean.abc_action_bar_expanded_action_views_exclusive = global::MimAcher.Mobile.Resource.Boolean.abc_action_bar_expanded_action_views_exclusive;
+			global::com.refractored.Resource.Boolean.abc_allow_stacked_button_bar = global::MimAcher.Mobile.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::com.refractored.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::MimAcher.Mobile.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::com.refractored.Resource.Boolean.abc_config_allowActionMenuItemTextWithIcon = global::MimAcher.Mobile.Resource.Boolean.abc_config_allowActionMenuItemTextWithIcon;
+			global::com.refractored.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::MimAcher.Mobile.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::com.refractored.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::MimAcher.Mobile.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
+			global::com.refractored.Resource.Color.abc_background_cache_hint_selector_material_dark = global::MimAcher.Mobile.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::com.refractored.Resource.Color.abc_background_cache_hint_selector_material_light = global::MimAcher.Mobile.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::com.refractored.Resource.Color.abc_color_highlight_material = global::MimAcher.Mobile.Resource.Color.abc_color_highlight_material;
+			global::com.refractored.Resource.Color.abc_input_method_navigation_guard = global::MimAcher.Mobile.Resource.Color.abc_input_method_navigation_guard;
+			global::com.refractored.Resource.Color.abc_primary_text_disable_only_material_dark = global::MimAcher.Mobile.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::com.refractored.Resource.Color.abc_primary_text_disable_only_material_light = global::MimAcher.Mobile.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::com.refractored.Resource.Color.abc_primary_text_material_dark = global::MimAcher.Mobile.Resource.Color.abc_primary_text_material_dark;
+			global::com.refractored.Resource.Color.abc_primary_text_material_light = global::MimAcher.Mobile.Resource.Color.abc_primary_text_material_light;
+			global::com.refractored.Resource.Color.abc_search_url_text = global::MimAcher.Mobile.Resource.Color.abc_search_url_text;
+			global::com.refractored.Resource.Color.abc_search_url_text_normal = global::MimAcher.Mobile.Resource.Color.abc_search_url_text_normal;
+			global::com.refractored.Resource.Color.abc_search_url_text_pressed = global::MimAcher.Mobile.Resource.Color.abc_search_url_text_pressed;
+			global::com.refractored.Resource.Color.abc_search_url_text_selected = global::MimAcher.Mobile.Resource.Color.abc_search_url_text_selected;
+			global::com.refractored.Resource.Color.abc_secondary_text_material_dark = global::MimAcher.Mobile.Resource.Color.abc_secondary_text_material_dark;
+			global::com.refractored.Resource.Color.abc_secondary_text_material_light = global::MimAcher.Mobile.Resource.Color.abc_secondary_text_material_light;
+			global::com.refractored.Resource.Color.accent_material_dark = global::MimAcher.Mobile.Resource.Color.accent_material_dark;
+			global::com.refractored.Resource.Color.accent_material_light = global::MimAcher.Mobile.Resource.Color.accent_material_light;
+			global::com.refractored.Resource.Color.background_floating_material_dark = global::MimAcher.Mobile.Resource.Color.background_floating_material_dark;
+			global::com.refractored.Resource.Color.background_floating_material_light = global::MimAcher.Mobile.Resource.Color.background_floating_material_light;
+			global::com.refractored.Resource.Color.background_material_dark = global::MimAcher.Mobile.Resource.Color.background_material_dark;
+			global::com.refractored.Resource.Color.background_material_light = global::MimAcher.Mobile.Resource.Color.background_material_light;
+			global::com.refractored.Resource.Color.bright_foreground_disabled_material_dark = global::MimAcher.Mobile.Resource.Color.bright_foreground_disabled_material_dark;
+			global::com.refractored.Resource.Color.bright_foreground_disabled_material_light = global::MimAcher.Mobile.Resource.Color.bright_foreground_disabled_material_light;
+			global::com.refractored.Resource.Color.bright_foreground_inverse_material_dark = global::MimAcher.Mobile.Resource.Color.bright_foreground_inverse_material_dark;
+			global::com.refractored.Resource.Color.bright_foreground_inverse_material_light = global::MimAcher.Mobile.Resource.Color.bright_foreground_inverse_material_light;
+			global::com.refractored.Resource.Color.bright_foreground_material_dark = global::MimAcher.Mobile.Resource.Color.bright_foreground_material_dark;
+			global::com.refractored.Resource.Color.bright_foreground_material_light = global::MimAcher.Mobile.Resource.Color.bright_foreground_material_light;
+			global::com.refractored.Resource.Color.button_material_dark = global::MimAcher.Mobile.Resource.Color.button_material_dark;
+			global::com.refractored.Resource.Color.button_material_light = global::MimAcher.Mobile.Resource.Color.button_material_light;
+			global::com.refractored.Resource.Color.dim_foreground_disabled_material_dark = global::MimAcher.Mobile.Resource.Color.dim_foreground_disabled_material_dark;
+			global::com.refractored.Resource.Color.dim_foreground_disabled_material_light = global::MimAcher.Mobile.Resource.Color.dim_foreground_disabled_material_light;
+			global::com.refractored.Resource.Color.dim_foreground_material_dark = global::MimAcher.Mobile.Resource.Color.dim_foreground_material_dark;
+			global::com.refractored.Resource.Color.dim_foreground_material_light = global::MimAcher.Mobile.Resource.Color.dim_foreground_material_light;
+			global::com.refractored.Resource.Color.foreground_material_dark = global::MimAcher.Mobile.Resource.Color.foreground_material_dark;
+			global::com.refractored.Resource.Color.foreground_material_light = global::MimAcher.Mobile.Resource.Color.foreground_material_light;
+			global::com.refractored.Resource.Color.highlighted_text_material_dark = global::MimAcher.Mobile.Resource.Color.highlighted_text_material_dark;
+			global::com.refractored.Resource.Color.highlighted_text_material_light = global::MimAcher.Mobile.Resource.Color.highlighted_text_material_light;
+			global::com.refractored.Resource.Color.hint_foreground_material_dark = global::MimAcher.Mobile.Resource.Color.hint_foreground_material_dark;
+			global::com.refractored.Resource.Color.hint_foreground_material_light = global::MimAcher.Mobile.Resource.Color.hint_foreground_material_light;
+			global::com.refractored.Resource.Color.material_blue_grey_800 = global::MimAcher.Mobile.Resource.Color.material_blue_grey_800;
+			global::com.refractored.Resource.Color.material_blue_grey_900 = global::MimAcher.Mobile.Resource.Color.material_blue_grey_900;
+			global::com.refractored.Resource.Color.material_blue_grey_950 = global::MimAcher.Mobile.Resource.Color.material_blue_grey_950;
+			global::com.refractored.Resource.Color.material_deep_teal_200 = global::MimAcher.Mobile.Resource.Color.material_deep_teal_200;
+			global::com.refractored.Resource.Color.material_deep_teal_500 = global::MimAcher.Mobile.Resource.Color.material_deep_teal_500;
+			global::com.refractored.Resource.Color.material_grey_100 = global::MimAcher.Mobile.Resource.Color.material_grey_100;
+			global::com.refractored.Resource.Color.material_grey_300 = global::MimAcher.Mobile.Resource.Color.material_grey_300;
+			global::com.refractored.Resource.Color.material_grey_50 = global::MimAcher.Mobile.Resource.Color.material_grey_50;
+			global::com.refractored.Resource.Color.material_grey_600 = global::MimAcher.Mobile.Resource.Color.material_grey_600;
+			global::com.refractored.Resource.Color.material_grey_800 = global::MimAcher.Mobile.Resource.Color.material_grey_800;
+			global::com.refractored.Resource.Color.material_grey_850 = global::MimAcher.Mobile.Resource.Color.material_grey_850;
+			global::com.refractored.Resource.Color.material_grey_900 = global::MimAcher.Mobile.Resource.Color.material_grey_900;
+			global::com.refractored.Resource.Color.primary_dark_material_dark = global::MimAcher.Mobile.Resource.Color.primary_dark_material_dark;
+			global::com.refractored.Resource.Color.primary_dark_material_light = global::MimAcher.Mobile.Resource.Color.primary_dark_material_light;
+			global::com.refractored.Resource.Color.primary_material_dark = global::MimAcher.Mobile.Resource.Color.primary_material_dark;
+			global::com.refractored.Resource.Color.primary_material_light = global::MimAcher.Mobile.Resource.Color.primary_material_light;
+			global::com.refractored.Resource.Color.primary_text_default_material_dark = global::MimAcher.Mobile.Resource.Color.primary_text_default_material_dark;
+			global::com.refractored.Resource.Color.primary_text_default_material_light = global::MimAcher.Mobile.Resource.Color.primary_text_default_material_light;
+			global::com.refractored.Resource.Color.primary_text_disabled_material_dark = global::MimAcher.Mobile.Resource.Color.primary_text_disabled_material_dark;
+			global::com.refractored.Resource.Color.primary_text_disabled_material_light = global::MimAcher.Mobile.Resource.Color.primary_text_disabled_material_light;
+			global::com.refractored.Resource.Color.psts_background_tab_pressed = global::MimAcher.Mobile.Resource.Color.psts_background_tab_pressed;
+			global::com.refractored.Resource.Color.ripple_material_dark = global::MimAcher.Mobile.Resource.Color.ripple_material_dark;
+			global::com.refractored.Resource.Color.ripple_material_light = global::MimAcher.Mobile.Resource.Color.ripple_material_light;
+			global::com.refractored.Resource.Color.secondary_text_default_material_dark = global::MimAcher.Mobile.Resource.Color.secondary_text_default_material_dark;
+			global::com.refractored.Resource.Color.secondary_text_default_material_light = global::MimAcher.Mobile.Resource.Color.secondary_text_default_material_light;
+			global::com.refractored.Resource.Color.secondary_text_disabled_material_dark = global::MimAcher.Mobile.Resource.Color.secondary_text_disabled_material_dark;
+			global::com.refractored.Resource.Color.secondary_text_disabled_material_light = global::MimAcher.Mobile.Resource.Color.secondary_text_disabled_material_light;
+			global::com.refractored.Resource.Color.switch_thumb_disabled_material_dark = global::MimAcher.Mobile.Resource.Color.switch_thumb_disabled_material_dark;
+			global::com.refractored.Resource.Color.switch_thumb_disabled_material_light = global::MimAcher.Mobile.Resource.Color.switch_thumb_disabled_material_light;
+			global::com.refractored.Resource.Color.switch_thumb_material_dark = global::MimAcher.Mobile.Resource.Color.switch_thumb_material_dark;
+			global::com.refractored.Resource.Color.switch_thumb_material_light = global::MimAcher.Mobile.Resource.Color.switch_thumb_material_light;
+			global::com.refractored.Resource.Color.switch_thumb_normal_material_dark = global::MimAcher.Mobile.Resource.Color.switch_thumb_normal_material_dark;
+			global::com.refractored.Resource.Color.switch_thumb_normal_material_light = global::MimAcher.Mobile.Resource.Color.switch_thumb_normal_material_light;
+			global::com.refractored.Resource.Dimension.abc_action_bar_content_inset_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_default_height_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_default_height_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_default_padding_end_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_default_padding_start_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_progress_bar_size = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_progress_bar_size;
+			global::com.refractored.Resource.Dimension.abc_action_bar_stacked_max_height = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::com.refractored.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::com.refractored.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::com.refractored.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::com.refractored.Resource.Dimension.abc_action_button_min_height_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_button_min_height_material;
+			global::com.refractored.Resource.Dimension.abc_action_button_min_width_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_button_min_width_material;
+			global::com.refractored.Resource.Dimension.abc_action_button_min_width_overflow_material = global::MimAcher.Mobile.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::com.refractored.Resource.Dimension.abc_alert_dialog_button_bar_height = global::MimAcher.Mobile.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::com.refractored.Resource.Dimension.abc_button_inset_horizontal_material = global::MimAcher.Mobile.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::com.refractored.Resource.Dimension.abc_button_inset_vertical_material = global::MimAcher.Mobile.Resource.Dimension.abc_button_inset_vertical_material;
+			global::com.refractored.Resource.Dimension.abc_button_padding_horizontal_material = global::MimAcher.Mobile.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::com.refractored.Resource.Dimension.abc_button_padding_vertical_material = global::MimAcher.Mobile.Resource.Dimension.abc_button_padding_vertical_material;
+			global::com.refractored.Resource.Dimension.abc_config_prefDialogWidth = global::MimAcher.Mobile.Resource.Dimension.abc_config_prefDialogWidth;
+			global::com.refractored.Resource.Dimension.abc_control_corner_material = global::MimAcher.Mobile.Resource.Dimension.abc_control_corner_material;
+			global::com.refractored.Resource.Dimension.abc_control_inset_material = global::MimAcher.Mobile.Resource.Dimension.abc_control_inset_material;
+			global::com.refractored.Resource.Dimension.abc_control_padding_material = global::MimAcher.Mobile.Resource.Dimension.abc_control_padding_material;
+			global::com.refractored.Resource.Dimension.abc_dialog_fixed_height_major = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::com.refractored.Resource.Dimension.abc_dialog_fixed_height_minor = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::com.refractored.Resource.Dimension.abc_dialog_fixed_width_major = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::com.refractored.Resource.Dimension.abc_dialog_fixed_width_minor = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::com.refractored.Resource.Dimension.abc_dialog_list_padding_vertical_material = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_list_padding_vertical_material;
+			global::com.refractored.Resource.Dimension.abc_dialog_min_width_major = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_min_width_major;
+			global::com.refractored.Resource.Dimension.abc_dialog_min_width_minor = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_min_width_minor;
+			global::com.refractored.Resource.Dimension.abc_dialog_padding_material = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_padding_material;
+			global::com.refractored.Resource.Dimension.abc_dialog_padding_top_material = global::MimAcher.Mobile.Resource.Dimension.abc_dialog_padding_top_material;
+			global::com.refractored.Resource.Dimension.abc_disabled_alpha_material_dark = global::MimAcher.Mobile.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::com.refractored.Resource.Dimension.abc_disabled_alpha_material_light = global::MimAcher.Mobile.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::com.refractored.Resource.Dimension.abc_dropdownitem_icon_width = global::MimAcher.Mobile.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::com.refractored.Resource.Dimension.abc_dropdownitem_text_padding_left = global::MimAcher.Mobile.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::com.refractored.Resource.Dimension.abc_dropdownitem_text_padding_right = global::MimAcher.Mobile.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::com.refractored.Resource.Dimension.abc_edit_text_inset_bottom_material = global::MimAcher.Mobile.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::com.refractored.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::MimAcher.Mobile.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::com.refractored.Resource.Dimension.abc_edit_text_inset_top_material = global::MimAcher.Mobile.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::com.refractored.Resource.Dimension.abc_floating_window_z = global::MimAcher.Mobile.Resource.Dimension.abc_floating_window_z;
+			global::com.refractored.Resource.Dimension.abc_list_item_padding_horizontal_material = global::MimAcher.Mobile.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::com.refractored.Resource.Dimension.abc_panel_menu_list_width = global::MimAcher.Mobile.Resource.Dimension.abc_panel_menu_list_width;
+			global::com.refractored.Resource.Dimension.abc_search_view_preferred_width = global::MimAcher.Mobile.Resource.Dimension.abc_search_view_preferred_width;
+			global::com.refractored.Resource.Dimension.abc_search_view_text_min_width = global::MimAcher.Mobile.Resource.Dimension.abc_search_view_text_min_width;
+			global::com.refractored.Resource.Dimension.abc_seekbar_track_background_height_material = global::MimAcher.Mobile.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::com.refractored.Resource.Dimension.abc_seekbar_track_progress_height_material = global::MimAcher.Mobile.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::com.refractored.Resource.Dimension.abc_select_dialog_padding_start_material = global::MimAcher.Mobile.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::com.refractored.Resource.Dimension.abc_switch_padding = global::MimAcher.Mobile.Resource.Dimension.abc_switch_padding;
+			global::com.refractored.Resource.Dimension.abc_text_size_body_1_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_body_1_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_body_2_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_body_2_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_button_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_button_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_caption_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_caption_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_display_1_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_display_1_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_display_2_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_display_2_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_display_3_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_display_3_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_display_4_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_display_4_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_headline_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_headline_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_large_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_large_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_medium_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_medium_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_menu_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_menu_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_small_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_small_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_subhead_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_subhead_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::com.refractored.Resource.Dimension.abc_text_size_title_material = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_title_material;
+			global::com.refractored.Resource.Dimension.abc_text_size_title_material_toolbar = global::MimAcher.Mobile.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::com.refractored.Resource.Dimension.disabled_alpha_material_dark = global::MimAcher.Mobile.Resource.Dimension.disabled_alpha_material_dark;
+			global::com.refractored.Resource.Dimension.disabled_alpha_material_light = global::MimAcher.Mobile.Resource.Dimension.disabled_alpha_material_light;
+			global::com.refractored.Resource.Dimension.highlight_alpha_material_colored = global::MimAcher.Mobile.Resource.Dimension.highlight_alpha_material_colored;
+			global::com.refractored.Resource.Dimension.highlight_alpha_material_dark = global::MimAcher.Mobile.Resource.Dimension.highlight_alpha_material_dark;
+			global::com.refractored.Resource.Dimension.highlight_alpha_material_light = global::MimAcher.Mobile.Resource.Dimension.highlight_alpha_material_light;
+			global::com.refractored.Resource.Dimension.notification_large_icon_height = global::MimAcher.Mobile.Resource.Dimension.notification_large_icon_height;
+			global::com.refractored.Resource.Dimension.notification_large_icon_width = global::MimAcher.Mobile.Resource.Dimension.notification_large_icon_width;
+			global::com.refractored.Resource.Dimension.notification_subtext_size = global::MimAcher.Mobile.Resource.Dimension.notification_subtext_size;
+			global::com.refractored.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_action_bar_item_background_material = global::MimAcher.Mobile.Resource.Drawable.abc_action_bar_item_background_material;
+			global::com.refractored.Resource.Drawable.abc_btn_borderless_material = global::MimAcher.Mobile.Resource.Drawable.abc_btn_borderless_material;
+			global::com.refractored.Resource.Drawable.abc_btn_check_material = global::MimAcher.Mobile.Resource.Drawable.abc_btn_check_material;
+			global::com.refractored.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::com.refractored.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::com.refractored.Resource.Drawable.abc_btn_colored_material = global::MimAcher.Mobile.Resource.Drawable.abc_btn_colored_material;
+			global::com.refractored.Resource.Drawable.abc_btn_default_mtrl_shape = global::MimAcher.Mobile.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::com.refractored.Resource.Drawable.abc_btn_radio_material = global::MimAcher.Mobile.Resource.Drawable.abc_btn_radio_material;
+			global::com.refractored.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::com.refractored.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::com.refractored.Resource.Drawable.abc_btn_rating_star_off_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_btn_rating_star_off_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_btn_rating_star_on_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_btn_rating_star_on_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::com.refractored.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::MimAcher.Mobile.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::com.refractored.Resource.Drawable.abc_cab_background_internal_bg = global::MimAcher.Mobile.Resource.Drawable.abc_cab_background_internal_bg;
+			global::com.refractored.Resource.Drawable.abc_cab_background_top_material = global::MimAcher.Mobile.Resource.Drawable.abc_cab_background_top_material;
+			global::com.refractored.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_control_background_material = global::MimAcher.Mobile.Resource.Drawable.abc_control_background_material;
+			global::com.refractored.Resource.Drawable.abc_dialog_material_background_dark = global::MimAcher.Mobile.Resource.Drawable.abc_dialog_material_background_dark;
+			global::com.refractored.Resource.Drawable.abc_dialog_material_background_light = global::MimAcher.Mobile.Resource.Drawable.abc_dialog_material_background_light;
+			global::com.refractored.Resource.Drawable.abc_edit_text_material = global::MimAcher.Mobile.Resource.Drawable.abc_edit_text_material;
+			global::com.refractored.Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_ab_back_mtrl_am_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_clear_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_clear_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_go_search_api_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_go_search_api_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_moreoverflow_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_moreoverflow_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_search_api_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_search_api_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_ic_star_black_16dp = global::MimAcher.Mobile.Resource.Drawable.abc_ic_star_black_16dp;
+			global::com.refractored.Resource.Drawable.abc_ic_star_black_36dp = global::MimAcher.Mobile.Resource.Drawable.abc_ic_star_black_36dp;
+			global::com.refractored.Resource.Drawable.abc_ic_star_half_black_16dp = global::MimAcher.Mobile.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::com.refractored.Resource.Drawable.abc_ic_star_half_black_36dp = global::MimAcher.Mobile.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::com.refractored.Resource.Drawable.abc_ic_voice_search_api_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_ic_voice_search_api_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_item_background_holo_dark = global::MimAcher.Mobile.Resource.Drawable.abc_item_background_holo_dark;
+			global::com.refractored.Resource.Drawable.abc_item_background_holo_light = global::MimAcher.Mobile.Resource.Drawable.abc_item_background_holo_light;
+			global::com.refractored.Resource.Drawable.abc_list_divider_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_list_focused_holo = global::MimAcher.Mobile.Resource.Drawable.abc_list_focused_holo;
+			global::com.refractored.Resource.Drawable.abc_list_longpressed_holo = global::MimAcher.Mobile.Resource.Drawable.abc_list_longpressed_holo;
+			global::com.refractored.Resource.Drawable.abc_list_pressed_holo_dark = global::MimAcher.Mobile.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::com.refractored.Resource.Drawable.abc_list_pressed_holo_light = global::MimAcher.Mobile.Resource.Drawable.abc_list_pressed_holo_light;
+			global::com.refractored.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::com.refractored.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::com.refractored.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::com.refractored.Resource.Drawable.abc_list_selector_disabled_holo_light = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::com.refractored.Resource.Drawable.abc_list_selector_holo_dark = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_holo_dark;
+			global::com.refractored.Resource.Drawable.abc_list_selector_holo_light = global::MimAcher.Mobile.Resource.Drawable.abc_list_selector_holo_light;
+			global::com.refractored.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::MimAcher.Mobile.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::com.refractored.Resource.Drawable.abc_popup_background_mtrl_mult = global::MimAcher.Mobile.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::com.refractored.Resource.Drawable.abc_ratingbar_full_material = global::MimAcher.Mobile.Resource.Drawable.abc_ratingbar_full_material;
+			global::com.refractored.Resource.Drawable.abc_ratingbar_indicator_material = global::MimAcher.Mobile.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::com.refractored.Resource.Drawable.abc_ratingbar_small_material = global::MimAcher.Mobile.Resource.Drawable.abc_ratingbar_small_material;
+			global::com.refractored.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::MimAcher.Mobile.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::com.refractored.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::MimAcher.Mobile.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::com.refractored.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_seekbar_thumb_material = global::MimAcher.Mobile.Resource.Drawable.abc_seekbar_thumb_material;
+			global::com.refractored.Resource.Drawable.abc_seekbar_track_material = global::MimAcher.Mobile.Resource.Drawable.abc_seekbar_track_material;
+			global::com.refractored.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::com.refractored.Resource.Drawable.abc_spinner_textfield_background_material = global::MimAcher.Mobile.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::com.refractored.Resource.Drawable.abc_switch_thumb_material = global::MimAcher.Mobile.Resource.Drawable.abc_switch_thumb_material;
+			global::com.refractored.Resource.Drawable.abc_switch_track_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_tab_indicator_material = global::MimAcher.Mobile.Resource.Drawable.abc_tab_indicator_material;
+			global::com.refractored.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_text_cursor_material = global::MimAcher.Mobile.Resource.Drawable.abc_text_cursor_material;
+			global::com.refractored.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::MimAcher.Mobile.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::com.refractored.Resource.Drawable.abc_textfield_search_material = global::MimAcher.Mobile.Resource.Drawable.abc_textfield_search_material;
+			global::com.refractored.Resource.Drawable.notification_template_icon_bg = global::MimAcher.Mobile.Resource.Drawable.notification_template_icon_bg;
+			global::com.refractored.Resource.Drawable.psts_background_tab = global::MimAcher.Mobile.Resource.Drawable.psts_background_tab;
+			global::com.refractored.Resource.Id.action0 = global::MimAcher.Mobile.Resource.Id.action0;
+			global::com.refractored.Resource.Id.action_bar = global::MimAcher.Mobile.Resource.Id.action_bar;
+			global::com.refractored.Resource.Id.action_bar_activity_content = global::MimAcher.Mobile.Resource.Id.action_bar_activity_content;
+			global::com.refractored.Resource.Id.action_bar_container = global::MimAcher.Mobile.Resource.Id.action_bar_container;
+			global::com.refractored.Resource.Id.action_bar_root = global::MimAcher.Mobile.Resource.Id.action_bar_root;
+			global::com.refractored.Resource.Id.action_bar_spinner = global::MimAcher.Mobile.Resource.Id.action_bar_spinner;
+			global::com.refractored.Resource.Id.action_bar_subtitle = global::MimAcher.Mobile.Resource.Id.action_bar_subtitle;
+			global::com.refractored.Resource.Id.action_bar_title = global::MimAcher.Mobile.Resource.Id.action_bar_title;
+			global::com.refractored.Resource.Id.action_context_bar = global::MimAcher.Mobile.Resource.Id.action_context_bar;
+			global::com.refractored.Resource.Id.action_divider = global::MimAcher.Mobile.Resource.Id.action_divider;
+			global::com.refractored.Resource.Id.action_menu_divider = global::MimAcher.Mobile.Resource.Id.action_menu_divider;
+			global::com.refractored.Resource.Id.action_menu_presenter = global::MimAcher.Mobile.Resource.Id.action_menu_presenter;
+			global::com.refractored.Resource.Id.action_mode_bar = global::MimAcher.Mobile.Resource.Id.action_mode_bar;
+			global::com.refractored.Resource.Id.action_mode_bar_stub = global::MimAcher.Mobile.Resource.Id.action_mode_bar_stub;
+			global::com.refractored.Resource.Id.action_mode_close_button = global::MimAcher.Mobile.Resource.Id.action_mode_close_button;
+			global::com.refractored.Resource.Id.activity_chooser_view_content = global::MimAcher.Mobile.Resource.Id.activity_chooser_view_content;
+			global::com.refractored.Resource.Id.alertTitle = global::MimAcher.Mobile.Resource.Id.alertTitle;
+			global::com.refractored.Resource.Id.always = global::MimAcher.Mobile.Resource.Id.always;
+			global::com.refractored.Resource.Id.beginning = global::MimAcher.Mobile.Resource.Id.beginning;
+			global::com.refractored.Resource.Id.bold = global::MimAcher.Mobile.Resource.Id.bold;
+			global::com.refractored.Resource.Id.buttonPanel = global::MimAcher.Mobile.Resource.Id.buttonPanel;
+			global::com.refractored.Resource.Id.cancel_action = global::MimAcher.Mobile.Resource.Id.cancel_action;
+			global::com.refractored.Resource.Id.checkbox = global::MimAcher.Mobile.Resource.Id.checkbox;
+			global::com.refractored.Resource.Id.chronometer = global::MimAcher.Mobile.Resource.Id.chronometer;
+			global::com.refractored.Resource.Id.collapseActionView = global::MimAcher.Mobile.Resource.Id.collapseActionView;
+			global::com.refractored.Resource.Id.contentPanel = global::MimAcher.Mobile.Resource.Id.contentPanel;
+			global::com.refractored.Resource.Id.custom = global::MimAcher.Mobile.Resource.Id.custom;
+			global::com.refractored.Resource.Id.customPanel = global::MimAcher.Mobile.Resource.Id.customPanel;
+			global::com.refractored.Resource.Id.decor_content_parent = global::MimAcher.Mobile.Resource.Id.decor_content_parent;
+			global::com.refractored.Resource.Id.default_activity_button = global::MimAcher.Mobile.Resource.Id.default_activity_button;
+			global::com.refractored.Resource.Id.disableHome = global::MimAcher.Mobile.Resource.Id.disableHome;
+			global::com.refractored.Resource.Id.edit_query = global::MimAcher.Mobile.Resource.Id.edit_query;
+			global::com.refractored.Resource.Id.end = global::MimAcher.Mobile.Resource.Id.end;
+			global::com.refractored.Resource.Id.end_padder = global::MimAcher.Mobile.Resource.Id.end_padder;
+			global::com.refractored.Resource.Id.expand_activities_button = global::MimAcher.Mobile.Resource.Id.expand_activities_button;
+			global::com.refractored.Resource.Id.expanded_menu = global::MimAcher.Mobile.Resource.Id.expanded_menu;
+			global::com.refractored.Resource.Id.home = global::MimAcher.Mobile.Resource.Id.home;
+			global::com.refractored.Resource.Id.homeAsUp = global::MimAcher.Mobile.Resource.Id.homeAsUp;
+			global::com.refractored.Resource.Id.icon = global::MimAcher.Mobile.Resource.Id.icon;
+			global::com.refractored.Resource.Id.ifRoom = global::MimAcher.Mobile.Resource.Id.ifRoom;
+			global::com.refractored.Resource.Id.image = global::MimAcher.Mobile.Resource.Id.image;
+			global::com.refractored.Resource.Id.info = global::MimAcher.Mobile.Resource.Id.info;
+			global::com.refractored.Resource.Id.italic = global::MimAcher.Mobile.Resource.Id.italic;
+			global::com.refractored.Resource.Id.line1 = global::MimAcher.Mobile.Resource.Id.line1;
+			global::com.refractored.Resource.Id.line3 = global::MimAcher.Mobile.Resource.Id.line3;
+			global::com.refractored.Resource.Id.listMode = global::MimAcher.Mobile.Resource.Id.listMode;
+			global::com.refractored.Resource.Id.list_item = global::MimAcher.Mobile.Resource.Id.list_item;
+			global::com.refractored.Resource.Id.media_actions = global::MimAcher.Mobile.Resource.Id.media_actions;
+			global::com.refractored.Resource.Id.middle = global::MimAcher.Mobile.Resource.Id.middle;
+			global::com.refractored.Resource.Id.multiply = global::MimAcher.Mobile.Resource.Id.multiply;
+			global::com.refractored.Resource.Id.never = global::MimAcher.Mobile.Resource.Id.never;
+			global::com.refractored.Resource.Id.none = global::MimAcher.Mobile.Resource.Id.none;
+			global::com.refractored.Resource.Id.normal = global::MimAcher.Mobile.Resource.Id.normal;
+			global::com.refractored.Resource.Id.parentPanel = global::MimAcher.Mobile.Resource.Id.parentPanel;
+			global::com.refractored.Resource.Id.progress_circular = global::MimAcher.Mobile.Resource.Id.progress_circular;
+			global::com.refractored.Resource.Id.progress_horizontal = global::MimAcher.Mobile.Resource.Id.progress_horizontal;
+			global::com.refractored.Resource.Id.psts_tab_title = global::MimAcher.Mobile.Resource.Id.psts_tab_title;
+			global::com.refractored.Resource.Id.radio = global::MimAcher.Mobile.Resource.Id.radio;
+			global::com.refractored.Resource.Id.screen = global::MimAcher.Mobile.Resource.Id.screen;
+			global::com.refractored.Resource.Id.scrollIndicatorDown = global::MimAcher.Mobile.Resource.Id.scrollIndicatorDown;
+			global::com.refractored.Resource.Id.scrollIndicatorUp = global::MimAcher.Mobile.Resource.Id.scrollIndicatorUp;
+			global::com.refractored.Resource.Id.scrollView = global::MimAcher.Mobile.Resource.Id.scrollView;
+			global::com.refractored.Resource.Id.search_badge = global::MimAcher.Mobile.Resource.Id.search_badge;
+			global::com.refractored.Resource.Id.search_bar = global::MimAcher.Mobile.Resource.Id.search_bar;
+			global::com.refractored.Resource.Id.search_button = global::MimAcher.Mobile.Resource.Id.search_button;
+			global::com.refractored.Resource.Id.search_close_btn = global::MimAcher.Mobile.Resource.Id.search_close_btn;
+			global::com.refractored.Resource.Id.search_edit_frame = global::MimAcher.Mobile.Resource.Id.search_edit_frame;
+			global::com.refractored.Resource.Id.search_go_btn = global::MimAcher.Mobile.Resource.Id.search_go_btn;
+			global::com.refractored.Resource.Id.search_mag_icon = global::MimAcher.Mobile.Resource.Id.search_mag_icon;
+			global::com.refractored.Resource.Id.search_plate = global::MimAcher.Mobile.Resource.Id.search_plate;
+			global::com.refractored.Resource.Id.search_src_text = global::MimAcher.Mobile.Resource.Id.search_src_text;
+			global::com.refractored.Resource.Id.search_voice_btn = global::MimAcher.Mobile.Resource.Id.search_voice_btn;
+			global::com.refractored.Resource.Id.select_dialog_listview = global::MimAcher.Mobile.Resource.Id.select_dialog_listview;
+			global::com.refractored.Resource.Id.shortcut = global::MimAcher.Mobile.Resource.Id.shortcut;
+			global::com.refractored.Resource.Id.showCustom = global::MimAcher.Mobile.Resource.Id.showCustom;
+			global::com.refractored.Resource.Id.showHome = global::MimAcher.Mobile.Resource.Id.showHome;
+			global::com.refractored.Resource.Id.showTitle = global::MimAcher.Mobile.Resource.Id.showTitle;
+			global::com.refractored.Resource.Id.spacer = global::MimAcher.Mobile.Resource.Id.spacer;
+			global::com.refractored.Resource.Id.split_action_bar = global::MimAcher.Mobile.Resource.Id.split_action_bar;
+			global::com.refractored.Resource.Id.src_atop = global::MimAcher.Mobile.Resource.Id.src_atop;
+			global::com.refractored.Resource.Id.src_in = global::MimAcher.Mobile.Resource.Id.src_in;
+			global::com.refractored.Resource.Id.src_over = global::MimAcher.Mobile.Resource.Id.src_over;
+			global::com.refractored.Resource.Id.status_bar_latest_event_content = global::MimAcher.Mobile.Resource.Id.status_bar_latest_event_content;
+			global::com.refractored.Resource.Id.submit_area = global::MimAcher.Mobile.Resource.Id.submit_area;
+			global::com.refractored.Resource.Id.tabMode = global::MimAcher.Mobile.Resource.Id.tabMode;
+			global::com.refractored.Resource.Id.text = global::MimAcher.Mobile.Resource.Id.text;
+			global::com.refractored.Resource.Id.text2 = global::MimAcher.Mobile.Resource.Id.text2;
+			global::com.refractored.Resource.Id.textSpacerNoButtons = global::MimAcher.Mobile.Resource.Id.textSpacerNoButtons;
+			global::com.refractored.Resource.Id.time = global::MimAcher.Mobile.Resource.Id.time;
+			global::com.refractored.Resource.Id.title = global::MimAcher.Mobile.Resource.Id.title;
+			global::com.refractored.Resource.Id.title_template = global::MimAcher.Mobile.Resource.Id.title_template;
+			global::com.refractored.Resource.Id.topPanel = global::MimAcher.Mobile.Resource.Id.topPanel;
+			global::com.refractored.Resource.Id.up = global::MimAcher.Mobile.Resource.Id.up;
+			global::com.refractored.Resource.Id.useLogo = global::MimAcher.Mobile.Resource.Id.useLogo;
+			global::com.refractored.Resource.Id.withText = global::MimAcher.Mobile.Resource.Id.withText;
+			global::com.refractored.Resource.Id.wrap_content = global::MimAcher.Mobile.Resource.Id.wrap_content;
+			global::com.refractored.Resource.Integer.abc_config_activityDefaultDur = global::MimAcher.Mobile.Resource.Integer.abc_config_activityDefaultDur;
+			global::com.refractored.Resource.Integer.abc_config_activityShortDur = global::MimAcher.Mobile.Resource.Integer.abc_config_activityShortDur;
+			global::com.refractored.Resource.Integer.abc_max_action_buttons = global::MimAcher.Mobile.Resource.Integer.abc_max_action_buttons;
+			global::com.refractored.Resource.Integer.cancel_button_image_alpha = global::MimAcher.Mobile.Resource.Integer.cancel_button_image_alpha;
+			global::com.refractored.Resource.Integer.status_bar_notification_info_maxnum = global::MimAcher.Mobile.Resource.Integer.status_bar_notification_info_maxnum;
+			global::com.refractored.Resource.Layout.abc_action_bar_title_item = global::MimAcher.Mobile.Resource.Layout.abc_action_bar_title_item;
+			global::com.refractored.Resource.Layout.abc_action_bar_up_container = global::MimAcher.Mobile.Resource.Layout.abc_action_bar_up_container;
+			global::com.refractored.Resource.Layout.abc_action_bar_view_list_nav_layout = global::MimAcher.Mobile.Resource.Layout.abc_action_bar_view_list_nav_layout;
+			global::com.refractored.Resource.Layout.abc_action_menu_item_layout = global::MimAcher.Mobile.Resource.Layout.abc_action_menu_item_layout;
+			global::com.refractored.Resource.Layout.abc_action_menu_layout = global::MimAcher.Mobile.Resource.Layout.abc_action_menu_layout;
+			global::com.refractored.Resource.Layout.abc_action_mode_bar = global::MimAcher.Mobile.Resource.Layout.abc_action_mode_bar;
+			global::com.refractored.Resource.Layout.abc_action_mode_close_item_material = global::MimAcher.Mobile.Resource.Layout.abc_action_mode_close_item_material;
+			global::com.refractored.Resource.Layout.abc_activity_chooser_view = global::MimAcher.Mobile.Resource.Layout.abc_activity_chooser_view;
+			global::com.refractored.Resource.Layout.abc_activity_chooser_view_list_item = global::MimAcher.Mobile.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::com.refractored.Resource.Layout.abc_alert_dialog_button_bar_material = global::MimAcher.Mobile.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::com.refractored.Resource.Layout.abc_alert_dialog_material = global::MimAcher.Mobile.Resource.Layout.abc_alert_dialog_material;
+			global::com.refractored.Resource.Layout.abc_dialog_title_material = global::MimAcher.Mobile.Resource.Layout.abc_dialog_title_material;
+			global::com.refractored.Resource.Layout.abc_expanded_menu_layout = global::MimAcher.Mobile.Resource.Layout.abc_expanded_menu_layout;
+			global::com.refractored.Resource.Layout.abc_list_menu_item_checkbox = global::MimAcher.Mobile.Resource.Layout.abc_list_menu_item_checkbox;
+			global::com.refractored.Resource.Layout.abc_list_menu_item_icon = global::MimAcher.Mobile.Resource.Layout.abc_list_menu_item_icon;
+			global::com.refractored.Resource.Layout.abc_list_menu_item_layout = global::MimAcher.Mobile.Resource.Layout.abc_list_menu_item_layout;
+			global::com.refractored.Resource.Layout.abc_list_menu_item_radio = global::MimAcher.Mobile.Resource.Layout.abc_list_menu_item_radio;
+			global::com.refractored.Resource.Layout.abc_popup_menu_item_layout = global::MimAcher.Mobile.Resource.Layout.abc_popup_menu_item_layout;
+			global::com.refractored.Resource.Layout.abc_screen_content_include = global::MimAcher.Mobile.Resource.Layout.abc_screen_content_include;
+			global::com.refractored.Resource.Layout.abc_screen_simple = global::MimAcher.Mobile.Resource.Layout.abc_screen_simple;
+			global::com.refractored.Resource.Layout.abc_screen_simple_overlay_action_mode = global::MimAcher.Mobile.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::com.refractored.Resource.Layout.abc_screen_toolbar = global::MimAcher.Mobile.Resource.Layout.abc_screen_toolbar;
+			global::com.refractored.Resource.Layout.abc_search_dropdown_item_icons_2line = global::MimAcher.Mobile.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::com.refractored.Resource.Layout.abc_search_view = global::MimAcher.Mobile.Resource.Layout.abc_search_view;
+			global::com.refractored.Resource.Layout.abc_select_dialog_material = global::MimAcher.Mobile.Resource.Layout.abc_select_dialog_material;
+			global::com.refractored.Resource.Layout.notification_media_action = global::MimAcher.Mobile.Resource.Layout.notification_media_action;
+			global::com.refractored.Resource.Layout.notification_media_cancel_action = global::MimAcher.Mobile.Resource.Layout.notification_media_cancel_action;
+			global::com.refractored.Resource.Layout.notification_template_big_media = global::MimAcher.Mobile.Resource.Layout.notification_template_big_media;
+			global::com.refractored.Resource.Layout.notification_template_big_media_narrow = global::MimAcher.Mobile.Resource.Layout.notification_template_big_media_narrow;
+			global::com.refractored.Resource.Layout.notification_template_lines = global::MimAcher.Mobile.Resource.Layout.notification_template_lines;
+			global::com.refractored.Resource.Layout.notification_template_media = global::MimAcher.Mobile.Resource.Layout.notification_template_media;
+			global::com.refractored.Resource.Layout.notification_template_part_chronometer = global::MimAcher.Mobile.Resource.Layout.notification_template_part_chronometer;
+			global::com.refractored.Resource.Layout.notification_template_part_time = global::MimAcher.Mobile.Resource.Layout.notification_template_part_time;
+			global::com.refractored.Resource.Layout.psts_tab = global::MimAcher.Mobile.Resource.Layout.psts_tab;
+			global::com.refractored.Resource.Layout.select_dialog_item_material = global::MimAcher.Mobile.Resource.Layout.select_dialog_item_material;
+			global::com.refractored.Resource.Layout.select_dialog_multichoice_material = global::MimAcher.Mobile.Resource.Layout.select_dialog_multichoice_material;
+			global::com.refractored.Resource.Layout.select_dialog_singlechoice_material = global::MimAcher.Mobile.Resource.Layout.select_dialog_singlechoice_material;
+			global::com.refractored.Resource.Layout.support_simple_spinner_dropdown_item = global::MimAcher.Mobile.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::com.refractored.Resource.String.abc_action_bar_home_description = global::MimAcher.Mobile.Resource.String.abc_action_bar_home_description;
+			global::com.refractored.Resource.String.abc_action_bar_home_description_format = global::MimAcher.Mobile.Resource.String.abc_action_bar_home_description_format;
+			global::com.refractored.Resource.String.abc_action_bar_home_subtitle_description_format = global::MimAcher.Mobile.Resource.String.abc_action_bar_home_subtitle_description_format;
+			global::com.refractored.Resource.String.abc_action_bar_up_description = global::MimAcher.Mobile.Resource.String.abc_action_bar_up_description;
+			global::com.refractored.Resource.String.abc_action_menu_overflow_description = global::MimAcher.Mobile.Resource.String.abc_action_menu_overflow_description;
+			global::com.refractored.Resource.String.abc_action_mode_done = global::MimAcher.Mobile.Resource.String.abc_action_mode_done;
+			global::com.refractored.Resource.String.abc_activity_chooser_view_see_all = global::MimAcher.Mobile.Resource.String.abc_activity_chooser_view_see_all;
+			global::com.refractored.Resource.String.abc_activitychooserview_choose_application = global::MimAcher.Mobile.Resource.String.abc_activitychooserview_choose_application;
+			global::com.refractored.Resource.String.abc_capital_off = global::MimAcher.Mobile.Resource.String.abc_capital_off;
+			global::com.refractored.Resource.String.abc_capital_on = global::MimAcher.Mobile.Resource.String.abc_capital_on;
+			global::com.refractored.Resource.String.abc_search_hint = global::MimAcher.Mobile.Resource.String.abc_search_hint;
+			global::com.refractored.Resource.String.abc_searchview_description_clear = global::MimAcher.Mobile.Resource.String.abc_searchview_description_clear;
+			global::com.refractored.Resource.String.abc_searchview_description_query = global::MimAcher.Mobile.Resource.String.abc_searchview_description_query;
+			global::com.refractored.Resource.String.abc_searchview_description_search = global::MimAcher.Mobile.Resource.String.abc_searchview_description_search;
+			global::com.refractored.Resource.String.abc_searchview_description_submit = global::MimAcher.Mobile.Resource.String.abc_searchview_description_submit;
+			global::com.refractored.Resource.String.abc_searchview_description_voice = global::MimAcher.Mobile.Resource.String.abc_searchview_description_voice;
+			global::com.refractored.Resource.String.abc_shareactionprovider_share_with = global::MimAcher.Mobile.Resource.String.abc_shareactionprovider_share_with;
+			global::com.refractored.Resource.String.abc_shareactionprovider_share_with_application = global::MimAcher.Mobile.Resource.String.abc_shareactionprovider_share_with_application;
+			global::com.refractored.Resource.String.abc_toolbar_collapse_description = global::MimAcher.Mobile.Resource.String.abc_toolbar_collapse_description;
+			global::com.refractored.Resource.String.status_bar_notification_info_overflow = global::MimAcher.Mobile.Resource.String.status_bar_notification_info_overflow;
+			global::com.refractored.Resource.Style.AlertDialog_AppCompat = global::MimAcher.Mobile.Resource.Style.AlertDialog_AppCompat;
+			global::com.refractored.Resource.Style.AlertDialog_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.AlertDialog_AppCompat_Light;
+			global::com.refractored.Resource.Style.Animation_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Animation_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Animation_AppCompat_DropDownUp = global::MimAcher.Mobile.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::com.refractored.Resource.Style.Base_AlertDialog_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_AlertDialog_AppCompat;
+			global::com.refractored.Resource.Style.Base_AlertDialog_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_Animation_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::MimAcher.Mobile.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::com.refractored.Resource.Style.Base_DialogWindowTitle_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::com.refractored.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Button = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Large = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Small = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Title = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::com.refractored.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::com.refractored.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::com.refractored.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::com.refractored.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::MimAcher.Mobile.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::com.refractored.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::MimAcher.Mobile.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::com.refractored.Resource.Style.Base_ThemeOverlay_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::com.refractored.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::MimAcher.Mobile.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::com.refractored.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::MimAcher.Mobile.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::com.refractored.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::MimAcher.Mobile.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::com.refractored.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::com.refractored.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::MimAcher.Mobile.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::com.refractored.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::MimAcher.Mobile.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::com.refractored.Resource.Style.Base_V21_Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_V21_Theme_AppCompat;
+			global::com.refractored.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Base_V21_Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::com.refractored.Resource.Style.Base_V22_Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_V22_Theme_AppCompat;
+			global::com.refractored.Resource.Style.Base_V22_Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_V23_Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_V23_Theme_AppCompat;
+			global::com.refractored.Resource.Style.Base_V23_Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_V7_Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Base_V7_Theme_AppCompat;
+			global::com.refractored.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Base_V7_Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::MimAcher.Mobile.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::com.refractored.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::MimAcher.Mobile.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::com.refractored.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::MimAcher.Mobile.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionButton = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActionMode = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Button_Small = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_EditText = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ImageButton = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ListView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_RatingBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_SearchView = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_SeekBar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Spinner = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Toolbar = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::com.refractored.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::MimAcher.Mobile.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::com.refractored.Resource.Style.Platform_AppCompat = global::MimAcher.Mobile.Resource.Style.Platform_AppCompat;
+			global::com.refractored.Resource.Style.Platform_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Platform_AppCompat_Light;
+			global::com.refractored.Resource.Style.Platform_ThemeOverlay_AppCompat = global::MimAcher.Mobile.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::com.refractored.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::MimAcher.Mobile.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::com.refractored.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::com.refractored.Resource.Style.Platform_V11_AppCompat = global::MimAcher.Mobile.Resource.Style.Platform_V11_AppCompat;
+			global::com.refractored.Resource.Style.Platform_V11_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Platform_V11_AppCompat_Light;
+			global::com.refractored.Resource.Style.Platform_V14_AppCompat = global::MimAcher.Mobile.Resource.Style.Platform_V14_AppCompat;
+			global::com.refractored.Resource.Style.Platform_V14_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Platform_V14_AppCompat_Light;
+			global::com.refractored.Resource.Style.Platform_Widget_AppCompat_Spinner = global::MimAcher.Mobile.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::com.refractored.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::MimAcher.Mobile.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::com.refractored.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::MimAcher.Mobile.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::com.refractored.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::MimAcher.Mobile.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::com.refractored.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::MimAcher.Mobile.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Body1 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Body2 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Button = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Button;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Caption = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Display1 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Display2 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Display3 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Display4 = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Headline = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Large = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Large;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Medium = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Menu = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Small = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Small;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Subhead = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Title;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::com.refractored.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::MimAcher.Mobile.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::com.refractored.Resource.Style.TextAppearance_StatusBar_EventContent = global::MimAcher.Mobile.Resource.Style.TextAppearance_StatusBar_EventContent;
+			global::com.refractored.Resource.Style.TextAppearance_StatusBar_EventContent_Info = global::MimAcher.Mobile.Resource.Style.TextAppearance_StatusBar_EventContent_Info;
+			global::com.refractored.Resource.Style.TextAppearance_StatusBar_EventContent_Line2 = global::MimAcher.Mobile.Resource.Style.TextAppearance_StatusBar_EventContent_Line2;
+			global::com.refractored.Resource.Style.TextAppearance_StatusBar_EventContent_Time = global::MimAcher.Mobile.Resource.Style.TextAppearance_StatusBar_EventContent_Time;
+			global::com.refractored.Resource.Style.TextAppearance_StatusBar_EventContent_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_StatusBar_EventContent_Title;
+			global::com.refractored.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::MimAcher.Mobile.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::com.refractored.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::MimAcher.Mobile.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::com.refractored.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::MimAcher.Mobile.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::com.refractored.Resource.Style.Theme_AppCompat = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat;
+			global::com.refractored.Resource.Style.Theme_AppCompat_CompactMenu = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Dialog = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Dialog;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Dialog_Alert = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::com.refractored.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_Dialog = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::com.refractored.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::com.refractored.Resource.Style.Theme_AppCompat_NoActionBar = global::MimAcher.Mobile.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::com.refractored.Resource.Style.ThemeOverlay_AppCompat = global::MimAcher.Mobile.Resource.Style.ThemeOverlay_AppCompat;
+			global::com.refractored.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::MimAcher.Mobile.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::com.refractored.Resource.Style.ThemeOverlay_AppCompat_Dark = global::MimAcher.Mobile.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::com.refractored.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::MimAcher.Mobile.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::com.refractored.Resource.Style.ThemeOverlay_AppCompat_Light = global::MimAcher.Mobile.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionButton = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionButton;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActionMode = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActionMode;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ActivityChooserView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button_Borderless = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button_Colored = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Button_Small = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Button_Small;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ButtonBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::com.refractored.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::com.refractored.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::com.refractored.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::com.refractored.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::com.refractored.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::com.refractored.Resource.Style.Widget_AppCompat_EditText = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_EditText;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ImageButton = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ImageButton;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionButton = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_SearchView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ListPopupWindow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ListView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ListView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ListView_DropDown = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ListView_Menu = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::com.refractored.Resource.Style.Widget_AppCompat_PopupMenu = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::com.refractored.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_PopupWindow = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ProgressBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::com.refractored.Resource.Style.Widget_AppCompat_RatingBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_RatingBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::com.refractored.Resource.Style.Widget_AppCompat_RatingBar_Small = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::com.refractored.Resource.Style.Widget_AppCompat_SearchView = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_SearchView;
+			global::com.refractored.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_SeekBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_SeekBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Spinner = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Spinner;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::com.refractored.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Toolbar = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Toolbar;
+			global::com.refractored.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::MimAcher.Mobile.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::com.refractored.Resource.Styleable.ActionBar = global::MimAcher.Mobile.Resource.Styleable.ActionBar;
+			global::com.refractored.Resource.Styleable.ActionBar_background = global::MimAcher.Mobile.Resource.Styleable.ActionBar_background;
+			global::com.refractored.Resource.Styleable.ActionBar_backgroundSplit = global::MimAcher.Mobile.Resource.Styleable.ActionBar_backgroundSplit;
+			global::com.refractored.Resource.Styleable.ActionBar_backgroundStacked = global::MimAcher.Mobile.Resource.Styleable.ActionBar_backgroundStacked;
+			global::com.refractored.Resource.Styleable.ActionBar_contentInsetEnd = global::MimAcher.Mobile.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::com.refractored.Resource.Styleable.ActionBar_contentInsetLeft = global::MimAcher.Mobile.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::com.refractored.Resource.Styleable.ActionBar_contentInsetRight = global::MimAcher.Mobile.Resource.Styleable.ActionBar_contentInsetRight;
+			global::com.refractored.Resource.Styleable.ActionBar_contentInsetStart = global::MimAcher.Mobile.Resource.Styleable.ActionBar_contentInsetStart;
+			global::com.refractored.Resource.Styleable.ActionBar_customNavigationLayout = global::MimAcher.Mobile.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::com.refractored.Resource.Styleable.ActionBar_displayOptions = global::MimAcher.Mobile.Resource.Styleable.ActionBar_displayOptions;
+			global::com.refractored.Resource.Styleable.ActionBar_divider = global::MimAcher.Mobile.Resource.Styleable.ActionBar_divider;
+			global::com.refractored.Resource.Styleable.ActionBar_elevation = global::MimAcher.Mobile.Resource.Styleable.ActionBar_elevation;
+			global::com.refractored.Resource.Styleable.ActionBar_height = global::MimAcher.Mobile.Resource.Styleable.ActionBar_height;
+			global::com.refractored.Resource.Styleable.ActionBar_hideOnContentScroll = global::MimAcher.Mobile.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::com.refractored.Resource.Styleable.ActionBar_homeAsUpIndicator = global::MimAcher.Mobile.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::com.refractored.Resource.Styleable.ActionBar_homeLayout = global::MimAcher.Mobile.Resource.Styleable.ActionBar_homeLayout;
+			global::com.refractored.Resource.Styleable.ActionBar_icon = global::MimAcher.Mobile.Resource.Styleable.ActionBar_icon;
+			global::com.refractored.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::MimAcher.Mobile.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::com.refractored.Resource.Styleable.ActionBar_itemPadding = global::MimAcher.Mobile.Resource.Styleable.ActionBar_itemPadding;
+			global::com.refractored.Resource.Styleable.ActionBar_logo = global::MimAcher.Mobile.Resource.Styleable.ActionBar_logo;
+			global::com.refractored.Resource.Styleable.ActionBar_navigationMode = global::MimAcher.Mobile.Resource.Styleable.ActionBar_navigationMode;
+			global::com.refractored.Resource.Styleable.ActionBar_popupTheme = global::MimAcher.Mobile.Resource.Styleable.ActionBar_popupTheme;
+			global::com.refractored.Resource.Styleable.ActionBar_progressBarPadding = global::MimAcher.Mobile.Resource.Styleable.ActionBar_progressBarPadding;
+			global::com.refractored.Resource.Styleable.ActionBar_progressBarStyle = global::MimAcher.Mobile.Resource.Styleable.ActionBar_progressBarStyle;
+			global::com.refractored.Resource.Styleable.ActionBar_subtitle = global::MimAcher.Mobile.Resource.Styleable.ActionBar_subtitle;
+			global::com.refractored.Resource.Styleable.ActionBar_subtitleTextStyle = global::MimAcher.Mobile.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::com.refractored.Resource.Styleable.ActionBar_title = global::MimAcher.Mobile.Resource.Styleable.ActionBar_title;
+			global::com.refractored.Resource.Styleable.ActionBar_titleTextStyle = global::MimAcher.Mobile.Resource.Styleable.ActionBar_titleTextStyle;
+			global::com.refractored.Resource.Styleable.ActionBarLayout = global::MimAcher.Mobile.Resource.Styleable.ActionBarLayout;
+			global::com.refractored.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::MimAcher.Mobile.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::com.refractored.Resource.Styleable.ActionMenuItemView = global::MimAcher.Mobile.Resource.Styleable.ActionMenuItemView;
+			global::com.refractored.Resource.Styleable.ActionMenuItemView_android_minWidth = global::MimAcher.Mobile.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::com.refractored.Resource.Styleable.ActionMenuView = global::MimAcher.Mobile.Resource.Styleable.ActionMenuView;
+			global::com.refractored.Resource.Styleable.ActionMode = global::MimAcher.Mobile.Resource.Styleable.ActionMode;
+			global::com.refractored.Resource.Styleable.ActionMode_background = global::MimAcher.Mobile.Resource.Styleable.ActionMode_background;
+			global::com.refractored.Resource.Styleable.ActionMode_backgroundSplit = global::MimAcher.Mobile.Resource.Styleable.ActionMode_backgroundSplit;
+			global::com.refractored.Resource.Styleable.ActionMode_closeItemLayout = global::MimAcher.Mobile.Resource.Styleable.ActionMode_closeItemLayout;
+			global::com.refractored.Resource.Styleable.ActionMode_height = global::MimAcher.Mobile.Resource.Styleable.ActionMode_height;
+			global::com.refractored.Resource.Styleable.ActionMode_subtitleTextStyle = global::MimAcher.Mobile.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::com.refractored.Resource.Styleable.ActionMode_titleTextStyle = global::MimAcher.Mobile.Resource.Styleable.ActionMode_titleTextStyle;
+			global::com.refractored.Resource.Styleable.ActivityChooserView = global::MimAcher.Mobile.Resource.Styleable.ActivityChooserView;
+			global::com.refractored.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::MimAcher.Mobile.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::com.refractored.Resource.Styleable.ActivityChooserView_initialActivityCount = global::MimAcher.Mobile.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::com.refractored.Resource.Styleable.AlertDialog = global::MimAcher.Mobile.Resource.Styleable.AlertDialog;
+			global::com.refractored.Resource.Styleable.AlertDialog_android_layout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_android_layout;
+			global::com.refractored.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::com.refractored.Resource.Styleable.AlertDialog_listItemLayout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_listItemLayout;
+			global::com.refractored.Resource.Styleable.AlertDialog_listLayout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_listLayout;
+			global::com.refractored.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::com.refractored.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::MimAcher.Mobile.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::com.refractored.Resource.Styleable.AppCompatImageView = global::MimAcher.Mobile.Resource.Styleable.AppCompatImageView;
+			global::com.refractored.Resource.Styleable.AppCompatImageView_android_src = global::MimAcher.Mobile.Resource.Styleable.AppCompatImageView_android_src;
+			global::com.refractored.Resource.Styleable.AppCompatImageView_srcCompat = global::MimAcher.Mobile.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::com.refractored.Resource.Styleable.AppCompatTextView = global::MimAcher.Mobile.Resource.Styleable.AppCompatTextView;
+			global::com.refractored.Resource.Styleable.AppCompatTextView_android_textAppearance = global::MimAcher.Mobile.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::com.refractored.Resource.Styleable.AppCompatTextView_textAllCaps = global::MimAcher.Mobile.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::com.refractored.Resource.Styleable.AppCompatTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarDivider = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarSize = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_checkboxStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorAccent = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorControlActivated = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorControlNormal = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorPrimary = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_controlBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dialogTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dividerVertical = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_editTextBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_editTextColor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_editTextStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_panelBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_searchViewStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_seekBarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_spinnerStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_switchStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_toolbarStyle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowActionBar = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::com.refractored.Resource.Styleable.AppCompatTheme_windowNoTitle = global::MimAcher.Mobile.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::com.refractored.Resource.Styleable.ButtonBarLayout = global::MimAcher.Mobile.Resource.Styleable.ButtonBarLayout;
+			global::com.refractored.Resource.Styleable.ButtonBarLayout_allowStacking = global::MimAcher.Mobile.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::com.refractored.Resource.Styleable.CompoundButton = global::MimAcher.Mobile.Resource.Styleable.CompoundButton;
+			global::com.refractored.Resource.Styleable.CompoundButton_android_button = global::MimAcher.Mobile.Resource.Styleable.CompoundButton_android_button;
+			global::com.refractored.Resource.Styleable.CompoundButton_buttonTint = global::MimAcher.Mobile.Resource.Styleable.CompoundButton_buttonTint;
+			global::com.refractored.Resource.Styleable.CompoundButton_buttonTintMode = global::MimAcher.Mobile.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_barLength = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_color = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_color;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_drawableSize = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_spinBars = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::com.refractored.Resource.Styleable.DrawerArrowToggle_thickness = global::MimAcher.Mobile.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_android_gravity = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_android_orientation = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_divider = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_divider;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_showDividers = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_Layout = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::com.refractored.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::MimAcher.Mobile.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::com.refractored.Resource.Styleable.ListPopupWindow = global::MimAcher.Mobile.Resource.Styleable.ListPopupWindow;
+			global::com.refractored.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::MimAcher.Mobile.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::com.refractored.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::MimAcher.Mobile.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::com.refractored.Resource.Styleable.MenuGroup = global::MimAcher.Mobile.Resource.Styleable.MenuGroup;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_checkableBehavior = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_enabled = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_enabled;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_id = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_id;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_menuCategory = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_orderInCategory = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::com.refractored.Resource.Styleable.MenuGroup_android_visible = global::MimAcher.Mobile.Resource.Styleable.MenuGroup_android_visible;
+			global::com.refractored.Resource.Styleable.MenuItem = global::MimAcher.Mobile.Resource.Styleable.MenuItem;
+			global::com.refractored.Resource.Styleable.MenuItem_actionLayout = global::MimAcher.Mobile.Resource.Styleable.MenuItem_actionLayout;
+			global::com.refractored.Resource.Styleable.MenuItem_actionProviderClass = global::MimAcher.Mobile.Resource.Styleable.MenuItem_actionProviderClass;
+			global::com.refractored.Resource.Styleable.MenuItem_actionViewClass = global::MimAcher.Mobile.Resource.Styleable.MenuItem_actionViewClass;
+			global::com.refractored.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::com.refractored.Resource.Styleable.MenuItem_android_checkable = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_checkable;
+			global::com.refractored.Resource.Styleable.MenuItem_android_checked = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_checked;
+			global::com.refractored.Resource.Styleable.MenuItem_android_enabled = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_enabled;
+			global::com.refractored.Resource.Styleable.MenuItem_android_icon = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_icon;
+			global::com.refractored.Resource.Styleable.MenuItem_android_id = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_id;
+			global::com.refractored.Resource.Styleable.MenuItem_android_menuCategory = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_menuCategory;
+			global::com.refractored.Resource.Styleable.MenuItem_android_numericShortcut = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::com.refractored.Resource.Styleable.MenuItem_android_onClick = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_onClick;
+			global::com.refractored.Resource.Styleable.MenuItem_android_orderInCategory = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::com.refractored.Resource.Styleable.MenuItem_android_title = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_title;
+			global::com.refractored.Resource.Styleable.MenuItem_android_titleCondensed = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::com.refractored.Resource.Styleable.MenuItem_android_visible = global::MimAcher.Mobile.Resource.Styleable.MenuItem_android_visible;
+			global::com.refractored.Resource.Styleable.MenuItem_showAsAction = global::MimAcher.Mobile.Resource.Styleable.MenuItem_showAsAction;
+			global::com.refractored.Resource.Styleable.MenuView = global::MimAcher.Mobile.Resource.Styleable.MenuView;
+			global::com.refractored.Resource.Styleable.MenuView_android_headerBackground = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_headerBackground;
+			global::com.refractored.Resource.Styleable.MenuView_android_horizontalDivider = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::com.refractored.Resource.Styleable.MenuView_android_itemBackground = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_itemBackground;
+			global::com.refractored.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::com.refractored.Resource.Styleable.MenuView_android_itemTextAppearance = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::com.refractored.Resource.Styleable.MenuView_android_verticalDivider = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_verticalDivider;
+			global::com.refractored.Resource.Styleable.MenuView_android_windowAnimationStyle = global::MimAcher.Mobile.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::com.refractored.Resource.Styleable.MenuView_preserveIconSpacing = global::MimAcher.Mobile.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsDividerColor = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsDividerColor;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsDividerPadding = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsDividerPadding;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsDividerWidth = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsDividerWidth;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsIndicatorColor = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsIndicatorColor;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsIndicatorHeight = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsIndicatorHeight;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsPaddingMiddle = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsPaddingMiddle;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsScrollOffset = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsScrollOffset;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsShouldExpand = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsShouldExpand;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTabBackground = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTabBackground;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTabPaddingLeftRight = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTabPaddingLeftRight;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextAllCaps = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTextAllCaps;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextAlpha = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTextAlpha;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextColorSelected = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTextColorSelected;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextSelectedStyle = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTextSelectedStyle;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsTextStyle = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsTextStyle;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineColor = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineColor;
+			global::com.refractored.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineHeight = global::MimAcher.Mobile.Resource.Styleable.PagerSlidingTabStrip_pstsUnderlineHeight;
+			global::com.refractored.Resource.Styleable.PopupWindow = global::MimAcher.Mobile.Resource.Styleable.PopupWindow;
+			global::com.refractored.Resource.Styleable.PopupWindow_android_popupBackground = global::MimAcher.Mobile.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::com.refractored.Resource.Styleable.PopupWindow_overlapAnchor = global::MimAcher.Mobile.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::com.refractored.Resource.Styleable.PopupWindowBackgroundState = global::MimAcher.Mobile.Resource.Styleable.PopupWindowBackgroundState;
+			global::com.refractored.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::MimAcher.Mobile.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::com.refractored.Resource.Styleable.SearchView = global::MimAcher.Mobile.Resource.Styleable.SearchView;
+			global::com.refractored.Resource.Styleable.SearchView_android_focusable = global::MimAcher.Mobile.Resource.Styleable.SearchView_android_focusable;
+			global::com.refractored.Resource.Styleable.SearchView_android_imeOptions = global::MimAcher.Mobile.Resource.Styleable.SearchView_android_imeOptions;
+			global::com.refractored.Resource.Styleable.SearchView_android_inputType = global::MimAcher.Mobile.Resource.Styleable.SearchView_android_inputType;
+			global::com.refractored.Resource.Styleable.SearchView_android_maxWidth = global::MimAcher.Mobile.Resource.Styleable.SearchView_android_maxWidth;
+			global::com.refractored.Resource.Styleable.SearchView_closeIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_closeIcon;
+			global::com.refractored.Resource.Styleable.SearchView_commitIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_commitIcon;
+			global::com.refractored.Resource.Styleable.SearchView_defaultQueryHint = global::MimAcher.Mobile.Resource.Styleable.SearchView_defaultQueryHint;
+			global::com.refractored.Resource.Styleable.SearchView_goIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_goIcon;
+			global::com.refractored.Resource.Styleable.SearchView_iconifiedByDefault = global::MimAcher.Mobile.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::com.refractored.Resource.Styleable.SearchView_layout = global::MimAcher.Mobile.Resource.Styleable.SearchView_layout;
+			global::com.refractored.Resource.Styleable.SearchView_queryBackground = global::MimAcher.Mobile.Resource.Styleable.SearchView_queryBackground;
+			global::com.refractored.Resource.Styleable.SearchView_queryHint = global::MimAcher.Mobile.Resource.Styleable.SearchView_queryHint;
+			global::com.refractored.Resource.Styleable.SearchView_searchHintIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_searchHintIcon;
+			global::com.refractored.Resource.Styleable.SearchView_searchIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_searchIcon;
+			global::com.refractored.Resource.Styleable.SearchView_submitBackground = global::MimAcher.Mobile.Resource.Styleable.SearchView_submitBackground;
+			global::com.refractored.Resource.Styleable.SearchView_suggestionRowLayout = global::MimAcher.Mobile.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::com.refractored.Resource.Styleable.SearchView_voiceIcon = global::MimAcher.Mobile.Resource.Styleable.SearchView_voiceIcon;
+			global::com.refractored.Resource.Styleable.Spinner = global::MimAcher.Mobile.Resource.Styleable.Spinner;
+			global::com.refractored.Resource.Styleable.Spinner_android_dropDownWidth = global::MimAcher.Mobile.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::com.refractored.Resource.Styleable.Spinner_android_entries = global::MimAcher.Mobile.Resource.Styleable.Spinner_android_entries;
+			global::com.refractored.Resource.Styleable.Spinner_android_popupBackground = global::MimAcher.Mobile.Resource.Styleable.Spinner_android_popupBackground;
+			global::com.refractored.Resource.Styleable.Spinner_android_prompt = global::MimAcher.Mobile.Resource.Styleable.Spinner_android_prompt;
+			global::com.refractored.Resource.Styleable.Spinner_popupTheme = global::MimAcher.Mobile.Resource.Styleable.Spinner_popupTheme;
+			global::com.refractored.Resource.Styleable.SwitchCompat = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat;
+			global::com.refractored.Resource.Styleable.SwitchCompat_android_textOff = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_android_textOff;
+			global::com.refractored.Resource.Styleable.SwitchCompat_android_textOn = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_android_textOn;
+			global::com.refractored.Resource.Styleable.SwitchCompat_android_thumb = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_android_thumb;
+			global::com.refractored.Resource.Styleable.SwitchCompat_showText = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_showText;
+			global::com.refractored.Resource.Styleable.SwitchCompat_splitTrack = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_splitTrack;
+			global::com.refractored.Resource.Styleable.SwitchCompat_switchMinWidth = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::com.refractored.Resource.Styleable.SwitchCompat_switchPadding = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_switchPadding;
+			global::com.refractored.Resource.Styleable.SwitchCompat_switchTextAppearance = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::com.refractored.Resource.Styleable.SwitchCompat_thumbTextPadding = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::com.refractored.Resource.Styleable.SwitchCompat_track = global::MimAcher.Mobile.Resource.Styleable.SwitchCompat_track;
+			global::com.refractored.Resource.Styleable.TextAppearance = global::MimAcher.Mobile.Resource.Styleable.TextAppearance;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_shadowColor = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_shadowDx = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_shadowDy = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_shadowRadius = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_textColor = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_textColor;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_textSize = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_textSize;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_textStyle = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_textStyle;
+			global::com.refractored.Resource.Styleable.TextAppearance_android_typeface = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_android_typeface;
+			global::com.refractored.Resource.Styleable.TextAppearance_textAllCaps = global::MimAcher.Mobile.Resource.Styleable.TextAppearance_textAllCaps;
+			global::com.refractored.Resource.Styleable.Toolbar = global::MimAcher.Mobile.Resource.Styleable.Toolbar;
+			global::com.refractored.Resource.Styleable.Toolbar_android_gravity = global::MimAcher.Mobile.Resource.Styleable.Toolbar_android_gravity;
+			global::com.refractored.Resource.Styleable.Toolbar_android_minHeight = global::MimAcher.Mobile.Resource.Styleable.Toolbar_android_minHeight;
+			global::com.refractored.Resource.Styleable.Toolbar_collapseContentDescription = global::MimAcher.Mobile.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::com.refractored.Resource.Styleable.Toolbar_collapseIcon = global::MimAcher.Mobile.Resource.Styleable.Toolbar_collapseIcon;
+			global::com.refractored.Resource.Styleable.Toolbar_contentInsetEnd = global::MimAcher.Mobile.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::com.refractored.Resource.Styleable.Toolbar_contentInsetLeft = global::MimAcher.Mobile.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::com.refractored.Resource.Styleable.Toolbar_contentInsetRight = global::MimAcher.Mobile.Resource.Styleable.Toolbar_contentInsetRight;
+			global::com.refractored.Resource.Styleable.Toolbar_contentInsetStart = global::MimAcher.Mobile.Resource.Styleable.Toolbar_contentInsetStart;
+			global::com.refractored.Resource.Styleable.Toolbar_logo = global::MimAcher.Mobile.Resource.Styleable.Toolbar_logo;
+			global::com.refractored.Resource.Styleable.Toolbar_logoDescription = global::MimAcher.Mobile.Resource.Styleable.Toolbar_logoDescription;
+			global::com.refractored.Resource.Styleable.Toolbar_maxButtonHeight = global::MimAcher.Mobile.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::com.refractored.Resource.Styleable.Toolbar_navigationContentDescription = global::MimAcher.Mobile.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::com.refractored.Resource.Styleable.Toolbar_navigationIcon = global::MimAcher.Mobile.Resource.Styleable.Toolbar_navigationIcon;
+			global::com.refractored.Resource.Styleable.Toolbar_popupTheme = global::MimAcher.Mobile.Resource.Styleable.Toolbar_popupTheme;
+			global::com.refractored.Resource.Styleable.Toolbar_subtitle = global::MimAcher.Mobile.Resource.Styleable.Toolbar_subtitle;
+			global::com.refractored.Resource.Styleable.Toolbar_subtitleTextAppearance = global::MimAcher.Mobile.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::com.refractored.Resource.Styleable.Toolbar_subtitleTextColor = global::MimAcher.Mobile.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::com.refractored.Resource.Styleable.Toolbar_title = global::MimAcher.Mobile.Resource.Styleable.Toolbar_title;
+			global::com.refractored.Resource.Styleable.Toolbar_titleMarginBottom = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::com.refractored.Resource.Styleable.Toolbar_titleMarginEnd = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::com.refractored.Resource.Styleable.Toolbar_titleMarginStart = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleMarginStart;
+			global::com.refractored.Resource.Styleable.Toolbar_titleMarginTop = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleMarginTop;
+			global::com.refractored.Resource.Styleable.Toolbar_titleMargins = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleMargins;
+			global::com.refractored.Resource.Styleable.Toolbar_titleTextAppearance = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::com.refractored.Resource.Styleable.Toolbar_titleTextColor = global::MimAcher.Mobile.Resource.Styleable.Toolbar_titleTextColor;
+			global::com.refractored.Resource.Styleable.View = global::MimAcher.Mobile.Resource.Styleable.View;
+			global::com.refractored.Resource.Styleable.View_android_focusable = global::MimAcher.Mobile.Resource.Styleable.View_android_focusable;
+			global::com.refractored.Resource.Styleable.View_android_theme = global::MimAcher.Mobile.Resource.Styleable.View_android_theme;
+			global::com.refractored.Resource.Styleable.View_paddingEnd = global::MimAcher.Mobile.Resource.Styleable.View_paddingEnd;
+			global::com.refractored.Resource.Styleable.View_paddingStart = global::MimAcher.Mobile.Resource.Styleable.View_paddingStart;
+			global::com.refractored.Resource.Styleable.View_theme = global::MimAcher.Mobile.Resource.Styleable.View_theme;
+			global::com.refractored.Resource.Styleable.ViewBackgroundHelper = global::MimAcher.Mobile.Resource.Styleable.ViewBackgroundHelper;
+			global::com.refractored.Resource.Styleable.ViewBackgroundHelper_android_background = global::MimAcher.Mobile.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::com.refractored.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::MimAcher.Mobile.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::com.refractored.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::MimAcher.Mobile.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::com.refractored.Resource.Styleable.ViewStubCompat = global::MimAcher.Mobile.Resource.Styleable.ViewStubCompat;
+			global::com.refractored.Resource.Styleable.ViewStubCompat_android_id = global::MimAcher.Mobile.Resource.Styleable.ViewStubCompat_android_id;
+			global::com.refractored.Resource.Styleable.ViewStubCompat_android_inflatedId = global::MimAcher.Mobile.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::com.refractored.Resource.Styleable.ViewStubCompat_android_layout = global::MimAcher.Mobile.Resource.Styleable.ViewStubCompat_android_layout;
 		}
 		
 		public partial class Animation
@@ -544,23 +1832,26 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f010107
 			public const int fabSize = 2130772231;
 			
-			// aapt resource value: 0x7f010130
-			public const int fab_colorDisabled = 2130772272;
+			// aapt resource value: 0x7f010141
+			public const int fab_colorDisabled = 2130772289;
 			
-			// aapt resource value: 0x7f01012f
-			public const int fab_colorNormal = 2130772271;
+			// aapt resource value: 0x7f010140
+			public const int fab_colorNormal = 2130772288;
 			
-			// aapt resource value: 0x7f01012e
-			public const int fab_colorPressed = 2130772270;
+			// aapt resource value: 0x7f01013f
+			public const int fab_colorPressed = 2130772287;
 			
-			// aapt resource value: 0x7f010131
-			public const int fab_colorRipple = 2130772273;
+			// aapt resource value: 0x7f010142
+			public const int fab_colorRipple = 2130772290;
 			
-			// aapt resource value: 0x7f010132
-			public const int fab_shadow = 2130772274;
+			// aapt resource value: 0x7f010143
+			public const int fab_shadow = 2130772291;
 			
-			// aapt resource value: 0x7f010133
-			public const int fab_size = 2130772275;
+			// aapt resource value: 0x7f010144
+			public const int fab_size = 2130772292;
+			
+			// aapt resource value: 0x7f010145
+			public const int fastforward_increment = 2130772293;
 			
 			// aapt resource value: 0x7f01010b
 			public const int foregroundInsidePadding = 2130772235;
@@ -769,6 +2060,57 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f010029
 			public const int progressBarStyle = 2130772009;
 			
+			// aapt resource value: 0x7f010130
+			public const int pstsDividerColor = 2130772272;
+			
+			// aapt resource value: 0x7f010134
+			public const int pstsDividerPadding = 2130772276;
+			
+			// aapt resource value: 0x7f010131
+			public const int pstsDividerWidth = 2130772273;
+			
+			// aapt resource value: 0x7f01012e
+			public const int pstsIndicatorColor = 2130772270;
+			
+			// aapt resource value: 0x7f010132
+			public const int pstsIndicatorHeight = 2130772274;
+			
+			// aapt resource value: 0x7f01013a
+			public const int pstsPaddingMiddle = 2130772282;
+			
+			// aapt resource value: 0x7f010136
+			public const int pstsScrollOffset = 2130772278;
+			
+			// aapt resource value: 0x7f010138
+			public const int pstsShouldExpand = 2130772280;
+			
+			// aapt resource value: 0x7f010137
+			public const int pstsTabBackground = 2130772279;
+			
+			// aapt resource value: 0x7f010135
+			public const int pstsTabPaddingLeftRight = 2130772277;
+			
+			// aapt resource value: 0x7f010139
+			public const int pstsTextAllCaps = 2130772281;
+			
+			// aapt resource value: 0x7f01013c
+			public const int pstsTextAlpha = 2130772284;
+			
+			// aapt resource value: 0x7f01013b
+			public const int pstsTextColorSelected = 2130772283;
+			
+			// aapt resource value: 0x7f01013e
+			public const int pstsTextSelectedStyle = 2130772286;
+			
+			// aapt resource value: 0x7f01013d
+			public const int pstsTextStyle = 2130772285;
+			
+			// aapt resource value: 0x7f01012f
+			public const int pstsUnderlineColor = 2130772271;
+			
+			// aapt resource value: 0x7f010133
+			public const int pstsUnderlineHeight = 2130772275;
+			
 			// aapt resource value: 0x7f0100cc
 			public const int queryBackground = 2130772172;
 			
@@ -787,8 +2129,14 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0100a8
 			public const int ratingBarStyleSmall = 2130772136;
 			
+			// aapt resource value: 0x7f010146
+			public const int resize_mode = 2130772294;
+			
 			// aapt resource value: 0x7f01000b
 			public const int reverseLayout = 2130771979;
+			
+			// aapt resource value: 0x7f010147
+			public const int rewind_increment = 2130772295;
 			
 			// aapt resource value: 0x7f010106
 			public const int rippleColor = 2130772230;
@@ -822,6 +2170,9 @@ namespace MimAcher.Mobile
 			
 			// aapt resource value: 0x7f0100d4
 			public const int showText = 2130772180;
+			
+			// aapt resource value: 0x7f010148
+			public const int show_timeout = 2130772296;
 			
 			// aapt resource value: 0x7f01003a
 			public const int singleChoiceItemLayout = 2130772026;
@@ -1018,6 +2369,12 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f01010a
 			public const int useCompatPadding = 2130772234;
 			
+			// aapt resource value: 0x7f010149
+			public const int use_controller = 2130772297;
+			
+			// aapt resource value: 0x7f01014a
+			public const int use_texture_view = 2130772298;
+			
 			// aapt resource value: 0x7f0100c9
 			public const int voiceIcon = 2130772169;
 			
@@ -1101,32 +2458,32 @@ namespace MimAcher.Mobile
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f070060
-			public const int abc_background_cache_hint_selector_material_dark = 2131165280;
-			
 			// aapt resource value: 0x7f070061
-			public const int abc_background_cache_hint_selector_material_light = 2131165281;
+			public const int abc_background_cache_hint_selector_material_dark = 2131165281;
 			
 			// aapt resource value: 0x7f070062
-			public const int abc_color_highlight_material = 2131165282;
+			public const int abc_background_cache_hint_selector_material_light = 2131165282;
+			
+			// aapt resource value: 0x7f070063
+			public const int abc_color_highlight_material = 2131165283;
 			
 			// aapt resource value: 0x7f070015
 			public const int abc_input_method_navigation_guard = 2131165205;
 			
-			// aapt resource value: 0x7f070063
-			public const int abc_primary_text_disable_only_material_dark = 2131165283;
-			
 			// aapt resource value: 0x7f070064
-			public const int abc_primary_text_disable_only_material_light = 2131165284;
+			public const int abc_primary_text_disable_only_material_dark = 2131165284;
 			
 			// aapt resource value: 0x7f070065
-			public const int abc_primary_text_material_dark = 2131165285;
+			public const int abc_primary_text_disable_only_material_light = 2131165285;
 			
 			// aapt resource value: 0x7f070066
-			public const int abc_primary_text_material_light = 2131165286;
+			public const int abc_primary_text_material_dark = 2131165286;
 			
 			// aapt resource value: 0x7f070067
-			public const int abc_search_url_text = 2131165287;
+			public const int abc_primary_text_material_light = 2131165287;
+			
+			// aapt resource value: 0x7f070068
+			public const int abc_search_url_text = 2131165288;
 			
 			// aapt resource value: 0x7f070016
 			public const int abc_search_url_text_normal = 2131165206;
@@ -1137,14 +2494,14 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f070018
 			public const int abc_search_url_text_selected = 2131165208;
 			
-			// aapt resource value: 0x7f070068
-			public const int abc_secondary_text_material_dark = 2131165288;
-			
 			// aapt resource value: 0x7f070069
-			public const int abc_secondary_text_material_light = 2131165289;
+			public const int abc_secondary_text_material_dark = 2131165289;
 			
-			// aapt resource value: 0x7f07005c
-			public const int accent = 2131165276;
+			// aapt resource value: 0x7f07006a
+			public const int abc_secondary_text_material_light = 2131165290;
+			
+			// aapt resource value: 0x7f07005d
+			public const int accent = 2131165277;
 			
 			// aapt resource value: 0x7f070019
 			public const int accent_material_dark = 2131165209;
@@ -1152,8 +2509,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07001a
 			public const int accent_material_light = 2131165210;
 			
-			// aapt resource value: 0x7f07005f
-			public const int accent_pressed = 2131165279;
+			// aapt resource value: 0x7f070060
+			public const int accent_pressed = 2131165280;
 			
 			// aapt resource value: 0x7f07001b
 			public const int background_floating_material_dark = 2131165211;
@@ -1206,8 +2563,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f070008
 			public const int common_action_bar_splitter = 2131165192;
 			
-			// aapt resource value: 0x7f07006a
-			public const int common_google_signin_btn_text_dark = 2131165290;
+			// aapt resource value: 0x7f07006b
+			public const int common_google_signin_btn_text_dark = 2131165291;
 			
 			// aapt resource value: 0x7f070009
 			public const int common_google_signin_btn_text_dark_default = 2131165193;
@@ -1221,8 +2578,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07000a
 			public const int common_google_signin_btn_text_dark_pressed = 2131165194;
 			
-			// aapt resource value: 0x7f07006b
-			public const int common_google_signin_btn_text_light = 2131165291;
+			// aapt resource value: 0x7f07006c
+			public const int common_google_signin_btn_text_light = 2131165292;
 			
 			// aapt resource value: 0x7f07000d
 			public const int common_google_signin_btn_text_light_default = 2131165197;
@@ -1236,8 +2593,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07000e
 			public const int common_google_signin_btn_text_light_pressed = 2131165198;
 			
-			// aapt resource value: 0x7f07006c
-			public const int common_plus_signin_btn_text_dark = 2131165292;
+			// aapt resource value: 0x7f07006d
+			public const int common_plus_signin_btn_text_dark = 2131165293;
 			
 			// aapt resource value: 0x7f070000
 			public const int common_plus_signin_btn_text_dark_default = 2131165184;
@@ -1251,8 +2608,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f070001
 			public const int common_plus_signin_btn_text_dark_pressed = 2131165185;
 			
-			// aapt resource value: 0x7f07006d
-			public const int common_plus_signin_btn_text_light = 2131165293;
+			// aapt resource value: 0x7f07006e
+			public const int common_plus_signin_btn_text_light = 2131165294;
 			
 			// aapt resource value: 0x7f070004
 			public const int common_plus_signin_btn_text_light_default = 2131165188;
@@ -1308,8 +2665,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07002a
 			public const int dim_foreground_material_light = 2131165226;
 			
-			// aapt resource value: 0x7f070059
-			public const int fab_material_blue_500 = 2131165273;
+			// aapt resource value: 0x7f07005a
+			public const int fab_material_blue_500 = 2131165274;
 			
 			// aapt resource value: 0x7f07002b
 			public const int foreground_material_dark = 2131165227;
@@ -1365,11 +2722,11 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07003c
 			public const int material_grey_900 = 2131165244;
 			
-			// aapt resource value: 0x7f07005a
-			public const int primary = 2131165274;
-			
 			// aapt resource value: 0x7f07005b
-			public const int primaryDark = 2131165275;
+			public const int primary = 2131165275;
+			
+			// aapt resource value: 0x7f07005c
+			public const int primaryDark = 2131165276;
 			
 			// aapt resource value: 0x7f07003d
 			public const int primary_dark_material_dark = 2131165245;
@@ -1395,8 +2752,11 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f070044
 			public const int primary_text_disabled_material_light = 2131165252;
 			
-			// aapt resource value: 0x7f07005e
-			public const int ripple = 2131165278;
+			// aapt resource value: 0x7f070059
+			public const int psts_background_tab_pressed = 2131165273;
+			
+			// aapt resource value: 0x7f07005f
+			public const int ripple = 2131165279;
 			
 			// aapt resource value: 0x7f070045
 			public const int ripple_material_dark = 2131165253;
@@ -1422,11 +2782,11 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07004c
 			public const int switch_thumb_disabled_material_light = 2131165260;
 			
-			// aapt resource value: 0x7f07006e
-			public const int switch_thumb_material_dark = 2131165294;
-			
 			// aapt resource value: 0x7f07006f
-			public const int switch_thumb_material_light = 2131165295;
+			public const int switch_thumb_material_dark = 2131165295;
+			
+			// aapt resource value: 0x7f070070
+			public const int switch_thumb_material_light = 2131165296;
 			
 			// aapt resource value: 0x7f07004d
 			public const int switch_thumb_normal_material_dark = 2131165261;
@@ -1434,8 +2794,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f07004e
 			public const int switch_thumb_normal_material_light = 2131165262;
 			
-			// aapt resource value: 0x7f07005d
-			public const int window_background = 2131165277;
+			// aapt resource value: 0x7f07005e
+			public const int window_background = 2131165278;
 			
 			static Color()
 			{
@@ -2172,109 +3532,130 @@ namespace MimAcher.Mobile
 			public const int escolherfoto = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int fab_shadow = 2130837625;
+			public const int exo_controls_fastforward = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int fab_shadow_mini = 2130837626;
+			public const int exo_controls_next = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int fundo = 2130837627;
+			public const int exo_controls_pause = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int ic_account_circle_white_36dp = 2130837628;
+			public const int exo_controls_play = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int ic_action_content_create = 2130837629;
+			public const int exo_controls_previous = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int ic_action_content_save = 2130837630;
+			public const int exo_controls_rewind = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int ic_add_box_white_24dp = 2130837631;
+			public const int fab_shadow = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int ic_add_white_24dp = 2130837632;
+			public const int fab_shadow_mini = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int ic_assignment_white_24dp = 2130837633;
+			public const int fundo = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int ic_clear_white_24dp = 2130837634;
+			public const int ic_account_circle_white_36dp = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int ic_done_white_24dp = 2130837635;
+			public const int ic_action_content_create = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ic_done_white_36dp = 2130837636;
+			public const int ic_action_content_save = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int ic_exit_to_app_white_24dp = 2130837637;
+			public const int ic_add_box_white_24dp = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int ic_home_white_36dp = 2130837638;
+			public const int ic_add_white_24dp = 2130837638;
 			
 			// aapt resource value: 0x7f020087
-			public const int ic_launcher = 2130837639;
+			public const int ic_assignment_white_24dp = 2130837639;
 			
 			// aapt resource value: 0x7f020088
-			public const int ic_menu_copy_holo_dark = 2130837640;
+			public const int ic_clear_white_24dp = 2130837640;
 			
 			// aapt resource value: 0x7f020089
-			public const int ic_menu_cut_holo_dark = 2130837641;
+			public const int ic_done_white_24dp = 2130837641;
 			
 			// aapt resource value: 0x7f02008a
-			public const int ic_menu_paste_holo_dark = 2130837642;
+			public const int ic_done_white_36dp = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_menu_search_holo_dark = 2130837643;
+			public const int ic_exit_to_app_white_24dp = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_plusone_medium_off_client = 2130837644;
+			public const int ic_home_white_36dp = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_plusone_small_off_client = 2130837645;
+			public const int ic_launcher = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_plusone_standard_off_client = 2130837646;
+			public const int ic_menu_copy_holo_dark = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_plusone_tall_off_client = 2130837647;
+			public const int ic_menu_cut_holo_dark = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int icone = 2130837648;
+			public const int ic_menu_paste_holo_dark = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int logo = 2130837649;
+			public const int ic_menu_search_holo_dark = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int losango = 2130837650;
+			public const int ic_plusone_medium_off_client = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int mais = 2130837651;
-			
-			// aapt resource value: 0x7f02009b
-			public const int notification_template_icon_bg = 2130837659;
+			public const int ic_plusone_small_off_client = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int round_button = 2130837652;
+			public const int ic_plusone_standard_off_client = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int spinner_dropdown_item = 2130837653;
+			public const int ic_plusone_tall_off_client = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int spinner_item = 2130837654;
+			public const int icone = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int splash = 2130837655;
+			public const int logo = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int top_menus_inscrever = 2130837656;
+			public const int losango = 2130837656;
 			
 			// aapt resource value: 0x7f020099
-			public const int top_menus_nosearch = 2130837657;
+			public const int mais = 2130837657;
+			
+			// aapt resource value: 0x7f0200a2
+			public const int notification_template_icon_bg = 2130837666;
 			
 			// aapt resource value: 0x7f02009a
-			public const int top_menus_search = 2130837658;
+			public const int psts_background_tab = 2130837658;
+			
+			// aapt resource value: 0x7f02009b
+			public const int round_button = 2130837659;
+			
+			// aapt resource value: 0x7f02009c
+			public const int spinner_dropdown_item = 2130837660;
+			
+			// aapt resource value: 0x7f02009d
+			public const int spinner_item = 2130837661;
+			
+			// aapt resource value: 0x7f02009e
+			public const int splash = 2130837662;
+			
+			// aapt resource value: 0x7f02009f
+			public const int top_menus_inscrever = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int top_menus_nosearch = 2130837664;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int top_menus_search = 2130837665;
 			
 			static Drawable()
 			{
@@ -2289,38 +3670,38 @@ namespace MimAcher.Mobile
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0a0089
-			public const int Logo = 2131361929;
+			// aapt resource value: 0x7f0a008e
+			public const int Logo = 2131361934;
 			
-			// aapt resource value: 0x7f0a0099
-			public const int action0 = 2131361945;
+			// aapt resource value: 0x7f0a00aa
+			public const int action0 = 2131361962;
 			
-			// aapt resource value: 0x7f0a0062
-			public const int action_bar = 2131361890;
+			// aapt resource value: 0x7f0a0067
+			public const int action_bar = 2131361895;
 			
 			// aapt resource value: 0x7f0a0001
 			public const int action_bar_activity_content = 2131361793;
 			
-			// aapt resource value: 0x7f0a0061
-			public const int action_bar_container = 2131361889;
+			// aapt resource value: 0x7f0a0066
+			public const int action_bar_container = 2131361894;
 			
-			// aapt resource value: 0x7f0a005d
-			public const int action_bar_root = 2131361885;
+			// aapt resource value: 0x7f0a0062
+			public const int action_bar_root = 2131361890;
 			
 			// aapt resource value: 0x7f0a0002
 			public const int action_bar_spinner = 2131361794;
 			
-			// aapt resource value: 0x7f0a0043
-			public const int action_bar_subtitle = 2131361859;
+			// aapt resource value: 0x7f0a0048
+			public const int action_bar_subtitle = 2131361864;
 			
-			// aapt resource value: 0x7f0a0042
-			public const int action_bar_title = 2131361858;
+			// aapt resource value: 0x7f0a0047
+			public const int action_bar_title = 2131361863;
 			
-			// aapt resource value: 0x7f0a0063
-			public const int action_context_bar = 2131361891;
+			// aapt resource value: 0x7f0a0068
+			public const int action_context_bar = 2131361896;
 			
-			// aapt resource value: 0x7f0a009d
-			public const int action_divider = 2131361949;
+			// aapt resource value: 0x7f0a00ae
+			public const int action_divider = 2131361966;
 			
 			// aapt resource value: 0x7f0a0003
 			public const int action_menu_divider = 2131361795;
@@ -2328,20 +3709,20 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0004
 			public const int action_menu_presenter = 2131361796;
 			
-			// aapt resource value: 0x7f0a005f
-			public const int action_mode_bar = 2131361887;
+			// aapt resource value: 0x7f0a0064
+			public const int action_mode_bar = 2131361892;
 			
-			// aapt resource value: 0x7f0a005e
-			public const int action_mode_bar_stub = 2131361886;
+			// aapt resource value: 0x7f0a0063
+			public const int action_mode_bar_stub = 2131361891;
 			
-			// aapt resource value: 0x7f0a0044
-			public const int action_mode_close_button = 2131361860;
+			// aapt resource value: 0x7f0a0049
+			public const int action_mode_close_button = 2131361865;
 			
-			// aapt resource value: 0x7f0a0045
-			public const int activity_chooser_view_content = 2131361861;
+			// aapt resource value: 0x7f0a004a
+			public const int activity_chooser_view_content = 2131361866;
 			
-			// aapt resource value: 0x7f0a00aa
-			public const int add_algo = 2131361962;
+			// aapt resource value: 0x7f0a00ba
+			public const int add_algo = 2131361978;
 			
 			// aapt resource value: 0x7f0a000b
 			public const int adjust_height = 2131361803;
@@ -2349,44 +3730,47 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a000c
 			public const int adjust_width = 2131361804;
 			
-			// aapt resource value: 0x7f0a0051
-			public const int alertTitle = 2131361873;
+			// aapt resource value: 0x7f0a0056
+			public const int alertTitle = 2131361878;
 			
-			// aapt resource value: 0x7f0a0087
-			public const int alterar_senha = 2131361927;
+			// aapt resource value: 0x7f0a008c
+			public const int alterar_senha = 2131361932;
 			
 			// aapt resource value: 0x7f0a0026
 			public const int always = 2131361830;
 			
-			// aapt resource value: 0x7f0a00b7
-			public const int aprender = 2131361975;
+			// aapt resource value: 0x7f0a00c8
+			public const int aprender = 2131361992;
 			
 			// aapt resource value: 0x7f0a0011
 			public const int auto = 2131361809;
 			
-			// aapt resource value: 0x7f0a008b
-			public const int avançar = 2131361931;
+			// aapt resource value: 0x7f0a0090
+			public const int avançar = 2131361936;
 			
 			// aapt resource value: 0x7f0a0023
 			public const int beginning = 2131361827;
 			
+			// aapt resource value: 0x7f0a0042
+			public const int bold = 2131361858;
+			
 			// aapt resource value: 0x7f0a0032
 			public const int bottom = 2131361842;
 			
-			// aapt resource value: 0x7f0a004c
-			public const int buttonPanel = 2131361868;
+			// aapt resource value: 0x7f0a0051
+			public const int buttonPanel = 2131361873;
 			
-			// aapt resource value: 0x7f0a0097
-			public const int buttonsline = 2131361943;
+			// aapt resource value: 0x7f0a00a8
+			public const int buttonsline = 2131361960;
 			
-			// aapt resource value: 0x7f0a008e
-			public const int campus = 2131361934;
+			// aapt resource value: 0x7f0a009f
+			public const int campus = 2131361951;
 			
-			// aapt resource value: 0x7f0a008f
-			public const int campus_line = 2131361935;
+			// aapt resource value: 0x7f0a00a0
+			public const int campus_line = 2131361952;
 			
-			// aapt resource value: 0x7f0a009a
-			public const int cancel_action = 2131361946;
+			// aapt resource value: 0x7f0a00ab
+			public const int cancel_action = 2131361963;
 			
 			// aapt resource value: 0x7f0a0033
 			public const int center = 2131361843;
@@ -2397,11 +3781,11 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0035
 			public const int center_vertical = 2131361845;
 			
-			// aapt resource value: 0x7f0a005a
-			public const int checkbox = 2131361882;
+			// aapt resource value: 0x7f0a005f
+			public const int checkbox = 2131361887;
 			
-			// aapt resource value: 0x7f0a00a0
-			public const int chronometer = 2131361952;
+			// aapt resource value: 0x7f0a00b0
+			public const int chronometer = 2131361968;
 			
 			// aapt resource value: 0x7f0a003b
 			public const int clip_horizontal = 2131361851;
@@ -2412,80 +3796,83 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0027
 			public const int collapseActionView = 2131361831;
 			
-			// aapt resource value: 0x7f0a0076
-			public const int confirmar = 2131361910;
+			// aapt resource value: 0x7f0a007b
+			public const int confirmar = 2131361915;
 			
-			// aapt resource value: 0x7f0a0095
-			public const int confirmar_senha = 2131361941;
-			
-			// aapt resource value: 0x7f0a0052
-			public const int contentPanel = 2131361874;
-			
-			// aapt resource value: 0x7f0a0058
-			public const int custom = 2131361880;
+			// aapt resource value: 0x7f0a00a6
+			public const int confirmar_senha = 2131361958;
 			
 			// aapt resource value: 0x7f0a0057
-			public const int customPanel = 2131361879;
+			public const int contentPanel = 2131361879;
+			
+			// aapt resource value: 0x7f0a009c
+			public const int control = 2131361948;
+			
+			// aapt resource value: 0x7f0a005d
+			public const int custom = 2131361885;
+			
+			// aapt resource value: 0x7f0a005c
+			public const int customPanel = 2131361884;
 			
 			// aapt resource value: 0x7f0a0012
 			public const int dark = 2131361810;
 			
-			// aapt resource value: 0x7f0a0060
-			public const int decor_content_parent = 2131361888;
+			// aapt resource value: 0x7f0a0065
+			public const int decor_content_parent = 2131361893;
 			
-			// aapt resource value: 0x7f0a0048
-			public const int default_activity_button = 2131361864;
-			
-			// aapt resource value: 0x7f0a0078
-			public const int design_bottom_sheet = 2131361912;
-			
-			// aapt resource value: 0x7f0a007f
-			public const int design_menu_item_action_area = 2131361919;
-			
-			// aapt resource value: 0x7f0a007e
-			public const int design_menu_item_action_area_stub = 2131361918;
+			// aapt resource value: 0x7f0a004d
+			public const int default_activity_button = 2131361869;
 			
 			// aapt resource value: 0x7f0a007d
-			public const int design_menu_item_text = 2131361917;
+			public const int design_bottom_sheet = 2131361917;
 			
-			// aapt resource value: 0x7f0a007c
-			public const int design_navigation_view = 2131361916;
+			// aapt resource value: 0x7f0a0084
+			public const int design_menu_item_action_area = 2131361924;
 			
-			// aapt resource value: 0x7f0a00a8
-			public const int digite_algo = 2131361960;
+			// aapt resource value: 0x7f0a0083
+			public const int design_menu_item_action_area_stub = 2131361923;
+			
+			// aapt resource value: 0x7f0a0082
+			public const int design_menu_item_text = 2131361922;
+			
+			// aapt resource value: 0x7f0a0081
+			public const int design_navigation_view = 2131361921;
+			
+			// aapt resource value: 0x7f0a00b8
+			public const int digite_algo = 2131361976;
 			
 			// aapt resource value: 0x7f0a0017
 			public const int disableHome = 2131361815;
 			
-			// aapt resource value: 0x7f0a0092
-			public const int dt_nascimento = 2131361938;
+			// aapt resource value: 0x7f0a00a3
+			public const int dt_nascimento = 2131361955;
 			
-			// aapt resource value: 0x7f0a0086
-			public const int dt_nascimento_info_user = 2131361926;
+			// aapt resource value: 0x7f0a008b
+			public const int dt_nascimento_info_user = 2131361931;
 			
-			// aapt resource value: 0x7f0a0085
-			public const int dt_nascimento_user = 2131361925;
+			// aapt resource value: 0x7f0a008a
+			public const int dt_nascimento_user = 2131361930;
 			
-			// aapt resource value: 0x7f0a0064
-			public const int edit_query = 2131361892;
+			// aapt resource value: 0x7f0a0069
+			public const int edit_query = 2131361897;
 			
-			// aapt resource value: 0x7f0a0091
-			public const int email = 2131361937;
+			// aapt resource value: 0x7f0a00a2
+			public const int email = 2131361954;
 			
-			// aapt resource value: 0x7f0a00b5
-			public const int email_info = 2131361973;
+			// aapt resource value: 0x7f0a00c6
+			public const int email_info = 2131361990;
 			
-			// aapt resource value: 0x7f0a00b4
-			public const int email_result = 2131361972;
+			// aapt resource value: 0x7f0a00c5
+			public const int email_result = 2131361989;
 			
 			// aapt resource value: 0x7f0a0024
 			public const int end = 2131361828;
 			
-			// aapt resource value: 0x7f0a00a5
-			public const int end_padder = 2131361957;
+			// aapt resource value: 0x7f0a00b5
+			public const int end_padder = 2131361973;
 			
-			// aapt resource value: 0x7f0a00b8
-			public const int ensinar = 2131361976;
+			// aapt resource value: 0x7f0a00c9
+			public const int ensinar = 2131361993;
 			
 			// aapt resource value: 0x7f0a002b
 			public const int enterAlways = 2131361835;
@@ -2493,23 +3880,26 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a002c
 			public const int enterAlwaysCollapsed = 2131361836;
 			
-			// aapt resource value: 0x7f0a0096
-			public const int entrar = 2131361942;
+			// aapt resource value: 0x7f0a00a7
+			public const int entrar = 2131361959;
 			
-			// aapt resource value: 0x7f0a008a
-			public const int exibirfoto = 2131361930;
+			// aapt resource value: 0x7f0a008f
+			public const int exibirfoto = 2131361935;
 			
 			// aapt resource value: 0x7f0a002d
 			public const int exitUntilCollapsed = 2131361837;
 			
-			// aapt resource value: 0x7f0a0046
-			public const int expand_activities_button = 2131361862;
+			// aapt resource value: 0x7f0a004b
+			public const int expand_activities_button = 2131361867;
 			
-			// aapt resource value: 0x7f0a0059
-			public const int expanded_menu = 2131361881;
+			// aapt resource value: 0x7f0a005e
+			public const int expanded_menu = 2131361886;
 			
-			// aapt resource value: 0x7f0a008c
-			public const int fab = 2131361932;
+			// aapt resource value: 0x7f0a009d
+			public const int fab = 2131361949;
+			
+			// aapt resource value: 0x7f0a0094
+			public const int ffwd = 2131361940;
 			
 			// aapt resource value: 0x7f0a003d
 			public const int fill = 2131361853;
@@ -2520,11 +3910,20 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0036
 			public const int fill_vertical = 2131361846;
 			
+			// aapt resource value: 0x7f0a0044
+			public const int fit = 2131361860;
+			
 			// aapt resource value: 0x7f0a0040
 			public const int @fixed = 2131361856;
 			
-			// aapt resource value: 0x7f0a00ab
-			public const int frame_perfil = 2131361963;
+			// aapt resource value: 0x7f0a0045
+			public const int fixed_height = 2131361861;
+			
+			// aapt resource value: 0x7f0a0046
+			public const int fixed_width = 2131361862;
+			
+			// aapt resource value: 0x7f0a00bb
+			public const int frame_perfil = 2131361979;
 			
 			// aapt resource value: 0x7f0a0005
 			public const int home = 2131361797;
@@ -2532,8 +3931,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0018
 			public const int homeAsUp = 2131361816;
 			
-			// aapt resource value: 0x7f0a004a
-			public const int icon = 2131361866;
+			// aapt resource value: 0x7f0a004f
+			public const int icon = 2131361871;
 			
 			// aapt resource value: 0x7f0a000e
 			public const int icon_only = 2131361806;
@@ -2541,20 +3940,23 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0028
 			public const int ifRoom = 2131361832;
 			
-			// aapt resource value: 0x7f0a0047
-			public const int image = 2131361863;
+			// aapt resource value: 0x7f0a004c
+			public const int image = 2131361868;
 			
-			// aapt resource value: 0x7f0a00a4
-			public const int info = 2131361956;
+			// aapt resource value: 0x7f0a00b4
+			public const int info = 2131361972;
 			
-			// aapt resource value: 0x7f0a0098
-			public const int inscrevase = 2131361944;
+			// aapt resource value: 0x7f0a00a9
+			public const int inscrevase = 2131361961;
+			
+			// aapt resource value: 0x7f0a0043
+			public const int italic = 2131361859;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
 			
-			// aapt resource value: 0x7f0a00b6
-			public const int itens = 2131361974;
+			// aapt resource value: 0x7f0a00c7
+			public const int itens = 2131361991;
 			
 			// aapt resource value: 0x7f0a0037
 			public const int left = 2131361847;
@@ -2562,38 +3964,41 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0013
 			public const int light = 2131361811;
 			
-			// aapt resource value: 0x7f0a009e
-			public const int line1 = 2131361950;
+			// aapt resource value: 0x7f0a00af
+			public const int line1 = 2131361967;
 			
-			// aapt resource value: 0x7f0a00a2
-			public const int line3 = 2131361954;
+			// aapt resource value: 0x7f0a00b2
+			public const int line3 = 2131361970;
 			
-			// aapt resource value: 0x7f0a00ac
-			public const int list = 2131361964;
+			// aapt resource value: 0x7f0a00bc
+			public const int list = 2131361980;
 			
 			// aapt resource value: 0x7f0a0014
 			public const int listMode = 2131361812;
 			
-			// aapt resource value: 0x7f0a0049
-			public const int list_item = 2131361865;
+			// aapt resource value: 0x7f0a004e
+			public const int list_item = 2131361870;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int logo = 2131361905;
+			// aapt resource value: 0x7f0a0076
+			public const int logo = 2131361910;
 			
-			// aapt resource value: 0x7f0a009c
-			public const int media_actions = 2131361948;
+			// aapt resource value: 0x7f0a00ad
+			public const int media_actions = 2131361965;
 			
-			// aapt resource value: 0x7f0a00b9
-			public const int menu_done = 2131361977;
+			// aapt resource value: 0x7f0a0097
+			public const int mediacontroller_progress = 2131361943;
 			
-			// aapt resource value: 0x7f0a00ba
-			public const int menu_home = 2131361978;
+			// aapt resource value: 0x7f0a00ca
+			public const int menu_done = 2131361994;
 			
-			// aapt resource value: 0x7f0a00bb
-			public const int menu_preferences = 2131361979;
+			// aapt resource value: 0x7f0a00cb
+			public const int menu_home = 2131361995;
 			
-			// aapt resource value: 0x7f0a00bc
-			public const int menu_search = 2131361980;
+			// aapt resource value: 0x7f0a00cc
+			public const int menu_preferences = 2131361996;
+			
+			// aapt resource value: 0x7f0a00cd
+			public const int menu_search = 2131361997;
 			
 			// aapt resource value: 0x7f0a0025
 			public const int middle = 2131361829;
@@ -2604,26 +4009,29 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a001e
 			public const int multiply = 2131361822;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int name_user_line13 = 2131361969;
+			// aapt resource value: 0x7f0a00c2
+			public const int name_user_line13 = 2131361986;
 			
-			// aapt resource value: 0x7f0a007b
-			public const int navigation_header_container = 2131361915;
+			// aapt resource value: 0x7f0a0080
+			public const int navigation_header_container = 2131361920;
 			
 			// aapt resource value: 0x7f0a0029
 			public const int never = 2131361833;
 			
-			// aapt resource value: 0x7f0a0090
-			public const int nome = 2131361936;
+			// aapt resource value: 0x7f0a0095
+			public const int next = 2131361941;
 			
-			// aapt resource value: 0x7f0a0082
-			public const int nome_info_user = 2131361922;
+			// aapt resource value: 0x7f0a00a1
+			public const int nome = 2131361953;
 			
-			// aapt resource value: 0x7f0a0081
-			public const int nome_user = 2131361921;
+			// aapt resource value: 0x7f0a0087
+			public const int nome_info_user = 2131361927;
 			
-			// aapt resource value: 0x7f0a00b0
-			public const int nome_user13 = 2131361968;
+			// aapt resource value: 0x7f0a0086
+			public const int nome_user = 2131361926;
+			
+			// aapt resource value: 0x7f0a00c1
+			public const int nome_user13 = 2131361985;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int none = 2131361805;
@@ -2631,29 +4039,35 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0015
 			public const int normal = 2131361813;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int nova_senha = 2131361906;
+			// aapt resource value: 0x7f0a0077
+			public const int nova_senha = 2131361911;
 			
-			// aapt resource value: 0x7f0a0073
-			public const int nova_senha_line = 2131361907;
+			// aapt resource value: 0x7f0a0078
+			public const int nova_senha_line = 2131361912;
 			
-			// aapt resource value: 0x7f0a00ad
-			public const int ok = 2131361965;
+			// aapt resource value: 0x7f0a00bd
+			public const int ok = 2131361981;
 			
-			// aapt resource value: 0x7f0a00ae
-			public const int outros = 2131361966;
+			// aapt resource value: 0x7f0a00be
+			public const int outros = 2131361982;
 			
 			// aapt resource value: 0x7f0a0030
 			public const int parallax = 2131361840;
 			
-			// aapt resource value: 0x7f0a004e
-			public const int parentPanel = 2131361870;
+			// aapt resource value: 0x7f0a0053
+			public const int parentPanel = 2131361875;
 			
-			// aapt resource value: 0x7f0a00a6
-			public const int pergunta = 2131361958;
+			// aapt resource value: 0x7f0a00b6
+			public const int pergunta = 2131361974;
 			
 			// aapt resource value: 0x7f0a0031
 			public const int pin = 2131361841;
+			
+			// aapt resource value: 0x7f0a0093
+			public const int play = 2131361939;
+			
+			// aapt resource value: 0x7f0a0091
+			public const int prev = 2131361937;
 			
 			// aapt resource value: 0x7f0a0006
 			public const int progress_circular = 2131361798;
@@ -2661,20 +4075,26 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0007
 			public const int progress_horizontal = 2131361799;
 			
-			// aapt resource value: 0x7f0a005c
-			public const int radio = 2131361884;
+			// aapt resource value: 0x7f0a00bf
+			public const int psts_tab_title = 2131361983;
 			
-			// aapt resource value: 0x7f0a0074
-			public const int repita_nova_senha = 2131361908;
+			// aapt resource value: 0x7f0a0061
+			public const int radio = 2131361889;
+			
+			// aapt resource value: 0x7f0a0079
+			public const int repita_nova_senha = 2131361913;
+			
+			// aapt resource value: 0x7f0a0092
+			public const int rew = 2131361938;
 			
 			// aapt resource value: 0x7f0a0038
 			public const int right = 2131361848;
 			
-			// aapt resource value: 0x7f0a0075
-			public const int rs_line = 2131361909;
+			// aapt resource value: 0x7f0a007a
+			public const int rs_line = 2131361914;
 			
-			// aapt resource value: 0x7f0a0088
-			public const int salvar = 2131361928;
+			// aapt resource value: 0x7f0a008d
+			public const int salvar = 2131361933;
 			
 			// aapt resource value: 0x7f0a001f
 			public const int screen = 2131361823;
@@ -2682,59 +4102,59 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a002e
 			public const int scroll = 2131361838;
 			
-			// aapt resource value: 0x7f0a0056
-			public const int scrollIndicatorDown = 2131361878;
+			// aapt resource value: 0x7f0a005b
+			public const int scrollIndicatorDown = 2131361883;
 			
-			// aapt resource value: 0x7f0a0053
-			public const int scrollIndicatorUp = 2131361875;
+			// aapt resource value: 0x7f0a0058
+			public const int scrollIndicatorUp = 2131361880;
 			
-			// aapt resource value: 0x7f0a0054
-			public const int scrollView = 2131361876;
+			// aapt resource value: 0x7f0a0059
+			public const int scrollView = 2131361881;
 			
 			// aapt resource value: 0x7f0a0041
 			public const int scrollable = 2131361857;
 			
-			// aapt resource value: 0x7f0a0066
-			public const int search_badge = 2131361894;
-			
-			// aapt resource value: 0x7f0a0065
-			public const int search_bar = 2131361893;
-			
-			// aapt resource value: 0x7f0a0067
-			public const int search_button = 2131361895;
-			
-			// aapt resource value: 0x7f0a006c
-			public const int search_close_btn = 2131361900;
-			
-			// aapt resource value: 0x7f0a0068
-			public const int search_edit_frame = 2131361896;
-			
-			// aapt resource value: 0x7f0a006e
-			public const int search_go_btn = 2131361902;
-			
-			// aapt resource value: 0x7f0a0069
-			public const int search_mag_icon = 2131361897;
+			// aapt resource value: 0x7f0a006b
+			public const int search_badge = 2131361899;
 			
 			// aapt resource value: 0x7f0a006a
-			public const int search_plate = 2131361898;
+			public const int search_bar = 2131361898;
 			
-			// aapt resource value: 0x7f0a006b
-			public const int search_src_text = 2131361899;
+			// aapt resource value: 0x7f0a006c
+			public const int search_button = 2131361900;
+			
+			// aapt resource value: 0x7f0a0071
+			public const int search_close_btn = 2131361905;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int search_edit_frame = 2131361901;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int search_go_btn = 2131361907;
+			
+			// aapt resource value: 0x7f0a006e
+			public const int search_mag_icon = 2131361902;
 			
 			// aapt resource value: 0x7f0a006f
-			public const int search_voice_btn = 2131361903;
+			public const int search_plate = 2131361903;
 			
 			// aapt resource value: 0x7f0a0070
-			public const int select_dialog_listview = 2131361904;
+			public const int search_src_text = 2131361904;
 			
-			// aapt resource value: 0x7f0a0094
-			public const int senha = 2131361940;
+			// aapt resource value: 0x7f0a0074
+			public const int search_voice_btn = 2131361908;
 			
-			// aapt resource value: 0x7f0a00a9
-			public const int seus_hobbies = 2131361961;
+			// aapt resource value: 0x7f0a0075
+			public const int select_dialog_listview = 2131361909;
 			
-			// aapt resource value: 0x7f0a005b
-			public const int shortcut = 2131361883;
+			// aapt resource value: 0x7f0a00a5
+			public const int senha = 2131361957;
+			
+			// aapt resource value: 0x7f0a00b9
+			public const int seus_hobbies = 2131361977;
+			
+			// aapt resource value: 0x7f0a0060
+			public const int shortcut = 2131361888;
 			
 			// aapt resource value: 0x7f0a0019
 			public const int showCustom = 2131361817;
@@ -2745,17 +4165,20 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a001b
 			public const int showTitle = 2131361819;
 			
-			// aapt resource value: 0x7f0a007a
-			public const int snackbar_action = 2131361914;
+			// aapt resource value: 0x7f0a009a
+			public const int shutter = 2131361946;
 			
-			// aapt resource value: 0x7f0a0079
-			public const int snackbar_text = 2131361913;
+			// aapt resource value: 0x7f0a007f
+			public const int snackbar_action = 2131361919;
+			
+			// aapt resource value: 0x7f0a007e
+			public const int snackbar_text = 2131361918;
 			
 			// aapt resource value: 0x7f0a002f
 			public const int snap = 2131361839;
 			
-			// aapt resource value: 0x7f0a004d
-			public const int spacer = 2131361869;
+			// aapt resource value: 0x7f0a0052
+			public const int spacer = 2131361874;
 			
 			// aapt resource value: 0x7f0a0008
 			public const int split_action_bar = 2131361800;
@@ -2775,65 +4198,71 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a0039
 			public const int start = 2131361849;
 			
-			// aapt resource value: 0x7f0a009b
-			public const int status_bar_latest_event_content = 2131361947;
+			// aapt resource value: 0x7f0a00ac
+			public const int status_bar_latest_event_content = 2131361964;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int submit_area = 2131361901;
+			// aapt resource value: 0x7f0a0072
+			public const int submit_area = 2131361906;
+			
+			// aapt resource value: 0x7f0a009b
+			public const int subtitles = 2131361947;
 			
 			// aapt resource value: 0x7f0a0016
 			public const int tabMode = 2131361814;
 			
+			// aapt resource value: 0x7f0a00c4
+			public const int tel_number = 2131361988;
+			
+			// aapt resource value: 0x7f0a0089
+			public const int tel_number_user = 2131361929;
+			
+			// aapt resource value: 0x7f0a00a4
+			public const int telefone = 2131361956;
+			
+			// aapt resource value: 0x7f0a00c3
+			public const int telefone_result = 2131361987;
+			
+			// aapt resource value: 0x7f0a0088
+			public const int telefone_user = 2131361928;
+			
 			// aapt resource value: 0x7f0a00b3
-			public const int tel_number = 2131361971;
+			public const int text = 2131361971;
 			
-			// aapt resource value: 0x7f0a0084
-			public const int tel_number_user = 2131361924;
+			// aapt resource value: 0x7f0a00b1
+			public const int text2 = 2131361969;
 			
-			// aapt resource value: 0x7f0a0093
-			public const int telefone = 2131361939;
+			// aapt resource value: 0x7f0a005a
+			public const int textSpacerNoButtons = 2131361882;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int telefone_result = 2131361970;
+			// aapt resource value: 0x7f0a00b7
+			public const int text_box = 2131361975;
 			
-			// aapt resource value: 0x7f0a0083
-			public const int telefone_user = 2131361923;
+			// aapt resource value: 0x7f0a009e
+			public const int text_campus = 2131361950;
 			
-			// aapt resource value: 0x7f0a00a3
-			public const int text = 2131361955;
+			// aapt resource value: 0x7f0a0098
+			public const int time = 2131361944;
 			
-			// aapt resource value: 0x7f0a00a1
-			public const int text2 = 2131361953;
-			
-			// aapt resource value: 0x7f0a0055
-			public const int textSpacerNoButtons = 2131361877;
-			
-			// aapt resource value: 0x7f0a00a7
-			public const int text_box = 2131361959;
-			
-			// aapt resource value: 0x7f0a008d
-			public const int text_campus = 2131361933;
-			
-			// aapt resource value: 0x7f0a009f
-			public const int time = 2131361951;
-			
-			// aapt resource value: 0x7f0a004b
-			public const int title = 2131361867;
+			// aapt resource value: 0x7f0a0096
+			public const int time_current = 2131361942;
 			
 			// aapt resource value: 0x7f0a0050
-			public const int title_template = 2131361872;
+			public const int title = 2131361872;
 			
-			// aapt resource value: 0x7f0a0080
-			public const int toolbar = 2131361920;
+			// aapt resource value: 0x7f0a0055
+			public const int title_template = 2131361877;
+			
+			// aapt resource value: 0x7f0a0085
+			public const int toolbar = 2131361925;
 			
 			// aapt resource value: 0x7f0a003a
 			public const int top = 2131361850;
 			
-			// aapt resource value: 0x7f0a004f
-			public const int topPanel = 2131361871;
+			// aapt resource value: 0x7f0a0054
+			public const int topPanel = 2131361876;
 			
-			// aapt resource value: 0x7f0a0077
-			public const int touch_outside = 2131361911;
+			// aapt resource value: 0x7f0a007c
+			public const int touch_outside = 2131361916;
 			
 			// aapt resource value: 0x7f0a0009
 			public const int up = 2131361801;
@@ -2841,8 +4270,11 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0a001c
 			public const int useLogo = 2131361820;
 			
-			// aapt resource value: 0x7f0a00af
-			public const int view_image13 = 2131361967;
+			// aapt resource value: 0x7f0a0099
+			public const int video_frame = 2131361945;
+			
+			// aapt resource value: 0x7f0a00c0
+			public const int view_image13 = 2131361984;
 			
 			// aapt resource value: 0x7f0a000a
 			public const int view_offset_helper = 2131361802;
@@ -3027,58 +4459,67 @@ namespace MimAcher.Mobile
 			public const int EscolherFoto = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int Home = 2130903080;
+			public const int exo_playback_control_view = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int Inscrever = 2130903081;
+			public const int exo_simple_player_view = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int Main = 2130903082;
+			public const int Home = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_media_action = 2130903083;
+			public const int Inscrever = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_media_cancel_action = 2130903084;
+			public const int Main = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_big_media = 2130903085;
+			public const int notification_media_action = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_big_media_narrow = 2130903086;
+			public const int notification_media_cancel_action = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_lines = 2130903087;
+			public const int notification_template_big_media = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int notification_template_media = 2130903088;
+			public const int notification_template_big_media_narrow = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int notification_template_part_chronometer = 2130903089;
+			public const int notification_template_lines = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int notification_template_part_time = 2130903090;
+			public const int notification_template_media = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int Perfil = 2130903091;
+			public const int notification_template_part_chronometer = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int select_dialog_item_material = 2130903092;
+			public const int notification_template_part_time = 2130903092;
 			
 			// aapt resource value: 0x7f030035
-			public const int select_dialog_multichoice_material = 2130903093;
+			public const int Perfil = 2130903093;
 			
 			// aapt resource value: 0x7f030036
-			public const int select_dialog_singlechoice_material = 2130903094;
+			public const int psts_tab = 2130903094;
 			
 			// aapt resource value: 0x7f030037
-			public const int support_simple_spinner_dropdown_item = 2130903095;
+			public const int select_dialog_item_material = 2130903095;
 			
 			// aapt resource value: 0x7f030038
-			public const int toolbar = 2130903096;
+			public const int select_dialog_multichoice_material = 2130903096;
 			
 			// aapt resource value: 0x7f030039
-			public const int UsuarioResultado = 2130903097;
+			public const int select_dialog_singlechoice_material = 2130903097;
+			
+			// aapt resource value: 0x7f03003a
+			public const int support_simple_spinner_dropdown_item = 2130903098;
+			
+			// aapt resource value: 0x7f03003b
+			public const int toolbar = 2130903099;
+			
+			// aapt resource value: 0x7f03003c
+			public const int UsuarioResultado = 2130903100;
 			
 			static Layout()
 			{
@@ -3093,14 +4534,53 @@ namespace MimAcher.Mobile
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f05003d
-			public const int ApplicationName = 2131034173;
+			// aapt resource value: 0x7f050044
+			public const int ApplicationName = 2131034180;
 			
-			// aapt resource value: 0x7f05003c
-			public const int Hello = 2131034172;
+			// aapt resource value: 0x7f050043
+			public const int Hello = 2131034179;
 			
-			// aapt resource value: 0x7f05003e
-			public const int Text = 2131034174;
+			// aapt resource value: 0x7f05004e
+			public const int HintCampoAprender = 2131034190;
+			
+			// aapt resource value: 0x7f050051
+			public const int HintCampoEnsinar = 2131034193;
+			
+			// aapt resource value: 0x7f05004b
+			public const int HintCampoHobbies = 2131034187;
+			
+			// aapt resource value: 0x7f05004d
+			public const int PerguntaAprender = 2131034189;
+			
+			// aapt resource value: 0x7f050050
+			public const int PerguntaEnsinar = 2131034192;
+			
+			// aapt resource value: 0x7f05004a
+			public const int PerguntaHobbies = 2131034186;
+			
+			// aapt resource value: 0x7f050048
+			public const int SubtitleCadastrar = 2131034184;
+			
+			// aapt resource value: 0x7f050045
+			public const int Text = 2131034181;
+			
+			// aapt resource value: 0x7f05004c
+			public const int TitleAprender = 2131034188;
+			
+			// aapt resource value: 0x7f050047
+			public const int TitleCadastrar = 2131034183;
+			
+			// aapt resource value: 0x7f050053
+			public const int TitleEditarPerfil = 2131034195;
+			
+			// aapt resource value: 0x7f05004f
+			public const int TitleEnsinar = 2131034191;
+			
+			// aapt resource value: 0x7f050049
+			public const int TitleHobbies = 2131034185;
+			
+			// aapt resource value: 0x7f050052
+			public const int TitleHome = 2131034194;
 			
 			// aapt resource value: 0x7f050025
 			public const int abc_action_bar_home_description = 2131034149;
@@ -3273,8 +4753,29 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f050022
 			public const int decline = 2131034146;
 			
+			// aapt resource value: 0x7f05003c
+			public const int exo_controls_fastforward_description = 2131034172;
+			
+			// aapt resource value: 0x7f05003d
+			public const int exo_controls_next_description = 2131034173;
+			
+			// aapt resource value: 0x7f05003e
+			public const int exo_controls_pause_description = 2131034174;
+			
 			// aapt resource value: 0x7f05003f
-			public const int facebook_app_id = 2131034175;
+			public const int exo_controls_play_description = 2131034175;
+			
+			// aapt resource value: 0x7f050040
+			public const int exo_controls_previous_description = 2131034176;
+			
+			// aapt resource value: 0x7f050041
+			public const int exo_controls_rewind_description = 2131034177;
+			
+			// aapt resource value: 0x7f050042
+			public const int exo_controls_stop_description = 2131034178;
+			
+			// aapt resource value: 0x7f050046
+			public const int facebook_app_id = 2131034182;
 			
 			// aapt resource value: 0x7f050038
 			public const int status_bar_notification_info_overflow = 2131034168;
@@ -3754,8 +5255,23 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f080004
 			public const int CardView_Light = 2131230724;
 			
+			// aapt resource value: 0x7f08015c
+			public const int ExoMediaButton = 2131231068;
+			
+			// aapt resource value: 0x7f08015d
+			public const int ExoMediaButton_FastForward = 2131231069;
+			
 			// aapt resource value: 0x7f08015e
-			public const int MyTheme_Splash = 2131231070;
+			public const int ExoMediaButton_Next = 2131231070;
+			
+			// aapt resource value: 0x7f08015f
+			public const int ExoMediaButton_Previous = 2131231071;
+			
+			// aapt resource value: 0x7f080160
+			public const int ExoMediaButton_Rewind = 2131231072;
+			
+			// aapt resource value: 0x7f080163
+			public const int MyTheme_Splash = 2131231075;
 			
 			// aapt resource value: 0x7f08001c
 			public const int Platform_AppCompat = 2131230748;
@@ -4069,8 +5585,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f0800f7
 			public const int Theme_AppCompat_NoActionBar = 2131230967;
 			
-			// aapt resource value: 0x7f08015d
-			public const int Theme_Base = 2131231069;
+			// aapt resource value: 0x7f080162
+			public const int Theme_Base = 2131231074;
 			
 			// aapt resource value: 0x7f08014d
 			public const int Theme_Design = 2131231053;
@@ -4093,8 +5609,8 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f080000
 			public const int Theme_IAPTheme = 2131230720;
 			
-			// aapt resource value: 0x7f08015c
-			public const int Theme_Splash = 2131231068;
+			// aapt resource value: 0x7f080161
+			public const int Theme_Splash = 2131231073;
 			
 			// aapt resource value: 0x7f0800f8
 			public const int ThemeOverlay_AppCompat = 2131230968;
@@ -5058,6 +6574,12 @@ namespace MimAcher.Mobile
 			// aapt resource value: 3
 			public const int AppCompatTheme_windowNoTitle = 3;
 			
+			public static int[] AspectRatioFrameLayout = new int[] {
+					2130772294};
+			
+			// aapt resource value: 0
+			public const int AspectRatioFrameLayout_resize_mode = 0;
+			
 			public static int[] BottomSheetBehavior_Params = new int[] {
 					2130772204,
 					2130772205};
@@ -5299,12 +6821,12 @@ namespace MimAcher.Mobile
 					2130772232,
 					2130772233,
 					2130772234,
-					2130772270,
-					2130772271,
-					2130772272,
-					2130772273,
-					2130772274,
-					2130772275};
+					2130772287,
+					2130772288,
+					2130772289,
+					2130772290,
+					2130772291,
+					2130772292};
 			
 			// aapt resource value: 1
 			public const int FloatingActionButton_backgroundTint = 1;
@@ -5614,6 +7136,90 @@ namespace MimAcher.Mobile
 			// aapt resource value: 4
 			public const int NavigationView_menu = 4;
 			
+			public static int[] PagerSlidingTabStrip = new int[] {
+					2130772270,
+					2130772271,
+					2130772272,
+					2130772273,
+					2130772274,
+					2130772275,
+					2130772276,
+					2130772277,
+					2130772278,
+					2130772279,
+					2130772280,
+					2130772281,
+					2130772282,
+					2130772283,
+					2130772284,
+					2130772285,
+					2130772286};
+			
+			// aapt resource value: 2
+			public const int PagerSlidingTabStrip_pstsDividerColor = 2;
+			
+			// aapt resource value: 6
+			public const int PagerSlidingTabStrip_pstsDividerPadding = 6;
+			
+			// aapt resource value: 3
+			public const int PagerSlidingTabStrip_pstsDividerWidth = 3;
+			
+			// aapt resource value: 0
+			public const int PagerSlidingTabStrip_pstsIndicatorColor = 0;
+			
+			// aapt resource value: 4
+			public const int PagerSlidingTabStrip_pstsIndicatorHeight = 4;
+			
+			// aapt resource value: 12
+			public const int PagerSlidingTabStrip_pstsPaddingMiddle = 12;
+			
+			// aapt resource value: 8
+			public const int PagerSlidingTabStrip_pstsScrollOffset = 8;
+			
+			// aapt resource value: 10
+			public const int PagerSlidingTabStrip_pstsShouldExpand = 10;
+			
+			// aapt resource value: 9
+			public const int PagerSlidingTabStrip_pstsTabBackground = 9;
+			
+			// aapt resource value: 7
+			public const int PagerSlidingTabStrip_pstsTabPaddingLeftRight = 7;
+			
+			// aapt resource value: 11
+			public const int PagerSlidingTabStrip_pstsTextAllCaps = 11;
+			
+			// aapt resource value: 14
+			public const int PagerSlidingTabStrip_pstsTextAlpha = 14;
+			
+			// aapt resource value: 13
+			public const int PagerSlidingTabStrip_pstsTextColorSelected = 13;
+			
+			// aapt resource value: 16
+			public const int PagerSlidingTabStrip_pstsTextSelectedStyle = 16;
+			
+			// aapt resource value: 15
+			public const int PagerSlidingTabStrip_pstsTextStyle = 15;
+			
+			// aapt resource value: 1
+			public const int PagerSlidingTabStrip_pstsUnderlineColor = 1;
+			
+			// aapt resource value: 5
+			public const int PagerSlidingTabStrip_pstsUnderlineHeight = 5;
+			
+			public static int[] PlaybackControlView = new int[] {
+					2130772293,
+					2130772295,
+					2130772296};
+			
+			// aapt resource value: 0
+			public const int PlaybackControlView_fastforward_increment = 0;
+			
+			// aapt resource value: 1
+			public const int PlaybackControlView_rewind_increment = 1;
+			
+			// aapt resource value: 2
+			public const int PlaybackControlView_show_timeout = 2;
+			
 			public static int[] PopupWindow = new int[] {
 					16843126,
 					2130772159};
@@ -5747,6 +7353,32 @@ namespace MimAcher.Mobile
 			
 			// aapt resource value: 2
 			public const int SignInButton_scopeUris = 2;
+			
+			public static int[] SimpleExoPlayerView = new int[] {
+					2130772293,
+					2130772294,
+					2130772295,
+					2130772296,
+					2130772297,
+					2130772298};
+			
+			// aapt resource value: 0
+			public const int SimpleExoPlayerView_fastforward_increment = 0;
+			
+			// aapt resource value: 1
+			public const int SimpleExoPlayerView_resize_mode = 1;
+			
+			// aapt resource value: 2
+			public const int SimpleExoPlayerView_rewind_increment = 2;
+			
+			// aapt resource value: 3
+			public const int SimpleExoPlayerView_show_timeout = 3;
+			
+			// aapt resource value: 4
+			public const int SimpleExoPlayerView_use_controller = 4;
+			
+			// aapt resource value: 5
+			public const int SimpleExoPlayerView_use_texture_view = 5;
 			
 			public static int[] SnackbarLayout = new int[] {
 					16843039,

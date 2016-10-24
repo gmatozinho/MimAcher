@@ -4,16 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
-    <Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary"
-        android:popupTheme="@android:style/ThemeOverlay.Material.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:titleTextColor="#ffffffff"
-        android:subtitleTextColor="#ffff0000"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar" />
+  <include
+          android:id="@+id/toolbar"
+          layout="@layout/toolbar" />
     <TextView
         android:text="Pergunta"
         android:textAppearance="?android:attr/textAppearanceLarge"
