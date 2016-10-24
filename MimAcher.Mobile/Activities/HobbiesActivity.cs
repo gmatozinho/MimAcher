@@ -5,6 +5,7 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
+using ActionBar = Android.Support.V7.App.ActionBar;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -42,9 +43,9 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Hobbies";
-            pergunta.Text = "Quais são os seus hobbies?";
-            _campoHobbie.Hint = "Digite um Hobbie";
+            ActionBar.SetTitle(Resource.String.TitleHobbies);
+            pergunta.SetText(Resource.String.PerguntaHobbies);
+            _campoHobbie.SetHint(Resource.String.HintCampoHobbies);
 
             //Funcionalidades
             _campoHobbie.TextChanged += (sender, hobbiecapturado) => _hobbie = hobbiecapturado.Text.ToString();

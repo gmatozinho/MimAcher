@@ -42,7 +42,7 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Editar Perfil";
+            ActionBar.SetTitle(Resource.String.TitleEditarPerfil);
             telefoneInfoUser.Hint = _participante.Telefone;
             nomeInfoUser.Hint = _participante.Nome;
             dtNascimentoInfoUser.Hint = _participante.Nascimento;
