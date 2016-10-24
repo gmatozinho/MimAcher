@@ -43,9 +43,9 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Ensinar";
-            pergunta.Text = "O que você quer ensinar?";
-            _campoEnsinar.Hint = "Digite algo para ensinar";
+            ActionBar.SetTitle(Resource.String.TitleEnsinar);
+            pergunta.SetText(Resource.String.PerguntaEnsinar);
+            _campoEnsinar.SetHint(Resource.String.HintCampoEnsinar);
 
             //Funcionalidades           
             _campoEnsinar.TextChanged += (sender, e) => _ensinar = e.Text.ToString();
@@ -86,7 +86,8 @@ namespace MimAcher.Mobile.Activities
             }
             return base.OnOptionsItemSelected(item);
         }
-        
 
+
+        
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Android;
 using Android.App;
@@ -66,8 +67,9 @@ namespace MimAcher.Mobile.Activities
                 campoTelefone.Text = tel;
             }
 
-            ActionBar.Title = "Cadastrar";
-            ActionBar.Subtitle = "Informações Básicas";
+            //ActionBar.Title = "Cadastrar";
+            ActionBar.Title = GetString(Resource.String.TitleCadastrar);
+            ActionBar.Subtitle = GetString(Resource.String.SubtitleCadastrar);
 
 
             //Pegar as informações inseridas

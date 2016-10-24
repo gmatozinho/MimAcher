@@ -5,6 +5,7 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
+using ActionBar = Android.Support.V7.App.ActionBar;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -43,9 +44,9 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Aprender";
-            pergunta.Text = "O que você quer aprender?";
-            _campoAprender.Hint = "Digite algo para aprender";
+            ActionBar.SetTitle(Resource.String.TitleAprender);
+            pergunta.SetText(Resource.String.PerguntaAprender);
+            _campoAprender.SetHint(Resource.String.HintCampoAprender);
 
             //Funcionalidades
             _campoAprender.TextChanged += (sender, a) => _aprender = a.Text.ToString();
@@ -87,5 +88,8 @@ namespace MimAcher.Mobile.Activities
             }
             return base.OnOptionsItemSelected(item);
         }
+
+
+       
     }
 }

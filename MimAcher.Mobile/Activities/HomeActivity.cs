@@ -42,13 +42,12 @@ namespace MimAcher.Mobile.Activities
 
             SetActionBar(toolbar);
             //Modificando a parte textual
-            ActionBar.Title = "Home";
+            ActionBar.SetTitle(Resource.String.TitleHome);
 
             //Criando os tabs
-            
-            CreateTab(typeof(ResultHobbiesActivity), "hobbies", "Hobbies");
-            CreateTab(typeof(ResultAprenderActivity), "aprender", "Aprender");
-            CreateTab(typeof(ResultEnsinarActivity), "ensinar", "Ensinar");
+            CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies));
+            CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender));
+            CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar));
 
             //Iniciando o botão flutuante
             FabOptions();           
@@ -109,24 +108,24 @@ namespace MimAcher.Mobile.Activities
         }
 
         //Cria os tabs
-        private void CreateTab(Type activityType, string tag, string label)
+        private void CreateTab(Type activityType, string label)
         {
-            
+
             var intent = new Intent(this, activityType);
             intent.AddFlags(ActivityFlags.NewTask);
             intent.PutExtra("member", _participante.ParticipanteToBundle());
-            var spec = TabHost.NewTabSpec(tag);
+            var spec = TabHost.NewTabSpec(label);
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
             var drawableIcon = Resources.GetDrawable(Resource.Drawable.abc_tab_indicator_material);
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
-            spec.SetIndicator(label,drawableIcon);
+            spec.SetIndicator(label, drawableIcon);
             spec.SetContent(intent);
 
             TabHost.AddTab(spec);
         }
 
 
-        
+
     }
 
 }
