@@ -11,19 +11,14 @@ namespace MimAcher.Mobile.Utilitarios
         {
             WebRequest requisicao = MontardorRequisicao.MontarRequisicaoUsuario();
 
-            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
-            {
-                string json = JsonParser.MontarJsonUsuario(participante);
-                EnviarJson(json, streamSaida);
-            }
+            string json = JsonParser.MontarJsonUsuario(participante);
+            EnviarJson(json, requisicao);
 
             ObterResposta(requisicao);
+
             requisicao = MontardorRequisicao.MontarRequisicaoParticipante();
-            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
-            {
-                string json = JsonParser.MontarJsonParticipante(participante);
-                EnviarJson(json, streamSaida);
-            }
+            json = JsonParser.MontarJsonParticipante(participante);
+            EnviarJson(json, requisicao);
 
             return ObterResposta(requisicao);
         }
@@ -33,11 +28,14 @@ namespace MimAcher.Mobile.Utilitarios
 
         }
 
-        public static int EnviarItem(TipoItem tipo, string item)
+        //TODO: setar valor de retorno correto
+        public static bool EnviarItem(string item)
         {
-            int codigo_item = 1;
+            string json = JsonParser.MontarJsonItem(item);
+            WebRequest requisicao = MontardorRequisicao.MontarRequisicaoItem();
+            EnviarJson(json, requisicao);
 
-            return codigo_item;
+            return ObterResposta(requisicao);
         }
 
         public static Dictionary<string, List<Participante>> Match(Participante a)
@@ -55,13 +53,16 @@ namespace MimAcher.Mobile.Utilitarios
             return matchs;
         }
 
-        private static void EnviarJson(string json, StreamWriter streamSaida)
+        private static void EnviarJson(string json, WebRequest requisicao)
         {
-            streamSaida.Write(json);
-            streamSaida.Flush();
-            streamSaida.Close();
+            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
+            {
+                streamSaida.Write(json);
+                streamSaida.Flush();
+                streamSaida.Close();
+            }
         }
-
+        //TODO: setar valor de retorno correto
         private static bool ObterResposta(WebRequest requisicao)
         {
             WebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
@@ -69,6 +70,7 @@ namespace MimAcher.Mobile.Utilitarios
             using (StreamReader streamEntrada = new StreamReader(resposta.GetResponseStream()))
             {
                 resultado = streamEntrada.ReadToEnd();
+                streamEntrada.Close();
             }
 
             bool sucesso;

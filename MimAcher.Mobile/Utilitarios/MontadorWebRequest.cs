@@ -21,7 +21,7 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuario/add");
             requisicao.ContentType = "application/json";
-            requisicao.Method = "POST";
+            requisicao.Method = WebRequestMethods.Http.Post;
 
             return requisicao;
         }
@@ -30,7 +30,16 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "participante/add");
             requisicao.ContentType = "application/json";
-            requisicao.Method = "POST";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoItem()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
 
             return requisicao;
         }

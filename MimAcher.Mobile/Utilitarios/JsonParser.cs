@@ -15,14 +15,14 @@ namespace MimAcher.Mobile.Utilitarios
 {
     public static class JsonParser
     {
-        private static string MontarJsonItem(string nome_item)
+        public static string MontarJsonItem(string nome_item)
         {
             return "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \""+ nome_item + "\" }] }";
         }
 
         public static string MontarJsonUsuario(Participante participante)
         {
-            return "{ \"listausuario\":[{\"cod_usuario\": 0, \"email\":\""+ participante.Email + 
+            return "{ \"listausuario\":[{\"cod_usuario\": 1, \"email\":\""+ participante.Email + 
                                 "\", \"senha\": \""+ participante.Senha + "\"}]}";
         }
 
@@ -30,8 +30,8 @@ namespace MimAcher.Mobile.Utilitarios
         {
             return "{ \"listparticipante\": [{ \"cod_participante\": 0, \"cod_usuario\": 0," +
                                     "\"cod_campus\": 1, \"nome\": \""+ participante.Nome +"\", \"dt_nascimento\":" +
-                                    "\""+ participante.Nascimento +"\", \"latitude\": 0, " +
-                                    "\"longitude\": 0 }]}";
+                                    "\""+ participante.Nascimento +"\", \"latitude\": 0.0, " +
+                                    "\"longitude\": 0.0 }]}";
         }
 
         private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)

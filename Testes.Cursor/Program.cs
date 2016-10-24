@@ -1,5 +1,6 @@
 ﻿using MimAcher.GeradorDados;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Utilitarios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
