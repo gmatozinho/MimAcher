@@ -46,6 +46,7 @@ namespace MimAcher.Mobile.Activities
             var campoEMail = FindViewById<EditText>(Resource.Id.email);
             var campoDtNascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             var campoTelefone = FindViewById<EditText>(Resource.Id.telefone);
+            //pegar lista de campus do banco
             var opcoesCampus = new List<string> { "Serra", "Vitória", "Vila Velha" };
             var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -57,7 +58,9 @@ namespace MimAcher.Mobile.Activities
             //Escolhendo o Campus
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
+
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
+            campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
             var escolhaCampus = spinnerCampus.SelectedItem;
             _campus = escolhaCampus.ToString();
             
@@ -66,12 +69,10 @@ namespace MimAcher.Mobile.Activities
             {
                 campoTelefone.Text = tel;
             }
-
-            //ActionBar.Title = "Cadastrar";
+            
             ActionBar.Title = GetString(Resource.String.TitleCadastrar);
             ActionBar.Subtitle = GetString(Resource.String.SubtitleCadastrar);
-
-
+            
             //Pegar as informações inseridas
             campoNome.TextChanged += (sender, n) => _nome = n.Text.ToString();
             campoEMail.TextChanged += (sender, e) => _email = e.Text.ToString();
@@ -81,9 +82,8 @@ namespace MimAcher.Mobile.Activities
             campoTelefone.TextChanged += (sender, t) => _telefone = t.Text.ToString();
             
         }
-
-        //Botar as validações do cayo
-        private void RegistrarParticipante(Context activity)
+        
+        private void InscreverParticipante(Context activity)
         {
             var participante = new Participante(CriarDicionarioParaMontarParticipante());
 
@@ -117,7 +117,7 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_done:
-                    RegistrarParticipante(this);
+                    InscreverParticipante(this);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
