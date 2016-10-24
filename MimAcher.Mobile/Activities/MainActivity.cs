@@ -10,7 +10,7 @@ using MimAcher.Mobile.Utilitarios;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
-    public class MainActivity : FabricaTelasSemProcedimento
+    public class MainActivity : FabricaTelasNormaisSemProcedimento
     {
         
         //Variaveis globais

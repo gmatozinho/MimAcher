@@ -9,7 +9,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
-    public class EditarPerfilActivity : FabricaTelasSemProcedimento
+    public class EditarPerfilActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
         private string _nome;

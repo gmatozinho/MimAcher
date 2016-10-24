@@ -17,7 +17,7 @@ namespace MimAcher.Mobile.Activities
 {
 
     [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
-    public class InscreverActivity : FabricaTelasSemProcedimento
+    public class InscreverActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
         private string _senha;

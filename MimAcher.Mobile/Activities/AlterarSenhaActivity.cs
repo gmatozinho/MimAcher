@@ -8,7 +8,7 @@ using MimAcher.Mobile.Utilitarios;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "AlterarSenhaActivity", Theme = "@style/Theme.Splash")]
-    public class AlterarSenhaActivity : FabricaTelasSemProcedimento
+    public class AlterarSenhaActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
         private string _novasenha;

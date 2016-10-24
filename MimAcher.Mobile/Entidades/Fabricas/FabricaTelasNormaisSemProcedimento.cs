@@ -3,7 +3,7 @@ using MimAcher.Mobile.Activities;
 
 namespace MimAcher.Mobile.Entidades.Fabricas
 {
-    public class FabricaTelasSemProcedimento : FabricaAbstrataTelasNormais
+    public class FabricaTelasNormaisSemProcedimento : FabricaAbstrataTelasNormais
     {
         protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {

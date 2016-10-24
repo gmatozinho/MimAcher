@@ -170,8 +170,8 @@
     <Compile Include="Activities\SplashScreen.cs" />
     <Compile Include="Entidades\PacoteAbstrato.cs" />
     <Compile Include="Entidades\Fabricas\FabricaAbstrataTelasNormais.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasComProcedimento.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasSemProcedimento.cs" />
+    <Compile Include="Entidades\Fabricas\FabricaTelasNormaisComProcedimento.cs" />
+    <Compile Include="Entidades\Fabricas\FabricaTelasNormaisSemProcedimento.cs" />
     <Compile Include="Services\ServicoUsuario.cs" />
     <Compile Include="Utilitarios\JsonParser.cs" />
     <Compile Include="Utilitarios\MontadorWebRequest.cs" />
