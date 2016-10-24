@@ -21,8 +21,6 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuario/add");
             requisicao.ContentType = "application/json";
-            requisicao.Accept = "application/json";
-            //requisicao.Connection = "Keep-Alive";
             requisicao.Method = "POST";
 
             return requisicao;

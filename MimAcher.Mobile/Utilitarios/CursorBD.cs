@@ -17,6 +17,7 @@ namespace MimAcher.Mobile.Utilitarios
                 EnviarJson(json, streamSaida);
             }
 
+            ObterResposta(requisicao);
             requisicao = MontardorRequisicao.MontarRequisicaoParticipante();
             using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
             {
@@ -25,7 +26,6 @@ namespace MimAcher.Mobile.Utilitarios
             }
 
             return ObterResposta(requisicao);
-            
         }
 
         public static void EnviarItens(TipoItem tipo, List<string> itens)
