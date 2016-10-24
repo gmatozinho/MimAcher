@@ -28,7 +28,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonParticipante(Participante participante)
         {
-            return "{ \"listparticipante\": [{ \"cod_participante\": 0, \"cod_usuario\": 0," +
+            return "{ \"listparticipante\": [{ \"cod_participante\": 1, \"cod_usuario\": 1," +
                                     "\"cod_campus\": 1, \"nome\": \""+ participante.Nome +"\", \"dt_nascimento\":" +
                                     "\""+ participante.Nascimento +"\", \"latitude\": 0.0, " +
                                     "\"longitude\": 0.0 }]}";

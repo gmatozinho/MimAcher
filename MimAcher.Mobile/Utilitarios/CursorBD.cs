@@ -2,25 +2,31 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Utilitarios;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System;
 
 namespace MimAcher.Mobile.Utilitarios
 {
     public static class CursorBD
     {
-        public static bool EnviarParticipante(Participante participante)
+        public static int EnviarParticipante(Participante participante)
         {
-            WebRequest requisicao = MontardorRequisicao.MontarRequisicaoUsuario();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
             string json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
-            ObterResposta(requisicao);
+            int codigo_usuario = (int)ObterResposta(requisicao);
 
-            requisicao = MontardorRequisicao.MontarRequisicaoParticipante();
+            requisicao = MontadorRequisicao.MontarRequisicaoPostParticipante();
             json = JsonParser.MontarJsonParticipante(participante);
             EnviarJson(json, requisicao);
 
-            return ObterResposta(requisicao);
+            int codigo_participante = (int)ObterResposta(requisicao);
+
+            return codigo_participante;
         }
 
         public static void EnviarItens(TipoItem tipo, List<string> itens)
@@ -29,10 +35,10 @@ namespace MimAcher.Mobile.Utilitarios
         }
 
         //TODO: setar valor de retorno correto
-        public static bool EnviarItem(string item)
+        public static object EnviarItem(string item)
         {
             string json = JsonParser.MontarJsonItem(item);
-            WebRequest requisicao = MontardorRequisicao.MontarRequisicaoItem();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostItem();
             EnviarJson(json, requisicao);
 
             return ObterResposta(requisicao);
@@ -63,7 +69,7 @@ namespace MimAcher.Mobile.Utilitarios
             }
         }
         //TODO: setar valor de retorno correto
-        private static bool ObterResposta(WebRequest requisicao)
+        private static object ObterResposta(WebRequest requisicao)
         {
             WebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
             string resultado;
@@ -73,13 +79,26 @@ namespace MimAcher.Mobile.Utilitarios
                 streamEntrada.Close();
             }
 
-            bool sucesso;
+            return resultado;
+        }
 
-            if (resultado.Contains("True"))
-                sucesso = true;
-            else sucesso = false;
+        public static Dictionary<int, string> ObterCampi()
+        {
+            Dictionary<int, string> campi = new Dictionary<int, string>();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoGetCampi();
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            return sucesso;
+            var listaCampi = objetoResposta.SelectToken("data");
+
+            foreach (var token in listaCampi)
+            {
+                string chave = token.SelectToken("cod_campus").ToString().Replace("{", "").Replace("}", "");
+                string valor = token.SelectToken("local").ToString().Replace("{", "").Replace("}", "");
+
+                campi[Int32.Parse(chave)] = valor;
+            }
+
+            return campi;
         }
     }
 }

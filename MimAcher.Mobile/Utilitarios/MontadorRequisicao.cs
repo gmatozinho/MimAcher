@@ -13,11 +13,11 @@ using System.Net;
 
 namespace MimAcher.Mobile.Utilitarios
 {
-    public static class MontardorRequisicao
+    public static class MontadorRequisicao
     {
         private static string url = "http://ghoststation.ddns.net:8092/";
 
-        public static WebRequest MontarRequisicaoUsuario()
+        public static WebRequest MontarRequisicaoPostUsuario()
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuario/add");
             requisicao.ContentType = "application/json";
@@ -26,7 +26,7 @@ namespace MimAcher.Mobile.Utilitarios
             return requisicao;
         }
 
-        public static WebRequest MontarRequisicaoParticipante()
+        public static WebRequest MontarRequisicaoPostParticipante()
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "participante/add");
             requisicao.ContentType = "application/json";
@@ -35,11 +35,20 @@ namespace MimAcher.Mobile.Utilitarios
             return requisicao;
         }
 
-        public static WebRequest MontarRequisicaoItem()
+        public static WebRequest MontarRequisicaoPostItem()
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetCampi()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "campus/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
 
             return requisicao;
         }
