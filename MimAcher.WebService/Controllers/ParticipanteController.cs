@@ -64,7 +64,7 @@ namespace MimAcher.WebService.Models
             if (listaparticipante == null)
             {
                 jsonResult = Json(new
-                {
+                {   
                     success = false
                 }, JsonRequestBehavior.AllowGet);
 
@@ -81,8 +81,9 @@ namespace MimAcher.WebService.Models
                     participante.cod_campus = pt.cod_participante;
                     participante.nome = pt.nome;
                     participante.telefone = pt.telefone;
-                    participante.dt_nascimento = pt.dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude + "  " + pt.longitude + ")");
+                    participante.dt_nascimento = (DateTime) pt.dt_nascimento;
+                    //participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude.ToString() + "  " + pt.longitude.ToString() + ")");
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
 
                     GestorDeParticipante.InserirParticipante(participante);
                 }
@@ -95,6 +96,23 @@ namespace MimAcher.WebService.Models
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
+        }
+
+        public String RetornaDadoSemVigurla(String data)
+        {
+            string[] retornoSplit = data.Split(',');
+
+            if (retornoSplit.Length <= 1)
+            {
+                return data;
+            }
+            else
+            {
+                data = retornoSplit[0] + "." + retornoSplit[1];
+
+                return data;
+            }
+
         }
     }
 }
