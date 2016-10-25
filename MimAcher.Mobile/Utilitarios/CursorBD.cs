@@ -18,12 +18,6 @@ namespace MimAcher.Mobile.Utilitarios
             string json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
-            var codigo_usuario = ObterResposta(requisicao);
-
-            requisicao = MontadorRequisicao.MontarRequisicaoPostParticipante();
-            json = JsonParser.MontarJsonParticipante(participante);
-            EnviarJson(json, requisicao);
-
             var codigo_participante = ObterResposta(requisicao);
 
             return 1; // codigo_participante;

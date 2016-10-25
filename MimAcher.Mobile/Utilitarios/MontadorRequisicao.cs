@@ -19,16 +19,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static WebRequest MontarRequisicaoPostUsuario()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuario/add");
-            requisicao.ContentType = "application/json";
-            requisicao.Method = WebRequestMethods.Http.Post;
-
-            return requisicao;
-        }
-
-        public static WebRequest MontarRequisicaoPostParticipante()
-        {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participante/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuarioparticipante/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
