@@ -3,15 +3,24 @@ solution: MimAcher.sln
 
 jdk:
   - oraclejdk8
+  
+env:
+ global:
+  - EnableNuGetPackageRestore=true 
+  
 addons:
   apt:
     packages:
       - oracle-java8-installer
   sonarqube: true
   
+before_install:
+ - wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-x86/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg"
+ - sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
+ 
 before_script:
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
   
 script:
-  - xbuild /p:Configuration=Debug MimAcher.sln
+  - xbuild
   - sonar-scanner
