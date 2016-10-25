@@ -15,7 +15,12 @@ namespace MimAcher.Aplicacao
         {
             this.RepositorioDeParticipante = new RepositorioDeParticipante();
         }
-        
+
+        public int ObterIdDeUltimoParticipante()
+        {
+            return this.RepositorioDeParticipante.ObterIdDeUltimoParticipante();
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorId(int id)
         {
             return this.RepositorioDeParticipante.ObterParticipantePorId(id);

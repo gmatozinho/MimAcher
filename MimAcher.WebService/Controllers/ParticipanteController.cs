@@ -83,8 +83,7 @@ namespace MimAcher.WebService.Models
                     participante.cod_campus = pt.cod_participante;
                     participante.nome = pt.nome;
                     participante.telefone = pt.telefone;
-                    participante.dt_nascimento = (DateTime) pt.dt_nascimento;
-                    //participante.geolocalizacao = DbGeography.FromText("POINT(" + pt.latitude.ToString() + "  " + pt.longitude.ToString() + ")");
+                    participante.dt_nascimento = (DateTime) pt.dt_nascimento;                    
                     participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
 
                     GestorDeParticipante.InserirParticipante(participante);

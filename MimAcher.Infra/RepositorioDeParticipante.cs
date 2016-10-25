@@ -16,6 +16,11 @@ namespace MimAcher.Infra
             this.Contexto = new MIMACHEREntities();
         }
 
+        public int ObterIdDeUltimoParticipante()
+        {
+            return this.Contexto.MA_PARTICIPANTE.Max(l => l.cod_participante);
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorId(int id)
         {
             return this.Contexto.MA_PARTICIPANTE.Find(id);
