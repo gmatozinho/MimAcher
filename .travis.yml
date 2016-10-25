@@ -13,4 +13,4 @@ before_script:
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
   
 script:
-  - sonar-scanner -Dsonar.login=$SONAR_TOKEN
+  - sonar-scanner
