@@ -22,7 +22,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonUsuario(Participante participante)
         {
-            return "{ \"listausuario\":[{\"cod_usuario\": 1, \"email\":\""+ participante.Email + 
+            return "{ \"listausuario\":[{\"cod_usuario\": 1, \"e_mail\":\""+ participante.Email + 
                                 "\", \"senha\": \""+ participante.Senha + "\"}]}";
         }
 
