@@ -73,6 +73,10 @@
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Refractored.FloatingActionButton, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Refractored.FloatingActionButton.1.4.0\lib\MonoAndroid10\Refractored.FloatingActionButton.dll</HintPath>
       <Private>True</Private>
@@ -174,7 +178,7 @@
     <Compile Include="Entidades\Fabricas\FabricaTelasNormaisSemProcedimento.cs" />
     <Compile Include="Services\ServicoUsuario.cs" />
     <Compile Include="Utilitarios\JsonParser.cs" />
-    <Compile Include="Utilitarios\MontadorWebRequest.cs" />
+    <Compile Include="Utilitarios\MontadorRequisicao.cs" />
     <Compile Include="Utilitarios\TipoItem.cs" />
   </ItemGroup>
   <ItemGroup>
