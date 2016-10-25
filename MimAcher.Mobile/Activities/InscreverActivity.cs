@@ -59,7 +59,7 @@ namespace MimAcher.Mobile.Activities
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
 
-            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
+            //campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
             campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
             var escolhaCampus = spinnerCampus.SelectedItem;
             _campus = escolhaCampus.ToString();
@@ -91,7 +91,7 @@ namespace MimAcher.Mobile.Activities
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //participante.Commit();
+                participante.Commit();
 
                 IniciarEscolherFoto(this,participante);
             }
