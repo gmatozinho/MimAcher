@@ -1,4 +1,4 @@
-# MimAcher    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162/branch/master?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher/branch/master)
+# MimAcher    [![Build status](https://ci.appveyor.com/api/projects/status/40q65vgahi2w9162/branch/master?svg=true)](https://ci.appveyor.com/project/gmatozinho/mimacher/branch/master) [![Stories in Ready](https://badge.waffle.io/gmatozinho/MimAcher.svg?label=ready&title=Ready)](http://waffle.io/gmatozinho/MimAcher)
 
 
 
@@ -27,5 +27,6 @@ Gustavo Matozinho - gmatozinho@mimacher.me
 
 Paulo - paulovianna@yandex.com
 
-Neimar - neimarpa@gmail.com
+#Gráfico de rendimento 
 
+[![Throughput Graph](https://graphs.waffle.io/gmatozinho/MimAcher/throughput.svg)](https://waffle.io/gmatozinho/MimAcher/metrics/throughput)
