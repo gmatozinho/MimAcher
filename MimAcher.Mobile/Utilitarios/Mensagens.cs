@@ -7,7 +7,7 @@ using AlertDialog = Android.Support.V7.App.AlertDialog;
 
 namespace MimAcher.Mobile.Utilitarios
 {
-    public abstract class Mensagens
+    public static class Mensagens
     {
         public static void MensagemDeInformacaoInvalidaPadrao(Context contexto, string informacao)
         {

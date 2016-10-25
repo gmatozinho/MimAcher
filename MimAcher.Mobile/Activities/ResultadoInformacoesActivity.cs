@@ -3,7 +3,7 @@ using Android.OS;
 
 namespace MimAcher.Mobile.Activities
 {
-/*
+
     [Activity(Label = "ResultadoInformacoesActivity", Theme = "@style/Theme.Splash")]
     public class ResultadoInformacoesActivity : Activity
     {
@@ -16,5 +16,5 @@ namespace MimAcher.Mobile.Activities
             //show results
         }
     }
-*/
+
 }

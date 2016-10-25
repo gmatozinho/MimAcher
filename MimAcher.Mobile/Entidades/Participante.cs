@@ -47,14 +47,14 @@ namespace MimAcher.Mobile.Entidades
             CursorBD.EnviarParticipante(this);
         }
 
-/*
+
         public Dictionary<string, List<Participante>> Match()
         {
-            var matchs = CursorBd.Match(this);
+            var matchs = CursorBD.Match(this);
 
             return matchs;
         }
-*/
+
 
         public static Participante BundleToParticipante(Bundle b)
         {

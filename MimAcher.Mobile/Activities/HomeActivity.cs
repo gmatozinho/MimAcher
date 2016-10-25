@@ -19,9 +19,6 @@ namespace MimAcher.Mobile.Activities
         //Variaveis globais
         private Participante _participante;
         private FloatingActionButton _fab;
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-        private readonly TabActivity _tab = new TabActivity();
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
 
         //Metodos do controlador
         //Cria e controla a activity
