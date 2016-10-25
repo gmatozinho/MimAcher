@@ -20,5 +20,22 @@ namespace MimAcher.Aplicacao
                 return false;
             }
         }
+
+        public String RetornaDadoSemVigurla(String data)
+        {
+            string[] retornoSplit = data.Split(',');
+
+            if (retornoSplit.Length <= 1)
+            {
+                return data;
+            }
+            else
+            {
+                data = retornoSplit[0] + "." + retornoSplit[1];
+
+                return data;
+            }
+
+        }
     }
 }

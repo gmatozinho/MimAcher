@@ -167,6 +167,7 @@
     <Compile Include="Controllers\ParticipanteEnsinarController.cs" />
     <Compile Include="Controllers\ParticipanteHobbieController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Controllers\UsuarioParticipanteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -181,6 +182,7 @@
     <Compile Include="Models\ParticipanteEnsinar.cs" />
     <Compile Include="Models\ParticipanteHobbie.cs" />
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\UsuarioParticipante.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -233,6 +235,7 @@
     <Folder Include="Views\ParticipanteEnsinar\" />
     <Folder Include="Views\ParticipanteHobbie\" />
     <Folder Include="Views\Participante\" />
+    <Folder Include="Views\UsuarioParticipante\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
