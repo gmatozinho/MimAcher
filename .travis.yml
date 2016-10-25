@@ -13,5 +13,5 @@ before_script:
   - export JAVA_HOME=/usr/lib/jvm/java-8-oracle
   
 script:
-  ./build.sh
+  - xbuild /p:Configuration=Debug MimAcher.sln
   - sonar-scanner
