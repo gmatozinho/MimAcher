@@ -32,6 +32,7 @@ namespace MimAcher.WebService.Controllers
         [HttpPost]
         public ActionResult Add(List<UsuarioParticipante> listausuarioparticipante)
         {
+            int codigodoparticipante = 0;
             JsonResult jsonResult;
 
             //Verifica se o registro é inválido e se sim, retorna com erro.
@@ -65,11 +66,13 @@ namespace MimAcher.WebService.Controllers
                     participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(up.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(up.longitude.ToString()) + ")");
 
                     GestorDeParticipante.InserirParticipante(participante);
+
+                    codigodoparticipante = participante.cod_participante;
                 }
-                
+
                 jsonResult = Json(new
                 {
-                    codigo = GestorDeParticipante.ObterIdDeUltimoParticipante()
+                    codigo = codigodoparticipante
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
