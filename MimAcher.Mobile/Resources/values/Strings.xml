@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Hello">Hello World, Click Me!</string>
+    <string name="ApplicationName">MimAcher</string>
+    <string name="Text">Escolha uma Opção:</string>
+    <string name="facebook_app_id">879640668833837</string>
+    <string name="TitleCadastrar">Cadastrar</string>
+    <string name="SubtitleCadastrar">Informações Básicas</string>
+    <string name="TitleHobbies">Hobbies</string>
+    <string name="PerguntaHobbies">Quais são os seus hobbies?</string>
+    <string name="HintCampoHobbies">Digite um Hobbie</string>
+    <string name="TitleAprender">Aprender</string>
+    <string name="PerguntaAprender">O que você quer aprender?</string>
+    <string name="HintCampoAprender">Digite algo para aprender</string>
+    <string name="TitleEnsinar">Ensinar</string>
+    <string name="PerguntaEnsinar">O que você quer ensinar?</string>
+    <string name="HintCampoEnsinar">Digite algo para ensinar</string>
+    <string name="TitleHome">Home</string>
+    <string name="TitleEditarPerfil">Editar Perfil</string>
+</resources>
