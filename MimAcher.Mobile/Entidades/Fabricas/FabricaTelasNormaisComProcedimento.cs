@@ -30,7 +30,8 @@ namespace MimAcher.Mobile.Entidades.Fabricas
 
         private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
-            pacote.Participante.Commit();
+            //TODO mudar para enviar item do
+            //pacote.Participante.Commit();
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;
         }

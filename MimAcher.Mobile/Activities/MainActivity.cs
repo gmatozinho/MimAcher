@@ -21,6 +21,7 @@ namespace MimAcher.Mobile.Activities
         private readonly string _email = null;
         private readonly string _nascimento = "09/10/1995";
         private readonly string _telefone = "00000000";
+        private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
         
@@ -72,7 +73,8 @@ namespace MimAcher.Mobile.Activities
                 ["email"] = _email,
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento
+                ["nascimento"] = _nascimento,
+                ["localizacao"] = _localizacao
             };
 
             return informacoes;

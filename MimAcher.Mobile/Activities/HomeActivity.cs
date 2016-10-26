@@ -1,9 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Locations;
 using Android.OS;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using MimAcher.Mobile.Activities.TAB;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
@@ -13,12 +19,18 @@ namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "ResultadoActivity", Theme = "@style/Theme.Splash")]
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
-    public class HomeActivity : FabricaTelasComTab
+    public class HomeActivity : FabricaTelasComTab, ILocationListener
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
+        private static readonly string Tag = "X:" + typeof(HomeActivity).Name;
         private Participante _participante;
         private FloatingActionButton _fab;
+        private Location _currentLocation;
+        private LocationManager _locationManager;
+        private string _locationProvider;
+        private TextView _locationText;
+        private TextView _addressText;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -90,6 +102,7 @@ namespace MimAcher.Mobile.Activities
         }
 
         //Define as funcionalidades deste menu
+        /// <inheritdoc />
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
@@ -97,6 +110,10 @@ namespace MimAcher.Mobile.Activities
                 case Resource.Id.menu_search:
                     //do something
                     return true;
+                case Resource.Id.menu_location:
+                    InitializeLocationManager();
+                    return true;
+
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
                     return true;
@@ -121,8 +138,94 @@ namespace MimAcher.Mobile.Activities
             TabHost.AddTab(spec);
         }
 
+        private void InitializeLocationManager()
+        {
+            _locationManager = (LocationManager)GetSystemService(LocationService);
+            var criteriaForLocationService = new Criteria
+            {
+                Accuracy = Accuracy.Fine
+            };
+            var acceptableLocationProviders = _locationManager.GetProviders(criteriaForLocationService, true);
 
+            if (acceptableLocationProviders.Any())
+            {
+                _locationProvider = acceptableLocationProviders.First();
+            }
+            else
+            {
+                _locationProvider = string.Empty;
+            }
+            Log.Debug(Tag, "Using " + _locationProvider + ".");
+        }
+        /*protected override void OnResume()
+        {
+            base.OnResume();
+            _locationManager.RequestLocationUpdates(_locationProvider, 0, 0, this);
+        }*/
 
+        /*protected override void OnPause()
+        {
+            base.OnPause();
+            _locationManager.RemoveUpdates(this);
+        }*/
+        
+        public async void OnLocationChanged(Location location)
+        {
+            _currentLocation = location;
+            if (_currentLocation == null)
+            {
+                _locationText.Text = "Unable to determine your location. Try again in a short while.";
+            }
+            else
+            {
+                _locationText.Text = string.Format("{0:f6},{1:f6}", _currentLocation.Latitude, _currentLocation.Longitude);
+                Address address = await ReverseGeocodeCurrentLocation();
+                DisplayAddress(address);
+            }
+        }
+
+        private async Task<Address> ReverseGeocodeCurrentLocation()
+        {
+            Geocoder geocoder = new Geocoder(this);
+            IList<Address> addressList =
+                await geocoder.GetFromLocationAsync(_currentLocation.Latitude, _currentLocation.Longitude, 10);
+
+            Address address = addressList.FirstOrDefault();
+            return address;
+        }
+
+        void DisplayAddress(Address address)
+        {
+            if (address != null)
+            {
+                StringBuilder deviceAddress = new StringBuilder();
+                for (int i = 0; i < address.MaxAddressLineIndex; i++)
+                {
+                    deviceAddress.Append(address.GetAddressLine(i));
+                }
+                // Remove the last comma from the end of the address.
+                _addressText.Text = deviceAddress.ToString();
+            }
+            else
+            {
+                _addressText.Text = "Unable to determine the address. Try again in a few minutes.";
+            }
+        }
+
+        public void OnProviderDisabled(string provider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnProviderEnabled(string provider)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnStatusChanged(string provider, Availability status, Bundle extras)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

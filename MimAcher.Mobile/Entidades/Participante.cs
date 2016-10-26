@@ -27,6 +27,8 @@ namespace MimAcher.Mobile.Entidades
 
         public string Campus { get; }
 
+        public string Localizacao { get; set; }
+
 
         //Construtor
         public Participante(Dictionary<string, string> atributos) : base(atributos)
@@ -39,6 +41,7 @@ namespace MimAcher.Mobile.Entidades
             Nascimento = atributos["nascimento"];
             Telefone = atributos["telefone"];
             Campus = atributos["campus"];
+            Localizacao = atributos["localizacao"];
         }
         
         //Funções para trabalhar no banco de dados
@@ -66,7 +69,8 @@ namespace MimAcher.Mobile.Entidades
                 ["senha"] = b.GetString("senha"),
                 ["nascimento"] = b.GetString("nascimento"),
                 ["telefone"] = b.GetString("telefone"),
-                ["campus"] = b.GetString("campus")
+                ["campus"] = b.GetString("campus"),
+                ["localizacao"] = b.GetString("localizacao")
             };
 
             var p = new Participante(dictionary)
@@ -93,6 +97,7 @@ namespace MimAcher.Mobile.Entidades
             bundle.PutString("email", Email);
             bundle.PutString("telefone", Telefone);
             bundle.PutString("nascimento", Nascimento);
+            bundle.PutString("localizacao",Localizacao);
 
             return bundle;
         }

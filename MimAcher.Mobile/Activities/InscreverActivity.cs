@@ -27,6 +27,7 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
+        private string _localizacao;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -124,7 +125,8 @@ namespace MimAcher.Mobile.Activities
                 ["email"] = _email,
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento
+                ["nascimento"] = _nascimento,
+                ["localizacao"] = _localizacao
             };
 
             return informacoes;
