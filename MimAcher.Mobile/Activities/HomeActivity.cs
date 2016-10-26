@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
@@ -13,30 +14,29 @@ using Java.Lang;
 using MimAcher.Mobile.Activities.TAB;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
+using MimAcher.Mobile.Utilitarios;
+using Plugin.Geolocator;
 using FloatingActionButton = com.refractored.fab.FloatingActionButton;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "ResultadoActivity", Theme = "@style/Theme.Splash")]
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
-    public class HomeActivity : FabricaTelasComTab, ILocationListener
+    public class HomeActivity : FabricaTelasComTab
+
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
-        private static readonly string Tag = "X:" + typeof(HomeActivity).Name;
         private Participante _participante;
         private FloatingActionButton _fab;
-        private Location _currentLocation;
-        private LocationManager _locationManager;
-        private string _locationProvider;
-        private TextView _locationText;
-        private TextView _addressText;
+        private string _latitude;
+        private string _longitude;
 
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
         {
-            
+
             base.OnCreate(bundle);
 
             //Recebendo o bundle(Objeto participante)
@@ -59,13 +59,14 @@ namespace MimAcher.Mobile.Activities
             CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar));
 
             //Iniciando o botão flutuante
-            FabOptions();           
+            FabOptions();
 
         }
 
         private void FabOptions()
         {
-            _fab.Click += (s, arg) => {
+            _fab.Click += (s, arg) =>
+            {
                 var menu = new PopupMenu(this, _fab);
                 menu.Inflate(Resource.Drawable.button_result_menu);
 
@@ -87,13 +88,13 @@ namespace MimAcher.Mobile.Activities
                     }
 
                     if (activityescolhida != null) IniciarOutraTela(activityescolhida, _participante);
-                    
+
                 };
                 menu.Show();
             };
 
         }
-        
+
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -111,7 +112,11 @@ namespace MimAcher.Mobile.Activities
                     //do something
                     return true;
                 case Resource.Id.menu_location:
-                    InitializeLocationManager();
+                    GetLocation();
+                    var localizacao = _latitude + " " + _longitude;
+                    var toast = $"Coordenadas:\nlat {_latitude}\nlong {_longitude}";
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                    //do something
                     return true;
 
                 case Resource.Id.menu_preferences:
@@ -138,95 +143,24 @@ namespace MimAcher.Mobile.Activities
             TabHost.AddTab(spec);
         }
 
-        private void InitializeLocationManager()
+        private async Task GetLocation()
         {
-            _locationManager = (LocationManager)GetSystemService(LocationService);
-            var criteriaForLocationService = new Criteria
-            {
-                Accuracy = Accuracy.Fine
-            };
-            var acceptableLocationProviders = _locationManager.GetProviders(criteriaForLocationService, true);
+            var locator = CrossGeolocator.Current;
+            locator.DesiredAccuracy = 100; //100 is new default
+            var position = await locator.GetPositionAsync(10000);
+            _latitude = position.Latitude.ToString(CultureInfo.InvariantCulture);
+            _longitude = position.Longitude.ToString(CultureInfo.InvariantCulture);
 
-            if (acceptableLocationProviders.Any())
-            {
-                _locationProvider = acceptableLocationProviders.First();
-            }
-            else
-            {
-                _locationProvider = string.Empty;
-            }
-            Log.Debug(Tag, "Using " + _locationProvider + ".");
-        }
-        /*protected override void OnResume()
-        {
-            base.OnResume();
-            _locationManager.RequestLocationUpdates(_locationProvider, 0, 0, this);
-        }*/
-
-        /*protected override void OnPause()
-        {
-            base.OnPause();
-            _locationManager.RemoveUpdates(this);
-        }*/
-        
-        public async void OnLocationChanged(Location location)
-        {
-            _currentLocation = location;
-            if (_currentLocation == null)
-            {
-                _locationText.Text = "Unable to determine your location. Try again in a short while.";
-            }
-            else
-            {
-                _locationText.Text = string.Format("{0:f6},{1:f6}", _currentLocation.Latitude, _currentLocation.Longitude);
-                Address address = await ReverseGeocodeCurrentLocation();
-                DisplayAddress(address);
-            }
-        }
-
-        private async Task<Address> ReverseGeocodeCurrentLocation()
-        {
-            Geocoder geocoder = new Geocoder(this);
-            IList<Address> addressList =
-                await geocoder.GetFromLocationAsync(_currentLocation.Latitude, _currentLocation.Longitude, 10);
-
-            Address address = addressList.FirstOrDefault();
-            return address;
-        }
-
-        void DisplayAddress(Address address)
-        {
-            if (address != null)
-            {
-                StringBuilder deviceAddress = new StringBuilder();
-                for (int i = 0; i < address.MaxAddressLineIndex; i++)
-                {
-                    deviceAddress.Append(address.GetAddressLine(i));
-                }
-                // Remove the last comma from the end of the address.
-                _addressText.Text = deviceAddress.ToString();
-            }
-            else
-            {
-                _addressText.Text = "Unable to determine the address. Try again in a few minutes.";
-            }
-        }
-
-        public void OnProviderDisabled(string provider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnProviderEnabled(string provider)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void OnStatusChanged(string provider, Availability status, Bundle extras)
-        {
-            throw new NotImplementedException();
+            Console.WriteLine("Position Status: {0}", position.Timestamp);
+            Console.WriteLine("Position Latitude: {0}", position.Latitude);
+            Console.WriteLine("Position Longitude: {0}", position.Longitude);
         }
     }
 
+
+
 }
+
+
+
 

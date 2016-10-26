@@ -35,22 +35,25 @@ namespace MimAcher.Mobile.Utilitarios
             dialog.Show();
         }
 
-        public static void MensagemDeRegistrarGeolocalizacao(Context contexto)
+        public static bool MensagemDeRegistrarGeolocalizacao(Context contexto)
         {
+            var r = true;
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Você deseja registrar sua localização?");
-            alert.SetMessage("Registre para gente o local onde você mora, para que possamos sugerir as pessoas que estão mais próximas de você");
-            alert.SetPositiveButton("Sim", (senderAlert, args) => {//registrar a localização
-
-                Toast.MakeText(contexto, "Localização registrada!", ToastLength.Short).Show();
+            alert.SetMessage("Registre para gente o local onde você mora para que possamos sugerir as pessoas que estão mais próximas de você");
+            alert.SetPositiveButton("Sim", (senderAlert, args) =>
+            {
+                Toast.MakeText(contexto, "Sua localização será registrada!", ToastLength.Short).Show();
             });
-            alert.SetNegativeButton("Não", (senderAlert, args) => {//registrar a localização
 
+            alert.SetNegativeButton("Não", (senderAlert, args) => {
                 Toast.MakeText(contexto, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+                r = false;
             });
 
             Dialog dialog = alert.Create();
             dialog.Show();
+            return r;
         }
 
 
