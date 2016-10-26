@@ -87,8 +87,7 @@ namespace MimAcher.Mobile.Activities
                             break;
                     }
 
-                    if (activityescolhida != null) IniciarOutraTela(activityescolhida, _participante);
-
+                    if (activityescolhida != null)IniciarOutraTela(activityescolhida, _participante);
                 };
                 menu.Show();
             };

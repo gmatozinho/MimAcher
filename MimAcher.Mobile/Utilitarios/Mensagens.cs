@@ -1,6 +1,5 @@
 using Android.App;
 using Android.Content;
-using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using AlertDialog = Android.Support.V7.App.AlertDialog;

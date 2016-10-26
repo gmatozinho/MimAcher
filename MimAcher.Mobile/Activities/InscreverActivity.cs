@@ -4,7 +4,6 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
@@ -27,8 +26,7 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        private string _localizacao;
-
+        
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -88,12 +86,14 @@ namespace MimAcher.Mobile.Activities
         {
             var participante = new Participante(CriarDicionarioParaMontarParticipante());
 
-            if (!Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha)) return;
-            const string toast = ("Usuário Criado");
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-            participante.Commit();
+            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
+            {
+                const string toast = ("Usuário Criado");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                participante.Commit();
 
-            IniciarEscolherFoto(this,participante);
+                IniciarEscolherFoto(this, participante);
+            }
         }
 
         //Cria o menu de opções
@@ -125,8 +125,7 @@ namespace MimAcher.Mobile.Activities
                 ["email"] = _email,
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento,
-                ["localizacao"] = _localizacao
+                ["nascimento"] = _nascimento
             };
 
             return informacoes;
