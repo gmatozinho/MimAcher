@@ -29,8 +29,8 @@ namespace MimAcher.Mobile.Activities
         //Variaveis globais
         private Participante _participante;
         private FloatingActionButton _fab;
-        private string _latitude;
-        private string _longitude;
+        //private string _latitude;
+        //private string _longitude;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -112,10 +112,7 @@ namespace MimAcher.Mobile.Activities
                     //do something
                     return true;
                 case Resource.Id.menu_location:
-                    GetLocation();
-                    var localizacao = _latitude + " " + _longitude;
-                    var toast = $"Coordenadas:\nlat {_latitude}\nlong {_longitude}";
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
+                    SalvarLocalizacao();
                     //do something
                     return true;
 
@@ -143,17 +140,23 @@ namespace MimAcher.Mobile.Activities
             TabHost.AddTab(spec);
         }
 
-        private async Task GetLocation()
+        private static async Task<string> CapturarLocalizacao()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 100; //100 is new default
             var position = await locator.GetPositionAsync(10000);
-            _latitude = position.Latitude.ToString(CultureInfo.InvariantCulture);
-            _longitude = position.Longitude.ToString(CultureInfo.InvariantCulture);
+            var latitude = position.Latitude.ToString(CultureInfo.InvariantCulture);
+            var longitude = position.Longitude.ToString(CultureInfo.InvariantCulture);
 
-            Console.WriteLine("Position Status: {0}", position.Timestamp);
-            Console.WriteLine("Position Latitude: {0}", position.Latitude);
-            Console.WriteLine("Position Longitude: {0}", position.Longitude);
+            return latitude+"/"+longitude;
+        }
+
+        private async void SalvarLocalizacao()
+        {
+            var localizacao = await  CapturarLocalizacao();
+            //atualizar participante
+            //tratando a string localizacao
+            _participante.Localizacao = localizacao;
         }
     }
 

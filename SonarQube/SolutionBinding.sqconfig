@@ -1,0 +1,10 @@
+{
+  "ServerUri": "https://sonarqube.com/",
+  "ProjectKey": "MimAcher",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "cs-sonar-way-31865",
+      "ProfileTimestamp": "2016-05-30T03:00:19-03:00"
+    }
+  }
+}
