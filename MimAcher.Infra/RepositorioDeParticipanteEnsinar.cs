@@ -21,6 +21,12 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Find(id);
         }
 
+        public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
+        {
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == participanteensinar.cod_participante && l.cod_item == participanteensinar.cod_item).SingleOrDefault();
+        }
+
+
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.ToList();
@@ -28,8 +34,11 @@ namespace MimAcher.Infra
         
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            this.Contexto.MA_PARTICIPANTE_ENSINAR.Add(participanteensinar);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
+            {
+                this.Contexto.MA_PARTICIPANTE_ENSINAR.Add(participanteensinar);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -45,8 +54,23 @@ namespace MimAcher.Infra
 
         public void AtualizarEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            this.Contexto.Entry(participanteensinar).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
+            {
+                this.Contexto.Entry(participanteensinar).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_ENSINAR participanteensinar)
+        {
+            if (ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
