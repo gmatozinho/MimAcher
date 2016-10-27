@@ -1,23 +1,15 @@
 using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Locations;
 using Android.OS;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Java.Lang;
 using MimAcher.Mobile.Activities.TAB;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
 using MimAcher.Mobile.Utilitarios;
-using Plugin.Geolocator;
 using FloatingActionButton = com.refractored.fab.FloatingActionButton;
-using Thread = System.Threading.Thread;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -104,31 +96,6 @@ namespace MimAcher.Mobile.Activities
         /// <inheritdoc />
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            var ignoreTask = OnOptionsItemSelectedAsync(item);
-
-            return true;
-            /*switch (item.ItemId)
-            {
-                case Resource.Id.menu_search:
-                    //do something
-                    return true;
-                case Resource.Id.menu_location:
-                    RegistrarLocalizacao();
-                    var toast = $"Coordenadas: {_participante.Localizacao}";
-                    Toast.MakeText(this, toast, ToastLength.Long).Show();
-                    //do something
-                    return true;
-
-                case Resource.Id.menu_preferences:
-                    IniciarEditarPerfil(this, _participante);
-                    return true;
-            }
-            return base.OnOptionsItemSelected(item);*/
-        }
-
-        private async Task OnOptionsItemSelectedAsync(IMenuItem item)
-        {
-            // verify nothing else was clicked
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
@@ -136,18 +103,16 @@ namespace MimAcher.Mobile.Activities
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
-                    
-                    //do something
                     break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
                     break;
             }
 
-            var result = base.OnOptionsItemSelected(item);
-            
+            return base.OnOptionsItemSelected(item);
         }
 
+        
         //Cria os tabs
         private void CreateTab(Type activityType, string label)
         {
@@ -171,19 +136,28 @@ namespace MimAcher.Mobile.Activities
             var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
             alert.SetPositiveButton("Sim", async (senderAlert, args) =>
             {
-                Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
-                _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
-                var toast = $"Coordenadas: {_participante.Localizacao}";
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                await PositiveButton();
             });
 
             alert.SetNegativeButton("Não", (sender, args) =>
             {
-                Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+                NegativeButton();
             });
 
             Dialog dialog = alert.Create();
             dialog.Show();
+        }
+
+        private async Task PositiveButton() {
+            Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
+            _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+            /*var toast = $"Coordenadas: {_participante.Localizacao}";
+            Toast.MakeText(this, toast, ToastLength.Long).Show();*/
+        }
+
+        private void NegativeButton()
+        {
+            Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
         }
     }
 
