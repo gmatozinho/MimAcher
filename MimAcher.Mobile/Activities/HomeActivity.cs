@@ -2,10 +2,8 @@ using System;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Activities.TAB;
@@ -103,7 +101,7 @@ namespace MimAcher.Mobile.Activities
             {
                 case Resource.Id.menu_search:
                     _searchView.QueryHint = "Pesquisar";
-                    //_searchView = item.JavaCast<Android.Support.V7.Widget.SearchView>();
+                    _searchView = item.JavaCast<Android.Support.V7.Widget.SearchView>();
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
