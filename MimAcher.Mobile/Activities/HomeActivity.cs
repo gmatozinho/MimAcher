@@ -17,6 +17,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 using MimAcher.Mobile.Utilitarios;
 using Plugin.Geolocator;
 using FloatingActionButton = com.refractored.fab.FloatingActionButton;
+using Thread = System.Threading.Thread;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -29,8 +30,6 @@ namespace MimAcher.Mobile.Activities
         //Variaveis globais
         private Participante _participante;
         private FloatingActionButton _fab;
-        //private string _latitude;
-        //private string _longitude;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -105,13 +104,18 @@ namespace MimAcher.Mobile.Activities
         /// <inheritdoc />
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            switch (item.ItemId)
+            var ignoreTask = OnOptionsItemSelectedAsync(item);
+
+            return true;
+            /*switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
                     //do something
                     return true;
                 case Resource.Id.menu_location:
-                    SalvarLocalizacao();
+                    RegistrarLocalizacao();
+                    var toast = $"Coordenadas: {_participante.Localizacao}";
+                    Toast.MakeText(this, toast, ToastLength.Long).Show();
                     //do something
                     return true;
 
@@ -119,7 +123,43 @@ namespace MimAcher.Mobile.Activities
                     IniciarEditarPerfil(this, _participante);
                     return true;
             }
-            return base.OnOptionsItemSelected(item);
+            return base.OnOptionsItemSelected(item);*/
+        }
+
+        private async Task OnOptionsItemSelectedAsync(IMenuItem item)
+        {
+            // verify nothing else was clicked
+            switch (item.ItemId)
+            {
+                case Resource.Id.menu_search:
+                    //do something
+                    break;
+                case Resource.Id.menu_location:
+                    var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
+                    alert.SetPositiveButton("Sim", async (senderAlert, args) =>
+                    {
+                        Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
+                        _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+                        var toast = $"Coordenadas: {_participante.Localizacao}";
+                        Toast.MakeText(this, toast, ToastLength.Long).Show();
+                    });
+
+                    alert.SetNegativeButton("Não", (sender, args) =>
+                    {
+                        Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+                    });
+
+                    Dialog dialog = alert.Create();
+                    dialog.Show();
+                    //do something
+                    break;
+                case Resource.Id.menu_preferences:
+                    IniciarEditarPerfil(this, _participante);
+                    break;
+            }
+
+            var result = base.OnOptionsItemSelected(item);
+            
         }
 
         //Cria os tabs
@@ -139,7 +179,8 @@ namespace MimAcher.Mobile.Activities
             TabHost.AddTab(spec);
         }
 
-        private static async Task<string> CapturarLocalizacao()
+        
+        /*private static async Task<string> CapturarLocalizacao()
         {
             var locator = CrossGeolocator.Current;
             locator.DesiredAccuracy = 100; //100 is new default
@@ -155,8 +196,10 @@ namespace MimAcher.Mobile.Activities
             var localizacao = await  CapturarLocalizacao();
             //atualizar participante
             //tratando a string localizacao
+            var toast = $"Coordenadas: {localizacao}";
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
             _participante.Localizacao = localizacao;
-        }
+        }*/
     }
 
 

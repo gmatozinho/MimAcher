@@ -159,6 +159,7 @@
     <Compile Include="Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="Activities\TAB\ResultHobbiesActivity.cs" />
     <Compile Include="Entidades\ListaItens.cs" />
+    <Compile Include="Utilitarios\Geolocalizacao.cs" />
     <Compile Include="Utilitarios\Mascara.cs" />
     <Compile Include="Utilitarios\Mensagens.cs" />
     <Compile Include="Entidades\PacoteCompleto.cs" />

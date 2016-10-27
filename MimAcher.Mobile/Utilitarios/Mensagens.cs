@@ -1,7 +1,11 @@
+using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
+using MimAcher.Mobile.Entidades;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 
 namespace MimAcher.Mobile.Utilitarios
@@ -34,27 +38,21 @@ namespace MimAcher.Mobile.Utilitarios
             dialog.Show();
         }
 
-        public static bool MensagemDeRegistrarGeolocalizacao(Context contexto)
+        public static AlertDialog.Builder MensagemDeRegistrarGeolocalizacao(Context contexto)
         {
-            var r = true;
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Você deseja registrar sua localização?");
-            alert.SetMessage("Registre para gente o local onde você mora para que possamos sugerir as pessoas que estão mais próximas de você");
-            alert.SetPositiveButton("Sim", (senderAlert, args) =>
-            {
-                Toast.MakeText(contexto, "Sua localização será registrada!", ToastLength.Short).Show();
-            });
+            alert.SetMessage(
+                "Registre para gente o local onde você mora para que possamos sugerir as pessoas que estão mais próximas de você");
 
-            alert.SetNegativeButton("Não", (senderAlert, args) => {
-                Toast.MakeText(contexto, "Ok, sua localização não será registrada", ToastLength.Short).Show();
-                r = false;
-            });
-
-            Dialog dialog = alert.Create();
-            dialog.Show();
-            return r;
+            return alert;
         }
 
+        private static async Task<string> MethodAsync()
+        {
+            await Task.Delay(10000);
+            return "";
+        }
 
         public static void MensagemDeDataInvalida(Context contexto)
         {
