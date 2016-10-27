@@ -2,7 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Graphics;
 using Android.OS;
+using Android.Runtime;
+using Android.Support.V4.View;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Activities.TAB;
@@ -20,6 +23,7 @@ namespace MimAcher.Mobile.Activities
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
+        private Android.Support.V7.Widget.SearchView _searchView;
         private Participante _participante;
         private FloatingActionButton _fab;
 
@@ -93,13 +97,13 @@ namespace MimAcher.Mobile.Activities
         }
 
         //Define as funcionalidades deste menu
-        /// <inheritdoc />
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    //do something
+                    _searchView.QueryHint = "Pesquisar";
+                    //_searchView = item.JavaCast<Android.Support.V7.Widget.SearchView>();
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
