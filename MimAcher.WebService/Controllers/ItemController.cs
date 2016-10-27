@@ -53,13 +53,14 @@ namespace MimAcher.WebService.Controllers
         public ActionResult Add(List<Item> listaitem)
         {
             JsonResult jsonResult;
+            int codigocadastrado = 0;
 
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listaitem == null)
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = codigocadastrado
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
@@ -73,11 +74,13 @@ namespace MimAcher.WebService.Controllers
                     item.nome = it.nome;
 
                     GestorDeItem.InserirItem(item);
+
+                    codigocadastrado = item.cod_item;
                 }
 
                 jsonResult = Json(new
                 {
-                    success = true
+                    codigo = codigocadastrado
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
