@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_CAMPUS.Find(id);
         }
 
+        public MA_CAMPUS ObterCampusPorNomeDeLocal(MA_CAMPUS campus)
+        {
+            return this.Contexto.MA_CAMPUS.Where(l => l.local.Equals(campus.local)).SingleOrDefault();
+        }
+
         public List<MA_CAMPUS> ObterTodosOsCampus()
         {
             return this.Contexto.MA_CAMPUS.ToList();
@@ -29,8 +34,11 @@ namespace MimAcher.Infra
 
         public void InserirCampus(MA_CAMPUS campus)
         {
-            this.Contexto.MA_CAMPUS.Add(campus);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
+            {
+                this.Contexto.MA_CAMPUS.Add(campus);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -46,8 +54,23 @@ namespace MimAcher.Infra
 
         public void AtualizarCampus(MA_CAMPUS campus)
         {
-            this.Contexto.Entry(campus).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
+            {
+                this.Contexto.Entry(campus).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeNomeDeLocalDeCampusJaExiste(MA_CAMPUS campus)
+        {
+            if (ObterCampusPorNomeDeLocal(campus) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
