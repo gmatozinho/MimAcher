@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Find(id);
         }
 
+        public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
+        }
+
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.ToList();
@@ -28,8 +33,11 @@ namespace MimAcher.Infra
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
+            {
+                this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -45,8 +53,23 @@ namespace MimAcher.Infra
 
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            this.Contexto.Entry(participanteaprender).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
+            {
+                this.Contexto.Entry(participanteaprender).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            if(ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
