@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_AREA_ATUACAO.Find(id);
         }
 
+        public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorNome(MA_AREA_ATUACAO areaatuacao)
+        {
+            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(areaatuacao.nome)).SingleOrDefault();
+        }
+
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()
         {
             return this.Contexto.MA_AREA_ATUACAO.ToList();
@@ -33,8 +38,11 @@ namespace MimAcher.Infra
 
         public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            {
+                this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -50,8 +58,22 @@ namespace MimAcher.Infra
 
         public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            {
+                this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }            
+        }
+
+        public Boolean VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(MA_AREA_ATUACAO areaatuacao)
+        {
+            if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null) {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
