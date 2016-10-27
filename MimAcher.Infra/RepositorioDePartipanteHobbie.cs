@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Find(id);
         }
 
+        public MA_PARTICIPANTE_HOBBIE ObterParticipanteHobbiePorItemEParticipante(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == participantehobbie.cod_participante && l.cod_item == participantehobbie.cod_item).SingleOrDefault();
+        }
+
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.ToList();
@@ -28,8 +33,11 @@ namespace MimAcher.Infra
                 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            {
+                this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -45,8 +53,23 @@ namespace MimAcher.Infra
 
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            {
+                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            if (ObterParticipanteHobbiePorItemEParticipante(participantehobbie) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

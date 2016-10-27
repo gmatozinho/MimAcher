@@ -26,7 +26,6 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == participanteensinar.cod_participante && l.cod_item == participanteensinar.cod_item).SingleOrDefault();
         }
 
-
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.ToList();
