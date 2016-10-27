@@ -98,5 +98,47 @@ namespace MimAcher.WebService.Models
                 return jsonResult;
             }
         }
+
+        [HttpPost]
+        public ActionResult Update(List<Participante> listaparticipante)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipante == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (Participante pt in listaparticipante)
+                {
+                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+
+                    participante.cod_usuario = pt.cod_usuario;
+                    participante.cod_campus = pt.cod_participante;
+                    participante.nome = pt.nome;
+                    participante.telefone = pt.telefone;
+                    participante.dt_nascimento = (DateTime)pt.dt_nascimento;
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
+
+                    GestorDeParticipante.AtualizarParticipante(participante);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
