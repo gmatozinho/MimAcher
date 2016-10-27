@@ -135,22 +135,8 @@ namespace MimAcher.Mobile.Activities
                     //do something
                     break;
                 case Resource.Id.menu_location:
-                    var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
-                    alert.SetPositiveButton("Sim", async (senderAlert, args) =>
-                    {
-                        Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
-                        _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
-                        var toast = $"Coordenadas: {_participante.Localizacao}";
-                        Toast.MakeText(this, toast, ToastLength.Long).Show();
-                    });
-
-                    alert.SetNegativeButton("Não", (sender, args) =>
-                    {
-                        Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
-                    });
-
-                    Dialog dialog = alert.Create();
-                    dialog.Show();
+                    RegistrarLocalizacao();
+                    
                     //do something
                     break;
                 case Resource.Id.menu_preferences:
@@ -179,27 +165,26 @@ namespace MimAcher.Mobile.Activities
             TabHost.AddTab(spec);
         }
 
-        
-        /*private static async Task<string> CapturarLocalizacao()
-        {
-            var locator = CrossGeolocator.Current;
-            locator.DesiredAccuracy = 100; //100 is new default
-            var position = await locator.GetPositionAsync(10000);
-            var latitude = position.Latitude.ToString(CultureInfo.InvariantCulture);
-            var longitude = position.Longitude.ToString(CultureInfo.InvariantCulture);
 
-            return latitude+"/"+longitude;
+        private void RegistrarLocalizacao()
+        {
+            var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
+            alert.SetPositiveButton("Sim", async (senderAlert, args) =>
+            {
+                Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
+                _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+                var toast = $"Coordenadas: {_participante.Localizacao}";
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            });
+
+            alert.SetNegativeButton("Não", (sender, args) =>
+            {
+                Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
         }
-
-        private async void SalvarLocalizacao()
-        {
-            var localizacao = await  CapturarLocalizacao();
-            //atualizar participante
-            //tratando a string localizacao
-            var toast = $"Coordenadas: {localizacao}";
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
-            _participante.Localizacao = localizacao;
-        }*/
     }
 
 
