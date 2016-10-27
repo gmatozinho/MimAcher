@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ITEM.Find(id);
         }
 
+        public MA_ITEM ObterItemPorNome(MA_ITEM item)
+        {
+            return this.Contexto.MA_ITEM.Where(l => l.nome.Equals(item.nome)).SingleOrDefault();
+        }
+
         public List<MA_ITEM> ObterTodosOsItems()
         {
             return this.Contexto.MA_ITEM.ToList();
@@ -33,8 +38,12 @@ namespace MimAcher.Infra
                 
         public void InserirItem(MA_ITEM Item)
         {
-            this.Contexto.MA_ITEM.Add(Item);
-            this.Contexto.SaveChanges();
+            if (VerificarSeNomeDeItemJaExiste(Item))
+            {
+                this.Contexto.MA_ITEM.Add(Item);
+                this.Contexto.SaveChanges();
+            }
+            
         }
 
         public int BuscarQuantidadeRegistros()
@@ -50,8 +59,23 @@ namespace MimAcher.Infra
 
         public void AtualizarItem(MA_ITEM Item)
         {
-            this.Contexto.Entry(Item).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (VerificarSeNomeDeItemJaExiste(Item))
+            {
+                this.Contexto.Entry(Item).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeNomeDeItemJaExiste(MA_ITEM item)
+        {
+            if (ObterItemPorNome(item) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
