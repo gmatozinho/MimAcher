@@ -11,6 +11,7 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using Java.Lang;
+using StringBuilder = System.Text.StringBuilder;
 
 namespace MimAcher.Mobile.Utilitarios
 {
@@ -31,15 +32,17 @@ namespace MimAcher.Mobile.Utilitarios
         {
             return s.Replace(".", "").Replace("-", "")
                 .Replace("/", "").Replace("(", "")
-                .Replace(")", "").Replace(" ","").Replace("+27","");
+                .Replace(")", "").Replace(" ", "");
         }
 
         public void AfterTextChanged(IEditable s)
         {
+            // Do nothing
         }
 
         public void BeforeTextChanged(ICharSequence s, int start, int count, int after)
         {
+            // Do nothing
         }
 
         public void OnTextChanged(ICharSequence s, int start, int before, int count)
@@ -55,17 +58,21 @@ namespace MimAcher.Mobile.Utilitarios
             }
 
             var i = 0;
+            var bld = new StringBuilder();
 
-            foreach (var m in _mask.ToCharArray())
+            foreach (var m in _mask)
             {
                 if (m != '#' && str.Length > _old.Length)
                 {
-                    mascara += m;
+                    
+                    bld.Append(m);
+                    mascara = bld.ToString();
                     continue;
                 }
                 try
                 {
-                    mascara += str[i];
+                    bld.Append(str[i]);
+                    mascara = bld.ToString();
                 }
                 catch (System.Exception)
                 {

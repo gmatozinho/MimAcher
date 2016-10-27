@@ -8,7 +8,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EscolherFotoActivity", Theme = "@style/Theme.Splash")]
-    public class EscolherFotoActivity : FabricaTelasSemProcedimento
+    public class EscolherFotoActivity : FabricaTelasNormaisSemProcedimento
     {
         
 

@@ -1,12 +1,15 @@
 using System;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Activities.TAB;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
+using MimAcher.Mobile.Utilitarios;
 using FloatingActionButton = com.refractored.fab.FloatingActionButton;
 
 namespace MimAcher.Mobile.Activities
@@ -14,20 +17,19 @@ namespace MimAcher.Mobile.Activities
     [Activity(Label = "ResultadoActivity", Theme = "@style/Theme.Splash")]
 #pragma warning disable CS0618 // O tipo ou membro é obsoleto
     public class HomeActivity : FabricaTelasComTab
+
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
+        private Android.Support.V7.Widget.SearchView _searchView;
         private Participante _participante;
         private FloatingActionButton _fab;
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-        private readonly TabActivity _tab = new TabActivity();
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
 
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
         {
-            
+
             base.OnCreate(bundle);
 
             //Recebendo o bundle(Objeto participante)
@@ -50,13 +52,14 @@ namespace MimAcher.Mobile.Activities
             CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar));
 
             //Iniciando o botão flutuante
-            FabOptions();           
+            FabOptions();
 
         }
 
         private void FabOptions()
         {
-            _fab.Click += (s, arg) => {
+            _fab.Click += (s, arg) =>
+            {
                 var menu = new PopupMenu(this, _fab);
                 menu.Inflate(Resource.Drawable.button_result_menu);
 
@@ -77,14 +80,13 @@ namespace MimAcher.Mobile.Activities
                             break;
                     }
 
-                    if (activityescolhida != null) IniciarOutraTela(activityescolhida, _participante);
-                    
+                    if (activityescolhida != null)IniciarOutraTela(activityescolhida, _participante);
                 };
                 menu.Show();
             };
 
         }
-        
+
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -98,15 +100,21 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    //do something
-                    return true;
+                    _searchView.QueryHint = "Pesquisar";
+                    _searchView = item.JavaCast<Android.Support.V7.Widget.SearchView>();
+                    break;
+                case Resource.Id.menu_location:
+                    RegistrarLocalizacao();
+                    break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
-                    return true;
+                    break;
             }
+
             return base.OnOptionsItemSelected(item);
         }
 
+        
         //Cria os tabs
         private void CreateTab(Type activityType, string label)
         {
@@ -125,8 +133,40 @@ namespace MimAcher.Mobile.Activities
         }
 
 
+        private void RegistrarLocalizacao()
+        {
+            var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
+            alert.SetPositiveButton("Sim", async (senderAlert, args) =>
+            {
+                await PositiveButton();
+            });
 
+            alert.SetNegativeButton("Não", (sender, args) =>
+            {
+                NegativeButton();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
+        }
+
+        private async Task PositiveButton() {
+            Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
+            _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+            /*var toast = $"Coordenadas: {_participante.Localizacao}";
+            Toast.MakeText(this, toast, ToastLength.Long).Show();*/
+        }
+
+        private void NegativeButton()
+        {
+            Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+        }
     }
 
+
+
 }
+
+
+
 

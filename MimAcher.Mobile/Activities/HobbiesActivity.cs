@@ -10,7 +10,7 @@ using ActionBar = Android.Support.V7.App.ActionBar;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
-    public class HobbiesActivity : FabricaTelasComProcedimento
+    public class HobbiesActivity : FabricaTelasNormaisComProcedimento
     {
         //Variaveis globais
         private Participante _participante;

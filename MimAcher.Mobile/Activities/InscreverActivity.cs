@@ -4,7 +4,6 @@ using Android;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
@@ -17,7 +16,7 @@ namespace MimAcher.Mobile.Activities
 {
 
     [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
-    public class InscreverActivity : FabricaTelasSemProcedimento
+    public class InscreverActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
         private string _senha;
@@ -27,7 +26,7 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-
+        
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -46,6 +45,7 @@ namespace MimAcher.Mobile.Activities
             var campoEMail = FindViewById<EditText>(Resource.Id.email);
             var campoDtNascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             var campoTelefone = FindViewById<EditText>(Resource.Id.telefone);
+            //pegar lista de campus do banco
             var opcoesCampus = new List<string> { "Serra", "Vitória", "Vila Velha" };
             var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -57,7 +57,9 @@ namespace MimAcher.Mobile.Activities
             //Escolhendo o Campus
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
-            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "(+27) #####-####"));
+
+            campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
+            campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
             var escolhaCampus = spinnerCampus.SelectedItem;
             _campus = escolhaCampus.ToString();
             
@@ -66,12 +68,10 @@ namespace MimAcher.Mobile.Activities
             {
                 campoTelefone.Text = tel;
             }
-
-            //ActionBar.Title = "Cadastrar";
+            
             ActionBar.Title = GetString(Resource.String.TitleCadastrar);
             ActionBar.Subtitle = GetString(Resource.String.SubtitleCadastrar);
-
-
+            
             //Pegar as informações inseridas
             campoNome.TextChanged += (sender, n) => _nome = n.Text.ToString();
             campoEMail.TextChanged += (sender, e) => _email = e.Text.ToString();
@@ -81,27 +81,19 @@ namespace MimAcher.Mobile.Activities
             campoTelefone.TextChanged += (sender, t) => _telefone = t.Text.ToString();
             
         }
-
-        //Botar as validações do cayo
-        private void RegistrarParticipante(Context activity)
+        
+        private void InscreverParticipante(Context activity)
         {
             var participante = new Participante(CriarDicionarioParaMontarParticipante());
 
-            if (Validador.ValidarCadastroParticipante(activity,participante,_confirmarSenha))
+            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //participante.Commit();
+                participante.Commit();
 
-                IniciarEscolherFoto(this,participante);
+                IniciarEscolherFoto(this, participante);
             }
-            /*else
-            {
-                const string toast = ("Informações inválidas");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //IniciarInscrever();
-            }*/
-
         }
 
         //Cria o menu de opções
@@ -117,7 +109,7 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_done:
-                    RegistrarParticipante(this);
+                    InscreverParticipante(this);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
