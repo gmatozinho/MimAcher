@@ -7,7 +7,7 @@
        android:title="Search" />
   <item
        android:id="@+id/menu_location"
-       android:icon="@drawable/ic_location_on_white_36dp"
+       android:icon="@drawable/ic_location_on_white_24dp"
        android:showAsAction="ifRoom"
        android:title="Location" />
   <item

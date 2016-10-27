@@ -2172,70 +2172,73 @@ namespace MimAcher.Mobile
 			public const int ic_launcher = 2130837642;
 			
 			// aapt resource value: 0x7f02008b
-			public const int ic_location_on_white_36dp = 2130837643;
+			public const int ic_location_on_white_24dp = 2130837643;
 			
 			// aapt resource value: 0x7f02008c
-			public const int ic_menu_copy_holo_dark = 2130837644;
+			public const int ic_location_on_white_36dp = 2130837644;
 			
 			// aapt resource value: 0x7f02008d
-			public const int ic_menu_cut_holo_dark = 2130837645;
+			public const int ic_menu_copy_holo_dark = 2130837645;
 			
 			// aapt resource value: 0x7f02008e
-			public const int ic_menu_paste_holo_dark = 2130837646;
+			public const int ic_menu_cut_holo_dark = 2130837646;
 			
 			// aapt resource value: 0x7f02008f
-			public const int ic_menu_search_holo_dark = 2130837647;
+			public const int ic_menu_paste_holo_dark = 2130837647;
 			
 			// aapt resource value: 0x7f020090
-			public const int ic_plusone_medium_off_client = 2130837648;
+			public const int ic_menu_search_holo_dark = 2130837648;
 			
 			// aapt resource value: 0x7f020091
-			public const int ic_plusone_small_off_client = 2130837649;
+			public const int ic_plusone_medium_off_client = 2130837649;
 			
 			// aapt resource value: 0x7f020092
-			public const int ic_plusone_standard_off_client = 2130837650;
+			public const int ic_plusone_small_off_client = 2130837650;
 			
 			// aapt resource value: 0x7f020093
-			public const int ic_plusone_tall_off_client = 2130837651;
+			public const int ic_plusone_standard_off_client = 2130837651;
 			
 			// aapt resource value: 0x7f020094
-			public const int icone = 2130837652;
+			public const int ic_plusone_tall_off_client = 2130837652;
 			
 			// aapt resource value: 0x7f020095
-			public const int logo = 2130837653;
+			public const int icone = 2130837653;
 			
 			// aapt resource value: 0x7f020096
-			public const int losango = 2130837654;
+			public const int logo = 2130837654;
 			
 			// aapt resource value: 0x7f020097
-			public const int mais = 2130837655;
-			
-			// aapt resource value: 0x7f0200a0
-			public const int notification_template_icon_bg = 2130837664;
+			public const int losango = 2130837655;
 			
 			// aapt resource value: 0x7f020098
-			public const int round_button = 2130837656;
+			public const int mais = 2130837656;
+			
+			// aapt resource value: 0x7f0200a1
+			public const int notification_template_icon_bg = 2130837665;
 			
 			// aapt resource value: 0x7f020099
-			public const int spinner_dropdown_item = 2130837657;
+			public const int round_button = 2130837657;
 			
 			// aapt resource value: 0x7f02009a
-			public const int spinner_item = 2130837658;
+			public const int spinner_dropdown_item = 2130837658;
 			
 			// aapt resource value: 0x7f02009b
-			public const int splash = 2130837659;
+			public const int spinner_item = 2130837659;
 			
 			// aapt resource value: 0x7f02009c
-			public const int top_menus_inscrever = 2130837660;
+			public const int splash = 2130837660;
 			
 			// aapt resource value: 0x7f02009d
-			public const int top_menus_nosearch = 2130837661;
+			public const int top_menus_inscrever = 2130837661;
 			
 			// aapt resource value: 0x7f02009e
-			public const int top_menus_only_home = 2130837662;
+			public const int top_menus_nosearch = 2130837662;
 			
 			// aapt resource value: 0x7f02009f
-			public const int top_menus_search = 2130837663;
+			public const int top_menus_only_home = 2130837663;
+			
+			// aapt resource value: 0x7f0200a0
+			public const int top_menus_search = 2130837664;
 			
 			static Drawable()
 			{
