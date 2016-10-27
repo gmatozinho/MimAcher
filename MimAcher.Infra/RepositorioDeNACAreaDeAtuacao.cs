@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC_AREA_ATUACAO.Find(id);
         }
 
+        public MA_NAC_AREA_ATUACAO ObterNACAreaAtuacaoPorNACEAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
+        {
+            return this.Contexto.MA_NAC_AREA_ATUACAO.Where(l => l.cod_nac == nacareaatuacao.cod_nac && l.cod_nac_area_atuacao == nacareaatuacao.cod_nac_area_atuacao).SingleOrDefault();
+        }
+
         public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACAreasDeAtuacao()
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.ToList();
@@ -38,8 +43,11 @@ namespace MimAcher.Infra
 
         public void InserirNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            this.Contexto.MA_NAC_AREA_ATUACAO.Add(NACAreaDeAtuacao);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            {
+                this.Contexto.MA_NAC_AREA_ATUACAO.Add(NACAreaDeAtuacao);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -55,8 +63,23 @@ namespace MimAcher.Infra
 
         public void AtualizarNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            this.Contexto.Entry(NACAreaDeAtuacao).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            {
+                this.Contexto.Entry(NACAreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoDeNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
+        {
+            if (ObterNACAreaAtuacaoPorNACEAreaDeAtuacao(nacareaatuacao) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
