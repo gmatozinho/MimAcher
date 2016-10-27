@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_USUARIO.Find(id);
         }
 
+        public MA_USUARIO ObterUsuarioPorEmail(MA_USUARIO usuario)
+        {
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(usuario.e_mail)).SingleOrDefault();
+        }
+
         public List<MA_USUARIO> ObterTodosOsUsuarios()
         {
             return this.Contexto.MA_USUARIO.ToList();
@@ -41,8 +46,11 @@ namespace MimAcher.Infra
 
         public void InserirUsuario(MA_USUARIO usuario)
         {
-            this.Contexto.MA_USUARIO.Add(usuario);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                this.Contexto.MA_USUARIO.Add(usuario);
+                this.Contexto.SaveChanges();
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -58,8 +66,23 @@ namespace MimAcher.Infra
 
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            this.Contexto.Entry(usuario).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if(!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                this.Contexto.Entry(usuario).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            } 
+        }
+
+        public Boolean VerificarSeEmailDeUsuarioJaExiste(MA_USUARIO usuario)
+        {
+            if (ObterUsuarioPorEmail(usuario) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
