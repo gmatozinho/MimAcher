@@ -23,7 +23,7 @@ namespace MimAcher.Infra
 
         public MA_CAMPUS ObterCampusPorNomeDeLocal(MA_CAMPUS campus)
         {
-            return this.Contexto.MA_CAMPUS.Where(l => l.local.Equals(campus.local)).SingleOrDefault();
+            return this.Contexto.MA_CAMPUS.Where(l => l.local.ToLower().Equals(campus.local.ToLower())).SingleOrDefault();
         }
 
         public List<MA_CAMPUS> ObterTodosOsCampus()

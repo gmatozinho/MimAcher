@@ -23,7 +23,7 @@ namespace MimAcher.Infra
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorNome(MA_AREA_ATUACAO areaatuacao)
         {
-            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(areaatuacao.nome)).SingleOrDefault();
+            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLower().Equals(areaatuacao.nome.ToLower())).SingleOrDefault();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()

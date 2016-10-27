@@ -23,7 +23,7 @@ namespace MimAcher.Infra
 
         public MA_USUARIO ObterUsuarioPorEmail(MA_USUARIO usuario)
         {
-            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(usuario.e_mail)).SingleOrDefault();
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.ToLower().Equals(usuario.e_mail.ToLower())).SingleOrDefault();
         }
 
         public List<MA_USUARIO> ObterTodosOsUsuarios()
