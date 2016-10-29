@@ -9,8 +9,11 @@
   <item
        android:id="@+id/menu_location"
        android:icon="@drawable/ic_location_on_white_24dp"
-       android:showAsAction="ifRoom"
-       android:title="Location" />
+       android:showAsAction="always" />
+  <item
+       android:id="@+id/menu_exitapp"
+       android:icon="@drawable/ic_exit_to_app_white_24dp"
+       android:showAsAction="always"/>
   <item
        android:id="@+id/menu_preferences"
        android:showAsAction="never"

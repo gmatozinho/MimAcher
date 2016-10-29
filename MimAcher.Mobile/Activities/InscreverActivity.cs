@@ -26,7 +26,8 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        
+        private string _localizacao = "0.0";
+
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -81,7 +82,12 @@ namespace MimAcher.Mobile.Activities
             campoTelefone.TextChanged += (sender, t) => _telefone = t.Text.ToString();
             
         }
-        
+
+        /*public override void OnBackPressed()
+        {
+            Finish();
+        }*/
+
         private void InscreverParticipante(Context activity)
         {
             var participante = new Participante(CriarDicionarioParaMontarParticipante());
@@ -125,8 +131,9 @@ namespace MimAcher.Mobile.Activities
                 ["email"] = _email,
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento
-            };
+                ["nascimento"] = _nascimento,
+                ["localizacao"] = _localizacao
+        };
 
             return informacoes;
         }

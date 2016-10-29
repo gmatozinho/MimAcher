@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Threading.Tasks;
-using Android.Widget;
 using Plugin.Geolocator;
 
 namespace MimAcher.Mobile.Utilitarios

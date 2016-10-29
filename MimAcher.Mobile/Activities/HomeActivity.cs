@@ -21,7 +21,7 @@ namespace MimAcher.Mobile.Activities
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
-        private Android.Support.V7.Widget.SearchView _searchView;
+        private SearchView _searchView;
         private Participante _participante;
         private FloatingActionButton _fab;
 
@@ -100,11 +100,13 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    _searchView.QueryHint = "Pesquisar";
-                    _searchView = item.JavaCast<Android.Support.V7.Widget.SearchView>();
+                    _searchView = item.JavaCast<SearchView>();
+                    
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
+                    break;
+                case Resource.Id.menu_exitapp:
                     break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
@@ -153,8 +155,8 @@ namespace MimAcher.Mobile.Activities
         private async Task PositiveButton() {
             Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
             _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
-            /*var toast = $"Coordenadas: {_participante.Localizacao}";
-            Toast.MakeText(this, toast, ToastLength.Long).Show();*/
+            var toast = $"Coordenadas: {_participante.Localizacao}";
+            Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 
         private void NegativeButton()
