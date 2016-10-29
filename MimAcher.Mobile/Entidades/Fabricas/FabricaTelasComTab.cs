@@ -20,6 +20,12 @@ namespace MimAcher.Mobile.Entidades.Fabricas
             IniciarOutraTela(resultadoctivity, pacote);
         }
 
+        protected void IniciarMain(Context contexto)
+        {
+            var mainctivity = new Intent(contexto, typeof(MainActivity));
+            StartActivity(mainctivity);
+        }
+
         protected void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
             var participante = (Participante)pacote;

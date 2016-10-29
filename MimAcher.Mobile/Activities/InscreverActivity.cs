@@ -26,7 +26,7 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        private string _localizacao = "0.0";
+        private string _localizacao = "0.0/0.0";
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -83,32 +83,6 @@ namespace MimAcher.Mobile.Activities
             
         }
 
-        /*public override void OnBackPressed()
-        {
-            Finish();
-        }*/
-
-        private void InscreverParticipante(Context activity)
-        {
-            var participante = new Participante(CriarDicionarioParaMontarParticipante());
-
-            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
-            {
-                const string toast = ("Usuário Criado");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-                participante.Commit();
-
-                IniciarEscolherFoto(this, participante);
-            }
-        }
-
-        //Cria o menu de opções
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Drawable.top_menus_inscrever, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
-
         //Define as funcionalidades deste menu
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
@@ -121,6 +95,28 @@ namespace MimAcher.Mobile.Activities
             return base.OnOptionsItemSelected(item);
         }
 
+
+        private void InscreverParticipante(Context activity)
+        {
+            var participante = new Participante(CriarDicionarioParaMontarParticipante());
+
+            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
+            {
+                const string toast = ("Usuário Criado");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                //participante.Commit();
+                IniciarEscolherFoto(this, participante);
+                Finish();
+            }
+        }
+        
+        //Cria o menu de opções
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Drawable.top_menus_inscrever, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+        
         //Cria participante
         private Dictionary<string, string> CriarDicionarioParaMontarParticipante()
         {

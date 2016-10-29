@@ -50,6 +50,7 @@ namespace MimAcher.Mobile.Activities
                 Usuario.Login(_emailInserido, _senhaInserida);
                 var participante = new Participante(MontarUsuário());
                 IniciarHome(this,participante);
+                Finish();
             };
 
             //Tenho que fazer a autenticação no banco de dados

@@ -39,6 +39,8 @@ namespace MimAcher.Mobile.Activities
             };
         }
 
+        public override void OnBackPressed() {}
+
         private void SelecionarFoto()
         {
             var imageIntent = new Intent();

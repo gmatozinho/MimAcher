@@ -29,7 +29,6 @@ namespace MimAcher.Mobile.Activities
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
         {
-
             base.OnCreate(bundle);
 
             //Recebendo o bundle(Objeto participante)
@@ -86,7 +85,8 @@ namespace MimAcher.Mobile.Activities
             };
 
         }
-
+        
+        public override void OnBackPressed() { }
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -101,21 +101,21 @@ namespace MimAcher.Mobile.Activities
             {
                 case Resource.Id.menu_search:
                     _searchView = item.JavaCast<SearchView>();
-                    
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
                     break;
                 case Resource.Id.menu_exitapp:
+                    Mensagens.MensagemDeLogout(this,this);
                     break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
+                    //TestarGeolocalizacao();
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
         }
-
         
         //Cria os tabs
         private void CreateTab(Type activityType, string label)
@@ -130,39 +130,27 @@ namespace MimAcher.Mobile.Activities
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
             spec.SetIndicator(label, drawableIcon);
             spec.SetContent(intent);
-
             TabHost.AddTab(spec);
         }
 
-
         private void RegistrarLocalizacao()
         {
-            var alert = Mensagens.MensagemDeRegistrarGeolocalizacao(this);
-            alert.SetPositiveButton("Sim", async (senderAlert, args) =>
-            {
-                await PositiveButton();
-            });
-
-            alert.SetNegativeButton("Não", (sender, args) =>
-            {
-                NegativeButton();
-            });
-
-            Dialog dialog = alert.Create();
-            dialog.Show();
+            Mensagens.MensagemParaRegistrarGeolocalizacao(this, _participante);
         }
 
-        private async Task PositiveButton() {
-            Toast.MakeText(this, "Sua localização será registrada!", ToastLength.Short).Show();
-            _participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
-            var toast = $"Coordenadas: {_participante.Localizacao}";
+        public void Logout()
+        {
+            IniciarMain(this);
+            Finish();
+        }
+
+        private void TestarGeolocalizacao()
+        {
+            var localizacao = _participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var toast = $"Coordenadas:\n lat{localizacao[0]} long{localizacao[1]}";
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 
-        private void NegativeButton()
-        {
-            Toast.MakeText(this, "Ok, sua localização não será registrada", ToastLength.Short).Show();
-        }
     }
 
 
