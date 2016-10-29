@@ -157,6 +157,7 @@
     <Compile Include="Activities\EscolherFotoActivity.cs" />
     <Compile Include="Activities\HobbiesActivity.cs" />
     <Compile Include="Activities\InscreverActivity.cs" />
+    <Compile Include="Entidades\Fabricas\FabricaTelasComResultados.cs" />
     <Compile Include="Entidades\Fabricas\FabricaTelasComTab.cs" />
     <Compile Include="Entidades\Fabricas\IFabricaTelas.cs" />
     <Compile Include="Entidades\ListAdapterHae.cs" />

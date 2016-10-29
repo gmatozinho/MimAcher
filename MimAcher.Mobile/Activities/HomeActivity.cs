@@ -51,11 +51,11 @@ namespace MimAcher.Mobile.Activities
             CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar));
 
             //Iniciando o botão flutuante
-            FabOptions();
+            BotaoFlutanteOpcoes();
 
         }
 
-        private void FabOptions()
+        private void BotaoFlutanteOpcoes()
         {
             _fab.Click += (s, arg) =>
             {

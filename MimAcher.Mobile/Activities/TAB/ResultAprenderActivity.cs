@@ -1,18 +1,17 @@
 using System.Collections.Generic;
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.Activities.TAB
 {
     [Activity(Label = "Aprender", Theme = "@style/Theme.Splash")]
-    public class ResultAprenderActivity : ListActivity
+    public class ResultAprenderActivity : FabricaTelasComResultados
     {
-        //Variaveis globais
-        private List<string> _items;
-
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -21,18 +20,12 @@ namespace MimAcher.Mobile.Activities.TAB
 
             //Recebendo e transformando o bundle(Objeto participante)
             var participanteBundle = Intent.GetBundleExtra("member");
-            var participante = Participante.BundleToParticipante(participanteBundle);
+            Participante = Participante.BundleToParticipante(participanteBundle);
 
             //Listagem do que aprender            
-            _items = participante.Aprender.Conteudo;            
-            ListAdapter = new ListAdapterHae(this, _items);
+            Items = Participante.Aprender.Conteudo;            
+            ListAdapter = new ListAdapterHae(this, Items);
         }
-
-        //Checa qual item foi clicado
-        protected override void OnListItemClick(ListView l, View v, int position, long id)
-        {
-            var t = _items[position];
-            Toast.MakeText(this, t, ToastLength.Short).Show();
-        }
+        
     }
 }

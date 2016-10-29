@@ -55,7 +55,7 @@ namespace MimAcher.Mobile.Utilitarios
 
             alert.SetNegativeButton("Não", (sender, args) =>
             {
-                Toast.MakeText(contexto, "Ok, sua localização não será registrada", ToastLength.Short).Show();
+                Toast.MakeText(contexto, "Sua localização não será registrada", ToastLength.Short).Show();
             });
 
             Dialog dialog = alert.Create();
@@ -79,18 +79,52 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Deseja realizar Logout");
-            alert.SetPositiveButton("Sim", (senderAlert, args) =>
+            alert.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 home.Logout();
             });
 
-            alert.SetNegativeButton("Não", (sender, args) =>
+            alert.SetNegativeButton("Cancelar", (sender, args) =>
             {
             });
 
             Dialog dialog = alert.Create();
             dialog.Show();
-            
         }
+
+        public static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
+        {
+            var adb = new AlertDialog.Builder(resultados);
+            adb.SetTitle("Opções");
+            adb.SetMessage("Você deseja remover o item ou consultar combinações?");
+            adb.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
+            {
+                resultados.VerCombinacoes(itemSelecionado);
+            });
+            adb.SetNegativeButton("Remover", (senderAlert, args) =>
+            {
+                MensagemParaRemoverItemSelecionado(itemSelecionado, resultados);
+            });
+            adb.Show();
+        }
+
+        private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados resultados)
+        {
+            var adb = new AlertDialog.Builder(resultados);
+            adb.SetTitle("Remover!");
+            adb.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
+            adb.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                Toast.MakeText(resultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
+                resultados.RemoverItemSelecionado(itemSelecionado);
+            });
+            adb.SetNegativeButton("Cancelar", (senderAlert, args) =>
+            {
+                Toast.MakeText(resultados, itemSelecionado + " não será removido!", ToastLength.Short).Show();
+            });
+            adb.Show();
+        }
+
+
     }
 }
