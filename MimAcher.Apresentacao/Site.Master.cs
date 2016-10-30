@@ -29,9 +29,13 @@ namespace MimAcher.Apresentacao
                 
                 //Coloca as informações do usuário logado no cabeçalho
                 this.labelUsuarioEmail.Text = usuario.e_mail;
-                                
+             
+                if(GestorDeUsuario.VerificarSeUsuarioTemVinculoComParticipante(usuario))
+                {
+                    //this.labelParticipanteNome.Text = usuario.MA_PARTICIPANTE.;
+                }
 
-                //this.labelPerfil.Text = permissao.Perfil;
+
                 //this.labelEntidade.Text = permissao.Entidade;
             }
             else
