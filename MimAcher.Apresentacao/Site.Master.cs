@@ -12,10 +12,12 @@ namespace MimAcher.Apresentacao
     public partial class SiteMaster : MasterPage
     {
         public GestorDeUsuario GestorDeUsuario { get; set; }
+        public GestorDeParticipante GestorDeParticipante { get; set; }
 
         public SiteMaster()
         {
             this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeParticipante = new GestorDeParticipante();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,8 +26,11 @@ namespace MimAcher.Apresentacao
             {
                 MA_USUARIO usuario = (MA_USUARIO)Session["usuario"];
 
+                
                 //Coloca as informações do usuário logado no cabeçalho
-                //this.labelUsuario.Text = permissao.Usuario;
+                this.labelUsuarioEmail.Text = usuario.e_mail;
+                                
+
                 //this.labelPerfil.Text = permissao.Perfil;
                 //this.labelEntidade.Text = permissao.Entidade;
             }

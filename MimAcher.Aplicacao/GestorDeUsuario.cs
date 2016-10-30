@@ -48,6 +48,30 @@ namespace MimAcher.Aplicacao
             }
         }
 
+        public Boolean VerificarSeUsuarioTemVinculoComParticipante(MA_USUARIO usuario)
+        {
+            if(usuario.MA_PARTICIPANTE != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean VerificarSeUsuarioTemVinculoComNAC(MA_USUARIO usuario)
+        {
+            if (usuario.MA_NAC != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);

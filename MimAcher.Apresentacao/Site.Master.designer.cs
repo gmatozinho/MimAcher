@@ -103,22 +103,31 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.Container Container1;
         
         /// <summary>
-        /// labelUsuario control.
+        /// labelUsuarioEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Label labelUsuario;
+        protected global::Ext.Net.Label labelUsuarioEmail;
         
         /// <summary>
-        /// labelTipo control.
+        /// labelParticipanteNome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Label labelTipo;
+        protected global::Ext.Net.Label labelParticipanteNome;
+        
+        /// <summary>
+        /// labelNACNomeRepresentante control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label labelNACNomeRepresentante;
         
         /// <summary>
         /// PainelMenuPrincipalId control.
