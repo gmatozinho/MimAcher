@@ -37,8 +37,8 @@ namespace MimAcher.Apresentacao
 
         protected void Sair(object sender, EventArgs e)
         {
-            //Session.Abandon();
-            //Response.Redirect("~/Login.aspx");
+            Session.Abandon();
+            Response.Redirect("~/Login.aspx");
         }
     }
 }

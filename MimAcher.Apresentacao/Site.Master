@@ -131,8 +131,8 @@
 									</Menu>
 								</ext:MenuItem>
 
-                                <%-- Menu Sair --%>
-                                <ext:MenuItem ID="SairMenuItemId" runat="server" Text="Sair do Sistema" Icon="BulletBlue" OnDirectClick="Sair"/>
+								<%-- Menu Sair --%>
+								<ext:MenuItem ID="SairMenuItemId" runat="server" Text="Sair do Sistema" Icon="BulletBlue" OnDirectClick="Sair"/>
 
 							</Items>
 						</ext:Menu>
