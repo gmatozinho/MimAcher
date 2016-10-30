@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Android.App;
 using Android.Views;
@@ -28,8 +29,9 @@ namespace MimAcher.Mobile.Entidades
 
         public override View GetView(int position, View convertView, ViewGroup parent)
         {
-            var view = convertView ?? _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
-            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = _items[position];           
+            var item = _items[position];
+            var view = _context.LayoutInflater.Inflate(Android.Resource.Layout.SimpleListItem1, null);
+            view.FindViewById<TextView>(Android.Resource.Id.Text1).Text = item;
             return view;
         }
 

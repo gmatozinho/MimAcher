@@ -1,12 +1,14 @@
 using System;
+using System.Runtime.CompilerServices;
+using System.Security.Permissions;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Views;
 using Android.Widget;
-using Java.Lang;
+using MimAcher.Mobile.Activities;
 using MimAcher.Mobile.Entidades;
-using AlertDialog = Android.Support.V7.App.AlertDialog;
+using MimAcher.Mobile.Entidades.Fabricas;
+
 
 namespace MimAcher.Mobile.Utilitarios
 {
@@ -37,21 +39,27 @@ namespace MimAcher.Mobile.Utilitarios
             Dialog dialog = alert.Create();
             dialog.Show();
         }
-
-        public static AlertDialog.Builder MensagemDeRegistrarGeolocalizacao(Context contexto)
+        
+        public static void MensagemParaRegistrarGeolocalizacao(Context contexto, Participante participante)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Você deseja registrar sua localização?");
             alert.SetMessage(
-                "Registre para gente o local onde você mora para que possamos sugerir as pessoas que estão mais próximas de você");
+                "Registre para gente o local onde você mora para que possamos sugerir as pessoas que estão mais próximas de você.");
 
-            return alert;
-        }
+            alert.SetPositiveButton("Sim", async (senderAlert, args) =>
+            {
+                Toast.MakeText(contexto, "Sua localização será registrada!", ToastLength.Short).Show();
+                participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+            });
 
-        private static async Task<string> MethodAsync()
-        {
-            await Task.Delay(10000);
-            return "";
+            alert.SetNegativeButton("Não", (sender, args) =>
+            {
+                Toast.MakeText(contexto, "Sua localização não será registrada", ToastLength.Short).Show();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
         }
 
         public static void MensagemDeDataInvalida(Context contexto)
@@ -66,5 +74,57 @@ namespace MimAcher.Mobile.Utilitarios
             Dialog dialog = alert.Create();
             dialog.Show();
         }
+
+        public static void MensagemDeLogout(Context contexto, HomeActivity home)
+        {
+            var alert = new AlertDialog.Builder(contexto);
+            alert.SetTitle("Deseja realizar Logout");
+            alert.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                home.Logout();
+            });
+
+            alert.SetNegativeButton("Cancelar", (sender, args) =>
+            {
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
+        }
+
+        public static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
+        {
+            var adb = new AlertDialog.Builder(resultados);
+            adb.SetTitle("Opções");
+            adb.SetMessage("Você deseja remover o item ou consultar combinações?");
+            adb.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
+            {
+                resultados.VerCombinacoes(itemSelecionado);
+            });
+            adb.SetNegativeButton("Remover", (senderAlert, args) =>
+            {
+                MensagemParaRemoverItemSelecionado(itemSelecionado, resultados);
+            });
+            adb.Show();
+        }
+
+        private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados resultados)
+        {
+            var adb = new AlertDialog.Builder(resultados);
+            adb.SetTitle("Remover!");
+            adb.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
+            adb.SetPositiveButton("Ok", (senderAlert, args) =>
+            {
+                Toast.MakeText(resultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
+                resultados.RemoverItemSelecionado(itemSelecionado);
+            });
+            adb.SetNegativeButton("Cancelar", (senderAlert, args) =>
+            {
+                Toast.MakeText(resultados, itemSelecionado + " não será removido!", ToastLength.Short).Show();
+            });
+            adb.Show();
+        }
+
+
     }
 }
