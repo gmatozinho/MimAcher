@@ -69,7 +69,7 @@
 												<Items>
 													<ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20"></ext:Label>
 													<ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20"></ext:Label>                                                    
-                                                    <ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20"></ext:Label>                                                    
+													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20"></ext:Label>                                                    
 												</Items>
 											</ext:Container>
 										</div>   

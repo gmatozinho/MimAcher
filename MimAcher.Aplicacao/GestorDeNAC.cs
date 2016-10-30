@@ -55,5 +55,24 @@ namespace MimAcher.Aplicacao
         {
             this.RepositorioDeNAC.AtualizarNAC(nac);
         }
+
+        public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
+        {
+            return this.RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
+        }
+
+        public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(int idUsuario)
+        {
+            List<MA_NAC> listanac = ObterTodosOsNAC();
+
+            foreach(MA_NAC nac in listanac)
+            {
+                if(nac.cod_usuario == idUsuario)
+                {
+                    return true;
+                }
+            }
+
+            return false;        }
     }
 }

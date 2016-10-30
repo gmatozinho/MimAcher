@@ -96,7 +96,7 @@ namespace MimAcher.Infra
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
-        {
+        {   
             if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null) {
                 return true;
             }
@@ -107,7 +107,7 @@ namespace MimAcher.Infra
 
         public Boolean VerificarSeNACTemAlgumNACComMesmoUsuario(MA_PARTICIPANTE participante)
         {
-            if (this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == participante.cod_usuario) != null)
+            if (this.Contexto.MA_NAC.Where(l => l.cod_usuario == participante.cod_usuario).SingleOrDefault() != null)
             {
                 return true;
             }

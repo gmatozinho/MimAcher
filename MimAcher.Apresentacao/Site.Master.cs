@@ -30,14 +30,14 @@ namespace MimAcher.Apresentacao
                                 
                 //Coloca a informação com o email do usuário logado no cabeçalho
                 this.labelUsuarioEmail.Text = usuario.e_mail;
-             
-                if(GestorDeUsuario.VerificarSeUsuarioTemVinculoComParticipante(usuario))
+
+                if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do Participante no cabeçalho
                     this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
                 }
 
-                if (GestorDeUsuario.VerificarSeUsuarioTemVinculoComNAC(usuario))
+                if (GestorDeNAC.VerificarSeNACTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do representante do NAC no cabeçalho
                     this.labelNACNomeRepresentante.Text = GestorDeNAC.ObterNACPorIdDeUsuario(usuario.cod_usuario).nome_representante;

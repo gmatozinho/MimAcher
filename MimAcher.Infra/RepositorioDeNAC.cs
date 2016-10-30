@@ -96,9 +96,9 @@ namespace MimAcher.Infra
             }
         }
 
-        public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
+        public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            if(this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario) !=  null)
+            if(this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario).SingleOrDefault() !=  null)
             {
                 return true;
             }

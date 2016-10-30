@@ -65,5 +65,24 @@ namespace MimAcher.Aplicacao
         {
             this.RepositorioDeParticipante.AtualizarParticipante(participante);
         }
+
+        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
+        {
+            return this.RepositorioDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante);
+        }
+
+        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(int idUsuario)
+        {
+            List<MA_PARTICIPANTE> listaparticipante = ObterTodosOsParticipantes();
+            
+            foreach(MA_PARTICIPANTE participante in listaparticipante)
+            {
+                if (participante.cod_usuario == idUsuario)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
