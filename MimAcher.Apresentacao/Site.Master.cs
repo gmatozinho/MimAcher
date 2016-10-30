@@ -32,7 +32,7 @@ namespace MimAcher.Apresentacao
              
                 if(GestorDeUsuario.VerificarSeUsuarioTemVinculoComParticipante(usuario))
                 {
-                    //this.labelParticipanteNome.Text = usuario.MA_PARTICIPANTE.;
+                    //this.labelParticipanteNome.Text = usuario.MA_PARTICIPANTE.;                    
                 }
 
 

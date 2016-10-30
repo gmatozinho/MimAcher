@@ -21,6 +21,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeNAC.ObterNACPorId(id);
         }
 
+        public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
+        {
+            return this.RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
+        }
+
         public List<MA_NAC> ObterTodosOsNAC()
         {
             return this.RepositorioDeNAC.ObterTodosOsNAC();

@@ -21,6 +21,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC.Find(id);
         }
 
+        public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
+        {
+            return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
+        }
+
         public List<MA_NAC> ObterTodosOsNAC()
         {
             return this.Contexto.MA_NAC.ToList();

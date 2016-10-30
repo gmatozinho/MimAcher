@@ -26,6 +26,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParticipante.ObterParticipantePorId(id);
         }
 
+        public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
+        {
+            return this.RepositorioDeParticipante.ObterParticipantePorIdDeUsuario(idUsuario);
+        }
+
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {            
             return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
