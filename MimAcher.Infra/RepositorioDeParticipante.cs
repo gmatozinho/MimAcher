@@ -48,9 +48,13 @@ namespace MimAcher.Infra
         
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante)){
-                this.Contexto.MA_PARTICIPANTE.Add(participante);
-                this.Contexto.SaveChanges();
+            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
+            {
+                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                {
+                    this.Contexto.MA_PARTICIPANTE.Add(participante);
+                    this.Contexto.SaveChanges();
+                }
             }
         }
 
@@ -69,9 +73,12 @@ namespace MimAcher.Infra
         public void AtualizarParticipante(MA_PARTICIPANTE participante)
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
-            {                
-                this.Contexto.Entry(participante).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+            {
+                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                {
+                    this.Contexto.Entry(participante).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+                }
             }
             else
             {
@@ -79,8 +86,11 @@ namespace MimAcher.Infra
 
                 if (!participantejaexistente.nome.ToLower().Equals(participante.nome.ToLower()))
                 {
-                    this.Contexto.Entry(participante).State = EntityState.Modified;
-                    this.Contexto.SaveChanges();
+                    if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                    {
+                        this.Contexto.Entry(participante).State = EntityState.Modified;
+                        this.Contexto.SaveChanges();
+                    }
                 }
             }
         }

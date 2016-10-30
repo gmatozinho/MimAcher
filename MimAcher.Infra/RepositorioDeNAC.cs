@@ -38,8 +38,14 @@ namespace MimAcher.Infra
         
         public void InserirNAC(MA_NAC nac)
         {
-            this.Contexto.MA_NAC.Add(nac);
-            this.Contexto.SaveChanges();
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            {
+                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                {
+                    this.Contexto.MA_NAC.Add(nac);
+                    this.Contexto.SaveChanges();
+                }
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -57,8 +63,11 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
             {
-                this.Contexto.Entry(nac).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                {
+                    this.Contexto.Entry(nac).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+                }
             }
             else
             {
@@ -66,8 +75,11 @@ namespace MimAcher.Infra
 
                 if (nacjaexistente.nome_representante.ToLower().Equals(nac.nome_representante.ToLower()))
                 {
-                    this.Contexto.Entry(nac).State = EntityState.Modified;
-                    this.Contexto.SaveChanges();
+                    if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                    {
+                        this.Contexto.Entry(nac).State = EntityState.Modified;
+                        this.Contexto.SaveChanges();
+                    }
                 }
             }
         }
