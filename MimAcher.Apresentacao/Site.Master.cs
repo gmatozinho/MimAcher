@@ -13,11 +13,13 @@ namespace MimAcher.Apresentacao
     {
         public GestorDeUsuario GestorDeUsuario { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
+        public GestorDeNAC GestorDeNAC { get; set; }
 
         public SiteMaster()
         {
             this.GestorDeUsuario = new GestorDeUsuario();
             this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeNAC = new GestorDeNAC();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,18 +27,22 @@ namespace MimAcher.Apresentacao
             if ((MA_USUARIO)Session["usuario"] != null)
             {
                 MA_USUARIO usuario = (MA_USUARIO)Session["usuario"];
-
-                
-                //Coloca as informações do usuário logado no cabeçalho
+                                
+                //Coloca a informação com o email do usuário logado no cabeçalho
                 this.labelUsuarioEmail.Text = usuario.e_mail;
              
                 if(GestorDeUsuario.VerificarSeUsuarioTemVinculoComParticipante(usuario))
                 {
-                    //this.labelParticipanteNome.Text = usuario.MA_PARTICIPANTE.;                    
+                    //Coloca a informação com o nome do Participante no cabeçalho
+                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
                 }
 
-
-                //this.labelEntidade.Text = permissao.Entidade;
+                if (GestorDeUsuario.VerificarSeUsuarioTemVinculoComNAC(usuario))
+                {
+                    //Coloca a informação com o nome do representante do NAC no cabeçalho
+                    this.labelNACNomeRepresentante.Text = GestorDeNAC.ObterNACPorIdDeUsuario(usuario.cod_usuario).nome_representante;
+                }
+                
             }
             else
             {
