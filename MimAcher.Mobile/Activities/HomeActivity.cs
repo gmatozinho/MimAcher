@@ -2,6 +2,8 @@ using System;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Database;
+using Android.Graphics;
 using Android.OS;
 using Android.Runtime;
 using Android.Views;
@@ -85,7 +87,6 @@ namespace MimAcher.Mobile.Activities
             };
 
         }
-        
         public override void OnBackPressed() { }
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -100,7 +101,8 @@ namespace MimAcher.Mobile.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    _searchView = item.JavaCast<SearchView>();
+                    _searchView = new SearchView(this);
+                    _searchView.SetQuery("Pesquisar",true);
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
@@ -150,7 +152,7 @@ namespace MimAcher.Mobile.Activities
             var toast = $"Coordenadas:\n lat{localizacao[0]} long{localizacao[1]}";
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
-
+        
     }
 
 
