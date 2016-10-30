@@ -46,12 +46,15 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.e_mail.Equals(email)).SingleOrDefault();
         }
         
-        public void InserirParticipante(MA_PARTICIPANTE Participante)
-        {            
-            this.Contexto.MA_PARTICIPANTE.Add(Participante);
-            this.Contexto.SaveChanges();         
+        public void InserirParticipante(MA_PARTICIPANTE participante)
+        {
+            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante)){
+                this.Contexto.MA_PARTICIPANTE.Add(participante);
+                this.Contexto.SaveChanges();
+            }
         }
 
+        
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE.Count();
@@ -63,10 +66,33 @@ namespace MimAcher.Infra
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarParticipante(MA_PARTICIPANTE Participante)
-        {            
-            this.Contexto.Entry(Participante).State = EntityState.Modified;
-            this.Contexto.SaveChanges();            
+        public void AtualizarParticipante(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
+            {                
+                this.Contexto.Entry(participante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
+
+                if (!participantejaexistente.nome.ToLower().Equals(participante.nome.ToLower()))
+                {
+                    this.Contexto.Entry(participante).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+                }
+            }
+        }
+
+        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
+        {
+            if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null) {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }
 }

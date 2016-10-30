@@ -55,8 +55,33 @@ namespace MimAcher.Infra
 
         public void AtualizarNAC(MA_NAC nac)
         {
-            this.Contexto.Entry(nac).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            {
+                this.Contexto.Entry(nac).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
+
+                if (nacjaexistente.nome_representante.ToLower().Equals(nac.nome_representante.ToLower()))
+                {
+                    this.Contexto.Entry(nac).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+                }
+            }
+        }
+
+        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumNAC(MA_NAC nac)
+        {
+            if (ObterNACPorIdDeUsuario(nac.cod_usuario) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
