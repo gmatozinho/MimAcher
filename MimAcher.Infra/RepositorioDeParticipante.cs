@@ -94,5 +94,17 @@ namespace MimAcher.Infra
                 return false;
             }
         }
+
+        public Boolean VerificarSeNACTemAlgumNACComMesmoUsuario(MA_PARTICIPANTE participante)
+        {
+            if (this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == participante.cod_usuario) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

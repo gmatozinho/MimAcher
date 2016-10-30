@@ -25,7 +25,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
         }
-
+        
         public List<MA_NAC> ObterTodosOsNAC()
         {
             return this.Contexto.MA_NAC.ToList();
@@ -83,5 +83,18 @@ namespace MimAcher.Infra
                 return false;
             }
         }
+
+        public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
+        {
+            if(this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario) !=  null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
     }
 }
