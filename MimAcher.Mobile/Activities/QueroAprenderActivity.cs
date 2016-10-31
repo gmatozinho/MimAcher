@@ -5,12 +5,11 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
-using ActionBar = Android.Support.V7.App.ActionBar;
 
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
-    public class QueroAprenderActivity : FabricaTelasComProcedimento
+    public class QueroAprenderActivity : FabricaTelasNormaisComProcedimento
     {
         //Variaveis globais
         private Participante _participante;

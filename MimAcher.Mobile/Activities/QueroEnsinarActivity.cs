@@ -9,7 +9,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "QueroEnsinarActivity", Theme = "@style/Theme.Splash")]
-    public class QueroEnsinarActivity : FabricaTelasComProcedimento
+    public class QueroEnsinarActivity : FabricaTelasNormaisComProcedimento
     {
         //Variaveis globais
         private Participante _participante;

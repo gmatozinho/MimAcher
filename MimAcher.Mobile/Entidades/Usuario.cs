@@ -24,6 +24,7 @@ namespace MimAcher.Mobile.Entidades
             return Validador.ValidadorDeLogin(email, senha);
             //comparar com informacao no banco
             //retornar true e o usuario em caso de sucesso e false em caso de falha
+            //TODO chamar autenticação
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)
@@ -34,11 +35,11 @@ namespace MimAcher.Mobile.Entidades
             }
         }
 
-/*
+        //TODO desativar conta
         public void DesativarConta()
         {
             //código para excluir o usuário do banco
         }
-*/
+
     }
 }

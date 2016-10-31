@@ -3,6 +3,11 @@ solution: MimAcher.sln
 
 jdk:
   - oraclejdk8
+  
+env:
+ global:
+  - EnableNuGetPackageRestore=true 
+  
 addons:
   apt:
     packages:

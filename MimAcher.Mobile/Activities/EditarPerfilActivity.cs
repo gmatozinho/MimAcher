@@ -9,7 +9,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EditarPerfilActivity", Theme = "@style/Theme.Splash")]
-    public class EditarPerfilActivity : FabricaTelasSemProcedimento
+    public class EditarPerfilActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
         private string _nome;
@@ -72,7 +72,7 @@ namespace MimAcher.Mobile.Activities
         
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
-            MenuInflater.Inflate(Resource.Drawable.top_menus_nosearch, menu);
+            MenuInflater.Inflate(Resource.Drawable.top_menus_only_home, menu);
             return base.OnCreateOptionsMenu(menu);
         }
 
@@ -83,10 +83,6 @@ namespace MimAcher.Mobile.Activities
                 case Resource.Id.menu_home:
                     _pacote = _participante;
                     IniciarHome(this,_pacote);
-                    return true;
-
-                case Resource.Id.menu_preferences:
-                    //chamar configurações??
                     return true;
             }
             return base.OnOptionsItemSelected(item);

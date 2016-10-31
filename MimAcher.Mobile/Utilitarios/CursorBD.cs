@@ -2,30 +2,25 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.Utilitarios;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using System;
 
 namespace MimAcher.Mobile.Utilitarios
 {
     public static class CursorBD
     {
-        public static bool EnviarParticipante(Participante participante)
+        public static int EnviarParticipante(Participante participante)
         {
-            WebRequest requisicao = MontardorRequisicao.MontarRequisicaoUsuario();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
-            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
-            {
-                string json = JsonParser.MontarJsonUsuario(participante);
-                EnviarJson(json, streamSaida);
-            }
+            string json = JsonParser.MontarJsonUsuario(participante);
+            EnviarJson(json, requisicao);
 
-            requisicao = MontardorRequisicao.MontarRequisicaoParticipante();
-            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
-            {
-                string json = JsonParser.MontarJsonParticipante(participante);
-                EnviarJson(json, streamSaida);
-            }
+            var codigo_participante = ObterResposta(requisicao);
 
-            return ObterResposta(requisicao);
-            
+            return 1; // codigo_participante;
         }
 
         public static void EnviarItens(TipoItem tipo, List<string> itens)
@@ -33,11 +28,14 @@ namespace MimAcher.Mobile.Utilitarios
 
         }
 
-        public static int EnviarItem(TipoItem tipo, string item)
+        //TODO: setar valor de retorno correto
+        public static object EnviarItem(string item)
         {
-            int codigo_item = 1;
+            string json = JsonParser.MontarJsonItem(item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostItem();
+            EnviarJson(json, requisicao);
 
-            return codigo_item;
+            return ObterResposta(requisicao);
         }
 
         public static Dictionary<string, List<Participante>> Match(Participante a)
@@ -55,29 +53,46 @@ namespace MimAcher.Mobile.Utilitarios
             return matchs;
         }
 
-        private static void EnviarJson(string json, StreamWriter streamSaida)
+        private static void EnviarJson(string json, WebRequest requisicao)
         {
-            streamSaida.Write(json);
-            streamSaida.Flush();
-            streamSaida.Close();
+            using (StreamWriter streamSaida = new StreamWriter(requisicao.GetRequestStream()))
+            {
+                streamSaida.Write(json);
+                streamSaida.Flush();
+                streamSaida.Close();
+            }
         }
-
-        private static bool ObterResposta(WebRequest requisicao)
+        //TODO: setar valor de retorno correto
+        private static object ObterResposta(WebRequest requisicao)
         {
             WebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
             string resultado;
             using (StreamReader streamEntrada = new StreamReader(resposta.GetResponseStream()))
             {
                 resultado = streamEntrada.ReadToEnd();
+                streamEntrada.Close();
             }
 
-            bool sucesso;
+            return resultado;
+        }
 
-            if (resultado.Contains("True"))
-                sucesso = true;
-            else sucesso = false;
+        public static Dictionary<int, string> ObterCampi()
+        {
+            Dictionary<int, string> campi = new Dictionary<int, string>();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoGetCampi();
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            return sucesso;
+            var listaCampi = objetoResposta.SelectToken("data");
+
+            foreach (var token in listaCampi)
+            {
+                string chave = token.SelectToken("cod_campus").ToString().Replace("{", "").Replace("}", "");
+                string valor = token.SelectToken("local").ToString().Replace("{", "").Replace("}", "");
+
+                campi[Int32.Parse(chave)] = valor;
+            }
+
+            return campi;
         }
     }
 }

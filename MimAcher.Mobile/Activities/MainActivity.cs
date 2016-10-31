@@ -10,7 +10,7 @@ using MimAcher.Mobile.Utilitarios;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
-    public class MainActivity : FabricaTelasSemProcedimento
+    public class MainActivity : FabricaTelasNormaisSemProcedimento
     {
         
         //Variaveis globais
@@ -21,6 +21,7 @@ namespace MimAcher.Mobile.Activities
         private readonly string _email = null;
         private readonly string _nascimento = "09/10/1995";
         private readonly string _telefone = "00000000";
+        private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
         
@@ -49,6 +50,7 @@ namespace MimAcher.Mobile.Activities
                 Usuario.Login(_emailInserido, _senhaInserida);
                 var participante = new Participante(MontarUsuário());
                 IniciarHome(this,participante);
+                Finish();
             };
 
             //Tenho que fazer a autenticação no banco de dados
@@ -72,7 +74,8 @@ namespace MimAcher.Mobile.Activities
                 ["email"] = _email,
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento
+                ["nascimento"] = _nascimento,
+                ["localizacao"] = _localizacao
             };
 
             return informacoes;

@@ -4,7 +4,7 @@ using MimAcher.Mobile.Activities;
 
 namespace MimAcher.Mobile.Entidades.Fabricas
 {
-    public class FabricaTelasComProcedimento : FabricaAbstrataTelasNormais
+    public class FabricaTelasNormaisComProcedimento : FabricaAbstrataTelasNormais
     {
         protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
@@ -30,6 +30,7 @@ namespace MimAcher.Mobile.Entidades.Fabricas
 
         private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
+            //TODO mudar para enviar item do
             //pacote.Participante.Commit();
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;

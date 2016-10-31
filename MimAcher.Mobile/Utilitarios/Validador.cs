@@ -44,8 +44,9 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static bool ValidarTelefone(string telefone)
         {
-            int numero;
-            return int.TryParse(telefone, out numero);
+            telefone = telefone.Replace(" ", "").Replace("-", "");
+            long numero;
+            return long.TryParse(telefone, out numero);
         }
 
         private static bool ValidarSenha(string senha)

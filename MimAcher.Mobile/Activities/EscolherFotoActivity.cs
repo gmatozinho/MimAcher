@@ -8,7 +8,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "EscolherFotoActivity", Theme = "@style/Theme.Splash")]
-    public class EscolherFotoActivity : FabricaTelasSemProcedimento
+    public class EscolherFotoActivity : FabricaTelasNormaisSemProcedimento
     {
         
 
@@ -38,6 +38,8 @@ namespace MimAcher.Mobile.Activities
                 IniciarHobbies(this,pacote);
             };
         }
+
+        public override void OnBackPressed() {}
 
         private void SelecionarFoto()
         {
