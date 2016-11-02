@@ -61,6 +61,9 @@
     <Reference Include="Ext.Net.Utilities">
       <HintPath>..\_LIBS\Ext.Net.Utilities.dll</HintPath>
     </Reference>
+    <Reference Include="GMaps">
+      <HintPath>..\_LIBS\GMaps.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -162,6 +165,7 @@
     <Content Include="App\Campus.aspx" />
     <Content Include="App\ImagemParticipante.aspx" />
     <Content Include="App\Item.aspx" />
+    <Content Include="App\Mapa\PontoMapa.aspx" />
     <Content Include="App\NAC.aspx" />
     <Content Include="App\NACAreaAtuacao.aspx" />
     <Content Include="App\Participante.aspx" />
@@ -224,6 +228,13 @@
     </Compile>
     <Compile Include="App\Item.aspx.designer.cs">
       <DependentUpon>Item.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Mapa\PontoMapa.aspx.cs">
+      <DependentUpon>PontoMapa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Mapa\PontoMapa.aspx.designer.cs">
+      <DependentUpon>PontoMapa.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\NAC.aspx.cs">
       <DependentUpon>NAC.aspx</DependentUpon>
