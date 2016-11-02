@@ -85,5 +85,42 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
         }
+
+        public ActionResult Update(List<Usuario> listausuario)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listausuario == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (Usuario us in listausuario)
+                {
+                    MA_USUARIO usuario = new MA_USUARIO();
+                    usuario.cod_usuario = us.cod_usuario;
+                    usuario.e_mail = us.e_mail;
+                    usuario.senha = us.senha;
+
+                    GestorDeUsuario.AtualizarUsuario(usuario);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
