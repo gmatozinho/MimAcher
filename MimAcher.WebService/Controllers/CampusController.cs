@@ -84,5 +84,42 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
         }
+
+        [HttpPost]
+        public ActionResult Update(List<Campus> listacampus)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listacampus == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (Campus cp in listacampus)
+                {
+                    MA_CAMPUS campus = new MA_CAMPUS();
+                    campus.cod_campus = cp.cod_campus;
+                    campus.local = cp.local;
+
+                    GestorDeCampus.InserirCampus(campus);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
