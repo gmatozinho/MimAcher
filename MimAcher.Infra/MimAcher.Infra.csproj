@@ -79,6 +79,12 @@
     <Content Include="dbconfig\EntityDesignerDiagram.png" />
     <Content Include="dbconfig\inf.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MimAcher.Dominio\MimAcher.Dominio.csproj">
+      <Project>{cadca1c1-7eac-4695-8f7a-43863db2b982}</Project>
+      <Name>MimAcher.Dominio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
