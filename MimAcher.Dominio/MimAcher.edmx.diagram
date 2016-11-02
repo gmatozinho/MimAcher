@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f1f6c30fc8d04680b82e29f87155abe1" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="MIMACHERModel.MA_AREA_ATUACAO" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_CAMPUS" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_IMAGEM_PARTICIPANTE" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_ITEM" Width="1.5" PointX="9" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_NAC" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_NAC_AREA_ATUACAO" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_APRENDER" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_ENSINAR" Width="1.5" PointX="11.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_PARTICIPANTE_HOBBIE" Width="1.5" PointX="11.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_USUARIO" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_MA_CAMPUS_cod_campus" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_ITEM_cod_item" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_ITEM_cod_item" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_ITEM_cod_item" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_NAC_MA_USUARIO_cod_usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" ManuallyRouted="false" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
