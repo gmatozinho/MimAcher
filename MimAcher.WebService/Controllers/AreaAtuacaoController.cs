@@ -84,6 +84,44 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
+        } 
+
+        [HttpPost]
+        public ActionResult Update(List<AreaAtuacao> listaareaatuacao)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaareaatuacao == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (AreaAtuacao aa in listaareaatuacao)
+                {
+                    MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
+
+                    areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
+                    areaatuacao.nome = aa.nome;
+
+                    GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
         }
     }
 }
