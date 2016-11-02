@@ -77,7 +77,16 @@ namespace MimAcher.Infra
             {
                 if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                 {
-                    this.Contexto.Entry(participante).State = EntityState.Modified;
+                    MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
+                    participantegravacao.cod_participante = participante.cod_participante;
+                    participantegravacao.cod_campus = participante.cod_campus;
+                    participantegravacao.cod_usuario = participante.cod_usuario;
+                    participantegravacao.dt_nascimento = participante.dt_nascimento;
+                    participantegravacao.nome = participante.nome;
+                    participantegravacao.telefone = participante.telefone;
+                    participantegravacao.geolocalizacao = participante.geolocalizacao;
+
+                    //this.Contexto.Entry(participantegravacao).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
                 }
             }
@@ -85,12 +94,23 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                if (!participantejaexistente.nome.ToLower().Equals(participante.nome.ToLower()))
+                if (participantejaexistente.nome.ToLower().Equals(participante.nome.ToLower()))
                 {
                     if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                     {
-                        this.Contexto.Entry(participante).State = EntityState.Modified;
-                        this.Contexto.SaveChanges();
+                        MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+
+                        MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
+                        participantegravacao.cod_participante = participante.cod_participante;
+                        participantegravacao.cod_campus = participante.cod_campus;
+                        participantegravacao.cod_usuario = participante.cod_usuario;
+                        participantegravacao.dt_nascimento = participante.dt_nascimento;
+                        participantegravacao.nome = participante.nome;
+                        participantegravacao.telefone = participante.telefone;
+                        participantegravacao.geolocalizacao = participante.geolocalizacao;
+
+                        ContextoModificado.Entry(participante).State = EntityState.Modified;
+                        ContextoModificado.SaveChanges();
                     }
                 }
             }

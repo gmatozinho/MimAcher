@@ -17,6 +17,7 @@ namespace MimAcher.Apresentacao.App
         public GestorDeUsuario GestorDeUsuario { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeCampus GestorDeCampus { get; set; }
+        public GestorDeAplicacao GestorDeAplicacao { get; set; }
 
         public Participante()
         {
@@ -24,6 +25,7 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeUsuario = new GestorDeUsuario();
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeCampus = new GestorDeCampus();
+            this.GestorDeAplicacao = new GestorDeAplicacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -73,13 +75,15 @@ namespace MimAcher.Apresentacao.App
         protected void Save(object sender, DirectEventArgs e)
         {
             MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+            String latitude = GestorDeAplicacao.RetornaDadoSemVigurla(this.latitudeId.Text);
+            String longitude = GestorDeAplicacao.RetornaDadoSemVigurla(this.longitudeId.Text);
 
             participante.nome = this.nomeId.Text;
             participante.dt_nascimento = (DateTime)this.dt_nascimentoId.Value;
             participante.telefone = Int32.Parse(this.telefoneId.Text);
             participante.cod_campus = Int32.Parse(this.cod_campusId.SelectedItem.Value);
             participante.cod_usuario = Int32.Parse(this.cod_usuarioId.SelectedItem.Value);
-            participante.geolocalizacao = DbGeography.FromText("POINT(" + longitudeId.Value + "  " + latitudeId.Value + ")");
+            participante.geolocalizacao = DbGeography.FromText("POINT(" + longitude + "  " + latitude + ")");
 
             //Caso o form não possui código, será inserido um novo usuário
             if (this.cod_participanteId.Text == "")
@@ -113,6 +117,28 @@ namespace MimAcher.Apresentacao.App
             participante = GestorDeParticipante.ObterParticipantePorId(Int32.Parse(this.cod_participanteId.Text));
             GestorDeParticipante.RemoverParticipante(participante);
             this.LimpaForm();
+        }
+
+        protected void CarregarPontoNoMapa(object sender, DirectEventArgs e)
+        {            
+            int codigoparticipante = Int32.Parse(e.ExtraParams["RecordGridMap"]);
+                        
+            MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(codigoparticipante);
+
+         
+            Ext.Net.Window win = new Ext.Net.Window();
+            win.ID = "wmId";
+            win.Width = Unit.Pixel(1185);
+            win.Height = Unit.Pixel(650);
+            win.Modal = true;
+            win.Loader = new ComponentLoader();
+            win.Loader.Url = "~/App/Mapa/PontoMapa.aspx";
+            win.Loader.Mode = Ext.Net.LoadMode.Frame;
+            win.Loader.LoadMask.ShowMask = true;
+
+            win.Render(this);
+
+            Session.Add("participante", participante);
         }
 
         //Limpa o formulário

@@ -143,7 +143,8 @@
 					<Listeners>                        
 						<Select Handler="#{ParticipanteFormPanelId}.getForm().loadRecord(record); 
 										 #{EditButtonId}.setDisabled(false);
-										 #{DeleteButtonId}.setDisabled(false);" />                      
+										 #{DeleteButtonId}.setDisabled(false);
+                                         #{ExibirPontoNoMapaButtonId}.setDisabled(false);" />                      
 					</Listeners>                    
 			</ext:RowSelectionModel>                        
 		</SelectionModel>  
@@ -177,6 +178,19 @@
 
 					<%-- Atualizar --%>
 					<ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
+
+                    <%-- Exibir Participante no Mapa --%>
+					<ext:Button ID="ExibirPontoNoMapaButtonId" runat="server" Text="Exibir Participante no Mapa" Icon="PageAdd" Disabled="true">
+						<DirectEvents>
+							<Click OnEvent="CarregarPontoNoMapa">
+								<ExtraParams>
+										<ext:Parameter Name="RecordGridMap" Mode="Raw" Value="#{ParticipanteGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_participante" />                                
+								</ExtraParams>
+							</Click>
+						</DirectEvents>
+					</ext:Button>
+
+
 				</Items>
 			</ext:Toolbar>
 		</TopBar>
