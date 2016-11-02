@@ -55,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MimAcher.Dominio\MimAcher.Dominio.csproj">
+      <Project>{cadca1c1-7eac-4695-8f7a-43863db2b982}</Project>
+      <Name>MimAcher.Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MimAcher.Infra\MimAcher.Infra.csproj">
       <Project>{9b027f70-9628-4e22-8b2c-acc951acebac}</Project>
       <Name>MimAcher.Infra</Name>
