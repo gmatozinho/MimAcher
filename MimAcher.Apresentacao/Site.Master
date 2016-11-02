@@ -92,7 +92,7 @@
 							<Items>     
 
 								<%-- Menu Atributos --%>
-								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Diversos" HideOnClick="false" Icon="Group">
+								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Ítem e Associações de Interesses" HideOnClick="false" Icon="Group">
 									 <Menu>
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>

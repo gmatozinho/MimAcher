@@ -34,7 +34,7 @@ namespace MimAcher.Apresentacao
                 if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do Participante no cabeçalho
-                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
+                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;                    
                 }
 
                 if (GestorDeNAC.VerificarSeNACTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
