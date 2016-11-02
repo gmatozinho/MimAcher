@@ -10,41 +10,41 @@ namespace MimAcher.Aplicacao
 {
     public class GestorDeHobbieDeParticipante
     {
-        public RepositorioDePartipanteHobbie RepositorioDeGostoDeAluno { get; set; }
+        public RepositorioDePartipanteHobbie RepositorioDeParcipanteHobbie { get; set; }
 
         public GestorDeHobbieDeParticipante()
         {
-            this.RepositorioDeGostoDeAluno = new RepositorioDePartipanteHobbie();
+            this.RepositorioDeParcipanteHobbie = new RepositorioDePartipanteHobbie();
         }
 
         public MA_PARTICIPANTE_HOBBIE ObterHobbieDoParticipantePorId(int id)
         {
-            return this.RepositorioDeGostoDeAluno.ObterHobbieDoParticipantePorId(id);
+            return this.RepositorioDeParcipanteHobbie.ObterHobbieDoParticipantePorId(id);
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
         {
-            return this.RepositorioDeGostoDeAluno.ObterTodosOsRegistros();
+            return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
         }
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            this.RepositorioDeGostoDeAluno.InserirNovoParticipanteHobbie(hobbieparticipante);
+            this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeGostoDeAluno.BuscarQuantidadeRegistros();
+            return this.RepositorioDeParcipanteHobbie.BuscarQuantidadeRegistros();
         }
 
         public void RemoverHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbiedoparticipante)
         {
-            this.RepositorioDeGostoDeAluno.RemoverHobbieDoParticipante(hobbiedoparticipante);
+            this.RepositorioDeParcipanteHobbie.RemoverHobbieDoParticipante(hobbiedoparticipante);
         }
 
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            this.RepositorioDeGostoDeAluno.AtualizarHobbieDoParticipante(hobbieparticipante);
+            this.RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipante(hobbieparticipante);
         }
     }
 }
