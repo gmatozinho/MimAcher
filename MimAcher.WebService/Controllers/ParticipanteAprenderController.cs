@@ -86,5 +86,43 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
         }
+
+        [HttpPost]
+        public ActionResult Update(List<ParticipanteAprender> listaparticipanteaprender)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipanteaprender == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (ParticipanteAprender pe in listaparticipanteaprender)
+                {
+                    MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
+                    participanteaprender.cod_p_aprender = pe.cod_p_aprender;
+                    participanteaprender.cod_participante = pe.cod_participante;
+                    participanteaprender.cod_item = pe.cod_item;
+
+                    GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
