@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Ext.Net;
-using MimAcher.Infra;
+using MimAcher.Dominio;
 using MimAcher.Aplicacao;
 
 namespace MimAcher.Apresentacao.App
