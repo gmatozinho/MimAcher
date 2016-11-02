@@ -78,6 +78,7 @@ namespace MimAcher.Infra
                 if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                 {
                     MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
+
                     participantegravacao.cod_participante = participante.cod_participante;
                     participantegravacao.cod_campus = participante.cod_campus;
                     participantegravacao.cod_usuario = participante.cod_usuario;
@@ -86,20 +87,17 @@ namespace MimAcher.Infra
                     participantegravacao.telefone = participante.telefone;
                     participantegravacao.geolocalizacao = participante.geolocalizacao;
 
-                    //this.Contexto.Entry(participantegravacao).State = EntityState.Modified;
-                    this.Contexto.SaveChanges();
+                    Atualizar(participantegravacao);
                 }
             }
             else
             {
                 MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                if (participantejaexistente.nome.ToLower().Equals(participante.nome.ToLower()))
+                if (participantejaexistente.cod_participante == participante.cod_participante)
                 {
                     if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                     {
-                        MIMACHEREntities ContextoModificado = new MIMACHEREntities();
-
                         MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
                         participantegravacao.cod_participante = participante.cod_participante;
                         participantegravacao.cod_campus = participante.cod_campus;
@@ -109,11 +107,19 @@ namespace MimAcher.Infra
                         participantegravacao.telefone = participante.telefone;
                         participantegravacao.geolocalizacao = participante.geolocalizacao;
 
-                        ContextoModificado.Entry(participante).State = EntityState.Modified;
-                        ContextoModificado.SaveChanges();
+                        Atualizar(participantegravacao);
                     }
                 }
             }
+        }
+
+        public void Atualizar(MA_PARTICIPANTE participante)
+        {
+            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+
+            ContextoModificado.Entry(participante).State = EntityState.Modified;
+            ContextoModificado.SaveChanges();
+
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
