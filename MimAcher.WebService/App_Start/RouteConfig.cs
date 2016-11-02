@@ -20,27 +20,27 @@ namespace MimAcher.WebService
             );
 
             routes.MapRoute(
-               name: "AlunoAprender",
+               name: "ParticipanteAprender",
                url: "{controller}/{action}/{id}",
-               defaults: new { controller = "AlunoAprender", action = "Index", id = UrlParameter.Optional }
+               defaults: new { controller = "ParticipanteAprender", action = "Index", id = UrlParameter.Optional }
            );
 
             routes.MapRoute(
-                name: "Aluno",
+                name: "Participante",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Aluno", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Participante", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "AlunoEnsinar",
+                name: "ParticipanteEnsinar",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AlunoEnsinar", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "ParticipanteEnsinar", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "AlunoGosto",
+                name: "ParticipanteHobbie",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "AlunoGosto", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "ParticipanteHobbie", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
@@ -50,33 +50,39 @@ namespace MimAcher.WebService
             );
 
             routes.MapRoute(
-                name: "NACCampus",
+                name: "NAC",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "NACCampus", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "NAC", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "Gosto",
+                name: "Campus",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Gosto", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Campus", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "Ensinar",
+                name: "Item",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Ensinar", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "Aprender",
+                name: "AreaAtuacao",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Aprender", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "AreaAtuacao", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(
-                name: "ImagemUsuario",
+                name: "NACAreaAtuacao",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "ImagemUsuario", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "NACAreaAtuacao", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "ImagemParticipante",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "ImagemParticipante", action = "Index", id = UrlParameter.Optional }
             );
         }
     }
