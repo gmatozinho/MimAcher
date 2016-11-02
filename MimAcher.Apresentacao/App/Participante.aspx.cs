@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using MimAcher.Aplicacao;
 using System.Data.Entity.Spatial;
 using Ext.Net;
-using MimAcher.Infra;
+using MimAcher.Dominio;
 
 namespace MimAcher.Apresentacao.App
 {
