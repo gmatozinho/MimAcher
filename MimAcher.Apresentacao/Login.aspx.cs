@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Ext.Net;
 using MimAcher.Aplicacao;
-using MimAcher.Infra;
+using MimAcher.Dominio;
 
 namespace MimAcher.Apresentacao
 {
