@@ -14,9 +14,13 @@ namespace MimAcher.Apresentacao.App.Mapa
 {
     public partial class PontoMapa : System.Web.UI.Page
     {
+        public GestorDeParticipante GestorDeParticipante { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.GestorDeParticipante = new GestorDeParticipante();
 
+            ExibirTodosOsPontosNoMapa();
         }
 
         protected void ExibirTodosOsPontosNoMapa()
