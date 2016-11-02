@@ -66,18 +66,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MimAcher.Apresentacao\MimAcher.Apresentacao.csproj">
-      <Project>{4F03FDE7-A6EB-4762-8009-C88FE8236036}</Project>
-      <Name>MimAcher.Apresentacao</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <None Include="Gosto.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Gosto.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MimAcher.Apresentacao\MimAcher.Apresentacao.csproj">
+      <Project>{4f03fde7-a6eb-4762-8009-c88fe8236036}</Project>
+      <Name>MimAcher.Apresentacao</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

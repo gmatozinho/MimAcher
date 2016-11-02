@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MimAcher.WebService\MimAcher.WebService.csproj">
-      <Project>{DC507125-4EC6-40D8-AD3B-1A75C73F6DCE}</Project>
+      <Project>{dc507125-4ec6-40d8-ad3b-1a75c73f6dce}</Project>
       <Name>MimAcher.WebService</Name>
     </ProjectReference>
   </ItemGroup>
