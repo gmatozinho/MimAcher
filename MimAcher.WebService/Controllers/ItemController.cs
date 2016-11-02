@@ -87,5 +87,45 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
         }
+
+        [HttpPost]
+        public ActionResult Update(List<Item> listaitem)
+        {
+            JsonResult jsonResult;
+            int codigocadastrado = 0;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaitem == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (Item it in listaitem)
+                {
+                    MA_ITEM item = new MA_ITEM();
+                    item.cod_item = it.cod_item;
+                    item.nome = it.nome;
+
+                    GestorDeItem.InserirItem(item);
+
+                    codigocadastrado = item.cod_item;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
