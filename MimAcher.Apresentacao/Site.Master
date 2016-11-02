@@ -67,9 +67,9 @@
 										<div id="v2-samples">
 										<ext:Container ID="Container1" runat="server" Padding="2">
 												<Items>
-													<ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20"></ext:Label>
-													<ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20"></ext:Label>                                                    
-													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20"></ext:Label>                                                    
+                                                    <ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen"></ext:Label>                                                    																										
+													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar"></ext:Label>                                                    
+                                                    <ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
 												</Items>
 											</ext:Container>
 										</div>   
@@ -96,10 +96,10 @@
 									 <Menu>
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>
-												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" />                                
-												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" />                                
-												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" />                                
-												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" />                                												
+												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" Icon="Plugin" />                                
+												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="Group" />                                
+												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" Icon="GroupLink" />                                
+												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" Icon="GroupGear" />                                												
 											</Items>
 										</ext:Menu>
 									</Menu>
@@ -110,10 +110,10 @@
 									 <Menu>
 										<ext:Menu ID="NACCampusMenu" runat="server">
 											<Items>
-												<ext:MenuItem ID="NACMenuItemId" Text="NAC" OnClientClick="window.location.href='/App/NAC.aspx'" />                                
-												<ext:MenuItem ID="NACAreaAtuacaoMenuItemId" Text="NAC/Área de Atuação" OnClientClick="window.location.href='/App/NACAreaAtuacao.aspx'" />                                                                                                                                
-												<ext:MenuItem ID="AreaAtuacaoMenuItemId" Text="Área de Atuação" OnClientClick="window.location.href='/App/AreaAtuacao.aspx'" />                                                                                                                                
-												<ext:MenuItem ID="CampusMenuItemId" Text="Campus" OnClientClick="window.location.href='/App/Campus.aspx'" />                                                                                                                                
+												<ext:MenuItem ID="NACMenuItemId" Text="NAC" OnClientClick="window.location.href='/App/NAC.aspx'" Icon="Shield" />                                
+												<ext:MenuItem ID="NACAreaAtuacaoMenuItemId" Text="NAC/Área de Atuação" OnClientClick="window.location.href='/App/NACAreaAtuacao.aspx'" Icon="ShieldRainbow" />                                                                                                                                
+												<ext:MenuItem ID="AreaAtuacaoMenuItemId" Text="Área de Atuação" OnClientClick="window.location.href='/App/AreaAtuacao.aspx'" Icon="ShieldSilver" />                                                                                                                                
+												<ext:MenuItem ID="CampusMenuItemId" Text="Campus" OnClientClick="window.location.href='/App/Campus.aspx'" Icon="Neighbourhood" />                                                                                                                                
 											</Items>
 										</ext:Menu>
 									</Menu>
@@ -124,8 +124,8 @@
 									 <Menu>
 										<ext:Menu ID="UsuarioParticipanteMenu" runat="server">
 											<Items>
-												<ext:MenuItem ID="UsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" />                                                                                												                                
-												<ext:MenuItem ID="ParticipanteMenuItemId" Text="Participante" OnClientClick="window.location.href='/App/Participante.aspx'" />                                
+												<ext:MenuItem ID="UsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" Icon="User" />                                                                                												                                
+												<ext:MenuItem ID="ParticipanteMenuItemId" Text="Participante" OnClientClick="window.location.href='/App/Participante.aspx'" Icon="UserTick" />                                
 												<ext:MenuItem ID="ImagemParticipanteMenuItemId" Text="Imagem de Participante" OnClientClick="window.location.href='/App/ImagemParticipante.aspx'" />                                                                                												
 											</Items>
 										</ext:Menu>
