@@ -67,8 +67,8 @@
 										<div id="v2-samples">
 										<ext:Container ID="Container1" runat="server" Padding="2">
 												<Items>
-                                                    <ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen"></ext:Label>                                                    																										
-													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar"></ext:Label>                                                    
+                                                    <ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen" Hidden="true"></ext:Label>                                                    																										
+													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar" Hidden="true"></ext:Label>                                                    
                                                     <ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
 												</Items>
 											</ext:Container>

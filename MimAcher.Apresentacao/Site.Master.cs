@@ -34,13 +34,15 @@ namespace MimAcher.Apresentacao
                 if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do Participante no cabeçalho
-                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;                    
+                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
+                    this.labelParticipanteNome.Hidden = false;
                 }
 
                 if (GestorDeNAC.VerificarSeNACTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do representante do NAC no cabeçalho
                     this.labelNACNomeRepresentante.Text = GestorDeNAC.ObterNACPorIdDeUsuario(usuario.cod_usuario).nome_representante;
+                    this.labelNACNomeRepresentante.Hidden = false;
                 }
                 
             }
