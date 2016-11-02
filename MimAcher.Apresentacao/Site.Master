@@ -92,12 +92,12 @@
 							<Items>     
 
 								<%-- Menu Atributos --%>
-								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Diversos" Icon="BulletBlue" HideOnClick="false">
+								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Diversos" Icon="BulletBlue" HideOnClick="false" Icon="Group">
 									 <Menu>
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" Icon="Plugin" />                                
-												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="Group" />                                
+												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="GroupKey" />                                
 												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" Icon="GroupLink" />                                
 												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" Icon="GroupGear" />                                												
 											</Items>
@@ -106,7 +106,7 @@
 								</ext:MenuItem>
 
 							  <%-- Menu do NAC --%>
-								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" Icon="BulletBlue" HideOnClick="false">
+								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" Icon="BulletBlue" HideOnClick="false" Icon="Share">
 									 <Menu>
 										<ext:Menu ID="NACCampusMenu" runat="server">
 											<Items>
@@ -120,13 +120,13 @@
 								</ext:MenuItem>
 
 								<%-- Gerenciamento de Usuário e Participante --%>
-								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" Icon="BulletBlue" HideOnClick="false">
+								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" Icon="BulletBlue" HideOnClick="false" Icon="UserMagnify">
 									 <Menu>
 										<ext:Menu ID="UsuarioParticipanteMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="UsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" Icon="User" />                                                                                												                                
 												<ext:MenuItem ID="ParticipanteMenuItemId" Text="Participante" OnClientClick="window.location.href='/App/Participante.aspx'" Icon="UserTick" />                                
-												<ext:MenuItem ID="ImagemParticipanteMenuItemId" Text="Imagem de Participante" OnClientClick="window.location.href='/App/ImagemParticipante.aspx'" />                                                                                												
+												<ext:MenuItem ID="ImagemParticipanteMenuItemId" Text="Imagem de Participante" OnClientClick="window.location.href='/App/ImagemParticipante.aspx'" Icon="Vcard" />                                                                                												
 											</Items>
 										</ext:Menu>
 									</Menu>
