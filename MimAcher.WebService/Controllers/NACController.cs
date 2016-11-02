@@ -87,5 +87,45 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
         }
+
+        [HttpPost]
+        public ActionResult Update(List<NAC> listanac)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listanac == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (NAC nc in listanac)
+                {
+                    MA_NAC nac = new MA_NAC();
+                    nac.cod_nac = nc.cod_nac;
+                    nac.cod_usuario = nc.cd_usuario;
+                    nac.cod_campus = nc.cod_campus;
+                    nac.nome_representante = nc.nomerepresentante;
+                    nac.telefone = nc.telefone;
+
+                    GestorDeNAC.InserirNAC(nac);
+                }
+
+                jsonResult = Json(new
+                {
+                    success = true
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+        }
     }
 }
