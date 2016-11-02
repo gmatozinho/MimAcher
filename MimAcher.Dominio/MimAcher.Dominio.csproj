@@ -108,7 +108,6 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <None Include="MimAcher.edmx.diagram">
       <DependentUpon>MimAcher.edmx</DependentUpon>
     </None>

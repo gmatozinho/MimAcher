@@ -51,54 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MA_AREA_ATUACAO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_CAMPUS.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_ITEM.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_NAC.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_NAC_AREA_ATUACAO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_PARTICIPANTE.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_PARTICIPANTE_APRENDER.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_PARTICIPANTE_ENSINAR.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_PARTICIPANTE_HOBBIE.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MA_USUARIO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MimAcher.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MimAcher.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MimAcher.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MimAcher.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MimAcher.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioDeAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeCampus.cs" />
@@ -113,17 +65,8 @@
     <Compile Include="RepositorioDeUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="MimAcher.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MimAcher.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="dbconfig\diagrama_bd.pdf" />
     <None Include="dbconfig\diagrama_bd_sql_developer.pdf" />
-    <None Include="MimAcher.edmx.diagram">
-      <DependentUpon>MimAcher.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -135,16 +78,6 @@
     <Content Include="dbconfig\diagrama_bd.png" />
     <Content Include="dbconfig\EntityDesignerDiagram.png" />
     <Content Include="dbconfig\inf.txt" />
-    <Content Include="MimAcher.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MimAcher.edmx</DependentUpon>
-      <LastGenOutput>MimAcher.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="MimAcher.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MimAcher.edmx</DependentUpon>
-      <LastGenOutput>MimAcher.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
