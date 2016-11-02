@@ -35,6 +35,9 @@ bld/
 *.VisualState.xml
 TestResult.xml
 
+# Ant Working Directory
+.sonarqube/
+
 # Build Results of an ATL Project
 [Dd]ebugPS/
 [Rr]eleasePS/
@@ -243,3 +246,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/Components/fab-1.3.0

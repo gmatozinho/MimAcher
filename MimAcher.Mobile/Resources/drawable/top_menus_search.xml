@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item
+       android:id="@+id/menu_search"
+       android:icon="@drawable/ic_menu_search_holo_dark"
+       android:title="Search"
+       android:showAsAction="always"
+       android:actionViewClass="android.support.v7.widget.SearchView" />
+  <item
+       android:id="@+id/menu_location"
+       android:icon="@drawable/ic_location_on_white_24dp"
+       android:showAsAction="always" />
+  <item
+       android:id="@+id/menu_exitapp"
+       android:icon="@drawable/ic_exit_to_app_white_24dp"
+       android:showAsAction="always"/>
+  <item
+       android:id="@+id/menu_preferences"
+       android:showAsAction="never"
+       android:title="Editar Perfil" />
+</menu>

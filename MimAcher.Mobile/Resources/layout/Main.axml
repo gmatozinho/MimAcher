@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff">
+    <ImageView
+        android:src="@drawable/logo"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:id="@+id/logo"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="80dp" />
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:textColorHint="#A9A9A9"
+        android:layout_height="wrap_content">
+        <EditText xmlns:p3="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:id="@+id/email"
+            android:textColor="#A9A9A9"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textSize="20dp"
+            android:hint="E-mail"
+            android:singleLine="true"
+            android:lines="1"
+            android:textColorHint="#A9A9A9"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:textColorHint="#A9A9A9"
+        android:layout_height="wrap_content">
+        <EditText
+            android:textColorHint="#A9A9A9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/senha"
+            android:textSize="20dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:password="true"
+            android:singleLine="true"
+            android:lines="1"
+            android:hint="Senha"
+            android:textColor="#A9A9A9"
+            android:visibility="visible" />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:text="ENTRAR"
+        android:textColor="@android:color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:id="@+id/entrar"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:textStyle="normal"
+        android:background="#DCDCDC"
+        android:layout_marginTop="20dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="1dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="2dp"
+        android:id="@+id/buttonsline" />
+    <Button
+        android:text="INSCREVER-SE"
+        android:textColor="@android:color/black"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:id="@+id/inscrevase"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:textStyle="normal"
+        android:background="#DCDCDC" />
+    
+</LinearLayout>
