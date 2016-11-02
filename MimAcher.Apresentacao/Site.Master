@@ -92,7 +92,7 @@
 							<Items>     
 
 								<%-- Menu Atributos --%>
-								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Diversos" Icon="BulletBlue" HideOnClick="false" Icon="Group">
+								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Diversos" HideOnClick="false" Icon="Group">
 									 <Menu>
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>
@@ -106,7 +106,7 @@
 								</ext:MenuItem>
 
 							  <%-- Menu do NAC --%>
-								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" Icon="BulletBlue" HideOnClick="false" Icon="Share">
+								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" HideOnClick="false" Icon="Share">
 									 <Menu>
 										<ext:Menu ID="NACCampusMenu" runat="server">
 											<Items>
@@ -120,7 +120,7 @@
 								</ext:MenuItem>
 
 								<%-- Gerenciamento de Usuário e Participante --%>
-								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" Icon="BulletBlue" HideOnClick="false" Icon="UserMagnify">
+								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" HideOnClick="false" Icon="UserMagnify">
 									 <Menu>
 										<ext:Menu ID="UsuarioParticipanteMenu" runat="server">
 											<Items>
@@ -133,7 +133,7 @@
 								</ext:MenuItem>
 
 								<%-- Menu Sair --%>
-								<ext:MenuItem ID="SairMenuItemId" runat="server" Text="Sair do Sistema" Icon="BulletBlue" OnDirectClick="Sair"/>
+								<ext:MenuItem ID="SairMenuItemId" runat="server" Text="Sair do Sistema" OnDirectClick="Sair" Icon="Disconnect"/>
 
 							</Items>
 						</ext:Menu>
