@@ -1,0 +1,9 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="mimacher" id="555967B0-C6B1-2FCE-B9F5-8E49906C9371" version="3.5">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:10:20 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>555967B0-C6B1-2FCE-B9F5-8E49906C9371</designId>
+</OSDM_Design>

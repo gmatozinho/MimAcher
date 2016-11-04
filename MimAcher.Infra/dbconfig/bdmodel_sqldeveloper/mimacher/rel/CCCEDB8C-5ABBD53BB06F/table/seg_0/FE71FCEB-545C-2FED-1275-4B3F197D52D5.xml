@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FE71FCEB-545C-2FED-1275-4B3F197D52D5" name="NAC">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:22:47 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_nac" id="0D15F660-6D16-42C5-6E71-839CA5A56C21">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_usuario" id="5846B079-CB2E-631C-854E-7ACB3CA8F1D4">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:25:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>61F41A19-7A2C-DE54-0D69-0A63D3BB839E</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7054D838-C546-2849-FBE2-69EB3E562B1F" referredColumn="61F41A19-7A2C-DE54-0D69-0A63D3BB839E"/>
+</associations>
+</Column>
+<Column name="cod_campus" id="52B7C3CD-DA9F-D073-1FDE-D4799229A6A1">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:39:31 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>879F9F83-FE8B-F844-D121-CD7213FC73F6</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F3B73334-7E26-E4E5-059A-0A0D7EF9A34F" referredColumn="879F9F83-FE8B-F844-D121-CD7213FC73F6"/>
+</associations>
+</Column>
+<Column name="nome_representante" id="FADE9C18-9F44-28BA-D248-03578BF2B3EF">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefone" id="622D79D0-5EFB-FAC1-D4CB-6AC9368542AE">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DE0B8B9F-F943-7124-EE95-B250D994E3CD" name="MA_NAC_PK">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:24:16 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0D15F660-6D16-42C5-6E71-839CA5A56C21"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5D17943B-E67E-456A-28DD-5DB5271A07AC" name="FK_MA_NAC_MA_USUARIO_cod_usuario">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:25:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5846B079-CB2E-631C-854E-7ACB3CA8F1D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="496B9CDE-F572-E0E6-1FA0-908C92747154" name="FK_MA_NAC_MA_CAMPUS_cod_campus">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-12 16:39:31 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52B7C3CD-DA9F-D073-1FDE-D4799229A6A1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

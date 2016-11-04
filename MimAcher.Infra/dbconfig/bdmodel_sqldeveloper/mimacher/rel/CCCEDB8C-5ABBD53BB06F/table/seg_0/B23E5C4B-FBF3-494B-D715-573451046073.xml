@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B23E5C4B-FBF3-494B-D715-573451046073" name="USUARIO">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:22:03 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_usuario" id="61F41A19-7A2C-DE54-0D69-0A63D3BB839E">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:23:07 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="e_mail" id="FF582D55-4956-9D5C-7555-4482FF8621C8">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:23:07 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="senha" id="111598EC-7366-DDA9-27D7-FFDCDF0D8994">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:23:07 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5FEA9926-B573-3280-E89D-1A1AFEB8B3ED" name="PK_MA_USUARIO_cod_usuario">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:23:07 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="61F41A19-7A2C-DE54-0D69-0A63D3BB839E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
