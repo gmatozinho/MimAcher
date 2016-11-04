@@ -1,0 +1,161 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="MimAcher.Apresentacao.SiteMaster" %>
+
+<%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
+ <head id="Head1" runat="server">
+
+	<title>Mim Acher! - Módulo Gerenciador</title>
+	  
+	<link href="~/Styles/customizado.css" rel="stylesheet" type="text/css" />
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+	<ext:ResourceManager ID="ResourceManager1" runat="server" DisableViewState="false" Theme="Gray"/>    
+	<asp:ContentPlaceHolder ID="head" runat="server" />    
+
+	<meta http-equiv="X-UA-Compatible" content="IE=11" /> 
+
+	<script type="text/javascript">
+		var runProgress3 = function (status, progress, btn) {
+			status.setText('Trabalhando');
+			btn.setDisabled(true);
+			progress.wait({
+				interval: 200,
+				duration: 5000,
+				increment: 15,
+				fn: function () {
+					btn.setDisabled(false);
+					status.setText('Concluído');
+				}
+			});
+		}        
+	</script>
+
+	 <!-- max-width:100%; 
+		height:auto;-->
+
+	<style type="text/css">
+		v\:* {
+			behavior:url(#default#VML);
+		}
+	</style>
+
+</head>
+<body>
+	<form id="Form1" runat="server">    
+	<asp:ScriptManager ID="ScriptManager" runat="server" />
+	<ext:Viewport ID="ViewportId" runat="server" Layout="BorderLayout">
+		<Items>            
+			<%-- Cabeçalho e Menu(Região Norte) --%>
+			<ext:Panel ID="PainelNorte" runat="server" Region="North"  Height="140" Split="true" Collapsible="false" Border="true" Frame="false">
+				 <Items>     
+
+					<%-- Cabeçalho(Topo) --%>             
+					<ext:Panel ID="pnTopo" runat="server" Height="100">                        
+						   <Content>
+							   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+								   
+								   <div class="cabecalho">
+										<div class="api-title"> 
+											<em>MIM ACHER!</em>                
+										</div>            
+										<div class="api-title">                 
+											IFES
+										</div>
+										<div id="v2-samples">
+										<ext:Container ID="Container1" runat="server" Padding="2">
+												<Items>
+                                                    <ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen" Hidden="true"></ext:Label>                                                    																										
+													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar" Hidden="true"></ext:Label>                                                    
+                                                    <ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
+												</Items>
+											</ext:Container>
+										</div>   
+								   </div>                                                      
+
+							   </asp:ContentPlaceHolder>                           
+						   </Content>                        
+					</ext:Panel>
+					
+					<%-- Área do Menu Principal --%>
+					<ext:Panel ID="PainelMenuPrincipalId" runat="server" >
+						<Items>    
+							
+							<ext:Menu ID="MenuId" runat="server" Floating="false" Layout="HBoxLayout" ShowSeparator="false" Height="40"  >
+							
+							<Defaults>
+								<ext:Parameter Name="MenuAlign" Value="tl-bl?" Mode="Value" />
+							</Defaults>
+
+							<Items>     
+
+								<%-- Menu Atributos --%>
+								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Ítem e Associações de Interesses" HideOnClick="false" Icon="Group">
+									 <Menu>
+										<ext:Menu ID="AtributosMenu" runat="server">
+											<Items>
+												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" Icon="Plugin" />                                
+												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="GroupKey" />                                
+												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" Icon="GroupLink" />                                
+												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" Icon="GroupGear" />                                												
+											</Items>
+										</ext:Menu>
+									</Menu>
+								</ext:MenuItem>
+
+							  <%-- Menu do NAC --%>
+								<ext:MenuItem ID="NACCampusMenuItemId" runat="server" Text="NAC/Campus" HideOnClick="false" Icon="Share">
+									 <Menu>
+										<ext:Menu ID="NACCampusMenu" runat="server">
+											<Items>
+												<ext:MenuItem ID="NACMenuItemId" Text="NAC" OnClientClick="window.location.href='/App/NAC.aspx'" Icon="Shield" />                                
+												<ext:MenuItem ID="NACAreaAtuacaoMenuItemId" Text="NAC/Área de Atuação" OnClientClick="window.location.href='/App/NACAreaAtuacao.aspx'" Icon="ShieldRainbow" />                                                                                                                                
+												<ext:MenuItem ID="AreaAtuacaoMenuItemId" Text="Área de Atuação" OnClientClick="window.location.href='/App/AreaAtuacao.aspx'" Icon="ShieldSilver" />                                                                                                                                
+												<ext:MenuItem ID="CampusMenuItemId" Text="Campus" OnClientClick="window.location.href='/App/Campus.aspx'" Icon="Neighbourhood" />                                                                                                                                
+											</Items>
+										</ext:Menu>
+									</Menu>
+								</ext:MenuItem>
+
+								<%-- Gerenciamento de Usuário e Participante --%>
+								<ext:MenuItem ID="UsuarioParticipanteMenuItemId" runat="server" Text="Gerencimento de Usuário/Parcipante" HideOnClick="false" Icon="UserMagnify">
+									 <Menu>
+										<ext:Menu ID="UsuarioParticipanteMenu" runat="server">
+											<Items>
+												<ext:MenuItem ID="UsuarioMenuItemId" Text="Usuário" OnClientClick="window.location.href='/App/Usuario.aspx'" Icon="User" />                                                                                												                                
+												<ext:MenuItem ID="ParticipanteMenuItemId" Text="Participante" OnClientClick="window.location.href='/App/Participante.aspx'" Icon="UserTick" />                                
+												<ext:MenuItem ID="ImagemParticipanteMenuItemId" Text="Imagem de Participante" OnClientClick="window.location.href='/App/ImagemParticipante.aspx'" Icon="Vcard" />                                                                                												
+											</Items>
+										</ext:Menu>
+									</Menu>
+								</ext:MenuItem>
+
+								<%-- Menu Sair --%>
+								<ext:MenuItem ID="SairMenuItemId" runat="server" Text="Sair do Sistema" OnDirectClick="Sair" Icon="Disconnect"/>
+
+							</Items>
+						</ext:Menu>
+						</Items>
+					</ext:Panel>     
+								  
+				 </Items>
+			</ext:Panel>
+
+			<%-- Conteúdo(Região Central) --%>            
+			<ext:Panel ID="PainelCentral" Region="Center" runat="server" Frame="true" Border="false" AutoScroll="true">                              
+				<Content>
+					<asp:ContentPlaceHolder ID="Main" runat="server"></asp:ContentPlaceHolder>
+				</Content>
+			</ext:Panel> 
+
+			<%-- Rodapé(Região Sul) --%>            
+			<ext:Panel ID="PainelSul" Region="South" runat="server" Frame="true" Border="false" Hidden="true" AutoScroll="true"/>                              
+			
+		</Items>
+	</ext:Viewport>
+	</form>
+</body>
+</html>
+

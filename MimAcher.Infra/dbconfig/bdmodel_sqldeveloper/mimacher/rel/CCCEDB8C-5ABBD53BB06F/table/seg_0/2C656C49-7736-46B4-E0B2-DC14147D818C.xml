@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2C656C49-7736-46B4-E0B2-DC14147D818C" name="IMAGEM_PARTICIPANTE">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:34:48 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cod_imagem" id="7BFAF58D-313C-AE54-7EF8-C23F8B434999">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:35:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cod_participante" id="F3D6A7A6-B22B-B955-2D48-4572F105F601">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:55:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B68CE974-A658-4790-2359-4E0207D81727" referredColumn="28F3CD10-0FA9-9FBA-0E2E-0C50A0019AB1"/>
+</associations>
+</Column>
+<Column name="imagem" id="30C3D9E9-4526-226F-6EBD-ECC4E49189C9">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:35:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="74611F49-53A2-0170-5B0D-F2735CB56DE6" name="PK_MA_IMAGEM_PARTICIPANTE_cod_imagem">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:35:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7BFAF58D-313C-AE54-7EF8-C23F8B434999"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8270A253-28F8-DD6B-C55C-EECCD473D4A9" name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 01:55:08 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3D6A7A6-B22B-B955-2D48-4572F105F601"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

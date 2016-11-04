@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="03519B53-8C2E-9394-1A44-ED900B27C024" name="FK_MA_PARTICIPANTE_ENSINAR_MA_ITEM_cod_item">
+<createdBy>pchan</createdBy>
+<createdTime>2016-10-11 02:12:23 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<containerWithKeyObject>3D76DBC0-AD2E-B4EE-7B19-811136AFF5DD</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>3734C885-7520-BBB6-F46F-6160139A3CF4</localFKIndex>
+<keyObject>406F0CC5-70C4-C1D2-44A1-21363FD73BC5</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
