@@ -19,7 +19,7 @@ namespace MimAcher.WebService
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
+            /*routes.MapRoute(
                name: "ParticipanteAprender",
                url: "{controller}/{action}/{id}",
                defaults: new { controller = "ParticipanteAprender", action = "Index", id = UrlParameter.Optional }
@@ -83,7 +83,7 @@ namespace MimAcher.WebService
                 name: "ImagemParticipante",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "ImagemParticipante", action = "Index", id = UrlParameter.Optional }
-            );
+            );*/
         }
     }
 }

@@ -13,7 +13,7 @@ namespace MimAcher.WebService.Controllers
             return View();
         }
 
-        public ActionResult About()
+        /*public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
@@ -25,6 +25,6 @@ namespace MimAcher.WebService.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
-        }
+        }*/
     }
 }
