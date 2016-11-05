@@ -95,7 +95,7 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Cadastro com dados invalidos")]
-        [NUnit.Framework.TestCaseAttribute("\' \'", "\'cayo@email.com\'", "\'12345678\'", "\'24/01/1994\'", "\'999522594\'", null)]
+        [NUnit.Framework.TestCaseAttribute("", "\'cayo@email.com\'", "\'12345678\'", "\'24/01/1994\'", "\'999522594\'", null)]
         [NUnit.Framework.TestCaseAttribute("\'Cayo\'", "\'cayo.email.com\'", "\'12345678\'", "\'24/01/1994\'", "\'999522594\'", null)]
         [NUnit.Framework.TestCaseAttribute("\'Cayo\'", "\'cayo@email.com\'", "\'12345\'", "\'24/01/1994\'", "\'999522594\'", null)]
         [NUnit.Framework.TestCaseAttribute("\'Cayo\'", "\'cayo@email.com\'", "\'12345678\'", "\'01/13/2015\'", "\'999522594\'", null)]

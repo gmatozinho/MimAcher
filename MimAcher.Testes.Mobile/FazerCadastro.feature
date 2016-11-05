@@ -27,7 +27,7 @@ Scenario Outline: Cadastro com dados invalidos
 
 	Examples:
 		| nome   | email            | senha      | nascimento   | telefone    |
-		| ' '    | 'cayo@email.com' | '12345678' | '24/01/1994' | '999522594' |
+		|        | 'cayo@email.com' | '12345678' | '24/01/1994' | '999522594' |
 		| 'Cayo' | 'cayo.email.com' | '12345678' | '24/01/1994' | '999522594' |
 		| 'Cayo' | 'cayo@email.com' | '12345'    | '24/01/1994' | '999522594' |
 		| 'Cayo' | 'cayo@email.com' | '12345678' | '01/13/2015' | '999522594' |
