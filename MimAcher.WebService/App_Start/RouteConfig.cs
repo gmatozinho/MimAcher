@@ -5,6 +5,11 @@ namespace MimAcher.WebService
 {
     public class RouteConfig
     {
+        protected RouteConfig() : base()
+        {
+
+        }
+
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

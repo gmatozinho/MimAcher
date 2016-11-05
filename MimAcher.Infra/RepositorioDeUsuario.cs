@@ -39,7 +39,7 @@ namespace MimAcher.Infra
 
         public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email) && l.senha.Equals(senha)).SingleOrDefault();            
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.ToLowerInvariant().Equals(email) && l.senha.ToLowerInvariant().Equals(senha)).SingleOrDefault();            
         }
 
         public void InserirUsuario(MA_USUARIO usuario)

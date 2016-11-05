@@ -71,7 +71,7 @@ namespace MimAcher.Infra
             {
                 MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
 
-                if (nacjaexistente.nome_representante.ToLower().Equals(nac.nome_representante.ToLower()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
                 {
                     this.Contexto.Entry(nac).State = EntityState.Modified;
                     this.Contexto.SaveChanges();                 
