@@ -22,10 +22,11 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonUsuario(Participante participante)
         {
+            var localizacao = participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
                 "\"senha\": \"" + participante.Senha + "\", \"cod_participante\": 1, \"cod_usuario\": 1, " +
                 "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": "+ participante.Telefone + ", " +
-                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": 0.0, \"longitude\": 0.0 } ] }";
+                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\":" + localizacao[0] + ", \"longitude\":" + localizacao[1] + "} ] }";
         }
 
         private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)

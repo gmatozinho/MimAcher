@@ -9,7 +9,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "QueroAprenderActivity", Theme = "@style/Theme.Splash")]
-    public class QueroAprenderActivity : FabricaTelasComProcedimento
+    public class QueroAprenderActivity : FabricaTelasNormaisComProcedimento
     {
         //Variaveis globais
         private Participante _participante;
@@ -43,9 +43,9 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Aprender";
-            pergunta.Text = "O que você quer aprender?";
-            _campoAprender.Hint = "Digite algo para aprender";
+            ActionBar.SetTitle(Resource.String.TitleAprender);
+            pergunta.SetText(Resource.String.PerguntaAprender);
+            _campoAprender.SetHint(Resource.String.HintCampoAprender);
 
             //Funcionalidades
             _campoAprender.TextChanged += (sender, a) => _aprender = a.Text.ToString();
@@ -87,5 +87,8 @@ namespace MimAcher.Mobile.Activities
             }
             return base.OnOptionsItemSelected(item);
         }
+
+
+       
     }
 }

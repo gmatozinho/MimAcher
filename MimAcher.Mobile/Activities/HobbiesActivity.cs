@@ -9,7 +9,7 @@ using MimAcher.Mobile.Entidades.Fabricas;
 namespace MimAcher.Mobile.Activities
 {
     [Activity(Label = "HobbiesActivity", Theme = "@style/Theme.Splash")]
-    public class HobbiesActivity : FabricaTelasComProcedimento
+    public class HobbiesActivity : FabricaTelasNormaisComProcedimento
     {
         //Variaveis globais
         private Participante _participante;
@@ -42,9 +42,9 @@ namespace MimAcher.Mobile.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Hobbies";
-            pergunta.Text = "Quais são os seus hobbies?";
-            _campoHobbie.Hint = "Digite um Hobbie";
+            ActionBar.SetTitle(Resource.String.TitleHobbies);
+            pergunta.SetText(Resource.String.PerguntaHobbies);
+            _campoHobbie.SetHint(Resource.String.HintCampoHobbies);
 
             //Funcionalidades
             _campoHobbie.TextChanged += (sender, hobbiecapturado) => _hobbie = hobbiecapturado.Text.ToString();

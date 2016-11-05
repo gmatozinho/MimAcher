@@ -1,0 +1,84 @@
+﻿.my-class input {
+	color: Red;
+	font-weight: bold;
+}
+
+
+/*Título da Aplicação*/
+.api-title {
+	color       : #fff;
+	/*color      :#222222;*/	
+	font-size   : 14px;
+	font-weight : bold;
+	padding     : 5px 10px;
+	line-height: 12px;
+}
+
+.api-title em{
+	color: #0589C7;
+	font-weight : bold;
+}
+
+.transparent-body 
+{
+    background-color: White !important;        
+}
+
+/*A DIV Cabecalho é onde escrito o nome do sistema*/
+.cabecalho {
+		/*Regra responsável pelas bordas das extremidades*/
+		/*border-top:       1px solid #000*/
+		/*border-left:      1px solid #000;*/
+		/*border-right:     1px solid #000;*/
+		padding-top: 10px;
+		
+		border-top:         1px solid #F1F1F1;
+		border-left:        1px solid #F1F1F1;
+		border-right:       1px solid #F1F1F1;
+		border-bottom:      1px solid #F1F1F1;
+
+		/*border:           1px solid #FFF;*/
+
+        background-color:   #506c7a;
+		/*background-color:   #000;*/
+		/*background-color:   #666;*/
+		/*background-color: #FFF;*/
+		/*background-color:   #39217b;
+		background-color:   #70619a;*/
+
+		/*Regra responsável pela altura e largura da DIV*/
+		/*height:           55px;*/
+		/*height:		    	70px;*/
+		height:             100px;
+		width:              100%;
+		/*width:              873px;*/
+
+		/*Regra responsável pela centralizacao(alinhamento) da DIV*/
+		/*text-align:         center;*/
+		margin:             10 auto;
+		
+		/*Regra responsável pelo arrendodamento da borda da div*/
+		/*border-radius:           10px; /* para todos os browsers recentes (e decentes) */
+		/*-moz-border-radius:      10px; /* para versões antigas do Mozilla */
+		/*-webkit-border-radius:   10px; /* para versões antigas do Safari */	
+		
+		/*border-bottom-right-radius: 10px;
+		border-bottom-left-radius:  10px;*/				
+}
+
+.username{
+    font-size: 8pt;
+    font-weight: bold;
+    /*color: #175c9e;*/
+    color: #fff;
+    /*color: #222222;    */
+}
+
+#v2-samples {
+    float: right;
+    
+    /*Alinhamento das informações do cabeçalho */
+    margin-right: 10px;
+    margin-bottom: 0px;
+    margin-top: 20px;
+}

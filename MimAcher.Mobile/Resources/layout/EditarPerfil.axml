@@ -3,15 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
-    <Toolbar
+    <include
         android:id="@+id/toolbar"
-        android:minHeight="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary"
-        android:theme="@android:style/ThemeOverlay.Material.Dark.ActionBar"
-        android:popupTheme="@android:style/ThemeOverlay.Material.Light"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:title="Fulano"
+        layout="@layout/toolbar" 
         android:layout_marginBottom="20sp" />
     <TextView
         android:id="@+id/nome_user"
