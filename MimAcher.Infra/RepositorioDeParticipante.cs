@@ -49,13 +49,10 @@ namespace MimAcher.Infra
         
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
-            {
-                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
-                {
-                    this.Contexto.MA_PARTICIPANTE.Add(participante);
-                    this.Contexto.SaveChanges();
-                }
+            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            {                
+                this.Contexto.MA_PARTICIPANTE.Add(participante);
+                this.Contexto.SaveChanges();             
             }
         }
 
@@ -94,10 +91,8 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                if (participantejaexistente.cod_participante == participante.cod_participante)
+                if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                 {
-                    if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
-                    {
                         MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
                         participantegravacao.cod_participante = participante.cod_participante;
                         participantegravacao.cod_campus = participante.cod_campus;
@@ -107,8 +102,7 @@ namespace MimAcher.Infra
                         participantegravacao.telefone = participante.telefone;
                         participantegravacao.geolocalizacao = participante.geolocalizacao;
 
-                        Atualizar(participantegravacao);
-                    }
+                        Atualizar(participantegravacao);                 
                 }
             }
         }
