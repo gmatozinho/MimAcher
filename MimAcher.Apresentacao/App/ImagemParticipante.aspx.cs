@@ -90,16 +90,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoimagem = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.ImagemParticipanteWindowId.Show();
         }
 
         //Exclui determinado imagem do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
-        {
-            MA_IMAGEM_PARTICIPANTE imagem = new MA_IMAGEM_PARTICIPANTE();
-            imagem = GestorDeImagemDeParticipante.ObterImagemDeParticipantePorId(Int32.Parse(this.cod_imagemId.Text));
+        {            
+            MA_IMAGEM_PARTICIPANTE  imagem = GestorDeImagemDeParticipante.ObterImagemDeParticipantePorId(Int32.Parse(this.cod_imagemId.Text));
             GestorDeImagemDeParticipante.RemoverImagem(imagem);
             this.LimpaForm();
         }

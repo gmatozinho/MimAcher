@@ -97,16 +97,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigonacareaatuacao = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.NACAreaAtuacaoWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
-            nacareaatuacao = GestorDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(Int32.Parse(this.cod_nac_area_atuacaoId.Text));
+            MA_NAC_AREA_ATUACAO nacareaatuacao = GestorDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(Int32.Parse(this.cod_nac_area_atuacaoId.Text));
             GestorDeNACAreaDeAtuacao.RemoverNACAreaDeAtuacao(nacareaatuacao);
             this.LimpaForm();
         }
