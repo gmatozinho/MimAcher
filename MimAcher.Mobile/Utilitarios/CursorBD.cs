@@ -23,11 +23,6 @@ namespace MimAcher.Mobile.Utilitarios
             return 1; // codigo_participante;
         }
 
-        public static void EnviarItens(TipoItem tipo, List<string> itens)
-        {
-
-        }
-
         //TODO: setar valor de retorno correto
         public static object EnviarItem(string item)
         {
@@ -112,6 +107,27 @@ namespace MimAcher.Mobile.Utilitarios
             }
 
             return itens;
+        }
+
+        public static void EnviarHobbie(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonHobbie(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostHobbie();
+            EnviarJson(json, requisicao);
+        }
+
+        public static void EnviarAprender(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonAprender(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostAprender();
+            EnviarJson(json, requisicao);
+        }
+
+        public static void EnviarEnsinar(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonEnsinar(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostEnsinar();
+            EnviarJson(json, requisicao);
         }
     }
 }

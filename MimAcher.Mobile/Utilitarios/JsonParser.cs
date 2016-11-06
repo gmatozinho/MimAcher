@@ -29,9 +29,22 @@ namespace MimAcher.Mobile.Utilitarios
                 "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\":" + localizacao[0] + ", \"longitude\":" + localizacao[1] + "} ] }";
         }
 
-        private static string MontarJsonRelacaoItem(int codigo_item, TipoItem tipo)
+        public static string MontarJsonHobbie(int codigo_participante, int codigo_item)
         {
-            return "vazio";
+            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": " + codigo_participante + 
+                ", \"cod_item\": "+ codigo_item + " }] }";
+        }
+
+        public static string MontarJsonAprender(int codigo_participante, int codigo_item)
+        {
+            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 1, \"cod_participante\": " + codigo_participante +
+                ", \"cod_item\": " + codigo_item + " }] }";
+        }
+
+        public static string MontarJsonEnsinar(int codigo_participante, int codigo_item)
+        {
+            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigo_participante +
+                ", \"cod_item\": " + codigo_item + " }] }";
         }
     }
 }
