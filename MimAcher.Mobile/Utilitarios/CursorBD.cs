@@ -94,5 +94,24 @@ namespace MimAcher.Mobile.Utilitarios
 
             return campi;
         }
+
+        public static Dictionary<int, string> ObterItens()
+        {
+            Dictionary<int, string> itens = new Dictionary<int, string>();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoGetItem();
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+
+            var listaItens = objetoResposta.SelectToken("data");
+
+            foreach (var token in listaItens)
+            {
+                string chave = token.SelectToken("cod_item").ToString().Replace("{", "").Replace("}", "");
+                string valor = token.SelectToken("nome").ToString().Replace("{", "").Replace("}", "");
+
+                itens[Int32.Parse(chave)] = valor;
+            }
+
+            return itens;
+        }
     }
 }
