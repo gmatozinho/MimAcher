@@ -43,5 +43,41 @@ namespace MimAcher.Mobile.Utilitarios
 
             return requisicao;
         }
+
+        public static WebRequest MontarRequisicaoGetItem()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participantehobbie/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteaprender/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteensinar/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
     }
 }
