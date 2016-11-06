@@ -1,11 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Utilitarios;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-using System;
 
 namespace MimAcher.Mobile.Utilitarios
 {

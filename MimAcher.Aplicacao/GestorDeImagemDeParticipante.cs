@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
+﻿using System.Collections.Generic;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -14,42 +10,42 @@ namespace MimAcher.Aplicacao
 
         public GestorDeImagemDeParticipante()
         {
-            this.RepositorioDeImagemDeParticipante = new RepositorioDeImagemDeParticipante();
+            RepositorioDeImagemDeParticipante = new RepositorioDeImagemDeParticipante();
         }
 
         public MA_IMAGEM_PARTICIPANTE ObterImagemDeParticipantePorId(int id)
         {
-            return this.RepositorioDeImagemDeParticipante.ObterImagemDeParticipantePorId(id);
+            return RepositorioDeImagemDeParticipante.ObterImagemDeParticipantePorId(id);
         }
 
         public List<MA_IMAGEM_PARTICIPANTE> ObterTodosOsImagens()
         {
-            return this.RepositorioDeImagemDeParticipante.ObterTodosOsImagens();
+            return RepositorioDeImagemDeParticipante.ObterTodosOsImagens();
         }
 
         public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
         {
-            return this.RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(id_participante);
+            return RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(id_participante);
         }
 
         public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            this.RepositorioDeImagemDeParticipante.InserirImagem(Imagem);
+            RepositorioDeImagemDeParticipante.InserirImagem(Imagem);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeImagemDeParticipante.BuscarQuantidadeRegistros();
+            return RepositorioDeImagemDeParticipante.BuscarQuantidadeRegistros();
         }
 
         public void RemoverImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            this.RepositorioDeImagemDeParticipante.RemoverImagem(Imagem);
+            RepositorioDeImagemDeParticipante.RemoverImagem(Imagem);
         }
 
         public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            this.RepositorioDeImagemDeParticipante.AtualizarImagem(Imagem);
+            RepositorioDeImagemDeParticipante.AtualizarImagem(Imagem);
         }
     }
 }

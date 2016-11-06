@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data.Entity.Spatial;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
-using System.Data.Entity.Spatial;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -18,9 +16,9 @@ namespace MimAcher.WebService.Controllers
 
         public UsuarioParticipanteController()
         {
-            this.GestorDeParticipante = new GestorDeParticipante();
-            this.GestorDeUsuario = new GestorDeUsuario();
-            this.GestorDeAplicacao = new GestorDeAplicacao();
+            GestorDeParticipante = new GestorDeParticipante();
+            GestorDeUsuario = new GestorDeUsuario();
+            GestorDeAplicacao = new GestorDeAplicacao();
         }
 
         // GET: UsuarioParticipante
@@ -46,38 +44,35 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (UsuarioParticipante up in listausuarioparticipante)
             {
-                foreach (UsuarioParticipante up in listausuarioparticipante)
-                {
-                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-                    MA_USUARIO usuario = new MA_USUARIO();
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+                MA_USUARIO usuario = new MA_USUARIO();
 
-                    usuario.e_mail = up.e_mail;
-                    usuario.senha = up.senha;
+                usuario.e_mail = up.e_mail;
+                usuario.senha = up.senha;
 
-                    GestorDeUsuario.InserirUsuario(usuario);
+                GestorDeUsuario.InserirUsuario(usuario);
 
-                    participante.cod_usuario = usuario.cod_usuario;
-                    participante.cod_campus = up.cod_participante;
-                    participante.nome = up.nome;
-                    participante.telefone = up.telefone;
-                    participante.dt_nascimento = (DateTime)up.dt_nascimento;                    
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(up.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(up.longitude.ToString()) + ")");
+                participante.cod_usuario = usuario.cod_usuario;
+                participante.cod_campus = up.cod_participante;
+                participante.nome = up.nome;
+                participante.telefone = up.telefone;
+                participante.dt_nascimento = (DateTime)up.dt_nascimento;                    
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(up.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(up.longitude.ToString()) + ")");
 
-                    GestorDeParticipante.InserirParticipante(participante);
+                GestorDeParticipante.InserirParticipante(participante);
 
-                    codigodoparticipante = participante.cod_participante;
-                }
-
-                jsonResult = Json(new
-                {
-                    codigo = codigodoparticipante
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                codigodoparticipante = participante.cod_participante;
             }
+
+            jsonResult = Json(new
+            {
+                codigo = codigodoparticipante
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

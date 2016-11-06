@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.UI.HtmlControls;
+using Ext.Net;
+
 namespace MimAcher.Apresentacao {
     
     
@@ -19,7 +22,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected HtmlHead Head1;
         
         /// <summary>
         /// ResourceManager1 control.
@@ -28,7 +31,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.ResourceManager ResourceManager1;
+        protected ResourceManager ResourceManager1;
         
         /// <summary>
         /// LoginFormId control.
@@ -37,7 +40,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm LoginFormId;
+        protected HtmlForm LoginFormId;
         
         /// <summary>
         /// LoginWindowId control.
@@ -46,7 +49,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window LoginWindowId;
+        protected Window LoginWindowId;
         
         /// <summary>
         /// emailId control.
@@ -55,7 +58,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField emailId;
+        protected TextField emailId;
         
         /// <summary>
         /// senhaId control.
@@ -64,7 +67,7 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField senhaId;
+        protected TextField senhaId;
         
         /// <summary>
         /// LoginButtonId control.
@@ -73,6 +76,6 @@ namespace MimAcher.Apresentacao {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button LoginButtonId;
+        protected Button LoginButtonId;
     }
 }

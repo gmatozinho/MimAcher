@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public NACController()
         {     
-            this.GestorDeNAC = new GestorDeNAC();
+            GestorDeNAC = new GestorDeNAC();
         }
 
         // GET: NAC
@@ -65,27 +62,24 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach(NAC nc in listanac)
             {
-                foreach(NAC nc in listanac)
-                {
-                    MA_NAC nac = new MA_NAC();
-                    nac.cod_usuario = nc.cd_usuario;
-                    nac.cod_campus = nc.cod_campus;
-                    nac.nome_representante = nc.nomerepresentante;
-                    nac.telefone = nc.telefone;
+                MA_NAC nac = new MA_NAC();
+                nac.cod_usuario = nc.cd_usuario;
+                nac.cod_campus = nc.cod_campus;
+                nac.nome_representante = nc.nomerepresentante;
+                nac.telefone = nc.telefone;
 
-                    GestorDeNAC.InserirNAC(nac);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeNAC.InserirNAC(nac);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -104,28 +98,25 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (NAC nc in listanac)
             {
-                foreach (NAC nc in listanac)
-                {
-                    MA_NAC nac = new MA_NAC();
-                    nac.cod_nac = nc.cod_nac;
-                    nac.cod_usuario = nc.cd_usuario;
-                    nac.cod_campus = nc.cod_campus;
-                    nac.nome_representante = nc.nomerepresentante;
-                    nac.telefone = nc.telefone;
+                MA_NAC nac = new MA_NAC();
+                nac.cod_nac = nc.cod_nac;
+                nac.cod_usuario = nc.cd_usuario;
+                nac.cod_campus = nc.cod_campus;
+                nac.nome_representante = nc.nomerepresentante;
+                nac.telefone = nc.telefone;
 
-                    GestorDeNAC.InserirNAC(nac);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeNAC.InserirNAC(nac);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

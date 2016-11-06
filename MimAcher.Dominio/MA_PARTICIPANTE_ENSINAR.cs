@@ -9,9 +9,6 @@
 
 namespace MimAcher.Dominio
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class MA_PARTICIPANTE_ENSINAR
     {
         public int cod_p_ensinar { get; set; }

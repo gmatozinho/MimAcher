@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using Ext.Net;
+
 namespace MimAcher.Apresentacao.App {
     
     
@@ -19,7 +21,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window ItemWindowId;
+        protected Window ItemWindowId;
         
         /// <summary>
         /// ItemFormPanelId control.
@@ -28,7 +30,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel ItemFormPanelId;
+        protected FormPanel ItemFormPanelId;
         
         /// <summary>
         /// ItemFieldSetId control.
@@ -37,7 +39,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet ItemFieldSetId;
+        protected FieldSet ItemFieldSetId;
         
         /// <summary>
         /// cod_itemId control.
@@ -46,7 +48,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_itemId;
+        protected TextField cod_itemId;
         
         /// <summary>
         /// nomeId control.
@@ -55,7 +57,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField nomeId;
+        protected TextField nomeId;
         
         /// <summary>
         /// ItemBarId control.
@@ -64,7 +66,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.StatusBar ItemBarId;
+        protected StatusBar ItemBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -73,7 +75,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button SaveButtonId;
+        protected Button SaveButtonId;
         
         /// <summary>
         /// CancelButtonId control.
@@ -82,7 +84,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button CancelButtonId;
+        protected Button CancelButtonId;
         
         /// <summary>
         /// StoreItemId control.
@@ -91,7 +93,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreItemId;
+        protected Store StoreItemId;
         
         /// <summary>
         /// ModelItemId control.
@@ -100,7 +102,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelItemId;
+        protected Model ModelItemId;
         
         /// <summary>
         /// ItemGridPanelId control.
@@ -109,7 +111,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel ItemGridPanelId;
+        protected GridPanel ItemGridPanelId;
         
         /// <summary>
         /// nomeColumnId control.
@@ -118,7 +120,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column nomeColumnId;
+        protected Column nomeColumnId;
         
         /// <summary>
         /// ItemRowSelectionModelId control.
@@ -127,7 +129,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.RowSelectionModel ItemRowSelectionModelId;
+        protected RowSelectionModel ItemRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.
@@ -136,7 +138,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Toolbar ToolbarId;
+        protected Toolbar ToolbarId;
         
         /// <summary>
         /// IncluirButtonId control.
@@ -145,7 +147,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button IncluirButtonId;
+        protected Button IncluirButtonId;
         
         /// <summary>
         /// EditButtonId control.
@@ -154,7 +156,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button EditButtonId;
+        protected Button EditButtonId;
         
         /// <summary>
         /// DeleteButtonId control.
@@ -163,7 +165,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button DeleteButtonId;
+        protected Button DeleteButtonId;
         
         /// <summary>
         /// AtualizarButtonId control.
@@ -172,7 +174,7 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Button AtualizarButtonId;
+        protected Button AtualizarButtonId;
         
         /// <summary>
         /// PagingToolbarId control.
@@ -181,6 +183,6 @@ namespace MimAcher.Apresentacao.App {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.PagingToolbar PagingToolbarId;
+        protected PagingToolbar PagingToolbarId;
     }
 }

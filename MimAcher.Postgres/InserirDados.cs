@@ -1,7 +1,8 @@
-﻿using MimAcher.GeradorDados;
-using MimAcher.Postgres.Conexao;
-using System;
+﻿using System;
+using System.Diagnostics;
+using MimAcher.GeradorDados;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Postgres.Conexao;
 
 namespace MimAcher.Postgres
 {
@@ -14,7 +15,7 @@ namespace MimAcher.Postgres
 
             CursorPostgres cursor = new CursorPostgres();
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var watch = Stopwatch.StartNew();
 
             for (int i = 0; i < 250000; i++)
             {

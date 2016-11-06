@@ -1,14 +1,9 @@
-using System;
-using System.Runtime.CompilerServices;
-using System.Security.Permissions;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Widget;
 using MimAcher.Mobile.Activities;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
-
 
 namespace MimAcher.Mobile.Utilitarios
 {

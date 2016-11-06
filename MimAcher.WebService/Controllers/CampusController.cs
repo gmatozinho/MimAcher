@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public CampusController()
         {
-            this.GestorDeCampus = new GestorDeCampus();
+            GestorDeCampus = new GestorDeCampus();
         }
 
         // GET: Campus
@@ -65,24 +62,21 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Campus cp in listacampus)
             {
-                foreach (Campus cp in listacampus)
-                {
-                    MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.local = cp.local;
+                MA_CAMPUS campus = new MA_CAMPUS();
+                campus.local = cp.local;
 
-                    GestorDeCampus.InserirCampus(campus);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeCampus.InserirCampus(campus);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -101,25 +95,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Campus cp in listacampus)
             {
-                foreach (Campus cp in listacampus)
-                {
-                    MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.cod_campus = cp.cod_campus;
-                    campus.local = cp.local;
+                MA_CAMPUS campus = new MA_CAMPUS();
+                campus.cod_campus = cp.cod_campus;
+                campus.local = cp.local;
 
-                    GestorDeCampus.InserirCampus(campus);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeCampus.InserirCampus(campus);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

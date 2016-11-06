@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public UsuarioController()
         {
-            this.GestorDeUsuario = new GestorDeUsuario();
+            GestorDeUsuario = new GestorDeUsuario();
         }
         
         // GET: Usuario
@@ -65,25 +62,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Usuario us in listausuario)
             {
-                foreach (Usuario us in listausuario)
-                {
-                    MA_USUARIO usuario = new MA_USUARIO();
-                    usuario.e_mail = us.e_mail;
-                    usuario.senha = us.senha;
+                MA_USUARIO usuario = new MA_USUARIO();
+                usuario.e_mail = us.e_mail;
+                usuario.senha = us.senha;
 
-                    GestorDeUsuario.InserirUsuario(usuario);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeUsuario.InserirUsuario(usuario);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public ActionResult Update(List<Usuario> listausuario)
@@ -101,26 +95,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Usuario us in listausuario)
             {
-                foreach (Usuario us in listausuario)
-                {
-                    MA_USUARIO usuario = new MA_USUARIO();
-                    usuario.cod_usuario = us.cod_usuario;
-                    usuario.e_mail = us.e_mail;
-                    usuario.senha = us.senha;
+                MA_USUARIO usuario = new MA_USUARIO();
+                usuario.cod_usuario = us.cod_usuario;
+                usuario.e_mail = us.e_mail;
+                usuario.senha = us.senha;
 
-                    GestorDeUsuario.AtualizarUsuario(usuario);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeUsuario.AtualizarUsuario(usuario);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

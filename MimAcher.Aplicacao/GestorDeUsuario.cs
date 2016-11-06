@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -13,27 +10,27 @@ namespace MimAcher.Aplicacao
         public RepositorioDeUsuario RepositorioDeUsuario { get; set; }
 
         public GestorDeUsuario(){
-            this.RepositorioDeUsuario = new RepositorioDeUsuario();
+            RepositorioDeUsuario = new RepositorioDeUsuario();
         }
 
         public MA_USUARIO ObterUsuarioPorId(int id)
         {
-            return this.RepositorioDeUsuario.ObterUsuarioPorId(id);
+            return RepositorioDeUsuario.ObterUsuarioPorId(id);
         }
 
         public List<MA_USUARIO> ObterTodosOsUsuarios()
         {
-            return this.RepositorioDeUsuario.ObterTodosOsUsuarios();
+            return RepositorioDeUsuario.ObterTodosOsUsuarios();
         }
 
         public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
-            return this.RepositorioDeUsuario.ObterUsuarioPorEmail(email);
+            return RepositorioDeUsuario.ObterUsuarioPorEmail(email);
         }
 
         public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            return this.RepositorioDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
+            return RepositorioDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
         }
 
         public Boolean VerificarExistenciaDeUsuarioPorEmailESenha(String email, String senha)
@@ -42,30 +39,27 @@ namespace MimAcher.Aplicacao
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         
         public void InserirUsuario(MA_USUARIO usuario)
         {
-            this.RepositorioDeUsuario.InserirUsuario(usuario);
+            RepositorioDeUsuario.InserirUsuario(usuario);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeUsuario.BuscarQuantidadeRegistros();
+            return RepositorioDeUsuario.BuscarQuantidadeRegistros();
         }
 
         public void RemoverUsuario(MA_USUARIO usuario)
         {
-            this.RepositorioDeUsuario.RemoverUsuario(usuario);
+            RepositorioDeUsuario.RemoverUsuario(usuario);
         }
 
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            this.RepositorioDeUsuario.AtualizarUsuario(usuario);
+            RepositorioDeUsuario.AtualizarUsuario(usuario);
         }
     }
 }
