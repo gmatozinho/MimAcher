@@ -98,16 +98,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigonac = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.NACWindowId.Show();
         }
 
         //Exclui determinado nac do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC nac = new MA_NAC();
-            nac = GestorDeNAC.ObterNACPorId(Int32.Parse(this.cod_nacId.Text));
+            MA_NAC nac = GestorDeNAC.ObterNACPorId(Int32.Parse(this.cod_nacId.Text));
             GestorDeNAC.RemoverNAC(nac);
             this.LimpaForm();
         }

@@ -97,16 +97,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoaprenderparticipante = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.ParticipanteAprenderWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE_APRENDER aprenderparticipante = new MA_PARTICIPANTE_APRENDER();
-            aprenderparticipante = GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(Int32.Parse(this.cod_p_aprenderId.Text));
+            MA_PARTICIPANTE_APRENDER aprenderparticipante = GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(Int32.Parse(this.cod_p_aprenderId.Text));
             GestorDeParticipanteAprender.RemoverAprendizadoDeParticipante(aprenderparticipante);
             this.LimpaForm();
         }

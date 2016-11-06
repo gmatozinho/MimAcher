@@ -39,13 +39,10 @@ namespace MimAcher.Infra
         
         public void InserirNAC(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
             {
-                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
-                {
-                    this.Contexto.MA_NAC.Add(nac);
-                    this.Contexto.SaveChanges();
-                }
+                this.Contexto.MA_NAC.Add(nac);
+                this.Contexto.SaveChanges();             
             }
         }
 
@@ -74,13 +71,10 @@ namespace MimAcher.Infra
             {
                 MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
 
-                if (nacjaexistente.nome_representante.ToLower().Equals(nac.nome_representante.ToLower()))
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
                 {
-                    if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
-                    {
-                        this.Contexto.Entry(nac).State = EntityState.Modified;
-                        this.Contexto.SaveChanges();
-                    }
+                    this.Contexto.Entry(nac).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();                 
                 }
             }
         }

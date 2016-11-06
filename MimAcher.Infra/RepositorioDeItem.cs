@@ -34,7 +34,7 @@ namespace MimAcher.Infra
 
         public List<MA_ITEM> ObterTodosOsItemsPorNome(String nome)
         {
-            return this.Contexto.MA_ITEM.Where(l => l.nome.ToLower().Equals(nome.ToLower())).ToList();
+            return this.Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
                 
         public void InserirItem(MA_ITEM Item)
