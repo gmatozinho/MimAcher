@@ -20,7 +20,7 @@ namespace MimAcher.Mobile.Utilitarios
             JObject json_resposta = JObject.Parse(resposta.ToString());
             int codigo_participante = Int32.Parse(json_resposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
 
-            return codigo_participante; // codigo_participante;
+            return codigo_participante;
         }
 
         //TODO: setar valor de retorno correto
