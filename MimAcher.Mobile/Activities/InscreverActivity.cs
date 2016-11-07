@@ -51,6 +51,7 @@ namespace MimAcher.Mobile.Activities
             //pegar lista de campus do banco
             var campusComCod = CursorBD.ObterCampi();
             var opcoesCampus = CriarListaCampi(campusComCod);
+            //var opcoesCampus = new List<string> { "Serra", "Vitória", "Vila Velha" };
             var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
             var tel = telephonyManager.Line1Number;
