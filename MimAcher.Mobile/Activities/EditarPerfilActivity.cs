@@ -52,13 +52,13 @@ namespace MimAcher.Mobile.Activities
             //Funcionalidades
             telefoneInfoUser.AddTextChangedListener(new Mascara(telefoneInfoUser, "## #####-####"));
             dtNascimentoInfoUser.AddTextChangedListener(new Mascara(dtNascimentoInfoUser, "##/##/####"));
+
             //Para Exibir
             _nome = _participante.Nome;
             _telefone = _participante.Telefone;
             _nascimento = _participante.Nascimento;
-
+            
             //Pegar as informações inseridas
-            nomeInfoUser.TextChanged += (sender, nomecapturado) => _nome = nomecapturado.Text.ToString();
             dtNascimentoInfoUser.TextChanged += (sender, nascimentocapturado) => _nascimento = nascimentocapturado.Text.ToString();
             telefoneInfoUser.TextChanged += (sender, telefonecapturado) => _telefone = telefonecapturado.Text.ToString();
 

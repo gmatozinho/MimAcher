@@ -13,6 +13,7 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static string MontarJsonUsuario(Participante participante)
         {
+            //tratamento das informaçoes com separadores
             var localizacao = participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
             var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
             participante.Telefone = acertandoTelefone;
