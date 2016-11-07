@@ -16,9 +16,11 @@ namespace MimAcher.Mobile.Utilitarios
             string json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
-            var codigo_participante = ObterResposta(requisicao);
+            var resposta = ObterResposta(requisicao);
+            JObject json_resposta = JObject.Parse(resposta.ToString());
+            int codigo_participante = Int32.Parse(json_resposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
 
-            return 1; // codigo_participante;
+            return codigo_participante; // codigo_participante;
         }
 
         //TODO: setar valor de retorno correto

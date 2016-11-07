@@ -25,6 +25,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Postgres", "MimAch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Testes.Mobile", "MimAcher.Testes.Mobile\MimAcher.Testes.Mobile.csproj", "{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Teste.CursorWebService", "MimAcher.Teste.CursorWebService\MimAcher.Teste.CursorWebService.csproj", "{0AF6FE8C-E9C5-4ACB-BD1C-499C4F1F3415}"
+	ProjectSection(ProjectDependencies) = postProject
+		{FCCB249C-6A6C-496C-A4BB-B210D2B329B8} = {FCCB249C-6A6C-496C-A4BB-B210D2B329B8}
+		{01E32BD5-94B3-4B42-A02B-C384AB2EF69F} = {01E32BD5-94B3-4B42-A02B-C384AB2EF69F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +83,10 @@ Global
 		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF6FE8C-E9C5-4ACB-BD1C-499C4F1F3415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF6FE8C-E9C5-4ACB-BD1C-499C4F1F3415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF6FE8C-E9C5-4ACB-BD1C-499C4F1F3415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF6FE8C-E9C5-4ACB-BD1C-499C4F1F3415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
