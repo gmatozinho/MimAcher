@@ -106,16 +106,17 @@ namespace MimAcher.Mobile.Activities
 
             if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
             {
+                //participante.AdequarInformacoes();
+                var x = participante.InscreverParticipante();
+                IniciarEscolherFoto(this, participante);
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                participante.Commit();
-                IniciarEscolherFoto(this, participante);
                 Finish();
             }
 
-            
+
         }
-        
+
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

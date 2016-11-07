@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Android.App;
 using Android.OS;
 using MimAcher.Mobile.Utilitarios;
 
@@ -45,9 +47,9 @@ namespace MimAcher.Mobile.Entidades
         }
         
         //Funções para trabalhar no banco de dados
-        public void Commit()
+        public int InscreverParticipante()
         {
-            CursorBD.EnviarParticipante(this);
+            return CursorBD.EnviarParticipante(this);
         }
 
 
@@ -101,6 +103,7 @@ namespace MimAcher.Mobile.Entidades
 
             return bundle;
         }
+
 
     }
 }

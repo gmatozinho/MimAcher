@@ -42,7 +42,7 @@ namespace MimAcher.Mobile.Utilitarios
                 var compare = DateTime.Compare(saida, dataatual);
                 return compare <= 0;
             }
-            else return false;
+            return false;
         }
 
         public static bool ValidarTelefone(string telefone)
@@ -54,7 +54,7 @@ namespace MimAcher.Mobile.Utilitarios
                 long numero;
                 return long.TryParse(telefone, out numero);
             }
-            else return false;
+            return false;
         }
 
         private static bool ValidarSenha(string senha)
@@ -125,5 +125,5 @@ namespace MimAcher.Mobile.Utilitarios
             };
         }
 
-    }
+       }
 }

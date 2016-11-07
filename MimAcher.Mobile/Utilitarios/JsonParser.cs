@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.Mobile.Utilitarios
@@ -13,6 +14,14 @@ namespace MimAcher.Mobile.Utilitarios
         public static string MontarJsonUsuario(Participante participante)
         {
             var localizacao = participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
+            participante.Telefone = acertandoTelefone;
+            DateTime saida;
+            var isValid = DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy",
+                CultureInfo.InvariantCulture,
+                DateTimeStyles.None, out saida);
+            participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
+
             return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
                 "\"senha\": \"" + participante.Senha + "\", \"cod_participante\": 1, \"cod_usuario\": 1, " +
                 "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": "+ participante.Telefone + ", " +

@@ -25,7 +25,6 @@ namespace MimAcher.Mobile.Activities
         private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
-        private int _progressBarStatus;
 
         //Metodos do controlador
         //Cria e controla a activity

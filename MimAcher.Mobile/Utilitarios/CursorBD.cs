@@ -17,6 +17,7 @@ namespace MimAcher.Mobile.Utilitarios
             EnviarJson(json, requisicao);
 
             var resposta = ObterResposta(requisicao);
+
             JObject json_resposta = JObject.Parse(resposta.ToString());
             int codigo_participante = Int32.Parse(json_resposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
 
