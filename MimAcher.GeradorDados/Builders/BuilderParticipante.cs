@@ -38,6 +38,7 @@ namespace MimAcher.GeradorDados.Builders
             dadosParticipante.Add("telefone", geradorTelefone.GerarTelefone().ToString());
             dadosParticipante.Add("senha", geradorSenha.GerarSenha(random.Next(8, 16)));
             dadosParticipante.Add("campus", geradorCampus.GerarCampus());
+            dadosParticipante.Add("localizacao", "0.0/0.0");
 
             return new Participante(dadosParticipante);
         }

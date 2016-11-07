@@ -26,7 +26,7 @@ namespace MimAcher.Mobile.Utilitarios
             return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
                 "\"senha\": \"" + participante.Senha + "\", \"cod_participante\": 1, \"cod_usuario\": 1, " +
                 "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": "+ participante.Telefone + ", " +
-                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\":" + localizacao[0] + ", \"longitude\":" + localizacao[1] + "} ] }";
+                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", \"longitude\": " + localizacao[1] + "} ] }";
         }
 
         public static string MontarJsonHobbie(int codigo_participante, int codigo_item)
