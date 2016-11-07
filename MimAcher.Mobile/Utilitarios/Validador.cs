@@ -67,7 +67,7 @@ namespace MimAcher.Mobile.Utilitarios
             return confirmarSenha == senha;
         }
 
-        private static List<string> ValidarEntradas(IReadOnlyDictionary<string, string> entradas)
+        private static List<string> ValidarEntradasParaCadastro(IReadOnlyDictionary<string, string> entradas)
         {
             var erros = new List<string>();
 
@@ -80,10 +80,40 @@ namespace MimAcher.Mobile.Utilitarios
             return erros;
         }
 
+        private static List<string> ValidarEntradasParaEditarPerfil(IReadOnlyDictionary<string, string> entradas)
+        {
+            var erros = new List<string>();
+
+            if (!ValidarNome(entradas["nome"])) erros.Add("Nome");
+            if (!ValidarData(entradas["data"])) erros.Add("Data de Nascimento");
+            if (!ValidarTelefone(entradas["telefone"])) erros.Add("Telefone");
+
+
+            return erros;
+        }
+
+        public static bool ValidarEditarPerfil(Context contexto, Dictionary<string,string> entradas )
+        {
+            var listacominformacoesinvalidas = ValidarEntradasParaEditarPerfil(entradas);
+
+            if (listacominformacoesinvalidas.Count == 0)
+            {
+                return true;
+            }
+            foreach (var valor in listacominformacoesinvalidas)
+            {
+                Mensagens.MensagemDeInformacaoInvalidaPadrao(contexto, valor);
+            }
+
+            return false;
+        }
+
+
+
         public static bool ValidarCadastroParticipante(Context contexto, Participante participante, string confirmarSenha)
         {
             var informacoes = ParticipanteParaDictionaryParaValidar(participante);
-            var listacominformacoesinvalidas = ValidarEntradas(informacoes);
+            var listacominformacoesinvalidas = ValidarEntradasParaCadastro(informacoes);
             var checarsenhasinseridas = ValidarConfirmarSenha(participante.Senha, confirmarSenha);
 
             if (listacominformacoesinvalidas.Count == 0)
@@ -107,6 +137,7 @@ namespace MimAcher.Mobile.Utilitarios
             return false;
         }
 
+        
         public static bool ValidadorDeLogin(string usuario, string senha)
         {
             return ValidarEmail(usuario) && ValidarSenha(senha);

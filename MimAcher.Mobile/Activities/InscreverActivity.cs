@@ -113,8 +113,6 @@ namespace MimAcher.Mobile.Activities
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 Finish();
             }
-
-
         }
 
         //Cria o menu de opções

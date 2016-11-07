@@ -15,6 +15,12 @@ namespace MimAcher.Mobile.Utilitarios
             Toast.MakeText(contexto, toast, ToastLength.Long).Show();
         }
 
+        public static void MensagemDeInformacoesEditadasComSucesso(Context contexto)
+        {
+            var toast = "Suas informações foram alteradas com sucesso";
+            Toast.MakeText(contexto, toast, ToastLength.Long).Show();
+        }
+
         public static void MensagemDeAdicionarItemSucesso(string item,Context activity, string text)
         {
             var toast = string.Format("{1} Inserido: {0}", item, text);
