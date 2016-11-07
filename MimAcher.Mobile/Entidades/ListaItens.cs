@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Android.Content;
 using Android.Widget;
+using MimAcher.Mobile.Utilitarios;
 
 namespace MimAcher.Mobile.Entidades
 {
@@ -14,30 +15,27 @@ namespace MimAcher.Mobile.Entidades
         }
 
         //adicionar itens
-        public void AdicionarItemWithMessage(string item, Context activity, string text)
+        public void AdicionarItemComMensagem(string item, Context activity, string text)
         {
             if (!string.IsNullOrEmpty(item))
             {
                 if (!Conteudo.Contains(item))
                 {
                     Conteudo.Add(item);
-                    var toast = string.Format("{1} Inserido: {0}", item, text);
-                    Toast.MakeText(activity, toast, ToastLength.Long).Show();
+                    Mensagens.MensagemDeAdicionarItemSucesso(item,activity,text);
                 }
                 else
                 {
-                    var toast = string.Format("Voce já possui este {1}: {0} ", item, text);
-                    Toast.MakeText(activity, toast, ToastLength.Long).Show();
+                    Mensagens.MensagemDeAdicionarItemFalha(item,activity,text);
                 }
             }
             else
             {
-                const string toast = ("Nada Inserido");
-                Toast.MakeText(activity, toast, ToastLength.Long).Show();
+                Mensagens.MensagemDeAdicionarItemNadaInserido(activity);
             }
         }
 
-        public void AdicionarItem(string item)
+        public void AdicionarItemParaGerador(string item)
         {
             if (!Conteudo.Contains(item) && !string.IsNullOrEmpty(item))
             {

@@ -1,3 +1,8 @@
+using System;
+using System.Reflection.Emit;
+using System.Threading;
+using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
 using MimAcher.Mobile.Activities;
 
@@ -5,36 +10,52 @@ namespace MimAcher.Mobile.Entidades.Fabricas
 {
     public class FabricaTelasNormaisSemProcedimento : FabricaAbstrataTelasNormais
     {
-        protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
+        public override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
             var participante = (Participante)pacote;
             activitydesejada.PutExtra("member", participante.ParticipanteToBundle());
             StartActivity(activitydesejada);
         }
 
-        protected void IniciarAlterarSenha(Context contexto, PacoteAbstrato pacote)
+        public override void IniciarAlterarSenha(Context contexto, PacoteAbstrato pacote)
         {
             var alterarsenhaactivity = new Intent(contexto, typeof(AlterarSenhaActivity));
             IniciarOutraTela(alterarsenhaactivity, pacote);
         }
 
-        protected void IniciarHobbies(Context contexto, PacoteAbstrato pacote)
+        public override void IniciarHobbies(Context contexto, PacoteAbstrato pacote)
         {
             var hobbiesactivity = new Intent(contexto, typeof(HobbiesActivity));
             IniciarOutraTela(hobbiesactivity, pacote);
         }
 
-        protected void IniciarEscolherFoto(Context contexto, PacoteAbstrato pacote)
+        public override void IniciarEscolherFoto(Context contexto, PacoteAbstrato pacote)
         {
             var escolherfotoactivity = new Intent(contexto, typeof(EscolherFotoActivity));
             IniciarOutraTela(escolherfotoactivity,pacote);
         }
 
-        protected void IniciarInscrever()
+        public override Task IniciarInscrever()
         {
             var inscreveractivity = new Intent(this, typeof(InscreverActivity));
             StartActivity(inscreveractivity);
+            return Task.CompletedTask;
         }
 
+        public override void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void IniciarMain(Context contexto)
+        {
+            throw new NotImplementedException();
+        }
+        
     }
 }

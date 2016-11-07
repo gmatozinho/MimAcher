@@ -15,6 +15,24 @@ namespace MimAcher.Mobile.Utilitarios
             Toast.MakeText(contexto, toast, ToastLength.Long).Show();
         }
 
+        public static void MensagemDeAdicionarItemSucesso(string item,Context activity, string text)
+        {
+            var toast = string.Format("{1} Inserido: {0}", item, text);
+            Toast.MakeText(activity, toast, ToastLength.Long).Show();
+        }
+
+        public static void MensagemDeAdicionarItemFalha(string item, Context activity, string text)
+        {
+            var toast = string.Format("Voce já possui este {1}: {0} ", item, text);
+            Toast.MakeText(activity, toast, ToastLength.Long).Show();
+        }
+
+        public static void MensagemDeAdicionarItemNadaInserido(Context activity)
+        {
+            const string toast = ("Nada Inserido");
+            Toast.MakeText(activity, toast, ToastLength.Long).Show();
+        }
+
         public static void MensagemDeConfirmarSenhaInvalido(Context contexto)
         {
             const string toast = "As senhas não conferem!";
@@ -89,35 +107,35 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
         {
-            var adb = new AlertDialog.Builder(resultados);
-            adb.SetTitle("Opções");
-            adb.SetMessage("Você deseja remover o item ou consultar combinações?");
-            adb.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
+            var alert = new AlertDialog.Builder(resultados);
+            alert.SetTitle("Opções");
+            alert.SetMessage("Você deseja remover o item ou consultar combinações?");
+            alert.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
             {
                 resultados.VerCombinacoes(itemSelecionado);
             });
-            adb.SetNegativeButton("Remover", (senderAlert, args) =>
+            alert.SetNegativeButton("Remover", (senderAlert, args) =>
             {
                 MensagemParaRemoverItemSelecionado(itemSelecionado, resultados);
             });
-            adb.Show();
+            alert.Show();
         }
 
         private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados resultados)
         {
-            var adb = new AlertDialog.Builder(resultados);
-            adb.SetTitle("Remover!");
-            adb.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
-            adb.SetPositiveButton("Ok", (senderAlert, args) =>
+            var alert = new AlertDialog.Builder(resultados);
+            alert.SetTitle("Remover!");
+            alert.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
+            alert.SetPositiveButton("Ok", (senderAlert, args) =>
             {
                 Toast.MakeText(resultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
                 resultados.RemoverItemSelecionado(itemSelecionado);
             });
-            adb.SetNegativeButton("Cancelar", (senderAlert, args) =>
+            alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
             {
                 Toast.MakeText(resultados, itemSelecionado + " não será removido!", ToastLength.Short).Show();
             });
-            adb.Show();
+            alert.Show();
         }
 
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Android;
 using Android.App;
 using Android.Content;
@@ -9,6 +10,8 @@ using Android.Widget;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
 using MimAcher.Mobile.Utilitarios;
+using System.Threading;
+using System.Threading.Tasks;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Mobile.Activities
@@ -25,7 +28,7 @@ namespace MimAcher.Mobile.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        private string _localizacao = "0.0/0.0";
+        private const string Localizacao = "0.0/0.0";
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -46,7 +49,8 @@ namespace MimAcher.Mobile.Activities
             var campoDtNascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             var campoTelefone = FindViewById<EditText>(Resource.Id.telefone);
             //pegar lista de campus do banco
-            var opcoesCampus = new List<string> { "Serra", "Vitória", "Vila Velha" };
+            var campusComCod = CursorBD.ObterCampi();
+            var opcoesCampus = CriarListaCampi(campusComCod);
             var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
             var tel = telephonyManager.Line1Number;
@@ -103,10 +107,12 @@ namespace MimAcher.Mobile.Activities
             {
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
-                //participante.Commit();
+                participante.Commit();
                 IniciarEscolherFoto(this, participante);
                 Finish();
             }
+
+            
         }
         
         //Cria o menu de opções
@@ -127,11 +133,20 @@ namespace MimAcher.Mobile.Activities
                 ["nome"] = _nome,
                 ["telefone"] = _telefone,
                 ["nascimento"] = _nascimento,
-                ["localizacao"] = _localizacao
+                ["localizacao"] = Localizacao
         };
 
             return informacoes;
         }
+
+        //retornar só lista do campi
+
+        private static List<string> CriarListaCampi(Dictionary<int, string> dicCampi)
+        {
+            return dicCampi.Select(info => info.Value).ToList();
+        }
+        
+
     }
 }
 

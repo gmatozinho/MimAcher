@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
 using Android.Widget;
@@ -22,7 +25,8 @@ namespace MimAcher.Mobile.Activities
         private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
-        
+        private int _progressBarStatus;
+
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle bundle)
@@ -55,9 +59,11 @@ namespace MimAcher.Mobile.Activities
             //Ideia é buscar usuario no banco, se existir retorna true e checa senha, se nao retorna usuario inexistente
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
-            inscrevase.Click += delegate {
+            /*inscrevase.Click += delegate {
                 IniciarInscrever();
-            };
+                Loading();
+            };*/
+            inscrevase.Click += OnClick;
         }
 
         
@@ -79,6 +85,27 @@ namespace MimAcher.Mobile.Activities
             return informacoes;
         }
 
+        private void OnClick(object sender, EventArgs e)
+        {
+            var progressDialog = ProgressDialog.Show(this, "", "Carregando...", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+
+            new Thread(new ThreadStart(delegate
+            {
+                RunOnUiThread(async () =>
+                {
+                    for (var i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(50);
+                    }
+                });
+                RunOnUiThread(async () => {
+                    await IniciarInscrever();
+                    progressDialog.Dismiss();
+                }
+                );
+            })).Start();
+        }
     }
 }
 

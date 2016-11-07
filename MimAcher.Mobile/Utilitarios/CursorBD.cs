@@ -35,9 +35,9 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var matchs = new Dictionary<string, List<Participante>>
             {
-                ["gostos"] = new List<Participante>(),
-                ["interesses"] = new List<Participante>(),
-                ["competencias"] = new List<Participante>()
+                ["hobbies"] = new List<Participante>(),
+                ["aprender"] = new List<Participante>(),
+                ["ensinar"] = new List<Participante>()
             };
 
 

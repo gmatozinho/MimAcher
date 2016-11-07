@@ -16,7 +16,7 @@ namespace MimAcher.GeradorDados.Builders
 
             while (quantidadeItens > 0)
             {
-                listaItens.AdicionarItem(geradorItens.GerarItem());
+                listaItens.AdicionarItemParaGerador(geradorItens.GerarItem());
                 quantidadeItens--;
             }
 

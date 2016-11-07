@@ -29,23 +29,32 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static bool ValidarData(string data)
         {
-            var dataatual = DateTime.Today;
-            
-            DateTime saida;
-            var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
-                                                  CultureInfo.InvariantCulture,
-                                                  DateTimeStyles.None, out saida);
+            if (!string.IsNullOrEmpty(data))
+            {
+                var dataatual = DateTime.Today;
 
-            if (!isValid) return false;
-            var compare = DateTime.Compare(saida, dataatual);
-            return compare <= 0;
+                DateTime saida;
+                var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out saida);
+
+                if (!isValid) return false;
+                var compare = DateTime.Compare(saida, dataatual);
+                return compare <= 0;
+            }
+            else return false;
         }
 
         public static bool ValidarTelefone(string telefone)
         {
-            telefone = telefone.Replace(" ", "").Replace("-", "");
-            long numero;
-            return long.TryParse(telefone, out numero);
+            if (!string.IsNullOrEmpty(telefone))
+            {
+
+                telefone = telefone.Replace(" ", "").Replace("-", "");
+                long numero;
+                return long.TryParse(telefone, out numero);
+            }
+            else return false;
         }
 
         private static bool ValidarSenha(string senha)
