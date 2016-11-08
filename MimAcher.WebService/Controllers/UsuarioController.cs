@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -83,7 +84,7 @@ namespace MimAcher.WebService.Controllers
         public ActionResult Update(List<Usuario> listausuario)
         {
             JsonResult jsonResult;
-
+            
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listausuario == null)
             {
@@ -92,8 +93,6 @@ namespace MimAcher.WebService.Controllers
                     codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
             else
             {
@@ -102,16 +101,23 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
-                
+                Boolean resultado = GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
 
-                GestorDeUsuario.AtualizarUsuario(usuario);
+                if (resultado)
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = usuario.cod_usuario
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
-            
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
