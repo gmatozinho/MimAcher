@@ -102,6 +102,8 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
+                
+
                 GestorDeUsuario.AtualizarUsuario(usuario);
             }
             

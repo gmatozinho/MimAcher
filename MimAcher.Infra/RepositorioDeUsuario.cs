@@ -84,6 +84,21 @@ namespace MimAcher.Infra
             } 
         }
 
+        public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                Contexto.Entry(usuario).State = EntityState.Modified;
+                Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public Boolean VerificarSeEmailDeUsuarioJaExiste(MA_USUARIO usuario)
         {
             if (ObterUsuarioPorEmail(usuario) != null)
