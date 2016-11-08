@@ -47,6 +47,11 @@ namespace MimAcher.Aplicacao
             RepositorioDeUsuario.InserirUsuario(usuario);
         }
 
+        public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            return RepositorioDeUsuario.InserirUsuarioComRetorno(usuario);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return RepositorioDeUsuario.BuscarQuantidadeRegistros();

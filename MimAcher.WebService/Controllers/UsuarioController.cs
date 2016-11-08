@@ -95,15 +95,16 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (Usuario us in listausuario)
+            else
             {
                 MA_USUARIO usuario = new MA_USUARIO();
-                usuario.cod_usuario = us.cod_usuario;
-                usuario.e_mail = us.e_mail;
-                usuario.senha = us.senha;
+                usuario.cod_usuario = listausuario[0].cod_usuario;
+                usuario.e_mail = listausuario[0].e_mail;
+                usuario.senha = listausuario[0].senha;
 
                 GestorDeUsuario.AtualizarUsuario(usuario);
             }
+            
 
             jsonResult = Json(new
             {
