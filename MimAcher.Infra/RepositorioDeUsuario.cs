@@ -49,6 +49,21 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                Contexto.MA_USUARIO.Add(usuario);
+                Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return Contexto.MA_USUARIO.Count();
