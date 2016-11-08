@@ -59,23 +59,31 @@ namespace MimAcher.WebService.Controllers
                 {
                     success = false
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
-            foreach (Usuario us in listausuario)
+            else
             {
                 MA_USUARIO usuario = new MA_USUARIO();
-                usuario.e_mail = us.e_mail;
-                usuario.senha = us.senha;
 
-                GestorDeUsuario.InserirUsuario(usuario);
+                usuario.e_mail = listausuario[0].e_mail;
+                usuario.senha = listausuario[0].senha;
+
+                Boolean resultado = GestorDeUsuario.InserirUsuarioComRetorno(usuario);
+
+                if (resultado)
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = usuario.cod_usuario
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -97,6 +105,7 @@ namespace MimAcher.WebService.Controllers
             else
             {
                 MA_USUARIO usuario = new MA_USUARIO();
+
                 usuario.cod_usuario = listausuario[0].cod_usuario;
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
