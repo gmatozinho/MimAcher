@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -14,7 +11,7 @@ namespace MimAcher.WebService.Controllers
 
         public ImagemParticipanteController()
         {
-            this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
+            GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
         }
 
         // GET: ImagemUsuario

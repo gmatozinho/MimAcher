@@ -1,6 +1,6 @@
-﻿using MimAcher.GeradorDados.Geradores;
+﻿using System;
+using MimAcher.GeradorDados.Geradores;
 using MimAcher.Mobile.Entidades;
-using System;
 
 namespace MimAcher.GeradorDados.Builders
 {
@@ -16,7 +16,7 @@ namespace MimAcher.GeradorDados.Builders
 
             while (quantidadeItens > 0)
             {
-                listaItens.AdicionarItem(geradorItens.GerarItem());
+                listaItens.AdicionarItemParaGerador(geradorItens.GerarItem());
                 quantidadeItens--;
             }
 

@@ -5,7 +5,7 @@ namespace MimAcher.WebService
 {
     public class RouteConfig
     {
-        protected RouteConfig() : base()
+        protected RouteConfig()
         {
 
         }

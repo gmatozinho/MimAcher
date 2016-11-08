@@ -1,12 +1,14 @@
+using System;
 using Android.Content;
 using Android.Widget;
 using MimAcher.Mobile.Activities;
+using System.Threading.Tasks;
 
 namespace MimAcher.Mobile.Entidades.Fabricas
 {
     public class FabricaTelasNormaisComProcedimento : FabricaAbstrataTelasNormais
     {
-        protected override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
+        public override void IniciarOutraTela(Intent activitydesejada, PacoteAbstrato pacote)
         {
             var pacotePadrao = (PacoteCompleto)pacote;
             ProcedimentoPadrao(pacotePadrao);
@@ -14,14 +16,14 @@ namespace MimAcher.Mobile.Entidades.Fabricas
             StartActivity(activitydesejada);
         }
 
-        protected void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
+        public override void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroaprenderactivity = new Intent(contexto, typeof(QueroAprenderActivity));
             //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroaprenderactivity,pacote);
         }
 
-        protected void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
+        public override void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroensinaractivity = new Intent(contexto, typeof(QueroEnsinarActivity));
             //TODO mudar para trabalhar com objeto do banco
@@ -42,17 +44,17 @@ namespace MimAcher.Mobile.Entidades.Fabricas
             {
                 case "Hobbie":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Hobbies.Conteudo);
-                    pacoteCompleto.Participante.Hobbies.AdicionarItemWithMessage(mensagemEItem[1], this, mensagemEItem[0]);
+                    pacoteCompleto.Participante.Hobbies.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo, pacoteCompleto.ListView, pacoteCompleto.ListaItens);
                     break;
                 case "Algo para Aprender":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Aprender.Conteudo);
-                    pacoteCompleto.Participante.Aprender.AdicionarItemWithMessage(mensagemEItem[1], this, mensagemEItem[0]);
+                    pacoteCompleto.Participante.Aprender.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo, pacoteCompleto.ListView, pacoteCompleto.ListaItens);
                     break;
                 case "Algo para Ensinar":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Ensinar.Conteudo);
-                    pacoteCompleto.Participante.Ensinar.AdicionarItemWithMessage(mensagemEItem[1], this, mensagemEItem[0]);
+                    pacoteCompleto.Participante.Ensinar.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo,pacoteCompleto.ListView,pacoteCompleto.ListaItens);
                     break;
             }
@@ -63,6 +65,31 @@ namespace MimAcher.Mobile.Entidades.Fabricas
         {
             campo.Text = null;
             listar.Adapter = new ListAdapterHae(this, lista.Conteudo);
+        }
+
+        public override void IniciarHobbies(Context contexto, PacoteAbstrato pacote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void IniciarMain(Context contexto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task IniciarInscrever()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void IniciarEscolherFoto(Context contexto, PacoteAbstrato pacote)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void IniciarAlterarSenha(Context contexto, PacoteAbstrato pacote)
+        {
+            throw new NotImplementedException();
         }
     }
 }

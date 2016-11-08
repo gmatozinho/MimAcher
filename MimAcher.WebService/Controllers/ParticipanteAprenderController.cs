@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ParticipanteAprenderController()
         {
-            this.GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
+            GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
         }
 
         // GET: ParticipanteAprender
@@ -66,25 +63,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteAprender pe in listaparticipanteaprender)
             {
-                foreach (ParticipanteAprender pe in listaparticipanteaprender)
-                {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
-                    participanteaprender.cod_participante = pe.cod_participante;
-                    participanteaprender.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
+                participanteaprender.cod_participante = pe.cod_participante;
+                participanteaprender.cod_item = pe.cod_item;
 
-                    GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -103,26 +97,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteAprender pe in listaparticipanteaprender)
             {
-                foreach (ParticipanteAprender pe in listaparticipanteaprender)
-                {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
-                    participanteaprender.cod_p_aprender = pe.cod_p_aprender;
-                    participanteaprender.cod_participante = pe.cod_participante;
-                    participanteaprender.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
+                participanteaprender.cod_p_aprender = pe.cod_p_aprender;
+                participanteaprender.cod_participante = pe.cod_participante;
+                participanteaprender.cod_item = pe.cod_item;
 
-                    GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

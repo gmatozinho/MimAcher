@@ -1,9 +1,5 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Threading.Tasks;
-using Android.Content;
-using Android.Widget;
-using MimAcher.Mobile.Entidades;
 using Plugin.Geolocator;
 
 namespace MimAcher.Mobile.Utilitarios

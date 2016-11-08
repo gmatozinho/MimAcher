@@ -1,11 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Utilitarios;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-using System;
 
 namespace MimAcher.Mobile.Utilitarios
 {
@@ -19,10 +17,11 @@ namespace MimAcher.Mobile.Utilitarios
             EnviarJson(json, requisicao);
 
             var resposta = ObterResposta(requisicao);
+
             JObject json_resposta = JObject.Parse(resposta.ToString());
             int codigo_participante = Int32.Parse(json_resposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
 
-            return codigo_participante; // codigo_participante;
+            return codigo_participante;
         }
 
         //TODO: setar valor de retorno correto
@@ -39,9 +38,9 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var matchs = new Dictionary<string, List<Participante>>
             {
-                ["gostos"] = new List<Participante>(),
-                ["interesses"] = new List<Participante>(),
-                ["competencias"] = new List<Participante>()
+                ["hobbies"] = new List<Participante>(),
+                ["aprender"] = new List<Participante>(),
+                ["ensinar"] = new List<Participante>()
             };
 
 

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MimAcher.Dominio;
-using MimAcher.Aplicacao;
 using System.Data.Entity.Spatial;
+using System.Web.Mvc;
+using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 
 namespace MimAcher.WebService.Models
 {
@@ -16,8 +14,8 @@ namespace MimAcher.WebService.Models
 
         public ParticipanteController()
         {
-            this.GestorDeParticipante = new GestorDeParticipante();
-            this.GestorDeAplicacao = new GestorDeAplicacao();
+            GestorDeParticipante = new GestorDeParticipante();
+            GestorDeAplicacao = new GestorDeAplicacao();
         }
 
         // GET: Participante
@@ -73,30 +71,27 @@ namespace MimAcher.WebService.Models
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Participante pt in listaparticipante)
             {
-                foreach (Participante pt in listaparticipante)
-                {
-                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                    participante.cod_usuario = pt.cod_usuario;
-                    participante.cod_campus = pt.cod_participante;
-                    participante.nome = pt.nome;
-                    participante.telefone = pt.telefone;
-                    participante.dt_nascimento = (DateTime) pt.dt_nascimento;                    
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
+                participante.cod_usuario = pt.cod_usuario;
+                participante.cod_campus = pt.cod_participante;
+                participante.nome = pt.nome;
+                participante.telefone = pt.telefone;
+                participante.dt_nascimento = (DateTime) pt.dt_nascimento;                    
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
 
-                    GestorDeParticipante.InserirParticipante(participante);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipante.InserirParticipante(participante);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -115,31 +110,28 @@ namespace MimAcher.WebService.Models
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Participante pt in listaparticipante)
             {
-                foreach (Participante pt in listaparticipante)
-                {
-                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                    participante.cod_participante = pt.cod_participante;
-                    participante.cod_usuario = pt.cod_usuario;
-                    participante.cod_campus = pt.cod_campus;
-                    participante.nome = pt.nome;
-                    participante.telefone = pt.telefone;
-                    participante.dt_nascimento = (DateTime)pt.dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
+                participante.cod_participante = pt.cod_participante;
+                participante.cod_usuario = pt.cod_usuario;
+                participante.cod_campus = pt.cod_campus;
+                participante.nome = pt.nome;
+                participante.telefone = pt.telefone;
+                participante.dt_nascimento = (DateTime)pt.dt_nascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
 
-                    GestorDeParticipante.AtualizarParticipante(participante);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipante.AtualizarParticipante(participante);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

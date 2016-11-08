@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ItemController()
         {
-            this.GestorDeItem = new GestorDeItem();
+            GestorDeItem = new GestorDeItem();
         }
 
         // GET: Item
@@ -66,26 +63,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Item it in listaitem)
             {
-                foreach (Item it in listaitem)
-                {
-                    MA_ITEM item = new MA_ITEM();
-                    item.nome = it.nome;
+                MA_ITEM item = new MA_ITEM();
+                item.nome = it.nome;
 
-                    GestorDeItem.InserirItem(item);
+                GestorDeItem.InserirItem(item);
 
-                    codigocadastrado = item.cod_item;
-                }
-
-                jsonResult = Json(new
-                {
-                    codigo = codigocadastrado
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                codigocadastrado = item.cod_item;
             }
+
+            jsonResult = Json(new
+            {
+                codigo = codigocadastrado
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -105,27 +99,24 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (Item it in listaitem)
             {
-                foreach (Item it in listaitem)
-                {
-                    MA_ITEM item = new MA_ITEM();
-                    item.cod_item = it.cod_item;
-                    item.nome = it.nome;
+                MA_ITEM item = new MA_ITEM();
+                item.cod_item = it.cod_item;
+                item.nome = it.nome;
 
-                    GestorDeItem.InserirItem(item);
+                GestorDeItem.InserirItem(item);
 
-                    codigocadastrado = item.cod_item;
-                }
-
-                jsonResult = Json(new
-                {
-                    codigo = codigocadastrado
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                codigocadastrado = item.cod_item;
             }
+
+            jsonResult = Json(new
+            {
+                codigo = codigocadastrado
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

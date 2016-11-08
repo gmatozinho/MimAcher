@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -14,50 +12,50 @@ namespace MimAcher.Infra
 
         public RepositorioDeAprendizadoDeParticipante()
         {
-            this.Contexto = new MIMACHEREntities();
+            Contexto = new MIMACHEREntities();
         }
 
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDoParticipantePorId(int id)
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.Find(id);
+            return Contexto.MA_PARTICIPANTE_APRENDER.Find(id);
         }
 
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
+            return Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.ToList();
+            return Contexto.MA_PARTICIPANTE_APRENDER.ToList();
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
             {
-                this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
-                this.Contexto.SaveChanges();
+                Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
+                Contexto.SaveChanges();
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.Count();
+            return Contexto.MA_PARTICIPANTE_APRENDER.Count();
         }
 
         public void RemoverAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            this.Contexto.MA_PARTICIPANTE_APRENDER.Remove(participanteaprender);
-            this.Contexto.SaveChanges();
+            Contexto.MA_PARTICIPANTE_APRENDER.Remove(participanteaprender);
+            Contexto.SaveChanges();
         }
 
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
             {
-                this.Contexto.Entry(participanteaprender).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                Contexto.Entry(participanteaprender).State = EntityState.Modified;
+                Contexto.SaveChanges();
             }
         }
 
@@ -67,10 +65,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

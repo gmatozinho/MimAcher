@@ -1,5 +1,4 @@
-﻿using Android.Provider;
-using MimAcher.Mobile.Entidades;
+﻿using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.Mobile.Services
 {

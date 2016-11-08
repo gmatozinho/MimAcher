@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ParticipanteHobbieController()
         {
-            this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
+            GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
         }
 
         // GET: ParticipanteHobbie
@@ -66,25 +63,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
             {
-                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
-                {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-                    participantehobbie.cod_participante = pe.cod_participante;
-                    participantehobbie.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+                participantehobbie.cod_participante = pe.cod_participante;
+                participantehobbie.cod_item = pe.cod_item;
 
-                    GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -103,26 +97,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
             {
-                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
-                {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-                    participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
-                    participantehobbie.cod_participante = pe.cod_participante;
-                    participantehobbie.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+                participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
+                participantehobbie.cod_participante = pe.cod_participante;
+                participantehobbie.cod_item = pe.cod_item;
 
-                    GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

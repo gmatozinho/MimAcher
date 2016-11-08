@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Net.Mail;
 using Android.Content;
-using Android.Widget;
 using MimAcher.Mobile.Entidades;
 
 namespace MimAcher.Mobile.Utilitarios
@@ -30,23 +29,32 @@ namespace MimAcher.Mobile.Utilitarios
 
         public static bool ValidarData(string data)
         {
-            var dataatual = DateTime.Today;
-            
-            DateTime saida;
-            var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
-                                                  CultureInfo.InvariantCulture,
-                                                  DateTimeStyles.None, out saida);
+            if (!string.IsNullOrEmpty(data))
+            {
+                var dataatual = DateTime.Today;
 
-            if (!isValid) return false;
-            var compare = DateTime.Compare(saida, dataatual);
-            return compare <= 0;
+                DateTime saida;
+                var isValid = DateTime.TryParseExact(data, "dd/MM/yyyy",
+                    CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out saida);
+
+                if (!isValid) return false;
+                var compare = DateTime.Compare(saida, dataatual);
+                return compare <= 0;
+            }
+            return false;
         }
 
         public static bool ValidarTelefone(string telefone)
         {
-            telefone = telefone.Replace(" ", "").Replace("-", "");
-            long numero;
-            return long.TryParse(telefone, out numero);
+            if (!string.IsNullOrEmpty(telefone))
+            {
+
+                telefone = telefone.Replace(" ", "").Replace("-", "");
+                long numero;
+                return long.TryParse(telefone, out numero);
+            }
+            return false;
         }
 
         private static bool ValidarSenha(string senha)
@@ -59,7 +67,7 @@ namespace MimAcher.Mobile.Utilitarios
             return confirmarSenha == senha;
         }
 
-        private static List<string> ValidarEntradas(IReadOnlyDictionary<string, string> entradas)
+        private static List<string> ValidarEntradasParaCadastro(IReadOnlyDictionary<string, string> entradas)
         {
             var erros = new List<string>();
 
@@ -72,10 +80,40 @@ namespace MimAcher.Mobile.Utilitarios
             return erros;
         }
 
+        private static List<string> ValidarEntradasParaEditarPerfil(IReadOnlyDictionary<string, string> entradas)
+        {
+            var erros = new List<string>();
+
+            if (!ValidarNome(entradas["nome"])) erros.Add("Nome");
+            if (!ValidarData(entradas["data"])) erros.Add("Data de Nascimento");
+            if (!ValidarTelefone(entradas["telefone"])) erros.Add("Telefone");
+
+
+            return erros;
+        }
+
+        public static bool ValidarEditarPerfil(Context contexto, Dictionary<string,string> entradas )
+        {
+            var listacominformacoesinvalidas = ValidarEntradasParaEditarPerfil(entradas);
+
+            if (listacominformacoesinvalidas.Count == 0)
+            {
+                return true;
+            }
+            foreach (var valor in listacominformacoesinvalidas)
+            {
+                Mensagens.MensagemDeInformacaoInvalidaPadrao(contexto, valor);
+            }
+
+            return false;
+        }
+
+
+
         public static bool ValidarCadastroParticipante(Context contexto, Participante participante, string confirmarSenha)
         {
             var informacoes = ParticipanteParaDictionaryParaValidar(participante);
-            var listacominformacoesinvalidas = ValidarEntradas(informacoes);
+            var listacominformacoesinvalidas = ValidarEntradasParaCadastro(informacoes);
             var checarsenhasinseridas = ValidarConfirmarSenha(participante.Senha, confirmarSenha);
 
             if (listacominformacoesinvalidas.Count == 0)
@@ -99,6 +137,7 @@ namespace MimAcher.Mobile.Utilitarios
             return false;
         }
 
+        
         public static bool ValidadorDeLogin(string usuario, string senha)
         {
             return ValidarEmail(usuario) && ValidarSenha(senha);
@@ -117,5 +156,5 @@ namespace MimAcher.Mobile.Utilitarios
             };
         }
 
-    }
+       }
 }

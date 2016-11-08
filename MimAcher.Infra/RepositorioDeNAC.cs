@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -14,47 +12,47 @@ namespace MimAcher.Infra
 
         public RepositorioDeNAC()
         {
-            this.Contexto = new MIMACHEREntities();
+            Contexto = new MIMACHEREntities();
         }
 
         public MA_NAC ObterNACPorId(int id)
         {
-            return this.Contexto.MA_NAC.Find(id);
+            return Contexto.MA_NAC.Find(id);
         }
 
         public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
         {
-            return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
+            return Contexto.MA_NAC.SingleOrDefault(l => l.MA_USUARIO.cod_usuario == idUsuario);
         }
         
         public List<MA_NAC> ObterTodosOsNAC()
         {
-            return this.Contexto.MA_NAC.ToList();
+            return Contexto.MA_NAC.ToList();
         }
 
         public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
         {
-            return this.Contexto.MA_NAC.Where(l => l.nome_representante.Equals(nomerepresentante)).ToList();
+            return Contexto.MA_NAC.Where(l => l.nome_representante.Equals(nomerepresentante)).ToList();
         }
         
         public void InserirNAC(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
             {
-                this.Contexto.MA_NAC.Add(nac);
-                this.Contexto.SaveChanges();             
+                Contexto.MA_NAC.Add(nac);
+                Contexto.SaveChanges();             
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_NAC.Count();
+            return Contexto.MA_NAC.Count();
         }
 
         public void RemoverNAC(MA_NAC nac)
         {
-            this.Contexto.MA_NAC.Remove(nac);
-            this.Contexto.SaveChanges();
+            Contexto.MA_NAC.Remove(nac);
+            Contexto.SaveChanges();
         }
 
         public void AtualizarNAC(MA_NAC nac)
@@ -63,8 +61,8 @@ namespace MimAcher.Infra
             {
                 if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
                 {
-                    this.Contexto.Entry(nac).State = EntityState.Modified;
-                    this.Contexto.SaveChanges();
+                    Contexto.Entry(nac).State = EntityState.Modified;
+                    Contexto.SaveChanges();
                 }
             }
             else
@@ -73,8 +71,8 @@ namespace MimAcher.Infra
 
                 if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
                 {
-                    this.Contexto.Entry(nac).State = EntityState.Modified;
-                    this.Contexto.SaveChanges();                 
+                    Contexto.Entry(nac).State = EntityState.Modified;
+                    Contexto.SaveChanges();                 
                 }
             }
         }
@@ -85,22 +83,16 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            if(this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario).SingleOrDefault() !=  null)
+            if(Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario).SingleOrDefault() !=  null)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
         
     }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MimAcher.GeradorDados.Geradores
 {
@@ -10,7 +7,8 @@ namespace MimAcher.GeradorDados.Geradores
     {
         private static Random random = new Random();
         private static readonly List<string> tipo_item =
-            new List<string>() { "futebol", "violao", "php", "c#", "xamarin", "teclado", "bateria",
+            new List<string>
+            { "futebol", "violao", "php", "c#", "xamarin", "teclado", "bateria",
             "uml", "analise de sistemas", "programacao", "cozinha", "cinema", "banco de dados",
             "cachorros", "medicina", "medicina alternativa", "psicologia", "livros de ficcao",
             "star wars", "star trek", "decoracao", "sociologia", "politica", "religiao",

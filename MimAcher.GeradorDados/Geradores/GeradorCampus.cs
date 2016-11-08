@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MimAcher.GeradorDados.Geradores
 {
@@ -10,7 +7,7 @@ namespace MimAcher.GeradorDados.Geradores
     {
         private static Random random = new Random();
         private static readonly List<string> campi =
-            new List<string>() {"Serra", "Vitoria", "Itapina", "Santa Tereza", "Vila Velha", "Itaciba"};
+            new List<string> {"Serra", "Vitoria", "Itapina", "Santa Tereza", "Vila Velha", "Itaciba"};
 
         public string GerarCampus()
         {
