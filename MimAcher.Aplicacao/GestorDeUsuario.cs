@@ -10,27 +10,27 @@ namespace MimAcher.Aplicacao
         public RepositorioDeUsuario RepositorioDeUsuario { get; set; }
 
         public GestorDeUsuario(){
-            RepositorioDeUsuario = new RepositorioDeUsuario();
+            this.RepositorioDeUsuario = new RepositorioDeUsuario();
         }
 
         public MA_USUARIO ObterUsuarioPorId(int id)
         {
-            return RepositorioDeUsuario.ObterUsuarioPorId(id);
+            return this.RepositorioDeUsuario.ObterUsuarioPorId(id);
         }
 
         public List<MA_USUARIO> ObterTodosOsUsuarios()
         {
-            return RepositorioDeUsuario.ObterTodosOsUsuarios();
+            return this.RepositorioDeUsuario.ObterTodosOsUsuarios();
         }
 
         public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
-            return RepositorioDeUsuario.ObterUsuarioPorEmail(email);
+            return this.RepositorioDeUsuario.ObterUsuarioPorEmail(email);
         }
 
         public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            return RepositorioDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
+            return this.RepositorioDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
         }
 
         public Boolean VerificarExistenciaDeUsuarioPorEmailESenha(String email, String senha)
@@ -44,27 +44,32 @@ namespace MimAcher.Aplicacao
         
         public void InserirUsuario(MA_USUARIO usuario)
         {
-            RepositorioDeUsuario.InserirUsuario(usuario);
+            this.RepositorioDeUsuario.InserirUsuario(usuario);
         }
 
         public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
         {
-            return RepositorioDeUsuario.InserirUsuarioComRetorno(usuario);
+            return this.RepositorioDeUsuario.InserirUsuarioComRetorno(usuario);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeUsuario.BuscarQuantidadeRegistros();
+            return this.RepositorioDeUsuario.BuscarQuantidadeRegistros();
         }
 
         public void RemoverUsuario(MA_USUARIO usuario)
         {
-            RepositorioDeUsuario.RemoverUsuario(usuario);
+            this.RepositorioDeUsuario.RemoverUsuario(usuario);
         }
 
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            RepositorioDeUsuario.AtualizarUsuario(usuario);
+            this.RepositorioDeUsuario.AtualizarUsuario(usuario);
+        }
+
+        public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            return this.RepositorioDeUsuario.AtualizarUsuarioComRetorno(usuario);
         }
     }
 }
