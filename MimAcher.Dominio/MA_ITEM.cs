@@ -7,14 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+
 namespace MimAcher.Dominio
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class MA_ITEM
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public MA_ITEM()
         {
             this.MA_PARTICIPANTE_APRENDER = new HashSet<MA_PARTICIPANTE_APRENDER>();
@@ -25,11 +25,11 @@ namespace MimAcher.Dominio
         public int cod_item { get; set; }
         public string nome { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
     }
 }

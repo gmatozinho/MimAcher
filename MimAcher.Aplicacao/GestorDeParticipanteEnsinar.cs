@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
+﻿using System.Collections.Generic;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -14,37 +10,37 @@ namespace MimAcher.Aplicacao
 
         public GestorDeParticipanteEnsinar()
         {
-            this.RepositorioDeParticipanteEnsinar = new RepositorioDeParticipanteEnsinar();
+            RepositorioDeParticipanteEnsinar = new RepositorioDeParticipanteEnsinar();
         }
 
         public MA_PARTICIPANTE_ENSINAR ObterRelacaoDoQueOParticipanteEnsinaPorId(int id)
         {
-            return this.RepositorioDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(id);
+            return RepositorioDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(id);
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
         {
-            return this.RepositorioDeParticipanteEnsinar.ObterTodosOsRegistros();
+            return RepositorioDeParticipanteEnsinar.ObterTodosOsRegistros();
         }
 
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            this.RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
+            RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeParticipanteEnsinar.BuscarQuantidadeRegistros();
+            return RepositorioDeParticipanteEnsinar.BuscarQuantidadeRegistros();
         }
 
         public void RemoverEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            this.RepositorioDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(participanteensinar);
+            RepositorioDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(participanteensinar);
         }
 
         public void AtualizarEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            this.RepositorioDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(participanteensinar);
+            RepositorioDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(participanteensinar);
         }
     }
 }

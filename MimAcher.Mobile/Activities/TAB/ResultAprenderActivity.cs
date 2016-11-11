@@ -1,9 +1,5 @@
-using System.Collections.Generic;
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Views;
-using Android.Widget;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
 

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -15,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ParticipanteEnsinarController()
         {
-            this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
+            GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
         }
 
         // GET: ParticipanteEnsinar
@@ -66,25 +63,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
             {
-                foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
-                {
-                    MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
-                    participanteensinar.cod_participante = pe.cod_participante;
-                    participanteensinar.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
+                participanteensinar.cod_participante = pe.cod_participante;
+                participanteensinar.cod_item = pe.cod_item;
 
-                    GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -103,26 +97,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
             {
-                foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
-                {
-                    MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
-                    participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
-                    participanteensinar.cod_participante = pe.cod_participante;
-                    participanteensinar.cod_item = pe.cod_item;
+                MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
+                participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
+                participanteensinar.cod_participante = pe.cod_participante;
+                participanteensinar.cod_item = pe.cod_item;
 
-                    GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

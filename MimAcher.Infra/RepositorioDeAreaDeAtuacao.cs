@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -14,55 +12,55 @@ namespace MimAcher.Infra
 
         public RepositorioDeAreaDeAtuacao()
         {
-            this.Contexto = new MIMACHEREntities();
+            Contexto = new MIMACHEREntities();
         }
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorId(int id)
         {
-            return this.Contexto.MA_AREA_ATUACAO.Find(id);
+            return Contexto.MA_AREA_ATUACAO.Find(id);
         }
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorNome(MA_AREA_ATUACAO areaatuacao)
         {
-            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLower().Equals(areaatuacao.nome.ToLower())).SingleOrDefault();
+            return Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLowerInvariant().Equals(areaatuacao.nome.ToLowerInvariant())).SingleOrDefault();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()
         {
-            return this.Contexto.MA_AREA_ATUACAO.ToList();
+            return Contexto.MA_AREA_ATUACAO.ToList();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacaosPorNome(String nome)
         {
-            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(nome)).ToList();
+            return Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(nome)).ToList();
         }
 
         public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
             if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
             {
-                this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
-                this.Contexto.SaveChanges();
+                Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                Contexto.SaveChanges();
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_AREA_ATUACAO.Count();
+            return Contexto.MA_AREA_ATUACAO.Count();
         }
 
         public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            this.Contexto.MA_AREA_ATUACAO.Remove(AreaDeAtuacao);
-            this.Contexto.SaveChanges();
+            Contexto.MA_AREA_ATUACAO.Remove(AreaDeAtuacao);
+            Contexto.SaveChanges();
         }
 
         public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
             if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
             {
-                this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                Contexto.SaveChanges();
             }            
         }
 
@@ -71,10 +69,7 @@ namespace MimAcher.Infra
             if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null) {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

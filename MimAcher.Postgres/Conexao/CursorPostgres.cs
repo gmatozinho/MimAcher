@@ -1,9 +1,9 @@
-﻿using MimAcher.Postgres.Conexao.Parametros;
-using Npgsql;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using MimAcher.Mobile.Entidades;
+using MimAcher.Postgres.Conexao.Parametros;
+using Npgsql;
 
 namespace MimAcher.Postgres.Conexao
 {
@@ -31,7 +31,7 @@ namespace MimAcher.Postgres.Conexao
         {
             try
             {
-                if (conexao.State == System.Data.ConnectionState.Closed)
+                if (conexao.State == ConnectionState.Closed)
                     conexao.Open();
 
                 NpgsqlCommand comandoSQL = new NpgsqlCommand("inserir_participante", conexao);

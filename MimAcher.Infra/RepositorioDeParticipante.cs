@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -14,61 +12,58 @@ namespace MimAcher.Infra
         
         public RepositorioDeParticipante()
         {
-            this.Contexto = new MIMACHEREntities();
+            Contexto = new MIMACHEREntities();
         }
 
         public int ObterIdDeUltimoParticipante()
         {
-            return this.Contexto.MA_PARTICIPANTE.Max(l => l.cod_participante);
+            return Contexto.MA_PARTICIPANTE.Max(l => l.cod_participante);
         }
 
         public MA_PARTICIPANTE ObterParticipantePorId(int id)
         {
-            return this.Contexto.MA_PARTICIPANTE.Find(id);
+            return Contexto.MA_PARTICIPANTE.Find(id);
         }
 
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
-            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
+            return Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {
-            return this.Contexto.MA_PARTICIPANTE.ToList();
+            return Contexto.MA_PARTICIPANTE.ToList();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
         {
-            return this.Contexto.MA_PARTICIPANTE.Where(l => l.nome.Equals(nome)).ToList();            
+            return Contexto.MA_PARTICIPANTE.Where(l => l.nome.Equals(nome)).ToList();            
         }
 
         public MA_PARTICIPANTE ObterParticipantePorEmail(String email)
         {
-            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.e_mail.Equals(email)).SingleOrDefault();
+            return Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.e_mail.Equals(email)).SingleOrDefault();
         }
         
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
-            {
-                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
-                {
-                    this.Contexto.MA_PARTICIPANTE.Add(participante);
-                    this.Contexto.SaveChanges();
-                }
+            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            {                
+                Contexto.MA_PARTICIPANTE.Add(participante);
+                Contexto.SaveChanges();             
             }
         }
 
         
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_PARTICIPANTE.Count();
+            return Contexto.MA_PARTICIPANTE.Count();
         }
                 
         public void RemoverParticipante(MA_PARTICIPANTE Participante)
         {
-            this.Contexto.MA_PARTICIPANTE.Remove(Participante);
-            this.Contexto.SaveChanges();
+            Contexto.MA_PARTICIPANTE.Remove(Participante);
+            Contexto.SaveChanges();
         }
 
         public void AtualizarParticipante(MA_PARTICIPANTE participante)
@@ -94,10 +89,8 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                if (participantejaexistente.cod_participante == participante.cod_participante)
+                if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                 {
-                    if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
-                    {
                         MA_PARTICIPANTE participantegravacao = new MA_PARTICIPANTE();
                         participantegravacao.cod_participante = participante.cod_participante;
                         participantegravacao.cod_campus = participante.cod_campus;
@@ -107,8 +100,7 @@ namespace MimAcher.Infra
                         participantegravacao.telefone = participante.telefone;
                         participantegravacao.geolocalizacao = participante.geolocalizacao;
 
-                        Atualizar(participantegravacao);
-                    }
+                        Atualizar(participantegravacao);                 
                 }
             }
         }
@@ -123,25 +115,20 @@ namespace MimAcher.Infra
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
-        {   
+        {
             if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null) {
                 return true;
             }
-            else{
-                return false;
-            }
+            return false;
         }
 
         public Boolean VerificarSeNACTemAlgumNACComMesmoUsuario(MA_PARTICIPANTE participante)
         {
-            if (this.Contexto.MA_NAC.Where(l => l.cod_usuario == participante.cod_usuario).SingleOrDefault() != null)
+            if (Contexto.MA_NAC.Where(l => l.cod_usuario == participante.cod_usuario).SingleOrDefault() != null)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -14,52 +11,52 @@ namespace MimAcher.Aplicacao
 
         public GestorDeNAC()
         {
-            this.RepositorioDeNAC = new RepositorioDeNAC();
+            RepositorioDeNAC = new RepositorioDeNAC();
         }
 
         public MA_NAC ObterNACPorId(int id)
         {
-            return this.RepositorioDeNAC.ObterNACPorId(id);
+            return RepositorioDeNAC.ObterNACPorId(id);
         }
 
         public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
         {
-            return this.RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
+            return RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
         }
 
         public List<MA_NAC> ObterTodosOsNAC()
         {
-            return this.RepositorioDeNAC.ObterTodosOsNAC();
+            return RepositorioDeNAC.ObterTodosOsNAC();
         }
 
         public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
         {
-            return this.RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
+            return RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
         }
         
         public void InserirNAC(MA_NAC nac)
         {
-            this.RepositorioDeNAC.InserirNAC(nac);
+            RepositorioDeNAC.InserirNAC(nac);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeNAC.BuscarQuantidadeRegistros();
+            return RepositorioDeNAC.BuscarQuantidadeRegistros();
         }
 
         public void RemoverNAC(MA_NAC nac)
         {
-            this.RepositorioDeNAC.RemoverNAC(nac);
+            RepositorioDeNAC.RemoverNAC(nac);
         }
 
         public void AtualizarNAC(MA_NAC nac)
         {
-            this.RepositorioDeNAC.AtualizarNAC(nac);
+            RepositorioDeNAC.AtualizarNAC(nac);
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            return this.RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
+            return RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
         }
 
         public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(int idUsuario)

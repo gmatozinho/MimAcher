@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -14,22 +12,22 @@ namespace MimAcher.Infra
 
         public RepositorioDeCampus()
         {
-            this.Contexto = new MIMACHEREntities();
+            Contexto = new MIMACHEREntities();
         }
 
         public MA_CAMPUS ObterCampusPorId(int id)
         {
-            return this.Contexto.MA_CAMPUS.Find(id);
+            return Contexto.MA_CAMPUS.Find(id);
         }
 
         public MA_CAMPUS ObterCampusPorNomeDeLocal(MA_CAMPUS campus)
         {
-            return this.Contexto.MA_CAMPUS.Where(l => l.local.ToLower().Equals(campus.local.ToLower())).SingleOrDefault();
+            return Contexto.MA_CAMPUS.Where(l => l.local.ToLower().Equals(campus.local.ToLower())).SingleOrDefault();
         }
 
         public List<MA_CAMPUS> ObterTodosOsCampus()
         {
-            return this.Contexto.MA_CAMPUS.ToList();
+            return Contexto.MA_CAMPUS.ToList();
         }
         
 
@@ -37,28 +35,28 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
             {
-                this.Contexto.MA_CAMPUS.Add(campus);
-                this.Contexto.SaveChanges();
+                Contexto.MA_CAMPUS.Add(campus);
+                Contexto.SaveChanges();
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_CAMPUS.Count();
+            return Contexto.MA_CAMPUS.Count();
         }
 
         public void RemoverCampus(MA_CAMPUS campus)
         {
-            this.Contexto.MA_CAMPUS.Remove(campus);
-            this.Contexto.SaveChanges();
+            Contexto.MA_CAMPUS.Remove(campus);
+            Contexto.SaveChanges();
         }
 
         public void AtualizarCampus(MA_CAMPUS campus)
         {
             if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
             {
-                this.Contexto.Entry(campus).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                Contexto.Entry(campus).State = EntityState.Modified;
+                Contexto.SaveChanges();
             }
         }
 
@@ -68,10 +66,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

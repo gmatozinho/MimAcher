@@ -7,6 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Web.UI.HtmlControls;
+using Subgurim.Controles;
+
 namespace MimAcher.Apresentacao.App.Mapa {
     
     
@@ -19,7 +22,7 @@ namespace MimAcher.Apresentacao.App.Mapa {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected HtmlForm form1;
         
         /// <summary>
         /// GMap1 control.
@@ -28,6 +31,6 @@ namespace MimAcher.Apresentacao.App.Mapa {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Subgurim.Controles.GMap GMap1;
+        protected GMap GMap1;
     }
 }

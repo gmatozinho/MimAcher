@@ -1,11 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Mobile.Utilitarios;
 using Newtonsoft.Json.Linq;
-using System.Linq;
-using System;
 
 namespace MimAcher.Mobile.Utilitarios
 {
@@ -18,14 +16,12 @@ namespace MimAcher.Mobile.Utilitarios
             string json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
-            var codigo_participante = ObterResposta(requisicao);
+            var resposta = ObterResposta(requisicao);
 
-            return 1; // codigo_participante;
-        }
+            JObject json_resposta = JObject.Parse(resposta.ToString());
+            int codigo_participante = Int32.Parse(json_resposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
 
-        public static void EnviarItens(TipoItem tipo, List<string> itens)
-        {
-
+            return codigo_participante;
         }
 
         //TODO: setar valor de retorno correto
@@ -42,9 +38,9 @@ namespace MimAcher.Mobile.Utilitarios
         {
             var matchs = new Dictionary<string, List<Participante>>
             {
-                ["gostos"] = new List<Participante>(),
-                ["interesses"] = new List<Participante>(),
-                ["competencias"] = new List<Participante>()
+                ["hobbies"] = new List<Participante>(),
+                ["aprender"] = new List<Participante>(),
+                ["ensinar"] = new List<Participante>()
             };
 
 
@@ -93,6 +89,46 @@ namespace MimAcher.Mobile.Utilitarios
             }
 
             return campi;
+        }
+
+        public static Dictionary<int, string> ObterItens()
+        {
+            Dictionary<int, string> itens = new Dictionary<int, string>();
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoGetItem();
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+
+            var listaItens = objetoResposta.SelectToken("data");
+
+            foreach (var token in listaItens)
+            {
+                string chave = token.SelectToken("cod_item").ToString().Replace("{", "").Replace("}", "");
+                string valor = token.SelectToken("nome").ToString().Replace("{", "").Replace("}", "");
+
+                itens[Int32.Parse(chave)] = valor;
+            }
+
+            return itens;
+        }
+
+        public static void EnviarHobbie(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonHobbie(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostHobbie();
+            EnviarJson(json, requisicao);
+        }
+
+        public static void EnviarAprender(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonAprender(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostAprender();
+            EnviarJson(json, requisicao);
+        }
+
+        public static void EnviarEnsinar(int codigo_participante, int codigo_item)
+        {
+            string json = JsonParser.MontarJsonEnsinar(codigo_participante, codigo_item);
+            WebRequest requisicao = MontadorRequisicao.MontarRequisicaoPostEnsinar();
+            EnviarJson(json, requisicao);
         }
     }
 }

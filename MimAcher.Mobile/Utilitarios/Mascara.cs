@@ -1,21 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Text;
-using Android.Views;
 using Android.Widget;
 using Java.Lang;
+using Exception = System.Exception;
 using StringBuilder = System.Text.StringBuilder;
 
 namespace MimAcher.Mobile.Utilitarios
 {
-    public class Mascara : Java.Lang.Object, ITextWatcher
+    public class Mascara : Object, ITextWatcher
     {
         private readonly EditText _editText;
         private readonly string _mask;
@@ -74,7 +65,7 @@ namespace MimAcher.Mobile.Utilitarios
                     bld.Append(str[i]);
                     mascara = bld.ToString();
                 }
-                catch (System.Exception)
+                catch (Exception)
                 {
                     break;
                 }
