@@ -51,6 +51,7 @@
     <Compile Include="GestorDeHobbieDeParticipante.cs" />
     <Compile Include="GestorDeImagemDeParticipante.cs" />
     <Compile Include="GestorDeNAC.cs" />
+    <Compile Include="GestorDeStatusDeRelacao.cs" />
     <Compile Include="GestorDeUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
