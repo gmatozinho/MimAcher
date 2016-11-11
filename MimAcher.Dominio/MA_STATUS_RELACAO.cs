@@ -12,21 +12,24 @@ namespace MimAcher.Dominio
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_CAMPUS
+    public partial class MA_STATUS_RELACAO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_CAMPUS()
+        public MA_STATUS_RELACAO()
         {
-            this.MA_NAC = new HashSet<MA_NAC>();
-            this.MA_PARTICIPANTE = new HashSet<MA_PARTICIPANTE>();
+            this.MA_PARTICIPANTE_APRENDER = new HashSet<MA_PARTICIPANTE_APRENDER>();
+            this.MA_PARTICIPANTE_ENSINAR = new HashSet<MA_PARTICIPANTE_ENSINAR>();
+            this.MA_PARTICIPANTE_HOBBIE = new HashSet<MA_PARTICIPANTE_HOBBIE>();
         }
     
-        public int cod_campus { get; set; }
-        public string local { get; set; }
+        public int cod_s_relacao { get; set; }
+        public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_NAC> MA_NAC { get; set; }
+        public virtual ICollection<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
+        public virtual ICollection<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
     }
 }

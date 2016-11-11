@@ -29,6 +29,10 @@
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" ManuallyRouted="false" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" ManuallyRouted="false" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_STATUS_RELACAO" Width="1.5" PointX="3" PointY="10.375" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_RELACAO_cod_s_relacao" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_RELACAO_cod_s_relacao" />
+        <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

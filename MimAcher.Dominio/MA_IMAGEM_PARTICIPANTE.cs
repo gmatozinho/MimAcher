@@ -9,6 +9,9 @@
 
 namespace MimAcher.Dominio
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class MA_IMAGEM_PARTICIPANTE
     {
         public int cod_imagem { get; set; }

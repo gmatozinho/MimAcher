@@ -9,13 +9,18 @@
 
 namespace MimAcher.Dominio
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class MA_PARTICIPANTE_HOBBIE
     {
         public int cod_p_hobbie { get; set; }
         public int cod_item { get; set; }
         public int cod_participante { get; set; }
+        public int cod_s_relacao { get; set; }
     
         public virtual MA_ITEM MA_ITEM { get; set; }
         public virtual MA_PARTICIPANTE MA_PARTICIPANTE { get; set; }
+        public virtual MA_STATUS_RELACAO MA_STATUS_RELACAO { get; set; }
     }
 }
