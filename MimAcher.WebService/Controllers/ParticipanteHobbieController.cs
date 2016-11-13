@@ -126,29 +126,44 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                   codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+            else
             {
-                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-                participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
-                participantehobbie.cod_participante = pe.cod_participante;
-                participantehobbie.cod_item = pe.cod_item;
+                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+                {
+                    if (pe.cod_s_relacao == 2)
+                    {
+                        MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
 
-                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                        participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
+                        participantehobbie.cod_participante = pe.cod_participante;
+                        participantehobbie.cod_item = pe.cod_item;
+
+                        this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                        
+                        jsonResult = Json(new
+                        {
+                            codigo = participantehobbie.cod_p_hobbie
+                        }, JsonRequestBehavior.AllowGet);
+
+                        jsonResult.MaxJsonLength = int.MaxValue;
+                        return jsonResult;
+                    }
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
-
-            jsonResult.MaxJsonLength = int.MaxValue;
-            return jsonResult;
         }
     }
 }
