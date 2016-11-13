@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public CampusController()
         {
-            GestorDeCampus = new GestorDeCampus();
+            this.GestorDeCampus = new GestorDeCampus();
         }
 
         // GET: Campus
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_CAMPUS> listacampusoriginal = GestorDeCampus.ObterTodosOsCampus();
+            List<MA_CAMPUS> listacampusoriginal = this.GestorDeCampus.ObterTodosOsCampus();
             List<Campus> listacampus = new List<Campus>();
 
             foreach (MA_CAMPUS nc in listacampusoriginal)
@@ -67,7 +67,7 @@ namespace MimAcher.WebService.Controllers
                 MA_CAMPUS campus = new MA_CAMPUS();
                 campus.local = cp.local;
 
-                GestorDeCampus.InserirCampus(campus);
+                this.GestorDeCampus.InserirCampus(campus);
             }
 
             jsonResult = Json(new
@@ -101,7 +101,7 @@ namespace MimAcher.WebService.Controllers
                 campus.cod_campus = cp.cod_campus;
                 campus.local = cp.local;
 
-                GestorDeCampus.InserirCampus(campus);
+                this.GestorDeCampus.InserirCampus(campus);
             }
 
             jsonResult = Json(new
