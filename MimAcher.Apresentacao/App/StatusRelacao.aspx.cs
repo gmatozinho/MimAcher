@@ -18,14 +18,14 @@ namespace MimAcher.Apresentacao.App
         public StatusRelacao()
         {
             //Inicialização dos Gestores            
-            GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
+            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreStatusRelacaoId.DataSource = GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
+                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
                 StoreStatusRelacaoId.DataBind();
             }
         }
@@ -39,22 +39,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreStatusRelacaoId.DataSource = GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
+            StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
             StoreStatusRelacaoId.DataBind();
         }
 
         //Lista os status_relacaos do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreStatusRelacaoId.DataSource = GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
+            StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
             StoreStatusRelacaoId.DataBind();
         }
 
         //Lista os status_relacaos do banco de dados na grid
         protected void List()
         {
-            GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
-            StoreStatusRelacaoId.DataSource = GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
+            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
+            StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao().OrderBy(l => l.nome);
             StoreStatusRelacaoId.DataBind();
         }
 
@@ -68,7 +68,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_status_relacaoId.Text == "")
             {
-                GestorDeStatusDeRelacao.InserirStatusDeRelacao(status_relacao);
+                this.GestorDeStatusDeRelacao.InserirStatusDeRelacao(status_relacao);
                 StatusRelacaoWindowId.Close();
                 LimpaForm();
             }
@@ -76,7 +76,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 status_relacao.cod_s_relacao = Int32.Parse(cod_status_relacaoId.Text);
-                GestorDeStatusDeRelacao.AtualizarStatusDeRelacao(status_relacao);
+                this.GestorDeStatusDeRelacao.AtualizarStatusDeRelacao(status_relacao);
                 StatusRelacaoWindowId.Close();
                 LimpaForm();
             }
@@ -91,8 +91,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado status_relacao do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_STATUS_RELACAO status_relacao = GestorDeStatusDeRelacao.ObterStatusDeRelacaoPorId(Int32.Parse(cod_status_relacaoId.Text));
-            GestorDeStatusDeRelacao.RemoverStatusDeRelacao(status_relacao);
+            MA_STATUS_RELACAO status_relacao = this.GestorDeStatusDeRelacao.ObterStatusDeRelacaoPorId(Int32.Parse(cod_status_relacaoId.Text));
+            this.GestorDeStatusDeRelacao.RemoverStatusDeRelacao(status_relacao);
             LimpaForm();
         }
 
