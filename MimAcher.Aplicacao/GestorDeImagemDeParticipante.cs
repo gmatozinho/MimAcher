@@ -10,42 +10,42 @@ namespace MimAcher.Aplicacao
 
         public GestorDeImagemDeParticipante()
         {
-            RepositorioDeImagemDeParticipante = new RepositorioDeImagemDeParticipante();
+            this.RepositorioDeImagemDeParticipante = new RepositorioDeImagemDeParticipante();
         }
 
         public MA_IMAGEM_PARTICIPANTE ObterImagemDeParticipantePorId(int id)
         {
-            return RepositorioDeImagemDeParticipante.ObterImagemDeParticipantePorId(id);
+            return this.RepositorioDeImagemDeParticipante.ObterImagemDeParticipantePorId(id);
         }
 
         public List<MA_IMAGEM_PARTICIPANTE> ObterTodosOsImagens()
         {
-            return RepositorioDeImagemDeParticipante.ObterTodosOsImagens();
+            return this.RepositorioDeImagemDeParticipante.ObterTodosOsImagens();
         }
 
         public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
         {
-            return RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(id_participante);
+            return this.RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(id_participante);
         }
 
         public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            RepositorioDeImagemDeParticipante.InserirImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.InserirImagem(Imagem);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeImagemDeParticipante.BuscarQuantidadeRegistros();
+            return this.RepositorioDeImagemDeParticipante.BuscarQuantidadeRegistros();
         }
 
         public void RemoverImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            RepositorioDeImagemDeParticipante.RemoverImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.RemoverImagem(Imagem);
         }
 
         public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            RepositorioDeImagemDeParticipante.AtualizarImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.AtualizarImagem(Imagem);
         }
     }
 }
