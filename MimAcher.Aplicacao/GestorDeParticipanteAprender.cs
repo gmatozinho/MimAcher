@@ -10,37 +10,37 @@ namespace MimAcher.Aplicacao
 
         public GestorDeParticipanteAprender()
         {
-            RepositorioDeAprendizadoDeParticipante = new RepositorioDeAprendizadoDeParticipante();
+            this.RepositorioDeAprendizadoDeParticipante = new RepositorioDeAprendizadoDeParticipante();
         }
 
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDoParticipantePorId(int id)
         {
-            return RepositorioDeAprendizadoDeParticipante.ObterAprendizadoDoParticipantePorId(id);
+            return this.RepositorioDeAprendizadoDeParticipante.ObterAprendizadoDoParticipantePorId(id);
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
-            return RepositorioDeAprendizadoDeParticipante.ObterTodosOsRegistros();
+            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsRegistros();
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipante(participanteaprender);
+            this.RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipante(participanteaprender);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeAprendizadoDeParticipante.BuscarQuantidadeRegistros();
+            return this.RepositorioDeAprendizadoDeParticipante.BuscarQuantidadeRegistros();
         }
 
         public void RemoverAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            RepositorioDeAprendizadoDeParticipante.RemoverAprendizadoDeParticipante(participanteaprender);
+            this.RepositorioDeAprendizadoDeParticipante.RemoverAprendizadoDeParticipante(participanteaprender);
         }
 
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            RepositorioDeAprendizadoDeParticipante.AtualizarAprendizadoDeParticipante(participanteaprender);
+            this.RepositorioDeAprendizadoDeParticipante.AtualizarAprendizadoDeParticipante(participanteaprender);
         }
     }
 
