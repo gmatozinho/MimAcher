@@ -15,7 +15,7 @@ namespace MimAcher.Apresentacao.App
         public Usuario()
         {
             //Inicialização dos Gestores
-            GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeUsuario = new GestorDeUsuario();
         }
 
 
@@ -23,7 +23,7 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                StoreUsuarioId.DataSource = GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+                StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 StoreUsuarioId.DataBind();
             }
         }
@@ -37,15 +37,15 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreUsuarioId.DataSource = GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+            StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
             StoreUsuarioId.DataBind();
         }
 
         //Lista os usuários do banco de dados na grid
         protected void List()
         {
-            GestorDeUsuario = new GestorDeUsuario();
-            StoreUsuarioId.DataSource = GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+            this.GestorDeUsuario = new GestorDeUsuario();
+            StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
             StoreUsuarioId.DataBind();
         }
 
@@ -60,7 +60,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_usuarioId.Text == "")
             {
-                GestorDeUsuario.InserirUsuario(usuario);
+                this.GestorDeUsuario.InserirUsuario(usuario);
                 UsuarioWindowId.Close();
                 LimpaForm();
             }
@@ -83,8 +83,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado usuário do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(cod_usuarioId.Text));
-            GestorDeUsuario.RemoverUsuario(usuario);
+            MA_USUARIO usuario = this.GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(cod_usuarioId.Text));
+            this.GestorDeUsuario.RemoverUsuario(usuario);
             LimpaForm();
         }
 
