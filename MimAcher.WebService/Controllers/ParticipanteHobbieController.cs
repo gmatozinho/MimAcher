@@ -115,5 +115,40 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        [HttpPost]
+        public ActionResult Delete(List<ParticipanteHobbie> listaparticipantehobbie)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipantehobbie == null)
+            {
+                jsonResult = Json(new
+                {
+                    success = false
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+                participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
+                participantehobbie.cod_participante = pe.cod_participante;
+                participantehobbie.cod_item = pe.cod_item;
+
+                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+            }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
     }
 }
