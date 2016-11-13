@@ -10,37 +10,37 @@ namespace MimAcher.Aplicacao
 
         public GestorDeHobbieDeParticipante()
         {
-            RepositorioDeParcipanteHobbie = new RepositorioDePartipanteHobbie();
+            this.RepositorioDeParcipanteHobbie = new RepositorioDePartipanteHobbie();
         }
 
         public MA_PARTICIPANTE_HOBBIE ObterHobbieDoParticipantePorId(int id)
         {
-            return RepositorioDeParcipanteHobbie.ObterHobbieDoParticipantePorId(id);
+            return this.RepositorioDeParcipanteHobbie.ObterHobbieDoParticipantePorId(id);
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
         {
-            return RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
+            return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
         }
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
+            this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeParcipanteHobbie.BuscarQuantidadeRegistros();
+            return this.RepositorioDeParcipanteHobbie.BuscarQuantidadeRegistros();
         }
 
         public void RemoverHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbiedoparticipante)
         {
-            RepositorioDeParcipanteHobbie.RemoverHobbieDoParticipante(hobbiedoparticipante);
+            this.RepositorioDeParcipanteHobbie.RemoverHobbieDoParticipante(hobbiedoparticipante);
         }
 
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipante(hobbieparticipante);
+            this.RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipante(hobbieparticipante);
         }
     }
 }
