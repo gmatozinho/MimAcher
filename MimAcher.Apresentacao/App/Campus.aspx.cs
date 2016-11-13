@@ -15,14 +15,14 @@ namespace MimAcher.Apresentacao.App
         public Campus()
         {
             //Inicialização dos Gestores            
-            GestorDeCampus = new GestorDeCampus();
+            this.GestorDeCampus = new GestorDeCampus();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+                StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
                 StoreCampusId.DataBind();
             }
         }
@@ -36,22 +36,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
             StoreCampusId.DataBind();
         }
 
         //Lista os campuss do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
             StoreCampusId.DataBind();
         }
 
         //Lista os campuss do banco de dados na grid
         protected void List()
         {
-            GestorDeCampus = new GestorDeCampus();
-            StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            this.GestorDeCampus = new GestorDeCampus();
+            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
             StoreCampusId.DataBind();
         }
 
@@ -65,7 +65,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_campusId.Text == "")
             {
-                GestorDeCampus.InserirCampus(campus);
+                this.GestorDeCampus.InserirCampus(campus);
                 CampusWindowId.Close();
                 LimpaForm();
             }
@@ -73,7 +73,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 campus.cod_campus = Int32.Parse(cod_campusId.Text);
-                GestorDeCampus.AtualizarCampus(campus);
+                this.GestorDeCampus.AtualizarCampus(campus);
                 CampusWindowId.Close();
                 LimpaForm();
             }
@@ -88,8 +88,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado campus do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {            
-            MA_CAMPUS campus = GestorDeCampus.ObterCampusPorId(Int32.Parse(cod_campusId.Text));
-            GestorDeCampus.RemoverCampus(campus);
+            MA_CAMPUS campus = this.GestorDeCampus.ObterCampusPorId(Int32.Parse(cod_campusId.Text));
+            this.GestorDeCampus.RemoverCampus(campus);
             LimpaForm();
         }
 
