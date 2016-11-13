@@ -37,6 +37,15 @@ namespace MimAcher.Infra
                 this.Contexto.MA_PARTICIPANTE_ENSINAR.Add(participanteensinar);
                 this.Contexto.SaveChanges();
             }
+            else
+            {
+                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
+
+                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                {
+                    AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
+                }
+            }
         }
 
         public int BuscarQuantidadeRegistros()
