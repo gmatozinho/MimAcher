@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 
@@ -13,9 +17,9 @@ namespace MimAcher.Apresentacao
 
         public SiteMaster()
         {
-            GestorDeUsuario = new GestorDeUsuario();
-            GestorDeParticipante = new GestorDeParticipante();
-            GestorDeNAC = new GestorDeNAC();
+            this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeNAC = new GestorDeNAC();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,20 +29,20 @@ namespace MimAcher.Apresentacao
                 MA_USUARIO usuario = (MA_USUARIO)Session["usuario"];
                                 
                 //Coloca a informação com o email do usuário logado no cabeçalho
-                labelUsuarioEmail.Text = usuario.e_mail;
+                this.labelUsuarioEmail.Text = usuario.e_mail;
 
                 if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do Participante no cabeçalho
-                    labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
-                    labelParticipanteNome.Hidden = false;
+                    this.labelParticipanteNome.Text = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).nome;
+                    this.labelParticipanteNome.Hidden = false;
                 }
 
                 if (GestorDeNAC.VerificarSeNACTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do representante do NAC no cabeçalho
-                    labelNACNomeRepresentante.Text = GestorDeNAC.ObterNACPorIdDeUsuario(usuario.cod_usuario).nome_representante;
-                    labelNACNomeRepresentante.Hidden = false;
+                    this.labelNACNomeRepresentante.Text = GestorDeNAC.ObterNACPorIdDeUsuario(usuario.cod_usuario).nome_representante;
+                    this.labelNACNomeRepresentante.Hidden = false;
                 }
                 
             }

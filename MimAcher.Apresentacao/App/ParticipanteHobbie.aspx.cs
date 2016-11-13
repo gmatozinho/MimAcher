@@ -1,74 +1,71 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
-using Ext.Net;
-using MimAcher.Aplicacao;
+using System.Web.UI.WebControls;
 using MimAcher.Dominio;
+using MimAcher.Aplicacao;
+using Ext.Net;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class ParticipanteHobbie : Page
+    public partial class ParticipanteHobbie : System.Web.UI.Page
     {
-        //Declaração dos this.Gestores        
+        //Declaração dos Gestores        
         public GestorDeHobbieDeParticipante GestorDeHobbieDeParticipante { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeItem GestorDeItem { get; set; }
-        public GestorDeStatusDeRelacao GestorDeStatusDeRelacao { get; set; }
 
         public ParticipanteHobbie()
         {
-            //Inicialização dos this.Gestores            
+            //Inicialização dos Gestores            
             this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
-            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
-                StoreParticipanteHobbieId.DataBind();
+                this.StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+                this.StoreParticipanteHobbieId.DataBind();
 
-                StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
-                StoreParticipanteId.DataBind();
+                this.StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                this.StoreParticipanteId.DataBind();
 
-                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-                StoreItemId.DataBind();
-
-                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao();
-                StoreStatusRelacaoId.DataBind();
+                this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                this.StoreItemId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de hobbie de participante
         protected void Add(object sender, DirectEventArgs e)
         {
-            ParticipanteHobbieWindowId.Show();
+            this.ParticipanteHobbieWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
-            StoreParticipanteHobbieId.DataBind();
+            this.StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            this.StoreParticipanteHobbieId.DataBind();
         }
 
         //Lista os hobbies de participantes do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
-            StoreParticipanteHobbieId.DataBind();
+            this.StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            this.StoreParticipanteHobbieId.DataBind();
         }
 
         //Lista os hobbies de participantes do banco de dados na grid
         protected void List()
         {
             this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
-            StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
-            StoreParticipanteHobbieId.DataBind();
+            this.StoreParticipanteHobbieId.DataSource = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            this.StoreParticipanteHobbieId.DataBind();
         }
 
         //Cadastro do participante no banco
@@ -76,47 +73,47 @@ namespace MimAcher.Apresentacao.App
         {
             MA_PARTICIPANTE_HOBBIE hobbieparticipante = new MA_PARTICIPANTE_HOBBIE();
                         
-            hobbieparticipante.cod_participante = Int32.Parse(cod_participanteId.SelectedItem.Value);
-            hobbieparticipante.cod_item = Int32.Parse(cod_itemId.SelectedItem.Value);
-            hobbieparticipante.cod_s_relacao = Int32.Parse(cod_s_relacaoId.SelectedItem.Value);
+            hobbieparticipante.cod_participante = Int32.Parse(this.cod_participanteId.SelectedItem.Value);
+            hobbieparticipante.cod_item = Int32.Parse(this.cod_itemId.SelectedItem.Value);
+
 
             //Caso o form não possui código, será inserido um novo hobbie de participante
-            if (cod_p_hobbieId.Text == "")
+            if (this.cod_p_hobbieId.Text == "")
             {
-                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(hobbieparticipante);
-                ParticipanteHobbieWindowId.Close();
-                LimpaForm();
+                GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(hobbieparticipante);
+                this.ParticipanteHobbieWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                hobbieparticipante.cod_p_hobbie = Int32.Parse(cod_p_hobbieId.Text);
-                this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipante(hobbieparticipante);
-                ParticipanteHobbieWindowId.Close();
-                LimpaForm();
+                hobbieparticipante.cod_p_hobbie = Int32.Parse(this.cod_p_hobbieId.Text);
+                GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipante(hobbieparticipante);
+                this.ParticipanteHobbieWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            ParticipanteHobbieWindowId.Show();
+            this.ParticipanteHobbieWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE_HOBBIE hobbieparticipante = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(Int32.Parse(cod_p_hobbieId.Text));
-            this.GestorDeHobbieDeParticipante.RemoverHobbieDoParticipante(hobbieparticipante);
-            LimpaForm();
+            MA_PARTICIPANTE_HOBBIE hobbieparticipante = GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(Int32.Parse(this.cod_p_hobbieId.Text));
+            GestorDeHobbieDeParticipante.RemoverHobbieDoParticipante(hobbieparticipante);
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MimAcher.GeradorDados.Geradores
 {
@@ -10,7 +12,7 @@ namespace MimAcher.GeradorDados.Geradores
         public readonly Random _random = new Random();
         
         private static readonly List<string> servidores_email =
-            new List<string> { "gmail.com", "hotmail.com", "bol.com.br", "live.com", "outlook.com", "ifes.edu.br", "yahoo.com.br"};
+            new List<string>() { "gmail.com", "hotmail.com", "bol.com.br", "live.com", "outlook.com", "ifes.edu.br", "yahoo.com.br"};
 
         public string GerarEmail(string nome)
         {

@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
-using MimAcher.Dominio;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MimAcher.Infra;
+using MimAcher.Dominio;
 
 namespace MimAcher.Aplicacao
 {
