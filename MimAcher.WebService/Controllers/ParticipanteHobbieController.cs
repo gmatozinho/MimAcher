@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ParticipanteHobbieController()
         {
-            GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
+            this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
         }
 
         // GET: ParticipanteHobbie
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
             List<ParticipanteHobbie> listaparticipantehobbie = new List<ParticipanteHobbie>();
 
             foreach (MA_PARTICIPANTE_HOBBIE pe in listaparticipantehobbieoriginal)
@@ -69,7 +69,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
 
-                GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
 
             jsonResult = Json(new
@@ -104,7 +104,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
 
-                GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
 
             jsonResult = Json(new
