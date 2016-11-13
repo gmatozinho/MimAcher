@@ -11,7 +11,7 @@ namespace MimAcher.WebService.Controllers
 
         public ImagemParticipanteController()
         {
-            GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
+            this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
         }
 
         // GET: ImagemUsuario
@@ -23,7 +23,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_IMAGEM_PARTICIPANTE> listaimagemparticipante = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+            List<MA_IMAGEM_PARTICIPANTE> listaimagemparticipante = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
 
             JsonResult jsonResult = Json(new
             {
