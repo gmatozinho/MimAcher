@@ -10,37 +10,37 @@ namespace MimAcher.Aplicacao
 
         public GestorDeParticipanteEnsinar()
         {
-            RepositorioDeParticipanteEnsinar = new RepositorioDeParticipanteEnsinar();
+            this.RepositorioDeParticipanteEnsinar = new RepositorioDeParticipanteEnsinar();
         }
 
         public MA_PARTICIPANTE_ENSINAR ObterRelacaoDoQueOParticipanteEnsinaPorId(int id)
         {
-            return RepositorioDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(id);
+            return this.RepositorioDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(id);
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
         {
-            return RepositorioDeParticipanteEnsinar.ObterTodosOsRegistros();
+            return this.RepositorioDeParticipanteEnsinar.ObterTodosOsRegistros();
         }
 
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
+            this.RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeParticipanteEnsinar.BuscarQuantidadeRegistros();
+            return this.RepositorioDeParticipanteEnsinar.BuscarQuantidadeRegistros();
         }
 
         public void RemoverEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            RepositorioDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(participanteensinar);
+            this.RepositorioDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(participanteensinar);
         }
 
         public void AtualizarEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            RepositorioDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(participanteensinar);
+            this.RepositorioDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(participanteensinar);
         }
     }
 }
