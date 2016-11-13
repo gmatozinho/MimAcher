@@ -11,45 +11,45 @@ namespace MimAcher.Infra
 
         public RepositorioDeImagemDeParticipante()
         {
-            Contexto = new MIMACHEREntities();
+            this.Contexto = new MIMACHEREntities();
         }
 
         public MA_IMAGEM_PARTICIPANTE ObterImagemDeParticipantePorId(int id)
         {
-            return Contexto.MA_IMAGEM_PARTICIPANTE.Find(id);
+            return this.Contexto.MA_IMAGEM_PARTICIPANTE.Find(id);
         }
 
         public List<MA_IMAGEM_PARTICIPANTE> ObterTodosOsImagens()
         {
-            return Contexto.MA_IMAGEM_PARTICIPANTE.ToList();
+            return this.Contexto.MA_IMAGEM_PARTICIPANTE.ToList();
         }
         
         public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
         {
-            return Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == id_participante).SingleOrDefault();
+            return this.Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == id_participante).SingleOrDefault();
         }
         
         public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            Contexto.MA_IMAGEM_PARTICIPANTE.Add(Imagem);
-            Contexto.SaveChanges();
+            this.Contexto.MA_IMAGEM_PARTICIPANTE.Add(Imagem);
+            this.Contexto.SaveChanges();
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return Contexto.MA_IMAGEM_PARTICIPANTE.Count();
+            return this.Contexto.MA_IMAGEM_PARTICIPANTE.Count();
         }
 
         public void RemoverImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            Contexto.MA_IMAGEM_PARTICIPANTE.Remove(Imagem);
-            Contexto.SaveChanges();
+            this.Contexto.MA_IMAGEM_PARTICIPANTE.Remove(Imagem);
+            this.Contexto.SaveChanges();
         }
 
         public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
-            Contexto.Entry(Imagem).State = EntityState.Modified;
-            Contexto.SaveChanges();
+            this.Contexto.Entry(Imagem).State = EntityState.Modified;
+            this.Contexto.SaveChanges();
         }
     }
 }
