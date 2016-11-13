@@ -11,52 +11,52 @@ namespace MimAcher.Aplicacao
 
         public GestorDeNAC()
         {
-            RepositorioDeNAC = new RepositorioDeNAC();
+            this.RepositorioDeNAC = new RepositorioDeNAC();
         }
 
         public MA_NAC ObterNACPorId(int id)
         {
-            return RepositorioDeNAC.ObterNACPorId(id);
+            return this.RepositorioDeNAC.ObterNACPorId(id);
         }
 
         public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
         {
-            return RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
+            return this.RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
         }
 
         public List<MA_NAC> ObterTodosOsNAC()
         {
-            return RepositorioDeNAC.ObterTodosOsNAC();
+            return this.RepositorioDeNAC.ObterTodosOsNAC();
         }
 
         public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
         {
-            return RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
+            return this.RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
         }
         
         public void InserirNAC(MA_NAC nac)
         {
-            RepositorioDeNAC.InserirNAC(nac);
+            this.RepositorioDeNAC.InserirNAC(nac);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeNAC.BuscarQuantidadeRegistros();
+            return this.RepositorioDeNAC.BuscarQuantidadeRegistros();
         }
 
         public void RemoverNAC(MA_NAC nac)
         {
-            RepositorioDeNAC.RemoverNAC(nac);
+            this.RepositorioDeNAC.RemoverNAC(nac);
         }
 
         public void AtualizarNAC(MA_NAC nac)
         {
-            RepositorioDeNAC.AtualizarNAC(nac);
+            this.RepositorioDeNAC.AtualizarNAC(nac);
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            return RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
+            return this.RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
         }
 
         public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(int idUsuario)
@@ -71,6 +71,7 @@ namespace MimAcher.Aplicacao
                 }
             }
 
-            return false;        }
+            return false;
+        }
     }
 }
