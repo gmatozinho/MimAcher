@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ItemController()
         {
-            GestorDeItem = new GestorDeItem();
+            this.GestorDeItem = new GestorDeItem();
         }
 
         // GET: Item
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_ITEM> listaitemoriginal = GestorDeItem.ObterTodosOsItems();
+            List<MA_ITEM> listaitemoriginal = this.GestorDeItem.ObterTodosOsItems();
             List<Item> listaitem = new List<Item>();
 
             foreach (MA_ITEM it in listaitemoriginal)
@@ -68,7 +68,7 @@ namespace MimAcher.WebService.Controllers
                 MA_ITEM item = new MA_ITEM();
                 item.nome = it.nome;
 
-                GestorDeItem.InserirItem(item);
+                this.GestorDeItem.InserirItem(item);
 
                 codigocadastrado = item.cod_item;
             }
@@ -105,7 +105,7 @@ namespace MimAcher.WebService.Controllers
                 item.cod_item = it.cod_item;
                 item.nome = it.nome;
 
-                GestorDeItem.InserirItem(item);
+                this.GestorDeItem.InserirItem(item);
 
                 codigocadastrado = item.cod_item;
             }
