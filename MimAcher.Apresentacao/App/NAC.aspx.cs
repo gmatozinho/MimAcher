@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
-using Ext.Net;
+using System.Web.UI.WebControls;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using Ext.Net;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class NAC : Page
+    public partial class NAC : System.Web.UI.Page
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
@@ -26,43 +29,43 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
-                StoreUsuarioId.DataBind();
+                this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+                this.StoreUsuarioId.DataBind();
 
-                StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-                StoreNACId.DataBind();
+                this.StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+                this.StoreNACId.DataBind();
 
-                StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
-                StoreCampusId.DataBind();
+                this.StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+                this.StoreCampusId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            NACWindowId.Show();
+            this.NACWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            this.StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            this.StoreNACId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            this.StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            this.StoreNACId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List()
         {
             this.GestorDeNAC = new GestorDeNAC();
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            this.StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            this.StoreNACId.DataBind();
         }
 
         //Cadastro do nac no banco
@@ -70,48 +73,48 @@ namespace MimAcher.Apresentacao.App
         {
             MA_NAC nac = new MA_NAC();
 
-            nac.nome_representante = nome_representanteId.Text;
-            nac.telefone = Int32.Parse(telefoneId.Text);
-            nac.cod_campus = Int32.Parse(cod_campusId.SelectedItem.Value);
-            nac.cod_usuario = Int32.Parse(cod_usuarioId.SelectedItem.Value);
+            nac.nome_representante = this.nome_representanteId.Text;
+            nac.telefone = Int32.Parse(this.telefoneId.Text);
+            nac.cod_campus = Int32.Parse(this.cod_campusId.SelectedItem.Value);
+            nac.cod_usuario = Int32.Parse(this.cod_usuarioId.SelectedItem.Value);
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (cod_nacId.Text == "")
+            if (this.cod_nacId.Text == "")
             {
                 GestorDeNAC.InserirNAC(nac);
-                NACWindowId.Close();
-                LimpaForm();
+                this.NACWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                nac.cod_nac = Int32.Parse(cod_nacId.Text);
+                nac.cod_nac = Int32.Parse(this.cod_nacId.Text);
                 GestorDeNAC.AtualizarNAC(nac);
-                NACWindowId.Close();
-                LimpaForm();
+                this.NACWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            NACWindowId.Show();
+            this.NACWindowId.Show();
         }
 
         //Exclui determinado nac do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC nac = this.GestorDeNAC.ObterNACPorId(Int32.Parse(cod_nacId.Text));
-            this.GestorDeNAC.RemoverNAC(nac);
-            LimpaForm();
+            MA_NAC nac = GestorDeNAC.ObterNACPorId(Int32.Parse(this.cod_nacId.Text));
+            GestorDeNAC.RemoverNAC(nac);
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }

@@ -12,7 +12,6 @@ insert into ma_item values('Cálculo')
 insert into ma_item values('Programção')
 insert into ma_item values('Montagem e Manutenção')
 
---Tabela Campus
 insert into ma_campus values('Serra')
 insert into ma_campus values('Vitória')
 insert into ma_campus values('Cariacica')
@@ -20,7 +19,3 @@ insert into ma_campus values('Aracruz')
 insert into ma_campus values('Guarapari')
 insert into ma_campus values('Colatina')
 insert into ma_campus values('São Mateus')
-
---Tabela Status de Relação
-insert into ma_status_relacao values('Ativo')
-insert into ma_status_relacao values('Inativo')

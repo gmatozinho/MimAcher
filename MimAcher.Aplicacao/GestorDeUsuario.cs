@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using MimAcher.Dominio;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MimAcher.Infra;
+using MimAcher.Dominio;
 
 namespace MimAcher.Aplicacao
 {
@@ -39,17 +42,15 @@ namespace MimAcher.Aplicacao
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
         
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);
-        }
-
-        public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
-        {
-            return this.RepositorioDeUsuario.InserirUsuarioComRetorno(usuario);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -65,11 +66,6 @@ namespace MimAcher.Aplicacao
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.AtualizarUsuario(usuario);
-        }
-
-        public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
-        {
-            return this.RepositorioDeUsuario.AtualizarUsuarioComRetorno(usuario);
         }
     }
 }

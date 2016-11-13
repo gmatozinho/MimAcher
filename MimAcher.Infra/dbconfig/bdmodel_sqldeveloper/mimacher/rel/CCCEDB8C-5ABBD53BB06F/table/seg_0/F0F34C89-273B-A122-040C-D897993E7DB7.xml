@@ -47,21 +47,6 @@
 <colAssociation fkAssociation="5C0EEF04-11EC-1E37-F1DB-1986B038D845" referredColumn="A2B24694-565F-9D84-EB45-4D1BBF6561B0"/>
 </associations>
 </Column>
-<Column name="cod_s_relacao" id="6ACBAF8C-2EB2-ACCF-398C-5D00BA05A39A">
-<createdBy>pchan</createdBy>
-<createdTime>2016-11-11 10:27:48 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>76600824-54E8-5723-31F9-CE4330A6298D</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="92BBDC12-D7BC-1B94-1EC8-BFC3B74873A8" referredColumn="76600824-54E8-5723-31F9-CE4330A6298D"/>
-</associations>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="368CD62B-5675-4879-BEFB-9F9D56FFFC81" name="PK_MA_PARTICIPANTE_APRENDER_cod_p_aprender">
@@ -96,17 +81,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="EAFB1F69-75CE-B8EB-B51C-B5BDCD406227"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="99F80823-7367-99D4-3012-3E3390B4A8F0" name="FKI_PARTICIPANTE_APRENDER_MA_STATUS_RELACAO_cod_s_relacao">
-<createdBy>pchan</createdBy>
-<createdTime>2016-11-11 10:27:48 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="6ACBAF8C-2EB2-ACCF-398C-5D00BA05A39A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

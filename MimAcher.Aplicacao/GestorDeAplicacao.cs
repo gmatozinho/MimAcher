@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MimAcher.Aplicacao
 {
@@ -6,11 +10,15 @@ namespace MimAcher.Aplicacao
     {
         public Boolean TratarCampoString(String campo)
         {
+
             if (campo != null)
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }
         }
 
         public String RetornaDadoSemVigurla(String data)
@@ -21,9 +29,13 @@ namespace MimAcher.Aplicacao
             {
                 return data;
             }
-            data = retornoSplit[0] + "." + retornoSplit[1];
+            else
+            {
+                data = retornoSplit[0] + "." + retornoSplit[1];
 
-            return data;
+                return data;
+            }
+
         }
     }
 }

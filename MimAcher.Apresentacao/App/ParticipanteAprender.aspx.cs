@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
-using Ext.Net;
-using MimAcher.Aplicacao;
+using System.Web.UI.WebControls;
 using MimAcher.Dominio;
+using MimAcher.Aplicacao;
+using Ext.Net;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class ParticipanteAprender : Page
+    public partial class ParticipanteAprender : System.Web.UI.Page
     {
         //Declaração dos Gestores        
         public GestorDeParticipanteAprender GestorDeParticipanteAprender { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeItem GestorDeItem { get; set; }
-        public GestorDeStatusDeRelacao GestorDeStatusDeRelacao { get; set; }
 
         public ParticipanteAprender()
         {
@@ -21,53 +23,49 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
-            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
-                StoreParticipanteAprenderId.DataBind();
+                this.StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
+                this.StoreParticipanteAprenderId.DataBind();
 
-                StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
-                StoreParticipanteId.DataBind();
+                this.StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                this.StoreParticipanteId.DataBind();
 
-                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-                StoreItemId.DataBind();
-
-                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao();
-                StoreStatusRelacaoId.DataBind();
+                this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                this.StoreItemId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de aprender de participante
         protected void Add(object sender, DirectEventArgs e)
         {
-            ParticipanteAprenderWindowId.Show();
+            this.ParticipanteAprenderWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
-            StoreParticipanteAprenderId.DataBind();
+            this.StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
+            this.StoreParticipanteAprenderId.DataBind();
         }
 
         //Lista os aprenders de participantes do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
-            StoreParticipanteAprenderId.DataBind();
+            this.StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
+            this.StoreParticipanteAprenderId.DataBind();
         }
 
         //Lista os aprenders de participantes do banco de dados na grid
         protected void List()
         {
-            GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
-            StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
-            StoreParticipanteAprenderId.DataBind();
+            this.GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
+            this.StoreParticipanteAprenderId.DataSource = this.GestorDeParticipanteAprender.ObterTodosOsRegistros();
+            this.StoreParticipanteAprenderId.DataBind();
         }
 
         //Cadastro do participante no banco
@@ -75,48 +73,47 @@ namespace MimAcher.Apresentacao.App
         {
             MA_PARTICIPANTE_APRENDER aprenderparticipante = new MA_PARTICIPANTE_APRENDER();
 
-            aprenderparticipante.cod_participante = Int32.Parse(cod_participanteId.SelectedItem.Value);
-            aprenderparticipante.cod_item = Int32.Parse(cod_itemId.SelectedItem.Value);
-            aprenderparticipante.cod_s_relacao = Int32.Parse(cod_s_relacaoId.SelectedItem.Value);
+            aprenderparticipante.cod_participante = Int32.Parse(this.cod_participanteId.SelectedItem.Value);
+            aprenderparticipante.cod_item = Int32.Parse(this.cod_itemId.SelectedItem.Value);
 
 
             //Caso o form não possui código, será inserido um novo aprender de participante
-            if (cod_p_aprenderId.Text == "")
+            if (this.cod_p_aprenderId.Text == "")
             {
-                this.GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(aprenderparticipante);
-                ParticipanteAprenderWindowId.Close();
-                LimpaForm();
+                GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(aprenderparticipante);
+                this.ParticipanteAprenderWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                aprenderparticipante.cod_p_aprender = Int32.Parse(cod_p_aprenderId.Text);
-                this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipante(aprenderparticipante);
-                ParticipanteAprenderWindowId.Close();
-                LimpaForm();
+                aprenderparticipante.cod_p_aprender = Int32.Parse(this.cod_p_aprenderId.Text);
+                GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipante(aprenderparticipante);
+                this.ParticipanteAprenderWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            ParticipanteAprenderWindowId.Show();
+            this.ParticipanteAprenderWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE_APRENDER aprenderparticipante = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(Int32.Parse(cod_p_aprenderId.Text));
-            this.GestorDeParticipanteAprender.RemoverAprendizadoDeParticipante(aprenderparticipante);
-            LimpaForm();
+            MA_PARTICIPANTE_APRENDER aprenderparticipante = GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(Int32.Parse(this.cod_p_aprenderId.Text));
+            GestorDeParticipanteAprender.RemoverAprendizadoDeParticipante(aprenderparticipante);
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }

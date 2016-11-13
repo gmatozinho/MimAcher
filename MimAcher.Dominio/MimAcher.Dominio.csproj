@@ -81,9 +81,6 @@
     <Compile Include="MA_PARTICIPANTE_HOBBIE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_STATUS_RELACAO.cs">
-      <DependentUpon>MimAcher.tt</DependentUpon>
-    </Compile>
     <Compile Include="MA_USUARIO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>

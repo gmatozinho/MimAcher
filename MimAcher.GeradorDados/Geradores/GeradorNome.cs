@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MimAcher.GeradorDados.Geradores
 {
@@ -20,8 +22,8 @@ namespace MimAcher.GeradorDados.Geradores
             string linha; //Indica uma linha lida de um arquivo
 
             //Lendo arquivo de nomes
-            StreamReader file =
-               new StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nome");
+            System.IO.StreamReader file =
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nome");
             while ((linha = file.ReadLine()) != null)
             {
                 nomes.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));
@@ -31,7 +33,7 @@ namespace MimAcher.GeradorDados.Geradores
 
             //Lendo arquivo de nomes do meio
             file =
-               new StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nomeMeio");
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\nomeMeio");
             while ((linha = file.ReadLine()) != null)
             {
                 nomes_meio.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));
@@ -41,7 +43,7 @@ namespace MimAcher.GeradorDados.Geradores
 
             //Lendo arquivo de sobrenomes
             file =
-               new StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\sobrenome");
+               new System.IO.StreamReader("..\\..\\..\\MimAcher.GeradorDados\\Geradores\\Dados\\sobrenome");
             while ((linha = file.ReadLine()) != null)
             {
                 sobrenomes.Add(linha.Trim().ToLower(CultureInfo.InvariantCulture));

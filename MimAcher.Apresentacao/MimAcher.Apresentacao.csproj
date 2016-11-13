@@ -172,7 +172,6 @@
     <Content Include="App\ParticipanteAprender.aspx" />
     <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
-    <Content Include="App\StatusRelacao.aspx" />
     <Content Include="App\Usuario.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -189,7 +188,9 @@
     <Content Include="Styles\customizado.css" />
     <Content Include="Styles\estilo.css" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -279,13 +280,6 @@
     <Compile Include="App\ParticipanteHobbie.aspx.designer.cs">
       <DependentUpon>ParticipanteHobbie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\StatusRelacao.aspx.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App\StatusRelacao.aspx.designer.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App\Usuario.aspx.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,7 +334,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>52801</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

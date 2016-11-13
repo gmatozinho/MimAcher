@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Ext.Net;
-using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using MimAcher.Aplicacao;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class AreaAtuacao : Page
+    public partial class AreaAtuacao : System.Web.UI.Page
     {
         //Declaração dos Gestores        
         public GestorDeAreaDeAtuacao GestorDeAreaDeAtuacao { get; set; }
@@ -22,37 +25,37 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
-                StoreAreaAtuacaoId.DataBind();
+                this.StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
+                this.StoreAreaAtuacaoId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            AreaAtuacaoWindowId.Show();
+            this.AreaAtuacaoWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
-            StoreAreaAtuacaoId.DataBind();
+            this.StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
+            this.StoreAreaAtuacaoId.DataBind();
         }
 
         //Lista os area_atuacaos do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
-            StoreAreaAtuacaoId.DataBind();
+            this.StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
+            this.StoreAreaAtuacaoId.DataBind();
         }
 
         //Lista os area_atuacaos do banco de dados na grid
         protected void List()
         {
             this.GestorDeAreaDeAtuacao = new GestorDeAreaDeAtuacao();
-            StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
-            StoreAreaAtuacaoId.DataBind();
+            this.StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
+            this.StoreAreaAtuacaoId.DataBind();
         }
 
         //Cadastro do area_atuacao no banco
@@ -60,45 +63,45 @@ namespace MimAcher.Apresentacao.App
         {
             MA_AREA_ATUACAO area_atuacao = new MA_AREA_ATUACAO();
 
-            area_atuacao.nome = nomeId.Text;
+            area_atuacao.nome = this.nomeId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (cod_area_atuacaoId.Text == "")
+            if (this.cod_area_atuacaoId.Text == "")
             {
-                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(area_atuacao);
-                AreaAtuacaoWindowId.Close();
-                LimpaForm();
+                GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(area_atuacao);
+                this.AreaAtuacaoWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                area_atuacao.cod_area_atuacao = Int32.Parse(cod_area_atuacaoId.Text);
-                this.GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(area_atuacao);
-                AreaAtuacaoWindowId.Close();
-                LimpaForm();
+                area_atuacao.cod_area_atuacao = Int32.Parse(this.cod_area_atuacaoId.Text);
+                GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(area_atuacao);
+                this.AreaAtuacaoWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            AreaAtuacaoWindowId.Show();
+            this.AreaAtuacaoWindowId.Show();
         }
 
         //Exclui determinado area_atuacao do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {   
-            MA_AREA_ATUACAO area_atuacao = this.GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(cod_area_atuacaoId.Text));
-            this.GestorDeAreaDeAtuacao.RemoverAreaDeAtuacao(area_atuacao);
-            LimpaForm();
+            MA_AREA_ATUACAO area_atuacao = GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(this.cod_area_atuacaoId.Text));
+            GestorDeAreaDeAtuacao.RemoverAreaDeAtuacao(area_atuacao);
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }

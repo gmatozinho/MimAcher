@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Ext.Net;
-using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using MimAcher.Aplicacao;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class Campus : Page
+    public partial class Campus : System.Web.UI.Page
     {
         //Declaração dos Gestores        
         public GestorDeCampus GestorDeCampus { get; set; }
@@ -22,37 +25,37 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
-                StoreCampusId.DataBind();
+                this.StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+                this.StoreCampusId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            CampusWindowId.Show();
+            this.CampusWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
-            StoreCampusId.DataBind();
+            this.StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            this.StoreCampusId.DataBind();
         }
 
         //Lista os campuss do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
-            StoreCampusId.DataBind();
+            this.StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            this.StoreCampusId.DataBind();
         }
 
         //Lista os campuss do banco de dados na grid
         protected void List()
         {
             this.GestorDeCampus = new GestorDeCampus();
-            StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
-            StoreCampusId.DataBind();
+            this.StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+            this.StoreCampusId.DataBind();
         }
 
         //Cadastro do campus no banco
@@ -60,45 +63,45 @@ namespace MimAcher.Apresentacao.App
         {
             MA_CAMPUS campus = new MA_CAMPUS();
 
-            campus.local = localId.Text;
+            campus.local = this.localId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (cod_campusId.Text == "")
+            if (this.cod_campusId.Text == "")
             {
-                this.GestorDeCampus.InserirCampus(campus);
-                CampusWindowId.Close();
-                LimpaForm();
+                GestorDeCampus.InserirCampus(campus);
+                this.CampusWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                campus.cod_campus = Int32.Parse(cod_campusId.Text);
-                this.GestorDeCampus.AtualizarCampus(campus);
-                CampusWindowId.Close();
-                LimpaForm();
+                campus.cod_campus = Int32.Parse(this.cod_campusId.Text);
+                GestorDeCampus.AtualizarCampus(campus);
+                this.CampusWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            CampusWindowId.Show();
+            this.CampusWindowId.Show();
         }
 
         //Exclui determinado campus do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {            
-            MA_CAMPUS campus = this.GestorDeCampus.ObterCampusPorId(Int32.Parse(cod_campusId.Text));
-            this.GestorDeCampus.RemoverCampus(campus);
-            LimpaForm();
+            MA_CAMPUS campus = GestorDeCampus.ObterCampusPorId(Int32.Parse(this.cod_campusId.Text));
+            GestorDeCampus.RemoverCampus(campus);
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }

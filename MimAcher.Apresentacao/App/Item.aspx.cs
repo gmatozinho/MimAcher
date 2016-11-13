@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Ext.Net;
-using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using MimAcher.Aplicacao;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class Item : Page
+    public partial class Item : System.Web.UI.Page
     {
         //Declaração dos Gestores        
         public GestorDeItem GestorDeItem { get; set; }
@@ -22,37 +25,37 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-                StoreItemId.DataBind();
+                this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                this.StoreItemId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            ItemWindowId.Show();
+            this.ItemWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            StoreItemId.DataBind();
+            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            this.StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            StoreItemId.DataBind();
+            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            this.StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List()
         {
             this.GestorDeItem = new GestorDeItem();
-            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            StoreItemId.DataBind();
+            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            this.StoreItemId.DataBind();
         }
 
         //Cadastro do item no banco
@@ -60,45 +63,45 @@ namespace MimAcher.Apresentacao.App
         {
             MA_ITEM item = new MA_ITEM();
 
-            item.nome = nomeId.Text;
+            item.nome = this.nomeId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (cod_itemId.Text == "")
+            if (this.cod_itemId.Text == "")
             {
-                this.GestorDeItem.InserirItem(item);
-                ItemWindowId.Close();
-                LimpaForm();
+                GestorDeItem.InserirItem(item);
+                this.ItemWindowId.Close();
+                this.LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                item.cod_item = Int32.Parse(cod_itemId.Text);
-                this.GestorDeItem.AtualizarItem(item);
-                ItemWindowId.Close();
-                LimpaForm();
+                item.cod_item = Int32.Parse(this.cod_itemId.Text);
+                GestorDeItem.AtualizarItem(item);
+                this.ItemWindowId.Close();
+                this.LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            ItemWindowId.Show();
+            this.ItemWindowId.Show();
         }
 
         //Exclui determinado item do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_ITEM item = this.GestorDeItem.ObterItemPorId(Int32.Parse(cod_itemId.Text));
+            MA_ITEM item = GestorDeItem.ObterItemPorId(Int32.Parse(this.cod_itemId.Text));
             GestorDeItem.RemoverItem(item);
-            LimpaForm();
+            this.LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            EditButtonId.Disable(true);
-            DeleteButtonId.Disable(true);
-            List();
+            this.EditButtonId.Disable(true);
+            this.DeleteButtonId.Disable(true);
+            this.List();
         }
     }
 }
