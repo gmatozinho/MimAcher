@@ -12,7 +12,7 @@ namespace MimAcher.Dominio
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_PARTICIPANTE_APRENDERMA_PARTICIPANTE_HOBBIE
+    public partial class MA_PARTICIPANTE_HOBBIE
     {
         public int cod_p_hobbie { get; set; }
         public int cod_item { get; set; }

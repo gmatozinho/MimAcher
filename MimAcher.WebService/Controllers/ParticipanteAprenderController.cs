@@ -34,6 +34,7 @@ namespace MimAcher.WebService.Controllers
                 participanteaprender.cod_p_aprender = pe.cod_p_aprender;
                 participanteaprender.cod_participante = pe.cod_participante;
                 participanteaprender.cod_item = pe.cod_item;
+                participanteaprender.cod_s_relacao = pe.cod_s_relacao;
 
                 listaparticipanteaprender.Add(participanteaprender);
             }
@@ -68,6 +69,7 @@ namespace MimAcher.WebService.Controllers
                 MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
                 participanteaprender.cod_participante = pe.cod_participante;
                 participanteaprender.cod_item = pe.cod_item;
+                participanteaprender.cod_s_relacao = pe.cod_s_relacao;
 
                 GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
             }
@@ -103,6 +105,7 @@ namespace MimAcher.WebService.Controllers
                 participanteaprender.cod_p_aprender = pe.cod_p_aprender;
                 participanteaprender.cod_participante = pe.cod_participante;
                 participanteaprender.cod_item = pe.cod_item;
+                participanteaprender.cod_s_relacao = pe.cod_s_relacao;
 
                 GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
             }
@@ -143,6 +146,7 @@ namespace MimAcher.WebService.Controllers
                         participanteaprender.cod_p_aprender = pa.cod_p_aprender;
                         participanteaprender.cod_participante = pa.cod_participante;
                         participanteaprender.cod_item = pa.cod_item;
+                        participanteaprender.cod_s_relacao = pe.cod_s_relacao;
 
                         this.GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
 
