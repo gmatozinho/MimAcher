@@ -10,37 +10,37 @@ namespace MimAcher.Aplicacao
 
         public GestorDeCampus()
         {
-            RepositorioDeCampus = new RepositorioDeCampus();
+            this.RepositorioDeCampus = new RepositorioDeCampus();
         }
 
         public MA_CAMPUS ObterCampusPorId(int id)
         {
-            return RepositorioDeCampus.ObterCampusPorId(id);
+            return this.RepositorioDeCampus.ObterCampusPorId(id);
         }
 
         public List<MA_CAMPUS> ObterTodosOsCampus()
         {
-            return RepositorioDeCampus.ObterTodosOsCampus();
+            return this.RepositorioDeCampus.ObterTodosOsCampus();
         }
         
         public void InserirCampus(MA_CAMPUS naccampus)
         {
-            RepositorioDeCampus.InserirCampus(naccampus);
+            this.RepositorioDeCampus.InserirCampus(naccampus);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeCampus.BuscarQuantidadeRegistros();
+            return this.RepositorioDeCampus.BuscarQuantidadeRegistros();
         }
 
         public void RemoverCampus(MA_CAMPUS naccampus)
         {
-            RepositorioDeCampus.RemoverCampus(naccampus);
+            this.RepositorioDeCampus.RemoverCampus(naccampus);
         }
 
         public void AtualizarCampus(MA_CAMPUS naccampus)
         {
-            RepositorioDeCampus.AtualizarCampus(naccampus);
+            this.RepositorioDeCampus.AtualizarCampus(naccampus);
         }
     }
 }
