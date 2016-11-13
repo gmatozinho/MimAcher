@@ -146,7 +146,7 @@ namespace MimAcher.WebService.Controllers
                         participanteaprender.cod_p_aprender = pa.cod_p_aprender;
                         participanteaprender.cod_participante = pa.cod_participante;
                         participanteaprender.cod_item = pa.cod_item;
-                        participanteaprender.cod_s_relacao = pe.cod_s_relacao;
+                        participanteaprender.cod_s_relacao = pa.cod_s_relacao;
 
                         this.GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
 
