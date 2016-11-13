@@ -31,16 +31,16 @@ namespace MimAcher.Postgres.Conexao
 
                 FabricaParametros.CriarParametrosParticipante(comandoSQL, participante, campi);
 
-                comandoSQL.Prepare();
-                SqlDataReader leitor = comandoSQL.ExecuteReader();
-                int codigo_participante = -1;
-                while (leitor.Read())
-                {
-                    codigo_participante = Int32.Parse(leitor[0].ToString());
-                }
+                //Este parâmetro é exlusivo do SQL server
+                var parametro = comandoSQL.CreateParameter();
+                parametro.DbType = DbType.Int32;
+                parametro.ParameterName = "codigo_participante";
+                parametro.Direction = ParameterDirection.Output;
+                comandoSQL.Parameters.Add(parametro);
 
-                leitor.Close();
-                leitor.Dispose();
+                comandoSQL.Prepare();
+                comandoSQL.ExecuteNonQuery();
+                int codigo_participante = (int) comandoSQL.Parameters["codigo_participante"].Value;
 
                 InserirConteudo(participante, codigo_participante);
             }
