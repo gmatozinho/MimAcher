@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -33,7 +30,7 @@ namespace MimAcher.Aplicacao
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
-        {            
+        {
             return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
         }
 
@@ -75,8 +72,8 @@ namespace MimAcher.Aplicacao
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(int idUsuario)
         {
             List<MA_PARTICIPANTE> listaparticipante = ObterTodosOsParticipantes();
-            
-            foreach(MA_PARTICIPANTE participante in listaparticipante)
+
+            foreach (MA_PARTICIPANTE participante in listaparticipante)
             {
                 if (participante.cod_usuario == idUsuario)
                 {

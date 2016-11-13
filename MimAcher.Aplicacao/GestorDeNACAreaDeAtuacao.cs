@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -39,7 +36,7 @@ namespace MimAcher.Aplicacao
 
         public void InserirNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            this.RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(NACAreaDeAtuacao);            
+            this.RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(NACAreaDeAtuacao);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -57,5 +54,5 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(NACAreaDeAtuacao);
         }
 
-    } 
+    }
 }

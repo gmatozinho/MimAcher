@@ -34,7 +34,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
-                
+
         public void InserirItem(MA_ITEM Item)
         {
             if (VerificarSeNomeDeItemJaExiste(Item))
@@ -42,7 +42,7 @@ namespace MimAcher.Infra
                 this.Contexto.MA_ITEM.Add(Item);
                 this.Contexto.SaveChanges();
             }
-            
+
         }
 
         public int BuscarQuantidadeRegistros()

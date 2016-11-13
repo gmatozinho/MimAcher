@@ -29,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_USUARIO.ToList();
         }
-        
+
         public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
             return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email)).SingleOrDefault();
@@ -37,7 +37,7 @@ namespace MimAcher.Infra
 
         public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.ToLower().Equals(email) && l.senha.ToLower().Equals(senha)).SingleOrDefault();            
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.ToLower().Equals(email) && l.senha.ToLower().Equals(senha)).SingleOrDefault();
         }
 
         public void InserirUsuario(MA_USUARIO usuario)
@@ -77,11 +77,11 @@ namespace MimAcher.Infra
 
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            if(!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
             {
                 this.Contexto.Entry(usuario).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
-            } 
+            }
         }
 
         public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)

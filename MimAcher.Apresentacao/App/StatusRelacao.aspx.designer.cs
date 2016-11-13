@@ -10,133 +10,61 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class ParticipanteEnsinar {
+    public partial class StatusRelacao {
         
         /// <summary>
-        /// ParticipanteEnsinarWindowId control.
+        /// StatusRelacaoWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window ParticipanteEnsinarWindowId;
+        protected global::Ext.Net.Window StatusRelacaoWindowId;
         
         /// <summary>
-        /// ParticipanteEnsinarFormPanelId control.
+        /// StatusRelacaoFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel ParticipanteEnsinarFormPanelId;
+        protected global::Ext.Net.FormPanel StatusRelacaoFormPanelId;
         
         /// <summary>
-        /// ParticipanteEnsinarFieldSetId control.
+        /// StatusRelacaoFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet ParticipanteEnsinarFieldSetId;
+        protected global::Ext.Net.FieldSet StatusRelacaoFieldSetId;
         
         /// <summary>
-        /// cod_p_ensinarId control.
+        /// cod_status_relacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_p_ensinarId;
+        protected global::Ext.Net.TextField cod_status_relacaoId;
         
         /// <summary>
-        /// cod_participanteId control.
+        /// nomeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cod_participanteId;
+        protected global::Ext.Net.TextField nomeId;
         
         /// <summary>
-        /// StoreParticipanteId control.
+        /// StatusRelacaoBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreParticipanteId;
-        
-        /// <summary>
-        /// ModelParticipanteId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Model ModelParticipanteId;
-        
-        /// <summary>
-        /// cod_itemId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cod_itemId;
-        
-        /// <summary>
-        /// StoreItemId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store StoreItemId;
-        
-        /// <summary>
-        /// ModelItemId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Model ModelItemId;
-        
-        /// <summary>
-        /// cod_s_relacaoId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.ComboBox cod_s_relacaoId;
-        
-        /// <summary>
-        /// StoreStatusRelacaoId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Store StoreStatusRelacaoId;
-        
-        /// <summary>
-        /// ModelStatusRelacaoId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Model ModelStatusRelacaoId;
-        
-        /// <summary>
-        /// ParticipanteEnsinarBarId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.StatusBar ParticipanteEnsinarBarId;
+        protected global::Ext.Net.StatusBar StatusRelacaoBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -157,76 +85,49 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StoreParticipanteEnsinarId control.
+        /// StatusRelacaoGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreParticipanteEnsinarId;
+        protected global::Ext.Net.GridPanel StatusRelacaoGridPanelId;
         
         /// <summary>
-        /// ModelParticipanteEnsinarId control.
+        /// StoreStatusRelacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelParticipanteEnsinarId;
+        protected global::Ext.Net.Store StoreStatusRelacaoId;
         
         /// <summary>
-        /// ParticipanteEnsinarGridPanelId control.
+        /// ModelStatusRelacaoId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel ParticipanteEnsinarGridPanelId;
+        protected global::Ext.Net.Model ModelStatusRelacaoId;
         
         /// <summary>
-        /// codParticipanteEnsinarColumnId control.
+        /// nomeColumnId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column codParticipanteEnsinarColumnId;
+        protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
-        /// nomeParticipanteColumnId control.
+        /// StatusRelacaoRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Column nomeParticipanteColumnId;
-        
-        /// <summary>
-        /// nomeItemColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column nomeItemColumnId;
-        
-        /// <summary>
-        /// nomeStatusRelacaoColumnId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.Column nomeStatusRelacaoColumnId;
-        
-        /// <summary>
-        /// ParticipanteEnsinarRowSelectionModelId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Ext.Net.RowSelectionModel ParticipanteEnsinarRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel StatusRelacaoRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.

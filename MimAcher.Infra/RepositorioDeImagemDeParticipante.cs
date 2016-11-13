@@ -23,12 +23,12 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.ToList();
         }
-        
+
         public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
         {
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == id_participante).SingleOrDefault();
         }
-        
+
         public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
             this.Contexto.MA_IMAGEM_PARTICIPANTE.Add(Imagem);

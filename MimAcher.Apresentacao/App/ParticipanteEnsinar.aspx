@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-	<ext:Window ID="ParticipanteEnsinarWindowId" Width="600" Height="220" Modal="true" runat="server" Hidden="true">
+	<ext:Window ID="ParticipanteEnsinarWindowId" Width="600" Height="247" Modal="true" runat="server" Hidden="true">
 		<Items>
 
 		<%-- Form --%>
@@ -56,7 +56,23 @@
 									</Model>
 								</ext:Store>
 							</Store>
-						</ext:ComboBox>   
+						</ext:ComboBox>  
+						
+						<%-- Combobox do Status da Relação --%>
+						<ext:ComboBox ID="cod_s_relacaoId" Width="300" Name="cod_s_relacao" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_s_relacao_combo" DisplayField="nome_combo">
+							<Store>
+								<ext:Store ID="StoreStatusRelacaoId" runat="server">
+									<Model>
+										<ext:Model ID="ModelStatusRelacaoId" runat="server">
+											<Fields>
+												<ext:ModelField Name="cod_s_relacao_combo" Mapping="cod_s_relacao" />
+												<ext:ModelField Name="nome_combo" Mapping="nome" />
+											</Fields>
+										</ext:Model>
+									</Model>
+								</ext:Store>
+							</Store>
+						</ext:ComboBox>                          
 						
 					</Items>
 				</ext:FieldSet>
@@ -92,7 +108,9 @@
 						<ext:ModelField Name="cod_participante"  Type="Int" />
 						<ext:ModelField Name="nome_participante" Mapping="nome_participante" ServerMapping="MA_PARTICIPANTE.nome" />                                                                                
 						<ext:ModelField Name="cod_item" Type="Int" />
-						<ext:ModelField Name="nome_item" Mapping="nome_item" ServerMapping="MA_ITEM.nome" />                                                                                
+						<ext:ModelField Name="nome_item" Mapping="nome_item" ServerMapping="MA_ITEM.nome" />  
+						<ext:ModelField Name="cod_s_relacao" Type="Int" />
+						<ext:ModelField Name="nome_statusrelacao" Mapping="nome_statusrelacao" ServerMapping="MA_STATUS_RELACAO.nome" />                                                                                                                                                              
 					</Fields>
 				</ext:Model>
 			</Model>
@@ -113,6 +131,7 @@
 				<ext:Column ID="codParticipanteEnsinarColumnId" runat="server" Text="Código" DataIndex="cod_p_ensinar" Visible="false" />
 				<ext:Column ID="nomeParticipanteColumnId" runat="server" Text="Participante" Flex="2" DataIndex="nome_participante" />                                  
 				<ext:Column ID="nomeItemColumnId" runat="server" Text="Item" Flex="2" DataIndex="nome_item" />                                  								
+				<ext:Column ID="nomeStatusRelacaoColumnId" runat="server" Text="Item" Flex="2" DataIndex="nome_statusrelacao" />                                  								
 			</Columns>            
 		</ColumnModel>    
 		   

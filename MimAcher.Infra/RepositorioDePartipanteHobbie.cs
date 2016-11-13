@@ -29,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.ToList();
         }
-                
+
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
