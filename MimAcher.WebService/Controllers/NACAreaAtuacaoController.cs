@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
@@ -27,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC_AREA_ATUACAO> listanacareaatuacaooriginal = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            List<MA_NAC_AREA_ATUACAO> listanacareaatuacaooriginal = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
             List<NACAreaAtuacao> listanacareaatuacao = new List<NACAreaAtuacao>();
 
             foreach (MA_NAC_AREA_ATUACAO na in listanacareaatuacaooriginal)
@@ -66,26 +63,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (NACAreaAtuacao na in listanacareaatuacao)
             {
-                foreach (NACAreaAtuacao na in listanacareaatuacao)
-                {
-                    MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
+                MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
 
-                    nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
-                    nacareaatuacao.cod_nac = na.cod_nac;
+                nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
+                nacareaatuacao.cod_nac = na.cod_nac;
 
-                    GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                this.GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         [HttpPost]
@@ -104,26 +98,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (NACAreaAtuacao na in listanacareaatuacao)
             {
-                foreach (NACAreaAtuacao na in listanacareaatuacao)
-                {
-                    MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
-                    nacareaatuacao.cod_nac_area_atuacao = na.cod_nac_area_atuacao;
-                    nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
-                    nacareaatuacao.cod_nac = na.cod_nac;
+                MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
+                nacareaatuacao.cod_nac_area_atuacao = na.cod_nac_area_atuacao;
+                nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
+                nacareaatuacao.cod_nac = na.cod_nac;
 
-                    GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                this.GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

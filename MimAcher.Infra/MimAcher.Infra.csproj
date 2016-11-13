@@ -63,9 +63,9 @@
     <Compile Include="RepositorioDeItem.cs" />
     <Compile Include="RepositorioDeNAC.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
+    <Compile Include="RepositorioDeStatusDeRelacao.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="dbconfig\diagrama_bd.pdf" />
     <None Include="dbconfig\diagrama_bd_sql_developer.pdf" />
   </ItemGroup>
   <ItemGroup>
@@ -75,7 +75,7 @@
     <Content Include="dbconfig\01_mimacher_createdb.sql" />
     <Content Include="dbconfig\02_minacher_configdb.sql" />
     <Content Include="dbconfig\03_mimacher_restartdb.sql" />
-    <Content Include="dbconfig\diagrama_bd.png" />
+    <Content Include="dbconfig\diagrama_bd_sql_developer.png" />
     <Content Include="dbconfig\EntityDesignerDiagram.png" />
     <Content Include="dbconfig\inf.txt" />
   </ItemGroup>

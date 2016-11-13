@@ -105,16 +105,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoparticipante = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.ParticipanteWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-            participante = GestorDeParticipante.ObterParticipantePorId(Int32.Parse(this.cod_participanteId.Text));
+            MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(Int32.Parse(this.cod_participanteId.Text));
             GestorDeParticipante.RemoverParticipante(participante);
             this.LimpaForm();
         }

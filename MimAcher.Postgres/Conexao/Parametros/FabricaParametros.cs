@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Npgsql;
 using MimAcher.Mobile.Entidades;
+using Npgsql;
 
 namespace MimAcher.Postgres.Conexao.Parametros
 {

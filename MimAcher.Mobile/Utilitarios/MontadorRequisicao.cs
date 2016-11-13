@@ -1,14 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using System.Net;
 
 namespace MimAcher.Mobile.Utilitarios
@@ -40,6 +29,42 @@ namespace MimAcher.Mobile.Utilitarios
             var requisicao = (HttpWebRequest)WebRequest.Create(url + "campus/list");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetItem()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participantehobbie/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteaprender/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoPostEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteensinar/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
 
             return requisicao;
         }

@@ -12,7 +12,7 @@ namespace MimAcher.Apresentacao.App
 {
     public partial class Campus : System.Web.UI.Page
     {
-        //Declaração dos Gestores        }
+        //Declaração dos Gestores        
         public GestorDeCampus GestorDeCampus { get; set; }
 
         public Campus()
@@ -85,16 +85,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigocampus = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.CampusWindowId.Show();
         }
 
         //Exclui determinado campus do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
-        {
-            MA_CAMPUS campus = new MA_CAMPUS();
-            campus = GestorDeCampus.ObterCampusPorId(Int32.Parse(this.cod_campusId.Text));
+        {            
+            MA_CAMPUS campus = GestorDeCampus.ObterCampusPorId(Int32.Parse(this.cod_campusId.Text));
             GestorDeCampus.RemoverCampus(campus);
             this.LimpaForm();
         }

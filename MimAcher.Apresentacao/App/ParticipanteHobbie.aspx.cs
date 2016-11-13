@@ -97,16 +97,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigohobbieparticipante = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.ParticipanteHobbieWindowId.Show();
         }
 
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE_HOBBIE hobbieparticipante = new MA_PARTICIPANTE_HOBBIE();
-            hobbieparticipante = GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(Int32.Parse(this.cod_p_hobbieId.Text));
+            MA_PARTICIPANTE_HOBBIE hobbieparticipante = GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(Int32.Parse(this.cod_p_hobbieId.Text));
             GestorDeHobbieDeParticipante.RemoverHobbieDoParticipante(hobbieparticipante);
             this.LimpaForm();
         }

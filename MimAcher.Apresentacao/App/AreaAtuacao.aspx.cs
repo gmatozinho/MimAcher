@@ -12,7 +12,7 @@ namespace MimAcher.Apresentacao.App
 {
     public partial class AreaAtuacao : System.Web.UI.Page
     {
-        //Declaração dos Gestores        }
+        //Declaração dos Gestores        
         public GestorDeAreaDeAtuacao GestorDeAreaDeAtuacao { get; set; }
 
         public AreaAtuacao()
@@ -85,16 +85,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoarea_atuacao = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.AreaAtuacaoWindowId.Show();
         }
 
         //Exclui determinado area_atuacao do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
-        {
-            MA_AREA_ATUACAO area_atuacao = new MA_AREA_ATUACAO();
-            area_atuacao = GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(this.cod_area_atuacaoId.Text));
+        {   
+            MA_AREA_ATUACAO area_atuacao = GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(this.cod_area_atuacaoId.Text));
             GestorDeAreaDeAtuacao.RemoverAreaDeAtuacao(area_atuacao);
             this.LimpaForm();
         }

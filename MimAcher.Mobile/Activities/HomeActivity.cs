@@ -1,18 +1,14 @@
 using System;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
-using Android.Database;
-using Android.Graphics;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using com.refractored.fab;
 using MimAcher.Mobile.Activities.TAB;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
 using MimAcher.Mobile.Utilitarios;
-using FloatingActionButton = com.refractored.fab.FloatingActionButton;
 
 namespace MimAcher.Mobile.Activities
 {

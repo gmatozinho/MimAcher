@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -39,6 +37,15 @@ namespace MimAcher.Infra
                 this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
                 this.Contexto.SaveChanges();
             }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+                }
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -56,9 +63,25 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
             {
-                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
             }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+                }
+            }
+        }
+
+        public void AtualizarAprendizadoDeHobbieSemConferencia(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+
+            this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+            this.Contexto.SaveChanges();
         }
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_HOBBIE participantehobbie)
@@ -67,10 +90,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

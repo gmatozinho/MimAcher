@@ -12,7 +12,7 @@ namespace MimAcher.Apresentacao.App
 {
     public partial class Item : System.Web.UI.Page
     {
-        //Declaração dos Gestores        }
+        //Declaração dos Gestores        
         public GestorDeItem GestorDeItem { get; set; }
 
         public Item()
@@ -85,16 +85,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoitem = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
             this.ItemWindowId.Show();
         }
 
         //Exclui determinado item do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_ITEM item = new MA_ITEM();
-            item = GestorDeItem.ObterItemPorId(Int32.Parse(this.cod_itemId.Text));
+            MA_ITEM item = GestorDeItem.ObterItemPorId(Int32.Parse(this.cod_itemId.Text));
             GestorDeItem.RemoverItem(item);
             this.LimpaForm();
         }

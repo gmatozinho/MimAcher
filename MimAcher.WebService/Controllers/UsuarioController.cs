@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -27,7 +25,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_USUARIO> listausuariooriginal = GestorDeUsuario.ObterTodosOsUsuarios();
+            List<MA_USUARIO> listausuariooriginal = this.GestorDeUsuario.ObterTodosOsUsuarios();
             List<Usuario> listausuario = new List<Usuario>();
 
             foreach(MA_USUARIO u in listausuariooriginal)
@@ -61,66 +59,77 @@ namespace MimAcher.WebService.Controllers
                 {
                     success = false
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
             else
             {
-                foreach (Usuario us in listausuario)
-                {
-                    MA_USUARIO usuario = new MA_USUARIO();
-                    usuario.e_mail = us.e_mail;
-                    usuario.senha = us.senha;
+                MA_USUARIO usuario = new MA_USUARIO();
 
-                    GestorDeUsuario.InserirUsuario(usuario);
+                usuario.e_mail = listausuario[0].e_mail;
+                usuario.senha = listausuario[0].senha;
+
+                Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
+
+                if (resultado)
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = usuario.cod_usuario
+                    }, JsonRequestBehavior.AllowGet);
                 }
-
-                jsonResult = Json(new
+                else
                 {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
 
         public ActionResult Update(List<Usuario> listausuario)
         {
             JsonResult jsonResult;
-
+            
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listausuario == null)
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
             else
             {
-                foreach (Usuario us in listausuario)
-                {
-                    MA_USUARIO usuario = new MA_USUARIO();
-                    usuario.cod_usuario = us.cod_usuario;
-                    usuario.e_mail = us.e_mail;
-                    usuario.senha = us.senha;
+                MA_USUARIO usuario = new MA_USUARIO();
 
-                    GestorDeUsuario.AtualizarUsuario(usuario);
+                usuario.cod_usuario = listausuario[0].cod_usuario;
+                usuario.e_mail = listausuario[0].e_mail;
+                usuario.senha = listausuario[0].senha;
+
+                Boolean resultado = this.GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
+
+                if (resultado)
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = usuario.cod_usuario
+                    }, JsonRequestBehavior.AllowGet);
                 }
-
-                jsonResult = Json(new
+                else
                 {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

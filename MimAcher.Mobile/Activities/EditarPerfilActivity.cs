@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -5,6 +6,7 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
+using MimAcher.Mobile.Utilitarios;
 
 namespace MimAcher.Mobile.Activities
 {
@@ -48,13 +50,15 @@ namespace MimAcher.Mobile.Activities
             dtNascimentoInfoUser.Hint = _participante.Nascimento;
 
             //Funcionalidades
+            telefoneInfoUser.AddTextChangedListener(new Mascara(telefoneInfoUser, "## #####-####"));
+            dtNascimentoInfoUser.AddTextChangedListener(new Mascara(dtNascimentoInfoUser, "##/##/####"));
+
             //Para Exibir
             _nome = _participante.Nome;
             _telefone = _participante.Telefone;
             _nascimento = _participante.Nascimento;
-
+            
             //Pegar as informações inseridas
-            nomeInfoUser.TextChanged += (sender, nomecapturado) => _nome = nomecapturado.Text.ToString();
             dtNascimentoInfoUser.TextChanged += (sender, nascimentocapturado) => _nascimento = nascimentocapturado.Text.ToString();
             telefoneInfoUser.TextChanged += (sender, telefonecapturado) => _telefone = telefonecapturado.Text.ToString();
 
@@ -66,7 +70,7 @@ namespace MimAcher.Mobile.Activities
 
             salvar.Click += delegate
             {
-                SalvarPerfilEditado();
+                SalvarClick();
             };
         }
         
@@ -94,6 +98,7 @@ namespace MimAcher.Mobile.Activities
             AlterarParticipante(_participante);
             _pacote = _participante;
             IniciarOutraTela(resultadoactivity,_pacote);
+            Mensagens.MensagemDeInformacoesEditadasComSucesso(this);
         }
         
         private void AlterarParticipante(Participante participante)
@@ -102,5 +107,21 @@ namespace MimAcher.Mobile.Activities
             participante.Telefone = _telefone;
             participante.Nascimento = _nascimento;
         }
+
+        private Dictionary<string, string> EntradasParaValidar()
+        {
+            return new Dictionary<string, string>
+            {
+                ["nome"] = _nome,
+                ["data"] = _nascimento,
+                ["telefone"] = _telefone
+            };
+        }
+
+        private void SalvarClick()
+        {
+            if(Validador.ValidarEditarPerfil(this,EntradasParaValidar())) { SalvarPerfilEditado();}
+        }
+
     }
 }
