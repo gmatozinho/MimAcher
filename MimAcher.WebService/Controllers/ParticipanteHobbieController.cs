@@ -34,6 +34,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
+                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
 
                 listaparticipantehobbie.Add(participantehobbie);
             }
@@ -68,6 +69,7 @@ namespace MimAcher.WebService.Controllers
                 MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
+                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
 
                 this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
@@ -103,6 +105,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
+                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
 
                 this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
             }
@@ -126,7 +129,7 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                   codigo = -1
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
@@ -143,9 +146,10 @@ namespace MimAcher.WebService.Controllers
                         participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
                         participantehobbie.cod_participante = pe.cod_participante;
                         participantehobbie.cod_item = pe.cod_item;
+                        participantehobbie.cod_s_relacao = pe.cod_s_relacao;
 
                         this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
-                        
+
                         jsonResult = Json(new
                         {
                             codigo = participantehobbie.cod_p_hobbie

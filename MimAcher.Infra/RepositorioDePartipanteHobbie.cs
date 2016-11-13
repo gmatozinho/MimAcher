@@ -29,13 +29,22 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.ToList();
         }
-                
+
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
             {
                 this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
                 this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+                }
             }
         }
 

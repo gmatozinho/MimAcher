@@ -37,6 +37,15 @@ namespace MimAcher.Infra
                 this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
                 this.Contexto.SaveChanges();
             }
+            else
+            {
+                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
+
+                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
+                }
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -51,7 +60,7 @@ namespace MimAcher.Infra
         }
 
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
-        {   
+        {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
             {
                 AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
@@ -60,7 +69,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
 
-                if(participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
                 {
                     AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
                 }
@@ -77,7 +86,7 @@ namespace MimAcher.Infra
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            if(ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender) != null)
+            if (ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender) != null)
             {
                 return true;
             }

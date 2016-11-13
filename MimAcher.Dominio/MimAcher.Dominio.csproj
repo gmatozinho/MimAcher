@@ -81,6 +81,9 @@
     <Compile Include="MA_PARTICIPANTE_HOBBIE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
+    <Compile Include="MA_STATUS_RELACAO.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
     <Compile Include="MA_USUARIO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
@@ -100,6 +103,9 @@
       <DependentUpon>MimAcher.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="MimAcher.edmx">
@@ -125,9 +131,6 @@
       <DependentUpon>MimAcher.edmx</DependentUpon>
       <LastGenOutput>MimAcher.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

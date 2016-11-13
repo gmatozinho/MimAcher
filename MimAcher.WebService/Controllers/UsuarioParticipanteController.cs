@@ -38,7 +38,7 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                   codigo = -1
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
@@ -58,7 +58,7 @@ namespace MimAcher.WebService.Controllers
                 participante.cod_campus = up.cod_participante;
                 participante.nome = up.nome;
                 participante.telefone = up.telefone;
-                participante.dt_nascimento = (DateTime)up.dt_nascimento;                    
+                participante.dt_nascimento = (DateTime)up.dt_nascimento;
                 participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(up.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(up.longitude.ToString()) + ")");
 
                 this.GestorDeParticipante.InserirParticipante(participante);

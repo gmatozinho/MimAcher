@@ -9,7 +9,7 @@ namespace MimAcher.Infra
     public class RepositorioDeParticipante
     {
         public MIMACHEREntities Contexto { get; set; }
-        
+
         public RepositorioDeParticipante()
         {
             this.Contexto = new MIMACHEREntities();
@@ -37,29 +37,29 @@ namespace MimAcher.Infra
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
         {
-            return this.Contexto.MA_PARTICIPANTE.Where(l => l.nome.Equals(nome)).ToList();            
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.nome.Equals(nome)).ToList();
         }
 
         public MA_PARTICIPANTE ObterParticipantePorEmail(String email)
         {
             return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.e_mail.Equals(email)).SingleOrDefault();
         }
-        
+
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            if(!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
             {
                 this.Contexto.MA_PARTICIPANTE.Add(participante);
-                this.Contexto.SaveChanges();             
+                this.Contexto.SaveChanges();
             }
         }
 
-        
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE.Count();
         }
-                
+
         public void RemoverParticipante(MA_PARTICIPANTE Participante)
         {
             this.Contexto.MA_PARTICIPANTE.Remove(Participante);
@@ -81,7 +81,7 @@ namespace MimAcher.Infra
 
                 if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
                 {
-                    Atualizar(participante);                 
+                    Atualizar(participante);
                 }
             }
         }
@@ -97,7 +97,8 @@ namespace MimAcher.Infra
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
         {
-            if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null) {
+            if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null)
+            {
                 return true;
             }
             return false;

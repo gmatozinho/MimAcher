@@ -29,13 +29,22 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.ToList();
         }
-        
+
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
             {
                 this.Contexto.MA_PARTICIPANTE_ENSINAR.Add(participanteensinar);
                 this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
+
+                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                {
+                    AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
+                }
             }
         }
 
@@ -67,7 +76,7 @@ namespace MimAcher.Infra
             }
         }
 
-        
+
         public void AtualizarEnsinamentoDeParticipanteSemConferencia(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             MIMACHEREntities Contexto = new MIMACHEREntities();

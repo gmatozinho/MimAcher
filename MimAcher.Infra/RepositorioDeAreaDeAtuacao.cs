@@ -61,16 +61,16 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
-            }            
+            }
         }
 
         public Boolean VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(MA_AREA_ATUACAO areaatuacao)
         {
-            if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null) {
+            if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null)
+            {
                 return true;
             }
             return false;
         }
     }
 }
-    
