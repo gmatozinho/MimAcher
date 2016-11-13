@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public NACAreaAtuacaoController()
         {
-            GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
+            this.GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
         }
 
         // GET: NACAreaAtuacao
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC_AREA_ATUACAO> listanacareaatuacaooriginal = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            List<MA_NAC_AREA_ATUACAO> listanacareaatuacaooriginal = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
             List<NACAreaAtuacao> listanacareaatuacao = new List<NACAreaAtuacao>();
 
             foreach (MA_NAC_AREA_ATUACAO na in listanacareaatuacaooriginal)
@@ -70,7 +70,7 @@ namespace MimAcher.WebService.Controllers
                 nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
                 nacareaatuacao.cod_nac = na.cod_nac;
 
-                GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
+                this.GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
             }
 
             jsonResult = Json(new
@@ -105,7 +105,7 @@ namespace MimAcher.WebService.Controllers
                 nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
                 nacareaatuacao.cod_nac = na.cod_nac;
 
-                GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
+                this.GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
             }
 
             jsonResult = Json(new
