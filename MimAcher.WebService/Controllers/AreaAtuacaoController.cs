@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public AreaAtuacaoController()
         {
-            GestorDeAreaDeAtuacao = new GestorDeAreaDeAtuacao();
+            this.GestorDeAreaDeAtuacao = new GestorDeAreaDeAtuacao();
         }
 
         // GET: AreaAtuacao
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_AREA_ATUACAO> listaareaatuacaooriginal = GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
+            List<MA_AREA_ATUACAO> listaareaatuacaooriginal = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
             List<AreaAtuacao> listaareaatuacao = new List<AreaAtuacao>();
 
             foreach (MA_AREA_ATUACAO aa in listaareaatuacaooriginal)
@@ -68,7 +68,7 @@ namespace MimAcher.WebService.Controllers
 
                 areaatuacao.nome = aa.nome;
 
-                GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
             }
 
             jsonResult = Json(new
@@ -103,7 +103,7 @@ namespace MimAcher.WebService.Controllers
                 areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
                 areaatuacao.nome = aa.nome;
 
-                GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
             }
 
             jsonResult = Json(new
