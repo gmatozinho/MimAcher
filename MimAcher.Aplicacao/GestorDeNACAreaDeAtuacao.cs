@@ -11,47 +11,47 @@ namespace MimAcher.Aplicacao
 
         public GestorDeNACAreaDeAtuacao()
         {
-            RepositorioDeNACAreaDeAtuacao = new RepositorioDeNACAreaDeAtuacao();
+            this.RepositorioDeNACAreaDeAtuacao = new RepositorioDeNACAreaDeAtuacao();
         }
 
         public MA_NAC_AREA_ATUACAO ObterNACAreaDeAtuacaoPorId(int id)
         {
-            return RepositorioDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(id);
+            return this.RepositorioDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(id);
         }
 
         public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACAreasDeAtuacao()
         {
-            return RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            return this.RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
         }
 
         public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACSAreasDeAtuacaosPorNomeDeAreaDeAtuacao(String nome)
         {
-            return RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACSAreasDeAtuacaosPorNomeDeAreaDeAtuacao(nome);
+            return this.RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACSAreasDeAtuacaosPorNomeDeAreaDeAtuacao(nome);
         }
 
         public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACSAreasDeAtuacaosPorNomeDeRepresentanteDoNAC(String nomerepresentante)
         {
-            return RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACSAreasDeAtuacaosPorNomeDeRepresentanteDoNAC(nomerepresentante);
+            return this.RepositorioDeNACAreaDeAtuacao.ObterTodasAsNACSAreasDeAtuacaosPorNomeDeRepresentanteDoNAC(nomerepresentante);
         }
 
         public void InserirNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(NACAreaDeAtuacao);            
+            this.RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(NACAreaDeAtuacao);            
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeNACAreaDeAtuacao.BuscarQuantidadeRegistros();
+            return this.RepositorioDeNACAreaDeAtuacao.BuscarQuantidadeRegistros();
         }
 
         public void RemoverNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            RepositorioDeNACAreaDeAtuacao.RemoverNACAreaDeAtuacao(NACAreaDeAtuacao);
+            this.RepositorioDeNACAreaDeAtuacao.RemoverNACAreaDeAtuacao(NACAreaDeAtuacao);
         }
 
         public void AtualizarNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
-            RepositorioDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(NACAreaDeAtuacao);
+            this.RepositorioDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(NACAreaDeAtuacao);
         }
 
     } 
