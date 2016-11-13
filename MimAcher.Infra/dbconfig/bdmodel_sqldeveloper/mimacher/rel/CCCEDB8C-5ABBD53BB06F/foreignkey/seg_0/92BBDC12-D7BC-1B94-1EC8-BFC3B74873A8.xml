@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="92BBDC12-D7BC-1B94-1EC8-BFC3B74873A8" name="FKI_PARTICIPANTE_APRENDER_MA_STATUS_RELACAO_cod_s_relacao">
+<createdBy>pchan</createdBy>
+<createdTime>2016-11-11 10:27:48 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<containerWithKeyObject>F0F34C89-273B-A122-040C-D897993E7DB7</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>99F80823-7367-99D4-3012-3E3390B4A8F0</localFKIndex>
+<keyObject>D2BBD7C1-2A0C-7E65-7700-B4AB83972819</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

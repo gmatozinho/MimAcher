@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public NACController()
         {     
-            GestorDeNAC = new GestorDeNAC();
+            this.GestorDeNAC = new GestorDeNAC();
         }
 
         // GET: NAC
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC> listanacoriginal = GestorDeNAC.ObterTodosOsNAC();
+            List<MA_NAC> listanacoriginal = this.GestorDeNAC.ObterTodosOsNAC();
             List<NAC> listanac = new List<NAC>();
 
             foreach (MA_NAC nc in listanacoriginal)
@@ -70,7 +70,7 @@ namespace MimAcher.WebService.Controllers
                 nac.nome_representante = nc.nomerepresentante;
                 nac.telefone = nc.telefone;
 
-                GestorDeNAC.InserirNAC(nac);
+                this.GestorDeNAC.InserirNAC(nac);
             }
 
             jsonResult = Json(new
@@ -107,7 +107,7 @@ namespace MimAcher.WebService.Controllers
                 nac.nome_representante = nc.nomerepresentante;
                 nac.telefone = nc.telefone;
 
-                GestorDeNAC.InserirNAC(nac);
+                this.GestorDeNAC.InserirNAC(nac);
             }
 
             jsonResult = Json(new

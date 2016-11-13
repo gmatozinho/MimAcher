@@ -13,27 +13,32 @@ namespace MimAcher.Apresentacao.App
         public GestorDeParticipanteEnsinar GestorDeParticipanteEnsinar { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeItem GestorDeItem { get; set; }
+        public GestorDeStatusDeRelacao GestorDeStatusDeRelacao { get; set; }
 
         public ParticipanteEnsinar()
         {
             //Inicialização dos Gestores            
-            GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
-            GestorDeParticipante = new GestorDeParticipante();
-            GestorDeItem = new GestorDeItem();
+            this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
+            this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeItem = new GestorDeItem();
+            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreParticipanteEnsinarId.DataSource = GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
+                StoreParticipanteEnsinarId.DataSource = this.GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
                 StoreParticipanteEnsinarId.DataBind();
 
-                StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
                 StoreParticipanteId.DataBind();
 
-                StoreItemId.DataSource = GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
                 StoreItemId.DataBind();
+
+                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao();
+                StoreStatusRelacaoId.DataBind();
             }
         }
 
@@ -46,22 +51,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreParticipanteEnsinarId.DataSource = GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
+            StoreParticipanteEnsinarId.DataSource = this.GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
             StoreParticipanteEnsinarId.DataBind();
         }
 
         //Lista os ensinars de participantes do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreParticipanteEnsinarId.DataSource = GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
+            StoreParticipanteEnsinarId.DataSource = this.GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
             StoreParticipanteEnsinarId.DataBind();
         }
 
         //Lista os ensinars de participantes do banco de dados na grid
         protected void List()
         {
-            GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
-            StoreParticipanteEnsinarId.DataSource = GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
+            this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
+            StoreParticipanteEnsinarId.DataSource = this.GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
             StoreParticipanteEnsinarId.DataBind();
         }
 
@@ -72,12 +77,12 @@ namespace MimAcher.Apresentacao.App
 
             ensinarparticipante.cod_participante = Int32.Parse(cod_participanteId.SelectedItem.Value);
             ensinarparticipante.cod_item = Int32.Parse(cod_itemId.SelectedItem.Value);
-
+            ensinarparticipante.cod_s_relacao = Int32.Parse(cod_s_relacaoId.SelectedItem.Value);
 
             //Caso o form não possui código, será inserido um novo ensinar de participante
             if (cod_p_ensinarId.Text == "")
             {
-                GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(ensinarparticipante);
+                this.GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(ensinarparticipante);
                 ParticipanteEnsinarWindowId.Close();
                 LimpaForm();
             }
@@ -85,7 +90,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 ensinarparticipante.cod_p_ensinar = Int32.Parse(cod_p_ensinarId.Text);
-                GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(ensinarparticipante);
+                this.GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(ensinarparticipante);
                 ParticipanteEnsinarWindowId.Close();
                 LimpaForm();
             }
@@ -100,8 +105,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE_ENSINAR ensinarparticipante = GestorDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(Int32.Parse(cod_p_ensinarId.Text));
-            GestorDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(ensinarparticipante);
+            MA_PARTICIPANTE_ENSINAR ensinarparticipante = this.GestorDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(Int32.Parse(cod_p_ensinarId.Text));
+            this.GestorDeParticipanteEnsinar.RemoverEnsinamentoDeParticipante(ensinarparticipante);
             LimpaForm();
         }
 

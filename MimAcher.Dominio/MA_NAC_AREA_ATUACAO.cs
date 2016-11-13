@@ -9,6 +9,9 @@
 
 namespace MimAcher.Dominio
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class MA_NAC_AREA_ATUACAO
     {
         public int cod_nac_area_atuacao { get; set; }

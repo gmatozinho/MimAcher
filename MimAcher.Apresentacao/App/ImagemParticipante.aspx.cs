@@ -16,18 +16,18 @@ namespace MimAcher.Apresentacao.App
         public ImagemParticipante()
         {
             //Inicialização dos Gestores
-            GestorDeParticipante = new GestorDeParticipante();
-            GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
+            this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {                
-                StoreImagemParticipanteId.DataSource = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+                StoreImagemParticipanteId.DataSource = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
                 StoreImagemParticipanteId.DataBind();
 
-                StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
                 StoreParticipanteId.DataBind();
             }
         }
@@ -41,22 +41,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreImagemParticipanteId.DataSource = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+            StoreImagemParticipanteId.DataSource = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
             StoreImagemParticipanteId.DataBind();
         }
 
         //Lista os imagems do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreImagemParticipanteId.DataSource = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+            StoreImagemParticipanteId.DataSource = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
             StoreImagemParticipanteId.DataBind();
         }
 
         //Lista os imagems do banco de dados na grid
         protected void List()
         {
-            GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
-            StoreImagemParticipanteId.DataSource = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+            this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
+            StoreImagemParticipanteId.DataSource = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
             StoreImagemParticipanteId.DataBind();
         }
 
@@ -70,7 +70,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_imagemId.Text == "")
             {
-                GestorDeImagemDeParticipante.InserirImagem(imagem);
+                this.GestorDeImagemDeParticipante.InserirImagem(imagem);
                 ImagemParticipanteWindowId.Close();
                 LimpaForm();
             }
@@ -78,7 +78,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 imagem.cod_imagem = Int32.Parse(cod_imagemId.Text);
-                GestorDeImagemDeParticipante.AtualizarImagem(imagem);
+                this.GestorDeImagemDeParticipante.AtualizarImagem(imagem);
                 ImagemParticipanteWindowId.Close();
                 LimpaForm();
             }
@@ -93,8 +93,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado imagem do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {            
-            MA_IMAGEM_PARTICIPANTE  imagem = GestorDeImagemDeParticipante.ObterImagemDeParticipantePorId(Int32.Parse(cod_imagemId.Text));
-            GestorDeImagemDeParticipante.RemoverImagem(imagem);
+            MA_IMAGEM_PARTICIPANTE  imagem = this.GestorDeImagemDeParticipante.ObterImagemDeParticipantePorId(Int32.Parse(cod_imagemId.Text));
+            this.GestorDeImagemDeParticipante.RemoverImagem(imagem);
             LimpaForm();
         }
 

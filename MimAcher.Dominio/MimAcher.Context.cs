@@ -7,11 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
 namespace MimAcher.Dominio
 {
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+    
     public partial class MIMACHEREntities : DbContext
     {
         public MIMACHEREntities()
@@ -34,6 +35,7 @@ namespace MimAcher.Dominio
         public virtual DbSet<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
         public virtual DbSet<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
+        public virtual DbSet<MA_STATUS_RELACAO> MA_STATUS_RELACAO { get; set; }
         public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
     }
 }

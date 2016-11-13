@@ -20,23 +20,23 @@ namespace MimAcher.Apresentacao.App
         public Participante()
         {
             //Inicialização dos Gestores
-            GestorDeUsuario = new GestorDeUsuario();
-            GestorDeParticipante = new GestorDeParticipante();
-            GestorDeCampus = new GestorDeCampus();
-            GestorDeAplicacao = new GestorDeAplicacao();
+            this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeCampus = new GestorDeCampus();
+            this.GestorDeAplicacao = new GestorDeAplicacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreUsuarioId.DataSource = GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+                StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 StoreUsuarioId.DataBind();
 
-                StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+                StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
                 StoreParticipanteId.DataBind();
 
-                StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+                StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
                 StoreCampusId.DataBind();
             }
         }
@@ -50,22 +50,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+            StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
             StoreParticipanteId.DataBind();
         }
 
         //Lista os participantes do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+            StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
             StoreParticipanteId.DataBind();
         }
 
         //Lista os participantes do banco de dados na grid
         protected void List()
         {
-            GestorDeParticipante = new GestorDeParticipante();
-            StoreParticipanteId.DataSource = GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
+            this.GestorDeParticipante = new GestorDeParticipante();
+            StoreParticipanteId.DataSource = this.GestorDeParticipante.ObterTodosOsParticipantes().OrderBy(l => l.nome);
             StoreParticipanteId.DataBind();
         }
 
@@ -73,8 +73,8 @@ namespace MimAcher.Apresentacao.App
         protected void Save(object sender, DirectEventArgs e)
         {
             MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-            String latitude = GestorDeAplicacao.RetornaDadoSemVigurla(latitudeId.Text);
-            String longitude = GestorDeAplicacao.RetornaDadoSemVigurla(longitudeId.Text);
+            String latitude = this.GestorDeAplicacao.RetornaDadoSemVigurla(latitudeId.Text);
+            String longitude = this.GestorDeAplicacao.RetornaDadoSemVigurla(longitudeId.Text);
 
             participante.nome = nomeId.Text;
             participante.dt_nascimento = (DateTime)dt_nascimentoId.Value;
@@ -86,7 +86,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_participanteId.Text == "")
             {
-                GestorDeParticipante.InserirParticipante(participante);
+                this.GestorDeParticipante.InserirParticipante(participante);
                 ParticipanteWindowId.Close();
                 LimpaForm();
             }
@@ -94,7 +94,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 participante.cod_participante = Int32.Parse(cod_participanteId.Text);
-                GestorDeParticipante.AtualizarParticipante(participante);
+                this.GestorDeParticipante.AtualizarParticipante(participante);
                 ParticipanteWindowId.Close();
                 LimpaForm();
             }
@@ -109,8 +109,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(Int32.Parse(cod_participanteId.Text));
-            GestorDeParticipante.RemoverParticipante(participante);
+            MA_PARTICIPANTE participante = this.GestorDeParticipante.ObterParticipantePorId(Int32.Parse(cod_participanteId.Text));
+            this.GestorDeParticipante.RemoverParticipante(participante);
             LimpaForm();
         }
 
@@ -118,7 +118,7 @@ namespace MimAcher.Apresentacao.App
         {            
             int codigoparticipante = Int32.Parse(e.ExtraParams["RecordGridMap"]);
                         
-            MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(codigoparticipante);
+            MA_PARTICIPANTE participante = this.GestorDeParticipante.ObterParticipantePorId(codigoparticipante);
 
          
             Window win = new Window();

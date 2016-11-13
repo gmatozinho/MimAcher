@@ -16,9 +16,9 @@ namespace MimAcher.WebService.Controllers
 
         public UsuarioParticipanteController()
         {
-            GestorDeParticipante = new GestorDeParticipante();
-            GestorDeUsuario = new GestorDeUsuario();
-            GestorDeAplicacao = new GestorDeAplicacao();
+            this.GestorDeParticipante = new GestorDeParticipante();
+            this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeAplicacao = new GestorDeAplicacao();
         }
 
         // GET: UsuarioParticipante
@@ -52,7 +52,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = up.e_mail;
                 usuario.senha = up.senha;
 
-                GestorDeUsuario.InserirUsuario(usuario);
+                this.GestorDeUsuario.InserirUsuario(usuario);
 
                 participante.cod_usuario = usuario.cod_usuario;
                 participante.cod_campus = up.cod_participante;
@@ -61,7 +61,7 @@ namespace MimAcher.WebService.Controllers
                 participante.dt_nascimento = (DateTime)up.dt_nascimento;                    
                 participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(up.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(up.longitude.ToString()) + ")");
 
-                GestorDeParticipante.InserirParticipante(participante);
+                this.GestorDeParticipante.InserirParticipante(participante);
 
                 codigodoparticipante = participante.cod_participante;
             }

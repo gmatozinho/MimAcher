@@ -34,6 +34,7 @@ namespace MimAcher.WebService.Controllers
                 participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
                 participanteensinar.cod_participante = pe.cod_participante;
                 participanteensinar.cod_item = pe.cod_item;
+                participanteensinar.cod_s_relacao = pe.cod_s_relacao;
 
                 listaparticipanteensinar.Add(participanteensinar);
             }
@@ -68,6 +69,7 @@ namespace MimAcher.WebService.Controllers
                 MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
                 participanteensinar.cod_participante = pe.cod_participante;
                 participanteensinar.cod_item = pe.cod_item;
+                participanteensinar.cod_s_relacao = pe.cod_s_relacao;
 
                 GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
             }
@@ -103,6 +105,7 @@ namespace MimAcher.WebService.Controllers
                 participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
                 participanteensinar.cod_participante = pe.cod_participante;
                 participanteensinar.cod_item = pe.cod_item;
+                participanteensinar.cod_s_relacao = pe.cod_s_relacao;
 
                 GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
             }
@@ -114,6 +117,57 @@ namespace MimAcher.WebService.Controllers
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Delete(List<ParticipanteEnsinar> listaparticipanteensinar)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipanteensinar == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
+                {
+                    if (pe.cod_s_relacao == 2)
+                    {
+                        MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
+
+                        participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
+                        participanteensinar.cod_participante = pe.cod_participante;
+                        participanteensinar.cod_item = pe.cod_item;
+                        participanteensinar.cod_s_relacao = pe.cod_s_relacao;
+
+                        this.GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
+
+                        jsonResult = Json(new
+                        {
+                            codigo = participanteensinar.cod_p_ensinar
+                        }, JsonRequestBehavior.AllowGet);
+
+                        jsonResult.MaxJsonLength = int.MaxValue;
+                        return jsonResult;
+                    }
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
         }
     }
 }

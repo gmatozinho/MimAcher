@@ -12,56 +12,56 @@ namespace MimAcher.Infra
 
         public RepositorioDeItem()
         {
-            Contexto = new MIMACHEREntities();
+            this.Contexto = new MIMACHEREntities();
         }
 
         public MA_ITEM ObterItemPorId(int id)
         {
-            return Contexto.MA_ITEM.Find(id);
+            return this.Contexto.MA_ITEM.Find(id);
         }
 
         public MA_ITEM ObterItemPorNome(MA_ITEM item)
         {
-            return Contexto.MA_ITEM.Where(l => l.nome.Equals(item.nome)).SingleOrDefault();
+            return this.Contexto.MA_ITEM.Where(l => l.nome.Equals(item.nome)).SingleOrDefault();
         }
 
         public List<MA_ITEM> ObterTodosOsItems()
         {
-            return Contexto.MA_ITEM.ToList();
+            return this.Contexto.MA_ITEM.ToList();
         }
 
         public List<MA_ITEM> ObterTodosOsItemsPorNome(String nome)
         {
-            return Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
+            return this.Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
                 
         public void InserirItem(MA_ITEM Item)
         {
             if (VerificarSeNomeDeItemJaExiste(Item))
             {
-                Contexto.MA_ITEM.Add(Item);
-                Contexto.SaveChanges();
+                this.Contexto.MA_ITEM.Add(Item);
+                this.Contexto.SaveChanges();
             }
             
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return Contexto.MA_ITEM.Count();
+            return this.Contexto.MA_ITEM.Count();
         }
 
         public void RemoverItem(MA_ITEM Item)
         {
-            Contexto.MA_ITEM.Remove(Item);
-            Contexto.SaveChanges();
+            this.Contexto.MA_ITEM.Remove(Item);
+            this.Contexto.SaveChanges();
         }
 
         public void AtualizarItem(MA_ITEM Item)
         {
             if (VerificarSeNomeDeItemJaExiste(Item))
             {
-                Contexto.Entry(Item).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                this.Contexto.Entry(Item).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
             }
         }
 

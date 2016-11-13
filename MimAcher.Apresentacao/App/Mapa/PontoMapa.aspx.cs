@@ -10,12 +10,8 @@ namespace MimAcher.Apresentacao.App.Mapa
 {
     public partial class PontoMapa : Page
     {
-        public GestorDeParticipante GestorDeParticipante { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            GestorDeParticipante = new GestorDeParticipante();
-
             ExibirTodosOsPontosNoMapa();
         }
 

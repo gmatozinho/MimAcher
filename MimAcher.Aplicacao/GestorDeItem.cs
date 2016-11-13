@@ -11,42 +11,42 @@ namespace MimAcher.Aplicacao
 
         public GestorDeItem()
         {
-            RepositorioDeItem = new RepositorioDeItem();
+            this.RepositorioDeItem = new RepositorioDeItem();
         }
 
         public MA_ITEM ObterItemPorId(int id)
         {
-            return RepositorioDeItem.ObterItemPorId(id);
+            return this.RepositorioDeItem.ObterItemPorId(id);
         }
 
         public List<MA_ITEM> ObterTodosOsItems()
         {
-            return RepositorioDeItem.ObterTodosOsItems();
+            return this.RepositorioDeItem.ObterTodosOsItems();
         }
 
         public List<MA_ITEM> ObterTodosOsItemsPorNome(String nome)
         {
-            return RepositorioDeItem.ObterTodosOsItemsPorNome(nome);
+            return this.RepositorioDeItem.ObterTodosOsItemsPorNome(nome);
         }
 
         public void InserirItem(MA_ITEM Item)
         {
-            RepositorioDeItem.InserirItem(Item);
+            this.RepositorioDeItem.InserirItem(Item);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeItem.BuscarQuantidadeRegistros();
+            return this.RepositorioDeItem.BuscarQuantidadeRegistros();
         }
 
         public void RemoverItem(MA_ITEM Item)
         {
-            RepositorioDeItem.RemoverItem(Item);
+            this.RepositorioDeItem.RemoverItem(Item);
         }
 
         public void AtualizarItem(MA_ITEM Item)
         {
-            RepositorioDeItem.AtualizarItem(Item);
+            this.RepositorioDeItem.AtualizarItem(Item);
         }
     }
 }

@@ -11,62 +11,62 @@ namespace MimAcher.Aplicacao
 
         public GestorDeParticipante()
         {
-            RepositorioDeParticipante = new RepositorioDeParticipante();
+            this.RepositorioDeParticipante = new RepositorioDeParticipante();
         }
 
         public int ObterIdDeUltimoParticipante()
         {
-            return RepositorioDeParticipante.ObterIdDeUltimoParticipante();
+            return this.RepositorioDeParticipante.ObterIdDeUltimoParticipante();
         }
 
         public MA_PARTICIPANTE ObterParticipantePorId(int id)
         {
-            return RepositorioDeParticipante.ObterParticipantePorId(id);
+            return this.RepositorioDeParticipante.ObterParticipantePorId(id);
         }
 
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
-            return RepositorioDeParticipante.ObterParticipantePorIdDeUsuario(idUsuario);
+            return this.RepositorioDeParticipante.ObterParticipantePorIdDeUsuario(idUsuario);
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {            
-            return RepositorioDeParticipante.ObterTodosOsParticipantes();
+            return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
         {
-            return RepositorioDeParticipante.ObterTodosOsParticipantesPorNome(nome);
+            return this.RepositorioDeParticipante.ObterTodosOsParticipantesPorNome(nome);
         }
 
         public MA_PARTICIPANTE ObterParticipantePorEmail(String email)
         {
-            return RepositorioDeParticipante.ObterParticipantePorEmail(email);
+            return this.RepositorioDeParticipante.ObterParticipantePorEmail(email);
         }
 
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            RepositorioDeParticipante.InserirParticipante(participante);
+            this.RepositorioDeParticipante.InserirParticipante(participante);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeParticipante.BuscarQuantidadeRegistros();
+            return this.RepositorioDeParticipante.BuscarQuantidadeRegistros();
         }
 
         public void RemoverParticipante(MA_PARTICIPANTE participante)
         {
-            RepositorioDeParticipante.RemoverParticipante(participante);
+            this.RepositorioDeParticipante.RemoverParticipante(participante);
         }
 
         public void AtualizarParticipante(MA_PARTICIPANTE participante)
         {
-            RepositorioDeParticipante.AtualizarParticipante(participante);
+            this.RepositorioDeParticipante.AtualizarParticipante(participante);
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
         {
-            return RepositorioDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante);
+            return this.RepositorioDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante);
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(int idUsuario)

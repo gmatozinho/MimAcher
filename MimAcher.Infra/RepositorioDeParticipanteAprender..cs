@@ -12,51 +12,76 @@ namespace MimAcher.Infra
 
         public RepositorioDeAprendizadoDeParticipante()
         {
-            Contexto = new MIMACHEREntities();
+            this.Contexto = new MIMACHEREntities();
         }
 
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDoParticipantePorId(int id)
         {
-            return Contexto.MA_PARTICIPANTE_APRENDER.Find(id);
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Find(id);
         }
 
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            return Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
-            return Contexto.MA_PARTICIPANTE_APRENDER.ToList();
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.ToList();
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
             {
-                Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
-                Contexto.SaveChanges();
+                this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
+                this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
+
+                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
+                }
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return Contexto.MA_PARTICIPANTE_APRENDER.Count();
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Count();
         }
 
         public void RemoverAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            Contexto.MA_PARTICIPANTE_APRENDER.Remove(participanteaprender);
-            Contexto.SaveChanges();
+            this.Contexto.MA_PARTICIPANTE_APRENDER.Remove(participanteaprender);
+            this.Contexto.SaveChanges();
         }
 
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
-        {
+        {   
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
             {
-                Contexto.Entry(participanteaprender).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
             }
+            else
+            {
+                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
+
+                if(participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
+                }
+            }
+        }
+
+        public void AtualizarAprendizadoDeParticipanteSemConferencia(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            MIMACHEREntities Contexto = new MIMACHEREntities();
+
+            Contexto.Entry(participanteaprender).State = EntityState.Modified;
+            Contexto.SaveChanges();
         }
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_APRENDER participanteaprender)

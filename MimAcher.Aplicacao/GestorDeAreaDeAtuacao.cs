@@ -11,42 +11,42 @@ namespace MimAcher.Aplicacao
 
         public GestorDeAreaDeAtuacao()
         {
-            RepositorioDeAreaDeAtuacao = new RepositorioDeAreaDeAtuacao();
+            this.RepositorioDeAreaDeAtuacao = new RepositorioDeAreaDeAtuacao();
         }
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorId(int id)
         {
-            return RepositorioDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(id);
+            return this.RepositorioDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(id);
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()
         {
-            return RepositorioDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
+            return this.RepositorioDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacaosPorNome(String nome)
         {
-            return RepositorioDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacaosPorNome(nome);
+            return this.RepositorioDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacaosPorNome(nome);
         }
 
         public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacao(AreaDeAtuacao);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return RepositorioDeAreaDeAtuacao.BuscarQuantidadeRegistros();
+            return this.RepositorioDeAreaDeAtuacao.BuscarQuantidadeRegistros();
         }
 
         public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            RepositorioDeAreaDeAtuacao.RemoverAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.RemoverAreaDeAtuacao(AreaDeAtuacao);
         }
 
         public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacao(AreaDeAtuacao);
         }
     }
 }

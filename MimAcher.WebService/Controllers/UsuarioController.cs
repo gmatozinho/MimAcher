@@ -13,7 +13,7 @@ namespace MimAcher.WebService.Controllers
 
         public UsuarioController()
         {
-            GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeUsuario = new GestorDeUsuario();
         }
         
         // GET: Usuario
@@ -25,7 +25,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_USUARIO> listausuariooriginal = GestorDeUsuario.ObterTodosOsUsuarios();
+            List<MA_USUARIO> listausuariooriginal = this.GestorDeUsuario.ObterTodosOsUsuarios();
             List<Usuario> listausuario = new List<Usuario>();
 
             foreach(MA_USUARIO u in listausuariooriginal)
@@ -67,7 +67,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
-                Boolean resultado = GestorDeUsuario.InserirUsuarioComRetorno(usuario);
+                Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
 
                 if (resultado)
                 {
@@ -110,7 +110,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
-                Boolean resultado = GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
+                Boolean resultado = this.GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
 
                 if (resultado)
                 {

@@ -12,55 +12,55 @@ namespace MimAcher.Infra
 
         public RepositorioDeAreaDeAtuacao()
         {
-            Contexto = new MIMACHEREntities();
+            this.Contexto = new MIMACHEREntities();
         }
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorId(int id)
         {
-            return Contexto.MA_AREA_ATUACAO.Find(id);
+            return this.Contexto.MA_AREA_ATUACAO.Find(id);
         }
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorNome(MA_AREA_ATUACAO areaatuacao)
         {
-            return Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLowerInvariant().Equals(areaatuacao.nome.ToLowerInvariant())).SingleOrDefault();
+            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLowerInvariant().Equals(areaatuacao.nome.ToLowerInvariant())).SingleOrDefault();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()
         {
-            return Contexto.MA_AREA_ATUACAO.ToList();
+            return this.Contexto.MA_AREA_ATUACAO.ToList();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacaosPorNome(String nome)
         {
-            return Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(nome)).ToList();
+            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(nome)).ToList();
         }
 
         public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
             if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
             {
-                Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
-                Contexto.SaveChanges();
+                this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                this.Contexto.SaveChanges();
             }
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return Contexto.MA_AREA_ATUACAO.Count();
+            return this.Contexto.MA_AREA_ATUACAO.Count();
         }
 
         public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
-            Contexto.MA_AREA_ATUACAO.Remove(AreaDeAtuacao);
-            Contexto.SaveChanges();
+            this.Contexto.MA_AREA_ATUACAO.Remove(AreaDeAtuacao);
+            this.Contexto.SaveChanges();
         }
 
         public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
         {
             if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
             {
-                Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
             }            
         }
 
@@ -73,3 +73,4 @@ namespace MimAcher.Infra
         }
     }
 }
+    

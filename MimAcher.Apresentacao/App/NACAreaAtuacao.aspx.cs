@@ -17,22 +17,22 @@ namespace MimAcher.Apresentacao.App
         public NACAreaAtuacao()
         {
             //Inicialização dos Gestores            
-            GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
-            GestorDeNAC = new GestorDeNAC();
-            GestorDeAreaDeAtuacao = new GestorDeAreaDeAtuacao();
+            this.GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
+            this.GestorDeNAC = new GestorDeNAC();
+            this.GestorDeAreaDeAtuacao = new GestorDeAreaDeAtuacao();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreNACAreaAtuacaoId.DataSource = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+                StoreNACAreaAtuacaoId.DataSource = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
                 StoreNACAreaAtuacaoId.DataBind();
 
-                StoreNACId.DataSource = GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+                StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
                 StoreNACId.DataBind();
 
-                StoreAreaAtuacaoId.DataSource = GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
+                StoreAreaAtuacaoId.DataSource = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao().OrderBy(l => l.nome);
                 StoreAreaAtuacaoId.DataBind();
             }
         }
@@ -46,22 +46,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreNACAreaAtuacaoId.DataSource = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            StoreNACAreaAtuacaoId.DataSource = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
             StoreNACAreaAtuacaoId.DataBind();
         }
 
         //Lista os aprenders de participantes do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreNACAreaAtuacaoId.DataSource = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            StoreNACAreaAtuacaoId.DataSource = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
             StoreNACAreaAtuacaoId.DataBind();
         }
 
         //Lista os aprenders de participantes do banco de dados na grid
         protected void List()
         {
-            GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
-            StoreNACAreaAtuacaoId.DataSource = GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
+            this.GestorDeNACAreaDeAtuacao = new GestorDeNACAreaDeAtuacao();
+            StoreNACAreaAtuacaoId.DataSource = this.GestorDeNACAreaDeAtuacao.ObterTodasAsNACAreasDeAtuacao();
             StoreNACAreaAtuacaoId.DataBind();
         }
 
@@ -77,7 +77,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo aprender de participante
             if (cod_nac_area_atuacaoId.Text == "")
             {
-                GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
+                this.GestorDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(nacareaatuacao);
                 NACAreaAtuacaoWindowId.Close();
                 LimpaForm();
             }
@@ -85,7 +85,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 nacareaatuacao.cod_nac_area_atuacao = Int32.Parse(cod_nac_area_atuacaoId.Text);
-                GestorDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(nacareaatuacao);
+                this.GestorDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(nacareaatuacao);
                 NACAreaAtuacaoWindowId.Close();
                 LimpaForm();
             }
@@ -100,8 +100,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado participante do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC_AREA_ATUACAO nacareaatuacao = GestorDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(Int32.Parse(cod_nac_area_atuacaoId.Text));
-            GestorDeNACAreaDeAtuacao.RemoverNACAreaDeAtuacao(nacareaatuacao);
+            MA_NAC_AREA_ATUACAO nacareaatuacao = this.GestorDeNACAreaDeAtuacao.ObterNACAreaDeAtuacaoPorId(Int32.Parse(cod_nac_area_atuacaoId.Text));
+            this.GestorDeNACAreaDeAtuacao.RemoverNACAreaDeAtuacao(nacareaatuacao);
             LimpaForm();
         }
 

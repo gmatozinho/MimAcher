@@ -15,14 +15,14 @@ namespace MimAcher.Apresentacao.App
         public Item()
         {
             //Inicialização dos Gestores            
-            GestorDeItem = new GestorDeItem();
+            this.GestorDeItem = new GestorDeItem();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreItemId.DataSource = GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
                 StoreItemId.DataBind();
             }
         }
@@ -36,22 +36,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreItemId.DataSource = GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
             StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreItemId.DataSource = GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
             StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List()
         {
-            GestorDeItem = new GestorDeItem();
-            StoreItemId.DataSource = GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            this.GestorDeItem = new GestorDeItem();
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
             StoreItemId.DataBind();
         }
 
@@ -65,7 +65,7 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_itemId.Text == "")
             {
-                GestorDeItem.InserirItem(item);
+                this.GestorDeItem.InserirItem(item);
                 ItemWindowId.Close();
                 LimpaForm();
             }
@@ -73,7 +73,7 @@ namespace MimAcher.Apresentacao.App
             else
             {
                 item.cod_item = Int32.Parse(cod_itemId.Text);
-                GestorDeItem.AtualizarItem(item);
+                this.GestorDeItem.AtualizarItem(item);
                 ItemWindowId.Close();
                 LimpaForm();
             }
@@ -88,7 +88,7 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado item do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_ITEM item = GestorDeItem.ObterItemPorId(Int32.Parse(cod_itemId.Text));
+            MA_ITEM item = this.GestorDeItem.ObterItemPorId(Int32.Parse(cod_itemId.Text));
             GestorDeItem.RemoverItem(item);
             LimpaForm();
         }

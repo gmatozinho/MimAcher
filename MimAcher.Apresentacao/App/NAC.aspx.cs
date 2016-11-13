@@ -17,22 +17,22 @@ namespace MimAcher.Apresentacao.App
         public NAC()
         {
             //Inicialização dos Gestores
-            GestorDeUsuario = new GestorDeUsuario();
-            GestorDeNAC = new GestorDeNAC();
-            GestorDeCampus = new GestorDeCampus();
+            this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeNAC = new GestorDeNAC();
+            this.GestorDeCampus = new GestorDeCampus();
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!X.IsAjaxRequest)
             {
-                StoreUsuarioId.DataSource = GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
+                StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 StoreUsuarioId.DataBind();
 
-                StoreNACId.DataSource = GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+                StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
                 StoreNACId.DataBind();
 
-                StoreCampusId.DataSource = GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
+                StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
                 StoreCampusId.DataBind();
             }
         }
@@ -46,22 +46,22 @@ namespace MimAcher.Apresentacao.App
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreNACId.DataSource = GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
             StoreNACId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreNACId.DataSource = GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
             StoreNACId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List()
         {
-            GestorDeNAC = new GestorDeNAC();
-            StoreNACId.DataSource = GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
+            this.GestorDeNAC = new GestorDeNAC();
+            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
             StoreNACId.DataBind();
         }
 
@@ -101,8 +101,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado nac do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC nac = GestorDeNAC.ObterNACPorId(Int32.Parse(cod_nacId.Text));
-            GestorDeNAC.RemoverNAC(nac);
+            MA_NAC nac = this.GestorDeNAC.ObterNACPorId(Int32.Parse(cod_nacId.Text));
+            this.GestorDeNAC.RemoverNAC(nac);
             LimpaForm();
         }
 
