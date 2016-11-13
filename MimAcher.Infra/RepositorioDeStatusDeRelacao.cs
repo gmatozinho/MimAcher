@@ -14,56 +14,56 @@ namespace MimAcher.Infra
 
         public RepositorioDeStatusDeRelacao()
         {
-            Contexto = new MIMACHEREntities();
+            this.Contexto = new MIMACHEREntities();
         }
 
         public MA_STATUS_RELACAO ObterStatusDeRelacaoPorId(int id)
         {
-            return Contexto.MA_STATUS_RELACAO.Find(id);
+            return this.Contexto.MA_STATUS_RELACAO.Find(id);
         }
 
         public MA_STATUS_RELACAO ObterStatusDeRelacaoPorNome(MA_STATUS_RELACAO statusrelacao)
         {
-            return Contexto.MA_STATUS_RELACAO.Where(l => l.nome.Equals(statusrelacao.nome)).SingleOrDefault();
+            return this.Contexto.MA_STATUS_RELACAO.Where(l => l.nome.Equals(statusrelacao.nome)).SingleOrDefault();
         }
 
         public List<MA_STATUS_RELACAO> ObterTodosOsStatusDeRelacao()
         {
-            return Contexto.MA_STATUS_RELACAO.ToList();
+            return this.Contexto.MA_STATUS_RELACAO.ToList();
         }
 
         public List<MA_STATUS_RELACAO> ObterTodosOsStatusDeRelacaoPorNome(String nome)
         {
-            return Contexto.MA_STATUS_RELACAO.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
+            return this.Contexto.MA_STATUS_RELACAO.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
 
         public void InserirStatusDeRelacao(MA_STATUS_RELACAO StatusDeRelacao)
         {
             if (VerificarSeNomeDeStatusDeRelacaoJaExiste(StatusDeRelacao))
             {
-                Contexto.MA_STATUS_RELACAO.Add(StatusDeRelacao);
-                Contexto.SaveChanges();
+                this.Contexto.MA_STATUS_RELACAO.Add(StatusDeRelacao);
+                this.Contexto.SaveChanges();
             }
 
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return Contexto.MA_STATUS_RELACAO.Count();
+            return this.Contexto.MA_STATUS_RELACAO.Count();
         }
 
         public void RemoverStatusDeRelacao(MA_STATUS_RELACAO StatusDeRelacao)
         {
-            Contexto.MA_STATUS_RELACAO.Remove(StatusDeRelacao);
-            Contexto.SaveChanges();
+            this.Contexto.MA_STATUS_RELACAO.Remove(StatusDeRelacao);
+            this.Contexto.SaveChanges();
         }
 
         public void AtualizarStatusDeRelacao(MA_STATUS_RELACAO StatusDeRelacao)
         {
             if (VerificarSeNomeDeStatusDeRelacaoJaExiste(StatusDeRelacao))
             {
-                Contexto.Entry(StatusDeRelacao).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                this.Contexto.Entry(StatusDeRelacao).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
             }
         }
 
