@@ -23,7 +23,7 @@
                     <Items>
                         
                         <%-- Código do Usuário --%>
-                        <ext:TextField ID="cod_usuarioId" Name="cod_usuario"  Width="470" runat="server" FieldLabel="Código" />                       
+                        <ext:TextField ID="cod_usuarioId" Name="cod_usuario"  Width="470" runat="server" FieldLabel="Código" ReadOnly="true" />                       
                          
                         <%-- Login do Usuário --%>
                         <ext:TextField ID="e_mailId" Name="e_mail" Width="470" AllowBlank="false" runat="server" FieldLabel="Login" />
