@@ -9,7 +9,7 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="ItemFormPanelId" runat="server" Title="Item" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="ItemFormPanelId" runat="server" Title="Inserir/Editar Item" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
@@ -23,7 +23,7 @@
                     <Items>
 
                         <%-- Código do Item --%>
-                        <ext:TextField ID="cod_itemId" Name="cod_item"  runat="server" FieldLabel="Código" />
+                        <ext:TextField ID="cod_itemId" Name="cod_item"  runat="server" FieldLabel="Código" ReadOnly="true"/>
 
                         <%-- Nome do Item --%>
                         <ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
@@ -77,7 +77,7 @@
         <%-- Colunas da Grid --%>
         <ColumnModel>
             <Columns>                
-                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição" Flex="2" DataIndex="nome" />                                                  
+                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição do Item" Flex="2" DataIndex="nome" />                                                  
             </Columns>            
         </ColumnModel>    
            
