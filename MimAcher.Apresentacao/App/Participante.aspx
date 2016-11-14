@@ -9,7 +9,7 @@
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="ParticipanteFormPanelId" runat="server" Title="Participante" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="ParticipanteFormPanelId" runat="server" Title="Inserir/Editar Participante" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
@@ -23,7 +23,7 @@
 					<Items>
 
 						<%-- Código do Participante --%>
-						<ext:TextField ID="cod_participanteId" Name="cod_participante"  runat="server" FieldLabel="Código" />
+						<ext:TextField ID="cod_participanteId" Name="cod_participante" runat="server" FieldLabel="Código" ReadOnly="true" />
 
 						<%-- Nome do Participante --%>
 						<ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
