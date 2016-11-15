@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.GeradorDados", "Mi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Mobile", "MimAcher.Mobile\MimAcher.Mobile.csproj", "{FCCB249C-6A6C-496C-A4BB-B210D2B329B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Postgres", "MimAcher.Postgres\MimAcher.Postgres.csproj", "{018DDEA6-EAC5-4796-9B69-0480343AC5A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.CursorBDLocal", "MimAcher.Postgres\MimAcher.CursorBDLocal.csproj", "{018DDEA6-EAC5-4796-9B69-0480343AC5A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimAcher.Testes.Mobile", "MimAcher.Testes.Mobile\MimAcher.Testes.Mobile.csproj", "{5E9F6D30-200E-47B3-83C4-D22429BC9AC9}"
 EndProject
