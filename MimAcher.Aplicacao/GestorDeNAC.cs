@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -36,7 +33,7 @@ namespace MimAcher.Aplicacao
         {
             return this.RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
         }
-        
+
         public void InserirNAC(MA_NAC nac)
         {
             this.RepositorioDeNAC.InserirNAC(nac);
@@ -66,14 +63,15 @@ namespace MimAcher.Aplicacao
         {
             List<MA_NAC> listanac = ObterTodosOsNAC();
 
-            foreach(MA_NAC nac in listanac)
+            foreach (MA_NAC nac in listanac)
             {
-                if(nac.cod_usuario == idUsuario)
+                if (nac.cod_usuario == idUsuario)
                 {
                     return true;
                 }
             }
 
-            return false;        }
+            return false;
+        }
     }
 }

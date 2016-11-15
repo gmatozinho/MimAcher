@@ -15,7 +15,7 @@ namespace MimAcher.WebService.Controllers
         {
             this.GestorDeUsuario = new GestorDeUsuario();
         }
-        
+
         // GET: Usuario
         public ActionResult Index()
         {
@@ -28,11 +28,11 @@ namespace MimAcher.WebService.Controllers
             List<MA_USUARIO> listausuariooriginal = this.GestorDeUsuario.ObterTodosOsUsuarios();
             List<Usuario> listausuario = new List<Usuario>();
 
-            foreach(MA_USUARIO u in listausuariooriginal)
+            foreach (MA_USUARIO u in listausuariooriginal)
             {
                 Usuario usuario = new Usuario();
 
-                usuario.cod_usuario = u.cod_usuario;                
+                usuario.cod_usuario = u.cod_usuario;
                 usuario.e_mail = u.e_mail;
                 usuario.senha = u.senha;
 
@@ -92,7 +92,7 @@ namespace MimAcher.WebService.Controllers
         public ActionResult Update(List<Usuario> listausuario)
         {
             JsonResult jsonResult;
-            
+
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listausuario == null)
             {

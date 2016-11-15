@@ -103,6 +103,33 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Model ModelItemId;
         
         /// <summary>
+        /// cod_s_relacaoId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.ComboBox cod_s_relacaoId;
+        
+        /// <summary>
+        /// StoreStatusRelacaoId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Store StoreStatusRelacaoId;
+        
+        /// <summary>
+        /// ModelStatusRelacaoId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Model ModelStatusRelacaoId;
+        
+        /// <summary>
         /// ParticipanteHobbieBarId control.
         /// </summary>
         /// <remarks>
@@ -182,6 +209,15 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Column nomeItemColumnId;
+        
+        /// <summary>
+        /// nomeStatusRelacaoColumnId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Column nomeStatusRelacaoColumnId;
         
         /// <summary>
         /// ParticipanteHobbieRowSelectionModelId control.

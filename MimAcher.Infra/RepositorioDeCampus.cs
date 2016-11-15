@@ -29,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_CAMPUS.ToList();
         }
-        
+
 
         public void InserirCampus(MA_CAMPUS campus)
         {

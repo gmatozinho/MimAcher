@@ -7,11 +7,11 @@ using MimAcher.WebService.Models;
 namespace MimAcher.WebService.Controllers
 {
     public class NACController : Controller
-    {   
+    {
         public GestorDeNAC GestorDeNAC { get; set; }
 
         public NACController()
-        {     
+        {
             this.GestorDeNAC = new GestorDeNAC();
         }
 
@@ -33,7 +33,7 @@ namespace MimAcher.WebService.Controllers
 
                 nac.cod_nac = nc.cod_nac;
                 nac.nomerepresentante = nc.nome_representante;
-                
+
                 listanac.Add(nac);
             }
 
@@ -50,19 +50,19 @@ namespace MimAcher.WebService.Controllers
         public ActionResult Add(List<NAC> listanac)
         {
             JsonResult jsonResult;
-            
+
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listanac == null)
             {
                 jsonResult = Json(new
-                { 
+                {
                     success = false
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach(NAC nc in listanac)
+            foreach (NAC nc in listanac)
             {
                 MA_NAC nac = new MA_NAC();
                 nac.cod_usuario = nc.cd_usuario;

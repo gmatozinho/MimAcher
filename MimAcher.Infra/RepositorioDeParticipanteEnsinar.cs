@@ -29,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.ToList();
         }
-        
+
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
@@ -76,7 +76,7 @@ namespace MimAcher.Infra
             }
         }
 
-        
+
         public void AtualizarEnsinamentoDeParticipanteSemConferencia(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             MIMACHEREntities Contexto = new MIMACHEREntities();

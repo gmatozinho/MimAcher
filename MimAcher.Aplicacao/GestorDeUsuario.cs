@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -12,7 +9,8 @@ namespace MimAcher.Aplicacao
     {
         public RepositorioDeUsuario RepositorioDeUsuario { get; set; }
 
-        public GestorDeUsuario(){
+        public GestorDeUsuario()
+        {
             this.RepositorioDeUsuario = new RepositorioDeUsuario();
         }
 
@@ -38,19 +36,21 @@ namespace MimAcher.Aplicacao
 
         public Boolean VerificarExistenciaDeUsuarioPorEmailESenha(String email, String senha)
         {
-            if(ObterUsuarioPorEmailESenha(email, senha) != null)
+            if (ObterUsuarioPorEmailESenha(email, senha) != null)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        
+
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);
+        }
+
+        public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            return this.RepositorioDeUsuario.InserirUsuarioComRetorno(usuario);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -66,6 +66,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.AtualizarUsuario(usuario);
+        }
+
+        public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            return this.RepositorioDeUsuario.AtualizarUsuarioComRetorno(usuario);
         }
     }
 }

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MimAcher.Infra;
+﻿using System.Collections.Generic;
 using MimAcher.Dominio;
+using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
@@ -26,7 +22,7 @@ namespace MimAcher.Aplicacao
         {
             return this.RepositorioDeCampus.ObterTodosOsCampus();
         }
-        
+
         public void InserirCampus(MA_CAMPUS naccampus)
         {
             this.RepositorioDeCampus.InserirCampus(naccampus);
