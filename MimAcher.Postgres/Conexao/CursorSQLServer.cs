@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using MimAcher.Mobile.Entidades;
-using MimAcher.Postgres.Conexao.Parametros;
+using MimAcher.BancoDadosLocal.Conexao.Parametros;
 using System.Data.SqlClient;
 
-namespace MimAcher.Postgres.Conexao
+namespace MimAcher.BancoDadosLocal.Conexao
 {
     class CursorSQLServer : CursorGenerico
     {

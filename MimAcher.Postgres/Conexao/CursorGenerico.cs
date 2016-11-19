@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MimAcher.Postgres.Conexao
+namespace MimAcher.BancoDadosLocal.Conexao
 {
     public abstract class CursorGenerico
     {

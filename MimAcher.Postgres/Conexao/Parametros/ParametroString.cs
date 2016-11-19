@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using System.Data.Common;
 
-namespace MimAcher.Postgres.Conexao.Parametros
+namespace MimAcher.BancoDadosLocal.Conexao.Parametros
 {
     internal static class ParametroString
     {
