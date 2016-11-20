@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
@@ -35,6 +36,8 @@ namespace MimAcher.Mobile.Activities
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Main);
+
+            ChecarConexão();
 
             //Iniciando as variaveis do contexto
             var campoEmail = FindViewById<EditText>(Resource.Id.email);
@@ -81,9 +84,33 @@ namespace MimAcher.Mobile.Activities
             return informacoes;
         }
 
+        //passar essa checar conexao para uma classe
+        private void ChecarConexão()
+        {
+            //tenho q checar conexao da internet
+            //checar conexao do servidor
+            const string url = "ghoststation.ddns.net";
+
+            var pingSender = new Ping();
+            var reply = pingSender.Send(url);
+
+            if (!reply.Status.ToString().Equals("Success"))
+            {
+                const string toast = "Servidor Offline";
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                
+            }
+            else
+            {
+                const string toast = "Servidor Online";
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
+
+        }
+
         private void InscreverClick(object sender, EventArgs e)
         {
-            var progressDialog = ProgressDialog.Show(this, "Carregando", "Conectando com o servidor...", true);
+            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
 
             new Thread(new ThreadStart(delegate
