@@ -33,7 +33,7 @@
             <Items>
                 <ext:TextField AutoFocus="true" AutoFocusDelay="50" ID="emailId" runat="server" FieldLabel="Email" AllowBlank="true" BlankText="Email obrigatório." EnableKeyEvents="true">                                               
                     <Listeners>                    
-                        <KeyPress Handler="if ((e.getKey() == e.ENTER)) { #{btnLogin}.fireEvent('click'); }" />
+                        <KeyPress Handler="if ((e.getKey() == e.ENTER)) { #{LoginButtonId}.fireEvent('click'); }" />
                     </Listeners>
                  </ext:TextField>
                  <ext:TextField ID="senhaId" runat="server" InputType="Password" FieldLabel="Senha" AllowBlank="true" BlankText="Senha obrigatória." EnableKeyEvents="true">         
@@ -41,7 +41,7 @@
                             <%-- <KeyPress Handler="if ((e.getKey() == e.ENTER)) {
                                             #{DirectMethods}.Login_Click();
                                         }" />--%>
-                            <KeyPress Handler="if ((e.getKey() == e.ENTER)){ #{btnLogin}.fireEvent('click'); }"/>
+                            <KeyPress Handler="if ((e.getKey() == e.ENTER)){ #{LoginButtonId}.fireEvent('click'); }"/>
                     </Listeners>                
                  </ext:TextField>                
             </Items>
