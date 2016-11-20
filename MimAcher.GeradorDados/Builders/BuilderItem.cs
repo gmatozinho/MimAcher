@@ -1,6 +1,6 @@
 ﻿using System;
 using MimAcher.GeradorDados.Geradores;
-using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.com.Entidades;
 
 namespace MimAcher.GeradorDados.Builders
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using MimAcher.Mobile.Entidades;
 using MimAcher.BancoDadosLocal.Conexao.Parametros;
+using MimAcher.Mobile.com.Entidades;
 using Npgsql;
 
 namespace MimAcher.BancoDadosLocal.Conexao

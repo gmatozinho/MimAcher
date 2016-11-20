@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using MimAcher.Mobile.Entidades;
+using MimAcher.Mobile.com.Entidades;
 
 namespace MimAcher.GeradorDados.Builders
 {
