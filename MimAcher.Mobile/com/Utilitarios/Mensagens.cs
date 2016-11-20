@@ -144,6 +144,38 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
+        public static void MensagemServidorOnline(Context activity)
+        {
+            const string toast = "Servidor Online";
+            Toast.MakeText(activity, toast, ToastLength.Long).Show();
+        }
+
+        public static void MensagemServidorOffline(Context activity)
+        {
+            var alert = new AlertDialog.Builder(activity);
+            alert.SetTitle("Notificação:");
+            alert.SetMessage("Desculpe o transtorno, estamos enfrentando problemas com o servidor, tente novamente mais tarde");
+            alert.Show();
+        }
+
+        public static void MensagemInternetDesativada(Context activity)
+        {
+            var alert = new AlertDialog.Builder(activity);
+            alert.SetTitle("Notificação:");
+            alert.SetMessage("Por favor verifique sua conexão com a internet!");
+            alert.Show();
+        }
+
+        public static void MensagemInternetAtivadaMasComProblema(Context activity)
+        {
+            var alert = new AlertDialog.Builder(activity);
+            alert.SetTitle("Notificação:");
+            alert.SetMessage("Por favor verifique o estado da rede!");
+            alert.Show();
+        }
+
+
+
 
     }
 }

@@ -5,7 +5,7 @@ using System.Net.Mail;
 using Android.Content;
 using MimAcher.Mobile.com.Entidades;
 
-namespace MimAcher.Mobile.com.Utilitarios
+namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidadeValidador
 {
     public static class Validador
     {

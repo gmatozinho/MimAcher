@@ -4,11 +4,14 @@ using System.Net.NetworkInformation;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
+using Android.Net;
 using Android.OS;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidadedeChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -37,7 +40,13 @@ namespace MimAcher.Mobile.com.Activities
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Main);
 
-            ChecarConexão();
+            //chamando o serviço de conexao a internet, necessário fazer na activity
+            var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
+
+            //checo a conexao caso nao exista conexao com a internet ou servidor, finalizo a aplicação
+            var resultado = ChecagemConexao.ChecarConexão(this, connectivityManager);
+            Conexao(resultado);
+            
 
             //Iniciando as variaveis do contexto
             var campoEmail = FindViewById<EditText>(Resource.Id.email);
@@ -85,28 +94,14 @@ namespace MimAcher.Mobile.com.Activities
         }
 
         //passar essa checar conexao para uma classe
-        private void ChecarConexão()
+        private void Conexao(bool resultado)
         {
-            //tenho q checar conexao da internet
-            //checar conexao do servidor
-            const string url = "ghoststation.ddns.net";
-
-            var pingSender = new Ping();
-            var reply = pingSender.Send(url);
-
-            if (!reply.Status.ToString().Equals("Success"))
+            if (!resultado)
             {
-                const string toast = "Servidor Offline";
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-                
+                FinishAffinity();
             }
-            else
-            {
-                const string toast = "Servidor Online";
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
-            }
-
         }
+        
 
         private void InscreverClick(object sender, EventArgs e)
         {

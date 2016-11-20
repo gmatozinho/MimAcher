@@ -7,6 +7,7 @@ using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidadeValidador;
 
 namespace MimAcher.Mobile.com.Activities
 {
