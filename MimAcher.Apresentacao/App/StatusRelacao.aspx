@@ -9,7 +9,7 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="StatusRelacaoFormPanelId" runat="server" Title="Inserir/Editar Status de Relação BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="StatusRelacaoFormPanelId" runat="server" Title="Inserir/Editar Status de Relação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
