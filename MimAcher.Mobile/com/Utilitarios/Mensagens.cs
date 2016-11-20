@@ -154,7 +154,8 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
-            alert.SetMessage("Desculpe o transtorno, estamos enfrentando problemas com o servidor, tente novamente mais tarde");
+            alert.SetMessage("Desculpe o transtorno, estamos enfrentando problemas com o servidor, tente novamente mais tarde.");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }
 
@@ -162,7 +163,8 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
-            alert.SetMessage("Por favor verifique sua conexão com a internet!");
+            alert.SetMessage("Por favor verifique se o seu wifi está ligado");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }
 
@@ -170,7 +172,8 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
-            alert.SetMessage("Por favor verifique o estado da rede!");
+            alert.SetMessage("Por favor verifique sua conexão com a internet!");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }
 

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MimAcher.Mobile.com.Utilitarios;
-using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidadeValidador;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Entidades
 {

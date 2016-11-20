@@ -11,7 +11,7 @@ using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
-using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidadedeChecarConexao;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -43,10 +43,8 @@ namespace MimAcher.Mobile.com.Activities
             //chamando o serviço de conexao a internet, necessário fazer na activity
             var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 
-            //checo a conexao caso nao exista conexao com a internet ou servidor, finalizo a aplicação
-            var resultado = ChecagemConexao.ChecarConexão(this, connectivityManager);
-            Conexao(resultado);
-            
+            ChecagemConexao.ChecarConexão(this, connectivityManager);
+
 
             //Iniciando as variaveis do contexto
             var campoEmail = FindViewById<EditText>(Resource.Id.email);
@@ -71,7 +69,7 @@ namespace MimAcher.Mobile.com.Activities
             //Ideia é buscar usuario no banco, se existir retorna true e checa senha, se nao retorna usuario inexistente
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
-           inscrevase.Click += InscreverClick;
+            inscrevase.Click += ButtonLoadingClick;
         }
 
         
@@ -93,51 +91,40 @@ namespace MimAcher.Mobile.com.Activities
             return informacoes;
         }
 
-        //passar essa checar conexao para uma classe
-        private void Conexao(bool resultado)
-        {
-            if (!resultado)
-            {
-                FinishAffinity();
-            }
-        }
-        
-
-        private void InscreverClick(object sender, EventArgs e)
+        private void ButtonLoadingClick(object sender, EventArgs e)
         {
             var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
 
             new Thread(new ThreadStart(delegate
             {
+                Thread.Sleep(3000);//take 5 secs to do it's job
+
                 RunOnUiThread(async () =>
                 {
                     for (var i = 0; i < 100; i++)
                     {
                         await Task.Delay(50);
                     }
-                });
 
-                RunOnUiThread(async () => {
-                    await MyButtonClicked(sender,e);
+                    await MyButtonClicked();
                     progressDialog.Dismiss();
-                }
-                );
+                });
             })).Start();
         }
 
-        private async Task MyButtonClicked(object sender, EventArgs e)
+        private async Task MyButtonClicked()
         {
             var myProgressBar = new ProgressBar(this)
             {
                 Indeterminate = true,
                 Visibility = ViewStates.Visible
             };
-            await MyMethod();
+            await InscreverClick();
             myProgressBar.Visibility = ViewStates.Gone;
         }
 
-        private async Task MyMethod()
+        private async Task InscreverClick()
         {
             await Task.Run(() => {
                 IniciarInscrever(); 
