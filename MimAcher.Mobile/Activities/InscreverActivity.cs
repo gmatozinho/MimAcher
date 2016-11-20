@@ -45,14 +45,15 @@ namespace MimAcher.Mobile.Activities
             var campoSenha = FindViewById<EditText>(Resource.Id.senha);
             var campoConfirmarSenha = FindViewById<EditText>(Resource.Id.confirmar_senha);
             var campoNome = FindViewById<EditText>(Resource.Id.nome);
-            var campoEMail = FindViewById<EditText>(Resource.Id.email);
+            var campoEmail = FindViewById<EditText>(Resource.Id.email);
             var campoDtNascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             var campoTelefone = FindViewById<EditText>(Resource.Id.telefone);
             //pegar lista de campus do banco
             var campusComCod = CursorBD.ObterCampi();
             var opcoesCampus = CriarListaCampi(campusComCod);
-            //var opcoesCampus = new List<string> { "Serra", "Vitória", "Vila Velha" };
             var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
+
+            //captar telefone caso possivel
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
             var tel = telephonyManager.Line1Number;
 
@@ -63,11 +64,15 @@ namespace MimAcher.Mobile.Activities
             adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
             spinnerCampus.Adapter = adapterCampus;
 
+            //Mascara para telefone e nascimento
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
             campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
+
+            //Captando a escolha do campus
             var escolhaCampus = spinnerCampus.SelectedItem;
-            _campus = escolhaCampus.ToString();
-            
+            var campus = escolhaCampus.ToString();
+            _campus = PegarChaveDoCampus(campus, campusComCod).ToString();
+
             //Capturar telefone do sistema
             if (tel != null)
             {
@@ -79,12 +84,23 @@ namespace MimAcher.Mobile.Activities
             
             //Pegar as informações inseridas
             campoNome.TextChanged += (sender, n) => _nome = n.Text.ToString();
-            campoEMail.TextChanged += (sender, e) => _email = e.Text.ToString();
+            campoEmail.TextChanged += (sender, e) => _email = e.Text.ToString();
             campoSenha.TextChanged += (sender, s) => _senha = s.Text.ToString();
             campoConfirmarSenha.TextChanged += (sender, cS) => _confirmarSenha = cS.Text.ToString();
             campoDtNascimento.TextChanged += (sender, n) => _nascimento = n.Text.ToString();
             campoTelefone.TextChanged += (sender, t) => _telefone = t.Text.ToString();
             
+        }
+
+        //captar a key do campus escolhido
+
+        private static int PegarChaveDoCampus(string campus, Dictionary<int,string> dicionarioCampus )
+        {
+            if (dicionarioCampus.ContainsValue(campus))
+            {
+                return (from chave in dicionarioCampus where chave.Value == campus select chave.Key).FirstOrDefault();
+            }
+            return 0;
         }
 
         //Define as funcionalidades deste menu
@@ -106,7 +122,6 @@ namespace MimAcher.Mobile.Activities
 
             if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
             {
-                //participante.AdequarInformacoes();
                 var x = participante.InscreverParticipante();
                 IniciarEscolherFoto(this, participante);
                 const string toast = ("Usuário Criado");
@@ -140,7 +155,6 @@ namespace MimAcher.Mobile.Activities
         }
 
         //retornar só lista do campi
-
         private static List<string> CriarListaCampi(Dictionary<int, string> dicCampi)
         {
             return dicCampi.Select(info => info.Value).ToList();

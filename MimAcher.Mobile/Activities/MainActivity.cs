@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.Entidades;
 using MimAcher.Mobile.Entidades.Fabricas;
@@ -58,11 +59,7 @@ namespace MimAcher.Mobile.Activities
             //Ideia é buscar usuario no banco, se existir retorna true e checa senha, se nao retorna usuario inexistente
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
-            /*inscrevase.Click += delegate {
-                IniciarInscrever();
-                Loading();
-            };*/
-            inscrevase.Click += OnClick;
+           inscrevase.Click += InscreverClick;
         }
 
         
@@ -84,9 +81,9 @@ namespace MimAcher.Mobile.Activities
             return informacoes;
         }
 
-        private void OnClick(object sender, EventArgs e)
+        private void InscreverClick(object sender, EventArgs e)
         {
-            var progressDialog = ProgressDialog.Show(this, "", "Carregando...", true);
+            var progressDialog = ProgressDialog.Show(this, "Carregando", "Conectando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
 
             new Thread(new ThreadStart(delegate
@@ -98,12 +95,31 @@ namespace MimAcher.Mobile.Activities
                         await Task.Delay(50);
                     }
                 });
+
                 RunOnUiThread(async () => {
-                    await IniciarInscrever();
+                    await MyButtonClicked(sender,e);
                     progressDialog.Dismiss();
                 }
                 );
             })).Start();
+        }
+
+        private async Task MyButtonClicked(object sender, EventArgs e)
+        {
+            var myProgressBar = new ProgressBar(this)
+            {
+                Indeterminate = true,
+                Visibility = ViewStates.Visible
+            };
+            await MyMethod();
+            myProgressBar.Visibility = ViewStates.Gone;
+        }
+
+        private async Task MyMethod()
+        {
+            await Task.Run(() => {
+                IniciarInscrever(); 
+            });
         }
     }
 }
