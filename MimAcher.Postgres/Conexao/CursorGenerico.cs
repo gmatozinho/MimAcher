@@ -1,10 +1,10 @@
-﻿using MimAcher.Mobile.Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MimAcher.Mobile.com.Entidades;
 
 namespace MimAcher.BancoDadosLocal.Conexao
 {

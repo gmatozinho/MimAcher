@@ -58,10 +58,6 @@
     </CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
@@ -134,61 +130,50 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Components\xamarin.auth-1.2.3.1\lib\android\Xamarin.Auth.Android.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.Android, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\Xamarin.Forms.Platform.Android.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.3.2.127\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activities\AlterarSenhaActivity.cs" />
-    <Compile Include="Activities\EditarPerfilActivity.cs" />
-    <Compile Include="Activities\EscolherFotoActivity.cs" />
-    <Compile Include="Activities\HobbiesActivity.cs" />
-    <Compile Include="Activities\InscreverActivity.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasComResultados.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasComTab.cs" />
-    <Compile Include="Entidades\Fabricas\IFabricaTelas.cs" />
-    <Compile Include="Entidades\ListAdapterHae.cs" />
-    <Compile Include="Activities\MainActivity.cs" />
-    <Compile Include="Activities\QueroAprenderActivity.cs" />
-    <Compile Include="Activities\QueroEnsinarActivity.cs" />
-    <Compile Include="Activities\TAB\ResultEnsinarActivity.cs" />
-    <Compile Include="Activities\TAB\ResultAprenderActivity.cs" />
-    <Compile Include="Activities\TAB\ResultHobbiesActivity.cs" />
-    <Compile Include="Entidades\ListaItens.cs" />
-    <Compile Include="Utilitarios\Geolocalizacao.cs" />
-    <Compile Include="Utilitarios\Mascara.cs" />
-    <Compile Include="Utilitarios\Mensagens.cs" />
-    <Compile Include="Entidades\PacoteCompleto.cs" />
-    <Compile Include="Utilitarios\Validador.cs" />
+    <Compile Include="com\Activities\AlterarSenhaActivity.cs" />
+    <Compile Include="com\Activities\EditarPerfilActivity.cs" />
+    <Compile Include="com\Activities\EscolherFotoActivity.cs" />
+    <Compile Include="com\Activities\HobbiesActivity.cs" />
+    <Compile Include="com\Activities\InscreverActivity.cs" />
+    <Compile Include="com\Entidades\Fabricas\FabricaTelasComResultados.cs" />
+    <Compile Include="com\Entidades\Fabricas\FabricaTelasComTab.cs" />
+    <Compile Include="com\Entidades\Fabricas\IFabricaTelas.cs" />
+    <Compile Include="com\Entidades\ListAdapterHae.cs" />
+    <Compile Include="com\Activities\MainActivity.cs" />
+    <Compile Include="com\Activities\QueroAprenderActivity.cs" />
+    <Compile Include="com\Activities\QueroEnsinarActivity.cs" />
+    <Compile Include="com\Activities\TAB\ResultEnsinarActivity.cs" />
+    <Compile Include="com\Activities\TAB\ResultAprenderActivity.cs" />
+    <Compile Include="com\Activities\TAB\ResultHobbiesActivity.cs" />
+    <Compile Include="com\Entidades\ListaItens.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConnectionHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoInternetHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoServidorHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarRedeStatusHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecagemConexao.cs" />
+    <Compile Include="com\Utilitarios\Geolocalizacao.cs" />
+    <Compile Include="com\Utilitarios\Mascara.cs" />
+    <Compile Include="com\Utilitarios\Mensagens.cs" />
+    <Compile Include="com\Entidades\PacoteCompleto.cs" />
+    <Compile Include="com\Utilitarios\Validador.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Activities\HomeActivity.cs" />
-    <Compile Include="Activities\ResultadoInformacoesActivity.cs" />
-    <Compile Include="Entidades\Participante.cs" />
-    <Compile Include="Utilitarios\CursorBD.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
-    <Compile Include="Activities\SplashScreen.cs" />
-    <Compile Include="Entidades\PacoteAbstrato.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaAbstrataTelasNormais.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasNormaisComProcedimento.cs" />
-    <Compile Include="Entidades\Fabricas\FabricaTelasNormaisSemProcedimento.cs" />
-    <Compile Include="Services\ServicoUsuario.cs" />
-    <Compile Include="Utilitarios\JsonParser.cs" />
-    <Compile Include="Utilitarios\MontadorRequisicao.cs" />
-    <Compile Include="Utilitarios\TipoItem.cs" />
+    <Compile Include="com\Activities\HomeActivity.cs" />
+    <Compile Include="com\Activities\ResultadoInformacoesActivity.cs" />
+    <Compile Include="com\Entidades\Participante.cs" />
+    <Compile Include="com\Utilitarios\CursorBD.cs" />
+    <Compile Include="com\Entidades\Usuario.cs" />
+    <Compile Include="com\Activities\SplashScreen.cs" />
+    <Compile Include="com\Entidades\PacoteAbstrato.cs" />
+    <Compile Include="com\Entidades\Fabricas\FabricaAbstrataTelasNormais.cs" />
+    <Compile Include="com\Entidades\Fabricas\FabricaTelasNormaisComProcedimento.cs" />
+    <Compile Include="com\Entidades\Fabricas\FabricaTelasNormaisSemProcedimento.cs" />
+    <Compile Include="com\Services\ServicoUsuario.cs" />
+    <Compile Include="com\Utilitarios\JsonParser.cs" />
+    <Compile Include="com\Utilitarios\MontadorRequisicao.cs" />
+    <Compile Include="com\Utilitarios\TipoItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -603,6 +588,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_location_on_white_24dp.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
@@ -620,7 +606,5 @@
       <ErrorText>Este projeto faz referência a pacotes do NuGet que não estão presentes neste computador. Use a Restauração de Pacotes do NuGet para baixá-los.  Para obter mais informações, consulte http://go.microsoft.com/fwlink/?LinkID=322105. O arquivo ausente é {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets'))" />
-    <Error Condition="!Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
-  <Import Project="..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
 </Project>

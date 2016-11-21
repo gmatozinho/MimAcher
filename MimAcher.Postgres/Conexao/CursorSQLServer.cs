@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using MimAcher.Mobile.Entidades;
 using MimAcher.BancoDadosLocal.Conexao.Parametros;
 using System.Data.SqlClient;
+using MimAcher.Mobile.com.Entidades;
 
 namespace MimAcher.BancoDadosLocal.Conexao
 {

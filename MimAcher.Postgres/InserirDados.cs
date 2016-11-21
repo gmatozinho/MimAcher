@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using MimAcher.GeradorDados;
-using MimAcher.Mobile.Entidades;
 using MimAcher.BancoDadosLocal.Conexao;
+using MimAcher.Mobile.com.Entidades;
 
 namespace MimAcher.BancoDadosLocal
 {
