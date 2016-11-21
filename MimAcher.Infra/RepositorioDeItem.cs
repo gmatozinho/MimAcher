@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -34,9 +32,9 @@ namespace MimAcher.Infra
 
         public List<MA_ITEM> ObterTodosOsItemsPorNome(String nome)
         {
-            return this.Contexto.MA_ITEM.Where(l => l.nome.ToLower().Equals(nome.ToLower())).ToList();
+            return this.Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
-                
+
         public void InserirItem(MA_ITEM Item)
         {
             if (VerificarSeNomeDeItemJaExiste(Item))
@@ -44,7 +42,7 @@ namespace MimAcher.Infra
                 this.Contexto.MA_ITEM.Add(Item);
                 this.Contexto.SaveChanges();
             }
-            
+
         }
 
         public int BuscarQuantidadeRegistros()
@@ -73,10 +71,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

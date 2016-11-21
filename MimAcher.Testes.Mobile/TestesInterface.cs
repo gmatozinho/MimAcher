@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Xamarin.UITest.Android;
 
 namespace Testes
 {

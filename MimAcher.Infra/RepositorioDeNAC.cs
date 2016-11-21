@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -24,9 +22,9 @@ namespace MimAcher.Infra
 
         public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
         {
-            return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
+            return this.Contexto.MA_NAC.SingleOrDefault(l => l.MA_USUARIO.cod_usuario == idUsuario);
         }
-        
+
         public List<MA_NAC> ObterTodosOsNAC()
         {
             return this.Contexto.MA_NAC.ToList();
@@ -36,16 +34,13 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_NAC.Where(l => l.nome_representante.Equals(nomerepresentante)).ToList();
         }
-        
+
         public void InserirNAC(MA_NAC nac)
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
             {
-                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
-                {
-                    this.Contexto.MA_NAC.Add(nac);
-                    this.Contexto.SaveChanges();
-                }
+                this.Contexto.MA_NAC.Add(nac);
+                this.Contexto.SaveChanges();
             }
         }
 
@@ -74,13 +69,10 @@ namespace MimAcher.Infra
             {
                 MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
 
-                if (nacjaexistente.nome_representante.ToLower().Equals(nac.nome_representante.ToLower()))
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
                 {
-                    if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
-                    {
-                        this.Contexto.Entry(nac).State = EntityState.Modified;
-                        this.Contexto.SaveChanges();
-                    }
+                    this.Contexto.Entry(nac).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
                 }
             }
         }
@@ -91,23 +83,17 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            if(this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario).SingleOrDefault() !=  null)
+            if (this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_usuario == nac.cod_usuario).SingleOrDefault() != null)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
-        
+
     }
 }

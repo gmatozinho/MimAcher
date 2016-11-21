@@ -1,13 +1,14 @@
-﻿using Npgsql;
+﻿using System.Data;
+using System.Data.Common;
 
-namespace MimAcher.Postgres.Conexao.Parametros
+namespace MimAcher.BancoDadosLocal.Conexao.Parametros
 {
     internal static class ParametroInt
     {
-        public static void Construir(string nome_parametro, NpgsqlCommand comando)
+        public static void Construir(string nome_parametro, DbCommand comando)
         {
             var parametro = comando.CreateParameter();
-            parametro.DbType = System.Data.DbType.Int32;
+            parametro.DbType = DbType.Int32;
             parametro.ParameterName = nome_parametro;
             comando.Parameters.Add(parametro);
         }

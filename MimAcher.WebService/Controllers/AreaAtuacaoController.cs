@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
@@ -27,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_AREA_ATUACAO> listaareaatuacaooriginal = GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
+            List<MA_AREA_ATUACAO> listaareaatuacaooriginal = this.GestorDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacao();
             List<AreaAtuacao> listaareaatuacao = new List<AreaAtuacao>();
 
             foreach (MA_AREA_ATUACAO aa in listaareaatuacaooriginal)
@@ -65,25 +62,22 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (AreaAtuacao aa in listaareaatuacao)
             {
-                foreach (AreaAtuacao aa in listaareaatuacao)
-                {
-                    MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
+                MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                    areaatuacao.nome = aa.nome;
+                areaatuacao.nome = aa.nome;
 
-                    GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         } 
 
         [HttpPost]
@@ -102,26 +96,23 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            else
+            foreach (AreaAtuacao aa in listaareaatuacao)
             {
-                foreach (AreaAtuacao aa in listaareaatuacao)
-                {
-                    MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
+                MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                    areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
-                    areaatuacao.nome = aa.nome;
+                areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
+                areaatuacao.nome = aa.nome;
 
-                    GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
-                }
-
-                jsonResult = Json(new
-                {
-                    success = true
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
             }
+
+            jsonResult = Json(new
+            {
+                success = true
+            }, JsonRequestBehavior.AllowGet);
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

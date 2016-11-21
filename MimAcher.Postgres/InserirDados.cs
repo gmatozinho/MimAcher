@@ -1,9 +1,10 @@
-﻿using MimAcher.GeradorDados;
-using MimAcher.Postgres.Conexao;
-using System;
-using MimAcher.Mobile.Entidades;
+﻿using System;
+using System.Diagnostics;
+using MimAcher.GeradorDados;
+using MimAcher.BancoDadosLocal.Conexao;
+using MimAcher.Mobile.com.Entidades;
 
-namespace MimAcher.Postgres
+namespace MimAcher.BancoDadosLocal
 {
     static class InserirDados
     {
@@ -12,9 +13,9 @@ namespace MimAcher.Postgres
             DiretorGeradores dir = new DiretorGeradores();
             Participante par;
 
-            CursorPostgres cursor = new CursorPostgres();
+            CursorGenerico cursor = new CursorSQLServer();
 
-            var watch = System.Diagnostics.Stopwatch.StartNew();
+            var watch = Stopwatch.StartNew();
 
             for (int i = 0; i < 250000; i++)
             {

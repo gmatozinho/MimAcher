@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -26,12 +23,12 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.ToList();
         }
-        
+
         public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
         {
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == id_participante).SingleOrDefault();
         }
-        
+
         public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
         {
             this.Contexto.MA_IMAGEM_PARTICIPANTE.Add(Imagem);

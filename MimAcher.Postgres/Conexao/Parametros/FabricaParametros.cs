@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Npgsql;
-using MimAcher.Mobile.Entidades;
+using System.Data.Common;
+using MimAcher.Mobile.com.Entidades;
 
-namespace MimAcher.Postgres.Conexao.Parametros
+namespace MimAcher.BancoDadosLocal.Conexao.Parametros
 {
     internal static class FabricaParametros
     {
-        public static void CriarParametrosParticipante(NpgsqlCommand comando, Participante participante, Dictionary<string, int> campi)
+        public static void CriarParametrosParticipante(DbCommand comando, Participante participante, Dictionary<string, int> campi)
         {
             FabricaString.MontarParametroNome(comando, participante.Nome);
             FabricaString.MontarParametroEmail(comando, participante.Email);
@@ -18,7 +19,7 @@ namespace MimAcher.Postgres.Conexao.Parametros
             FabricaInt.MontarParametroCampus(comando, campi[participante.Campus]);
         }
 
-        public static void CriarParametrosItem(NpgsqlCommand comando, string nome_item, int codigo_participante)
+        public static void CriarParametrosItem(DbCommand comando, string nome_item, int codigo_participante)
         {
             FabricaString.MontarParametroItem(comando, nome_item);
             FabricaInt.MontarParametroCodigoParticipante(comando, codigo_participante);

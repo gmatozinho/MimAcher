@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -31,13 +29,22 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.ToList();
         }
-        
+
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
             {
                 this.Contexto.MA_PARTICIPANTE_ENSINAR.Add(participanteensinar);
                 this.Contexto.SaveChanges();
+            }
+            else
+            {
+                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
+
+                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                {
+                    AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
+                }
             }
         }
 
@@ -56,9 +63,26 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteensinar))
             {
-                this.Contexto.Entry(participanteensinar).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
             }
+            else
+            {
+                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
+
+                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                {
+                    AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
+                }
+            }
+        }
+
+
+        public void AtualizarEnsinamentoDeParticipanteSemConferencia(MA_PARTICIPANTE_ENSINAR participanteensinar)
+        {
+            MIMACHEREntities Contexto = new MIMACHEREntities();
+
+            Contexto.Entry(participanteensinar).State = EntityState.Modified;
+            Contexto.SaveChanges();
         }
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_ENSINAR participanteensinar)
@@ -67,10 +91,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -24,7 +22,7 @@ namespace MimAcher.Infra
 
         public MA_AREA_ATUACAO ObterAreaDeAtuacaoPorNome(MA_AREA_ATUACAO areaatuacao)
         {
-            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLower().Equals(areaatuacao.nome.ToLower())).SingleOrDefault();
+            return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.ToLowerInvariant().Equals(areaatuacao.nome.ToLowerInvariant())).SingleOrDefault();
         }
 
         public List<MA_AREA_ATUACAO> ObterTodasAsAreasDeAtuacao()
@@ -63,18 +61,16 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
-            }            
+            }
         }
 
         public Boolean VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(MA_AREA_ATUACAO areaatuacao)
         {
-            if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null) {
+            if (ObterAreaDeAtuacaoPorNome(areaatuacao) != null)
+            {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

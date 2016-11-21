@@ -27,8 +27,7 @@ namespace MimAcher.Apresentacao
                 MA_USUARIO usuario = (MA_USUARIO)Session["usuario"];
 
                 Session.Add("usuario", usuario);
-                this.LoginWindowId.Close();
-                //FormsAuthentication.SetAuthCookie(usuario.Login, true);
+                this.LoginWindowId.Close();                
                 Response.Redirect("/App/Usuario.aspx");
             }
         }
@@ -52,8 +51,7 @@ namespace MimAcher.Apresentacao
                     MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
 
                     Session.Add("usuario", usuario);
-                    this.LoginWindowId.Close();
-                    //FormsAuthentication.SetAuthCookie(usuario.Login, true);
+                    this.LoginWindowId.Close();                    
                     Response.Redirect("/App/Usuario.aspx");
                 }
                 //Senão, informe que o usuário e senha está inválidos.

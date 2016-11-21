@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -26,7 +23,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_IMAGEM_PARTICIPANTE> listaimagemparticipante = GestorDeImagemDeParticipante.ObterTodosOsImagens();
+            List<MA_IMAGEM_PARTICIPANTE> listaimagemparticipante = this.GestorDeImagemDeParticipante.ObterTodosOsImagens();
 
             JsonResult jsonResult = Json(new
             {

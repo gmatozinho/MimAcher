@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -31,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_USUARIO.ToList();
         }
-        
+
         public MA_USUARIO ObterUsuarioPorEmail(String email)
         {
             return this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email)).SingleOrDefault();
@@ -39,10 +37,7 @@ namespace MimAcher.Infra
 
         public MA_USUARIO ObterUsuarioPorEmailESenha(String email, String senha)
         {
-            MA_USUARIO usuario = this.Contexto.MA_USUARIO.Where(l => l.e_mail.Equals(email) && l.senha.Equals(senha)).SingleOrDefault();
-
-            //return this.Contexto.MA_USUARIO.Where(l => l.login.Equals(login) && l.senha.Equals(senha)).SingleOrDefault();
-            return usuario;
+            return this.Contexto.MA_USUARIO.Where(l => l.e_mail.ToLower().Equals(email) && l.senha.ToLower().Equals(senha)).SingleOrDefault();
         }
 
         public void InserirUsuario(MA_USUARIO usuario)
@@ -54,9 +49,24 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                this.Contexto.MA_USUARIO.Add(usuario);
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
-            return this.Contexto.MA_USUARIO.Count();
+            return Contexto.MA_USUARIO.Count();
         }
 
         public void RemoverUsuario(MA_USUARIO usuario)
@@ -67,11 +77,26 @@ namespace MimAcher.Infra
 
         public void AtualizarUsuario(MA_USUARIO usuario)
         {
-            if(!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
             {
                 this.Contexto.Entry(usuario).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
-            } 
+            }
+        }
+
+        public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
+        {
+            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            {
+                this.Contexto.Entry(usuario).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public Boolean VerificarSeEmailDeUsuarioJaExiste(MA_USUARIO usuario)
@@ -80,10 +105,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

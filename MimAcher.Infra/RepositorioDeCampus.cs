@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Linq;
 using MimAcher.Dominio;
 
 namespace MimAcher.Infra
@@ -31,7 +29,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_CAMPUS.ToList();
         }
-        
+
 
         public void InserirCampus(MA_CAMPUS campus)
         {
@@ -68,10 +66,7 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

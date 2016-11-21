@@ -61,7 +61,6 @@ namespace MimAcher.Mobile
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_reverseLayout = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_reverseLayout;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_spanCount = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_spanCount;
 			global::com.refractored.fab.Resource.Styleable.RecyclerView_stackFromEnd = global::MimAcher.Mobile.Resource.Styleable.RecyclerView_stackFromEnd;
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::MimAcher.Mobile.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation

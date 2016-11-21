@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Ext.Net;
-using MimAcher.Dominio;
 using MimAcher.Aplicacao;
+using MimAcher.Dominio;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class Item : System.Web.UI.Page
+    public partial class Item : Page
     {
-        //Declaração dos Gestores        }
+        //Declaração dos Gestores        
         public GestorDeItem GestorDeItem { get; set; }
 
         public Item()
@@ -25,37 +22,37 @@ namespace MimAcher.Apresentacao.App
         {
             if (!X.IsAjaxRequest)
             {
-                this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-                this.StoreItemId.DataBind();
+                StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+                StoreItemId.DataBind();
             }
         }
 
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            this.ItemWindowId.Show();
+            ItemWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            this.StoreItemId.DataBind();
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            this.StoreItemId.DataBind();
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            StoreItemId.DataBind();
         }
 
         //Lista os items do banco de dados na grid
         protected void List()
         {
             this.GestorDeItem = new GestorDeItem();
-            this.StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
-            this.StoreItemId.DataBind();
+            StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
+            StoreItemId.DataBind();
         }
 
         //Cadastro do item no banco
@@ -63,48 +60,45 @@ namespace MimAcher.Apresentacao.App
         {
             MA_ITEM item = new MA_ITEM();
 
-            item.nome = this.nomeId.Text;
+            item.nome = nomeId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
-            if (this.cod_itemId.Text == "")
+            if (cod_itemId.Text == "")
             {
-                GestorDeItem.InserirItem(item);
-                this.ItemWindowId.Close();
-                this.LimpaForm();
+                this.GestorDeItem.InserirItem(item);
+                ItemWindowId.Close();
+                LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                item.cod_item = Int32.Parse(this.cod_itemId.Text);
-                GestorDeItem.AtualizarItem(item);
-                this.ItemWindowId.Close();
-                this.LimpaForm();
+                item.cod_item = Int32.Parse(cod_itemId.Text);
+                this.GestorDeItem.AtualizarItem(item);
+                ItemWindowId.Close();
+                LimpaForm();
             }
         }
 
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            int codigoitem = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
-            this.ItemWindowId.Show();
+            ItemWindowId.Show();
         }
 
         //Exclui determinado item do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_ITEM item = new MA_ITEM();
-            item = GestorDeItem.ObterItemPorId(Int32.Parse(this.cod_itemId.Text));
+            MA_ITEM item = this.GestorDeItem.ObterItemPorId(Int32.Parse(cod_itemId.Text));
             GestorDeItem.RemoverItem(item);
-            this.LimpaForm();
+            LimpaForm();
         }
 
         //Limpa o formulário
         protected void LimpaForm()
         {
-            this.EditButtonId.Disable(true);
-            this.DeleteButtonId.Disable(true);
-            this.List();
+            EditButtonId.Disable(true);
+            DeleteButtonId.Disable(true);
+            List();
         }
     }
 }

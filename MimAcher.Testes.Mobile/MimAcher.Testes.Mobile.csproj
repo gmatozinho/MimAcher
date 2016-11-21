@@ -62,31 +62,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestarFuncoesDeValidacaoDeCamposSteps.cs" />
+    <Compile Include="ChecarCombinacoes.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChecarCombinacoes.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FazerCadastro.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FazerCadastro.feature</DependentUpon>
+    </Compile>
+    <Compile Include="FazerLogin.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FazerLogin.feature</DependentUpon>
+    </Compile>
     <Compile Include="TestesInterface.cs" />
-    <Compile Include="ValidarCampos.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidarCampos.feature</DependentUpon>
-    </Compile>
-    <Compile Include="ValidarComunicacaoBD.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ValidarComunicacaoBD.feature</DependentUpon>
-    </Compile>
-    <Compile Include="ValidarComunicacaoComBancoDeDadosSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ChecarCombinacoes.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ChecarCombinacoes.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FazerCadastro.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FazerCadastro.feature.cs</LastGenOutput>
+    </None>
+    <None Include="FazerLogin.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FazerLogin.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
-    <None Include="ValidarCampos.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidarCampos.feature.cs</LastGenOutput>
-    </None>
-    <None Include="ValidarComunicacaoBD.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ValidarComunicacaoBD.feature.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

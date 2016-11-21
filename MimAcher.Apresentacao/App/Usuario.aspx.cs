@@ -80,18 +80,13 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            //var tipousuario = JSON.Deserialize(e.ExtraParams["RecordGrid"]);
-            var tipousuario = Int32.Parse(e.ExtraParams["RecordGrid"]);
-
-
             this.UsuarioWindowId.Show();
         }
 
         //Exclui determinado usuário do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_USUARIO usuario = new MA_USUARIO();
-            usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cod_usuarioId.Text));
+            MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(Int32.Parse(this.cod_usuarioId.Text));
             GestorDeUsuario.RemoverUsuario(usuario);
             this.LimpaForm();
         }
