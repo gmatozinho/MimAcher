@@ -29,8 +29,7 @@ namespace MimAcher.WebService.Controllers
 
         [HttpPost]
         public ActionResult Add(List<UsuarioParticipante> listausuarioparticipante)
-        {
-            int codigodoparticipante = 0;
+        {            
             JsonResult jsonResult;
 
             //Verifica se o registro é inválido e se sim, retorna com erro.
@@ -60,9 +59,7 @@ namespace MimAcher.WebService.Controllers
 
                     usuario.e_mail = listausuarioparticipante[0].e_mail;
                     usuario.senha = listausuarioparticipante[0].senha;
-
-                    this.GestorDeUsuario.InserirUsuario(usuario);
-
+                    
                     participante.cod_usuario = usuario.cod_usuario;
                     participante.cod_campus = listausuarioparticipante[0].cod_participante;
                     participante.nome = listausuarioparticipante[0].nome;
@@ -86,6 +83,66 @@ namespace MimAcher.WebService.Controllers
                 }
             }
             
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Update(List<UsuarioParticipante> listausuarioparticipante)
+        {            
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listausuarioparticipante == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+
+                jsonResult.MaxJsonLength = int.MaxValue;
+                return jsonResult;
+            }
+            else
+            {
+                MA_USUARIO usuario = new MA_USUARIO();
+
+                usuario.e_mail = listausuarioparticipante[0].e_mail;
+                usuario.senha = listausuarioparticipante[0].senha;
+
+                Boolean resultado = this.GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(usuario.e_mail, usuario.senha);
+
+                if (resultado)
+                {
+                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+                    //MA_USUARIO usuario = new MA_USUARIO();
+
+                    usuario.e_mail = listausuarioparticipante[0].e_mail;
+                    usuario.senha = listausuarioparticipante[0].senha;
+                    
+                    participante.cod_usuario = usuario.cod_usuario;
+                    participante.cod_campus = listausuarioparticipante[0].cod_participante;
+                    participante.nome = listausuarioparticipante[0].nome;
+                    participante.telefone = listausuarioparticipante[0].telefone;
+                    participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
+
+                    this.GestorDeParticipante.AtualizarParticipante(participante);
+
+                    jsonResult = Json(new
+                    {
+                        codigo = participante.cod_participante
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
