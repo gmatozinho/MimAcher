@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
@@ -10,7 +10,6 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
-using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
@@ -43,7 +42,13 @@ namespace MimAcher.Mobile.com.Activities
             //chamando o serviço de conexao a internet, necessário fazer na activity
             var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 
+            //pra verificar o tempo de checagem de conexao com o servidor
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             ChecagemConexao.ChecarConexão(this, connectivityManager);
+            stopwatch.Stop();
+            var tempoIniciarMain = stopwatch.ToString();
+
 
 
             //Iniciando as variaveis do contexto
@@ -57,19 +62,19 @@ namespace MimAcher.Mobile.com.Activities
             campoEmail.TextChanged += (sender, texto) => _emailInserido = texto.Text.ToString();
             campoSenha.TextChanged += (sender, texto) => _senhaInserida = texto.Text.ToString();
 
-            entrar.Click += delegate
-            {
-                Usuario.Login(_emailInserido, _senhaInserida);
-                var participante = new Participante(MontarUsuário());
-                IniciarHome(this,participante);
-                Finish();
-            };
+            stopwatch.Restart();
+            entrar.Click += ButtonEntrarClick;
+            stopwatch.Stop();
+            var tempoLogar = stopwatch.ToString();
 
             //Tenho que fazer a autenticação no banco de dados
             //Ideia é buscar usuario no banco, se existir retorna true e checa senha, se nao retorna usuario inexistente
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
-            inscrevase.Click += ButtonLoadingClick;
+            stopwatch.Restart();
+            inscrevase.Click += ButtonInscreverClick;
+            stopwatch.Stop();
+            var tempoIniciarInscrever = stopwatch.ToString();
         }
 
         
@@ -91,7 +96,48 @@ namespace MimAcher.Mobile.com.Activities
             return informacoes;
         }
 
-        private void ButtonLoadingClick(object sender, EventArgs e)
+        private void ButtonInscreverClick(object sender, EventArgs e)
+        {
+            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+
+            new Thread(new ThreadStart(delegate
+            {
+                Thread.Sleep(5000);//take 5 secs to do it's job
+
+                RunOnUiThread(async () =>
+                {
+                    for (var i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(50);
+                    }
+
+                    await InscreverClick();
+                    progressDialog.Dismiss();
+                });
+            })).Start();
+        }
+
+        private async Task InscreverClick()
+        {
+            var myProgressBar = new ProgressBar(this)
+            {
+                Indeterminate = true,
+                Visibility = ViewStates.Visible
+            };
+            await StartInscrever();
+            myProgressBar.Visibility = ViewStates.Gone;
+        }
+
+        private async Task StartInscrever()
+        {
+            await Task.Run(() => {
+                IniciarInscrever();
+            });
+            Thread.Sleep(3000);
+        }
+
+        private void ButtonEntrarClick(object sender, EventArgs e)
         {
             var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
@@ -107,27 +153,30 @@ namespace MimAcher.Mobile.com.Activities
                         await Task.Delay(50);
                     }
 
-                    await MyButtonClicked();
+                    await EntrarClick();
                     progressDialog.Dismiss();
                 });
             })).Start();
         }
 
-        private async Task MyButtonClicked()
+        private async Task EntrarClick()
         {
             var myProgressBar = new ProgressBar(this)
             {
                 Indeterminate = true,
                 Visibility = ViewStates.Visible
             };
-            await InscreverClick();
+            await StartEntrar();
             myProgressBar.Visibility = ViewStates.Gone;
         }
 
-        private async Task InscreverClick()
+        private async Task StartEntrar()
         {
             await Task.Run(() => {
-                IniciarInscrever(); 
+                Usuario.Login(_emailInserido, _senhaInserida);
+                var participante = new Participante(MontarUsuário());
+                IniciarHome(this, participante);
+                Finish();
             });
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Android;
 using Android.App;
@@ -7,10 +8,10 @@ using Android.OS;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
+using Java.Lang;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
-using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Mobile.com.Activities
@@ -28,7 +29,10 @@ namespace MimAcher.Mobile.com.Activities
         private string _campus;
         private string _confirmarSenha;
         private const string Localizacao = "0.0/0.0";
-
+        private readonly Stopwatch _stopwatch = new Stopwatch();
+        private Dictionary<int, string> _campusComCod;
+        private Spinner _spinnerCampus;
+        private ArrayAdapter<string> _adapterCampus;
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,7 +44,7 @@ namespace MimAcher.Mobile.com.Activities
 
             //Iniciando as variaveis do contexto
             var toolbar = FindViewById<Toolbar>((Resource.Id.toolbar));
-            var spinnerCampus = FindViewById<Spinner>(Resource.Id.campus);
+            _spinnerCampus = FindViewById<Spinner>(Resource.Id.campus);
             var campoSenha = FindViewById<EditText>(Resource.Id.senha);
             var campoConfirmarSenha = FindViewById<EditText>(Resource.Id.confirmar_senha);
             var campoNome = FindViewById<EditText>(Resource.Id.nome);
@@ -48,9 +52,9 @@ namespace MimAcher.Mobile.com.Activities
             var campoDtNascimento = FindViewById<EditText>(Resource.Id.dt_nascimento);
             var campoTelefone = FindViewById<EditText>(Resource.Id.telefone);
             //pegar lista de campus do banco
-            var campusComCod = CursorBD.ObterCampi();
-            var opcoesCampus = CriarListaCampi(campusComCod);
-            var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
+            _campusComCod = CursorBd.ObterCampi();
+            var opcoesCampus = CriarListaCampi(_campusComCod);
+            _adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
 
             //captar telefone caso possivel
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -58,20 +62,20 @@ namespace MimAcher.Mobile.com.Activities
 
             SetActionBar(toolbar);
 
+            _stopwatch.Start();
+
             //Funcionalidades
             //Escolhendo o Campus
-            adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
-            spinnerCampus.Adapter = adapterCampus;
+            _adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
+            _spinnerCampus.Adapter = _adapterCampus;
 
             //Mascara para telefone e nascimento
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
             campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
 
             //Captando a escolha do campus
-            var escolhaCampus = spinnerCampus.SelectedItem;
-            var campus = escolhaCampus.ToString();
-            _campus = PegarChaveDoCampus(campus, campusComCod).ToString();
-
+            
+            
             //Capturar telefone do sistema
             if (tel != null)
             {
@@ -92,7 +96,6 @@ namespace MimAcher.Mobile.com.Activities
         }
 
         //captar a key do campus escolhido
-
         private static int PegarChaveDoCampus(string campus, Dictionary<int,string> dicionarioCampus )
         {
             if (dicionarioCampus.ContainsValue(campus))
@@ -108,6 +111,7 @@ namespace MimAcher.Mobile.com.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_done:
+                    GetCampus();
                     InscreverParticipante(this);
                     return true;
             }
@@ -123,11 +127,21 @@ namespace MimAcher.Mobile.com.Activities
             {
                 var x = participante.InscreverParticipante();
                 IniciarEscolherFoto(this, participante);
+                _stopwatch.Stop();
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 Finish();
             }
         }
+
+        //capturar o campus no atual momento de execução
+        private void GetCampus()
+        {
+            var escolhaCampus = _spinnerCampus.SelectedItem;
+            var campus = escolhaCampus.ToString();
+            _campus = PegarChaveDoCampus(campus, _campusComCod).ToString();
+        }
+
 
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -139,6 +153,8 @@ namespace MimAcher.Mobile.com.Activities
         //Cria participante
         private Dictionary<string, string> CriarDicionarioParaMontarParticipante()
         {
+            _telefone = TrataNumeroTelefone(_telefone);
+            _nascimento = TrataData(_nascimento);
             var informacoes = new Dictionary<string, string>
             {
                 ["campus"] = _campus,
@@ -158,7 +174,25 @@ namespace MimAcher.Mobile.com.Activities
         {
             return dicCampi.Select(info => info.Value).ToList();
         }
-        
+
+        private static string TrataNumeroTelefone(string telefone)
+        {
+            if (telefone.Length > 13)
+            {
+                return telefone.Remove(13);
+            }
+            return telefone;
+        }
+
+        private static string TrataData(string data)
+        {
+            if (data.Length > 10)
+            {
+                return data.Remove(10);
+            }
+            return data;
+        }
+
 
     }
 }

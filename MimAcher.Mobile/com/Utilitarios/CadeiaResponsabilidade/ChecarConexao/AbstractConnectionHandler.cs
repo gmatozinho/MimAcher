@@ -1,23 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
+﻿using Android.Content;
 using Android.Net;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
-    public abstract class AbstractConectionHandler
+    public abstract class AbstractConnectionHandler
     {
         protected ChecagemEnum Checagem;
-        private AbstractConectionHandler _proximaOpcao;
+        private AbstractConnectionHandler _proximaOpcao;
         public enum ChecagemEnum { ConexaoServidor, RedeStatus, ConexaoInternet };
 
-        protected AbstractConectionHandler(ChecagemEnum checagem)
+        protected AbstractConnectionHandler(ChecagemEnum checagem)
         {
             Checagem = checagem;
         }
 
-        public void SetProximaOpcao(AbstractConectionHandler proximaOpcao)
+        public void SetProximaOpcao(AbstractConnectionHandler proximaOpcao)
         {
             _proximaOpcao = proximaOpcao;
         }

@@ -5,7 +5,7 @@ using System.Net.Mail;
 using Android.Content;
 using MimAcher.Mobile.com.Entidades;
 
-namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
+namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class Validador
     {
@@ -49,7 +49,6 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
         {
             if (!string.IsNullOrEmpty(telefone))
             {
-
                 telefone = telefone.Replace(" ", "").Replace("-", "");
                 long numero;
                 return long.TryParse(telefone, out numero);

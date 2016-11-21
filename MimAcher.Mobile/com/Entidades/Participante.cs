@@ -47,13 +47,13 @@ namespace MimAcher.Mobile.com.Entidades
         //Funções para trabalhar no banco de dados
         public int InscreverParticipante()
         {
-            return CursorBD.EnviarParticipante(this);
+            return CursorBd.EnviarParticipante(this);
         }
 
 
         public Dictionary<string, List<Participante>> Match()
         {
-            var matchs = CursorBD.Match(this);
+            var matchs = CursorBd.Match(this);
 
             return matchs;
         }

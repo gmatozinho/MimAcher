@@ -4,11 +4,11 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class MontadorRequisicao
     {
-        private static string url = "http://ghoststation.ddns.net:8092/";
+        private const string Url = "http://ghoststation.ddns.net:8092/";
 
         public static WebRequest MontarRequisicaoPostUsuario()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "usuarioparticipante/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "usuarioparticipante/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
@@ -17,7 +17,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoPostItem()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "item/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
@@ -26,7 +26,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoGetCampi()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "campus/list");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "campus/list");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Get;
 
@@ -35,7 +35,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoGetItem()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "item/list");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "item/list");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Get;
 
@@ -44,7 +44,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoPostHobbie()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participantehobbie/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participantehobbie/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
@@ -53,7 +53,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoPostAprender()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteaprender/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteaprender/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
@@ -62,7 +62,17 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static WebRequest MontarRequisicaoPostEnsinar()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(url + "participanteensinar/add");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        //NãoFinalizado
+        public static WebRequest MontarRequisicaoPostLogin()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "login");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 

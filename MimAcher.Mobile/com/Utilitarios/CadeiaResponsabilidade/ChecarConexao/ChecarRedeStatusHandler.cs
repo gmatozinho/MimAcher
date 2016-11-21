@@ -1,10 +1,9 @@
-﻿using Android.App;
 using Android.Content;
 using Android.Net;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
-    public class ChecarRedeStatusHandler : AbstractConectionHandler
+    public class ChecarRedeStatusHandler : AbstractConnectionHandler
     {
 
         public ChecarRedeStatusHandler(ChecagemEnum checagem) : base(checagem)

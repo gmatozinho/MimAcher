@@ -148,7 +148,7 @@
     <Compile Include="com\Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultHobbiesActivity.cs" />
     <Compile Include="com\Entidades\ListaItens.cs" />
-    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConectionHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConnectionHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoInternetHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoServidorHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarRedeStatusHandler.cs" />
@@ -157,7 +157,7 @@
     <Compile Include="com\Utilitarios\Mascara.cs" />
     <Compile Include="com\Utilitarios\Mensagens.cs" />
     <Compile Include="com\Entidades\PacoteCompleto.cs" />
-    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\Validador.cs" />
+    <Compile Include="com\Utilitarios\Validador.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="com\Activities\HomeActivity.cs" />

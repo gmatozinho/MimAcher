@@ -1,8 +1,5 @@
-﻿using System.Net.NetworkInformation;
-using System.Threading.Tasks;
-using Android.Content;
+﻿using Android.Content;
 using Android.Net;
-using static MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao.AbstractConectionHandler;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
@@ -11,9 +8,9 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 
         public static void ChecarConexão(Context activity, ConnectivityManager connectivityManager)
         {
-            AbstractConectionHandler redeStatus = new ChecarRedeStatusHandler(ChecagemEnum.RedeStatus);
-            AbstractConectionHandler conexaoServidor = new ChecarConexaoServidorHandler(ChecagemEnum.ConexaoServidor);
-            AbstractConectionHandler conexaoInternet = new ChecarConexaoInternetHandler(ChecagemEnum.ConexaoInternet);
+            AbstractConnectionHandler redeStatus = new ChecarRedeStatusHandler(AbstractConnectionHandler.ChecagemEnum.RedeStatus);
+            AbstractConnectionHandler conexaoServidor = new ChecarConexaoServidorHandler(AbstractConnectionHandler.ChecagemEnum.ConexaoServidor);
+            AbstractConnectionHandler conexaoInternet = new ChecarConexaoInternetHandler(AbstractConnectionHandler.ChecagemEnum.ConexaoInternet);
 
             redeStatus.SetProximaOpcao(conexaoInternet);
             conexaoInternet.SetProximaOpcao(conexaoServidor);

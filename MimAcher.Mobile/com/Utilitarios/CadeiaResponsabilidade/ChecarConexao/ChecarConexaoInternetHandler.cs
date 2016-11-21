@@ -1,10 +1,10 @@
-﻿using System.Net.NetworkInformation;
+using System.Net.NetworkInformation;
 using Android.Content;
 using Android.Net;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
-    public class ChecarConexaoInternetHandler : AbstractConectionHandler
+    public class ChecarConexaoInternetHandler : AbstractConnectionHandler
     {
         public ChecarConexaoInternetHandler(ChecagemEnum checagem) : base(checagem)
         {

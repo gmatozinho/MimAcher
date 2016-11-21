@@ -4,7 +4,7 @@ using Android.Net;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
-    public class ChecarConexaoServidorHandler : AbstractConectionHandler
+    public class ChecarConexaoServidorHandler : AbstractConnectionHandler
     {
         public ChecarConexaoServidorHandler(ChecagemEnum checagem) : base(checagem)
         {

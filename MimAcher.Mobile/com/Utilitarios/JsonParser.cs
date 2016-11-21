@@ -6,9 +6,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class JsonParser
     {
-        public static string MontarJsonItem(string nome_item)
+        public static string MontarJsonItem(string nomeItem)
         {
-            return "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \""+ nome_item + "\" }] }";
+            return "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \""+ nomeItem + "\" }] }";
         }
 
         public static string MontarJsonUsuario(Participante participante)
@@ -29,22 +29,22 @@ namespace MimAcher.Mobile.com.Utilitarios
                 "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", \"longitude\": " + localizacao[1] + "} ] }";
         }
 
-        public static string MontarJsonHobbie(int codigo_participante, int codigo_item)
+        public static string MontarJsonHobbie(int codigoParticipante, int codigoItem)
         {
-            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": " + codigo_participante + 
-                ", \"cod_item\": "+ codigo_item + " }] }";
+            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": " + codigoParticipante + 
+                ", \"cod_item\": "+ codigoItem + " }] }";
         }
 
-        public static string MontarJsonAprender(int codigo_participante, int codigo_item)
+        public static string MontarJsonAprender(int codigoParticipante, int codigoItem)
         {
-            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 1, \"cod_participante\": " + codigo_participante +
-                ", \"cod_item\": " + codigo_item + " }] }";
+            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 1, \"cod_participante\": " + codigoParticipante +
+                ", \"cod_item\": " + codigoItem + " }] }";
         }
 
-        public static string MontarJsonEnsinar(int codigo_participante, int codigo_item)
+        public static string MontarJsonEnsinar(int codigoParticipante, int codigoItem)
         {
-            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigo_participante +
-                ", \"cod_item\": " + codigo_item + " }] }";
+            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante +
+                ", \"cod_item\": " + codigoItem + " }] }";
         }
     }
 }
