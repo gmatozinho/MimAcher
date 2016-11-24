@@ -115,7 +115,6 @@ namespace MimAcher.WebService.Controllers
                 if (resultado)
                 {
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-                    //MA_USUARIO usuario = new MA_USUARIO();
 
                     usuario.e_mail = listausuarioparticipante[0].e_mail;
                     usuario.senha = listausuarioparticipante[0].senha;
