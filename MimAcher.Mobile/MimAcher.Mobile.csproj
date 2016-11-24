@@ -153,6 +153,11 @@
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoServidorHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarRedeStatusHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecagemConexao.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\AbstractValidatorHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\Validacao.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidadorEmail.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarNascimento.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarNome.cs" />
     <Compile Include="com\Utilitarios\Geolocalizacao.cs" />
     <Compile Include="com\Utilitarios\Mascara.cs" />
     <Compile Include="com\Utilitarios\Mensagens.cs" />
