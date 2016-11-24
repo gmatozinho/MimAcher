@@ -46,5 +46,10 @@ namespace MimAcher.Mobile.com.Utilitarios
             return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante +
                 ", \"cod_item\": " + codigoItem + " }] }";
         }
+
+        public static string MontarJsonLogin(string email, string senha)
+        {
+            return "{ \"login\": [{\"email\": \"" + email + "\", \"senha\": \"" + senha + "\"}] }";
+        }
     }
 }

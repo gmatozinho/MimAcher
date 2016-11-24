@@ -22,10 +22,7 @@ namespace MimAcher.Mobile.com.Entidades
         public static bool Login( string email, string senha)
         {
             //chamar controller de validação de login
-            return Validador.ValidadorDeLogin(email, senha);
-            //comparar com informacao no banco
-            //retornar true e o usuario em caso de sucesso e false em caso de falha
-            //TODO chamar autenticação
+            return Validador.ValidadorDeLogin(email, senha) && CursorBd.Login(email, senha);
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)
