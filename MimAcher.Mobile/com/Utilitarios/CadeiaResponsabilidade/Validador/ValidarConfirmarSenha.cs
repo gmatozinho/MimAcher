@@ -1,34 +1,37 @@
 ﻿using System.Collections.Generic;
-using System.Net.Mail;
 using Android.Content;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 {
-    public class ValidadorEmail : AbstractValidatorHandler
+    public class ValidarConfirmarSenha : AbstractValidatorHandler
     {
-        public ValidadorEmail(ValidatorEnum validator) : base(validator)
+        public ValidarConfirmarSenha(ValidatorEnum validator) : base(validator)
         {
             Validator = validator;
         }
 
         public override bool Validar(Context activity, Dictionary<string, string> informacoesInseridas)
         {
-            var email = informacoesInseridas["email"];
+            var senha =  informacoesInseridas["senha"];
+            var confirmarSenha = informacoesInseridas["confirmarSenha"];
 
             try
             {
-                var enderecodeemail = new MailAddress(email);
-                return enderecodeemail.Address == email;
+                var comparacao = confirmarSenha == senha;
+                if(!comparacao) Write(activity);
+                return comparacao;
+
             }
             catch
             {
+                Write(activity);
                 return false;
             }
         }
 
         public override void Write(Context activity)
         {
-            throw new System.NotImplementedException();
+            Mensagens.MensagemDeConfirmarSenhaInvalido(activity);
         }
     }
 }

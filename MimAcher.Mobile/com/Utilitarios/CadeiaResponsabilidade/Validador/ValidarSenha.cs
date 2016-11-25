@@ -3,24 +3,21 @@ using Android.Content;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 {
-    public class ValidarNome : AbstractValidatorHandler
+    public class ValidarSenha : AbstractValidatorHandler
     {
-        public ValidarNome(ValidatorEnum validator) : base(validator)
+        public ValidarSenha(ValidatorEnum validator) : base(validator)
         {
             Validator = validator;
         }
 
         public override bool Validar(Context activity, Dictionary<string, string> informacoesInseridas)
         {
-            var nome = informacoesInseridas["nome"];
+            var senha = informacoesInseridas["senha"];
             try
             {
-                if (string.IsNullOrEmpty(nome))
-                {
-                    Write(activity);
-                    return false;
-                }
-                return true;
+                var comparacao =  !string.IsNullOrEmpty(senha) && senha.Length >= 8;
+                if(!comparacao) Write(activity);
+                return comparacao;
             }
             catch
             {
@@ -31,7 +28,7 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public override void Write(Context activity)
         {
-            Mensagens.MensagemDeInformacaoInvalidaPadrao(activity, "Nome");
+            Mensagens.MensagemDeSenhaInvalida(activity);
         }
     }
 }

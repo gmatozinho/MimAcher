@@ -45,9 +45,9 @@ namespace MimAcher.Mobile.com.Entidades
         }
         
         //Funções para trabalhar no banco de dados
-        public int InscreverParticipante()
+        public int Inscrever()
         {
-            return CursorBd.EnviarParticipante(this);
+            return CursorBd.CadastrarParcipante(this);
         }
 
 

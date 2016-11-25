@@ -1,26 +1,34 @@
 ﻿using System.Collections.Generic;
+using System.Net.Mail;
 using Android.Content;
 
 namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 {
-    public class ValidarNome : AbstractValidatorHandler
+    public class ValidarEmail : AbstractValidatorHandler
     {
-        public ValidarNome(ValidatorEnum validator) : base(validator)
+        public ValidarEmail(ValidatorEnum validator) : base(validator)
         {
             Validator = validator;
         }
 
         public override bool Validar(Context activity, Dictionary<string, string> informacoesInseridas)
         {
-            var nome = informacoesInseridas["nome"];
+            var email = informacoesInseridas["email"];
+
             try
             {
-                if (string.IsNullOrEmpty(nome))
+                if (string.IsNullOrEmpty(email))
                 {
                     Write(activity);
                     return false;
                 }
-                return true;
+                
+                var enderecodeemail = new MailAddress(email);
+                var comparacao = enderecodeemail.Address == email;
+                if (!comparacao)
+                    Write(activity);
+                return comparacao ;
+
             }
             catch
             {
@@ -31,7 +39,7 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public override void Write(Context activity)
         {
-            Mensagens.MensagemDeInformacaoInvalidaPadrao(activity, "Nome");
+            Mensagens.MensagemDeInformacaoInvalidaPadrao(activity, "Email");
         }
     }
 }
