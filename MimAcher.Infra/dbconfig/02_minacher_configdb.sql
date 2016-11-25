@@ -3,6 +3,10 @@ insert into ma_usuario values('cayopdonatti@gmail.com','123')
 insert into ma_usuario values('paulovianna@yandex.com','123')
 insert into ma_usuario values('gmatozinho@mimacher.me','123')
 
+insert into ma_acesso values('Usuário Mobile')
+insert into ma_acesso values('Usuário NAC')
+insert into ma_acesso values('Administrador')
+
 --Tabela Item
 insert into ma_item values('Matemática')
 insert into ma_item values('Jogos de Luta')
