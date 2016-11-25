@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using MimAcher.GeradorDados;
-using MimAcher.BancoDadosLocal.Conexao;
 using MimAcher.Mobile.com.Entidades;
+using MimAcher.Postgres.Conexao;
 
-namespace MimAcher.BancoDadosLocal
+namespace MimAcher.Postgres
 {
     static class InserirDados
     {
