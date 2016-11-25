@@ -11,8 +11,11 @@ namespace MimAcher.Mobile.com.Utilitarios
     {
         public static void MensagemDeInformacaoInvalidaPadrao(Context contexto, string informacao)
         {
-            var toast = $"Informação Invalida: {informacao}";
-            Toast.MakeText(contexto, toast, ToastLength.Long).Show();
+            var alert = new AlertDialog.Builder(contexto);
+            alert.SetTitle("Dado Inválido: " + informacao);
+            alert.SetMessage("Por favor corrija para podermos realizar seu cadastro");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
+            alert.Show();
         }
 
         public static void MensagemDeInformacoesEditadasComSucesso(Context contexto)
@@ -41,8 +44,11 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static void MensagemDeConfirmarSenhaInvalido(Context contexto)
         {
-            const string toast = "As senhas não conferem!";
-            Toast.MakeText(contexto, toast, ToastLength.Long).Show();
+            var alert = new AlertDialog.Builder(contexto);
+            alert.SetTitle("As senhas não conferem!");
+            alert.SetMessage("Por favor corrija para podermos realizar seu cadastro");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
+            alert.Show();
         }
 
         public static void MensagemDeSenhaInvalida(Context contexto)
@@ -51,8 +57,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.SetTitle("Senha Invalida");
             alert.SetMessage("A senha deve ser composta de no minímo 8 caracteres");
             alert.SetPositiveButton("Ok", (senderAlert, args) => {
-                
-                Toast.MakeText(contexto, "Favor, inserir uma senha válida!", ToastLength.Short).Show();
             });
 
             Dialog dialog = alert.Create();
@@ -87,7 +91,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.SetTitle("Data de Nascimento Invalida");
             alert.SetMessage("A Data de Nascimento deve estar de acordo com o modelo: 30/06/2002");
             alert.SetPositiveButton("Ok", (senderAlert, args) => {
-                Toast.MakeText(contexto, "Favor, inserir uma data válida!", ToastLength.Short).Show();
             });
 
             Dialog dialog = alert.Create();
