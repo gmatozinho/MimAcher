@@ -7,7 +7,13 @@ begin tran
 CREATE TABLE MA_USUARIO (
 	cod_usuario				integer not null identity(1,1),
 	e_mail 					varchar(100) not null,
-	senha 					varchar(50) not null	
+	senha 					varchar(50) not null,
+	cod_acesso				integer not null	
+)
+
+CREATE TABLE MA_ACESSO (
+	cod_acesso				integer not null identity(1,1),
+	nome 					varchar(100) not null	
 )
 
 CREATE TABLE MA_NAC (
@@ -83,6 +89,7 @@ CREATE TABLE MA_ITEM (
 
 -- Criação das Primay Key
 ALTER TABLE MA_USUARIO ADD CONSTRAINT PK_MA_USUARIO_cod_usuario PRIMARY KEY(cod_usuario);
+ALTER TABLE MA_ACESSO ADD CONSTRAINT PK_MA_ACESSO_cod_acesso PRIMARY KEY(cod_acesso);
 ALTER TABLE MA_IMAGEM_PARTICIPANTE ADD CONSTRAINT PK_MA_IMAGEM_PARTICIPANTE_cod_imagem PRIMARY KEY(cod_imagem);
 ALTER TABLE MA_NAC ADD CONSTRAINT PK_MA_NAC_cod_nac PRIMARY KEY(cod_nac);
 ALTER TABLE MA_CAMPUS ADD CONSTRAINT PK_MA_CAMPUS_cod_campus PRIMARY KEY(cod_campus);
@@ -97,6 +104,8 @@ ALTER TABLE MA_PARTICIPANTE_HOBBIE ADD CONSTRAINT PK_MA_PARTICIPANTE_HOBBIE_cod_
 
 
 -- Criação das Foreign Keys
+ALTER TABLE MA_ACESSO ADD CONSTRAINT FK_MA_USUARIO_MA_ACESSO_cod_acesso FOREIGN KEY (cod_acesso) REFERENCES MA_ACESSO(cod_acesso);
+
 ALTER TABLE MA_IMAGEM_PARTICIPANTE ADD CONSTRAINT FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante FOREIGN KEY (cod_participante) REFERENCES MA_PARTICIPANTE(cod_participante);
 
 ALTER TABLE MA_PARTICIPANTE ADD CONSTRAINT FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario FOREIGN KEY (cod_usuario) REFERENCES MA_USUARIO(cod_usuario);
