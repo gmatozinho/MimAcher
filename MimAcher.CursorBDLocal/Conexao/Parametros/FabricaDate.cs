@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
 
-namespace MimAcher.BancoDadosLocal.Conexao.Parametros
+namespace MimAcher.Postgres.Conexao.Parametros
 {
     internal static class FabricaDate
     {

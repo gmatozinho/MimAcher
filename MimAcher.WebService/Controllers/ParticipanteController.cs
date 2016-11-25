@@ -4,8 +4,9 @@ using System.Data.Entity.Spatial;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using MimAcher.WebService.Models;
 
-namespace MimAcher.WebService.Models
+namespace MimAcher.WebService.Controllers
 {
     public class ParticipanteController : Controller
     {

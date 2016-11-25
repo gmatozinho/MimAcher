@@ -8,7 +8,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class CursorBd
     {
-        public static int EnviarParticipante(Participante participante)
+        public static int CadastrarParcipante(Participante participante)
         {
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 

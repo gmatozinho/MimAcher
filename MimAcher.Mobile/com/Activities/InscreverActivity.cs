@@ -8,10 +8,10 @@ using Android.OS;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
-using Java.Lang;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Mobile.com.Activities
@@ -121,13 +121,15 @@ namespace MimAcher.Mobile.com.Activities
 
         private void InscreverParticipante(Context activity)
         {
-            var participante = new Participante(CriarDicionarioParaMontarParticipante());
+            var informacoesInseridas = InformacoesParaValidar();
 
-            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
+            if (Validacao.ValidarCadastroParticipante(activity,informacoesInseridas))
             {
-                var x = participante.InscreverParticipante();
+                var participante = new Participante(CriarDicionarioParaMontarParticipante());
+                var x = participante.Inscrever();
                 IniciarEscolherFoto(this, participante);
                 _stopwatch.Stop();
+                //TODO enviar stopwatch
                 const string toast = ("Usuário Criado");
                 Toast.MakeText(this, toast, ToastLength.Long).Show();
                 Finish();
@@ -164,7 +166,7 @@ namespace MimAcher.Mobile.com.Activities
                 ["telefone"] = _telefone,
                 ["nascimento"] = _nascimento,
                 ["localizacao"] = Localizacao
-        };
+            };
 
             return informacoes;
         }
@@ -177,22 +179,28 @@ namespace MimAcher.Mobile.com.Activities
 
         private static string TrataNumeroTelefone(string telefone)
         {
-            if (telefone.Length > 13)
-            {
-                return telefone.Remove(13);
-            }
-            return telefone;
+            if (string.IsNullOrEmpty(telefone)) return telefone;
+            return telefone.Length > 13 ? telefone.Remove(13) : telefone;
         }
 
         private static string TrataData(string data)
         {
-            if (data.Length > 10)
-            {
-                return data.Remove(10);
-            }
-            return data;
+            if (string.IsNullOrEmpty(data)) return data;
+            return data.Length > 10 ? data.Remove(10) : data;
         }
 
+        private Dictionary<string, string> InformacoesParaValidar()
+        {
+            return new Dictionary<string, string>
+            {
+                ["email"] = _email,
+                ["nome"] = _nome,
+                ["nascimento"] = _nascimento,
+                ["telefone"] = _telefone,
+                ["senha"] = _senha,
+                ["confirmarSenha"] = _confirmarSenha
+            };
+        }
 
     }
 }
