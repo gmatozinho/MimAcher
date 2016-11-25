@@ -203,6 +203,12 @@
     <AndroidResource Include="Resources\drawable-mdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-xhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Thumbs.db" />
+    <AndroidResource Include="Resources\layout\Combinacoes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PerfilCombinacao.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">

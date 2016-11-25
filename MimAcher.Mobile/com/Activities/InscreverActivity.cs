@@ -155,8 +155,6 @@ namespace MimAcher.Mobile.com.Activities
         //Cria participante
         private Dictionary<string, string> CriarDicionarioParaMontarParticipante()
         {
-            _telefone = TrataNumeroTelefone(_telefone);
-            _nascimento = TrataData(_nascimento);
             var informacoes = new Dictionary<string, string>
             {
                 ["campus"] = _campus,
@@ -191,6 +189,8 @@ namespace MimAcher.Mobile.com.Activities
 
         private Dictionary<string, string> InformacoesParaValidar()
         {
+            _telefone = TrataNumeroTelefone(_telefone);
+            _nascimento = TrataData(_nascimento);
             return new Dictionary<string, string>
             {
                 ["email"] = _email,
