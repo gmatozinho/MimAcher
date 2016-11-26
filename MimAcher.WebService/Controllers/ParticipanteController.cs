@@ -36,7 +36,7 @@ namespace MimAcher.WebService.Models
 
                 participante.cod_participante = pt.cod_participante;
                 participante.cod_usuario = pt.cod_usuario;
-                participante.cod_campus = pt.cod_participante;
+                participante.cod_campus = pt.cod_campus;
                 participante.nome = pt.nome;
                 participante.telefone = pt.telefone;
                 participante.dt_nascimento = pt.dt_nascimento;
