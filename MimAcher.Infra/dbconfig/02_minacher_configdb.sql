@@ -1,7 +1,7 @@
 ﻿--Tabela Usuário
-insert into ma_usuario values('cayopdonatti@gmail.com','123')
-insert into ma_usuario values('paulovianna@yandex.com','123')
-insert into ma_usuario values('gmatozinho@mimacher.me','123')
+insert into ma_usuario values('cayopdonatti@gmail.com','123',3)
+insert into ma_usuario values('paulovianna@yandex.com','123',3)
+insert into ma_usuario values('gmatozinho@mimacher.me','123',3)
 
 insert into ma_acesso values('Usuário Mobile')
 insert into ma_acesso values('Usuário NAC')

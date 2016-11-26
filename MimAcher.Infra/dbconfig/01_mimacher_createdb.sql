@@ -53,7 +53,7 @@ CREATE TABLE MA_PARTICIPANTE (
 CREATE TABLE MA_IMAGEM_PARTICIPANTE (
 	cod_imagem				integer not null identity(1,1),
 	cod_participante		integer not null,
-	imagem 					varbinary not null
+	imagem 					varchar(200) not null
 )
 
 CREATE TABLE MA_PARTICIPANTE_HOBBIE (
