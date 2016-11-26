@@ -12,24 +12,18 @@ namespace MimAcher.Dominio
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_USUARIO
+    public partial class MA_ACESSO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_USUARIO()
+        public MA_ACESSO()
         {
-            this.MA_NAC = new HashSet<MA_NAC>();
-            this.MA_PARTICIPANTE = new HashSet<MA_PARTICIPANTE>();
+            this.MA_USUARIO = new HashSet<MA_USUARIO>();
         }
     
-        public int cod_usuario { get; set; }
-        public string e_mail { get; set; }
-        public string senha { get; set; }
         public int cod_acesso { get; set; }
+        public string nome { get; set; }
     
-        public virtual MA_ACESSO MA_ACESSO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_NAC> MA_NAC { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE> MA_PARTICIPANTE { get; set; }
+        public virtual ICollection<MA_USUARIO> MA_USUARIO { get; set; }
     }
 }
