@@ -13,7 +13,6 @@
    <object objectType="Table" objectID="BB6DC990-1E62-2BB4-896A-BDD78779A152" name="PARTICIPANTE_HOBBIE" seqName="seg_0"/>
    <object objectType="Table" objectID="0F3F075E-C0C8-89C9-CC93-1CDD4494A9B9" name="STATUS_RELACAO" seqName="seg_0"/>
    <object objectType="Table" objectID="B23E5C4B-FBF3-494B-D715-573451046073" name="USUARIO" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="4610C931-FAD4-ACCF-E7AB-D86D066C06E2" name="FK_MA_USUARIO_MA_NIVEL_ACESSO_cod_n_acesso" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="B68CE974-A658-4790-2359-4E0207D81727" name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0421EF11-8B61-65C1-AB7B-D485E2A77E48" name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="E031269F-8259-B871-C9C8-146E6EDFF6E7" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac" seqName="seg_0"/>
@@ -30,4 +29,5 @@
    <object objectType="FKIndexAssociation" objectID="4979AB00-EB88-796D-BCC0-8E9FE23A9A79" name="FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0C214C0F-D38D-14A2-0891-3A1EAE9B808F" name="FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="550F4EEB-C4A7-230C-4DB6-9341CF3381F1" name="FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="4610C931-FAD4-ACCF-E7AB-D86D066C06E2" name="FK_MA_USUARIO_MA_NIVEL_ACESSO_cod_n_acesso" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>
