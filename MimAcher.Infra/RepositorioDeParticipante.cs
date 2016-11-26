@@ -95,6 +95,17 @@ namespace MimAcher.Infra
 
         }
 
+        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        {
+            if(ObterParticipantePorId(cod_participante) != null)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
         {
             if (ObterParticipantePorIdDeUsuario(participante.cod_usuario) != null)

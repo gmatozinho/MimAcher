@@ -69,6 +69,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante);
         }
 
+        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        {
+            return this.RepositorioDeParticipante.VerificarSeParticipanteExiste(cod_participante);
+        }
+
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(int idUsuario)
         {
             List<MA_PARTICIPANTE> listaparticipante = ObterTodosOsParticipantes();

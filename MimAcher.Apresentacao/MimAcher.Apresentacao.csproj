@@ -157,6 +157,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Upload\" />
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
