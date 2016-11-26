@@ -3,19 +3,21 @@ using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.IO;
 using System.Web.UI.WebControls;
-using System.Web.HttpPostedFileBase;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
     public class ImagemParticipanteController : Controller
     {
         public GestorDeImagemDeParticipante GestorDeImagemDeParticipante { get; set; }
+        public GestorDeParticipante GestorDeParticipante { get; set; }
 
         public ImagemParticipanteController()
         {
             this.GestorDeImagemDeParticipante = new GestorDeImagemDeParticipante();
+            this.GestorDeParticipante = new GestorDeParticipante();
         }
 
         // GET: ImagemUsuario
@@ -52,71 +54,52 @@ namespace MimAcher.WebService.Controllers
                 {
                     codigo = -1
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
             else
             {
-                //Forma 1			
-                MemoryStream target = new MemoryStream();
-                arquivo.InputStream.CopyTo(target);
+                if (GestorDeParticipante.VerificarSeParticipanteExiste(codigo_participante)){
 
-                imagem_participante.cod_participante = codigo_participante;
-                imagem_participante.imagem = "";
+                    
+                    MemoryStream target = new MemoryStream();
+                    arquivo.InputStream.CopyTo(target);
+                                        
+                    //Define o nome do diretório para a imagem do participante
+                    String diretorio = @"\\w7v\AspNetSites\mimacherforms\App\Upload" + @"\" + codigo_participante.ToString();
 
-                GestorDeImagemDeParticipante.InserirImagem(imagem_participante);
-                                
-                Directory.CreateDirectory(@"\\w7v\AspNetSites\mimacherforms\App\Upload" + @"\" + numeroId.Value.ToString());
+                    //Cria o diretório para o participante
+                    Directory.CreateDirectory(diretorio);
+
+                    //Cria o nome do arquivo a partir do código do participante
+                    String nomearquivo = codigo_participante.ToString() + "." + arquivo.GetType();
+
+                    //Salva o arquivo no diretório
+                    arquivo.SaveAs(Path.Combine(diretorio, nomearquivo));
+
+                    //Configura o registro de imagem de participante para ser inserido no banco de dados
+                    imagem_participante.cod_participante = codigo_participante;
+                    imagem_participante.imagem = diretorio + nomearquivo;
+
+                    //Salva o registro de imagem do participante
+                    GestorDeImagemDeParticipante.InserirImagem(imagem_participante);
+
+                    jsonResult = Json(new
+                    {
+                        codigo = codigo_participante
+                    }, JsonRequestBehavior.AllowGet);
+
+                }
+                else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 
-
-                anexo.arquivo = target.ToArray();
-
-
-                anexo.ds_anexo = ds_anexo;
-                anexo.cd_apo = cd_apo;
-                anexo.MIME = arquivo.ContentType;
-                anexo.tipo = System.IO.Path.GetExtension(arquivo.FileName).Substring(1);
-
-                this.GestorDeAnexo.InserirAnexo(anexo);
             }
 
-            
-
-            //Compara para ver se já existe um anexo para aquele APO
-            if (this.GestorDeAnexo.VerificaSeAnexoDeUmApoExiste(cd_apo))
-            {
-                return Json(new
-                {
-                    message = "Já existe um anexo para esta APO",
-                    success = false
-                });
-            }
-            else
-            {
-                //Forma 1			
-                MemoryStream target = new MemoryStream();
-                arquivo.InputStream.CopyTo(target);
-                anexo.arquivo = target.ToArray();
-
-                anexo.ds_anexo = ds_anexo;
-                anexo.cd_apo = cd_apo;
-                anexo.MIME = arquivo.ContentType;
-                anexo.tipo = System.IO.Path.GetExtension(arquivo.FileName).Substring(1);
-
-                this.GestorDeAnexo.InserirAnexo(anexo);
-            }
-            
-            return Json(new
-            {
-                data = Mapper.Map<APOWeb_Anexo, DTO.APOWeb_Anexo>(anexo),
-                //data = [ anexorecuperado.ds_anexo, anexorecuperado.arquivo ],
-                //data = this.GestorDeAnexo.ObterAnexoPorId(anexo.cd_anexo),  
-                message = "Registro inserido com sucesso",
-                success = true
-            });
-
-            //return RedirectToAction("login", "login");
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }
