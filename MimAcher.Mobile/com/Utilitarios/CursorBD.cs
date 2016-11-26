@@ -141,5 +141,12 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return (resultado == "true") ? true : false;
         }
+
+        public static void AtualizarParticipante(Participante participante)
+        {
+            var json = JsonParser.MontarJsonUpdateParticipante(participante);
+            var requisicao = MontadorRequisicao.MontarRequisicaoUpdateParticipante();
+            EnviarJson(json, requisicao);
+        }
     }
 }
