@@ -19,10 +19,12 @@ namespace MimAcher.Mobile.com.Entidades
         public string Senha {get; private set;}
 
 
-        public static bool Login( string email, string senha)
+        public static string Login( string email, string senha)
         {
-            //chamar controller de validação de login
-            return Validador.ValidadorDeLogin(email, senha) && CursorBd.Login(email, senha);
+            if (Validador.ValidadorDeLogin(email, senha))
+                return CursorBd.Login(email, senha);
+            else
+                return "";
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)
