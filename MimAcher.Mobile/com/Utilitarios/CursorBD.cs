@@ -130,8 +130,10 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
         }
 
-        public static bool Login(string email, string senha)
+        public static bool Login(Dictionary<string,string> emailESenha)
         {
+            var email = emailESenha["login"];
+            var senha = emailESenha["senha"];
             var json = JsonParser.MontarJsonLogin(email, senha);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostLogin();
             EnviarJson(json, requisicao);
@@ -139,7 +141,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             var resultado = objetoResposta.SelectToken("data").ToString().Replace("{", "").Replace("}", "");
 
-            return (resultado == "true") ? true : false;
+            return resultado == "true";
         }
 
         public static void AtualizarParticipante(Participante participante)
