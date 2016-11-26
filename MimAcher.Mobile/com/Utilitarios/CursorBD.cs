@@ -130,16 +130,24 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
         }
 
-        public static bool Login(string email, string senha)
+        public static string Login(string email, string senha)
         {
             var json = JsonParser.MontarJsonLogin(email, senha);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostLogin();
             EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            var resultado = objetoResposta.SelectToken("data").ToString().Replace("{", "").Replace("}", "");
+            var resultado = objetoResposta.SelectToken("data");
 
-            return (resultado == "true") ? true : false;
+            string codigo_participante = null;
+
+            foreach (var token in resultado)
+            {
+                if (((string)token).Contains("cod_usuario"))
+                    codigo_participante = token.SelectToken("cod_usuario").ToString().Replace("{", "").Replace("}", "");
+            }
+
+            return codigo_participante;
         }
 
         public static void AtualizarParticipante(Participante participante)
