@@ -7,6 +7,7 @@ using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -120,7 +121,7 @@ namespace MimAcher.Mobile.com.Activities
 
         private void SalvarClick()
         {
-            if(Validador.ValidarEditarPerfil(this,EntradasParaValidar())) { SalvarPerfilEditado();}
+            if(Validacao.ValidarEditarPerfil(this,EntradasParaValidar())) { SalvarPerfilEditado();}
         }
 
     }

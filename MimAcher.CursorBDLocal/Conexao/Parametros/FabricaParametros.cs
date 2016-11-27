@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Npgsql;
 using System.Data.Common;
 using MimAcher.Mobile.com.Entidades;
 
-namespace MimAcher.BancoDadosLocal.Conexao.Parametros
+namespace MimAcher.Postgres.Conexao.Parametros
 {
     internal static class FabricaParametros
     {

@@ -68,11 +68,19 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return requisicao;
         }
-
-        //NãoFinalizado
+        
         public static WebRequest MontarRequisicaoPostLogin()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "login");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "login/login");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoUpdateParticipante()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participante/update");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 

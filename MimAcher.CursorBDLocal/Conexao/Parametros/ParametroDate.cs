@@ -1,14 +1,14 @@
 ﻿using System.Data;
 using System.Data.Common;
 
-namespace MimAcher.BancoDadosLocal.Conexao.Parametros
+namespace MimAcher.Postgres.Conexao.Parametros
 {
-    internal static class ParametroString
+    internal static class ParametroDate
     {
         public static void Construir(string nome_parametro, DbCommand comando)
         {
             var parametro = comando.CreateParameter();
-            parametro.DbType = DbType.AnsiString;
+            parametro.DbType = DbType.Date;
             parametro.ParameterName = nome_parametro;
             comando.Parameters.Add(parametro);
         }

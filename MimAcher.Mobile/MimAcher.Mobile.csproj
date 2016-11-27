@@ -59,7 +59,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
-    <Reference Include="Mono.Android.Export" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
@@ -110,10 +109,6 @@
       <HintPath>..\packages\Xamarin.Android.Support.v7.AppCompat.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.AppCompat.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Xamarin.Android.Support.v7.CardView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Android.Support.v7.CardView.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.CardView.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Android.Support.v7.MediaRouter.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
       <Private>True</Private>
@@ -133,10 +128,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="com\Activities\AlterarSenhaActivity.cs" />
+    <Compile Include="com\Activities\CombinacoesActivity.cs" />
     <Compile Include="com\Activities\EditarPerfilActivity.cs" />
     <Compile Include="com\Activities\EscolherFotoActivity.cs" />
     <Compile Include="com\Activities\HobbiesActivity.cs" />
     <Compile Include="com\Activities\InscreverActivity.cs" />
+    <Compile Include="com\Activities\PerfilCombinacoesActivity.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasComResultados.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasComTab.cs" />
     <Compile Include="com\Entidades\Fabricas\IFabricaTelas.cs" />
@@ -153,15 +150,22 @@
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoServidorHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarRedeStatusHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecagemConexao.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\AbstractValidatorHandler.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\Validacao.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarEmail.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarConfirmarSenha.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarNascimento.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarNome.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarSenha.cs" />
+    <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarTelefone.cs" />
     <Compile Include="com\Utilitarios\Geolocalizacao.cs" />
     <Compile Include="com\Utilitarios\Mascara.cs" />
     <Compile Include="com\Utilitarios\Mensagens.cs" />
     <Compile Include="com\Entidades\PacoteCompleto.cs" />
-    <Compile Include="com\Utilitarios\Validador.cs" />
+    <Compile Include="com\Utilitarios\TratarInformacoes.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="com\Activities\HomeActivity.cs" />
-    <Compile Include="com\Activities\ResultadoInformacoesActivity.cs" />
     <Compile Include="com\Entidades\Participante.cs" />
     <Compile Include="com\Utilitarios\CursorBD.cs" />
     <Compile Include="com\Entidades\Usuario.cs" />
@@ -195,12 +199,17 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\AlterarSenha.axml" />
     <AndroidResource Include="Resources\layout\EditarPerfil.axml" />
-    <AndroidResource Include="Resources\layout\UsuarioResultado.axml" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-hdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-mdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-xhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Thumbs.db" />
+    <AndroidResource Include="Resources\layout\Combinacoes.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\PerfilCombinacao.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml">
