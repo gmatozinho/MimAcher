@@ -162,6 +162,7 @@
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Acesso.aspx" />
     <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
     <Content Include="App\Erro.aspx" />
@@ -206,6 +207,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Acesso.aspx.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Acesso.aspx.designer.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App\AreaAtuacao.aspx.cs">
       <DependentUpon>AreaAtuacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
