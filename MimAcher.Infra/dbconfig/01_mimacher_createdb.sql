@@ -87,6 +87,14 @@ CREATE TABLE MA_ITEM (
 	nome 					VARCHAR(50)
 )
 
+CREATE TABLE MA_ERRO (
+	cod_erro 				integer not null identity(1,1),
+	tipo 					VARCHAR(50),
+	aconteceu				VARCHAR(255),
+	incidencia				integer not null,
+	dt_acontecimento		datetime
+)
+
 -- Criação das Primay Key
 ALTER TABLE MA_USUARIO ADD CONSTRAINT PK_MA_USUARIO_cod_usuario PRIMARY KEY(cod_usuario);
 ALTER TABLE MA_ACESSO ADD CONSTRAINT PK_MA_ACESSO_cod_acesso PRIMARY KEY(cod_acesso);
@@ -101,6 +109,7 @@ ALTER TABLE MA_ITEM ADD CONSTRAINT PK_MA_ITEM_cod_item PRIMARY KEY(cod_item);
 ALTER TABLE MA_PARTICIPANTE_APRENDER ADD CONSTRAINT PK_MA_PARTICIPANTE_APRENDER_cod_p_aprender PRIMARY KEY(cod_p_aprender);	
 ALTER TABLE MA_PARTICIPANTE_ENSINAR ADD CONSTRAINT PK_MA_PARTICIPANTE_ENSINAR_cod_p_ensinar PRIMARY KEY(cod_p_ensinar);	
 ALTER TABLE MA_PARTICIPANTE_HOBBIE ADD CONSTRAINT PK_MA_PARTICIPANTE_HOBBIE_cod_p_hobbie PRIMARY KEY(cod_p_hobbie);	
+ALTER TABLE MA_ERRO ADD CONSTRAINT PK_MA_ERRO_cod_erro PRIMARY KEY(cod_erro);	
 
 
 -- Criação das Foreign Keys
