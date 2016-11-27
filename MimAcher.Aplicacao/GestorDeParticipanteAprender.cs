@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MimAcher.Dominio;
 using MimAcher.Infra;
+using System;
 
 namespace MimAcher.Aplicacao
 {
@@ -21,6 +22,11 @@ namespace MimAcher.Aplicacao
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
             return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsRegistros();
+        }
+
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            return this.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
@@ -46,6 +52,23 @@ namespace MimAcher.Aplicacao
         public void AtualizarAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             this.RepositorioDeAprendizadoDeParticipante.AtualizarAprendizadoDeParticipante(participanteaprender);
+        }
+
+        public Boolean AtualizarAprendizadoDeParticipanteComRetorno(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            return this.RepositorioDeAprendizadoDeParticipante.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
+        }
+
+        public Boolean VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(int id_usuarioaprender)
+        {
+            if(ObterAprendizadoDoParticipantePorId(id_usuarioaprender) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 
