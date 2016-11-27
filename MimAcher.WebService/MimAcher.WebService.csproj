@@ -157,6 +157,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaAtuacaoController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
+    <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemParticipanteController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -173,6 +174,7 @@
     </Compile>
     <Compile Include="Models\AreaAtuacao.cs" />
     <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\Erro.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\NAC.cs" />
     <Compile Include="Models\NACAreaAtuacao.cs" />
@@ -213,6 +215,7 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\AreaAtuacao\" />
     <Folder Include="Views\Campus\" />
+    <Folder Include="Views\Erro\" />
     <Folder Include="Views\Item\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\NACAreaAtuacao\" />
