@@ -21,7 +21,7 @@ namespace MimAcher.Teste.CursorWebService
 
                 p.Localizacao = "-13.23416/16.514";
 
-                Console.WriteLine("Nome: " + p.Nome + "\nCodigo: " + CursorBd.CadastrarParcipante(p));
+                Console.WriteLine("Nome: " + p.Nome + "\nCodigo: " + CursorBd.CadastrarParticipante(p));
                 Console.WriteLine("--------------------------------------------------------------------");
             }
 

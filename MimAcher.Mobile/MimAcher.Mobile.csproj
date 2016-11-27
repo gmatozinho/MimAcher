@@ -162,6 +162,7 @@
     <Compile Include="com\Utilitarios\Mascara.cs" />
     <Compile Include="com\Utilitarios\Mensagens.cs" />
     <Compile Include="com\Entidades\PacoteCompleto.cs" />
+    <Compile Include="com\Utilitarios\TratarInformacoes.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="com\Activities\HomeActivity.cs" />

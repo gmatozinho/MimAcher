@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content;
@@ -175,22 +178,10 @@ namespace MimAcher.Mobile.com.Activities
             return dicCampi.Select(info => info.Value).ToList();
         }
 
-        private static string TrataNumeroTelefone(string telefone)
-        {
-            if (string.IsNullOrEmpty(telefone)) return telefone;
-            return telefone.Length > 13 ? telefone.Remove(13) : telefone;
-        }
-
-        private static string TrataData(string data)
-        {
-            if (string.IsNullOrEmpty(data)) return data;
-            return data.Length > 10 ? data.Remove(10) : data;
-        }
-
         private Dictionary<string, string> InformacoesParaValidar()
         {
-            _telefone = TrataNumeroTelefone(_telefone);
-            _nascimento = TrataData(_nascimento);
+            _telefone = TratarInformacoes.TrataNumeroTelefone(_telefone);
+            _nascimento = TratarInformacoes.TrataData(_nascimento);
             return new Dictionary<string, string>
             {
                 ["email"] = _email,
@@ -201,6 +192,40 @@ namespace MimAcher.Mobile.com.Activities
                 ["confirmarSenha"] = _confirmarSenha
             };
         }
+
+
+        private void LoadingParaSolicitarCampus()
+        {
+            IniciarInscrever();
+            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+
+            new Thread(new ThreadStart(delegate
+            {
+                Thread.Sleep(5000);//take 5 secs to do it's job
+
+                RunOnUiThread(async () =>
+                {
+                    for (var i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(50);
+                    }
+
+                    await SolicitarCampus();
+                    progressDialog.Dismiss();
+
+                });
+            })).Start();
+        }
+
+        
+        private async Task SolicitarCampus()
+        {
+            await Task.Run(() => {
+                _campusComCod = CursorBd.ObterCampi();
+            });
+        }
+       
 
     }
 }

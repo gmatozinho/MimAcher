@@ -180,6 +180,15 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
+        public static void MensagemErroLogin(Context context)
+        {
+            var alert = new AlertDialog.Builder(context);
+            alert.SetTitle("Falha ao Logar!");
+            alert.SetMessage("Usuário ou senha incorretos");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
+            alert.Show();
+        }
+
 
 
 
