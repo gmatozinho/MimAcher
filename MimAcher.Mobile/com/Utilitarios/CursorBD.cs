@@ -8,7 +8,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class CursorBd
     {
-        public static int CadastrarParcipante(Participante participante)
+        public static int EnviarParticipante(Participante participante)
         {
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
@@ -130,18 +130,24 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
         }
 
-        public static bool Login(Dictionary<string,string> emailESenha)
+        public static string Login(string email, string senha)
         {
-            var email = emailESenha["login"];
-            var senha = emailESenha["senha"];
             var json = JsonParser.MontarJsonLogin(email, senha);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostLogin();
             EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            var resultado = objetoResposta.SelectToken("data").ToString().Replace("{", "").Replace("}", "");
+            var resultado = objetoResposta.SelectToken("data");
 
-            return resultado == "true";
+            string codigo_participante = null;
+
+            foreach (var token in resultado)
+            {
+                if (((string)token).Contains("cod_usuario"))
+                    codigo_participante = token.SelectToken("cod_usuario").ToString().Replace("{", "").Replace("}", "");
+            }
+
+            return codigo_participante;
         }
 
         public static void AtualizarParticipante(Participante participante)

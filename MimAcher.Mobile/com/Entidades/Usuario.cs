@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Android.Content;
 using MimAcher.Mobile.com.Utilitarios;
-using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Entidades
 {
@@ -21,10 +19,12 @@ namespace MimAcher.Mobile.com.Entidades
         public string Senha {get; private set;}
 
 
-        public static bool Login(Context context, Dictionary<string,string> emailESenha )
+        public static string Login( string email, string senha)
         {
-            //chamar controller de validação de login
-            return Validacao.ValidarLogin(context, emailESenha) && CursorBd.Login(emailESenha);
+            if (Validador.ValidadorDeLogin(email, senha))
+                return CursorBd.Login(email, senha);
+            else
+                return "";
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)
