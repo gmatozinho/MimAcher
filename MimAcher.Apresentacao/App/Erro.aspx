@@ -6,21 +6,21 @@
    
 <%-- Window --%>
     <ext:Window ID="ErroWindowId" Width="400" Height="280" Modal="true" runat="server" Hidden="true">
-        <Erros>
+        <Items>
 
         <%-- Form --%>
         <ext:FormPanel ID="ErroFormPanelId" runat="server" Title="Inserir/Editar Erro" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
-            <Erros> 
+            <Items> 
             
                 <ext:FieldSet ID="ErroFieldSetId" runat="server" Title="Erro" MarginSpec="0 0 0 10">                                                      
                     <Defaults>
                         <ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
                         <ext:Parameter Name="MsgTarget" Value="side" />                                
                     </Defaults>
-                    <Erros>
+                    <Items>
 
                         <%-- Código do Erro --%>
                         <ext:TextField ID="cod_erroId" Name="cod_erro"  runat="server" FieldLabel="Código" ReadOnly="true"/>
@@ -37,9 +37,9 @@
                         <%-- Data do Acontecimento --%>
                         <ext:DateField ID="dt_acontecimentoId" Name="dt_acontecimento" AllowBlank="false" runat="server" FieldLabel="Data" />
                         
-                    </Erros>
+                    </Items>
                 </ext:FieldSet>
-            </Erros>
+            </Items>
 
             <BottomBar>
                 <ext:StatusBar ID="ErroBarId" runat="server" />
@@ -52,7 +52,7 @@
             </Buttons>
 
             </ext:FormPanel>
-        </Erros>   
+        </Items>   
     </ext:Window>
 
     <%-- Store da Grid --%>
@@ -109,7 +109,7 @@
         <%-- Botões da Grid --%>
         <TopBar>
             <ext:Toolbar ID="ToolbarId" runat="server">
-                <Erros>
+                <Items>
                     <%-- Incluir --%>
                     <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{ErroWindowId}.show();#{ErroFormPanelId}.getForm().reset();" />
 
@@ -135,17 +135,17 @@
 
                     <%-- Atualizar --%>
                     <ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
-                </Erros>
+                </Items>
             </ext:Toolbar>
         </TopBar>
 
         <%-- Double Click --%>
         <DirectEvents>
-            <ErroDblClick OnEvent="Edit">
+            <ItemDblClick OnEvent="Edit">
                 <ExtraParams>                    
                     <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{ErroGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_erro" />                                
                 </ExtraParams>
-            </ErroDblClick>
+            </ItemDblClick>
         </DirectEvents>
 
         <BottomBar>

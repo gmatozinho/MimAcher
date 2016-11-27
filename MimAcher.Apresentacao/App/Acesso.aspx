@@ -6,21 +6,21 @@
    
 <%-- Window --%>
     <ext:Window ID="AcessoWindowId" Width="400" Height="180" Modal="true" runat="server" Hidden="true">
-        <Item>
+        <Items>
 
         <%-- Form --%>
         <ext:FormPanel ID="AcessoFormPanelId" runat="server" Title="Inserir/Editar Acesso" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
-            <Item> 
+            <Items> 
             
                 <ext:FieldSet ID="AcessoFieldSetId" runat="server" Title="Acesso" MarginSpec="0 0 0 10">                                                      
                     <Defaults>
                         <ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
                         <ext:Parameter Name="MsgTarget" Value="side" />                                
                     </Defaults>
-                    <Item>
+                    <Items>
 
                         <%-- Código do Acesso --%>
                         <ext:TextField ID="cod_acessoId" Name="cod_acesso"  runat="server" FieldLabel="Código" ReadOnly="true"/>
@@ -28,9 +28,9 @@
                         <%-- Nome do Acesso --%>
                         <ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
                         
-                    </Item>
+                    </Items>
                 </ext:FieldSet>
-            </Item>
+            </Items>
 
             <BottomBar>
                 <ext:StatusBar ID="AcessoBarId" runat="server" />
@@ -43,7 +43,7 @@
             </Buttons>
 
             </ext:FormPanel>
-        </Item>   
+        </Items>   
     </ext:Window>
 
     <%-- Store da Grid --%>
@@ -94,7 +94,7 @@
         <%-- Botões da Grid --%>
         <TopBar>
             <ext:Toolbar ID="ToolbarId" runat="server">
-                <Item>
+                <Items>
                     <%-- Incluir --%>
                     <ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{AcessoWindowId}.show();#{AcessoFormPanelId}.getForm().reset();" />
 
@@ -120,17 +120,17 @@
 
                     <%-- Atualizar --%>
                     <ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
-                </Item>
+                </Items>
             </ext:Toolbar>
         </TopBar>
 
         <%-- Double Click --%>
         <DirectEvents>
-            <AcessoDblClick OnEvent="Edit">
+            <ItemDblClick OnEvent="Edit">
                 <ExtraParams>                    
                     <ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{AcessoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_acesso" />                                
                 </ExtraParams>
-            </AcessoDblClick>
+            </ItemDblClick>
         </DirectEvents>
 
         <BottomBar>
