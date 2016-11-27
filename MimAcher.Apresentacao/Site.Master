@@ -67,9 +67,9 @@
 										<div id="v2-samples">
 										<ext:Container ID="Container1" runat="server" Padding="2">
 												<Items>
-                                                    <ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen" Hidden="true"></ext:Label>                                                    																										
+													<ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen" Hidden="true"></ext:Label>                                                    																										
 													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar" Hidden="true"></ext:Label>                                                    
-                                                    <ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
+													<ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
 												</Items>
 											</ext:Container>
 										</div>   
@@ -89,7 +89,19 @@
 								<ext:Parameter Name="MenuAlign" Value="tl-bl?" Mode="Value" />
 							</Defaults>
 
-							<Items>     
+							<Items>    
+								
+								<%-- Menu Acesso --%>
+								<ext:MenuItem ID="AcessoErroMenuItemId" runat="server" Text="Acessos e Erros" HideOnClick="false" Icon="Group">
+									 <Menu>
+										<ext:Menu ID="AcessoMenu" runat="server">
+											<Items>
+												<ext:MenuItem ID="AcessoMenuItemId" Text="Acesso" OnClientClick="window.location.href='/App/Acesso.aspx'" Icon="Plugin" />                                
+												<ext:MenuItem ID="ErroMenuItemId" Text="Erros" OnClientClick="window.location.href='/App/Erro.aspx'" Icon="GroupKey" />                                												
+											</Items>
+										</ext:Menu>
+									</Menu>
+								</ext:MenuItem>                                 
 
 								<%-- Menu Atributos --%>
 								<ext:MenuItem ID="AtributosMenuItemId" runat="server" Text="Ítem e Associações de Interesses" HideOnClick="false" Icon="Group">
@@ -97,7 +109,7 @@
 										<ext:Menu ID="AtributosMenu" runat="server">
 											<Items>
 												<ext:MenuItem ID="ItemMenuItemId" Text="Item" OnClientClick="window.location.href='/App/Item.aspx'" Icon="Plugin" />                                
-												<ext:MenuItem ID="ParticipanteAprendertemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="GroupKey" />                                
+												<ext:MenuItem ID="ParticipanteAprenderMenuItemId" Text="Aprendizado de Participante" OnClientClick="window.location.href='/App/ParticipanteAprender.aspx'" Icon="GroupKey" />                                
 												<ext:MenuItem ID="ParticipanteEnsinarMenuItemId" Text="Ensino de Participante" OnClientClick="window.location.href='/App/ParticipanteEnsinar.aspx'" Icon="GroupLink" />                                
 												<ext:MenuItem ID="ParticipanteHobbieMenuItemId" Text="Hobbie de Participante" OnClientClick="window.location.href='/App/ParticipanteHobbie.aspx'" Icon="GroupGear" />                                												
 											</Items>
