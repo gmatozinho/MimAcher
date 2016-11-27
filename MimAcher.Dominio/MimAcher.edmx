@@ -26,6 +26,16 @@
           <Property Name="cod_campus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="local" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
+        <EntityType Name="MA_ERRO">
+          <Key>
+            <PropertyRef Name="cod_erro" />
+          </Key>
+          <Property Name="cod_erro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+          <Property Name="aconteceu" Type="varchar" MaxLength="255" />
+          <Property Name="incidencia" Type="int" Nullable="false" />
+          <Property Name="dt_acontecimento" Type="datetime" />
+        </EntityType>
         <EntityType Name="MA_IMAGEM_PARTICIPANTE">
           <Key>
             <PropertyRef Name="cod_imagem" />
@@ -322,6 +332,7 @@
           <EntitySet Name="MA_ACESSO" EntityType="Self.MA_ACESSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_AREA_ATUACAO" EntityType="Self.MA_AREA_ATUACAO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_CAMPUS" EntityType="Self.MA_CAMPUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MA_ERRO" EntityType="Self.MA_ERRO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_IMAGEM_PARTICIPANTE" EntityType="Self.MA_IMAGEM_PARTICIPANTE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_ITEM" EntityType="Self.MA_ITEM" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MA_NAC" EntityType="Self.MA_NAC" Schema="dbo" store:Type="Tables" />
@@ -487,6 +498,7 @@
             <End Role="MA_STATUS_RELACAO" EntitySet="MA_STATUS_RELACAO" />
             <End Role="MA_PARTICIPANTE_HOBBIE" EntitySet="MA_PARTICIPANTE_HOBBIE" />
           </AssociationSet>
+          <EntitySet Name="MA_ERRO" EntityType="MIMACHERModel.MA_ERRO" />
         </EntityContainer>
         <EntityType Name="MA_ACESSO">
           <Key>
@@ -835,6 +847,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="MA_ERRO">
+          <Key>
+            <PropertyRef Name="cod_erro" />
+          </Key>
+          <Property Name="cod_erro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="aconteceu" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="incidencia" Type="Int32" Nullable="false" />
+          <Property Name="dt_acontecimento" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -960,6 +982,17 @@
                 <ScalarProperty Name="senha" ColumnName="senha" />
                 <ScalarProperty Name="e_mail" ColumnName="e_mail" />
                 <ScalarProperty Name="cod_usuario" ColumnName="cod_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MA_ERRO">
+            <EntityTypeMapping TypeName="MIMACHERModel.MA_ERRO">
+              <MappingFragment StoreEntitySet="MA_ERRO">
+                <ScalarProperty Name="dt_acontecimento" ColumnName="dt_acontecimento" />
+                <ScalarProperty Name="incidencia" ColumnName="incidencia" />
+                <ScalarProperty Name="aconteceu" ColumnName="aconteceu" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="cod_erro" ColumnName="cod_erro" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

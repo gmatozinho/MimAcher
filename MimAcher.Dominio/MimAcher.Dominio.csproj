@@ -60,6 +60,9 @@
     <Compile Include="MA_CAMPUS.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
+    <Compile Include="MA_ERRO.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
     <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>

@@ -35,6 +35,7 @@
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_RELACAO_cod_s_relacao" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_RELACAO_cod_s_relacao" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_ERRO" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
