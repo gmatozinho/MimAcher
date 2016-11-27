@@ -13,10 +13,12 @@ namespace MimAcher.Apresentacao
     public partial class Login : System.Web.UI.Page
     {
         public GestorDeUsuario GestorDeUsuario { get; set; }
+        public GestorDeAcesso GestorDeAcesso { get; set; }
 
         public Login()
         {
             this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeAcesso = new GestorDeAcesso();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -50,9 +52,17 @@ namespace MimAcher.Apresentacao
                 {
                     MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(email, senha);
 
-                    Session.Add("usuario", usuario);
-                    this.LoginWindowId.Close();                    
-                    Response.Redirect("/App/Usuario.aspx");
+                    if (GestorDeAcesso.VerificarSeUsuarioTemAcessoWeb(usuario.cod_acesso))
+                    {
+                        Session.Add("usuario", usuario);
+                        this.LoginWindowId.Close();
+                        Response.Redirect("/App/Usuario.aspx");
+                    }
+                    else
+                    {
+                        X.Msg.Alert("Erro", "Seu usuário é só para acesso mobile... contate um administrador...").Show();
+                    }
+                    
                 }
                 //Senão, informe que o usuário e senha está inválidos.
                 else
