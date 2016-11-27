@@ -10,14 +10,13 @@ namespace MimAcher.Mobile.com.Entidades
     public class Participante : Usuario
     {
         //Properties
+
+        public string Codigo { get; set; }
         public ListaItens Hobbies { get; set;}
-        
 
         public ListaItens Aprender {get; set;}
-        
 
         public ListaItens Ensinar { get; set; }
-        
 
         public string Nome { get; set; }
 
@@ -45,9 +44,9 @@ namespace MimAcher.Mobile.com.Entidades
         }
         
         //Funções para trabalhar no banco de dados
-        public int Inscrever()
+        public string Inscrever()
         {
-            return CursorBd.CadastrarParticipante(this);
+            return CursorBd.EnviarParticipante(this);
         }
 
 
@@ -63,6 +62,7 @@ namespace MimAcher.Mobile.com.Entidades
         {
             var dictionary = new Dictionary<string, string>
             {
+                ["codigo"] = b.GetString("codigo"),
                 ["email"] = b.GetString("e_mail"),
                 ["nome"] = b.GetString("nome"),
                 ["campus"] = b.GetString("campus"),
@@ -91,6 +91,7 @@ namespace MimAcher.Mobile.com.Entidades
             bundle.PutStringArrayList("hobbie", Hobbies.Conteudo);
             bundle.PutStringArrayList("aprender", Aprender.Conteudo);
             bundle.PutStringArrayList("ensinar", Ensinar.Conteudo);
+            bundle.PutString("codigo", Codigo);
             bundle.PutString("nome", Nome);
             bundle.PutString("campus", Campus);
             bundle.PutString("senha", Senha);

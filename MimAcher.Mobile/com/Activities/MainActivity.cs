@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Net;
 using Android.OS;
@@ -123,7 +122,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             return new Dictionary<string, string>
             {
-                ["senha"] = _senha,
+                ["senha"] = _senhaInserida,
                 ["email"] = _emailInserido
             };
         }

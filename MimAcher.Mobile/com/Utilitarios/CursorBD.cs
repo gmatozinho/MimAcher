@@ -8,7 +8,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class CursorBd
     {
-        public static int CadastrarParticipante(Participante participante)
+        public static string EnviarParticipante(Participante participante)
         {
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
@@ -16,21 +16,24 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
 
             var resposta = ObterResposta(requisicao);
-
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoParticipante = int.Parse(jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
+            var codigoParticipante = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
 
             return codigoParticipante;
         }
 
         //TODO: setar valor de retorno correto
-        public static object EnviarItem(string item)
+        public static string EnviarItem(string item)
         {
             var json = JsonParser.MontarJsonItem(item);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostItem();
             EnviarJson(json, requisicao);
 
-            return ObterResposta(requisicao);
+            var resposta = ObterResposta(requisicao);
+            var jsonResposta = JObject.Parse(resposta.ToString());
+            var codigoItem = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
+
+            return codigoItem;
         }
 
         public static Dictionary<string, List<Participante>> Match(Participante a)

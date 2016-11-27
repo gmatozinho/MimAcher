@@ -3268,6 +3268,15 @@ namespace MimAcher.Mobile
 			// aapt resource value: 0x7f08002e
 			public const int HintCampoHobbies = 2131230766;
 			
+			// aapt resource value: 0x7f080039
+			public const int MsgCadastroAprender = 2131230777;
+			
+			// aapt resource value: 0x7f08003a
+			public const int MsgCadastroEnsinar = 2131230778;
+			
+			// aapt resource value: 0x7f080038
+			public const int MsgCadastroHobbie = 2131230776;
+			
 			// aapt resource value: 0x7f080030
 			public const int PerguntaAprender = 2131230768;
 			
@@ -3288,6 +3297,9 @@ namespace MimAcher.Mobile
 			
 			// aapt resource value: 0x7f08002a
 			public const int TitleCadastrar = 2131230762;
+			
+			// aapt resource value: 0x7f080037
+			public const int TitleCombinacoes = 2131230775;
 			
 			// aapt resource value: 0x7f080036
 			public const int TitleEditarPerfil = 2131230774;

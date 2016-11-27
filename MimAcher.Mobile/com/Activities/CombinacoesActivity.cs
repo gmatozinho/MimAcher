@@ -1,13 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
@@ -40,8 +32,8 @@ namespace MimAcher.Mobile.com.Activities
             SetActionBar(toolbar);
 
             //Modificando a parte textual
-            ActionBar.Title = "Combinações";
-            ActionBar.Subtitle = "Hobbies";
+            ActionBar.SetTitle(Resource.String.TitleCombinacoes);
+            ActionBar.SetSubtitle(Resource.String.TitleAprender);
 
             //Recebendo e transformando o bundle(Objeto participante)
             //TODO tenho que pegar o item, e trazer o resultado do match para listar

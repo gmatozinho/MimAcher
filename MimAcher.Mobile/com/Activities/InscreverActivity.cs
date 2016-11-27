@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -129,12 +128,18 @@ namespace MimAcher.Mobile.com.Activities
             if (Validacao.ValidarCadastroParticipante(activity,informacoesInseridas))
             {
                 var participante = new Participante(CriarDicionarioParaMontarParticipante());
-                var x = participante.Inscrever();
+                var codigoParticipanteInscrito = participante.Inscrever();
+                if (codigoParticipanteInscrito == "-1")
+                {
+                    Mensagens.MensagemErroCadastro(this);
+                    return;
+                }
+
+                participante.Codigo = codigoParticipanteInscrito;
                 IniciarEscolherFoto(this, participante);
                 _stopwatch.Stop();
                 //TODO enviar stopwatch
-                const string toast = ("Usuário Criado");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                Mensagens.MensagemCadastroBemSucedido(this);
                 Finish();
             }
         }
