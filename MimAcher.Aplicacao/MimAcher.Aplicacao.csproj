@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="GestorDeAcesso.cs" />
     <Compile Include="GestorDeAplicacao.cs" />
+    <Compile Include="GestorDeErro.cs" />
     <Compile Include="GestorDeItem.cs" />
     <Compile Include="GestorDeNACAreaDeAtuacao.cs" />
     <Compile Include="GestorDeCampus.cs" />
