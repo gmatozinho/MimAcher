@@ -9,7 +9,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class Mensagens
     {
-        public static void MensagemDeInformacaoInvalidaPadrao(Context contexto, string informacao)
+        internal static void MensagemDeInformacaoInvalidaPadrao(Context contexto, string informacao)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Dado Inválido: " + informacao);
@@ -18,31 +18,31 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
-        public static void MensagemDeInformacoesEditadasComSucesso(Context contexto)
+        internal static void MensagemDeInformacoesEditadasComSucesso(Context contexto)
         {
             var toast = "Suas informações foram alteradas com sucesso";
             Toast.MakeText(contexto, toast, ToastLength.Long).Show();
         }
 
-        public static void MensagemDeAdicionarItemSucesso(string item,Context activity, string text)
+        internal static void MensagemDeAdicionarItemSucesso(string item,Context activity, string text)
         {
             var toast = string.Format("{1} Inserido: {0}", item, text);
             Toast.MakeText(activity, toast, ToastLength.Long).Show();
         }
 
-        public static void MensagemDeAdicionarItemFalha(string item, Context activity, string text)
+        internal static void MensagemDeAdicionarItemFalha(string item, Context activity, string text)
         {
             var toast = string.Format("Voce já possui este {1}: {0} ", item, text);
             Toast.MakeText(activity, toast, ToastLength.Long).Show();
         }
 
-        public static void MensagemDeAdicionarItemNadaInserido(Context activity)
+        internal static void MensagemDeAdicionarItemNadaInserido(Context activity)
         {
             const string toast = ("Nada Inserido");
             Toast.MakeText(activity, toast, ToastLength.Long).Show();
         }
 
-        public static void MensagemDeConfirmarSenhaInvalido(Context contexto)
+        internal static void MensagemDeConfirmarSenhaInvalido(Context contexto)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("As senhas não conferem!");
@@ -51,7 +51,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
-        public static void MensagemDeSenhaInvalida(Context contexto)
+        internal static void MensagemDeSenhaInvalida(Context contexto)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Senha Invalida");
@@ -63,7 +63,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
         
-        public static void MensagemParaRegistrarGeolocalizacao(Context contexto, Participante participante)
+        internal static void MensagemParaRegistrarGeolocalizacao(Context contexto, Participante participante)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Você deseja registrar sua localização?");
@@ -85,7 +85,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
 
-        public static void MensagemDeDataInvalida(Context contexto)
+        internal static void MensagemDeDataInvalida(Context contexto)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Data de Nascimento Invalida");
@@ -97,7 +97,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
 
-        public static void MensagemDeLogout(Context contexto, HomeActivity home)
+        internal static void MensagemDeLogout(Context contexto, HomeActivity home)
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Deseja realizar Logout");
@@ -114,7 +114,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
 
-        public static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
+        internal static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
         {
             var alert = new AlertDialog.Builder(resultados);
             alert.SetTitle("Opções");
@@ -147,13 +147,13 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
-        public static void MensagemServidorOnline(Context activity)
+        internal static void MensagemServidorOnline(Context activity)
         {
             const string toast = "Servidor Online";
             Toast.MakeText(activity, toast, ToastLength.Long).Show();
         }
 
-        public static void MensagemServidorOffline(Context activity)
+        internal static void MensagemServidorOffline(Context activity)
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
@@ -162,7 +162,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
-        public static void MensagemInternetDesativada(Context activity)
+        internal static void MensagemInternetDesativada(Context activity)
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
@@ -171,7 +171,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
-        public static void MensagemInternetAtivadaMasComProblema(Context activity)
+        internal static void MensagemInternetAtivadaMasComProblema(Context activity)
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
@@ -180,8 +180,29 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.Show();
         }
 
+        internal static void MensagemErroLogin(Context context)
+        {
+            var alert = new AlertDialog.Builder(context);
+            alert.SetTitle("Falha ao Logar!");
+            alert.SetMessage("Usuário ou senha incorretos");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
+            alert.Show();
+        }
+
+        internal static void MensagemErroCadastro(Context context)
+        {
+            var alert = new AlertDialog.Builder(context);
+            alert.SetTitle("Falha ao Inscrever!");
+            alert.SetMessage("Não foi possível realizar sua inscrição, possívelmente já possui algum usuário com este e-mail, tente novamente!");
+            alert.SetPositiveButton("Ok", (senderAlert, args) => { });
+            alert.Show();
+        }
 
 
-
+        public static void MensagemCadastroBemSucedido(Context context)
+        {
+            const string toast = ("Usuário Criado");
+            Toast.MakeText(context, toast, ToastLength.Long).Show();
+        }
     }
 }

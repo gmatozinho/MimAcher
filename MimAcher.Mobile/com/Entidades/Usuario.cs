@@ -21,10 +21,11 @@ namespace MimAcher.Mobile.com.Entidades
         public string Senha {get; private set;}
 
 
-        public static bool Login(Context context, Dictionary<string,string> emailESenha )
+        public static string Login(Context context, Dictionary<string, string> emailESenha)
         {
-            //chamar controller de validação de login
-            return Validacao.ValidarLogin(context, emailESenha) && CursorBd.Login(emailESenha);
+            if (Validacao.ValidarLogin(context,emailESenha)) return CursorBd.Login(emailESenha);
+            return "-1";
+
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)

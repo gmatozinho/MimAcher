@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Net;
 using Android.OS;
@@ -10,6 +9,7 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
@@ -98,48 +98,21 @@ namespace MimAcher.Mobile.com.Activities
 
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-
-            new Thread(new ThreadStart(delegate
-            {
-                Thread.Sleep(5000);//take 5 secs to do it's job
-
-                RunOnUiThread(async () =>
-                {
-                    for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-
-                    await InscreverClick();
-                    progressDialog.Dismiss();
-                });
-            })).Start();
-        }
-
-        private async Task InscreverClick()
-        {
-            var myProgressBar = new ProgressBar(this)
-            {
-                Indeterminate = true,
-                Visibility = ViewStates.Visible
-            };
-            await StartInscrever();
-            myProgressBar.Visibility = ViewStates.Gone;
-        }
-
-        private async Task StartInscrever()
-        {
-            await Task.Run(() => {
-                IniciarInscrever();
-            });
-            Thread.Sleep(3000);
+            //IniciarInscrever();
+            MyButtonClicked();
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            Usuario.Login(this, MontarDicionarioLogin());
+            var resultado = Usuario.Login(this, MontarDicionarioLogin());
+            if (resultado == "-1")
+            {
+                Mensagens.MensagemErroLogin(this);
+                return;
+            }
+
+            //enviar o codigo participante e montar o parcipante com as informações inseridas
+            //E enviar esse participante montado para a próxima activity
             var participante = new Participante(MontarUsuário());
             IniciarHome(this, participante);
             Finish();
@@ -149,9 +122,29 @@ namespace MimAcher.Mobile.com.Activities
         {
             return new Dictionary<string, string>
             {
-                ["senha"] = _senha,
-                ["email"] = _senhaInserida
+                ["senha"] = _senhaInserida,
+                ["email"] = _emailInserido
             };
+        }
+
+        private void MyButtonClicked()
+        {
+            var myProgressBar = new ProgressBar(this) {Visibility = ViewStates.Visible};
+            ThreadStart thSt = delegate { RunMyMethod(myProgressBar); };
+            var mythread = new Thread(thSt);
+            mythread.Start();
+        }
+
+        private Dictionary<int, string> MyMethod()
+        {
+            Thread.Sleep(5000);//take 5 secs to do it's job
+            return CursorBd.ObterCampi();
+
+        }
+        private void RunMyMethod(View myProgressBar)
+        {
+            RunOnUiThread(() => IniciarInscrever());
+            RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
         }
     }
 }

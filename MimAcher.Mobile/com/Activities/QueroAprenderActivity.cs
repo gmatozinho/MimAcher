@@ -51,7 +51,7 @@ namespace MimAcher.Mobile.com.Activities
             _campoAprender.TextChanged += (sender, a) => _aprender = a.Text.ToString();
 
             addAprender.Click += delegate {
-                string[] values = { "Algo para Aprender", _aprender };
+                string[] values = { GetString(Resource.String.MsgCadastroAprender), _aprender };
                 _pacoteCompleto = new PacoteCompleto(_listAprender, _participante, _listView);
                 InserirItem(_campoAprender, _pacoteCompleto, values);
             };

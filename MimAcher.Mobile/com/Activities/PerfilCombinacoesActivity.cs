@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
-using Android.Content;
+using Android.Graphics.Drawables;
 using Android.OS;
-using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Activities.TAB;
@@ -46,6 +40,7 @@ namespace MimAcher.Mobile.com.Activities
             //Modificando a parte textual
             ActionBar.Title = _participante.Nome;
             ActionBar.SetLogo(Android.Resource.Drawable.ButtonRadio);
+            ActionBar.SetIcon(Resource.Drawable.logo);
             telefoneInfoUser.Hint = _participante.Telefone;
             dtNascimentoInfoUser.Hint = _participante.Nascimento;
 
