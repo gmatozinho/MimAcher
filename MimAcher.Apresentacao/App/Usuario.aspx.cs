@@ -59,6 +59,7 @@ namespace MimAcher.Apresentacao.App
 
             usuario.e_mail = this.e_mailId.Text;
             usuario.senha = this.senhaId.Text;
+            usuario.cod_acesso = Int32.Parse(this.cod_acessoId.Text);
             
             //Caso o form não possui código, será inserido um novo usuário
             if (this.cod_usuarioId.Text == "")
