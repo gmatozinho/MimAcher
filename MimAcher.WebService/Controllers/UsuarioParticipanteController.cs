@@ -67,12 +67,22 @@ namespace MimAcher.WebService.Controllers
                     participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
                     participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
 
-                    this.GestorDeParticipante.InserirParticipante(participante);
-                    
-                    jsonResult = Json(new
+                    if (this.GestorDeParticipante.InserirParticipanteComRetorno(participante))
                     {
-                        codigo = participante.cod_participante
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            codigo = participante.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        GestorDeUsuario.RemoverUsuario(usuario);
+
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {

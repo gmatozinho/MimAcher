@@ -54,6 +54,20 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            {
+                this.Contexto.MA_PARTICIPANTE.Add(participante);
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public int BuscarQuantidadeRegistros()
         {

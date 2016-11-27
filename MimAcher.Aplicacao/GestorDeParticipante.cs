@@ -49,6 +49,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeParticipante.InserirParticipante(participante);
         }
 
+        public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            return this.RepositorioDeParticipante.InserirParticipanteComRetorno(participante);            
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeParticipante.BuscarQuantidadeRegistros();
