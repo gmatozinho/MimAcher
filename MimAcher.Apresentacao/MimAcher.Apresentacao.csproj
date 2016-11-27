@@ -164,6 +164,7 @@
   <ItemGroup>
     <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
+    <Content Include="App\Erro.aspx" />
     <Content Include="App\ImagemParticipante.aspx" />
     <Content Include="App\Item.aspx" />
     <Content Include="App\Mapa\PontoMapa.aspx" />
@@ -218,6 +219,13 @@
     </Compile>
     <Compile Include="App\Campus.aspx.designer.cs">
       <DependentUpon>Campus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\Erro.aspx.cs">
+      <DependentUpon>Erro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Erro.aspx.designer.cs">
+      <DependentUpon>Erro.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\ImagemParticipante.aspx.cs">
       <DependentUpon>ImagemParticipante.aspx</DependentUpon>
