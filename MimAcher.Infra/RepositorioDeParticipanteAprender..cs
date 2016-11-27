@@ -48,6 +48,31 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirNovoAprendizadoDeParticipanteComRetorno(MA_PARTICIPANTE_APRENDER participanteaprender)
+        {
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
+            {
+                this.Contexto.MA_PARTICIPANTE_APRENDER.Add(participanteaprender);
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
+
+                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Count();
