@@ -5,11 +5,11 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 {
     public abstract class AbstractValidatorHandler
     {
-        protected ValidatorEnum Validator;
+        protected ValidatorTipos Validator;
         private AbstractValidatorHandler _proximaOpcao;
-        public enum ValidatorEnum { Email, Nome, Nascimento, Senha, Telefone, ConfirmarSenha}
+        public enum ValidatorTipos { Email, Nome, Nascimento, Senha, Telefone, ConfirmarSenha}
 
-        protected AbstractValidatorHandler(ValidatorEnum validator)
+        protected AbstractValidatorHandler(ValidatorTipos validator)
         {
             Validator = validator;
         }

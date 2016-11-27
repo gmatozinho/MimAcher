@@ -21,21 +21,18 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         public override void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroaprenderactivity = new Intent(contexto, typeof(QueroAprenderActivity));
-            //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroaprenderactivity,pacote);
         }
 
         public override void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroensinaractivity = new Intent(contexto, typeof(QueroEnsinarActivity));
-            //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroensinaractivity, pacote);
         }
 
         private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
-            //TODO mudar para enviar item do
-            //pacote.Participante.Commit();
+
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;
         }
@@ -48,21 +45,19 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Hobbies.Conteudo);
                     pacoteCompleto.Participante.Hobbies.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo, pacoteCompleto.ListView, pacoteCompleto.ListaItens);
-                    RegistrarRelação(mensagemEItem,pacoteCompleto.Participante.Codigo);
                     break;
                 case "Algo para Aprender":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Aprender.Conteudo);
                     pacoteCompleto.Participante.Aprender.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo, pacoteCompleto.ListView, pacoteCompleto.ListaItens);
-                    RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.Codigo);
                     break;
                 case "Algo para Ensinar":
                     pacoteCompleto.ListaItens.AdicionarItem(mensagemEItem[1], pacoteCompleto.Participante.Ensinar.Conteudo);
                     pacoteCompleto.Participante.Ensinar.AdicionarItemComMensagem(mensagemEItem[1], this, mensagemEItem[0]);
                     LimparEListar(campo,pacoteCompleto.ListView,pacoteCompleto.ListaItens);
-                    RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.Codigo);
                     break;
             }
+            RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.Codigo);
         }
 
         private static int RegistrarItem(string item)

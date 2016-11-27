@@ -39,7 +39,10 @@ namespace MimAcher.Mobile.com.Activities
             };
         }
 
-        public override void OnBackPressed() {}
+        public override void OnBackPressed()
+        {
+            return;
+        }
 
         private void SelecionarFoto()
         {

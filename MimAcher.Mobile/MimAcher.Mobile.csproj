@@ -174,7 +174,6 @@
     <Compile Include="com\Entidades\Fabricas\FabricaAbstrataTelasNormais.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasNormaisComProcedimento.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasNormaisSemProcedimento.cs" />
-    <Compile Include="com\Services\ServicoUsuario.cs" />
     <Compile Include="com\Utilitarios\JsonParser.cs" />
     <Compile Include="com\Utilitarios\MontadorRequisicao.cs" />
     <Compile Include="com\Utilitarios\TipoItem.cs" />

@@ -6,7 +6,7 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
     public class ChecarConexaoServidorHandler : AbstractConnectionHandler
     {
-        public ChecarConexaoServidorHandler(ChecagemEnum checagem) : base(checagem)
+        public ChecarConexaoServidorHandler(ChecagemTipos checagem) : base(checagem)
         {
             Checagem = checagem;
         }

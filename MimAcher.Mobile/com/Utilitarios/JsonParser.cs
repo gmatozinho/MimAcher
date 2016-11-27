@@ -18,9 +18,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
             participante.Telefone = acertandoTelefone;
             DateTime saida;
-            var isValid = DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy",
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out saida);
+            DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out saida);
+
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
             return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
@@ -59,9 +58,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
             participante.Telefone = acertandoTelefone;
             DateTime saida;
-            var isValid = DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy",
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out saida);
+            DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out saida);
+
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
             return "{ \"listaparticipante\": [ { \"cod_participante\": 1, \"cod_usuario\": 1, " + 

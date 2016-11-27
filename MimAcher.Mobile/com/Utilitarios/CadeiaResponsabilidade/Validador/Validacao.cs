@@ -8,8 +8,8 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public static bool ValidarLogin(Context contexto, Dictionary<string, string> informacoesInseridas)
         {
-            AbstractValidatorHandler validarEmail = new ValidarEmail(AbstractValidatorHandler.ValidatorEnum.Email);
-            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorEnum.Senha);
+            AbstractValidatorHandler validarEmail = new ValidarEmail(AbstractValidatorHandler.ValidatorTipos.Email);
+            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorTipos.Senha);
 
             validarEmail.SetProximaOpcao(validarSenha);
 
@@ -18,9 +18,9 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public static bool ValidarEditarPerfil(Context contexto, Dictionary<string, string> entradas)
         {
-            AbstractValidatorHandler validarNome = new ValidarNome(AbstractValidatorHandler.ValidatorEnum.Nome);
-            AbstractValidatorHandler validarNascimento = new ValidarNascimento(AbstractValidatorHandler.ValidatorEnum.Nascimento);
-            AbstractValidatorHandler validarTelefone = new ValidarTelefone(AbstractValidatorHandler.ValidatorEnum.Telefone);
+            AbstractValidatorHandler validarNome = new ValidarNome(AbstractValidatorHandler.ValidatorTipos.Nome);
+            AbstractValidatorHandler validarNascimento = new ValidarNascimento(AbstractValidatorHandler.ValidatorTipos.Nascimento);
+            AbstractValidatorHandler validarTelefone = new ValidarTelefone(AbstractValidatorHandler.ValidatorTipos.Telefone);
 
             validarNome.SetProximaOpcao(validarNascimento);
             validarNascimento.SetProximaOpcao(validarTelefone);
@@ -31,12 +31,12 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public static bool ValidarCadastroParticipante(Context contexto, Dictionary<string, string> informacoesInseridas)
         {
-            AbstractValidatorHandler validarNome = new ValidarNome(AbstractValidatorHandler.ValidatorEnum.Nome);
-            AbstractValidatorHandler validarEmail = new ValidarEmail(AbstractValidatorHandler.ValidatorEnum.Email);
-            AbstractValidatorHandler validarNascimento = new ValidarNascimento(AbstractValidatorHandler.ValidatorEnum.Nascimento);
-            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorEnum.Senha);
-            AbstractValidatorHandler validarConfirmarSenha = new ValidarConfirmarSenha(AbstractValidatorHandler.ValidatorEnum.ConfirmarSenha);
-            AbstractValidatorHandler validarTelefone = new ValidarTelefone(AbstractValidatorHandler.ValidatorEnum.Telefone);
+            AbstractValidatorHandler validarNome = new ValidarNome(AbstractValidatorHandler.ValidatorTipos.Nome);
+            AbstractValidatorHandler validarEmail = new ValidarEmail(AbstractValidatorHandler.ValidatorTipos.Email);
+            AbstractValidatorHandler validarNascimento = new ValidarNascimento(AbstractValidatorHandler.ValidatorTipos.Nascimento);
+            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorTipos.Senha);
+            AbstractValidatorHandler validarConfirmarSenha = new ValidarConfirmarSenha(AbstractValidatorHandler.ValidatorTipos.ConfirmarSenha);
+            AbstractValidatorHandler validarTelefone = new ValidarTelefone(AbstractValidatorHandler.ValidatorTipos.Telefone);
 
             validarEmail.SetProximaOpcao(validarNome);
             validarNome.SetProximaOpcao(validarNascimento);
@@ -49,8 +49,8 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 
         public static bool ValidarConfirmarSenha(Context contexto, Dictionary<string, string> senhasInseridas)
         {
-            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorEnum.Senha);
-            AbstractValidatorHandler validarConfirmarSenha = new ValidarConfirmarSenha(AbstractValidatorHandler.ValidatorEnum.ConfirmarSenha);
+            AbstractValidatorHandler validarSenha = new ValidarSenha(AbstractValidatorHandler.ValidatorTipos.Senha);
+            AbstractValidatorHandler validarConfirmarSenha = new ValidarConfirmarSenha(AbstractValidatorHandler.ValidatorTipos.ConfirmarSenha);
 
             validarSenha.SetProximaOpcao(validarConfirmarSenha);
 

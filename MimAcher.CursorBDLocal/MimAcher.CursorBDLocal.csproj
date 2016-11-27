@@ -68,7 +68,7 @@
   <ItemGroup>
     <Compile Include="Conexao\CursorGenerico.cs" />
     <Compile Include="Conexao\CursorPostgres.cs" />
-    <Compile Include="Conexao\CursorSQLServer.cs" />
+    <Compile Include="Conexao\CursorSqlServer.cs" />
     <Compile Include="Conexao\Parametros\FabricaDate.cs" />
     <Compile Include="Conexao\Parametros\FabricaInt.cs" />
     <Compile Include="Conexao\Parametros\FabricaParametros.cs" />

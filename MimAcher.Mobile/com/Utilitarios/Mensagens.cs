@@ -121,7 +121,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             alert.SetMessage("Você deseja remover o item ou consultar combinações?");
             alert.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
             {
-                resultados.VerCombinacoes(itemSelecionado);
+                resultados.VerCombinacoes(itemSelecionado, resultados);
             });
             alert.SetNegativeButton("Remover", (senderAlert, args) =>
             {

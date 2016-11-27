@@ -7,9 +7,9 @@ using MimAcher.Postgres.Conexao.Parametros;
 
 namespace MimAcher.Postgres.Conexao
 {
-    class CursorSQLServer : CursorGenerico
+    internal class CursorSqlServer : CursorGenerico
     {
-         public CursorSQLServer()
+         public CursorSqlServer()
         {
             stringConexao = "Server = localhost\\SQLEXPRESS;Database=mimacher;Trusted_Connection=True;";
             conexao = new SqlConnection(stringConexao);

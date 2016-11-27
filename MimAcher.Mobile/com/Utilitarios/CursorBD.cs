@@ -21,8 +21,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return codigoParticipante;
         }
-
-        //TODO: setar valor de retorno correto
+        
         public static string EnviarItem(string item)
         {
             var json = JsonParser.MontarJsonItem(item);
@@ -60,7 +59,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 streamSaida.Close();
             }
         }
-        //TODO: setar valor de retorno correto
+        
         private static object ObterResposta(WebRequest requisicao)
         {
             WebResponse resposta = (HttpWebResponse)requisicao.GetResponse();

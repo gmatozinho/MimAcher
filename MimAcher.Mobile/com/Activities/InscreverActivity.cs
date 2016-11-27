@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Android;
 using Android.App;
 using Android.Content;
@@ -34,7 +32,7 @@ namespace MimAcher.Mobile.com.Activities
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
-        private ArrayAdapter<string> _adapterCampus;
+        
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -56,7 +54,7 @@ namespace MimAcher.Mobile.com.Activities
             //pegar lista de campus do banco
             _campusComCod = CursorBd.ObterCampi();
             var opcoesCampus = CriarListaCampi(_campusComCod);
-            _adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
+            var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
 
             //captar telefone caso possivel
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -68,8 +66,8 @@ namespace MimAcher.Mobile.com.Activities
 
             //Funcionalidades
             //Escolhendo o Campus
-            _adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
-            _spinnerCampus.Adapter = _adapterCampus;
+            adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
+            _spinnerCampus.Adapter = adapterCampus;
 
             //Mascara para telefone e nascimento
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
@@ -197,41 +195,7 @@ namespace MimAcher.Mobile.com.Activities
                 ["confirmarSenha"] = _confirmarSenha
             };
         }
-
-
-        private void LoadingParaSolicitarCampus()
-        {
-            IniciarInscrever();
-            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-
-            new Thread(new ThreadStart(delegate
-            {
-                Thread.Sleep(5000);//take 5 secs to do it's job
-
-                RunOnUiThread(async () =>
-                {
-                    for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-
-                    await SolicitarCampus();
-                    progressDialog.Dismiss();
-
-                });
-            })).Start();
-        }
-
         
-        private async Task SolicitarCampus()
-        {
-            await Task.Run(() => {
-                _campusComCod = CursorBd.ObterCampi();
-            });
-        }
-       
-
     }
 }
 

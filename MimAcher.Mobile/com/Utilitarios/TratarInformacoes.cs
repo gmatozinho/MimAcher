@@ -1,6 +1,6 @@
 ﻿namespace MimAcher.Mobile.com.Utilitarios
 {
-    public class TratarInformacoes
+    public static class TratarInformacoes
     {
         public static string TrataNumeroTelefone(string telefone)
         {

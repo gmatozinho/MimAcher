@@ -5,7 +5,7 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
 {
     public class ValidarTelefone : AbstractValidatorHandler
     {
-        public ValidarTelefone(ValidatorEnum validator) : base(validator)
+        public ValidarTelefone(ValidatorTipos validator) : base(validator)
         {
             Validator = validator;
         }

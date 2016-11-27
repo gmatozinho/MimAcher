@@ -1,4 +1,3 @@
-using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -19,7 +18,6 @@ namespace MimAcher.Mobile.com.Activities
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
-        private SearchView _searchView;
         private Participante _participante;
         private FloatingActionButton _fab;
 
@@ -83,7 +81,11 @@ namespace MimAcher.Mobile.com.Activities
             };
 
         }
-        public override void OnBackPressed() { }
+
+        public override void OnBackPressed()
+        {
+            return;
+        }
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -97,8 +99,8 @@ namespace MimAcher.Mobile.com.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    _searchView = new SearchView(this);
-                    _searchView.SetQuery("Pesquisar",true);
+                    var searchView = new SearchView(this);
+                    searchView.SetQuery("Pesquisar",true);
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
@@ -108,7 +110,6 @@ namespace MimAcher.Mobile.com.Activities
                     break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
-                    //TestarGeolocalizacao();
                     break;
             }
 
@@ -126,13 +127,6 @@ namespace MimAcher.Mobile.com.Activities
         {
             IniciarMain(this);
             Finish();
-        }
-
-        private void TestarGeolocalizacao()
-        {
-            var localizacao = _participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            var toast = $"Coordenadas:\n lat{localizacao[0]} long{localizacao[1]}";
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
         
     }

@@ -13,7 +13,7 @@ namespace MimAcher.Postgres
             DiretorGeradores dir = new DiretorGeradores();
             Participante par;
 
-            CursorGenerico cursor = new CursorSQLServer();
+            CursorGenerico cursor = new CursorSqlServer();
 
             var watch = Stopwatch.StartNew();
 
