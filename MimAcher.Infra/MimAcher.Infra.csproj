@@ -52,8 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioDeAcesso.cs" />
     <Compile Include="RepositorioDeAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeCampus.cs" />
+    <Compile Include="RepositorioDeErro.cs" />
     <Compile Include="RepositorioDeNACAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeParticipante.cs" />
     <Compile Include="RepositorioDeParticipanteAprender..cs" />

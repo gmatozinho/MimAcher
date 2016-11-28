@@ -54,6 +54,20 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            {
+                this.Contexto.MA_PARTICIPANTE.Add(participante);
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public int BuscarQuantidadeRegistros()
         {
@@ -93,6 +107,17 @@ namespace MimAcher.Infra
             Contexto.Entry(participante).State = EntityState.Modified;
             Contexto.SaveChanges();
 
+        }
+
+        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        {
+            if(ObterParticipantePorId(cod_participante) != null)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)

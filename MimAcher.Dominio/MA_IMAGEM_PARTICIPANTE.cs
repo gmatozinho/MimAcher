@@ -16,7 +16,7 @@ namespace MimAcher.Dominio
     {
         public int cod_imagem { get; set; }
         public int cod_participante { get; set; }
-        public byte[] imagem { get; set; }
+        public string imagem { get; set; }
     
         public virtual MA_PARTICIPANTE MA_PARTICIPANTE { get; set; }
     }
