@@ -130,6 +130,15 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.Label labelUsuarioEmail;
         
         /// <summary>
+        /// labelAcesso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label labelAcesso;
+        
+        /// <summary>
         /// PainelMenuPrincipalId control.
         /// </summary>
         /// <remarks>
