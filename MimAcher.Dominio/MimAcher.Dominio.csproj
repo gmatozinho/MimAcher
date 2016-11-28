@@ -51,10 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MA_ACESSO.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
     <Compile Include="MA_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_CAMPUS.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_ERRO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">

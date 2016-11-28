@@ -24,7 +24,9 @@ namespace MimAcher.Dominio
         public int cod_usuario { get; set; }
         public string e_mail { get; set; }
         public string senha { get; set; }
+        public int cod_acesso { get; set; }
     
+        public virtual MA_ACESSO MA_ACESSO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_NAC> MA_NAC { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

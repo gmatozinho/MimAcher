@@ -8,9 +8,9 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 
         public static void ChecarConexão(Context activity, ConnectivityManager connectivityManager)
         {
-            AbstractConnectionHandler redeStatus = new ChecarRedeStatusHandler(AbstractConnectionHandler.ChecagemEnum.RedeStatus);
-            AbstractConnectionHandler conexaoServidor = new ChecarConexaoServidorHandler(AbstractConnectionHandler.ChecagemEnum.ConexaoServidor);
-            AbstractConnectionHandler conexaoInternet = new ChecarConexaoInternetHandler(AbstractConnectionHandler.ChecagemEnum.ConexaoInternet);
+            AbstractConnectionHandler redeStatus = new ChecarRedeStatusHandler(AbstractConnectionHandler.ChecagemTipos.RedeStatus);
+            AbstractConnectionHandler conexaoServidor = new ChecarConexaoServidorHandler(AbstractConnectionHandler.ChecagemTipos.ConexaoServidor);
+            AbstractConnectionHandler conexaoInternet = new ChecarConexaoInternetHandler(AbstractConnectionHandler.ChecagemTipos.ConexaoInternet);
 
             redeStatus.SetProximaOpcao(conexaoInternet);
             conexaoInternet.SetProximaOpcao(conexaoServidor);

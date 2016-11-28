@@ -12,7 +12,7 @@ namespace MimAcher.WebService.Controllers
 
         public ParticipanteHobbieController()
         {
-            this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
+            GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
         }
 
         // GET: ParticipanteHobbie
@@ -24,7 +24,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = this.GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
             List<ParticipanteHobbie> listaparticipantehobbie = new List<ParticipanteHobbie>();
 
             foreach (MA_PARTICIPANTE_HOBBIE pe in listaparticipantehobbieoriginal)
@@ -34,7 +34,6 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
                 participantehobbie.cod_participante = pe.cod_participante;
                 participantehobbie.cod_item = pe.cod_item;
-                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
 
                 listaparticipantehobbie.Add(participantehobbie);
             }
@@ -58,26 +57,36 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+            else
             {
-                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-                participantehobbie.cod_participante = pe.cod_participante;
-                participantehobbie.cod_item = pe.cod_item;
-                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
+                int codigo_pa = -1;
 
-                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+                {
+                    MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+
+                    participantehobbie.cod_participante = pe.cod_participante;
+                    participantehobbie.cod_item = pe.cod_item;
+
+                    //Informa que a relação estará ativa
+                    participantehobbie.cod_s_relacao = 1;
+
+                    GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+
+                    codigo_pa = participantehobbie.cod_p_hobbie;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigo_pa
+                }, JsonRequestBehavior.AllowGet);
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -93,27 +102,45 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
-            foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+            else
             {
-                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-                participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
-                participantehobbie.cod_participante = pe.cod_participante;
-                participantehobbie.cod_item = pe.cod_item;
-                participantehobbie.cod_s_relacao = pe.cod_s_relacao;
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
+                {
+                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
 
-                this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                    participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
+                    participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
+                    participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                    //Permanece a relação como ativa
+                    participantehobbie.cod_s_relacao = 1;
+
+                    if (this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie))
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = participantehobbie.cod_p_hobbie
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -131,43 +158,102 @@ namespace MimAcher.WebService.Controllers
                 {
                     codigo = -1
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
             else
             {
-                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
                 {
-                    if (pe.cod_s_relacao == 2)
+                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
+
+                    if (participantehobbie.cod_s_relacao == 1)
                     {
-                        MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+                        participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
+                        participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
+                        participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                        //Marca a relação como inativa
+                        participantehobbie.cod_s_relacao = 2;
 
-                        participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
-                        participantehobbie.cod_participante = pe.cod_participante;
-                        participantehobbie.cod_item = pe.cod_item;
-                        participantehobbie.cod_s_relacao = pe.cod_s_relacao;
-
-                        this.GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
+                        this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipante(participantehobbie);
 
                         jsonResult = Json(new
                         {
                             codigo = participantehobbie.cod_p_hobbie
                         }, JsonRequestBehavior.AllowGet);
-
-                        jsonResult.MaxJsonLength = int.MaxValue;
-                        return jsonResult;
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
                     }
                 }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
 
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Match(List<ParticipanteHobbie> listaparticipantehobbie)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipantehobbie == null)
+            {
                 jsonResult = Json(new
                 {
-                    codigo = -1
+                    listaparticipantehobbie = ""
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
+            else
+            {
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
+                {
+                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
+
+                    List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
+
+                    //Reinicia lista de aprendizado de participante
+                    listaparticipantehobbie = new List<ParticipanteHobbie>();
+
+                    foreach (MA_PARTICIPANTE_HOBBIE mapa in listaphobbie)
+                    {
+                        ParticipanteHobbie pa = new ParticipanteHobbie();
+
+                        pa.cod_p_hobbie = mapa.cod_p_hobbie;
+                        pa.cod_item = mapa.cod_item;
+                        pa.cod_participante = mapa.cod_participante;
+
+                        listaparticipantehobbie.Add(pa);
+                    }
+
+                    jsonResult = Json(new
+                    {
+                        listaparticipantehobbie = listaparticipantehobbie
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        listaparticipantehobbie = ""
+                    }, JsonRequestBehavior.AllowGet);
+                }
+
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
         }
     }
 }

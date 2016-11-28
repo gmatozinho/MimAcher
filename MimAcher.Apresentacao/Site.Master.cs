@@ -30,6 +30,7 @@ namespace MimAcher.Apresentacao
                                 
                 //Coloca a informação com o email do usuário logado no cabeçalho
                 this.labelUsuarioEmail.Text = usuario.e_mail;
+                this.labelAcesso.Text = usuario.MA_ACESSO.nome;
 
                 if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                 {

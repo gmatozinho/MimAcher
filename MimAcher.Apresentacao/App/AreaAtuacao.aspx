@@ -9,23 +9,23 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="AreaAtuacaoFormPanelId" runat="server" Title="Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="AreaAtuacaoFormPanelId" runat="server" Title="Inserir/Editar Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
             <Items> 
             
-                <ext:FieldSet ID="AreaAtuacaoFieldSetId" runat="server" Title="AreaAtuacao" MarginSpec="0 0 0 10">                                                      
+                <ext:FieldSet ID="AreaAtuacaoFieldSetId" runat="server" Title="Área de Atuação" MarginSpec="0 0 0 10">                                                      
                     <Defaults>
                         <ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
                         <ext:Parameter Name="MsgTarget" Value="side" />                                
                     </Defaults>
                     <Items>
 
-                        <%-- Código do AreaAtuacao --%>
-                        <ext:TextField ID="cod_area_atuacaoId" Name="cod_area_atuacao"  runat="server" FieldLabel="Código" />
+                        <%-- Código da Área de Atuação --%>
+                        <ext:TextField ID="cod_area_atuacaoId" Name="cod_area_atuacao" runat="server" FieldLabel="Código" ReadOnly="true" />
 
-                        <%-- Nome do AreaAtuacao --%>
+                        <%-- Nome da Área de Atuação --%>
                         <ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
                         
                     </Items>
@@ -69,7 +69,7 @@
         <%-- Colunas da Grid --%>
         <ColumnModel>
             <Columns>                
-                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição" Flex="2" DataIndex="nome" />                                                  
+                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição da Área de Atuação" Flex="2" DataIndex="nome" />                                                  
             </Columns>            
         </ColumnModel>    
            

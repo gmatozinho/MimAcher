@@ -9,25 +9,25 @@
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="NACAreaAtuacaoFormPanelId" runat="server" Title="NACAreaAtuacao" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="NACAreaAtuacaoFormPanelId" runat="server" Title="Inserir/Editar relação de NAC e Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
 			<Items> 
 			
-				<ext:FieldSet ID="NACAreaAtuacaoFieldSetId" runat="server" Title="NACAreaAtuacao" MarginSpec="0 0 0 10">                                                      
+				<ext:FieldSet ID="NACAreaAtuacaoFieldSetId" runat="server" Title="NAC de Área de Atuação" MarginSpec="0 0 0 10">                                                      
 					<Defaults>
 						<ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
 						<ext:Parameter Name="MsgTarget" Value="side" />                                
 					</Defaults>
 					<Items>
 
-						<%-- Código do AreaAtuacao Aprender --%>
-						<ext:TextField ID="cod_nac_area_atuacaoId" Name="cod_nac_area_atuacao"  runat="server" FieldLabel="Código" />
+						<%-- Código da relação de NAC e Área de Atuação --%>
+						<ext:TextField ID="cod_nac_area_atuacaoId" Name="cod_nac_area_atuacao" runat="server" FieldLabel="Código" ReadOnly="true" />
 
 
-						<%-- Combobox do AreaAtuacao --%>
-						<ext:ComboBox ID="cod_area_atuacaoId" Width="300" Name="cod_area_atuacao" AllowBlank="false" runat="server" FieldLabel="Nome do AreaAtuacao" ValueField="cod_area_atuacao_combo" DisplayField="nome_combo">
+						<%-- Combobox da Área de Atuação --%>
+						<ext:ComboBox ID="cod_area_atuacaoId" Width="300" Name="cod_area_atuacao" AllowBlank="false" runat="server" FieldLabel="Nome da Área de Atuação" ValueField="cod_area_atuacao_combo" DisplayField="nome_combo">
 							<Store>
 								<ext:Store ID="StoreAreaAtuacaoId" runat="server">
 									<Model>
@@ -42,7 +42,7 @@
 							</Store>
 						</ext:ComboBox>   
 
-						<%-- Combobox do Item --%>
+						<%-- Combobox de NAC --%>
 						<ext:ComboBox ID="cod_nacId" Width="300" Name="cod_nac" AllowBlank="false" runat="server" FieldLabel="Representante" ValueField="cod_nac_combo" DisplayField="nome_representante_combo">
 							<Store>
 								<ext:Store ID="StoreNACId" runat="server">

@@ -18,14 +18,13 @@ namespace MimAcher.Mobile.com.Utilitarios
             var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
             participante.Telefone = acertandoTelefone;
             DateTime saida;
-            var isValid = DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy",
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out saida);
+            DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out saida);
+
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
             return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
                 "\"senha\": \"" + participante.Senha + "\", \"cod_participante\": 1, \"cod_usuario\": 1, " +
-                "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": "+ participante.Telefone + ", " +
+                "\"cod_campus\": \"" + participante.Campus + "\", \"nome\": \"" + participante.Nome + "\", \"telefone\": "+ participante.Telefone + ", " +
                 "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", \"longitude\": " + localizacao[1] + "} ] }";
         }
 
@@ -49,7 +48,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonLogin(string email, string senha)
         {
-            return "{ \"data\": [{ \"cod_usuario\": 1, \"e_mail\": \"" + email + "\", \"senha\": \"" + senha + "\" }] }";
+            return "{ \"listausuario\": [{\"e_mail\": \"" + email + "\", \"senha\": \"" + senha + "\" }] }";
         }
 
         public static string MontarJsonUpdateParticipante(Participante participante)
@@ -59,9 +58,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             var acertandoTelefone = participante.Telefone.Replace(" ", "").Replace("-", "");
             participante.Telefone = acertandoTelefone;
             DateTime saida;
-            var isValid = DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy",
-                CultureInfo.InvariantCulture,
-                DateTimeStyles.None, out saida);
+            DateTime.TryParseExact(participante.Nascimento, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out saida);
+
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
             return "{ \"listaparticipante\": [ { \"cod_participante\": 1, \"cod_usuario\": 1, " + 

@@ -33,13 +33,14 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
             var itemSelecionado = Items[position];
-            //Toast.MakeText(this, itemSelecionado, ToastLength.Short).Show();
             Mensagens.MensagemOpcoes(itemSelecionado,this);
         }
 
-        internal void VerCombinacoes(string itemSelecionado)
+        internal void VerCombinacoes(string itemSelecionado,Context context)
         {
             //TODO pesquisar o item no banco, buscando as combinações
+            var combinacoesactivity = new Intent(context, typeof(CombinacoesActivity));
+            StartActivity(combinacoesactivity);
             Toast.MakeText(this, "Voce está na tela de exibição de combinações", ToastLength.Short).Show();
         }
 

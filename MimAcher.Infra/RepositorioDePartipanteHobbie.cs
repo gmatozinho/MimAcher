@@ -25,6 +25,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == participantehobbie.cod_participante && l.cod_item == participantehobbie.cod_item).SingleOrDefault();
         }
 
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_s_relacao == 1).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
+        }
+
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.ToList();
@@ -72,6 +77,31 @@ namespace MimAcher.Infra
                 if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
                 {
                     AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+                }
+            }
+        }
+
+        public Boolean AtualizarHobbieDoParticipanteComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            {
+                AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+
+                return true;
+            }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
                 }
             }
         }

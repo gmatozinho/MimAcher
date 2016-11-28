@@ -9,23 +9,23 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="StatusRelacaoFormPanelId" runat="server" Title="Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="StatusRelacaoFormPanelId" runat="server" Title="Inserir/Editar Status de Relação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
             <Items> 
             
-                <ext:FieldSet ID="StatusRelacaoFieldSetId" runat="server" Title="StatusRelacao" MarginSpec="0 0 0 10">                                                      
+                <ext:FieldSet ID="StatusRelacaoFieldSetId" runat="server" Title="Status de Relacao" MarginSpec="0 0 0 10">                                                      
                     <Defaults>
                         <ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
                         <ext:Parameter Name="MsgTarget" Value="side" />                                
                     </Defaults>
                     <Items>
 
-                        <%-- Código do StatusRelacao --%>
-                        <ext:TextField ID="cod_status_relacaoId" Name="cod_status_relacao"  runat="server" FieldLabel="Código" />
+                        <%-- Código do Status de Relação --%>
+                        <ext:TextField ID="cod_status_relacaoId" Name="cod_status_relacao"  runat="server" FieldLabel="Código" ReadOnly="true" />
 
-                        <%-- Nome do StatusRelacao --%>
+                        <%-- Nome do Status de Relaçãoo --%>
                         <ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
                         
                     </Items>
@@ -50,7 +50,7 @@
  <ext:GridPanel 
         ID="StatusRelacaoGridPanelId"
         runat="server" 
-        Title="Gerenciamento de Área de Atuação">         
+        Title="Gerenciamento de Status de Atuação">         
         <%--Height="1500"--%>        
 
          <Store>
@@ -69,7 +69,7 @@
         <%-- Colunas da Grid --%>
         <ColumnModel>
             <Columns>                
-                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição" Flex="2" DataIndex="nome" />                                                  
+                <ext:Column ID="nomeColumnId" runat="server" Text="Descrição do Status de Relação" Flex="2" DataIndex="nome" />                                                  
             </Columns>            
         </ColumnModel>    
            

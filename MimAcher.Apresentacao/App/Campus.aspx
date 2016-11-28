@@ -9,7 +9,7 @@
         <Items>
 
         <%-- Form --%>
-        <ext:FormPanel ID="CampusFormPanelId" runat="server" Title="Campus" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+        <ext:FormPanel ID="CampusFormPanelId" runat="server" Title="Inserir/Editar Campus" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
                                
             <FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100" AllowBlank="false" />
                                                         
@@ -23,7 +23,7 @@
                     <Items>
 
                         <%-- Código do Campus --%>
-                        <ext:TextField ID="cod_campusId" Name="cod_campus"  runat="server" FieldLabel="Código" />
+                        <ext:TextField ID="cod_campusId" Name="cod_campus" runat="server" FieldLabel="Código" ReadOnly="true" />
 
                         <%-- Local do Ensino --%>
                         <ext:TextField ID="localId" Name="local" AllowBlank="false" runat="server" FieldLabel="Local" />
