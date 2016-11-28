@@ -56,28 +56,35 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (NAC nc in listanac)
+            else
             {
-                MA_NAC nac = new MA_NAC();
-                nac.cod_usuario = nc.cd_usuario;
-                nac.cod_campus = nc.cod_campus;
-                nac.nome_representante = nc.nomerepresentante;
-                nac.telefone = nc.telefone;
+                int codigocadastrado = -1;
 
-                this.GestorDeNAC.InserirNAC(nac);
+                foreach (NAC nc in listanac)
+                {
+                    MA_NAC nac = new MA_NAC();
+                    nac.cod_usuario = nc.cd_usuario;
+                    nac.cod_campus = nc.cod_campus;
+                    nac.nome_representante = nc.nomerepresentante;
+                    nac.telefone = nc.telefone;
+
+                    this.GestorDeNAC.InserirNAC(nac);
+
+                    codigocadastrado = nac.cod_nac;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
-
+            
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
@@ -98,22 +105,28 @@ namespace MimAcher.WebService.Controllers
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (NAC nc in listanac)
+            else
             {
-                MA_NAC nac = new MA_NAC();
-                nac.cod_nac = nc.cod_nac;
-                nac.cod_usuario = nc.cd_usuario;
-                nac.cod_campus = nc.cod_campus;
-                nac.nome_representante = nc.nomerepresentante;
-                nac.telefone = nc.telefone;
+                int codigocadastrado = -1;
 
-                this.GestorDeNAC.InserirNAC(nac);
+                foreach (NAC nc in listanac)
+                {
+                    MA_NAC nac = new MA_NAC();
+                    nac.cod_usuario = nc.cd_usuario;
+                    nac.cod_campus = nc.cod_campus;
+                    nac.nome_representante = nc.nomerepresentante;
+                    nac.telefone = nc.telefone;
+
+                    this.GestorDeNAC.AtualizarNAC(nac);
+
+                    codigocadastrado = nac.cod_nac;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
