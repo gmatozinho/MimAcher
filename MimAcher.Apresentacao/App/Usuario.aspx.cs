@@ -14,11 +14,13 @@ namespace MimAcher.Apresentacao.App
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
+        public GestorDeAcesso GestorDeAcesso { get; set; }
 
         public Usuario()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeAcesso = new GestorDeAcesso();
         }
 
 
@@ -28,6 +30,9 @@ namespace MimAcher.Apresentacao.App
             {
                 this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 this.StoreUsuarioId.DataBind();
+
+                this.StoreAcessoId.DataSource = this.GestorDeAcesso.ObterTodosOsAcessos();
+                this.StoreAcessoId.DataBind();
             }
         }
 
