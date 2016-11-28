@@ -13,20 +13,22 @@ namespace MimAcher.Teste.CursorWebService
     {
         private static void Main(string[] args)
         {
-            var dir = new DiretorGeradores();
+            var itens = CursorBd.ObterParticipanteItem(25, CursorBd.ObterItens());
 
-            for (var i = 0; i < 10; i++)
+            foreach(var item in itens["hobbie"])
             {
-                var p = (Participante)dir.GerarParticipante();
-
-                p.Localizacao = "-13.23416/16.514";
-
-                Console.WriteLine("Nome: " + p.Nome + "\nCodigo: " + CursorBd.EnviarParticipante(p));
-                Console.WriteLine("--------------------------------------------------------------------");
+                Console.WriteLine(item);
+            }
+            foreach (var item in itens["aprender"])
+            {
+                Console.WriteLine(item);
+            }
+            foreach (var item in itens["ensinar"])
+            {
+                Console.WriteLine(item);
             }
 
             Console.ReadLine();
-
         }
     }
 }
