@@ -24,7 +24,7 @@ namespace MimAcher.Mobile.com.Entidades
         public static string Login(Context context, Dictionary<string, string> emailESenha)
         {
             if (Validacao.ValidarLogin(context,emailESenha)) return CursorBd.Login(emailESenha);
-            return "-1";
+            return "-2";
 
         }
 

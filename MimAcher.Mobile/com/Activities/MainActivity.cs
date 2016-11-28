@@ -110,6 +110,10 @@ namespace MimAcher.Mobile.com.Activities
                 Mensagens.MensagemErroLogin(this);
                 return;
             }
+            if (resultado == "-2")
+            {
+                return;
+            }
 
             //enviar o codigo participante e montar o parcipante com as informações inseridas
             //E enviar esse participante montado para a próxima activity
