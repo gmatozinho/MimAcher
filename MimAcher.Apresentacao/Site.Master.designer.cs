@@ -130,6 +130,15 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.Label labelUsuarioEmail;
         
         /// <summary>
+        /// labelAcesso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Label labelAcesso;
+        
+        /// <summary>
         /// PainelMenuPrincipalId control.
         /// </summary>
         /// <remarks>
@@ -146,6 +155,42 @@ namespace MimAcher.Apresentacao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Menu MenuId;
+        
+        /// <summary>
+        /// AcessoErroMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem AcessoErroMenuItemId;
+        
+        /// <summary>
+        /// AcessoMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Menu AcessoMenu;
+        
+        /// <summary>
+        /// AcessoMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem AcessoMenuItemId;
+        
+        /// <summary>
+        /// ErroMenuItemId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem ErroMenuItemId;
         
         /// <summary>
         /// AtributosMenuItemId control.
@@ -175,13 +220,13 @@ namespace MimAcher.Apresentacao {
         protected global::Ext.Net.MenuItem ItemMenuItemId;
         
         /// <summary>
-        /// ParticipanteAprendertemId control.
+        /// ParticipanteAprenderMenuItemId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.MenuItem ParticipanteAprendertemId;
+        protected global::Ext.Net.MenuItem ParticipanteAprenderMenuItemId;
         
         /// <summary>
         /// ParticipanteEnsinarMenuItemId control.

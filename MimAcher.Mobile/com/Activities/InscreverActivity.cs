@@ -8,10 +8,10 @@ using Android.OS;
 using Android.Telephony;
 using Android.Views;
 using Android.Widget;
-using Java.Lang;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 [assembly: UsesPermission(Manifest.Permission.ReadPhoneState)]
 namespace MimAcher.Mobile.com.Activities
@@ -32,7 +32,7 @@ namespace MimAcher.Mobile.com.Activities
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
-        private ArrayAdapter<string> _adapterCampus;
+        
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -54,7 +54,7 @@ namespace MimAcher.Mobile.com.Activities
             //pegar lista de campus do banco
             _campusComCod = CursorBd.ObterCampi();
             var opcoesCampus = CriarListaCampi(_campusComCod);
-            _adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
+            var adapterCampus = new ArrayAdapter<string>(this, Resource.Drawable.spinner_item, opcoesCampus);
 
             //captar telefone caso possivel
             var telephonyManager = (TelephonyManager)GetSystemService(TelephonyService);
@@ -66,8 +66,8 @@ namespace MimAcher.Mobile.com.Activities
 
             //Funcionalidades
             //Escolhendo o Campus
-            _adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
-            _spinnerCampus.Adapter = _adapterCampus;
+            adapterCampus.SetDropDownViewResource(Resource.Drawable.spinner_dropdown_item);
+            _spinnerCampus.Adapter = adapterCampus;
 
             //Mascara para telefone e nascimento
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
@@ -121,15 +121,23 @@ namespace MimAcher.Mobile.com.Activities
 
         private void InscreverParticipante(Context activity)
         {
-            var participante = new Participante(CriarDicionarioParaMontarParticipante());
+            var informacoesInseridas = InformacoesParaValidar();
 
-            if (Validador.ValidarCadastroParticipante(activity, participante, _confirmarSenha))
+            if (Validacao.ValidarCadastroParticipante(activity,informacoesInseridas))
             {
-                var x = participante.InscreverParticipante();
+                var participante = new Participante(CriarDicionarioParaMontarParticipante());
+                var codigoParticipanteInscrito = participante.Inscrever();
+                if (codigoParticipanteInscrito == "-1")
+                {
+                    Mensagens.MensagemErroCadastro(this);
+                    return;
+                }
+
+                participante.Codigo = codigoParticipanteInscrito;
                 IniciarEscolherFoto(this, participante);
                 _stopwatch.Stop();
-                const string toast = ("Usuário Criado");
-                Toast.MakeText(this, toast, ToastLength.Long).Show();
+                //TODO enviar stopwatch
+                Mensagens.MensagemCadastroBemSucedido(this);
                 Finish();
             }
         }
@@ -153,8 +161,6 @@ namespace MimAcher.Mobile.com.Activities
         //Cria participante
         private Dictionary<string, string> CriarDicionarioParaMontarParticipante()
         {
-            _telefone = TrataNumeroTelefone(_telefone);
-            _nascimento = TrataData(_nascimento);
             var informacoes = new Dictionary<string, string>
             {
                 ["campus"] = _campus,
@@ -164,7 +170,7 @@ namespace MimAcher.Mobile.com.Activities
                 ["telefone"] = _telefone,
                 ["nascimento"] = _nascimento,
                 ["localizacao"] = Localizacao
-        };
+            };
 
             return informacoes;
         }
@@ -175,25 +181,21 @@ namespace MimAcher.Mobile.com.Activities
             return dicCampi.Select(info => info.Value).ToList();
         }
 
-        private static string TrataNumeroTelefone(string telefone)
+        private Dictionary<string, string> InformacoesParaValidar()
         {
-            if (telefone.Length > 13)
+            _telefone = TratarInformacoes.TrataNumeroTelefone(_telefone);
+            _nascimento = TratarInformacoes.TrataData(_nascimento);
+            return new Dictionary<string, string>
             {
-                return telefone.Remove(13);
-            }
-            return telefone;
+                ["email"] = _email,
+                ["nome"] = _nome,
+                ["nascimento"] = _nascimento,
+                ["telefone"] = _telefone,
+                ["senha"] = _senha,
+                ["confirmarSenha"] = _confirmarSenha
+            };
         }
-
-        private static string TrataData(string data)
-        {
-            if (data.Length > 10)
-            {
-                return data.Remove(10);
-            }
-            return data;
-        }
-
-
+        
     }
 }
 

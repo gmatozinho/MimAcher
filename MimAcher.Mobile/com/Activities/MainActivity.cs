@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Net;
 using Android.OS;
@@ -10,6 +9,7 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
@@ -63,7 +63,7 @@ namespace MimAcher.Mobile.com.Activities
             campoSenha.TextChanged += (sender, texto) => _senhaInserida = texto.Text.ToString();
 
             stopwatch.Restart();
-            entrar.Click += ButtonEntrarClick;
+            entrar.Click += BotaoEntrarClique;
             stopwatch.Stop();
             var tempoLogar = stopwatch.ToString();
 
@@ -72,7 +72,7 @@ namespace MimAcher.Mobile.com.Activities
             //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
 
             stopwatch.Restart();
-            inscrevase.Click += ButtonInscreverClick;
+            inscrevase.Click += BotaoInscreverClique;
             stopwatch.Stop();
             var tempoIniciarInscrever = stopwatch.ToString();
         }
@@ -96,88 +96,59 @@ namespace MimAcher.Mobile.com.Activities
             return informacoes;
         }
 
-        private void ButtonInscreverClick(object sender, EventArgs e)
+        private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-
-            new Thread(new ThreadStart(delegate
-            {
-                Thread.Sleep(5000);//take 5 secs to do it's job
-
-                RunOnUiThread(async () =>
-                {
-                    for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-
-                    await InscreverClick();
-                    progressDialog.Dismiss();
-                });
-            })).Start();
+            //IniciarInscrever();
+            MyButtonClicked();
         }
 
-        private async Task InscreverClick()
+        private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            var myProgressBar = new ProgressBar(this)
+            var resultado = Usuario.Login(this, MontarDicionarioLogin());
+            if (resultado == "-1")
             {
-                Indeterminate = true,
-                Visibility = ViewStates.Visible
+                Mensagens.MensagemErroLogin(this);
+                return;
+            }
+            if (resultado == "-2")
+            {
+                return;
+            }
+
+            //enviar o codigo participante e montar o parcipante com as informações inseridas
+            //E enviar esse participante montado para a próxima activity
+            var participante = new Participante(MontarUsuário());
+            IniciarHome(this, participante);
+            Finish();
+        }
+
+        private Dictionary<string, string> MontarDicionarioLogin()
+        {
+            return new Dictionary<string, string>
+            {
+                ["senha"] = _senhaInserida,
+                ["email"] = _emailInserido
             };
-            await StartInscrever();
-            myProgressBar.Visibility = ViewStates.Gone;
         }
 
-        private async Task StartInscrever()
+        private void MyButtonClicked()
         {
-            await Task.Run(() => {
-                IniciarInscrever();
-            });
-            Thread.Sleep(3000);
+            var myProgressBar = new ProgressBar(this) {Visibility = ViewStates.Visible};
+            ThreadStart thSt = delegate { RunMyMethod(myProgressBar); };
+            var mythread = new Thread(thSt);
+            mythread.Start();
         }
 
-        private void ButtonEntrarClick(object sender, EventArgs e)
+        private Dictionary<int, string> MyMethod()
         {
-            var progressDialog = ProgressDialog.Show(this, "Carregando", "Comunicando com o servidor...", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+            Thread.Sleep(5000);//take 5 secs to do it's job
+            return CursorBd.ObterCampi();
 
-            new Thread(new ThreadStart(delegate
-            {
-                Thread.Sleep(3000);//take 5 secs to do it's job
-
-                RunOnUiThread(async () =>
-                {
-                    for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-
-                    await EntrarClick();
-                    progressDialog.Dismiss();
-                });
-            })).Start();
         }
-
-        private async Task EntrarClick()
+        private void RunMyMethod(View myProgressBar)
         {
-            var myProgressBar = new ProgressBar(this)
-            {
-                Indeterminate = true,
-                Visibility = ViewStates.Visible
-            };
-            await StartEntrar();
-            myProgressBar.Visibility = ViewStates.Gone;
-        }
-
-        private async Task StartEntrar()
-        {
-            await Task.Run(() => {
-                Usuario.Login(_emailInserido, _senhaInserida);
-                var participante = new Participante(MontarUsuário());
-                IniciarHome(this, participante);
-                Finish();
-            });
+            RunOnUiThread(() => IniciarInscrever());
+            RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
         }
     }
 }

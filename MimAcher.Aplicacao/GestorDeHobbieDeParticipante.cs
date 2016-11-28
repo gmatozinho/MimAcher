@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MimAcher.Dominio;
 using MimAcher.Infra;
+using System;
 
 namespace MimAcher.Aplicacao
 {
@@ -23,6 +24,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
         }
 
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
+        }
+
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
@@ -41,6 +47,23 @@ namespace MimAcher.Aplicacao
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             this.RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipante(hobbieparticipante);
+        }
+
+        public Boolean AtualizarHobbieDoParticipanteComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            return this.RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipanteComRetorno(hobbieparticipante);
+        }
+
+        public Boolean VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(int id_usuarioahobbie)
+        {
+            if (ObterHobbieDoParticipantePorId(id_usuarioahobbie) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

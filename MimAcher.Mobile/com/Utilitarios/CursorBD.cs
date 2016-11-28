@@ -9,7 +9,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 {
     public static class CursorBd
     {
-        public static int EnviarParticipante(Participante participante)
+        public static string EnviarParticipante(Participante participante)
         {
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
@@ -17,21 +17,23 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
 
             var resposta = ObterResposta(requisicao);
-
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoParticipante = int.Parse(jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", ""));
+            var codigoParticipante = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
 
             return codigoParticipante;
         }
-
-        //TODO: setar valor de retorno correto
-        public static object EnviarItem(string item)
+        
+        public static string EnviarItem(string item)
         {
             var json = JsonParser.MontarJsonItem(item);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostItem();
             EnviarJson(json, requisicao);
 
-            return ObterResposta(requisicao);
+            var resposta = ObterResposta(requisicao);
+            var jsonResposta = JObject.Parse(resposta.ToString());
+            var codigoItem = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
+
+            return codigoItem;
         }
 
         public static Dictionary<string, List<Participante>> Match(Participante a)
@@ -58,7 +60,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 streamSaida.Close();
             }
         }
-        //TODO: setar valor de retorno correto
+        
         private static object ObterResposta(WebRequest requisicao)
         {
             WebResponse resposta = (HttpWebResponse)requisicao.GetResponse();
@@ -131,24 +133,21 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
         }
 
-        public static string Login(string email, string senha)
+        public static string Login(Dictionary<string, string> emailESenha)
         {
+            var email = emailESenha["email"];
+            var senha = emailESenha["senha"];
+
             var json = JsonParser.MontarJsonLogin(email, senha);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostLogin();
             EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            var resultado = objetoResposta.SelectToken("data");
+            var resultado = objetoResposta.SelectToken("codigo");
 
-            string codigo_participante = null;
+            var codigoParticipante = resultado.ToString();
 
-            foreach (var token in resultado)
-            {
-                if (((string)token).Contains("cod_usuario"))
-                    codigo_participante = token.SelectToken("cod_usuario").ToString().Replace("{", "").Replace("}", "");
-            }
-
-            return codigo_participante;
+            return codigoParticipante;
         }
 
         public static void AtualizarParticipante(Participante participante)

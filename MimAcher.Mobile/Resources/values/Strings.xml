@@ -17,4 +17,9 @@
     <string name="HintCampoEnsinar">Digite algo para ensinar</string>
     <string name="TitleHome">Home</string>
     <string name="TitleEditarPerfil">Editar Perfil</string>
+    <string name="TitleCombinacoes">Combinações</string>
+    <string name="MsgCadastroHobbie">Hobbie</string>
+    <string name="MsgCadastroAprender">Algo para Aprender</string>
+  <string name="MsgCadastroEnsinar">Algo para Ensinar</string>
+
 </resources>

@@ -25,6 +25,7 @@ namespace MimAcher.Dominio
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<MA_ACESSO> MA_ACESSO { get; set; }
         public virtual DbSet<MA_AREA_ATUACAO> MA_AREA_ATUACAO { get; set; }
         public virtual DbSet<MA_CAMPUS> MA_CAMPUS { get; set; }
         public virtual DbSet<MA_IMAGEM_PARTICIPANTE> MA_IMAGEM_PARTICIPANTE { get; set; }
@@ -37,5 +38,6 @@ namespace MimAcher.Dominio
         public virtual DbSet<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
         public virtual DbSet<MA_STATUS_RELACAO> MA_STATUS_RELACAO { get; set; }
         public virtual DbSet<MA_USUARIO> MA_USUARIO { get; set; }
+        public virtual DbSet<MA_ERRO> MA_ERRO { get; set; }
     }
 }
