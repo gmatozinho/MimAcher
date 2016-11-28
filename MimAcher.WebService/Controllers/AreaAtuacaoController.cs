@@ -56,25 +56,32 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (AreaAtuacao aa in listaareaatuacao)
+            else
             {
-                MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
+                int codigocadastrado = -1;
 
-                areaatuacao.nome = aa.nome;
+                foreach (AreaAtuacao aa in listaareaatuacao)
+                {
+                    MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+                    areaatuacao.nome = aa.nome;
+
+                    this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+
+                    codigocadastrado = areaatuacao.cod_area_atuacao;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -90,26 +97,32 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (AreaAtuacao aa in listaareaatuacao)
+            else
             {
-                MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
+                int codigocadastrado = -1;
 
-                areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
-                areaatuacao.nome = aa.nome;
+                foreach (AreaAtuacao aa in listaareaatuacao)
+                {
+                    MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
+                    areaatuacao.nome = aa.nome;
+
+                    this.GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(areaatuacao);
+
+                    codigocadastrado = areaatuacao.cod_area_atuacao;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
