@@ -134,7 +134,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string Login(Dictionary<string, string> emailESenha)
         {
-            var email = emailESenha["login"];
+            var email = emailESenha["email"];
             var senha = emailESenha["senha"];
 
             var json = JsonParser.MontarJsonLogin(email, senha);
@@ -142,15 +142,9 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
-            var resultado = objetoResposta.SelectToken("data");
+            var resultado = objetoResposta.SelectToken("codigo");
 
-            string codigoParticipante = null;
-
-            foreach (var token in resultado)
-            {
-                if (((string)token).Contains("cod_usuario"))
-                    codigoParticipante = token.SelectToken("cod_usuario").ToString().Replace("{", "").Replace("}", "");
-            }
+            var codigoParticipante = resultado.ToString();
 
             return codigoParticipante;
         }

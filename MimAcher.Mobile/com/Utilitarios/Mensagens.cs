@@ -13,7 +13,7 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(contexto);
             alert.SetTitle("Dado Inválido: " + informacao);
-            alert.SetMessage("Por favor corrija para podermos realizar seu cadastro");
+            alert.SetMessage("Por favor, tente novamente");
             alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }
