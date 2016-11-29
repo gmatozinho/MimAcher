@@ -217,11 +217,9 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(listaparticipanteaprender[0].cod_p_aprender))
+                if (this.GestorDeParticipanteAprender.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteaprender[0].cod_item))
                 {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
-
-                    List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
+                    List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteaprender[0].cod_item);
 
                     //Reinicia lista de aprendizado de participante
                     listaparticipanteaprender = new List<ParticipanteAprender>();
