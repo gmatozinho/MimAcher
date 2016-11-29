@@ -208,5 +208,57 @@ namespace MimAcher.Mobile.com.Utilitarios
             
             return relacoes;
         }
+
+        public static Dictionary<string, List<int>> Match(int codigoItem)
+        {
+            Dictionary<string, List<int>> matchs = new Dictionary<string, List<int>>();
+
+            var requisicao = MontadorRequisicao.MontarRequisicaoMatchHobbie();
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+
+            var listaItens = objetoResposta.SelectToken("listaparticipantehobbie");
+
+            var listaParticipantes = new List<int>();
+            foreach (var token in listaItens)
+            {
+                var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
+
+                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+            }
+
+            matchs["hobbie"] = listaParticipantes;
+
+            requisicao = MontadorRequisicao.MontarRequisicaoMatchAprender();
+            objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+
+            listaItens = objetoResposta.SelectToken("listaparticipanteaprender");
+
+            listaParticipantes = new List<int>();
+            foreach (var token in listaItens)
+            {
+                var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
+
+                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+            }
+
+            matchs["aprender"] = listaParticipantes;
+
+            requisicao = MontadorRequisicao.MontarRequisicaoMatchEnsinar();
+            objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+
+            listaItens = objetoResposta.SelectToken("listaparticipanteensinar");
+
+            listaParticipantes = new List<int>();
+            foreach (var token in listaItens)
+            {
+                var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
+
+                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+            }
+
+            matchs["ensinar"] = listaParticipantes;
+
+            return matchs;
+        }
     }
 }

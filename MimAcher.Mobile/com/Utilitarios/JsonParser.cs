@@ -67,5 +67,20 @@ namespace MimAcher.Mobile.com.Utilitarios
                 "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", " + 
                 "\"longitude\": }" + localizacao[1] + " } ] }";
         }
+
+        public static string MontarJsonMatchHobbie(int codigoItem)
+        {
+            return "{ \"listaparticipantehobbie\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonMatchAprender(int codigoItem)
+        {
+            return "{ \"listaparticipanteaprender\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonMatchEnsinar(int codigoItem)
+        {
+            return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
     }
 }
