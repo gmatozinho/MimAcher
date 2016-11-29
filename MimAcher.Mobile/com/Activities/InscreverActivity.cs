@@ -142,6 +142,11 @@ namespace MimAcher.Mobile.com.Activities
             }
         }
 
+        public override void OnBackPressed()
+        {
+            IniciarMain(this);
+        }
+
         //capturar o campus no atual momento de execução
         private void GetCampus()
         {

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
@@ -16,9 +17,9 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var activity = telaENome.Tela;
 
-            var progressDialog = ProgressDialog.Show(activity, null, "Comunicando com o servidor...", true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            var myProgressBar = new ProgressBar(activity) {Visibility = ViewStates.Visible};
+            var progressDialog = ProgressDialog.Show(activity, null, "Comunicando com o servidor...",true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Horizontal);
+            var myProgressBar = new ProgressBar(activity) { Visibility = ViewStates.Visible };
             ThreadStart thSt = delegate { RunMyMethod(telaENome, myProgressBar, participante); };
             var mythread = new Thread(thSt);
             mythread.Start();
