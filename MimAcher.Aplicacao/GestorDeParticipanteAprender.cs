@@ -29,6 +29,11 @@ namespace MimAcher.Aplicacao
             return this.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
         }
 
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
+        }
+
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             this.RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipante(participanteaprender);
@@ -69,6 +74,11 @@ namespace MimAcher.Aplicacao
             {
                 return false;
             }
+        }
+
+        public Boolean VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(int id_item)
+        {
+            return this.RepositorioDeAprendizadoDeParticipante.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(id_item);
         }
     }
 
