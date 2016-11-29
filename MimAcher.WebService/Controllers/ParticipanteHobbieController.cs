@@ -217,11 +217,9 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
-                {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
-
-                    List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item))
+                {                    
+                    List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterHobbiesDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item);
 
                     //Reinicia lista de aprendizado de participante
                     listaparticipantehobbie = new List<ParticipanteHobbie>();

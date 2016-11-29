@@ -25,9 +25,19 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == participantehobbie.cod_participante && l.cod_item == participantehobbie.cod_item).SingleOrDefault();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
         {
-            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_s_relacao == 1).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Skip(id_item).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
@@ -121,6 +131,18 @@ namespace MimAcher.Infra
                 return true;
             }
             return false;
+        }
+
+        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)
+        {
+            if(ObterHobbiesDeParticipantePorIdDeItem(id_item).Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
