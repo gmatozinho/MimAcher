@@ -5,6 +5,7 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -38,7 +39,8 @@ namespace MimAcher.Mobile.com.Activities
             var addHobbie = FindViewById<FloatingActionButton>(Resource.Id.add_algo);
             _campoHobbie = FindViewById<EditText>(Resource.Id.digite_algo);
             _listView = FindViewById<ListView>(Resource.Id.list);
-            
+            var lista = CursorBd.ObterItens();
+
             SetActionBar(toolbar);
 
             //Modificando a parte textual

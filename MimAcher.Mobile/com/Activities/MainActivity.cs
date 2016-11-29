@@ -29,6 +29,7 @@ namespace MimAcher.Mobile.com.Activities
         private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
+        private TelaENomeParaLoading _telaENome;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -98,8 +99,8 @@ namespace MimAcher.Mobile.com.Activities
 
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            //IniciarInscrever();
-            MyButtonClicked();
+            _telaENome = new TelaENomeParaLoading(this,"Inscrever");
+            Loading.MyButtonClicked(_telaENome,null);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
@@ -118,7 +119,8 @@ namespace MimAcher.Mobile.com.Activities
             //enviar o codigo participante e montar o parcipante com as informações inseridas
             //E enviar esse participante montado para a próxima activity
             var participante = new Participante(MontarUsuário());
-            IniciarHome(this, participante);
+            _telaENome = new TelaENomeParaLoading(this, "Entrar");
+            Loading.MyButtonClicked(_telaENome, participante);
             Finish();
         }
 
@@ -130,26 +132,7 @@ namespace MimAcher.Mobile.com.Activities
                 ["email"] = _emailInserido
             };
         }
-
-        private void MyButtonClicked()
-        {
-            var myProgressBar = new ProgressBar(this) {Visibility = ViewStates.Visible};
-            ThreadStart thSt = delegate { RunMyMethod(myProgressBar); };
-            var mythread = new Thread(thSt);
-            mythread.Start();
-        }
-
-        private Dictionary<int, string> MyMethod()
-        {
-            Thread.Sleep(5000);//take 5 secs to do it's job
-            return CursorBd.ObterCampi();
-
-        }
-        private void RunMyMethod(View myProgressBar)
-        {
-            RunOnUiThread(() => IniciarInscrever());
-            RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
-        }
+        
     }
 }
 
