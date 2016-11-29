@@ -214,6 +214,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             Dictionary<string, List<int>> matchs = new Dictionary<string, List<int>>();
 
             var requisicao = MontadorRequisicao.MontarRequisicaoMatchHobbie();
+            var json = JsonParser.MontarJsonMatchHobbie(codigoItem);
+            EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
             var listaItens = objetoResposta.SelectToken("listaparticipantehobbie");
@@ -229,6 +231,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             matchs["hobbie"] = listaParticipantes;
 
             requisicao = MontadorRequisicao.MontarRequisicaoMatchAprender();
+            json = JsonParser.MontarJsonMatchAprender(codigoItem);
+            EnviarJson(json, requisicao);
             objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
             listaItens = objetoResposta.SelectToken("listaparticipanteaprender");
@@ -244,6 +248,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             matchs["aprender"] = listaParticipantes;
 
             requisicao = MontadorRequisicao.MontarRequisicaoMatchEnsinar();
+            json = JsonParser.MontarJsonMatchEnsinar(codigoItem);
+            EnviarJson(json, requisicao);
             objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
 
             listaItens = objetoResposta.SelectToken("listaparticipanteensinar");

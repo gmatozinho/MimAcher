@@ -13,19 +13,19 @@ namespace MimAcher.Teste.CursorWebService
     {
         private static void Main(string[] args)
         {
-            var itens = CursorBd.ObterParticipanteItem(25, CursorBd.ObterItens());
+            var itens = CursorBd.Match(2);
 
             foreach(var item in itens["hobbie"])
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Hobbie: " + item);
             }
             foreach (var item in itens["aprender"])
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Aprender: " + item);
             }
             foreach (var item in itens["ensinar"])
             {
-                Console.WriteLine(item);
+                Console.WriteLine("Ensinar: " + item);
             }
 
             Console.ReadLine();
