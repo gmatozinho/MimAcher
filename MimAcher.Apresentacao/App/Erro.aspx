@@ -23,16 +23,16 @@
                     <Items>
 
                         <%-- Código do Erro --%>
-                        <ext:TextField ID="cod_erroId" Name="cod_erro"  runat="server" FieldLabel="Código" ReadOnly="true"/>
+                        <ext:TextField ID="cod_erroId" Name="cod_erro"  runat="server" FieldLabel="Código" ReadOnly="true" Width="350"/>
 
                         <%-- Tipo do Erro --%>
-                        <ext:TextField ID="tipoId" Name="tipo" AllowBlank="false" runat="server" FieldLabel="Tipo" />
+                        <ext:TextField ID="tipoId" Name="tipo" AllowBlank="false" runat="server" FieldLabel="Tipo" Width="350"/>
 
                         <%-- O que aconteceu --%>
-                        <ext:TextField ID="aconteceuId" Name="aconteceu" AllowBlank="false" runat="server" FieldLabel="O que aconteceu?" />
+                        <ext:TextField ID="aconteceuId" Name="aconteceu" AllowBlank="false" runat="server" FieldLabel="O que aconteceu?" Width="350"/>
 
                         <%-- Incidência --%>
-                        <ext:TextField ID="incidenciaId" Name="incidencia" AllowBlank="false" runat="server" FieldLabel="Incidência" />
+                        <ext:TextField ID="incidenciaId" Name="incidencia" AllowBlank="false" runat="server" FieldLabel="Incidência" Width="350"/>
 
                         <%-- Data do Acontecimento --%>
                         <ext:DateField ID="dt_acontecimentoId" Name="dt_acontecimento" AllowBlank="false" runat="server" FieldLabel="Data" />
