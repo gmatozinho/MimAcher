@@ -101,6 +101,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             _telaENome = new TelaENomeParaLoading(this,"Inscrever");
             Loading.MyButtonClicked(_telaENome,null);
+            OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
@@ -122,6 +123,7 @@ namespace MimAcher.Mobile.com.Activities
             _telaENome = new TelaENomeParaLoading(this, "Entrar");
             Loading.MyButtonClicked(_telaENome, participante);
             Finish();
+            OverridePendingTransition(0, 0);
         }
 
         private Dictionary<string, string> MontarDicionarioLogin()

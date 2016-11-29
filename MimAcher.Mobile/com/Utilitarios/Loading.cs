@@ -38,8 +38,15 @@ namespace MimAcher.Mobile.com.Utilitarios
         private static void RunMyMethod(TelaENomeParaLoading telaENome, View myProgressBar, PacoteAbstrato participante)
         {
             var activity = telaENome.Tela;
+            activity.RunOnUiThread(async () => {
+                for (var i = 0; i < 100; i++)
+                {
+                    await Task.Delay(50);
+                }
+            });
             activity.RunOnUiThread(() => MyMethod(telaENome, participante));
             activity.RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
+
             
         }
     }
