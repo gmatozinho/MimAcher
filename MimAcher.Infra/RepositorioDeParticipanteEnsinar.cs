@@ -20,6 +20,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Find(id);
         }
 
+        public List<MA_PARTICIPANTE_ENSINAR> ObterEnsinosDeParticipantePorIdDeItem(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item).ToList();
+        }
+
         public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == participanteensinar.cod_participante && l.cod_item == participanteensinar.cod_item).SingleOrDefault();
@@ -28,6 +33,11 @@ namespace MimAcher.Infra
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == participanteensinar.cod_item && l.cod_s_relacao == 1).Skip(participanteensinar.cod_p_ensinar).Take(20).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).Skip(id_item).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
@@ -121,6 +131,18 @@ namespace MimAcher.Infra
                 return true;
             }
             return false;
+        }
+
+        public Boolean VerificarSeExisteEnsinoDeParticipantePorIdDeItem(int id_item)
+        {
+            if (ObterEnsinosDeParticipantePorIdDeItem(id_item).Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
