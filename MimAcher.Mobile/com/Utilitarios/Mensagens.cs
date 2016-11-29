@@ -20,7 +20,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         internal static void MensagemDeInformacoesEditadasComSucesso(Context contexto)
         {
-            var toast = "Suas informações foram alteradas com sucesso";
+            const string toast = "Suas informações foram alteradas com sucesso";
             Toast.MakeText(contexto, toast, ToastLength.Long).Show();
         }
 
@@ -76,10 +76,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
             });
 
-            alert.SetNegativeButton("Não", (sender, args) =>
-            {
-                Toast.MakeText(contexto, "Sua localização não será registrada", ToastLength.Short).Show();
-            });
+            alert.SetNegativeButton("Não", (sender, args) => Toast.MakeText(contexto, "Sua localização não será registrada", ToastLength.Short).Show());
 
             Dialog dialog = alert.Create();
             dialog.Show();
@@ -166,7 +163,7 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(activity);
             alert.SetTitle("Notificação:");
-            alert.SetMessage("Por favor verifique se o seu wifi está ligado");
+            alert.SetMessage("Por favor verifique se algum serviço de internet está ligado");
             alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }
