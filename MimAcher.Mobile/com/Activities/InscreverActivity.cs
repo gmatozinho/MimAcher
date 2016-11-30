@@ -168,6 +168,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
+                ["codigo"] = null,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,

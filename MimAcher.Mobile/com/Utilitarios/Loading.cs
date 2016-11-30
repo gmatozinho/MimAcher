@@ -5,51 +5,58 @@ using Android.Content;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using MimAcher.Mobile.com.Activities;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.com.Utilitarios
 {
-    public static class Loading
+    public class Loading
     {
 
-        public static void MyButtonClicked(TelaENomeParaLoading telaENome, Participante participante)
+        public static void MyButtonClicked(TelaENomeParaLoading telaENome)
         {
             var activity = telaENome.Tela;
+            var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...", true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+            //progressDialog.Show();
+            new Thread(new ThreadStart(async delegate
+            {
+                //ThreadStart thSt = delegate { ); };
+                //var mythread = new Thread(thSt);
+                //mythread.Start();
 
-            var progressDialog = ProgressDialog.Show(activity, null, "Comunicando com o servidor...",true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Horizontal);
-            var myProgressBar = new ProgressBar(activity) { Visibility = ViewStates.Visible };
-            ThreadStart thSt = delegate { RunMyMethod(telaENome, myProgressBar, participante); };
-            var mythread = new Thread(thSt);
-            mythread.Start();
-        }
-
-
-        private static void MyMethod(TelaENomeParaLoading telaENome, PacoteAbstrato participante)
-        {
-            var tela = (IFabricaTelas) telaENome.Tela;
-            var nometela = telaENome.NomeTela;
-            Thread.Sleep(5000); //take 5 secs to do it's job
-            if (nometela == "Inscrever") tela.IniciarInscrever();
-            if (nometela == "Entrar") tela.IniciarHome((Activity) tela, participante);
-        }
-
-        private static void RunMyMethod(TelaENomeParaLoading telaENome, View myProgressBar, PacoteAbstrato participante)
-        {
-            var activity = telaENome.Tela;
-            activity.RunOnUiThread(async () => {
                 for (var i = 0; i < 100; i++)
                 {
                     await Task.Delay(50);
                 }
-            });
-            activity.RunOnUiThread(() => MyMethod(telaENome, participante));
-            activity.RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
+                progressDialog.Dismiss();
+                activity.RunOnUiThread(async () =>
+                {
+                    await MyMethod(telaENome, progressDialog);
+                });
+            })).Start();
 
-            
         }
-        
+
+
+        private static Task MyMethod(TelaENomeParaLoading telaENome, ProgressDialog progressDialog)
+        {
+            Thread.Sleep(1000); //take 5 secs to do it's job
+            var nometela = telaENome.NomeTela;
+            if (nometela == "Inscrever")
+            {
+                var tela = (IFabricaTelas) telaENome.Tela;
+                return tela.IniciarInscrever();
+            }
+            if (nometela == "Entrar")
+            {
+                var tela = (MainActivity) telaENome.Tela;
+                return tela.EventoEntrar(tela, progressDialog);
+            }
+            return Task.CompletedTask;
+        }
+
     }
  
 }

@@ -107,7 +107,7 @@ namespace MimAcher.Mobile.com.Activities
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
             _telaENome = new TelaENomeParaLoading(this,"Inscrever");
-            Loading.MyButtonClicked(_telaENome,null);
+            Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
         }
 
@@ -117,11 +117,7 @@ namespace MimAcher.Mobile.com.Activities
             //TODO montar o parcipante com as informações inseridas
             //E enviar esse participante montado para a próxima activity
             _telaENome = new TelaENomeParaLoading(this, "Entrar");
-            MyButtonClicked(_telaENome);
-            //participante = new Participante(MontarUsuário());
-            //participante.Codigo = _codigoParticipante;
-            
-            //Loading.MyButtonClicked(_telaENome, participante);
+            Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, 0);
         }
 
@@ -134,50 +130,10 @@ namespace MimAcher.Mobile.com.Activities
             };
         }
 
-        public void MyButtonClicked(TelaENomeParaLoading telaENome)
-        {
-            var activity = telaENome.Tela;
-            var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...",true);
-            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            //progressDialog.Show();
-            new Thread(new ThreadStart(async delegate
-            {
-                //ThreadStart thSt = delegate { ); };
-                //var mythread = new Thread(thSt);
-                //mythread.Start();
-
-                for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-                progressDialog.Dismiss();
-                RunOnUiThread(async () =>
-                {
-                    await MyMethod(telaENome, progressDialog);
-                });
-
-
-
-
-            })).Start();
-            
-        }
-
-
-        private Task MyMethod(TelaENomeParaLoading telaENome,ProgressDialog progressDialog)
-        {
-            //Thread.Sleep(5000); //take 5 secs to do it's job
-            var tela = (IFabricaTelas)telaENome.Tela;
-            var nometela = telaENome.NomeTela;
-            if (nometela == "Inscrever") return tela.IniciarInscrever();
-            if (nometela == "Entrar") return EventoEntrar(tela,progressDialog);
-            return Task.CompletedTask;
-            
-
-        }
+        
          
 
-        private Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
+        public Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
             _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
             if (_codigoParticipante == "-1")
