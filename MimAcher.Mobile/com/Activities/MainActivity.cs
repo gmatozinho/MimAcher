@@ -136,9 +136,9 @@ namespace MimAcher.Mobile.com.Activities
         public Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
             _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
+            progressDialog.Dismiss();
             if (_codigoParticipante == "-1")
             {
-                progressDialog.Dismiss();
                 Mensagens.MensagemErroLogin(this);
                 return Task.CompletedTask;
             }

@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
@@ -19,22 +20,22 @@ namespace MimAcher.Mobile.com.Utilitarios
             var activity = telaENome.Tela;
             var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            //progressDialog.Show();
-            new Thread(new ThreadStart(async delegate
+            new Thread(new ThreadStart(delegate
             {
-                //ThreadStart thSt = delegate { ); };
-                //var mythread = new Thread(thSt);
-                //mythread.Start();
-
-                for (var i = 0; i < 100; i++)
+                activity.RunOnUiThread(async () =>
                 {
-                    await Task.Delay(50);
-                }
-                progressDialog.Dismiss();
+                    for (var i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(50);
+                    }
+                    progressDialog.Dismiss();
+                });
+
                 activity.RunOnUiThread(async () =>
                 {
                     await MyMethod(telaENome, progressDialog);
                 });
+                
             })).Start();
 
         }
@@ -46,6 +47,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             var nometela = telaENome.NomeTela;
             if (nometela == "Inscrever")
             {
+                //progressDialog.
+                progressDialog.Dismiss();
                 var tela = (IFabricaTelas) telaENome.Tela;
                 return tela.IniciarInscrever();
             }
@@ -60,3 +63,4 @@ namespace MimAcher.Mobile.com.Utilitarios
     }
  
 }
+ 

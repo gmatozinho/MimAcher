@@ -65,7 +65,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
             return Convert.ToInt32(CursorBd.EnviarItem(item));
         }
 
-        private void RegistrarRelação(IReadOnlyList<string> mensagemEItem, string codigoParticipante)
+        private static void RegistrarRelação(IReadOnlyList<string> mensagemEItem, string codigoParticipante)
         {
             var itemInserido = mensagemEItem[1];
             var relacao = mensagemEItem[0];
@@ -105,7 +105,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         }
 
         //Pesquiso na lista ja existente no banco, se o item tiver la retorno o código, senao cadastro o item e retorno o codigo
-        private int RecuperarCodItem(string itemInserido)
+        private static int RecuperarCodItem(string itemInserido)
         {
             var codigoItem = PesquisarItemLista(itemInserido);
 

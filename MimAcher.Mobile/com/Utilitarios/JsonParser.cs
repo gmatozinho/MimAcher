@@ -13,7 +13,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             return "{ \"listaitem\": [{ \"cod_item\": 1, \"nome\": \""+ nomeItem + "\" }] }";
         }
 
-        public static JSONObject MontarJsonUsuario(Participante participante)
+        public static string MontarJsonUsuario(Participante participante)
         {
             //tratamento das informaçoes com separadores
             var localizacao = participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
@@ -33,7 +33,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             objetojsonauxiliar.Put("senha", participante.Senha);
             objetojsonauxiliar.Put("cod_campus", Convert.ToInt16(participante.Campus));
             objetojsonauxiliar.Put("nome", participante.Nome);
-            objetojsonauxiliar.Put("telefone", Convert.ToInt64(participante.Telefone));
+            objetojsonauxiliar.Put("telefone", participante.Telefone);
             objetojsonauxiliar.Put("dt_nascimento", participante.Nascimento);
             objetojsonauxiliar.Put("latitude", localizacao[0]);
             objetojsonauxiliar.Put("longitude", localizacao[1]);
@@ -41,7 +41,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             jsonArray.Put(objetojsonauxiliar);
             jsonObject.Put("listausuarioparticipante", jsonArray);
 
-            return jsonObject;
+            return jsonObject.ToString();
 
             /*return "{ \"listausuarioparticipante\": [ { \"e_mail\": \"" + participante.Email + "\", " +
                 "\"senha\": \"" + participante.Senha + "\", \"cod_participante\": 1, \"cod_usuario\": 1, " +
@@ -51,6 +51,20 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonHobbie(int codigoParticipante, int codigoItem)
         {
+            JSONObject jsonObject = new JSONObject();
+            JSONArray jsonArray = new JSONArray();
+            JSONObject objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_p_hobbie", 0);
+            objetojsonauxiliar.Put("cod_participante", codigoParticipante);
+            objetojsonauxiliar.Put("cod_item", codigoItem);
+            objetojsonauxiliar.Put("cod_s_relacao", 0);
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listaparticipantehobbie", jsonArray);
+
+            return jsonObject.ToString();
+
+
             return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": " + codigoParticipante + 
                 ", \"cod_item\": "+ codigoItem + " }] }";
         }

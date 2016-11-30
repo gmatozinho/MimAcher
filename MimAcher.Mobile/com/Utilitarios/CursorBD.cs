@@ -13,7 +13,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
 
             //var json = JsonParser.MontarJsonUsuario(participante);
-            var json = JsonParser.MontarJsonUsuario(participante).ToString();
+            var json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
             var resposta = ObterResposta(requisicao);

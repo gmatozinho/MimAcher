@@ -28,7 +28,7 @@ namespace MimAcher.Mobile.com.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        private const string Localizacao = "0.0/0.0";
+        private const string Localizacao = "00,00/00,00";
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
