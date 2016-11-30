@@ -67,11 +67,14 @@ namespace MimAcher.Infra
 
         public Boolean VerificarSeNomeDeItemJaExiste(MA_ITEM item)
         {
-            if (ObterItemPorNome(item) != null)
+            if (ObterItemPorNome(item) == null)
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }            
         }
     }
 }
