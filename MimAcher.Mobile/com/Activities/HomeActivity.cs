@@ -84,8 +84,9 @@ namespace MimAcher.Mobile.com.Activities
 
         public override void OnBackPressed()
         {
-            return;
+            OnPause();
         }
+
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

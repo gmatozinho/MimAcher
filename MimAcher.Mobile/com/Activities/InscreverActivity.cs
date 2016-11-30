@@ -17,7 +17,7 @@ using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 namespace MimAcher.Mobile.com.Activities
 {
 
-    [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash",NoHistory = true)]
     public class InscreverActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais

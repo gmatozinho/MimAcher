@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
+using Android;
 using Android.App;
+using Android.Content;
 using Android.Net;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
@@ -14,12 +18,13 @@ using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
 {
-    [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash", NoHistory = true)]
     public class MainActivity : FabricaTelasNormaisSemProcedimento
     {
         
         //Variaveis globais
         //até comunicar com o banco informações hipotéticas
+        private string _codigoParticipante;
         private readonly string _campus = "Serra";
         private readonly string _senha = null;
         private readonly string _nome = "Gustavo";
@@ -30,6 +35,7 @@ namespace MimAcher.Mobile.com.Activities
         private string _emailInserido;
         private string _senhaInserida;
         private TelaENomeParaLoading _telaENome;
+        
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -85,6 +91,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
+                ["codigo"] = _codigoParticipante,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,
@@ -106,23 +113,15 @@ namespace MimAcher.Mobile.com.Activities
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            var resultado = Usuario.Login(this, MontarDicionarioLogin());
-            if (resultado == "-1")
-            {
-                Mensagens.MensagemErroLogin(this);
-                return;
-            }
-            if (resultado == "-2")
-            {
-                return;
-            }
 
-            //enviar o codigo participante e montar o parcipante com as informações inseridas
+            //TODO montar o parcipante com as informações inseridas
             //E enviar esse participante montado para a próxima activity
-            var participante = new Participante(MontarUsuário());
             _telaENome = new TelaENomeParaLoading(this, "Entrar");
-            Loading.MyButtonClicked(_telaENome, participante);
-            Finish();
+            MyButtonClicked(_telaENome);
+            //participante = new Participante(MontarUsuário());
+            //participante.Codigo = _codigoParticipante;
+            
+            //Loading.MyButtonClicked(_telaENome, participante);
             OverridePendingTransition(0, 0);
         }
 
@@ -134,7 +133,70 @@ namespace MimAcher.Mobile.com.Activities
                 ["email"] = _emailInserido
             };
         }
-        
+
+        public void MyButtonClicked(TelaENomeParaLoading telaENome)
+        {
+            var activity = telaENome.Tela;
+            var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...",true);
+            progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
+            //progressDialog.Show();
+            new Thread(new ThreadStart(async delegate
+            {
+                //ThreadStart thSt = delegate { ); };
+                //var mythread = new Thread(thSt);
+                //mythread.Start();
+
+                for (var i = 0; i < 100; i++)
+                    {
+                        await Task.Delay(50);
+                    }
+                progressDialog.Dismiss();
+                RunOnUiThread(async () =>
+                {
+                    await MyMethod(telaENome, progressDialog);
+                });
+
+
+
+
+            })).Start();
+            
+        }
+
+
+        private Task MyMethod(TelaENomeParaLoading telaENome,ProgressDialog progressDialog)
+        {
+            //Thread.Sleep(5000); //take 5 secs to do it's job
+            var tela = (IFabricaTelas)telaENome.Tela;
+            var nometela = telaENome.NomeTela;
+            if (nometela == "Inscrever") return tela.IniciarInscrever();
+            if (nometela == "Entrar") return EventoEntrar(tela,progressDialog);
+            return Task.CompletedTask;
+            
+
+        }
+         
+
+        private Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
+        {
+            _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
+            if (_codigoParticipante == "-1")
+            {
+                progressDialog.Dismiss();
+                Mensagens.MensagemErroLogin(this);
+                return Task.CompletedTask;
+            }
+            if (_codigoParticipante == "-2")
+            {
+                return Task.CompletedTask;
+            }
+            var participante = new Participante(MontarUsuário()) {Codigo = _codigoParticipante};
+            tela.IniciarHome((Activity)tela, participante);
+            return Task.CompletedTask;
+        }
+
+
+
     }
 }
 
