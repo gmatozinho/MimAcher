@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
+using Android;
 using Android.App;
+using Android.Content;
 using Android.Net;
 using Android.OS;
+using Android.Support.Design.Widget;
 using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
@@ -14,12 +18,13 @@ using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao;
 
 namespace MimAcher.Mobile.com.Activities
 {
-    [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "MimAcher", Theme = "@style/Theme.Splash", NoHistory = true)]
     public class MainActivity : FabricaTelasNormaisSemProcedimento
     {
         
         //Variaveis globais
         //até comunicar com o banco informações hipotéticas
+        private string _codigoParticipante;
         private readonly string _campus = "Serra";
         private readonly string _senha = null;
         private readonly string _nome = "Gustavo";
@@ -29,6 +34,8 @@ namespace MimAcher.Mobile.com.Activities
         private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
+        private TelaENomeParaLoading _telaENome;
+        
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -84,6 +91,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
+                ["codigo"] = _codigoParticipante,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,
@@ -98,28 +106,19 @@ namespace MimAcher.Mobile.com.Activities
 
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            //IniciarInscrever();
-            MyButtonClicked();
+            _telaENome = new TelaENomeParaLoading(this,"Inscrever");
+            Loading.MyButtonClicked(_telaENome);
+            OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            var resultado = Usuario.Login(this, MontarDicionarioLogin());
-            if (resultado == "-1")
-            {
-                Mensagens.MensagemErroLogin(this);
-                return;
-            }
-            if (resultado == "-2")
-            {
-                return;
-            }
 
-            //enviar o codigo participante e montar o parcipante com as informações inseridas
+            //TODO montar o parcipante com as informações inseridas
             //E enviar esse participante montado para a próxima activity
-            var participante = new Participante(MontarUsuário());
-            IniciarHome(this, participante);
-            Finish();
+            _telaENome = new TelaENomeParaLoading(this, "Entrar");
+            Loading.MyButtonClicked(_telaENome);
+            OverridePendingTransition(0, 0);
         }
 
         private Dictionary<string, string> MontarDicionarioLogin()
@@ -131,25 +130,29 @@ namespace MimAcher.Mobile.com.Activities
             };
         }
 
-        private void MyButtonClicked()
+        
+         
+
+        public Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
-            var myProgressBar = new ProgressBar(this) {Visibility = ViewStates.Visible};
-            ThreadStart thSt = delegate { RunMyMethod(myProgressBar); };
-            var mythread = new Thread(thSt);
-            mythread.Start();
+            _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
+            progressDialog.Dismiss();
+            if (_codigoParticipante == "-1")
+            {
+                Mensagens.MensagemErroLogin(this);
+                return Task.CompletedTask;
+            }
+            if (_codigoParticipante == "-2")
+            {
+                return Task.CompletedTask;
+            }
+            var participante = new Participante(MontarUsuário()) {Codigo = _codigoParticipante};
+            tela.IniciarHome((Activity)tela, participante);
+            return Task.CompletedTask;
         }
 
-        private Dictionary<int, string> MyMethod()
-        {
-            Thread.Sleep(5000);//take 5 secs to do it's job
-            return CursorBd.ObterCampi();
 
-        }
-        private void RunMyMethod(View myProgressBar)
-        {
-            RunOnUiThread(() => IniciarInscrever());
-            RunOnUiThread(() => myProgressBar.Visibility = ViewStates.Gone);
-        }
+
     }
 }
 

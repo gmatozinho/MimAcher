@@ -17,7 +17,7 @@ using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 namespace MimAcher.Mobile.com.Activities
 {
 
-    [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash")]
+    [Activity(Label = "InscreverActivity", Theme = "@style/Theme.Splash",NoHistory = true)]
     public class InscreverActivity : FabricaTelasNormaisSemProcedimento
     {
         //Variaveis globais
@@ -28,7 +28,7 @@ namespace MimAcher.Mobile.com.Activities
         private string _telefone;
         private string _campus;
         private string _confirmarSenha;
-        private const string Localizacao = "0.0/0.0";
+        private const string Localizacao = "00,00/00,00";
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
@@ -142,6 +142,11 @@ namespace MimAcher.Mobile.com.Activities
             }
         }
 
+        public override void OnBackPressed()
+        {
+            IniciarMain(this);
+        }
+
         //capturar o campus no atual momento de execução
         private void GetCampus()
         {
@@ -163,6 +168,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
+                ["codigo"] = null,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,

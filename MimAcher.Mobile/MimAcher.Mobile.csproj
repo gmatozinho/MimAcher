@@ -145,6 +145,7 @@
     <Compile Include="com\Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultHobbiesActivity.cs" />
     <Compile Include="com\Entidades\ListaItens.cs" />
+    <Compile Include="com\Entidades\TelaENomeParaLoading.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConnectionHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoInternetHandler.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\ChecarConexaoServidorHandler.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarSenha.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarTelefone.cs" />
     <Compile Include="com\Utilitarios\Geolocalizacao.cs" />
+    <Compile Include="com\Utilitarios\Loading.cs" />
     <Compile Include="com\Utilitarios\Mascara.cs" />
     <Compile Include="com\Utilitarios\Mensagens.cs" />
     <Compile Include="com\Entidades\PacoteCompleto.cs" />
