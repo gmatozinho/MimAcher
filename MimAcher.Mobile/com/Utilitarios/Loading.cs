@@ -20,17 +20,12 @@ namespace MimAcher.Mobile.com.Utilitarios
             var activity = telaENome.Tela;
             var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            new Thread(new ThreadStart(delegate
+            new Thread(new ThreadStart(async delegate
             {
-                activity.RunOnUiThread(async () =>
-                {
-                    for (var i = 0; i < 100; i++)
-                    {
-                        await Task.Delay(50);
-                    }
-                    progressDialog.Dismiss();
-                });
-
+                for (var i = 0; i < 100; i++) {
+                    await Task.Delay(50);
+                }
+                   
                 activity.RunOnUiThread(async () =>
                 {
                     await MyMethod(telaENome, progressDialog);
