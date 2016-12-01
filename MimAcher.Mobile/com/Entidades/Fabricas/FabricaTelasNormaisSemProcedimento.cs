@@ -51,7 +51,8 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
 
         public override void IniciarMain(Context contexto)
         {
-            throw new NotImplementedException();
+            var mainactivity = new Intent(contexto, typeof(MainActivity));
+            StartActivity(mainactivity);
         }
         
     }

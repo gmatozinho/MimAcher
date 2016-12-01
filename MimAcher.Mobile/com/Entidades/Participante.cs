@@ -36,6 +36,7 @@ namespace MimAcher.Mobile.com.Entidades
             Aprender = new ListaItens();
             Ensinar = new ListaItens();
 
+            Codigo = atributos["codigo"];
             Nome = atributos["nome"];
             Nascimento = atributos["nascimento"];
             Telefone = atributos["telefone"];
