@@ -47,7 +47,7 @@ namespace MimAcher.Infra
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
                 this.Contexto.SaveChanges();
@@ -76,7 +76,7 @@ namespace MimAcher.Infra
 
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
             }
@@ -93,7 +93,7 @@ namespace MimAcher.Infra
 
         public Boolean AtualizarHobbieDoParticipanteComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
 
@@ -124,7 +124,7 @@ namespace MimAcher.Infra
             this.Contexto.SaveChanges();
         }
 
-        public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        public Boolean VerificarSeExisteRelacaoDeParticipanteHobbie(MA_PARTICIPANTE_HOBBIE participantehobbie)
         {
             if (ObterParticipanteHobbiePorItemEParticipante(participantehobbie) != null)
             {
