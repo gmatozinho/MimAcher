@@ -74,8 +74,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             jsonObject.Put("listparticipanteaprender", jsonArray);
 
             return jsonObject.ToString();
-            /*return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 1, \"cod_participante\": " + codigoParticipante +
-                ", \"cod_item\": " + codigoItem + " }] }";*/
         }
 
         public static string MontarJsonEnsinar(int codigoParticipante, int codigoItem)
@@ -92,8 +90,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             jsonObject.Put("listparticipanteensinar", jsonArray);
 
             return jsonObject.ToString();
-            /*return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante +
-                ", \"cod_item\": " + codigoItem + " }] }";*/
         }
 
         public static string MontarJsonLogin(string email, string senha)
@@ -116,6 +112,21 @@ namespace MimAcher.Mobile.com.Utilitarios
                 "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": " + participante.Telefone + ", " + 
                 "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", " + 
                 "\"longitude\": }" + localizacao[1] + " } ] }";
+        }
+
+        public static string MontarJsonMatchHobbie(int codigoItem)
+        {
+            return "{ \"listaparticipantehobbie\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonMatchAprender(int codigoItem)
+        {
+            return "{ \"listaparticipanteaprender\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonMatchEnsinar(int codigoItem)
+        {
+            return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
     }
 }

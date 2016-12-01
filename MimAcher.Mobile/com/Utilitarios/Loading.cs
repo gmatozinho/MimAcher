@@ -25,6 +25,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 for (var i = 0; i < 100; i++) {
                     await Task.Delay(50);
                 }
+                progressDialog.Dismiss();
                    
                 activity.RunOnUiThread(async () =>
                 {
