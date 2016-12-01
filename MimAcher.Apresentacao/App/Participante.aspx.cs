@@ -77,10 +77,10 @@ namespace MimAcher.Apresentacao.App
             String longitude = this.GestorDeAplicacao.RetornaDadoSemVigurla(longitudeId.Text);
 
             participante.nome = nomeId.Text;
-            participante.dt_nascimento = (DateTime)dt_nascimentoId.Value;
-            participante.telefone = Int32.Parse(telefoneId.Text);
-            participante.cod_campus = Int32.Parse(cod_campusId.SelectedItem.Value);
-            participante.cod_usuario = Int32.Parse(cod_usuarioId.SelectedItem.Value);
+            participante.dt_nascimento = (DateTime)this.dt_nascimentoId.Value;
+            participante.telefone = this.telefoneId.Text;
+            participante.cod_campus = Int32.Parse(this.cod_campusId.SelectedItem.Value);
+            participante.cod_usuario = Int32.Parse(this.cod_usuarioId.SelectedItem.Value);
             participante.geolocalizacao = DbGeography.FromText("POINT(" + longitude + "  " + latitude + ")");
 
             //Caso o form não possui código, será inserido um novo usuário
