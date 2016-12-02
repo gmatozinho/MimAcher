@@ -39,9 +39,9 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipante(participanteaprender);
         }
 
-        public void InserirNovoAprendizadoDeParticipanteComRetorno(MA_PARTICIPANTE_APRENDER participanteaprender)
+        public Boolean InserirNovoAprendizadoDeParticipanteComRetorno(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            this.RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipante(participanteaprender);
+            return this.RepositorioDeAprendizadoDeParticipante.InserirNovoAprendizadoDeParticipanteComRetorno(participanteaprender);
         }
 
         public int BuscarQuantidadeRegistros()
