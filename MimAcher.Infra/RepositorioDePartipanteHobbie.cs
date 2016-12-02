@@ -63,6 +63,38 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirNovoParticipanteHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
+            {
+                try
+                {
+                    this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+                
+            }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    return AtualizarAprendizadoDeHobbieComRetorno(hobbieparticipante);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Count();
@@ -105,9 +137,7 @@ namespace MimAcher.Infra
 
                 if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
                 {
-                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
-
-                    return true;
+                    return AtualizarAprendizadoDeHobbieComRetorno(hobbieparticipante);                    
                 }
                 else
                 {
@@ -120,8 +150,32 @@ namespace MimAcher.Infra
         {
             MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
 
-            this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            try
+            {
+                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }            
+        }
+
+        public Boolean AtualizarAprendizadoDeHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+
+            try
+            {
+                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteHobbie(MA_PARTICIPANTE_HOBBIE participantehobbie)
@@ -130,7 +184,10 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }            
         }
 
         public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)

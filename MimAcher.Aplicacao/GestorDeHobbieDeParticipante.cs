@@ -44,6 +44,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
         }
 
+        public Boolean InserirNovoParticipanteHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            return this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbieComRetorno(hobbieparticipante);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeParcipanteHobbie.BuscarQuantidadeRegistros();

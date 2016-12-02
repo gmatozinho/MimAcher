@@ -65,27 +65,28 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                int codigo_pa = -1;
+                MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
 
-                foreach (ParticipanteHobbie pe in listaparticipantehobbie)
+                participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
+                participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+
+                //Informa que a relação estará ativa
+                participantehobbie.cod_s_relacao = 1;
+                
+                if(GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbieComRetorno(participantehobbie))
                 {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-
-                    participantehobbie.cod_participante = pe.cod_participante;
-                    participantehobbie.cod_item = pe.cod_item;
-
-                    //Informa que a relação estará ativa
-                    participantehobbie.cod_s_relacao = 1;
-
-                    GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbie(participantehobbie);
-
-                    codigo_pa = participantehobbie.cod_p_hobbie;
+                    jsonResult = Json(new
+                    {
+                        codigo = participantehobbie.cod_p_hobbie
+                    }, JsonRequestBehavior.AllowGet);
                 }
-
-                jsonResult = Json(new
+                else
                 {
-                    codigo = codigo_pa
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
