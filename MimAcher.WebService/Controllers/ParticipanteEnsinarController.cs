@@ -64,28 +64,29 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
             else
-            {
-                int codigo_pa = -1;
+            {                
+                MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
 
-                foreach (ParticipanteEnsinar pe in listaparticipanteensinar)
+                participanteensinar.cod_participante = listaparticipanteensinar[0].cod_participante;
+                participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
+
+                //Informa que a relação estará ativa
+                participanteensinar.cod_s_relacao = 1;
+
+                if (GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipanteComRetorno(participanteensinar))
                 {
-                    MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
-
-                    participanteensinar.cod_participante = pe.cod_participante;
-                    participanteensinar.cod_item = pe.cod_item;
-
-                    //Informa que a relação estará ativa
-                    participanteensinar.cod_s_relacao = 1;
-
-                    GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
-
-                    codigo_pa = participanteensinar.cod_p_ensinar;
+                    jsonResult = Json(new
+                    {
+                        codigo = participanteensinar.cod_p_ensinar
+                    }, JsonRequestBehavior.AllowGet);
                 }
-
-                jsonResult = Json(new
+                else
                 {
-                    codigo = codigo_pa
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }                
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
