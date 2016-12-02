@@ -78,8 +78,7 @@ namespace MimAcher.Infra
 
                 if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
                 {
-                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
-                    return true;
+                    return AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
                 }
                 else
                 {
