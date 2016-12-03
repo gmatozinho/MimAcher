@@ -270,5 +270,28 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return matchs;
         }
+
+        public static Dictionary<string, string> ObterDadosParticipante(int codigoParticipante)
+        {
+            Dictionary<string, string> dadosParticipante = new Dictionary<string, string>();
+            var requisicao = MontadorRequisicao.MontarRequisicaoGetParticipante();
+            var json = JsonParser.MontarJsonGetParticipante(codigoParticipante);
+            EnviarJson(json, requisicao);
+            var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
+            
+            var dados = objetoResposta.SelectToken("participante");
+
+            foreach (var token in dados)
+            {
+                dadosParticipante["nome"] = token.SelectToken("nome").ToString();
+                dadosParticipante["nascimento"] = token.SelectToken("dt_nascimento").ToString();
+                dadosParticipante["telefone"] = token.SelectToken("telefone").ToString();
+                dadosParticipante["latitude"] = token.SelectToken("latitude").ToString();
+                dadosParticipante["longitude"] = token.SelectToken("longitude").ToString();
+                dadosParticipante["cod_campus"] = token.SelectToken("cod_campus").ToString();
+            }
+
+            return dadosParticipante;
+        }
     }
 }

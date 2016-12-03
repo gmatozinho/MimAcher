@@ -103,5 +103,11 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
+
+        public static string MontarJsonGetParticipante(int codigoParticipante) { 
+            return "{ \"listaparticipante\": [ { \"cod_participante\": " + codigoParticipante + 
+                ", \"cod_usuario\": 0, \"cod_campus\": 0, \"nome\": \"\"," + 
+                " \"telefone\": \"00000000\", \"dt_nascimento\": \"00/00/0000 00:00:00\", \"latitude\": \"00.00\", \"longitude\": \"00.00\" } ] }";
+        }
     }
 }
