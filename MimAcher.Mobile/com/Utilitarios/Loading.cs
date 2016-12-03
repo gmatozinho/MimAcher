@@ -22,10 +22,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
             new Thread(new ThreadStart(delegate
             {
-                /* for (var i = 0; i < 100; i++) {
-                     await Task.Delay(50);
-                 }*/
-                //progressDialog.Dismiss();
                 Thread.Sleep(4 * 1000);
                 activity.RunOnUiThread(() =>
                 {
@@ -38,22 +34,19 @@ namespace MimAcher.Mobile.com.Utilitarios
         }
 
 
-        private static Task MyMethod(TelaENomeParaLoading telaENome, ProgressDialog progressDialog)
+        private static void MyMethod(TelaENomeParaLoading telaENome, ProgressDialog progressDialog)
         {
-            //Thread.Sleep(1000); //take 5 secs to do it's job
             var nometela = telaENome.NomeTela;
             if (nometela == "Inscrever")
             {
-                //progressDialog.Dismiss();
                 var tela = (IFabricaTelas) telaENome.Tela;
-                return tela.IniciarInscrever();
+                tela.IniciarInscrever();
             }
             if (nometela == "Entrar")
             {
                 var tela = (MainActivity) telaENome.Tela;
-                return tela.EventoEntrar(tela, progressDialog);
+                tela.EventoEntrar(tela, progressDialog);
             }
-            return Task.CompletedTask;
         }
 
     }
