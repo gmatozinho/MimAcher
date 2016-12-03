@@ -51,34 +51,20 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonHobbie(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
-            objetojsonauxiliar.Put("cod_p_hobbie", 0);
-            objetojsonauxiliar.Put("cod_participante", codigoParticipante);
-            objetojsonauxiliar.Put("cod_item", codigoItem);
-            objetojsonauxiliar.Put("cod_s_relacao", 0);
-
-            jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listaparticipantehobbie", jsonArray);
-
-            return jsonObject.ToString();
-
-
-            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": " + codigoParticipante + 
-                ", \"cod_item\": "+ codigoItem + " }] }";
+            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 0, \"cod_participante\": " + codigoParticipante + 
+                ", \"cod_item\": "+ codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
 
         public static string MontarJsonAprender(int codigoParticipante, int codigoItem)
         {
-            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 1, \"cod_participante\": " + codigoParticipante +
-                ", \"cod_item\": " + codigoItem + " }] }";
+            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender\": 0, \"cod_participante\": " + codigoParticipante +
+                ", \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
 
         public static string MontarJsonEnsinar(int codigoParticipante, int codigoItem)
         {
-            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante +
-                ", \"cod_item\": " + codigoItem + " }] }";
+            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 0, \"cod_participante\": " + codigoParticipante +
+                ", \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
 
         public static string MontarJsonLogin(string email, string senha)

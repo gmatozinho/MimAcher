@@ -118,6 +118,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             var json = JsonParser.MontarJsonHobbie(codigoParticipante, codigoItem);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostHobbie();
             EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
         }
 
         public static void EnviarAprender(int codigoParticipante, int codigoItem)
@@ -125,6 +126,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             var json = JsonParser.MontarJsonAprender(codigoParticipante, codigoItem);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostAprender();
             EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
         }
 
         public static void EnviarEnsinar(int codigoParticipante, int codigoItem)
@@ -132,6 +134,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             var json = JsonParser.MontarJsonEnsinar(codigoParticipante, codigoItem);
             var requisicao = MontadorRequisicao.MontarRequisicaoPostEnsinar();
             EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
         }
 
         public static string Login(Dictionary<string, string> emailESenha)
