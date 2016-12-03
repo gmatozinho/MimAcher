@@ -20,16 +20,17 @@ namespace MimAcher.Mobile.com.Utilitarios
             var activity = telaENome.Tela;
             var progressDialog = ProgressDialog.Show(activity, "", "Comunicando com o servidor...", true);
             progressDialog.SetProgressStyle(ProgressDialogStyle.Spinner);
-            new Thread(new ThreadStart(async delegate
+            new Thread(new ThreadStart(delegate
             {
-                for (var i = 0; i < 100; i++) {
-                    await Task.Delay(50);
-                }
-                progressDialog.Dismiss();
-                   
-                activity.RunOnUiThread(async () =>
+                /* for (var i = 0; i < 100; i++) {
+                     await Task.Delay(50);
+                 }*/
+                //progressDialog.Dismiss();
+                Thread.Sleep(4 * 1000);
+                activity.RunOnUiThread(() =>
                 {
-                    await MyMethod(telaENome, progressDialog);
+                    MyMethod(telaENome, progressDialog);
+                    progressDialog.Dismiss();
                 });
                 
             })).Start();
@@ -39,12 +40,11 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         private static Task MyMethod(TelaENomeParaLoading telaENome, ProgressDialog progressDialog)
         {
-            Thread.Sleep(1000); //take 5 secs to do it's job
+            //Thread.Sleep(1000); //take 5 secs to do it's job
             var nometela = telaENome.NomeTela;
             if (nometela == "Inscrever")
             {
-                //progressDialog.
-                progressDialog.Dismiss();
+                //progressDialog.Dismiss();
                 var tela = (IFabricaTelas) telaENome.Tela;
                 return tela.IniciarInscrever();
             }
