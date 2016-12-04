@@ -1,11 +1,5 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using Android.App;
-using Android.Content;
-using Android.Util;
-using Android.Views;
-using Android.Widget;
 using MimAcher.Mobile.com.Activities;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;

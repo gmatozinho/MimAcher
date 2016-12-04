@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using MimAcher.Mobile.com.Entidades;
 using Newtonsoft.Json.Linq;
-using System;
 
 namespace MimAcher.Mobile.com.Utilitarios
 {
