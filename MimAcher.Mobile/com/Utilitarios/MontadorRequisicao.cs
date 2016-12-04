@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Net;
 
 namespace MimAcher.Mobile.com.Utilitarios
@@ -135,6 +136,15 @@ namespace MimAcher.Mobile.com.Utilitarios
         public static WebRequest MontarRequisicaoMatchEnsinar()
         {
             var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/match");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetParticipante()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participante/get");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 
