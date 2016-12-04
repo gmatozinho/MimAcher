@@ -29,7 +29,7 @@ namespace MimAcher.Mobile.com.Entidades
         public string Localizacao { get; set; }
 
 
-        //Construtor
+        //Complete Construtor
         public Participante(Dictionary<string, string> atributos) : base(atributos)
         {
             Hobbies = new ListaItens();
@@ -43,7 +43,7 @@ namespace MimAcher.Mobile.com.Entidades
             Campus = atributos["campus"];
             Localizacao = atributos["localizacao"];
         }
-        
+
         //Funções para trabalhar no banco de dados
         public string Inscrever()
         {
@@ -53,9 +53,7 @@ namespace MimAcher.Mobile.com.Entidades
 
         public Dictionary<string, List<Participante>> Match()
         {
-            var matchs = CursorBd.Match(this);
-
-            return matchs;
+            return null;
         }
 
 

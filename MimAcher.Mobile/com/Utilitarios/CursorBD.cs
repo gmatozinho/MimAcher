@@ -12,8 +12,7 @@ namespace MimAcher.Mobile.com.Utilitarios
         public static string EnviarParticipante(Participante participante)
         {
             var requisicao = MontadorRequisicao.MontarRequisicaoPostUsuario();
-
-            //var json = JsonParser.MontarJsonUsuario(participante);
+            
             var json = JsonParser.MontarJsonUsuario(participante);
             EnviarJson(json, requisicao);
 
@@ -35,21 +34,6 @@ namespace MimAcher.Mobile.com.Utilitarios
             var codigoItem = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
 
             return codigoItem;
-        }
-
-        public static Dictionary<string, List<Participante>> Match(Participante a)
-        {
-            var matchs = new Dictionary<string, List<Participante>>
-            {
-                ["hobbies"] = new List<Participante>(),
-                ["aprender"] = new List<Participante>(),
-                ["ensinar"] = new List<Participante>()
-            };
-
-
-            //TODO: buscar os matchs no banco
-
-            return matchs;
         }
 
         private static void EnviarJson(string json, WebRequest requisicao)
@@ -161,9 +145,9 @@ namespace MimAcher.Mobile.com.Utilitarios
             EnviarJson(json, requisicao);
         }
 
-        public static Dictionary<string, List<string>> ObterParticipanteItem(int codigoParticipante, Dictionary<int, string> itens)
+        public static Dictionary<string, List<string>> ObterParticipanteItens(int codigoParticipante, Dictionary<int, string> itens)
         {
-            Dictionary<string, List<string>> relacoes = new Dictionary<string, List<string>>();
+            var relacoes = new Dictionary<string, List<string>>();
 
             var requisicao = MontadorRequisicao.MontarRequisicaoGetParticipanteHobbie();
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
@@ -176,7 +160,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 var codigoItem = token.SelectToken("cod_item").ToString().Replace("{", "").Replace("}", "");
                 var codigoParticipanteRetorno = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                if (Int32.Parse(codigoParticipanteRetorno) == codigoParticipante) hobbies.Add(itens[Int32.Parse(codigoItem)]);
+                if (int.Parse(codigoParticipanteRetorno) == codigoParticipante) hobbies.Add(itens[int.Parse(codigoItem)]);
             }
             relacoes["hobbie"] = hobbies;
 
@@ -191,7 +175,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 var codigoItem = token.SelectToken("cod_item").ToString().Replace("{", "").Replace("}", "");
                 var codigoParticipanteRetorno = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                if (Int32.Parse(codigoParticipanteRetorno) == codigoParticipante) aprender.Add(itens[Int32.Parse(codigoItem)]);
+                if (int.Parse(codigoParticipanteRetorno) == codigoParticipante) aprender.Add(itens[int.Parse(codigoItem)]);
             }
             relacoes["aprender"] = aprender;
 
@@ -206,7 +190,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                 var codigoItem = token.SelectToken("cod_item").ToString().Replace("{", "").Replace("}", "");
                 var codigoParticipanteRetorno = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                if (Int32.Parse(codigoParticipanteRetorno) == codigoParticipante) ensinar.Add(itens[Int32.Parse(codigoItem)]);
+                if (int.Parse(codigoParticipanteRetorno) == codigoParticipante) ensinar.Add(itens[int.Parse(codigoItem)]);
             }
             relacoes["ensinar"] = ensinar;
             
@@ -215,7 +199,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static Dictionary<string, List<int>> Match(int codigoItem)
         {
-            Dictionary<string, List<int>> matchs = new Dictionary<string, List<int>>();
+            var matchs = new Dictionary<string, List<int>>();
 
             var requisicao = MontadorRequisicao.MontarRequisicaoMatchHobbie();
             var json = JsonParser.MontarJsonMatchHobbie(codigoItem);
@@ -229,7 +213,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+                listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["hobbie"] = listaParticipantes;
@@ -246,7 +230,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+                listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["aprender"] = listaParticipantes;
@@ -263,7 +247,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(Int32.Parse(codigoParticipante));
+                listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["ensinar"] = listaParticipantes;
@@ -271,24 +255,36 @@ namespace MimAcher.Mobile.com.Utilitarios
             return matchs;
         }
 
-        public static Dictionary<string, string> ObterDadosParticipante(int codigoParticipante)
+        public static Participante ObterDadosParticipante(int codigoParticipante)
         {
-            Dictionary<string, string> dadosParticipante = new Dictionary<string, string>();
             var requisicao = MontadorRequisicao.MontarRequisicaoGetParticipante();
             var json = JsonParser.MontarJsonGetParticipante(codigoParticipante);
             EnviarJson(json, requisicao);
             var objetoResposta = JObject.Parse((string)ObterResposta(requisicao));
             
             var dados = objetoResposta.SelectToken("participante");
+            var dadosParticipante = AjustarDadosParticipante(dados, codigoParticipante);
+            
+            var participante = new Participante(dadosParticipante);
 
+            return participante;
+        }
+
+        private static Dictionary<string, string> AjustarDadosParticipante(JToken dados, int codigoParticipante)
+        {
+            var dadosParticipante = new Dictionary<string, string>();
             foreach (var token in dados)
             {
+                dadosParticipante["senha"] = null;
+                dadosParticipante["email"] = null;
+                dadosParticipante["codigo"] = codigoParticipante.ToString();
                 dadosParticipante["nome"] = token.SelectToken("nome").ToString();
-                dadosParticipante["nascimento"] = token.SelectToken("dt_nascimento").ToString();
+                var ajustarNascimento = token.SelectToken("dt_nascimento").ToString().Split(' ');
+                dadosParticipante["nascimento"] = ajustarNascimento[0];
                 dadosParticipante["telefone"] = token.SelectToken("telefone").ToString();
-                dadosParticipante["latitude"] = token.SelectToken("latitude").ToString();
-                dadosParticipante["longitude"] = token.SelectToken("longitude").ToString();
-                dadosParticipante["cod_campus"] = token.SelectToken("cod_campus").ToString();
+                dadosParticipante["campus"] = token.SelectToken("cod_campus").ToString();
+                dadosParticipante["localizacao"] = token.SelectToken("latitude") + "/" + token.SelectToken("longitude");
+
             }
 
             return dadosParticipante;

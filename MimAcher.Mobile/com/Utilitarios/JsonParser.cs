@@ -24,9 +24,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_participante", 0);
             objetojsonauxiliar.Put("cod_usuario", 0);
             objetojsonauxiliar.Put("e_mail", participante.Email);
@@ -46,9 +46,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonHobbie(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_hobbie", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
@@ -62,9 +62,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonAprender(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_aprender", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
@@ -78,9 +78,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonEnsinar(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_ensinar", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
@@ -127,6 +127,12 @@ namespace MimAcher.Mobile.com.Utilitarios
         public static string MontarJsonMatchEnsinar(int codigoItem)
         {
             return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+        public static string MontarJsonGetParticipante(int codigoParticipante)
+        {
+            return "{ \"listaparticipante\": [ { \"cod_participante\": " + codigoParticipante +
+                ", \"cod_usuario\": 0, \"cod_campus\": 0, \"nome\": \"\"," +
+                " \"telefone\": \"00000000\", \"dt_nascimento\": \"00/00/0000 00:00:00\", \"latitude\": \"00.00\", \"longitude\": \"00.00\" } ] }";
         }
     }
 }
