@@ -128,16 +128,34 @@ namespace MimAcher.WebService.Controllers
                 participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
                 participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
 
-                Boolean resultado = GestorDeParticipante.AtualizarParticipanteC(participante);
-
-                    codigo_participante = participante.cod_participante;
-                
-
-                jsonResult = Json(new
+                try
                 {
-                    codigo = codigo_participante
-                }, JsonRequestBehavior.AllowGet);
+                    Boolean resultado = GestorDeParticipante.AtualizarParticipanteComRetorno(participante);
 
+                    if (resultado)
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = participante.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {   
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch(Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
