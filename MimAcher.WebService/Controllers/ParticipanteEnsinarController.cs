@@ -290,26 +290,37 @@ namespace MimAcher.WebService.Controllers
             {
                 if (this.GestorDeParticipanteEnsinar.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteensinar[0].cod_item))
                 {
-                    List<MA_PARTICIPANTE_ENSINAR> listapensinar = this.GestorDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteensinar[0].cod_item);
-
-                    //Reinicia lista de aprendizado de participante
-                    listaparticipanteensinar = new List<ParticipanteEnsinar>();
-
-                    foreach (MA_PARTICIPANTE_ENSINAR mapa in listapensinar)
+                    try
                     {
-                        ParticipanteEnsinar pa = new ParticipanteEnsinar();
+                        List<MA_PARTICIPANTE_ENSINAR> listapensinar = this.GestorDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteensinar[0].cod_item);
 
-                        pa.cod_p_ensinar = mapa.cod_p_ensinar;
-                        pa.cod_item = mapa.cod_item;
-                        pa.cod_participante = mapa.cod_participante;
+                        //Reinicia lista de aprendizado de participante
+                        listaparticipanteensinar = new List<ParticipanteEnsinar>();
 
-                        listaparticipanteensinar.Add(pa);
+                        foreach (MA_PARTICIPANTE_ENSINAR mapa in listapensinar)
+                        {
+                            ParticipanteEnsinar pa = new ParticipanteEnsinar();
+
+                            pa.cod_p_ensinar = mapa.cod_p_ensinar;
+                            pa.cod_item = mapa.cod_item;
+                            pa.cod_participante = mapa.cod_participante;
+
+                            listaparticipanteensinar.Add(pa);
+                        }
+
+                        jsonResult = Json(new
+                        {
+                            listaparticipanteensinar = listaparticipanteensinar
+                        }, JsonRequestBehavior.AllowGet);
                     }
-
-                    jsonResult = Json(new
+                    catch(Exception e)
                     {
-                        listaparticipanteensinar = listaparticipanteensinar
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            erro = e.InnerException.ToString(),
+                            listaparticipanteensinar = ""
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {
