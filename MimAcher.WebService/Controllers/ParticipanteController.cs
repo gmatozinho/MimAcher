@@ -117,25 +117,21 @@ namespace MimAcher.WebService.Controllers
                 }, JsonRequestBehavior.AllowGet);
             }
             else
-            {
-                int codigo_participante = -1;
+            {   
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                foreach (Participante pt in listaparticipante)
-                {
-                    MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+                participante.cod_participante = listaparticipante[0].cod_participante;
+                participante.cod_usuario = listaparticipante[0].cod_usuario;
+                participante.cod_campus = listaparticipante[0].cod_campus;
+                participante.nome = listaparticipante[0].nome;
+                participante.telefone = listaparticipante[0].telefone;
+                participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
 
-                    participante.cod_participante = pt.cod_participante;
-                    participante.cod_usuario = pt.cod_usuario;
-                    participante.cod_campus = pt.cod_campus;
-                    participante.nome = pt.nome;
-                    participante.telefone = pt.telefone;
-                    participante.dt_nascimento = (DateTime)pt.dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
-
-                    GestorDeParticipante.AtualizarParticipante(participante);
+                Boolean resultado = GestorDeParticipante.AtualizarParticipanteC(participante);
 
                     codigo_participante = participante.cod_participante;
-                }
+                
 
                 jsonResult = Json(new
                 {
