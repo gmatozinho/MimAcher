@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -73,17 +74,30 @@ namespace MimAcher.WebService.Controllers
                 //Informa que a relação estará ativa
                 participanteaprender.cod_s_relacao = 1;
 
-                if (GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipanteComRetorno(participanteaprender))
+                try
                 {
-                    jsonResult = Json(new
+                    Boolean resultado = GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipanteComRetorno(participanteaprender);
+
+                    if (resultado)
                     {
-                        codigo = participanteaprender.cod_participante
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            codigo = participanteaprender.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     jsonResult = Json(new
                     {
+                        erro = e.InnerException.ToString(),
                         codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
