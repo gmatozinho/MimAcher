@@ -94,8 +94,6 @@ namespace MimAcher.WebService.Controllers
                         codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
-
-                
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;

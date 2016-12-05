@@ -283,27 +283,38 @@ namespace MimAcher.WebService.Controllers
             else
             {
                 if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item))
-                {                    
-                    List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterHobbiesDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item);
-
-                    //Reinicia lista de aprendizado de participante
-                    listaparticipantehobbie = new List<ParticipanteHobbie>();
-
-                    foreach (MA_PARTICIPANTE_HOBBIE mapa in listaphobbie)
+                {
+                    try
                     {
-                        ParticipanteHobbie pa = new ParticipanteHobbie();
+                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterHobbiesDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item);
 
-                        pa.cod_p_hobbie = mapa.cod_p_hobbie;
-                        pa.cod_item = mapa.cod_item;
-                        pa.cod_participante = mapa.cod_participante;
+                        //Reinicia lista de aprendizado de participante
+                        listaparticipantehobbie = new List<ParticipanteHobbie>();
 
-                        listaparticipantehobbie.Add(pa);
+                        foreach (MA_PARTICIPANTE_HOBBIE mapa in listaphobbie)
+                        {
+                            ParticipanteHobbie pa = new ParticipanteHobbie();
+
+                            pa.cod_p_hobbie = mapa.cod_p_hobbie;
+                            pa.cod_item = mapa.cod_item;
+                            pa.cod_participante = mapa.cod_participante;
+
+                            listaparticipantehobbie.Add(pa);
+                        }
+
+                        jsonResult = Json(new
+                        {
+                            listaparticipantehobbie = listaparticipantehobbie
+                        }, JsonRequestBehavior.AllowGet);
                     }
-
-                    jsonResult = Json(new
+                    catch(Exception e)
                     {
-                        listaparticipantehobbie = listaparticipantehobbie
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            erro = e.InnerException.ToString(),
+                            listaparticipantehobbie = ""
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {
