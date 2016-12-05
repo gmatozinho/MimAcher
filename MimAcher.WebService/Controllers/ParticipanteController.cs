@@ -180,25 +180,37 @@ namespace MimAcher.WebService.Controllers
             {
                 if (GestorDeParticipante.VerificarSeParticipanteExiste(listaparticipante[0].cod_participante))
                 {
-                    MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].cod_participante);
-
-                    Participante pt = new Participante();
-
-                    pt.cod_participante = participante.cod_participante;
-                    pt.cod_campus = participante.cod_campus;
-                    pt.cod_usuario = participante.cod_usuario;
-                    pt.nome = participante.nome;
-                    pt.telefone = participante.telefone;
-                    pt.dt_nascimento = participante.dt_nascimento;
-                    pt.latitude = participante.geolocalizacao.Latitude;
-                    pt.longitude = participante.geolocalizacao.Longitude;
-
-                    listaparticipanteretorno.Add(pt);
-
-                    jsonResult = Json(new
+                    try
                     {
-                        participante = listaparticipanteretorno
-                    }, JsonRequestBehavior.AllowGet);
+                        MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].cod_participante);
+
+                        Participante pt = new Participante();
+
+                        pt.cod_participante = participante.cod_participante;
+                        pt.cod_campus = participante.cod_campus;
+                        pt.cod_usuario = participante.cod_usuario;
+                        pt.nome = participante.nome;
+                        pt.telefone = participante.telefone;
+                        pt.dt_nascimento = participante.dt_nascimento;
+                        pt.latitude = participante.geolocalizacao.Latitude;
+                        pt.longitude = participante.geolocalizacao.Longitude;
+
+                        listaparticipanteretorno.Add(pt);
+
+                        jsonResult = Json(new
+                        {
+                            participante = listaparticipanteretorno
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch(Exception e)
+                    {
+                        jsonResult = Json(new
+                        {
+                            erro = e.InnerException.ToString(),
+                            participante = ""
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    
                 }
                 else
                 {
