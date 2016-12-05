@@ -195,51 +195,63 @@ namespace MimAcher.WebService.Controllers
             {
                 if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
                 {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
-
-                    if (participantehobbie.cod_s_relacao == 1)
+                    try
                     {
-                        participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
-                        participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                        participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
-                        //Marca a relação como inativa
-                        participantehobbie.cod_s_relacao = 2;
+                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
 
-                        try
+                        if (participantehobbie.cod_s_relacao == 1)
                         {
-                            Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
+                            participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
+                            participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
+                            participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                            //Marca a relação como inativa
+                            participantehobbie.cod_s_relacao = 2;
 
-                            if (resultado)
+                            try
                             {
-                                jsonResult = Json(new
+                                Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
+
+                                if (resultado)
                                 {
-                                    codigo = participantehobbie.cod_p_hobbie
-                                }, JsonRequestBehavior.AllowGet);
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = participantehobbie.cod_p_hobbie
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
+                                else
+                                {
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = -1
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
                             }
-                            else
+                            catch (Exception e)
                             {
                                 jsonResult = Json(new
                                 {
+                                    erro = e.InnerException.ToString(),
                                     codigo = -1
                                 }, JsonRequestBehavior.AllowGet);
                             }
                         }
-                        catch(Exception e)
+                        else
                         {
                             jsonResult = Json(new
                             {
-                                erro = e.InnerException.ToString(),
                                 codigo = -1
                             }, JsonRequestBehavior.AllowGet);
                         }
                     }
-                    else
+                    catch(Exception e)
                     {
                         jsonResult = Json(new
                         {
+                            erro = e.InnerException.ToString(),
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
                     }
+                    
                 }
                 else
                 {
