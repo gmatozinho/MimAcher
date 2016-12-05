@@ -134,20 +134,35 @@ namespace MimAcher.WebService.Controllers
                     //Permanece a relação como ativa
                     participantehobbie.cod_s_relacao = 1;
 
-                    if (this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie))
+                    try
                     {
-                        jsonResult = Json(new
+                        Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
+
+                        if (resultado)
                         {
-                            codigo = participantehobbie.cod_p_hobbie
-                        }, JsonRequestBehavior.AllowGet);
+                            jsonResult = Json(new
+                            {
+                                codigo = participantehobbie.cod_p_hobbie
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    else
+                    catch(Exception e)
                     {
                         jsonResult = Json(new
                         {
+                            erro = e.InnerException.ToString(),
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
+
                     }
+
                 }
                 else
                 {
