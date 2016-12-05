@@ -94,7 +94,7 @@ namespace MimAcher.WebService.Controllers
                         jsonResult = Json(new
                         {
                             codigo = -1,
-                            erro = e.Message.ToString()
+                            erro = e.InnerException.ToString()
                         }, JsonRequestBehavior.AllowGet);                        
                     }
                     
@@ -167,7 +167,7 @@ namespace MimAcher.WebService.Controllers
                         jsonResult = Json(new
                         {
                             codigo = -1,
-                            erro = e.Message.ToString()
+                            erro = e.InnerException.ToString()
                         }, JsonRequestBehavior.AllowGet);
                     }
                 }
