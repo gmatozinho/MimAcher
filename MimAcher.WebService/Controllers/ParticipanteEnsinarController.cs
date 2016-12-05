@@ -202,27 +202,59 @@ namespace MimAcher.WebService.Controllers
             {
                 if (this.GestorDeParticipanteEnsinar.VerificarSeExisteRelacaoUsuarioEnsinarPorIdDaRelacao(listaparticipanteensinar[0].cod_p_ensinar))
                 {
-                    MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(listaparticipanteensinar[0].cod_p_ensinar);
-
-                    if (participanteensinar.cod_s_relacao == 1)
+                    try
                     {
-                        participanteensinar.cod_p_ensinar = listaparticipanteensinar[0].cod_p_ensinar;
-                        participanteensinar.cod_participante = listaparticipanteensinar[0].cod_participante;
-                        participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
-                        //Marca a relação como inativa
-                        participanteensinar.cod_s_relacao = 2;
+                        MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterRelacaoDoQueOParticipanteEnsinaPorId(listaparticipanteensinar[0].cod_p_ensinar);
 
-                        this.GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipante(participanteensinar);
-
-                        jsonResult = Json(new
+                        if (participanteensinar.cod_s_relacao == 1)
                         {
-                            codigo = participanteensinar.cod_p_ensinar
-                        }, JsonRequestBehavior.AllowGet);
+                            participanteensinar.cod_p_ensinar = listaparticipanteensinar[0].cod_p_ensinar;
+                            participanteensinar.cod_participante = listaparticipanteensinar[0].cod_participante;
+                            participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
+                            //Marca a relação como inativa
+                            participanteensinar.cod_s_relacao = 2;
+
+                            try
+                            {
+                                Boolean resultado = this.GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinar);
+
+                                if (resultado)
+                                {
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = participanteensinar.cod_p_ensinar
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
+                                else
+                                {
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = -1
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
+                            }
+                            catch(Exception e)
+                            {
+                                jsonResult = Json(new
+                                {
+                                    erro = e.InnerException.ToString(),
+                                    codigo = -1
+                                }, JsonRequestBehavior.AllowGet);
+                            }
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    else
+                    catch(Exception e)
                     {
                         jsonResult = Json(new
                         {
+                            erro = e.InnerException.ToString(),
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
                     }
