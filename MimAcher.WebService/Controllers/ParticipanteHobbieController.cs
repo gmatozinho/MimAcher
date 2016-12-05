@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -72,21 +73,36 @@ namespace MimAcher.WebService.Controllers
 
                 //Informa que a relação estará ativa
                 participantehobbie.cod_s_relacao = 1;
-                
-                if(GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbieComRetorno(participantehobbie))
+
+                try
                 {
-                    jsonResult = Json(new
+                    Boolean resultado = GestorDeHobbieDeParticipante.InserirNovoParticipanteHobbieComRetorno(participantehobbie);
+
+                    if (resultado)
                     {
-                        codigo = participantehobbie.cod_p_hobbie
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            codigo = participantehobbie.cod_p_hobbie
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     jsonResult = Json(new
                     {
+                        erro = e.InnerException.ToString(),
                         codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
+
+                
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
