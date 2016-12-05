@@ -78,7 +78,7 @@
     <Content Include="dbconfig\02_minacher_configdb.sql" />
     <Content Include="dbconfig\03_mimacher_restartdb.sql" />
     <Content Include="dbconfig\diagrama_bd_sql_developer.png" />
-    <Content Include="dbconfig\EntityDesignerDiagram.png" />
+    <Content Include="dbconfig\diagrama_entity_framework.png" />
     <Content Include="dbconfig\inf.txt" />
   </ItemGroup>
   <ItemGroup>
