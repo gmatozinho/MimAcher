@@ -1,15 +1,17 @@
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Activities
 {
     [Activity(Label = "Combinacoes", Theme = "@style/Theme.Splash")]
-    public class CombinacoesActivity : FabricaTelasComResultados
+    public class CombinacoesActivity : ListActivity
     {
-        private readonly ListaItens combinacoes = new ListaItens();
+        private readonly ListaItens _combinacoes = new ListaItens();
         private ListView _listView;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -17,10 +19,20 @@ namespace MimAcher.Mobile.com.Activities
             base.OnCreate(savedInstanceState);
 
             //tenho q receber o item para gerar as combinações a serem geradas
+            var codItem = Intent.GetIntExtra("item",0);
             //var participanteBundle = Intent.GetBundleExtra("member");
             //Participante = Participante.BundleToParticipante(participanteBundle);
 
-            //combinacoes = lista de combinações
+            var itens = CursorBd.ObterItens();
+            if (codItem == 0)
+            {
+                const string toast = ("Error");
+                Toast.MakeText(this, toast, ToastLength.Long).Show();
+            }
+            var itemSelecionado = itens[codItem];
+
+            var combinacoes = CursorBd.Match(codItem);
+            var hobbie = combinacoes["hobbie"];
             //Items = combinacoes.Itens
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Combinacoes);

@@ -25,7 +25,6 @@ namespace MimAcher.Mobile.com.Entidades
         {
             if (Validacao.ValidarLogin(context,emailESenha)) return CursorBd.Login(emailESenha);
             return "-2";
-
         }
 
         public void AlterarSenha(string senhaAtual, string novaSenha)

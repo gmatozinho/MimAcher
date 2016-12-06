@@ -111,35 +111,35 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
 
-        internal static void MensagemOpcoes(string itemSelecionado, FabricaTelasComResultados resultados)
+        internal static void MensagemOpcoes(string itemSelecionado,int codItemSelecionado, FabricaTelasComResultados telaResultados)
         {
-            var alert = new AlertDialog.Builder(resultados);
+            var alert = new AlertDialog.Builder(telaResultados);
             alert.SetTitle("Opções");
             alert.SetMessage("Você deseja remover o item ou consultar combinações?");
             alert.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
             {
-                resultados.VerCombinacoes(itemSelecionado, resultados);
+                telaResultados.VerCombinacoes(codItemSelecionado, telaResultados);
             });
             alert.SetNegativeButton("Remover", (senderAlert, args) =>
             {
-                MensagemParaRemoverItemSelecionado(itemSelecionado, resultados);
+                MensagemParaRemoverItemSelecionado(itemSelecionado, telaResultados);
             });
             alert.Show();
         }
 
-        private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados resultados)
+        private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados telaResultados)
         {
-            var alert = new AlertDialog.Builder(resultados);
+            var alert = new AlertDialog.Builder(telaResultados);
             alert.SetTitle("Remover!");
             alert.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
             alert.SetPositiveButton("Ok", (senderAlert, args) =>
             {
-                Toast.MakeText(resultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
-                resultados.RemoverItemSelecionado(itemSelecionado);
+                Toast.MakeText(telaResultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
+                telaResultados.RemoverItemSelecionado(itemSelecionado);
             });
             alert.SetNegativeButton("Cancelar", (senderAlert, args) =>
             {
-                Toast.MakeText(resultados, itemSelecionado + " não será removido!", ToastLength.Short).Show();
+                Toast.MakeText(telaResultados, itemSelecionado + " não será removido!", ToastLength.Short).Show();
             });
             alert.Show();
         }
@@ -190,7 +190,7 @@ namespace MimAcher.Mobile.com.Utilitarios
         {
             var alert = new AlertDialog.Builder(context);
             alert.SetTitle("Falha ao Inscrever!");
-            alert.SetMessage("Não foi possível realizar sua inscrição, possívelmente já possui algum usuário com este e-mail, tente novamente!");
+            alert.SetMessage("Não foi possível realizar sua inscrição, tente novamente!");
             alert.SetPositiveButton("Ok", (senderAlert, args) => { });
             alert.Show();
         }

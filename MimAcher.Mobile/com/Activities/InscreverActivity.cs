@@ -32,7 +32,8 @@ namespace MimAcher.Mobile.com.Activities
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
-        
+        private TelaENomeParaLoading _telaENome;
+
         //Metodos do controlador
         //Cria e controla a activity
         protected override void OnCreate(Bundle savedInstanceState)
@@ -72,9 +73,6 @@ namespace MimAcher.Mobile.com.Activities
             //Mascara para telefone e nascimento
             campoTelefone.AddTextChangedListener(new Mascara(campoTelefone, "## #####-####"));
             campoDtNascimento.AddTextChangedListener(new Mascara(campoDtNascimento, "##/##/####"));
-
-            //Captando a escolha do campus
-            
             
             //Capturar telefone do sistema
             if (tel != null)
@@ -112,34 +110,34 @@ namespace MimAcher.Mobile.com.Activities
             {
                 case Resource.Id.menu_done:
                     GetCampus();
-                    InscreverParticipante(this);
+                    _telaENome = new TelaENomeParaLoading(this, "InscreverUsuario");
+                    Loading.MyButtonClicked(_telaENome);
+                    OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
         }
 
 
-        private void InscreverParticipante(Context activity)
+        public void InscreverParticipante(Context activity)
         {
             var informacoesInseridas = InformacoesParaValidar();
 
-            if (Validacao.ValidarCadastroParticipante(activity,informacoesInseridas))
+            if (!Validacao.ValidarCadastroParticipante(activity, informacoesInseridas)) return;
+            var participante = new Participante(CriarDicionarioParaMontarParticipante());
+            var codigoParticipanteInscrito = participante.Inscrever();
+            if (codigoParticipanteInscrito == "-1")
             {
-                var participante = new Participante(CriarDicionarioParaMontarParticipante());
-                var codigoParticipanteInscrito = participante.Inscrever();
-                if (codigoParticipanteInscrito == "-1")
-                {
-                    Mensagens.MensagemErroCadastro(this);
-                    return;
-                }
-
-                participante.Codigo = codigoParticipanteInscrito;
-                IniciarEscolherFoto(this, participante);
-                _stopwatch.Stop();
-                //TODO enviar stopwatch
-                Mensagens.MensagemCadastroBemSucedido(this);
-                Finish();
+                Mensagens.MensagemErroCadastro(this);
+                return;
             }
+
+            participante.CodigoParticipante = codigoParticipanteInscrito;
+            IniciarEscolherFoto(this, participante);
+            _stopwatch.Stop();
+            //TODO enviar stopwatch
+            Mensagens.MensagemCadastroBemSucedido(this);
+            Finish();
         }
 
         public override void OnBackPressed()
@@ -168,7 +166,8 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
-                ["codigo"] = null,
+                ["codigoparticipante"] = null,
+                ["codigousuario"] = null,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,
