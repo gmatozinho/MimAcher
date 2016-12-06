@@ -44,6 +44,28 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirNACComRetorno(MA_NAC nac)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            {
+                try
+                {
+                    this.Contexto.MA_NAC.Add(nac);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }                
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_NAC.Count();
@@ -73,6 +95,54 @@ namespace MimAcher.Infra
                 {
                     this.Contexto.Entry(nac).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
+                }
+            }
+        }
+
+        public Boolean AtualizarNACComRetorno(MA_NAC nac)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            {
+                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                {
+                    try
+                    {
+                        this.Contexto.Entry(nac).State = EntityState.Modified;
+                        this.Contexto.SaveChanges();
+
+                        return true;
+                    }
+                    catch(Exception e)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
+
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                {
+                    try
+                    {
+                        this.Contexto.Entry(nac).State = EntityState.Modified;
+                        this.Contexto.SaveChanges();
+
+                        return true;
+                    }
+                    catch(Exception e)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
