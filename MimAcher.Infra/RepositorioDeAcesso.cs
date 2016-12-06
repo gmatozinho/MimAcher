@@ -44,7 +44,28 @@ namespace MimAcher.Infra
                 this.Contexto.MA_ACESSO.Add(Acesso);
                 this.Contexto.SaveChanges();
             }
+        }
 
+        public Boolean InserirAcessoComRetorno(MA_ACESSO Acesso)
+        {
+            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            {
+                try
+                {
+                    this.Contexto.MA_ACESSO.Add(Acesso);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -64,6 +85,28 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(Acesso).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean AtualizarAcessoComRetorno(MA_ACESSO Acesso)
+        {
+            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            {
+                try
+                {
+                    this.Contexto.Entry(Acesso).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 
