@@ -145,5 +145,11 @@ namespace MimAcher.Mobile.com.Utilitarios
                 ", \"cod_usuario\": 0, \"cod_campus\": 0, \"nome\": \"\"," +
                 " \"telefone\": \"00000000\", \"dt_nascimento\": \"00/00/0000 00:00:00\", \"latitude\": \"00.00\", \"longitude\": \"00.00\" } ] }";
         }
+
+        public static string MontarJsonUpdateUsuario(Participante participante)
+        {
+            return "{ \"listausuario\": [{ \"cod_usuario\": 1, \"e_mail\": \"" + participante.Email + "\", \"senha\": \""+ 
+                participante.Senha + "\" }] }";
+        }
     }
 }

@@ -142,6 +142,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             var json = JsonParser.MontarJsonUpdateParticipante(participante);
             var requisicao = MontadorRequisicao.MontarRequisicaoUpdateParticipante();
             EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
         }
 
         public static Dictionary<string, List<string>> ObterParticipanteItens(int codigoParticipante, Dictionary<int, string> itens)
@@ -289,5 +290,15 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return dadosParticipante;
         }
+
+        public static void AtualizarUsuario(Participante participante)
+        {
+            var json = JsonParser.MontarJsonUpdateUsuario(participante);
+            var requisicao = MontadorRequisicao.MontarRequisicaoUpdateUsuario();
+            EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
+        }
+
+
     }
 }
