@@ -197,7 +197,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             return relacoes;
         }
 
-        public static Dictionary<string, List<int>> Match(int codigoItem)
+        public static Dictionary<string, List<int>> Match(int codigoItem, int codigoParticipanteAtual)
         {
             var matchs = new Dictionary<string, List<int>>();
 
@@ -213,7 +213,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(int.Parse(codigoParticipante));
+                if (int.Parse(codigoParticipante) != codigoParticipanteAtual)
+                    listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["hobbie"] = listaParticipantes;
@@ -230,7 +231,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(int.Parse(codigoParticipante));
+                if (int.Parse(codigoParticipante) != codigoParticipanteAtual)
+                    listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["aprender"] = listaParticipantes;
@@ -247,7 +249,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 var codigoParticipante = token.SelectToken("cod_participante").ToString().Replace("{", "").Replace("}", "");
 
-                listaParticipantes.Add(int.Parse(codigoParticipante));
+                if (int.Parse(codigoParticipante) != codigoParticipanteAtual)
+                    listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
             matchs["ensinar"] = listaParticipantes;
