@@ -42,7 +42,28 @@ namespace MimAcher.Infra
                 this.Contexto.MA_ITEM.Add(Item);
                 this.Contexto.SaveChanges();
             }
+        }
 
+        public Boolean InserirItemComRetorno(MA_ITEM Item)
+        {
+            if (VerificarSeNomeDeItemJaExiste(Item))
+            {
+                try
+                {
+                    this.Contexto.MA_ITEM.Add(Item);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public int BuscarQuantidadeRegistros()
@@ -62,6 +83,28 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(Item).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean AtualizarItemComRetorno(MA_ITEM Item)
+        {
+            if (VerificarSeNomeDeItemJaExiste(Item))
+            {
+                try
+                {
+                    this.Contexto.Entry(Item).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;                        
+                }                
+            }
+            else
+            {
+                return false;
             }
         }
 
