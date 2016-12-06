@@ -17,7 +17,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             var resposta = ObterResposta(requisicao);
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoParticipante = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
+            var codigoParticipante = jsonResposta.SelectToken("codigoparticipante").ToString().Replace("{", "").Replace("}", "");
 
             return codigoParticipante;
         }
@@ -30,7 +30,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             var resposta = ObterResposta(requisicao);
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoItem = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
+            var codigoItem = jsonResposta.SelectToken("codigoparticipante").ToString().Replace("{", "").Replace("}", "");
 
             return codigoItem;
         }
@@ -276,7 +276,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 dadosParticipante["senha"] = null;
                 dadosParticipante["email"] = null;
-                dadosParticipante["codigo"] = codigoParticipante.ToString();
+                dadosParticipante["codigoparticipante"] = codigoParticipante.ToString();
+                dadosParticipante["codigousuario"] = token.SelectToken("cod_usuario").ToString();
                 dadosParticipante["nome"] = token.SelectToken("nome").ToString();
                 var ajustarNascimento = token.SelectToken("dt_nascimento").ToString().Split(' ');
                 dadosParticipante["nascimento"] = ajustarNascimento[0];

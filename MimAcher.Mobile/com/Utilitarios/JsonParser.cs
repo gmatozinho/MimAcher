@@ -70,7 +70,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             objetojsonauxiliar.Put("cod_s_relacao", 0);
 
             jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listparticipanteaprender", jsonArray);
+            jsonObject.Put("listaparticipanteaprender", jsonArray);
 
             return jsonObject.ToString();
         }
@@ -86,7 +86,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             objetojsonauxiliar.Put("cod_s_relacao", 0);
 
             jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listparticipanteensinar", jsonArray);
+            jsonObject.Put("listaparticipanteensinar", jsonArray);
 
             return jsonObject.ToString();
         }
@@ -107,10 +107,22 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
-            return "{ \"listaparticipante\": [ { \"cod_participante\": 1, \"cod_usuario\": 1, " + 
-                "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": " + participante.Telefone + ", " + 
-                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", " + 
-                "\"longitude\": }" + localizacao[1] + " } ] }";
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_participante", participante.CodigoParticipante);
+            objetojsonauxiliar.Put("cod_usuario", participante.CodigoUsuario);
+            objetojsonauxiliar.Put("cod_campus", participante.Campus);
+            objetojsonauxiliar.Put("nome", participante.Nome);
+            objetojsonauxiliar.Put("telefone", participante.Telefone);
+            objetojsonauxiliar.Put("dt_nascimento", participante.Nascimento);
+            objetojsonauxiliar.Put("latitude", localizacao[0]);
+            objetojsonauxiliar.Put("longitude", localizacao[1]);
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listausuarioparticipante", jsonArray);
+
+            return jsonObject.ToString();
         }
 
         public static string MontarJsonMatchHobbie(int codigoItem)

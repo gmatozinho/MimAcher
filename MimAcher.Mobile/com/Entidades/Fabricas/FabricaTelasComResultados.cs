@@ -15,6 +15,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         //Variaveis globais
         protected List<string> Items;
         protected Participante Participante;
+        private static readonly Dictionary<int,string> Itens = CursorBd.ObterItens();
 
         public void IniciarHome(Context contexto, PacoteAbstrato pacote)
         {
@@ -33,13 +34,29 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
             var itemSelecionado = Items[position];
-            Mensagens.MensagemOpcoes(itemSelecionado,this);
+            var codItemSelecionado = RetornaCodItemLista(itemSelecionado);
+            Mensagens.MensagemOpcoes(itemSelecionado,codItemSelecionado, this);
         }
 
-        internal void VerCombinacoes(string itemSelecionado,Context context)
+        private static int RetornaCodItemLista(string itemInserido)
+        {
+            var codigoItem = -1;
+            foreach (var itemChave in Itens)
+            {
+                if (itemChave.Value == itemInserido)
+                {
+                    codigoItem = itemChave.Key;
+                }
+            }
+
+            return codigoItem;
+        }
+
+        internal void VerCombinacoes(int itemSelecionado,Context context)
         {
             //TODO pesquisar o item no banco, buscando as combinações
             var combinacoesactivity = new Intent(context, typeof(CombinacoesActivity));
+            combinacoesactivity.PutExtra("item", itemSelecionado);
             StartActivity(combinacoesactivity);
             Toast.MakeText(this, "Voce está na tela de exibição de combinações", ToastLength.Short).Show();
         }

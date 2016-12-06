@@ -91,7 +91,6 @@ namespace MimAcher.Mobile.com.Activities
 
         public void EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
-            progressDialog.Hide();
             _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
             progressDialog.Dismiss();
             if (_codigoParticipante == "-1")
@@ -102,7 +101,6 @@ namespace MimAcher.Mobile.com.Activities
             {
                 return;
             }
-            progressDialog.Show();
             var participante = CursorBd.ObterDadosParticipante(Convert.ToInt32(_codigoParticipante));
             tela.IniciarHome((Activity)tela, participante);
             progressDialog.Dismiss();

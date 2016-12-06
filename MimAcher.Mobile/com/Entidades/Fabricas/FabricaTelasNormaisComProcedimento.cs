@@ -57,7 +57,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
                     LimparEListar(campo,pacoteCompleto.ListView,pacoteCompleto.ListaItens);
                     break;
             }
-            RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.Codigo);
+            RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.CodigoParticipante);
         }
 
         private static int RegistrarItem(string item)

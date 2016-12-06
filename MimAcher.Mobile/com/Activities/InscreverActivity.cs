@@ -132,7 +132,7 @@ namespace MimAcher.Mobile.com.Activities
                 return;
             }
 
-            participante.Codigo = codigoParticipanteInscrito;
+            participante.CodigoParticipante = codigoParticipanteInscrito;
             IniciarEscolherFoto(this, participante);
             _stopwatch.Stop();
             //TODO enviar stopwatch
@@ -166,7 +166,8 @@ namespace MimAcher.Mobile.com.Activities
         {
             var informacoes = new Dictionary<string, string>
             {
-                ["codigo"] = null,
+                ["codigoparticipante"] = null,
+                ["codigousuario"] = null,
                 ["campus"] = _campus,
                 ["senha"] = _senha,
                 ["email"] = _email,

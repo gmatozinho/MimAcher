@@ -58,6 +58,7 @@ namespace MimAcher.Mobile.com.Activities
         private void SalvarAlteracao()
         {
             _participante.AlterarSenha(_participante.Senha, _novasenha);
+            //TODO atualizar usuario
             const string toast = ("Senha Alterada");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
 
