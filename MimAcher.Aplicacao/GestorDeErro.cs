@@ -37,6 +37,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeErro.InserirErro(erro);
         }
 
+        public Boolean InserirErroComRetorno(MA_ERRO erro)
+        {
+            return this.RepositorioDeErro.InserirErroComRetorno(erro);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeErro.BuscarQuantidadeRegistros();
@@ -50,6 +55,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarErro(MA_ERRO erro)
         {
             this.RepositorioDeErro.AtualizarErro(erro);
+        }
+
+        public Boolean AtualizarErroComRetorno(MA_ERRO erro)
+        {
+            return this.RepositorioDeErro.AtualizarErroComRetorno(erro);
         }
     }
 }
