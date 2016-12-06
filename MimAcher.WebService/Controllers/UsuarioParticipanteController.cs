@@ -57,9 +57,6 @@ namespace MimAcher.WebService.Controllers
                 if (resultado)
                 {
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-                    
-                    usuario.e_mail = listausuarioparticipante[0].e_mail;
-                    usuario.senha = listausuarioparticipante[0].senha;
                                         
                     participante.cod_usuario = usuario.cod_usuario;
                     participante.cod_campus = listausuarioparticipante[0].cod_campus;
@@ -142,9 +139,6 @@ namespace MimAcher.WebService.Controllers
                 if (resultado)
                 {
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-
-                    usuario.e_mail = listausuarioparticipante[0].e_mail;
-                    usuario.senha = listausuarioparticipante[0].senha;
                     
                     participante.cod_usuario = usuario.cod_usuario;
                     participante.cod_campus = listausuarioparticipante[0].cod_participante;
