@@ -42,6 +42,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeAcesso.InserirAcesso(acesso);
         }
 
+        public Boolean InserirAcessoComRetorno(MA_ACESSO acesso)
+        {
+            return this.RepositorioDeAcesso.InserirAcessoComRetorno(acesso);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeAcesso.BuscarQuantidadeRegistros();
@@ -55,6 +60,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarAcesso(MA_ACESSO acesso)
         {
             this.RepositorioDeAcesso.AtualizarAcesso(acesso);
+        }
+
+        public Boolean AtualizarAcessoComRetorno(MA_ACESSO acesso)
+        {
+            return this.RepositorioDeAcesso.AtualizarAcessoComRetorno(acesso);
         }
 
         public Boolean VerificarSeUsuarioTemAcessoWeb(int id_acesso)
