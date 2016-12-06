@@ -151,5 +151,23 @@ namespace MimAcher.Mobile.com.Utilitarios
             return "{ \"listausuario\": [{ \"cod_usuario\": 1, \"e_mail\": \"" + participante.Email + "\", \"senha\": \""+ 
                 participante.Senha + "\" }] }";
         }
+
+        public static string MontarJsonExcluirHobbie(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": "+ codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonExcluirAprender(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender \": 1, \"cod_participante\": " + codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonExcluirEnsinar(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
     }
 }

@@ -299,6 +299,28 @@ namespace MimAcher.Mobile.com.Utilitarios
             ObterResposta(requisicao);
         }
 
+        public static void DeletarHobbie(int codigoParticipante, int codigoItem)
+        {
+            var json = JsonParser.MontarJsonExcluirHobbie(codigoParticipante, codigoItem);
+            var requisicao = MontadorRequisicao.MontarRequisicaoDeleteHobbie();
+            EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
+        }
 
+        public static void DeletarAprender(int codigoParticipante, int codigoItem)
+        {
+            var json = JsonParser.MontarJsonExcluirAprender(codigoParticipante, codigoItem);
+            var requisicao = MontadorRequisicao.MontarRequisicaoDeleteAprender();
+            EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
+        }
+
+        public static void DeletarEnsinar(int codigoParticipante, int codigoItem)
+        {
+            var json = JsonParser.MontarJsonExcluirEnsinar(codigoParticipante, codigoItem);
+            var requisicao = MontadorRequisicao.MontarRequisicaoDeleteEnsinar();
+            EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
+        }
     }
 }

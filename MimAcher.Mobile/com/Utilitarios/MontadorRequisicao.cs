@@ -158,5 +158,32 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return requisicao;
         }
+
+        public static WebRequest MontarRequisicaoDeleteHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participantehobbie/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteaprender/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
     }
 }
