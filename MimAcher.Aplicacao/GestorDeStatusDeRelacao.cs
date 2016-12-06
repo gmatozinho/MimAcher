@@ -42,6 +42,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeStatusDeRelacao.InserirStatusDeRelacao(StatusDeRelacao);
         }
 
+        public Boolean InserirStatusDeRelacaoComRetorno(MA_STATUS_RELACAO StatusDeRelacao)
+        {
+            return this.RepositorioDeStatusDeRelacao.InserirStatusDeRelacaoComRetorno(StatusDeRelacao);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeStatusDeRelacao.BuscarQuantidadeRegistros();
@@ -55,6 +60,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarStatusDeRelacao(MA_STATUS_RELACAO StatusDeRelacao)
         {
             this.RepositorioDeStatusDeRelacao.AtualizarStatusDeRelacao(StatusDeRelacao);
+        }
+
+        public Boolean AtualizarStatusDeRelacaoComRetorno(MA_STATUS_RELACAO StatusDeRelacao)
+        {
+            return this.RepositorioDeStatusDeRelacao.AtualizarStatusDeRelacaoComRetorno(StatusDeRelacao);
         }
     }
 }
