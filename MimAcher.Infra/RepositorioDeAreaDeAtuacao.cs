@@ -44,6 +44,28 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        {
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            {
+                try
+                {
+                    this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_AREA_ATUACAO.Count();
@@ -61,6 +83,28 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean AtualizarAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        {
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            {
+                try
+                {
+                    this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 
