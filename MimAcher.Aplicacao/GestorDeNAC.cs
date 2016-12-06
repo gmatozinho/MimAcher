@@ -39,6 +39,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeNAC.InserirNAC(nac);
         }
 
+        public Boolean InserirNACComRetorno(MA_NAC nac)
+        {
+            return this.RepositorioDeNAC.InserirNACComRetorno(nac);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeNAC.BuscarQuantidadeRegistros();
@@ -52,6 +57,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarNAC(MA_NAC nac)
         {
             this.RepositorioDeNAC.AtualizarNAC(nac);
+        }
+
+        public Boolean AtualizarNACComRetorno(MA_NAC nac)
+        {
+            return this.RepositorioDeNAC.AtualizarNACComRetorno(nac);
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
