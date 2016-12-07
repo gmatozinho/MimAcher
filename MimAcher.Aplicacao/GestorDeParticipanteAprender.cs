@@ -26,12 +26,12 @@ namespace MimAcher.Aplicacao
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            return this.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
+            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
         {
-            return this.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
+            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
