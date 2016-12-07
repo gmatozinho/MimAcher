@@ -31,7 +31,8 @@
         android:inputType="text"
         android:layout_marginEnd="40dp"
         android:textColorHint="#A9A9A9"
-        android:layout_marginStart="64dp" />
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp" />
     <TextView
         android:id="@+id/telefone_user"
         android:layout_width="wrap_content"
@@ -57,7 +58,8 @@
         android:inputType="phone"
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
-        android:textColorHint="#A9A9A9" />
+        android:textColorHint="#A9A9A9"
+        android:layout_marginTop="12dp" />
     <TextView
         android:id="@+id/dt_nascimento_user"
         android:layout_width="wrap_content"
@@ -82,7 +84,8 @@
         android:layout_alignStart="@+id/tel_number_user"
         android:inputType="date"
         android:textColorHint="#A9A9A9"
-        android:layout_marginEnd="40dp" />
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="12dp" />
     <TabHost
         android:id="@android:id/tabhost"
         android:layout_width="match_parent"

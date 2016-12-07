@@ -42,15 +42,16 @@ namespace MimAcher.Mobile.com.Activities
             ActionBar.Title = _participante.Nome;
             ActionBar.SetLogo(Android.Resource.Drawable.ButtonRadio);
             ActionBar.SetIcon(Resource.Drawable.logo);
-            telefoneInfoUser.Hint = _participante.Telefone;
-            dtNascimentoInfoUser.Hint = _participante.Nascimento;
+            telefoneInfoUser.Text = _participante.Telefone;
+            dtNascimentoInfoUser.Text = _participante.Nascimento;
+            emailInfoUser.Text = _participante.Email;
 
             PreencherPreferenciasParticipante();
 
             //Criando os tabs
-            CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
-            CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender), _participante);
-            CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar), _participante);
+            CreateTab(typeof(CombinacoesHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
+            CreateTab(typeof(CombinacoesAprenderActivity), GetString(Resource.String.TitleAprender), _participante);
+            CreateTab(typeof(CombinacoesEnsinarActivity), GetString(Resource.String.TitleEnsinar), _participante);
 
         }
 

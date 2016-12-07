@@ -235,7 +235,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                     listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
-            matchs["aprender"] = listaParticipantes;
+            matchs["ensinar"] = listaParticipantes;
 
             requisicao = MontadorRequisicao.MontarRequisicaoMatchEnsinar();
             json = JsonParser.MontarJsonMatchEnsinar(codigoItem);
@@ -253,7 +253,7 @@ namespace MimAcher.Mobile.com.Utilitarios
                     listaParticipantes.Add(int.Parse(codigoParticipante));
             }
 
-            matchs["ensinar"] = listaParticipantes;
+            matchs["aprender"] = listaParticipantes;
 
             return matchs;
         }
@@ -267,8 +267,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             
             var dados = objetoResposta.SelectToken("participante");
             var dadosParticipante = AjustarDadosParticipante(dados, codigoParticipante);
-            
-            var participante = new Participante(dadosParticipante);
+
+            var participante = new Participante(dadosParticipante){Email = dadosParticipante["email"]};
 
             return participante;
         }
@@ -279,14 +279,14 @@ namespace MimAcher.Mobile.com.Utilitarios
             foreach (var token in dados)
             {
                 dadosParticipante["senha"] = null;
-                dadosParticipante["email"] = null;
                 dadosParticipante["codigoparticipante"] = codigoParticipante.ToString();
+                dadosParticipante["nome"] = token.SelectToken("nome_participante").ToString();
+                dadosParticipante["campus"] = token.SelectToken("cod_campus").ToString();
                 dadosParticipante["codigousuario"] = token.SelectToken("cod_usuario").ToString();
-                dadosParticipante["nome"] = token.SelectToken("nome").ToString();
+                dadosParticipante["email"] = token.SelectToken("e_mail").ToString();
+                dadosParticipante["telefone"] = token.SelectToken("telefone").ToString();
                 var ajustarNascimento = token.SelectToken("dt_nascimento").ToString().Split(' ');
                 dadosParticipante["nascimento"] = ajustarNascimento[0];
-                dadosParticipante["telefone"] = token.SelectToken("telefone").ToString();
-                dadosParticipante["campus"] = token.SelectToken("cod_campus").ToString();
                 dadosParticipante["localizacao"] = token.SelectToken("latitude") + "/" + token.SelectToken("longitude");
 
             }

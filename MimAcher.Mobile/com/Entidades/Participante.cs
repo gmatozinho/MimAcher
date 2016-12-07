@@ -66,7 +66,7 @@ namespace MimAcher.Mobile.com.Entidades
             {
                 ["codigoparticipante"] = b.GetString("codigoparticipante"),
                 ["codigousuario"] = b.GetString("codigousuario"),
-                ["email"] = b.GetString("e_mail"),
+                ["email"] = b.GetString("email"),
                 ["nome"] = b.GetString("nome"),
                 ["campus"] = b.GetString("campus"),
                 ["senha"] = b.GetString("senha"),

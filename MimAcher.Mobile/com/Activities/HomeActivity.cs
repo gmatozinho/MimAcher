@@ -43,6 +43,7 @@ namespace MimAcher.Mobile.com.Activities
             ActionBar.SetTitle(Resource.String.TitleHome);
 
             PreencherPreferenciasParticipante();
+            //ChecarPreferenciasParticipante();
 
             //Criando os tabs
             CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
@@ -53,6 +54,17 @@ namespace MimAcher.Mobile.com.Activities
             BotaoFlutanteOpcoes();
 
             
+        }
+
+        private void ChecarPreferenciasParticipante()
+        {
+            var listaParaTestar = new ListaItens();
+
+            if (_participante.Aprender == listaParaTestar || _participante.Ensinar == listaParaTestar ||
+                _participante.Hobbies == listaParaTestar)
+            {
+                PreencherPreferenciasParticipante();
+            }
         }
 
         private void BotaoFlutanteOpcoes()

@@ -103,7 +103,6 @@ namespace MimAcher.Mobile.com.Activities
             }
             var participante = CursorBd.ObterDadosParticipante(Convert.ToInt32(_codigoParticipante));
             tela.IniciarHome((Activity)tela, participante);
-            progressDialog.Dismiss();
         }
 
     }
