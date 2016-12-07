@@ -37,7 +37,7 @@ namespace MimAcher.Infra
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).Skip(id_item).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).Take(20).ToList();        
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
