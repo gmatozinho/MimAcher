@@ -56,17 +56,6 @@ namespace MimAcher.Mobile.com.Activities
             
         }
 
-        private void ChecarPreferenciasParticipante()
-        {
-            var listaParaTestar = new ListaItens();
-
-            if (_participante.Aprender == listaParaTestar || _participante.Ensinar == listaParaTestar ||
-                _participante.Hobbies == listaParaTestar)
-            {
-                PreencherPreferenciasParticipante();
-            }
-        }
-
         private void BotaoFlutanteOpcoes()
         {
             _fab.Click += (s, arg) =>
