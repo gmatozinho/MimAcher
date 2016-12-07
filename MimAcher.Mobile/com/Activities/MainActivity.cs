@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
-using Android;
 using Android.App;
-using Android.Content;
 using Android.Net;
 using Android.OS;
-using Android.Support.Design.Widget;
-using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
@@ -25,13 +19,6 @@ namespace MimAcher.Mobile.com.Activities
         //Variaveis globais
         //até comunicar com o banco informações hipotéticas
         private string _codigoParticipante;
-        private readonly string _campus = "Serra";
-        private readonly string _senha = null;
-        private readonly string _nome = "Gustavo";
-        private readonly string _email = null;
-        private readonly string _nascimento = "09/10/1995";
-        private readonly string _telefone = "00000000";
-        private readonly string _localizacao = null;
         private string _emailInserido;
         private string _senhaInserida;
         private TelaENomeParaLoading _telaENome;
@@ -56,8 +43,6 @@ namespace MimAcher.Mobile.com.Activities
             stopwatch.Stop();
             var tempoIniciarMain = stopwatch.ToString();
 
-
-
             //Iniciando as variaveis do contexto
             var campoEmail = FindViewById<EditText>(Resource.Id.email);
             var campoSenha = FindViewById<EditText>(Resource.Id.senha);
@@ -73,49 +58,23 @@ namespace MimAcher.Mobile.com.Activities
             entrar.Click += BotaoEntrarClique;
             stopwatch.Stop();
             var tempoLogar = stopwatch.ToString();
-
-            //Tenho que fazer a autenticação no banco de dados
-            //Ideia é buscar usuario no banco, se existir retorna true e checa senha, se nao retorna usuario inexistente
-            //Busca senha neste mesmo usuario, se for igual retorna true se nao retorna senha invalida
-
+            
             stopwatch.Restart();
             inscrevase.Click += BotaoInscreverClique;
             stopwatch.Stop();
             var tempoIniciarInscrever = stopwatch.ToString();
         }
-
         
-        //função temporaria
-        //deve pegar o usuario no banco
-        private Dictionary<string, string> MontarUsuário()
-        {
-            var informacoes = new Dictionary<string, string>
-            {
-                ["codigo"] = _codigoParticipante,
-                ["campus"] = _campus,
-                ["senha"] = _senha,
-                ["email"] = _email,
-                ["nome"] = _nome,
-                ["telefone"] = _telefone,
-                ["nascimento"] = _nascimento,
-                ["localizacao"] = _localizacao
-            };
-
-            return informacoes;
-        }
-
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            _telaENome = new TelaENomeParaLoading(this,"Inscrever");
+            _telaENome = new TelaENomeParaLoading(this,"IniciarInscrever");
             Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-
-            //TODO montar o parcipante com as informações inseridas
-            //E enviar esse participante montado para a próxima activity
+            
             _telaENome = new TelaENomeParaLoading(this, "Entrar");
             Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, 0);
@@ -130,28 +89,21 @@ namespace MimAcher.Mobile.com.Activities
             };
         }
 
-        
-         
-
-        public Task EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
+        public void EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
             _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
             progressDialog.Dismiss();
             if (_codigoParticipante == "-1")
             {
                 Mensagens.MensagemErroLogin(this);
-                return Task.CompletedTask;
             }
             if (_codigoParticipante == "-2")
             {
-                return Task.CompletedTask;
+                return;
             }
-            var participante = new Participante(MontarUsuário()) {Codigo = _codigoParticipante};
+            var participante = CursorBd.ObterDadosParticipante(Convert.ToInt32(_codigoParticipante));
             tela.IniciarHome((Activity)tela, participante);
-            return Task.CompletedTask;
         }
-
-
 
     }
 }

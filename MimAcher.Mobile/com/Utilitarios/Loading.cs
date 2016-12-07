@@ -1,11 +1,5 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using Android.App;
-using Android.Content;
-using Android.Util;
-using Android.Views;
-using Android.Widget;
 using MimAcher.Mobile.com.Activities;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
@@ -37,16 +31,23 @@ namespace MimAcher.Mobile.com.Utilitarios
         private static void MyMethod(TelaENomeParaLoading telaENome, ProgressDialog progressDialog)
         {
             var nometela = telaENome.NomeTela;
-            if (nometela == "Inscrever")
+            if (nometela == "IniciarInscrever")
             {
                 var tela = (IFabricaTelas) telaENome.Tela;
                 tela.IniciarInscrever();
             }
-            if (nometela == "Entrar")
+            else if (nometela == "Entrar")
             {
                 var tela = (MainActivity) telaENome.Tela;
                 tela.EventoEntrar(tela, progressDialog);
             }
+            else if (nometela == "InscreverUsuario")
+            {
+                progressDialog.Hide();
+                var tela = (InscreverActivity)telaENome.Tela;
+                tela.InscreverParticipante(tela);
+            }
+
         }
 
     }

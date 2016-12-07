@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using MimAcher.Mobile.com.Entidades;
 using Org.Json;
@@ -24,9 +23,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_participante", 0);
             objetojsonauxiliar.Put("cod_usuario", 0);
             objetojsonauxiliar.Put("e_mail", participante.Email);
@@ -46,9 +45,9 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonHobbie(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_hobbie", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
@@ -62,32 +61,32 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonAprender(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_aprender", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
             objetojsonauxiliar.Put("cod_s_relacao", 0);
 
             jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listparticipanteaprender", jsonArray);
+            jsonObject.Put("listaparticipanteaprender", jsonArray);
 
             return jsonObject.ToString();
         }
 
         public static string MontarJsonEnsinar(int codigoParticipante, int codigoItem)
         {
-            JSONObject jsonObject = new JSONObject();
-            JSONArray jsonArray = new JSONArray();
-            JSONObject objetojsonauxiliar = new JSONObject();
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
             objetojsonauxiliar.Put("cod_p_ensinar", 0);
             objetojsonauxiliar.Put("cod_participante", codigoParticipante);
             objetojsonauxiliar.Put("cod_item", codigoItem);
             objetojsonauxiliar.Put("cod_s_relacao", 0);
 
             jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listparticipanteensinar", jsonArray);
+            jsonObject.Put("listaparticipanteensinar", jsonArray);
 
             return jsonObject.ToString();
         }
@@ -108,10 +107,22 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             participante.Nascimento = saida.ToString(CultureInfo.InvariantCulture);
 
-            return "{ \"listaparticipante\": [ { \"cod_participante\": 1, \"cod_usuario\": 1, " + 
-                "\"cod_campus\": 1, \"nome\": \"" + participante.Nome + "\", \"telefone\": " + participante.Telefone + ", " + 
-                "\"dt_nascimento\": \"" + participante.Nascimento + "\", \"latitude\": " + localizacao[0] + ", " + 
-                "\"longitude\": }" + localizacao[1] + " } ] }";
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_participante", participante.CodigoParticipante);
+            objetojsonauxiliar.Put("cod_usuario", participante.CodigoUsuario);
+            objetojsonauxiliar.Put("cod_campus", participante.Campus);
+            objetojsonauxiliar.Put("nome", participante.Nome);
+            objetojsonauxiliar.Put("telefone", participante.Telefone);
+            objetojsonauxiliar.Put("dt_nascimento", participante.Nascimento);
+            objetojsonauxiliar.Put("latitude", localizacao[0]);
+            objetojsonauxiliar.Put("longitude", localizacao[1]);
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listaparticipante", jsonArray);
+
+            return jsonObject.ToString();
         }
 
         public static string MontarJsonMatchHobbie(int codigoItem)
@@ -127,6 +138,36 @@ namespace MimAcher.Mobile.com.Utilitarios
         public static string MontarJsonMatchEnsinar(int codigoItem)
         {
             return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+        public static string MontarJsonGetParticipante(int codigoParticipante)
+        {
+            return "{ \"listaparticipante\": [ { \"cod_participante\": " + codigoParticipante +
+                ", \"cod_usuario\": 0, \"cod_campus\": 0, \"nome\": \"\"," +
+                " \"telefone\": \"00000000\", \"dt_nascimento\": \"00/00/0000 00:00:00\", \"latitude\": \"00.00\", \"longitude\": \"00.00\" } ] }";
+        }
+
+        public static string MontarJsonUpdateUsuario(Participante participante)
+        {
+            return "{ \"listausuario\": [{ \"cod_usuario\": " + Convert.ToInt32(participante.CodigoUsuario) + ", \"e_mail\": \"" + participante.Email + "\", \"senha\": \""+ 
+                participante.Senha + "\" }] }";
+        }
+
+        public static string MontarJsonExcluirHobbie(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipantehobbie\": [{ \"cod_p_hobbie\": 1, \"cod_participante\": "+ codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonExcluirAprender(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipanteaprender\": [{ \"cod_p_aprender \": 1, \"cod_participante\": " + codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
+        }
+
+        public static string MontarJsonExcluirEnsinar(int codigoParticipante, int codigoItem)
+        {
+            return "{ \"listparticipanteensinar\": [{ \"cod_p_ensinar\": 1, \"cod_participante\": " + codigoParticipante + "," +
+                "\"cod_item\": " + codigoItem + ", \"cod_s_relacao\": 0 }] }";
         }
     }
 }

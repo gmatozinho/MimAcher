@@ -1,3 +1,4 @@
+using System;
 using Android.App;
 using Android.Content;
 using Android.OS;
@@ -41,6 +42,9 @@ namespace MimAcher.Mobile.com.Activities
             //Modificando a parte textual
             ActionBar.SetTitle(Resource.String.TitleHome);
 
+            PreencherPreferenciasParticipante();
+            //ChecarPreferenciasParticipante();
+
             //Criando os tabs
             CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
             CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender), _participante);
@@ -49,6 +53,18 @@ namespace MimAcher.Mobile.com.Activities
             //Iniciando o botão flutuante
             BotaoFlutanteOpcoes();
 
+            
+        }
+
+        private void ChecarPreferenciasParticipante()
+        {
+            var listaParaTestar = new ListaItens();
+
+            if (_participante.Aprender == listaParaTestar || _participante.Ensinar == listaParaTestar ||
+                _participante.Hobbies == listaParaTestar)
+            {
+                PreencherPreferenciasParticipante();
+            }
         }
 
         private void BotaoFlutanteOpcoes()
@@ -82,6 +98,17 @@ namespace MimAcher.Mobile.com.Activities
 
         }
 
+        private void PreencherPreferenciasParticipante()
+        {
+            //Obter lista de itens do sistema
+            var itens = CursorBd.ObterItens();
+            //Montar hobbies, aprender e ensinar
+            var relacoesdoparticipantecomitens = CursorBd.ObterParticipanteItens(Convert.ToInt32(_participante.CodigoParticipante), itens);
+            _participante.Hobbies.Conteudo = relacoesdoparticipantecomitens["hobbie"];
+            _participante.Aprender.Conteudo = relacoesdoparticipantecomitens["aprender"];
+            _participante.Ensinar.Conteudo = relacoesdoparticipantecomitens["ensinar"];
+        }
+
         public override void OnBackPressed()
         {
             OnPause();
@@ -105,6 +132,7 @@ namespace MimAcher.Mobile.com.Activities
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
+                    CursorBd.AtualizarParticipante(_participante);
                     break;
                 case Resource.Id.menu_exitapp:
                     Mensagens.MensagemDeLogout(this,this);
@@ -116,8 +144,6 @@ namespace MimAcher.Mobile.com.Activities
 
             return base.OnOptionsItemSelected(item);
         }
-        
-        
 
         private void RegistrarLocalizacao()
         {

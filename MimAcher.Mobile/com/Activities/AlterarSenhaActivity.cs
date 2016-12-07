@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Activities
@@ -57,10 +58,10 @@ namespace MimAcher.Mobile.com.Activities
 
         private void SalvarAlteracao()
         {
-            _participante.AlterarSenha(_participante.Senha, _novasenha);
+            _participante.AlterarSenha(_novasenha);
+            CursorBd.AtualizarUsuario(_participante);
             const string toast = ("Senha Alterada");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
-
             PacoteAbstrato pacote = _participante;
             IniciarEditarPerfil(this,pacote);
         }
