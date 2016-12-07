@@ -35,7 +35,8 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         {
             var itemSelecionado = Items[position];
             var codItemSelecionado = RetornaCodItemLista(itemSelecionado);
-            Mensagens.MensagemOpcoes(itemSelecionado,codItemSelecionado, this);
+            var listNomeCodItem = new List<string> {codItemSelecionado.ToString(), itemSelecionado};
+            Mensagens.MensagemOpcoes(listNomeCodItem,Convert.ToInt32(Participante.CodigoParticipante), this);
         }
 
         private static int RetornaCodItemLista(string itemInserido)
@@ -52,12 +53,13 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
             return codigoItem;
         }
 
-        internal void VerCombinacoes(int itemSelecionado, Context context)
+        internal void VerCombinacoes(int itemSelecionado,int codParticipanteAtivo, Context context)
         {
             var combinacoesactivity = new Intent(context, typeof(CombinacoesActivity));
             var tipocombinacao = context.GetType().ToString();
             combinacoesactivity.PutExtra("item", itemSelecionado);
             combinacoesactivity.PutExtra("tipocombinacao", tipocombinacao);
+            combinacoesactivity.PutExtra("codParticipanteAtivo", codParticipanteAtivo);
             StartActivity(combinacoesactivity);
             Toast.MakeText(this, "Voce está na tela de exibição de combinações", ToastLength.Short).Show();
         }

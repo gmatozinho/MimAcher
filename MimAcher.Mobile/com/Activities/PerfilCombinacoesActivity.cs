@@ -1,3 +1,4 @@
+using System;
 using Android.App;
 using Android.OS;
 using Android.Views;
@@ -5,6 +6,7 @@ using Android.Widget;
 using MimAcher.Mobile.com.Activities.TAB;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
+using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -43,6 +45,8 @@ namespace MimAcher.Mobile.com.Activities
             telefoneInfoUser.Hint = _participante.Telefone;
             dtNascimentoInfoUser.Hint = _participante.Nascimento;
 
+            PreencherPreferenciasParticipante();
+
             //Criando os tabs
             CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
             CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender), _participante);
@@ -55,6 +59,17 @@ namespace MimAcher.Mobile.com.Activities
         {
             MenuInflater.Inflate(Resource.Drawable.top_menus_only_home, menu);
             return base.OnCreateOptionsMenu(menu);
+        }
+
+        private void PreencherPreferenciasParticipante()
+        {
+            //Obter lista de itens do sistema
+            var itens = CursorBd.ObterItens();
+            //Montar hobbies, aprender e ensinar
+            var relacoesdoparticipantecomitens = CursorBd.ObterParticipanteItens(Convert.ToInt32(_participante.CodigoParticipante), itens);
+            _participante.Hobbies.Conteudo = relacoesdoparticipantecomitens["hobbie"];
+            _participante.Aprender.Conteudo = relacoesdoparticipantecomitens["aprender"];
+            _participante.Ensinar.Conteudo = relacoesdoparticipantecomitens["ensinar"];
         }
 
         public override bool OnOptionsItemSelected(IMenuItem item)

@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Widget;
@@ -111,14 +113,16 @@ namespace MimAcher.Mobile.com.Utilitarios
             dialog.Show();
         }
 
-        internal static void MensagemOpcoes(string itemSelecionado,int codItemSelecionado, FabricaTelasComResultados telaResultados)
+        internal static void MensagemOpcoes(List<string> listNomeCodItem,int codParticipanteAtivo, FabricaTelasComResultados telaResultados)
         {
+            var codItemSelecionado = Convert.ToInt32(listNomeCodItem[0]);
+            var itemSelecionado = listNomeCodItem[1];
             var alert = new AlertDialog.Builder(telaResultados);
             alert.SetTitle("Opções");
             alert.SetMessage("Você deseja remover o item ou consultar combinações?");
             alert.SetPositiveButton("Ver Combinações", (senderAlert, args) =>
             {
-                telaResultados.VerCombinacoes(codItemSelecionado, telaResultados);
+                telaResultados.VerCombinacoes(codItemSelecionado, codParticipanteAtivo, telaResultados);
             });
             alert.SetNegativeButton("Remover", (senderAlert, args) =>
             {

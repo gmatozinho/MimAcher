@@ -25,25 +25,23 @@ namespace MimAcher.Mobile.com.Activities
             //tenho q receber o item para gerar as combinações a serem geradas
             var codItem = Intent.GetIntExtra("item",0);
             var tipoCombinacao = Intent.GetStringExtra("tipocombinacao");
+            var codParticipanteAtivo = Intent.GetIntExtra("codParticipanteAtivo", 0);
 
             //Exibindo o layout .axml
             SetContentView(Resource.Layout.Combinacoes);
-            
 
             //Iniciando as variaveis do contexto
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
-            //_listView = FindViewById<ListView>(Resource.Id.list);
 
             SetActionBar(toolbar);
-
             var itemSelecionado = ObterNomeItem(codItem);
 
             //Modificando a parte textual
             ActionBar.SetTitle(Resource.String.TitleCombinacoes);
             
             //combinacoes
-            var combinacoesCod = CursorBd.Match(codItem);
-            var combinacaoDecisao = TratarTipoCombinacao(combinacoesCod, tipoCombinacao);
+            var combinacoesCod = CursorBd.Match(codItem,codParticipanteAtivo);
+            var combinacaoDecisao = TratarTipoCombinacao(tipoCombinacao);
             ActionBar.Subtitle = combinacaoDecisao + " : " + itemSelecionado;
             Participantes = ObterParticipantes(combinacoesCod[combinacaoDecisao]);
 
@@ -51,7 +49,7 @@ namespace MimAcher.Mobile.com.Activities
 
         }
 
-        private static string TratarTipoCombinacao(IReadOnlyDictionary<string, List<int>> combinacoesCod, string tipoCombinacao)
+        private static string TratarTipoCombinacao(string tipoCombinacao)
         {
             var combinacaoTipo = "";
 
