@@ -29,12 +29,9 @@ namespace MimAcher.Mobile.com.Entidades
             return "-2";
         }
 
-        public void AlterarSenha(string senhaAtual, string novaSenha)
+        public void AlterarSenha(string novaSenha)
         {
-            if (senhaAtual.Equals("senha"))
-            {
-                Senha = novaSenha;
-            }
+            Senha = novaSenha;
         }
 
         //TODO desativar conta

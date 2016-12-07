@@ -120,7 +120,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             objetojsonauxiliar.Put("longitude", localizacao[1]);
 
             jsonArray.Put(objetojsonauxiliar);
-            jsonObject.Put("listausuarioparticipante", jsonArray);
+            jsonObject.Put("listaparticipante", jsonArray);
 
             return jsonObject.ToString();
         }
@@ -148,7 +148,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonUpdateUsuario(Participante participante)
         {
-            return "{ \"listausuario\": [{ \"cod_usuario\": 1, \"e_mail\": \"" + participante.Email + "\", \"senha\": \""+ 
+            return "{ \"listausuario\": [{ \"cod_usuario\": " + Convert.ToInt32(participante.CodigoUsuario) + ", \"e_mail\": \"" + participante.Email + "\", \"senha\": \""+ 
                 participante.Senha + "\" }] }";
         }
 
