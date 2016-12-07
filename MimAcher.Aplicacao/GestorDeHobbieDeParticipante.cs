@@ -24,14 +24,29 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
         {
-            return this.ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
+            return this.RepositorioDeParcipanteHobbie.ObterHobbiesDeParticipantePorIdDeItem(id_item);
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.RepositorioDeParcipanteHobbie.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.RepositorioDeParcipanteHobbie.ObterHobbiesDeParticipantePorIdDeItem(id_item);
         }
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbie(hobbieparticipante);
+        }
+
+        public Boolean InserirNovoParticipanteHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            return this.RepositorioDeParcipanteHobbie.InserirNovoParticipanteHobbieComRetorno(hobbieparticipante);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -64,6 +79,11 @@ namespace MimAcher.Aplicacao
             {
                 return false;
             }
+        }
+
+        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)
+        {
+            return this.RepositorioDeParcipanteHobbie.VerificarSeExisteHobbieDeParticipantePorIdDeItem(id_item);
         }
     }
 }

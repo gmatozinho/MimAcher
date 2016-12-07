@@ -26,12 +26,22 @@ namespace MimAcher.Aplicacao
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            return this.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteensinar);
+            return this.RepositorioDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteensinar);
+        }
+
+        public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.RepositorioDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
         }
 
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             this.RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
+        }
+
+        public Boolean InserirNovoEnsinamentoDeParticipanteComRetorno(MA_PARTICIPANTE_ENSINAR participanteensinar)
+        {
+            return this.RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipanteComRetorno(participanteensinar);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -64,6 +74,11 @@ namespace MimAcher.Aplicacao
             {
                 return false;
             }
+        }
+
+        public Boolean VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(int id_item)
+        {
+            return this.RepositorioDeParticipanteEnsinar.VerificarSeExisteEnsinoDeParticipantePorIdDeItem(id_item);
         }
     }
 }

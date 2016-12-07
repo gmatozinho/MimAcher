@@ -25,9 +25,19 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == participantehobbie.cod_participante && l.cod_item == participantehobbie.cod_item).SingleOrDefault();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiessDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
         {
-            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_s_relacao == 1).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
@@ -37,7 +47,7 @@ namespace MimAcher.Infra
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
                 this.Contexto.SaveChanges();
@@ -49,6 +59,38 @@ namespace MimAcher.Infra
                 if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
                 {
                     AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+                }
+            }
+        }
+
+        public Boolean InserirNovoParticipanteHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
+            {
+                try
+                {
+                    this.Contexto.MA_PARTICIPANTE_HOBBIE.Add(hobbieparticipante);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+                
+            }
+            else
+            {
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+
+                if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
+                {
+                    return AtualizarAprendizadoDeHobbieComRetorno(hobbieparticipante);
+                }
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -66,7 +108,7 @@ namespace MimAcher.Infra
 
         public void AtualizarHobbieDoParticipante(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
             }
@@ -83,7 +125,7 @@ namespace MimAcher.Infra
 
         public Boolean AtualizarHobbieDoParticipanteComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            if (!VerificarSeExisteRelacaoDeParticipanteAprender(hobbieparticipante))
+            if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))
             {
                 AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
 
@@ -95,9 +137,7 @@ namespace MimAcher.Infra
 
                 if (participantehobbieconferencia.cod_s_relacao != hobbieparticipante.cod_s_relacao)
                 {
-                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
-
-                    return true;
+                    return AtualizarAprendizadoDeHobbieComRetorno(hobbieparticipante);                    
                 }
                 else
                 {
@@ -110,17 +150,56 @@ namespace MimAcher.Infra
         {
             MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
 
-            this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-            this.Contexto.SaveChanges();
+            try
+            {
+                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }            
         }
 
-        public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_HOBBIE participantehobbie)
+        public Boolean AtualizarAprendizadoDeHobbieComRetorno(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
+        {
+            MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
+
+            try
+            {
+                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoDeParticipanteHobbie(MA_PARTICIPANTE_HOBBIE participantehobbie)
         {
             if (ObterParticipanteHobbiePorItemEParticipante(participantehobbie) != null)
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }            
+        }
+
+        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)
+        {
+            if(ObterHobbiesDeParticipantePorIdDeItem(id_item).Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

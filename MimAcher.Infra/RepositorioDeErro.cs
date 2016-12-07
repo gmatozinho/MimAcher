@@ -38,6 +38,21 @@ namespace MimAcher.Infra
             this.Contexto.SaveChanges();
         }
 
+        public Boolean InserirErroComRetorno(MA_ERRO Erro)
+        {
+            try
+            {
+                this.Contexto.MA_ERRO.Add(Erro);
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_ERRO.Count();
@@ -53,6 +68,22 @@ namespace MimAcher.Infra
         {        
             this.Contexto.Entry(Erro).State = EntityState.Modified;
             this.Contexto.SaveChanges();        
+        }
+
+        public Boolean AtualizarErroComRetorno(MA_ERRO Erro)
+        {
+            try
+            {
+                this.Contexto.Entry(Erro).State = EntityState.Modified;
+                this.Contexto.SaveChanges();
+
+                return true;
+            }
+            catch(Exception e)
+            {
+                return false;
+            }
+            
         }
     }
 }

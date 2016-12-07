@@ -49,40 +49,52 @@ namespace MimAcher.WebService.Controllers
 
                 usuario.e_mail = listausuarioparticipante[0].e_mail;
                 usuario.senha = listausuarioparticipante[0].senha;
+                //Torna o usuário com acesso mobile no sistema
+                usuario.cod_acesso = 1;
 
                 Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
 
                 if (resultado)
                 {
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-                    //MA_USUARIO usuario = new MA_USUARIO();
-
-                    usuario.e_mail = listausuarioparticipante[0].e_mail;
-                    usuario.senha = listausuarioparticipante[0].senha;
-                    
+                                        
                     participante.cod_usuario = usuario.cod_usuario;
-                    participante.cod_campus = listausuarioparticipante[0].cod_participante;
+                    participante.cod_campus = listausuarioparticipante[0].cod_campus;
                     participante.nome = listausuarioparticipante[0].nome;
                     participante.telefone = listausuarioparticipante[0].telefone;
                     participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
                     participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
 
-                    if (this.GestorDeParticipante.InserirParticipanteComRetorno(participante))
+                    try
                     {
-                        jsonResult = Json(new
+                        if (this.GestorDeParticipante.InserirParticipanteComRetorno(participante))
                         {
-                            codigo = participante.cod_participante
-                        }, JsonRequestBehavior.AllowGet);
+                            jsonResult = Json(new
+                            {
+                                codigo = participante.cod_participante
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            GestorDeUsuario.RemoverUsuario(usuario);
+
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    else
+                    catch(Exception e)
                     {
                         GestorDeUsuario.RemoverUsuario(usuario);
 
                         jsonResult = Json(new
                         {
-                            codigo = -1
-                        }, JsonRequestBehavior.AllowGet);
+                            codigo = -1,
+                            erro = e.InnerException.ToString()
+                        }, JsonRequestBehavior.AllowGet);                        
                     }
+                    
                 }
                 else
                 {
@@ -119,15 +131,14 @@ namespace MimAcher.WebService.Controllers
 
                 usuario.e_mail = listausuarioparticipante[0].e_mail;
                 usuario.senha = listausuarioparticipante[0].senha;
+                //O código de acesso é 1 para determinar que é só ACesso Mobile
+                usuario.cod_acesso = 1;
 
                 Boolean resultado = this.GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(usuario.e_mail, usuario.senha);
 
                 if (resultado)
                 {
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
-
-                    usuario.e_mail = listausuarioparticipante[0].e_mail;
-                    usuario.senha = listausuarioparticipante[0].senha;
                     
                     participante.cod_usuario = usuario.cod_usuario;
                     participante.cod_campus = listausuarioparticipante[0].cod_participante;
@@ -136,12 +147,23 @@ namespace MimAcher.WebService.Controllers
                     participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
                     participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
 
-                    this.GestorDeParticipante.AtualizarParticipante(participante);
-
-                    jsonResult = Json(new
+                    try
                     {
-                        codigo = participante.cod_participante
-                    }, JsonRequestBehavior.AllowGet);
+                        this.GestorDeParticipante.AtualizarParticipante(participante);
+
+                        jsonResult = Json(new
+                        {
+                            codigo = participante.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch(Exception e)
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1,
+                            erro = e.InnerException.ToString()
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {

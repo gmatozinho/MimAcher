@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -64,28 +65,42 @@ namespace MimAcher.WebService.Controllers
                 return jsonResult;
             }
             else
-            {
-                int codigo_pa = -1;
+            {   
+                MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
 
-                foreach (ParticipanteAprender pe in listaparticipanteaprender)
+                participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
+                participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
+
+                //Informa que a relação estará ativa
+                participanteaprender.cod_s_relacao = 1;
+
+                try
                 {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
+                    Boolean resultado = GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipanteComRetorno(participanteaprender);
 
-                    participanteaprender.cod_participante = pe.cod_participante;
-                    participanteaprender.cod_item = pe.cod_item;
-
-                    //Informa que a relação estará ativa
-                    participanteaprender.cod_s_relacao = 1;
-
-                    GestorDeParticipanteAprender.InserirNovoAprendizadoDeParticipante(participanteaprender);
-
-                    codigo_pa = participanteaprender.cod_p_aprender;
+                    if (resultado)
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = participanteaprender.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-
-                jsonResult = Json(new
+                catch(Exception e)
                 {
-                   codigo = codigo_pa
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
@@ -117,20 +132,33 @@ namespace MimAcher.WebService.Controllers
                     //Permanece a relação como ativa
                     participanteaprender.cod_s_relacao = 1;
 
-                    if (this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender))
+                    try
                     {
-                        jsonResult = Json(new
+                        Boolean resultado = GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
+
+                        if (resultado)
                         {
-                            codigo = participanteaprender.cod_p_aprender
-                        }, JsonRequestBehavior.AllowGet);
+                            jsonResult = Json(new
+                            {
+                                codigo = participanteaprender.cod_participante
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    else
+                    catch (Exception e)
                     {
                         jsonResult = Json(new
                         {
+                            erro = e.InnerException.ToString(),
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
-                    }                    
+                    }
                 }
                 else
                 {
@@ -163,27 +191,49 @@ namespace MimAcher.WebService.Controllers
             {
                 if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(listaparticipanteaprender[0].cod_p_aprender))
                 {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
-
-                    if (participanteaprender.cod_s_relacao == 1)
+                    try
                     {
-                        participanteaprender.cod_p_aprender = listaparticipanteaprender[0].cod_p_aprender;
-                        participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
-                        participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
-                        //Marca a relação como inativa
-                        participanteaprender.cod_s_relacao = 2;
+                        MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
 
-                        this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipante(participanteaprender);
-
-                        jsonResult = Json(new
+                        if (participanteaprender.cod_s_relacao == 1)
                         {
-                            codigo = participanteaprender.cod_p_aprender
-                        }, JsonRequestBehavior.AllowGet);
+                            participanteaprender.cod_p_aprender = listaparticipanteaprender[0].cod_p_aprender;
+                            participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
+                            participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
+                            //Marca a relação como inativa
+                            participanteaprender.cod_s_relacao = 2;
+
+                            try
+                            {
+                                this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipante(participanteaprender);
+
+                                jsonResult = Json(new
+                                {
+                                    codigo = participanteaprender.cod_p_aprender
+                                }, JsonRequestBehavior.AllowGet);
+                            }
+                            catch(Exception e)
+                            {
+                                jsonResult = Json(new
+                                {
+                                    erro = e.InnerException.ToString(),
+                                    codigo = -1
+                                }, JsonRequestBehavior.AllowGet);
+                            }
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
-                    else
+                    catch(Exception e)
                     {
                         jsonResult = Json(new
                         {
+                            erro = e.InnerException.ToString(),
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
                     }
@@ -217,30 +267,39 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(listaparticipanteaprender[0].cod_p_aprender))
+                if (this.GestorDeParticipanteAprender.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteaprender[0].cod_item))
                 {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
-
-                    List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
-
-                    //Reinicia lista de aprendizado de participante
-                    listaparticipanteaprender = new List<ParticipanteAprender>();
-
-                    foreach (MA_PARTICIPANTE_APRENDER mapa in listapaprender)
+                    try
                     {
-                        ParticipanteAprender pa = new ParticipanteAprender();
+                        List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteaprender[0].cod_item);
 
-                        pa.cod_p_aprender = mapa.cod_p_aprender;
-                        pa.cod_item = mapa.cod_item;
-                        pa.cod_participante = mapa.cod_participante;
+                        //Reinicia lista de aprendizado de participante
+                        listaparticipanteaprender = new List<ParticipanteAprender>();
 
-                        listaparticipanteaprender.Add(pa);
+                        foreach (MA_PARTICIPANTE_APRENDER mapa in listapaprender)
+                        {
+                            ParticipanteAprender pa = new ParticipanteAprender();
+
+                            pa.cod_p_aprender = mapa.cod_p_aprender;
+                            pa.cod_item = mapa.cod_item;
+                            pa.cod_participante = mapa.cod_participante;
+
+                            listaparticipanteaprender.Add(pa);
+                        }
+
+                        jsonResult = Json(new
+                        {
+                            listaparticipanteaprender = listaparticipanteaprender
+                        }, JsonRequestBehavior.AllowGet);
                     }
-
-                    jsonResult = Json(new
+                    catch(Exception e)
                     {
-                        listaparticipanteaprender = listaparticipanteaprender
-                    }, JsonRequestBehavior.AllowGet);                    
+                        jsonResult = Json(new
+                        {
+                            erro = e.InnerException.ToString(),
+                            listaparticipanteaprender = ""
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
                 else
                 {

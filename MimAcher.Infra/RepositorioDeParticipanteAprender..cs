@@ -25,9 +25,19 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
         }
 
+        public List<MA_PARTICIPANTE_APRENDER> ObterAprendizadoDeParticipantePorIdDeItem(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == id_item).ToList();
+        }
+
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == participanteaprender.cod_item && l.cod_s_relacao == 1).Skip(participanteaprender.cod_p_aprender).Take(20).ToList();
+        }
+
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        {
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
@@ -68,8 +78,7 @@ namespace MimAcher.Infra
 
                 if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
                 {
-                    AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
-                    return true;
+                    return AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
                 }
                 else
                 {
@@ -146,6 +155,18 @@ namespace MimAcher.Infra
                 return true;
             }
             return false;
+        }
+
+        public Boolean VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(int id_item)
+        {
+            if (ObterAprendizadoDeParticipantePorIdDeItem(id_item).Count() > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

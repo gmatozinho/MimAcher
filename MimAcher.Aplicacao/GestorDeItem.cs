@@ -34,6 +34,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeItem.InserirItem(Item);
         }
 
+        public Boolean InserirItemComRetorno(MA_ITEM Item)
+        {
+            return this.RepositorioDeItem.InserirItemComRetorno(Item);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeItem.BuscarQuantidadeRegistros();
@@ -47,6 +52,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarItem(MA_ITEM Item)
         {
             this.RepositorioDeItem.AtualizarItem(Item);
+        }
+
+        public Boolean AtualizarItemComRetorno(MA_ITEM Item)
+        {
+            return this.RepositorioDeItem.AtualizarItemComRetorno(Item);
         }
     }
 }

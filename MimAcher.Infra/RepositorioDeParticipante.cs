@@ -58,14 +58,21 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
             {
-                this.Contexto.MA_PARTICIPANTE.Add(participante);
-                this.Contexto.SaveChanges();
+                try
+                {
+                    this.Contexto.MA_PARTICIPANTE.Add(participante);
+                    this.Contexto.SaveChanges();
 
-                return true;
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -100,13 +107,73 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean AtualizarParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
+            {
+                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                {
+                    try
+                    {
+                        Atualizar(participante);
+
+                        return true;
+                    }
+                    catch(Exception e)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
+
+                    if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                    {
+                        try
+                        {
+                            Atualizar(participante);
+
+                            return true;
+                        }
+                        catch(Exception e)
+                        {
+                            return false;
+                        }
+                        
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }                
+            }
+        }
+
         public void Atualizar(MA_PARTICIPANTE participante)
         {
             MIMACHEREntities Contexto = new MIMACHEREntities();
 
-            Contexto.Entry(participante).State = EntityState.Modified;
-            Contexto.SaveChanges();
-
+            try
+            {
+                Contexto.Entry(participante).State = EntityState.Modified;
+                Contexto.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
         public Boolean VerificarSeParticipanteExiste(int cod_participante)

@@ -47,6 +47,28 @@ namespace MimAcher.Infra
 
         }
 
+        public Boolean InserirStatusDeRelacaoComRetorno(MA_STATUS_RELACAO StatusDeRelacao)
+        {
+            if (VerificarSeNomeDeStatusDeRelacaoJaExiste(StatusDeRelacao))
+            {
+                try
+                {
+                    this.Contexto.MA_STATUS_RELACAO.Add(StatusDeRelacao);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_STATUS_RELACAO.Count();
@@ -64,6 +86,28 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(StatusDeRelacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean AtualizarStatusDeRelacaoComRetorno(MA_STATUS_RELACAO StatusDeRelacao)
+        {
+            if (VerificarSeNomeDeStatusDeRelacaoJaExiste(StatusDeRelacao))
+            {
+                try
+                {
+                    this.Contexto.Entry(StatusDeRelacao).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception e)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 

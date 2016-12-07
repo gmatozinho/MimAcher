@@ -48,7 +48,7 @@ namespace MimAcher.Aplicacao
         {
             this.RepositorioDeParticipante.InserirParticipante(participante);
         }
-
+        
         public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
         {
             return this.RepositorioDeParticipante.InserirParticipanteComRetorno(participante);            
@@ -67,6 +67,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarParticipante(MA_PARTICIPANTE participante)
         {
             this.RepositorioDeParticipante.AtualizarParticipante(participante);
+        }
+
+        public Boolean AtualizarParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            return this.RepositorioDeParticipante.AtualizarParticipanteComRetorno(participante);
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)

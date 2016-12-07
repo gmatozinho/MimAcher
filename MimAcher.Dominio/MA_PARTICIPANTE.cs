@@ -27,7 +27,7 @@ namespace MimAcher.Dominio
         public int cod_usuario { get; set; }
         public int cod_campus { get; set; }
         public string nome { get; set; }
-        public int telefone { get; set; }
+        public string telefone { get; set; }
         public System.DateTime dt_nascimento { get; set; }
         public System.Data.Entity.Spatial.DbGeography geolocalizacao { get; set; }
     

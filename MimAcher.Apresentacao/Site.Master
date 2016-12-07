@@ -70,7 +70,7 @@
 													<ext:Label runat="server" ID="labelParticipanteNome" Cls="username" Padding="20" Icon="UserGreen" Hidden="true"></ext:Label>                                                    																										
 													<ext:Label runat="server" ID="labelNACNomeRepresentante" Cls="username" Padding="20" Icon="UserStar" Hidden="true"></ext:Label>                                                    
 													<ext:Label runat="server" ID="labelUsuarioEmail" Cls="username" Padding="20" Icon="Email"></ext:Label>
-													<ext:Label runat="server" ID="labelAcesso" Cls="username" Padding="20" Icon="Computer" Hidden="true"></ext:Label>                                                    
+													<ext:Label runat="server" ID="labelAcesso" Cls="username" Padding="20" Icon="Computer" Hidden="false"></ext:Label>                                                    
 												</Items>
 											</ext:Container>
 										</div>   

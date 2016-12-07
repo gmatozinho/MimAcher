@@ -67,19 +67,30 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
-                Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
+                try
+                {
+                    Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
 
-                if (resultado)
-                {
-                    jsonResult = Json(new
+                    if (resultado)
                     {
-                        codigo = usuario.cod_usuario
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            codigo = usuario.cod_usuario
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     jsonResult = Json(new
                     {
+                        erro = e.InnerException.ToString(),
                         codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
@@ -110,22 +121,35 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
-                Boolean resultado = this.GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
+                try
+                {
+                    Boolean resultado = this.GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
 
-                if (resultado)
-                {
-                    jsonResult = Json(new
+                    if (resultado)
                     {
-                        codigo = usuario.cod_usuario
-                    }, JsonRequestBehavior.AllowGet);
+                        jsonResult = Json(new
+                        {
+                            codigo = usuario.cod_usuario
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-                else
+                catch(Exception e)
                 {
                     jsonResult = Json(new
                     {
+                        erro = e.InnerException.ToString(),
                         codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
+
+                
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;

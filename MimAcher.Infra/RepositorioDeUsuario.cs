@@ -51,16 +51,23 @@ namespace MimAcher.Infra
 
         public Boolean InserirUsuarioComRetorno(MA_USUARIO usuario)
         {
-            if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+            try
             {
-                this.Contexto.MA_USUARIO.Add(usuario);
-                this.Contexto.SaveChanges();
+                if (!VerificarSeEmailDeUsuarioJaExiste(usuario))
+                {
+                    this.Contexto.MA_USUARIO.Add(usuario);
+                    this.Contexto.SaveChanges();
 
-                return true;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch(Exception e)
             {
-                return false;
+                throw e;                
             }
         }
 
@@ -105,7 +112,10 @@ namespace MimAcher.Infra
             {
                 return true;
             }
-            return false;
+            else
+            {
+                return false;
+            }            
         }
     }
 }

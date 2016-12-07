@@ -8,6 +8,7 @@
         <EntityTypeShape EntityType="MIMACHERModel.MA_ACESSO" Width="1.5" PointX="1.5" PointY="13.625" />
         <EntityTypeShape EntityType="MIMACHERModel.MA_AREA_ATUACAO" Width="1.5" PointX="6" PointY="12.625" />
         <EntityTypeShape EntityType="MIMACHERModel.MA_CAMPUS" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="MIMACHERModel.MA_ERRO" Width="1.5" PointX="5.75" PointY="2.375" />
         <EntityTypeShape EntityType="MIMACHERModel.MA_IMAGEM_PARTICIPANTE" Width="1.5" PointX="5.25" PointY="18.875" />
         <EntityTypeShape EntityType="MIMACHERModel.MA_ITEM" Width="1.5" PointX="3" PointY="0.75" />
         <EntityTypeShape EntityType="MIMACHERModel.MA_NAC" Width="1.5" PointX="6" PointY="9.125" />
@@ -35,7 +36,6 @@
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_RELACAO_cod_s_relacao" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_RELACAO_cod_s_relacao" />
         <AssociationConnector Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao" />
-        <EntityTypeShape EntityType="MIMACHERModel.MA_ERRO" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -144,7 +144,7 @@
 						<Select Handler="#{ParticipanteFormPanelId}.getForm().loadRecord(record); 
 										 #{EditButtonId}.setDisabled(false);
 										 #{DeleteButtonId}.setDisabled(false);
-                                         #{ExibirPontoNoMapaButtonId}.setDisabled(false);" />                      
+										 #{ExibirPontoNoMapaButtonId}.setDisabled(false);" />                      
 					</Listeners>                    
 			</ext:RowSelectionModel>                        
 		</SelectionModel>  
@@ -179,7 +179,7 @@
 					<%-- Atualizar --%>
 					<ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
 
-                    <%-- Exibir Participante no Mapa --%>
+					<%-- Exibir Participante no Mapa --%>
 					<ext:Button ID="ExibirPontoNoMapaButtonId" runat="server" Text="Exibir Participante no Mapa" Icon="PageAdd" Disabled="true">
 						<DirectEvents>
 							<Click OnEvent="CarregarPontoNoMapa">

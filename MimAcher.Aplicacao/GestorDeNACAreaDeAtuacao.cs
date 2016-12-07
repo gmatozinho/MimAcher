@@ -39,6 +39,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacao(NACAreaDeAtuacao);
         }
 
+        public Boolean InserirNACAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        {
+            return this.RepositorioDeNACAreaDeAtuacao.InserirNACAreaDeAtuacaoComRetorno(NACAreaDeAtuacao);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeNACAreaDeAtuacao.BuscarQuantidadeRegistros();
@@ -52,6 +57,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
         {
             this.RepositorioDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacao(NACAreaDeAtuacao);
+        }
+
+        public Boolean AtualizarNACAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        {
+            return this.RepositorioDeNACAreaDeAtuacao.AtualizarNACAreaDeAtuacaoComRetorno(NACAreaDeAtuacao);
         }
 
     }
