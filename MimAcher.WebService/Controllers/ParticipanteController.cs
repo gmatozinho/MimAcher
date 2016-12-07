@@ -166,7 +166,7 @@ namespace MimAcher.WebService.Controllers
         public ActionResult Get(List<Participante> listaparticipante)
         {
             JsonResult jsonResult;
-            List<Participante> listaparticipanteretorno = new List<Participante>();
+            List<ParticipanteGet> listaparticipanteretorno = new List<ParticipanteGet>();
 
             //Verifica se o registro é inválido e se sim, retorna com erro.
             if (listaparticipante == null)
@@ -184,18 +184,20 @@ namespace MimAcher.WebService.Controllers
                     {
                         MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].cod_participante);
 
-                        Participante pt = new Participante();
+                        ParticipanteGet pg = new ParticipanteGet();
 
-                        pt.cod_participante = participante.cod_participante;
-                        pt.cod_campus = participante.cod_campus;
-                        pt.cod_usuario = participante.cod_usuario;
-                        pt.nome = participante.nome;
-                        pt.telefone = participante.telefone;
-                        pt.dt_nascimento = participante.dt_nascimento;
-                        pt.latitude = participante.geolocalizacao.Latitude;
-                        pt.longitude = participante.geolocalizacao.Longitude;
-
-                        listaparticipanteretorno.Add(pt);
+                        pg.cod_participante = participante.cod_participante;
+                        pg.nome_participante = participante.nome;
+                        pg.cod_campus = participante.cod_campus;
+                        pg.nome_campus = participante.MA_CAMPUS.local;
+                        pg.cod_usuario = participante.cod_usuario;
+                        pg.e_mail = participante.MA_USUARIO.e_mail;                        
+                        pg.telefone = participante.telefone;
+                        pg.dt_nascimento = participante.dt_nascimento.ToString();
+                        pg.latitude = participante.geolocalizacao.Latitude.ToString();
+                        pg.longitude = participante.geolocalizacao.Longitude.ToString();
+                                                
+                        listaparticipanteretorno.Add(pg);
 
                         jsonResult = Json(new
                         {
