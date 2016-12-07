@@ -97,6 +97,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var resultadoactivity = new Intent(this, typeof(HomeActivity));
             AlterarParticipante(_participante);
+            CursorBd.AtualizarParticipante(_participante);
             _pacote = _participante;
             IniciarOutraTela(resultadoactivity,_pacote);
             Mensagens.MensagemDeInformacoesEditadasComSucesso(this);
@@ -114,7 +115,7 @@ namespace MimAcher.Mobile.com.Activities
             return new Dictionary<string, string>
             {
                 ["nome"] = _nome,
-                ["data"] = _nascimento,
+                ["nascimento"] = _nascimento,
                 ["telefone"] = _telefone
             };
         }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Android.Content;
+using Android.OS;
 using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
@@ -16,7 +18,7 @@ namespace MimAcher.Mobile.com.Entidades
             Senha = atributos["senha"];
         }
 
-        public string Email { get; private set; }
+        public string Email { get; set; }
 
         public string Senha {get; private set;}
 
@@ -25,15 +27,11 @@ namespace MimAcher.Mobile.com.Entidades
         {
             if (Validacao.ValidarLogin(context,emailESenha)) return CursorBd.Login(emailESenha);
             return "-2";
-
         }
 
-        public void AlterarSenha(string senhaAtual, string novaSenha)
+        public void AlterarSenha(string novaSenha)
         {
-            if (senhaAtual.Equals("senha"))
-            {
-                Senha = novaSenha;
-            }
+            Senha = novaSenha;
         }
 
         //TODO desativar conta
@@ -41,6 +39,7 @@ namespace MimAcher.Mobile.com.Entidades
         {
             //código para excluir o usuário do banco
         }
+        
 
     }
 }

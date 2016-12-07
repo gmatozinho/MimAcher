@@ -134,6 +134,9 @@
     <Compile Include="com\Activities\HobbiesActivity.cs" />
     <Compile Include="com\Activities\InscreverActivity.cs" />
     <Compile Include="com\Activities\PerfilCombinacoesActivity.cs" />
+    <Compile Include="com\Activities\TAB\CombinacoesAprenderActivity.cs" />
+    <Compile Include="com\Activities\TAB\CombinacoesEnsinarActivity.cs" />
+    <Compile Include="com\Activities\TAB\CombinacoesHobbiesActivity.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasComResultados.cs" />
     <Compile Include="com\Entidades\Fabricas\FabricaTelasComTab.cs" />
     <Compile Include="com\Entidades\Fabricas\IFabricaTelas.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="com\Activities\TAB\ResultEnsinarActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultHobbiesActivity.cs" />
+    <Compile Include="com\Entidades\ListAdapterParticipante.cs" />
     <Compile Include="com\Entidades\ListaItens.cs" />
     <Compile Include="com\Entidades\TelaENomeParaLoading.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConnectionHandler.cs" />

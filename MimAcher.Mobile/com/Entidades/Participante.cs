@@ -11,7 +11,9 @@ namespace MimAcher.Mobile.com.Entidades
     {
         //Properties
 
-        public string Codigo { get; set; }
+        public string CodigoParticipante { get; set; }
+
+        public string CodigoUsuario { get; set; }
         public ListaItens Hobbies { get; set;}
 
         public ListaItens Aprender {get; set;}
@@ -29,21 +31,22 @@ namespace MimAcher.Mobile.com.Entidades
         public string Localizacao { get; set; }
 
 
-        //Construtor
+        //Complete Construtor
         public Participante(Dictionary<string, string> atributos) : base(atributos)
         {
             Hobbies = new ListaItens();
             Aprender = new ListaItens();
             Ensinar = new ListaItens();
 
-            Codigo = atributos["codigo"];
+            CodigoParticipante = atributos["codigoparticipante"];
+            CodigoUsuario = atributos["codigousuario"];
             Nome = atributos["nome"];
             Nascimento = atributos["nascimento"];
             Telefone = atributos["telefone"];
             Campus = atributos["campus"];
             Localizacao = atributos["localizacao"];
         }
-        
+
         //Funções para trabalhar no banco de dados
         public string Inscrever()
         {
@@ -53,9 +56,7 @@ namespace MimAcher.Mobile.com.Entidades
 
         public Dictionary<string, List<Participante>> Match()
         {
-            var matchs = CursorBd.Match(this);
-
-            return matchs;
+            return null;
         }
 
 
@@ -63,8 +64,9 @@ namespace MimAcher.Mobile.com.Entidades
         {
             var dictionary = new Dictionary<string, string>
             {
-                ["codigo"] = b.GetString("codigo"),
-                ["email"] = b.GetString("e_mail"),
+                ["codigoparticipante"] = b.GetString("codigoparticipante"),
+                ["codigousuario"] = b.GetString("codigousuario"),
+                ["email"] = b.GetString("email"),
                 ["nome"] = b.GetString("nome"),
                 ["campus"] = b.GetString("campus"),
                 ["senha"] = b.GetString("senha"),
@@ -92,7 +94,8 @@ namespace MimAcher.Mobile.com.Entidades
             bundle.PutStringArrayList("hobbie", Hobbies.Conteudo);
             bundle.PutStringArrayList("aprender", Aprender.Conteudo);
             bundle.PutStringArrayList("ensinar", Ensinar.Conteudo);
-            bundle.PutString("codigo", Codigo);
+            bundle.PutString("codigoparticipante", CodigoParticipante);
+            bundle.PutString("codigousuario", CodigoUsuario);
             bundle.PutString("nome", Nome);
             bundle.PutString("campus", Campus);
             bundle.PutString("senha", Senha);
