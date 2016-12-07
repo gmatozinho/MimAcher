@@ -116,8 +116,8 @@ namespace MimAcher.Mobile.com.Utilitarios
             objetojsonauxiliar.Put("nome", participante.Nome);
             objetojsonauxiliar.Put("telefone", participante.Telefone);
             objetojsonauxiliar.Put("dt_nascimento", participante.Nascimento);
-            objetojsonauxiliar.Put("latitude", localizacao[0]);
-            objetojsonauxiliar.Put("longitude", localizacao[1]);
+            objetojsonauxiliar.Put("latitude", localizacao[0].Replace(".",","));
+            objetojsonauxiliar.Put("longitude", localizacao[1].Replace(".", ","));
 
             jsonArray.Put(objetojsonauxiliar);
             jsonObject.Put("listaparticipante", jsonArray);

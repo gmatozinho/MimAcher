@@ -121,7 +121,6 @@ namespace MimAcher.Mobile.com.Activities
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
-                    CursorBd.AtualizarParticipante(_participante);
                     break;
                 case Resource.Id.menu_exitapp:
                     Mensagens.MensagemDeLogout(this,this);

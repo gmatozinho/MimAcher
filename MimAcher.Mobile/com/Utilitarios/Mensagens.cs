@@ -76,6 +76,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             {
                 Toast.MakeText(contexto, "Sua localização será registrada!", ToastLength.Short).Show();
                 participante.Localizacao = await Geolocalizacao.CapturarLocalizacao();
+                CursorBd.AtualizarParticipante(participante);
             });
 
             alert.SetNegativeButton("Não", (sender, args) => Toast.MakeText(contexto, "Sua localização não será registrada", ToastLength.Short).Show());
