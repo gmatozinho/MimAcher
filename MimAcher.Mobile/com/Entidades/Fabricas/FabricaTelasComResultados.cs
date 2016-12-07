@@ -52,11 +52,12 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
             return codigoItem;
         }
 
-        internal void VerCombinacoes(int itemSelecionado,Context context)
+        internal void VerCombinacoes(int itemSelecionado, Context context)
         {
-            //TODO pesquisar o item no banco, buscando as combinações
             var combinacoesactivity = new Intent(context, typeof(CombinacoesActivity));
+            var tipocombinacao = context.GetType().ToString();
             combinacoesactivity.PutExtra("item", itemSelecionado);
+            combinacoesactivity.PutExtra("tipocombinacao", tipocombinacao);
             StartActivity(combinacoesactivity);
             Toast.MakeText(this, "Voce está na tela de exibição de combinações", ToastLength.Short).Show();
         }

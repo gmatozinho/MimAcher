@@ -144,6 +144,7 @@
     <Compile Include="com\Activities\TAB\ResultEnsinarActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultAprenderActivity.cs" />
     <Compile Include="com\Activities\TAB\ResultHobbiesActivity.cs" />
+    <Compile Include="com\Entidades\ListAdapterParticipante.cs" />
     <Compile Include="com\Entidades\ListaItens.cs" />
     <Compile Include="com\Entidades\TelaENomeParaLoading.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\ChecarConexao\AbstractConnectionHandler.cs" />
