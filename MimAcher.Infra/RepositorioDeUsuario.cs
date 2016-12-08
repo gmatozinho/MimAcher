@@ -102,7 +102,21 @@ namespace MimAcher.Infra
             }
             else
             {
-                return false;
+                MA_USUARIO usuarioaconferir = ObterUsuarioPorEmail(usuario.e_mail);
+
+                if (usuarioaconferir.e_mail.Equals(usuario.e_mail))
+                {
+                    MIMACHEREntities NovoContexto = new MIMACHEREntities();
+
+                    NovoContexto.Entry(usuario).State = EntityState.Modified;
+                    NovoContexto.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }                
             }
         }
 

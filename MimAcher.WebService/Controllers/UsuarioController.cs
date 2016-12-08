@@ -35,7 +35,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.cod_usuario = u.cod_usuario;
                 usuario.e_mail = u.e_mail;
                 usuario.senha = u.senha;
-
+                
                 listausuario.Add(usuario);
             }
 
@@ -120,6 +120,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.cod_usuario = listausuario[0].cod_usuario;
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
+                usuario.cod_acesso = 1;
 
                 try
                 {
