@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
 using MimAcher.WebService.Models;
+using System;
 
 namespace MimAcher.WebService.Controllers
 {
@@ -64,25 +65,37 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                int codigocadastrado = -1;
+                MA_NAC nac = new MA_NAC();
+                nac.cod_usuario = listanac[0].cd_usuario;
+                nac.cod_campus = listanac[0].cod_campus;
+                nac.nome_representante = listanac[0].nomerepresentante;
+                nac.telefone = listanac[0].telefone;
 
-                foreach (NAC nc in listanac)
+                try
                 {
-                    MA_NAC nac = new MA_NAC();
-                    nac.cod_usuario = nc.cd_usuario;
-                    nac.cod_campus = nc.cod_campus;
-                    nac.nome_representante = nc.nomerepresentante;
-                    nac.telefone = nc.telefone;
-
-                    this.GestorDeNAC.InserirNAC(nac);
-
-                    codigocadastrado = nac.cod_nac;
+                    if (this.GestorDeNAC.InserirNACComRetorno(nac))
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = nac.cod_nac
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-
-                jsonResult = Json(new
+                catch(Exception e)
                 {
-                    codigo = codigocadastrado
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
             
             jsonResult.MaxJsonLength = int.MaxValue;
@@ -107,29 +120,42 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                int codigocadastrado = -1;
+                MA_NAC nac = new MA_NAC();
+                nac.cod_usuario = listanac[0].cd_usuario;
+                nac.cod_campus = listanac[0].cod_campus;
+                nac.nome_representante = listanac[0].nomerepresentante;
+                nac.telefone = listanac[0].telefone;
 
-                foreach (NAC nc in listanac)
+                try
                 {
-                    MA_NAC nac = new MA_NAC();
-                    nac.cod_usuario = nc.cd_usuario;
-                    nac.cod_campus = nc.cod_campus;
-                    nac.nome_representante = nc.nomerepresentante;
-                    nac.telefone = nc.telefone;
-
-                    this.GestorDeNAC.AtualizarNAC(nac);
-
-                    codigocadastrado = nac.cod_nac;
+                    if (this.GestorDeNAC.AtualizarNACComRetorno(nac))
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = nac.cod_nac
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-
-                jsonResult = Json(new
+                catch(Exception e)
                 {
-                    codigo = codigocadastrado
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
     }
 }
