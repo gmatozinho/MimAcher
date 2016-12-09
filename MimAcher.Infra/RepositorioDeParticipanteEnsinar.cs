@@ -30,6 +30,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == participanteensinar.cod_participante && l.cod_item == participanteensinar.cod_item).SingleOrDefault();
         }
 
+        public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        {
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
+        }
+
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == participanteensinar.cod_item && l.cod_s_relacao == 1).Skip(participanteensinar.cod_p_ensinar).Take(20).ToList();
