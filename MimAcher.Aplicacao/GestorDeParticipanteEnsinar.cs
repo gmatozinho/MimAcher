@@ -34,6 +34,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
         }
 
+        public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        {
+            return this.RepositorioDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(id_item, id_participante);
+        }
+
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
             this.RepositorioDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipante(participanteensinar);
@@ -67,6 +72,18 @@ namespace MimAcher.Aplicacao
         public Boolean VerificarSeExisteRelacaoUsuarioEnsinarPorIdDaRelacao(int id_usuarioensinar)
         {
             if (ObterRelacaoDoQueOParticipanteEnsinaPorId(id_usuarioensinar) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean VerificarSeExisteRelacaoUsuarioEnsinarPorItemEParticipante(int id_item, int id_participante)
+        {
+            if(ObterEnsinoDeParticipantePorItemEParticipante(id_item, id_participante) != null)
             {
                 return true;
             }
