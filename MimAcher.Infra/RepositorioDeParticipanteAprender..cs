@@ -24,7 +24,7 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
         }
-
+        
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(int id_item, int id_participante)
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();

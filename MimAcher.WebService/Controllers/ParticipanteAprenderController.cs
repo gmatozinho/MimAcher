@@ -189,11 +189,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(listaparticipanteaprender[0].cod_p_aprender))
+                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioPorItemEParticipante(listaparticipanteaprender[0].cod_item, listaparticipanteaprender[0].cod_participante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
+                        MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDeParticipantePorItemEParticipante(listaparticipanteaprender[0].cod_item, listaparticipanteaprender[0].cod_participante);
 
                         if (participanteaprender.cod_s_relacao == 1)
                         {
