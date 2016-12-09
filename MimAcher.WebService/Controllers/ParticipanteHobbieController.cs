@@ -108,76 +108,7 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-
-        [HttpPost]
-        public ActionResult Update(List<ParticipanteHobbie> listaparticipantehobbie)
-        {
-            JsonResult jsonResult;
-
-            //Verifica se o registro é inválido e se sim, retorna com erro.
-            if (listaparticipantehobbie == null)
-            {
-                jsonResult = Json(new
-                {
-                    codigo = -1
-                }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
-                {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
-
-                    participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
-                    participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                    participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
-                    //Permanece a relação como ativa
-                    participantehobbie.cod_s_relacao = 1;
-
-                    try
-                    {
-                        Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
-
-                        if (resultado)
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = participantehobbie.cod_p_hobbie
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                        else
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = -1
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        jsonResult = Json(new
-                        {
-                            erro = e.InnerException.ToString(),
-                            codigo = -1
-                        }, JsonRequestBehavior.AllowGet);
-
-                    }
-
-                }
-                else
-                {
-                    jsonResult = Json(new
-                    {
-                        codigo = -1
-                    }, JsonRequestBehavior.AllowGet);
-                }
-
-            }
-
-            jsonResult.MaxJsonLength = int.MaxValue;
-            return jsonResult;
-        }
-
+        
         [HttpPost]
         public ActionResult Delete(List<ParticipanteHobbie> listaparticipantehobbie)
         {
