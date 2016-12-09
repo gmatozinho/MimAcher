@@ -106,74 +106,7 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-
-        [HttpPost]
-        public ActionResult Update(List<ParticipanteAprender> listaparticipanteaprender)
-        {
-            JsonResult jsonResult;
-
-            //Verifica se o registro é inválido e se sim, retorna com erro.
-            if (listaparticipanteaprender == null)
-            {
-                jsonResult = Json(new
-                {
-                    codigo = -1
-                }, JsonRequestBehavior.AllowGet);                
-            }
-            else
-            {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(listaparticipanteaprender[0].cod_p_aprender))
-                {
-                    MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDoParticipantePorId(listaparticipanteaprender[0].cod_p_aprender);
-                                        
-                    participanteaprender.cod_p_aprender = listaparticipanteaprender[0].cod_p_aprender;
-                    participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
-                    participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;                        
-                    //Permanece a relação como ativa
-                    participanteaprender.cod_s_relacao = 1;
-
-                    try
-                    {
-                        Boolean resultado = GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
-
-                        if (resultado)
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = participanteaprender.cod_participante
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                        else
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = -1
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        jsonResult = Json(new
-                        {
-                            erro = e.InnerException.ToString(),
-                            codigo = -1
-                        }, JsonRequestBehavior.AllowGet);
-                    }
-                }
-                else
-                {
-                    jsonResult = Json(new
-                    {
-                        codigo = -1
-                    }, JsonRequestBehavior.AllowGet);
-                }
-
-            }
-
-            jsonResult.MaxJsonLength = int.MaxValue;
-            return jsonResult;
-        }
-
+        
         [HttpPost]
         public ActionResult Delete(List<ParticipanteAprender> listaparticipanteaprender)
         {
