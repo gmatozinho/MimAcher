@@ -7,7 +7,6 @@ using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Activities.TAB;
 using MimAcher.Mobile.com.Entidades;
-using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Activities

@@ -2428,7 +2428,7 @@ namespace MimAcher.Mobile
 			public const int aprender = 2131165380;
 			
 			// aapt resource value: 0x7f070084
-			public const int avançar = 2131165316;
+			public const int avancar = 2131165316;
 			
 			// aapt resource value: 0x7f07001b
 			public const int beginning = 2131165211;

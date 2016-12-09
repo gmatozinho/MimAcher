@@ -5,7 +5,6 @@ using Android.Widget;
 using com.refractored.fab;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
-using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Activities
 {

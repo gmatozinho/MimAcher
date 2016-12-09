@@ -57,7 +57,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
                     LimparEListar(campo,pacoteCompleto.ListView,pacoteCompleto.ListaItens);
                     break;
             }
-            RegistrarRelação(mensagemEItem, pacoteCompleto.Participante.CodigoParticipante);
+            RegistrarRelacao(mensagemEItem, pacoteCompleto.Participante.CodigoParticipante);
         }
 
         private static int RegistrarItem(string item)
@@ -65,7 +65,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
             return Convert.ToInt32(CursorBd.EnviarItem(item));
         }
 
-        private static void RegistrarRelação(IReadOnlyList<string> mensagemEItem, string codigoParticipante)
+        private static void RegistrarRelacao(IReadOnlyList<string> mensagemEItem, string codigoParticipante)
         {
             var itemInserido = mensagemEItem[1];
             var relacao = mensagemEItem[0];

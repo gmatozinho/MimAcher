@@ -96,6 +96,7 @@ namespace MimAcher.Mobile.com.Activities
             if (_codigoParticipante == "-1")
             {
                 Mensagens.MensagemErroLogin(this);
+                return;
             }
             if (_codigoParticipante == "-2")
             {

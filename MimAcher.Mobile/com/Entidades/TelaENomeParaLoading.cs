@@ -1,5 +1,4 @@
 ﻿using Android.App;
-using Android.Content;
 
 namespace MimAcher.Mobile.com.Entidades
 {

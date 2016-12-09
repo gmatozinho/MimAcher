@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Android.Content;
-using Android.OS;
 using MimAcher.Mobile.com.Utilitarios;
 using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 

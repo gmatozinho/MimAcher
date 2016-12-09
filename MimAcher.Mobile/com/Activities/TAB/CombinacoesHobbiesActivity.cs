@@ -1,7 +1,6 @@
 using Android.App;
 using Android.OS;
 using MimAcher.Mobile.com.Entidades;
-using MimAcher.Mobile.com.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.com.Activities.TAB
 {
