@@ -43,7 +43,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             }
             else if (nometela == "InscreverUsuario")
             {
-                progressDialog.Hide();
+                progressDialog.Dismiss();
                 var tela = (InscreverActivity)telaENome.Tela;
                 tela.InscreverParticipante(tela);
             }

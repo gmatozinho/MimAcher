@@ -17,7 +17,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             var resposta = ObterResposta(requisicao);
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoParticipante = jsonResposta.SelectToken("codigoparticipante").ToString().Replace("{", "").Replace("}", "");
+            var codigoParticipante = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
 
             return codigoParticipante;
         }
@@ -30,7 +30,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             var resposta = ObterResposta(requisicao);
             var jsonResposta = JObject.Parse(resposta.ToString());
-            var codigoItem = jsonResposta.SelectToken("codigoparticipante").ToString().Replace("{", "").Replace("}", "");
+            var codigoItem = jsonResposta.SelectToken("codigo").ToString().Replace("{", "").Replace("}", "");
 
             return codigoItem;
         }

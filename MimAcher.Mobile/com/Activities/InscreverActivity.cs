@@ -112,7 +112,7 @@ namespace MimAcher.Mobile.com.Activities
                     GetCampus();
                     _telaENome = new TelaENomeParaLoading(this, "InscreverUsuario");
                     Loading.MyButtonClicked(_telaENome);
-                    OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
+                    //InscreverParticipante(this);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
