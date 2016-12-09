@@ -124,17 +124,17 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
+                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterParticipanteHobbiePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante));
 
                         if (participantehobbie.cod_s_relacao == 1)
                         {
                             participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
                             participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                            participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                            participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;                        
                             //Marca a relação como inativa
                             participantehobbie.cod_s_relacao = 2;
 
