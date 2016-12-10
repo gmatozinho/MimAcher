@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.Widget;
 using MimAcher.Mobile.com.Activities;
+using MimAcher.Mobile.com.Activities.TAB;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 
@@ -117,7 +118,6 @@ namespace MimAcher.Mobile.com.Utilitarios
         internal static void MensagemOpcoes(List<string> listNomeCodItem,int codParticipanteAtivo, FabricaTelasComResultados telaResultados)
         {
             var codItemSelecionado = Convert.ToInt32(listNomeCodItem[0]);
-            var itemSelecionado = listNomeCodItem[1];
             var alert = new AlertDialog.Builder(telaResultados);
             alert.SetTitle("Opções");
             alert.SetMessage("Você deseja remover o item ou consultar combinações?");
@@ -127,18 +127,23 @@ namespace MimAcher.Mobile.com.Utilitarios
             });
             alert.SetNegativeButton("Remover", (senderAlert, args) =>
             {
-                MensagemParaRemoverItemSelecionado(itemSelecionado, telaResultados);
+                MensagemParaRemoverItemSelecionado(listNomeCodItem,codParticipanteAtivo, telaResultados);
             });
             alert.Show();
         }
 
-        private static void MensagemParaRemoverItemSelecionado(string itemSelecionado, FabricaTelasComResultados telaResultados)
+        private static void MensagemParaRemoverItemSelecionado(IReadOnlyList<string> listNomeCodItem, int codParticipanteAtivo, FabricaTelasComResultados telaResultados)
         {
+            var codItemSelecionado = Convert.ToInt32(listNomeCodItem[0]);
+            var itemSelecionado = listNomeCodItem[1];
+            var tipoRelacao = telaResultados.GetType().ToString();
+
             var alert = new AlertDialog.Builder(telaResultados);
             alert.SetTitle("Remover!");
             alert.SetMessage("Você tem certeza que deseja remover?\n\n" + itemSelecionado);
             alert.SetPositiveButton("Ok", (senderAlert, args) =>
             {
+                RemoverRelacao(tipoRelacao,codItemSelecionado,codParticipanteAtivo);
                 Toast.MakeText(telaResultados, itemSelecionado + " foi exluído!", ToastLength.Short).Show();
                 telaResultados.RemoverItemSelecionado(itemSelecionado);
             });
@@ -206,5 +211,24 @@ namespace MimAcher.Mobile.com.Utilitarios
             const string toast = ("Usuário Criado");
             Toast.MakeText(context, toast, ToastLength.Long).Show();
         }
+
+        private static void RemoverRelacao(string tipoCombinacao, int codItem, int codParticipante)
+        {
+
+            if (tipoCombinacao == typeof(ResultHobbiesActivity).ToString())
+            {
+                CursorBd.DeletarHobbie(codParticipante, codItem);
+            }
+            else if (tipoCombinacao == typeof(ResultAprenderActivity).ToString())
+            {
+                CursorBd.DeletarAprender(codParticipante,codItem);
+            }
+            else if (tipoCombinacao == typeof(ResultEnsinarActivity).ToString())
+            {
+                CursorBd.DeletarAprender(codParticipante,codItem);
+            }
+            
+        }
+        
     }
 }
