@@ -129,10 +129,7 @@ namespace MimAcher.WebService.Controllers
                         MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(listaparticipanteensinar[0].cod_item, listaparticipanteensinar[0].cod_participante);
 
                         if (participanteensinar.cod_s_relacao == 1)
-                        {
-                            participanteensinar.cod_p_ensinar = listaparticipanteensinar[0].cod_p_ensinar;
-                            participanteensinar.cod_participante = listaparticipanteensinar[0].cod_participante;
-                            participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
+                        {                            
                             //Marca a relação como inativa
                             participanteensinar.cod_s_relacao = 2;
 

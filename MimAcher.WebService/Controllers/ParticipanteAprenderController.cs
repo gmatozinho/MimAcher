@@ -130,20 +130,27 @@ namespace MimAcher.WebService.Controllers
 
                         if (participanteaprender.cod_s_relacao == 1)
                         {
-                            participanteaprender.cod_p_aprender = listaparticipanteaprender[0].cod_p_aprender;
-                            participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
-                            participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
                             //Marca a relação como inativa
                             participanteaprender.cod_s_relacao = 2;
 
                             try
                             {
-                                this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipante(participanteaprender);
+                                Boolean resultado = this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
 
-                                jsonResult = Json(new
+                                if (resultado)
                                 {
-                                    codigo = participanteaprender.cod_p_aprender
-                                }, JsonRequestBehavior.AllowGet);
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = participanteaprender.cod_p_aprender
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
+                                else
+                                {
+                                    jsonResult = Json(new
+                                    {
+                                        codigo = -1
+                                    }, JsonRequestBehavior.AllowGet);
+                                }
                             }
                             catch(Exception e)
                             {
