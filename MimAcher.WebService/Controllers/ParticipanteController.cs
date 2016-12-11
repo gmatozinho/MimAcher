@@ -30,7 +30,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantes();
+            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantesDeUsuariosAtivos();
             List<Participante> listaparticipante = new List<Participante>();
 
             foreach (MA_PARTICIPANTE pt in listaparticipanteoriginal)

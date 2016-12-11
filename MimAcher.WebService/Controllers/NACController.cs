@@ -27,7 +27,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC> listanacoriginal = this.GestorDeNAC.ObterTodosOsNAC();
+            List<MA_NAC> listanacoriginal = this.GestorDeNAC.ObterTodosOsNACDeUsuariosAtivos();
             List<NAC> listanac = new List<NAC>();
 
             foreach (MA_NAC nc in listanacoriginal)
