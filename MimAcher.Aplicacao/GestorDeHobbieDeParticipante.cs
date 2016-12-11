@@ -24,6 +24,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistros();
         }
 
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistrosAtivos()
+        {
+            return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistrosAtivos();
+        }
+
         public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
         {
             return this.RepositorioDeParcipanteHobbie.ObterHobbiesDeParticipantePorIdDeItem(id_item);

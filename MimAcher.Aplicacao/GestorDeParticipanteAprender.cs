@@ -23,7 +23,12 @@ namespace MimAcher.Aplicacao
         {
             return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsRegistros();
         }
-                
+
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistrosAtivos()
+        {
+            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsRegistrosAtivos();
+        }
+
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
