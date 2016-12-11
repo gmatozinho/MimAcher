@@ -24,6 +24,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParticipante.ObterParticipantePorId(id);
         }
 
+        public MA_PARTICIPANTE ObterUsuarioAtivoDeParticipantePorId(int id)
+        {
+            return this.RepositorioDeParticipante.ObterUsuarioAtivoDeParticipantePorId(id);
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
             return this.RepositorioDeParticipante.ObterParticipantePorIdDeUsuario(idUsuario);
@@ -32,6 +37,11 @@ namespace MimAcher.Aplicacao
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {
             return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
+        }
+
+        public List<MA_PARTICIPANTE> ObterTodosOsParticipantesDeUsuariosAtivos()
+        {
+            return this.RepositorioDeParticipante.ObterTodosOsParticipantesDeUsuariosAtivos();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
