@@ -408,8 +408,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Impressao\ErroReport.rdlc" />
-    <EmbeddedResource Include="Impressao\RelacaoReport.rdlc" />
+    <EmbeddedResource Include="Impressao\ErroReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Impressao\RelacaoReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
