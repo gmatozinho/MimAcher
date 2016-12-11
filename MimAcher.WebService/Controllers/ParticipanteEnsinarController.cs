@@ -25,7 +25,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE_ENSINAR> listaparticipanteensinaroriginal = GestorDeParticipanteEnsinar.ObterTodosOsRegistros();
+            List<MA_PARTICIPANTE_ENSINAR> listaparticipanteensinaroriginal = GestorDeParticipanteEnsinar.ObterTodosOsRegistrosAtivos();
             List<ParticipanteEnsinar> listaparticipanteensinar = new List<ParticipanteEnsinar>();
 
             foreach (MA_PARTICIPANTE_ENSINAR pe in listaparticipanteensinaroriginal)
