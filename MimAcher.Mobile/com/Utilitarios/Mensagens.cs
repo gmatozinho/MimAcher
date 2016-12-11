@@ -225,7 +225,7 @@ namespace MimAcher.Mobile.com.Utilitarios
             }
             else if (tipoCombinacao == typeof(ResultEnsinarActivity).ToString())
             {
-                CursorBd.DeletarAprender(codParticipante,codItem);
+                CursorBd.DeletarEnsinar(codParticipante,codItem);
             }
             
         }
