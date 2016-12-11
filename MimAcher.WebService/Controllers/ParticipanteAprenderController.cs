@@ -72,7 +72,7 @@ namespace MimAcher.WebService.Controllers
                 participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
 
                 //Informa que a relação estará ativa
-                participanteaprender.cod_s_relacao = 1;
+                participanteaprender.cod_status = 1;
 
                 try
                 {
@@ -128,20 +128,26 @@ namespace MimAcher.WebService.Controllers
                     {
                         MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDeParticipantePorItemEParticipante(listaparticipanteaprender[0].cod_item, listaparticipanteaprender[0].cod_participante);
 
-                        if (participanteaprender.cod_s_relacao == 1)
+                        if (participanteaprender.cod_status == 1)
                         {
-                            //Marca a relação como inativa
-                            participanteaprender.cod_s_relacao = 2;
+                            MA_PARTICIPANTE_APRENDER participanteaprendermodificado = new MA_PARTICIPANTE_APRENDER();
 
+                            participanteaprendermodificado.cod_p_aprender = participanteaprender.cod_p_aprender;
+                            participanteaprendermodificado.cod_participante = participanteaprender.cod_participante;
+                            participanteaprendermodificado.cod_item = participanteaprender.cod_item;
+
+                            //Marca a relação como inativa
+                            participanteaprendermodificado.cod_status = 2;
+                            
                             try
                             {
-                                Boolean resultado = this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
+                                Boolean resultado = this.GestorDeParticipanteAprender.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprendermodificado);
 
                                 if (resultado)
                                 {
                                     jsonResult = Json(new
                                     {
-                                        codigo = participanteaprender.cod_p_aprender
+                                        codigo = participanteaprendermodificado.cod_p_aprender
                                     }, JsonRequestBehavior.AllowGet);
                                 }
                                 else

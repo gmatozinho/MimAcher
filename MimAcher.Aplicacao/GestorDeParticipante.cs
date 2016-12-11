@@ -97,5 +97,17 @@ namespace MimAcher.Aplicacao
             }
             return false;
         }
+
+        public Boolean VerificarSeExisteParticipantePorId(int idParticipante)
+        {
+            if (ObterParticipantePorId(idParticipante) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

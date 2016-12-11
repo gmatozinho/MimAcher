@@ -2,6 +2,9 @@
 using MimAcher.Dominio;
 using MimAcher.Infra;
 using System;
+using MimAcher.Dominio.Model;
+using System.Data.Entity;
+
 
 namespace MimAcher.Aplicacao
 {
@@ -37,6 +40,21 @@ namespace MimAcher.Aplicacao
         public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int id_item, int id_participante)
         {
             return this.RepositorioDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(id_item, id_participante);
+        }
+
+        public List<RelacaoImpressao> ObterTodasAsRelacoesDeParticipanteEnsinarOrdenadoPorQuantidade()
+        {
+            List<MA_PARTICIPANTE_ENSINAR> listaparticipanteensinar = ObterTodosOsRegistros();
+            List<RelacaoImpressao> listarelacaoimpressao = new List<RelacaoImpressao>();
+
+            foreach(MA_PARTICIPANTE_ENSINAR pa in listaparticipanteensinar)
+            {
+                RelacaoImpressao relacaoimpressao = new RelacaoImpressao();
+
+                //listaparticipanteensinar.wh
+            }
+
+            return listarelacaoimpressao;
         }
 
         public void InserirNovoEnsinamentoDeParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)

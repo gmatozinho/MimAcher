@@ -18,9 +18,6 @@ namespace MimAcher.Dominio
         public MA_PARTICIPANTE()
         {
             this.MA_IMAGEM_PARTICIPANTE = new HashSet<MA_IMAGEM_PARTICIPANTE>();
-            this.MA_PARTICIPANTE_APRENDER = new HashSet<MA_PARTICIPANTE_APRENDER>();
-            this.MA_PARTICIPANTE_ENSINAR = new HashSet<MA_PARTICIPANTE_ENSINAR>();
-            this.MA_PARTICIPANTE_HOBBIE = new HashSet<MA_PARTICIPANTE_HOBBIE>();
         }
     
         public int cod_participante { get; set; }
@@ -34,12 +31,6 @@ namespace MimAcher.Dominio
         public virtual MA_CAMPUS MA_CAMPUS { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_IMAGEM_PARTICIPANTE> MA_IMAGEM_PARTICIPANTE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE_APRENDER> MA_PARTICIPANTE_APRENDER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
         public virtual MA_USUARIO MA_USUARIO { get; set; }
     }
 }

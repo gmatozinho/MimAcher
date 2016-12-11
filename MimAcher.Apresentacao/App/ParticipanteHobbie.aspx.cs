@@ -13,7 +13,7 @@ namespace MimAcher.Apresentacao.App
         public GestorDeHobbieDeParticipante GestorDeHobbieDeParticipante { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeItem GestorDeItem { get; set; }
-        public GestorDeStatusDeRelacao GestorDeStatusDeRelacao { get; set; }
+        public GestorDeStatus GestorDeStatus { get; set; }
 
         public ParticipanteHobbie()
         {
@@ -21,7 +21,7 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
-            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
+            this.GestorDeStatus = new GestorDeStatus();
 
         }
 
@@ -38,8 +38,8 @@ namespace MimAcher.Apresentacao.App
                 StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
                 StoreItemId.DataBind();
 
-                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao();
-                StoreStatusRelacaoId.DataBind();
+                StoreStatusId.DataSource = this.GestorDeStatus.ObterTodosOsStatus();
+                StoreStatusId.DataBind();
             }
         }
 
@@ -78,7 +78,7 @@ namespace MimAcher.Apresentacao.App
 
             hobbieparticipante.cod_participante = Int32.Parse(cod_participanteId.SelectedItem.Value);
             hobbieparticipante.cod_item = Int32.Parse(cod_itemId.SelectedItem.Value);
-            hobbieparticipante.cod_s_relacao = Int32.Parse(cod_s_relacaoId.SelectedItem.Value);
+            hobbieparticipante.cod_status = Int32.Parse(cod_statusId.SelectedItem.Value);
 
             //Caso o form não possui código, será inserido um novo hobbie de participante
             if (cod_p_hobbieId.Text == "")

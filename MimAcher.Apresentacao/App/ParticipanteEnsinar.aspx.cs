@@ -13,7 +13,7 @@ namespace MimAcher.Apresentacao.App
         public GestorDeParticipanteEnsinar GestorDeParticipanteEnsinar { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeItem GestorDeItem { get; set; }
-        public GestorDeStatusDeRelacao GestorDeStatusDeRelacao { get; set; }
+        public GestorDeStatus GestorDeStatus { get; set; }
 
         public ParticipanteEnsinar()
         {
@@ -21,7 +21,7 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeItem = new GestorDeItem();
-            this.GestorDeStatusDeRelacao = new GestorDeStatusDeRelacao();
+            this.GestorDeStatus = new GestorDeStatus();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,8 +37,8 @@ namespace MimAcher.Apresentacao.App
                 StoreItemId.DataSource = this.GestorDeItem.ObterTodosOsItems().OrderBy(l => l.nome);
                 StoreItemId.DataBind();
 
-                StoreStatusRelacaoId.DataSource = this.GestorDeStatusDeRelacao.ObterTodosOsStatusDeRelacao();
-                StoreStatusRelacaoId.DataBind();
+                StoreStatusId.DataSource = this.GestorDeStatus.ObterTodosOsStatus();
+                StoreStatusId.DataBind();
             }
         }
 
@@ -77,7 +77,7 @@ namespace MimAcher.Apresentacao.App
 
             ensinarparticipante.cod_participante = Int32.Parse(cod_participanteId.SelectedItem.Value);
             ensinarparticipante.cod_item = Int32.Parse(cod_itemId.SelectedItem.Value);
-            ensinarparticipante.cod_s_relacao = Int32.Parse(cod_s_relacaoId.SelectedItem.Value);
+            ensinarparticipante.cod_status = Int32.Parse(cod_statusId.SelectedItem.Value);
 
             //Caso o form não possui código, será inserido um novo ensinar de participante
             if (cod_p_ensinarId.Text == "")

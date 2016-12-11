@@ -54,9 +54,17 @@ namespace MimAcher.Apresentacao
 
                     if (GestorDeAcesso.VerificarSeUsuarioTemAcessoWeb(usuario.cod_acesso))
                     {
-                        Session.Add("usuario", usuario);
-                        this.LoginWindowId.Close();
-                        Response.Redirect("/App/Usuario.aspx");
+                        if(usuario.cod_status == 1)
+                        {
+                            Session.Add("usuario", usuario);
+                            this.LoginWindowId.Close();
+                            Response.Redirect("/App/Usuario.aspx");
+                        }
+                        else
+                        {
+                            X.Msg.Alert("Erro", "Seu usuário está inativo... contate um administrador...").Show();
+                        }
+                        
                     }
                     else
                     {

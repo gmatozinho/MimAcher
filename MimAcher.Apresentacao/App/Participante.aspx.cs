@@ -6,6 +6,11 @@ using System.Web.UI.WebControls;
 using Ext.Net;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using Microsoft.Reporting.WebForms;
+using MimAcher.Apresentacao.Impressao;
+using System.IO;
+using MimAcher.Dominio.Model;
+using System.Collections.Generic;
 
 namespace MimAcher.Apresentacao.App
 {
@@ -16,6 +21,9 @@ namespace MimAcher.Apresentacao.App
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeCampus GestorDeCampus { get; set; }
         public GestorDeAplicacao GestorDeAplicacao { get; set; }
+        public GestorDeHobbieDeParticipante GestorDeHobbieDeParticipante { get; set; }
+        public GestorDeParticipanteAprender GestorDeParticipanteAprender { get; set; }
+        public GestorDeParticipanteEnsinar GestorDeParticipanteEnsinar { get; set; }
 
         public Participante()
         {
@@ -24,6 +32,9 @@ namespace MimAcher.Apresentacao.App
             this.GestorDeParticipante = new GestorDeParticipante();
             this.GestorDeCampus = new GestorDeCampus();
             this.GestorDeAplicacao = new GestorDeAplicacao();
+            this.GestorDeHobbieDeParticipante = new GestorDeHobbieDeParticipante();
+            this.GestorDeParticipanteAprender = new GestorDeParticipanteAprender();
+            this.GestorDeParticipanteEnsinar = new GestorDeParticipanteEnsinar();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -134,6 +145,46 @@ namespace MimAcher.Apresentacao.App
             win.Render(this);
 
             Session.Add("participante", participante);
+        }
+
+        //Imprimir Lista de Relação de Matchs Participantes diretamente em um PDF utilizando o Report View
+        protected void Imprimir(object sender, DirectEventArgs e)
+        {
+            List<RelacaoImpressao> listaimpressaopersonalizada = new List<RelacaoImpressao>();
+
+            //List<MA_ERRO> listaerros = GestorDeErro.ObterTodosOsErros();
+            
+            //Define que que o tipo de processamento do Report será local
+            ReportViewerRelacao.ProcessingMode = ProcessingMode.Local;
+
+            //Informa o caminho de onde está o arquivo do relatório
+            ReportViewerRelacao.LocalReport.ReportPath = Server.MapPath("~/Impressao/RelacaoReport.rdlc");
+
+            //Adiciona as listas a determinados Report Data Sources
+            ReportDataSource datasource1 = new ReportDataSource("DataSetRelacaoReport", listaimpressaopersonalizada);
+
+            //Limpa qualquer vestígio em memória contido no Report Local
+            ReportViewerRelacao.LocalReport.DataSources.Clear();
+
+            //Adiciona ao Report View os data sources declarados acima
+            ReportViewerRelacao.LocalReport.DataSources.Add(datasource1);
+
+            ReportViewerRelacao.LocalReport.Refresh();
+
+            Warning[] warnings;
+            string[] streamids;
+            string mimeType;
+            string encoding;
+            string extension;
+
+            byte[] bytes = ReportViewerRelacao.LocalReport.Render(
+            "Pdf", null, out mimeType, out encoding,
+             out extension,
+            out streamids, out warnings);
+
+            Session.Add("NomeArquivo", bytes);
+
+            X.Js.AddScript("window.open('ImpressaoRelacao.aspx','_blank');");
         }
 
         //Limpa o formulário

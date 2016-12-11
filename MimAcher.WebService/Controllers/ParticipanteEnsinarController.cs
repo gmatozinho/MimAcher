@@ -72,7 +72,7 @@ namespace MimAcher.WebService.Controllers
                 participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
 
                 //Informa que a relação estará ativa
-                participanteensinar.cod_s_relacao = 1;
+                participanteensinar.cod_status = 1;
 
                 try
                 {
@@ -128,10 +128,16 @@ namespace MimAcher.WebService.Controllers
                     {
                         MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(listaparticipanteensinar[0].cod_item, listaparticipanteensinar[0].cod_participante);
 
-                        if (participanteensinar.cod_s_relacao == 1)
-                        {                            
+                        if (participanteensinar.cod_status == 1)
+                        {
+                            MA_PARTICIPANTE_ENSINAR participanteensinarmodificado = new MA_PARTICIPANTE_ENSINAR();
+
+                            participanteensinarmodificado.cod_p_ensinar = participanteensinar.cod_p_ensinar;
+                            participanteensinarmodificado.cod_participante = participanteensinar.cod_participante;
+                            participanteensinarmodificado.cod_item = participanteensinar.cod_item;
+
                             //Marca a relação como inativa
-                            participanteensinar.cod_s_relacao = 2;
+                            participanteensinarmodificado.cod_status = 2;
 
                             try
                             {
@@ -141,7 +147,7 @@ namespace MimAcher.WebService.Controllers
                                 {
                                     jsonResult = Json(new
                                     {
-                                        codigo = participanteensinar.cod_p_ensinar
+                                        codigo = participanteensinarmodificado.cod_p_ensinar
                                     }, JsonRequestBehavior.AllowGet);
                                 }
                                 else

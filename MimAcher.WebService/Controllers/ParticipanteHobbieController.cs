@@ -72,7 +72,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
 
                 //Informa que a relação estará ativa
-                participantehobbie.cod_s_relacao = 1;
+                participantehobbie.cod_status = 1;
 
                 try
                 {
@@ -130,20 +130,26 @@ namespace MimAcher.WebService.Controllers
                     {
                         MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterParticipanteHobbiePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante);
 
-                        if (participantehobbie.cod_s_relacao == 1)
-                        {                            
+                        if (participantehobbie.cod_status == 1)
+                        {
+                            MA_PARTICIPANTE_HOBBIE participantehobbiemodificado = new MA_PARTICIPANTE_HOBBIE();
+
+                            participantehobbiemodificado.cod_p_hobbie = participantehobbie.cod_p_hobbie;
+                            participantehobbiemodificado.cod_participante = participantehobbie.cod_participante;
+                            participantehobbiemodificado.cod_item = participantehobbie.cod_item;
+
                             //Marca a relação como inativa
-                            participantehobbie.cod_s_relacao = 2;
+                            participantehobbiemodificado.cod_status = 2;
 
                             try
                             {
-                                Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
+                                Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbiemodificado);
 
                                 if (resultado)
                                 {
                                     jsonResult = Json(new
                                     {
-                                        codigo = participantehobbie.cod_p_hobbie
+                                        codigo = participantehobbiemodificado.cod_p_hobbie
                                     }, JsonRequestBehavior.AllowGet);
                                 }
                                 else

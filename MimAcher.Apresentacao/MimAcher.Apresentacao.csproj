@@ -97,6 +97,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework, Version=3.0.5797.27534, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.0.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -167,6 +169,8 @@
     <Content Include="App\Campus.aspx" />
     <Content Include="App\Erro.aspx" />
     <Content Include="App\ImagemParticipante.aspx" />
+    <Content Include="App\ImpressaoErro.aspx" />
+    <Content Include="App\ImpressaoRelacao.aspx" />
     <Content Include="App\Item.aspx" />
     <Content Include="App\Mapa\PontoMapa.aspx" />
     <Content Include="App\NAC.aspx" />
@@ -175,7 +179,7 @@
     <Content Include="App\ParticipanteAprender.aspx" />
     <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
-    <Content Include="App\StatusRelacao.aspx" />
+    <Content Include="App\Status.aspx" />
     <Content Include="App\Usuario.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -187,6 +191,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Impressao\Imagem\logo.gif" />
     <Content Include="Login.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Styles\customizado.css" />
@@ -197,6 +202,28 @@
     </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
+    <Content Include="Impressao\DataSetErro.xsc">
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+    </Content>
+    <None Include="Impressao\DataSetErro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetErro.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Impressao\DataSetErro.xss">
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+    </Content>
+    <Content Include="Impressao\DataSetRelacao.xsc">
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
+    </Content>
+    <None Include="Impressao\DataSetRelacao.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRelacao.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Impressao\DataSetRelacao.xss">
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\IIS Servidor.pubxml" />
     <None Include="Web.Debug.config">
@@ -241,6 +268,20 @@
     </Compile>
     <Compile Include="App\ImagemParticipante.aspx.designer.cs">
       <DependentUpon>ImagemParticipante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ImpressaoErro.aspx.cs">
+      <DependentUpon>ImpressaoErro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ImpressaoErro.aspx.designer.cs">
+      <DependentUpon>ImpressaoErro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ImpressaoRelacao.aspx.cs">
+      <DependentUpon>ImpressaoRelacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ImpressaoRelacao.aspx.designer.cs">
+      <DependentUpon>ImpressaoRelacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Item.aspx.cs">
       <DependentUpon>Item.aspx</DependentUpon>
@@ -298,12 +339,12 @@
     <Compile Include="App\ParticipanteHobbie.aspx.designer.cs">
       <DependentUpon>ParticipanteHobbie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\StatusRelacao.aspx.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
+    <Compile Include="App\Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\StatusRelacao.aspx.designer.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
+    <Compile Include="App\Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Usuario.aspx.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
@@ -321,6 +362,16 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Impressao\DataSetErro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Impressao\DataSetRelacao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -347,6 +398,13 @@
       <Project>{cadca1c1-7eac-4695-8f7a-43863db2b982}</Project>
       <Name>MimAcher.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Impressao\ErroReport.rdlc" />
+    <EmbeddedResource Include="Impressao\RelacaoReport.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

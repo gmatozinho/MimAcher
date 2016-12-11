@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,7 +59,7 @@
     <Compile Include="GestorDeHobbieDeParticipante.cs" />
     <Compile Include="GestorDeImagemDeParticipante.cs" />
     <Compile Include="GestorDeNAC.cs" />
-    <Compile Include="GestorDeStatusDeRelacao.cs" />
+    <Compile Include="GestorDeStatus.cs" />
     <Compile Include="GestorDeUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

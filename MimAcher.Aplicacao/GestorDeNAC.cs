@@ -83,5 +83,17 @@ namespace MimAcher.Aplicacao
 
             return false;
         }
+
+        public Boolean VerificarSeNACPorId(int idNAC)
+        {
+            if(ObterNACPorId(idNAC) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

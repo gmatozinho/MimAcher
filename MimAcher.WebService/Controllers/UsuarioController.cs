@@ -67,23 +67,37 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
 
+                //Parametriza o usuário com nivel de acesso web e código de status 1
+                usuario.cod_acesso = 1;
+                usuario.cod_status = 1;
+
                 try
                 {
-                    Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
-
-                    if (resultado)
-                    {
-                        jsonResult = Json(new
-                        {
-                            codigo = usuario.cod_usuario
-                        }, JsonRequestBehavior.AllowGet);
-                    }
-                    else
+                    if (GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmail(usuario.e_mail))
                     {
                         jsonResult = Json(new
                         {
                             codigo = -1
                         }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
+
+                        if (resultado)
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = usuario.cod_usuario
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
                 }
                 catch(Exception e)
@@ -121,6 +135,7 @@ namespace MimAcher.WebService.Controllers
                 usuario.e_mail = listausuario[0].e_mail;
                 usuario.senha = listausuario[0].senha;
                 usuario.cod_acesso = 1;
+                usuario.cod_status = 1;
 
                 try
                 {

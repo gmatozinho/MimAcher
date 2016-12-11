@@ -32,17 +32,19 @@ namespace MimAcher.Infra
 
         public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int id_item, int id_participante)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
+            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+
+            return ContextoModificado.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == participanteensinar.cod_item && l.cod_s_relacao == 1).Skip(participanteensinar.cod_p_ensinar).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == participanteensinar.cod_item && l.cod_status == 1).Skip(participanteensinar.cod_p_ensinar).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).Take(20).ToList();        
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_status == 1).Take(20).ToList();        
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
@@ -61,7 +63,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
 
-                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                if (participanteensinarconferencia.cod_status != participanteensinar.cod_status)
                 {
                     AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
                 }
@@ -83,7 +85,7 @@ namespace MimAcher.Infra
 
                 try
                 {
-                    if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                    if (participanteensinarconferencia.cod_status != participanteensinar.cod_status)
                     {
                         return AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinar);
                     }
@@ -122,7 +124,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
 
-                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                if (participanteensinarconferencia.cod_status != participanteensinar.cod_status)
                 {
                     AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
 
@@ -145,7 +147,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
 
-                if (participanteensinarconferencia.cod_s_relacao != participanteensinar.cod_s_relacao)
+                if (participanteensinarconferencia.cod_status != participanteensinar.cod_status)
                 {
                     AtualizarEnsinamentoDeParticipanteSemConferencia(participanteensinar);
                 }

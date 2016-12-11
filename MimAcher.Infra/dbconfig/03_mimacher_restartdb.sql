@@ -24,3 +24,5 @@ delete from ma_campus
 DBCC CHECKIDENT('ma_campus', RESEED, 0)
 delete from ma_acesso
 DBCC CHECKIDENT('ma_acesso', RESEED, 0)
+delete from ma_status
+DBCC CHECKIDENT('ma_status', RESEED, 0)

@@ -43,6 +43,15 @@ namespace MimAcher.Aplicacao
             return false;
         }
 
+        public Boolean VerificarExistenciaDeUsuarioPorEmail(String email)
+        {
+            if (ObterUsuarioPorEmail(email) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);

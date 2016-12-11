@@ -1,13 +1,13 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4979AB00-EB88-796D-BCC0-8E9FE23A9A79" name="FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="703F551B-3399-CCCF-25A0-5CA34D794893" name="PARTICIPANTE_HOBBIE_Status_FK">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:38:28 UTC</createdTime>
+<createdTime>2016-12-11 02:15:47 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <containerWithKeyObject>BB6DC990-1E62-2BB4-896A-BDD78779A152</containerWithKeyObject>
 <deleteRule>NO ACTION</deleteRule>
-<localFKIndex>101FC6F1-7408-34E3-16BA-9E12A8A87C3C</localFKIndex>
-<keyObject>D66F6146-0335-F4DB-A02C-621652F1ACFD</keyObject>
+<localFKIndex>27D73414-CE42-7D5D-830F-D8A286A08F7B</localFKIndex>
+<keyObject>4F993C32-D35C-8021-3CF2-549D8DBB9E99</keyObject>
 <mandatory>true</mandatory>
 <transferable>true</transferable>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>

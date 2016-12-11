@@ -29,6 +29,21 @@
 <dataTypeSize>50</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="cod_status" id="4DC34F99-4586-DFFB-ACA6-5B54A7E40B5F">
+<createdBy>pchan</createdBy>
+<createdTime>2016-12-11 02:17:00 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>E3CFA43F-C754-F3C0-AC2B-53248684F883</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="99AFAB57-0177-3C69-78ED-B8EA0C9703D3" referredColumn="E3CFA43F-C754-F3C0-AC2B-53248684F883"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="406F0CC5-70C4-C1D2-44A1-21363FD73BC5" name="PK_MA_ITEM_cod_item">
@@ -41,6 +56,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="A2B24694-565F-9D84-EB45-4D1BBF6561B0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C5AEF0B5-1AFC-EDE7-094C-FD679A4BF16B" name="ITEM_Status_FK">
+<createdBy>pchan</createdBy>
+<createdTime>2016-12-11 02:17:00 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4DC34F99-4586-DFFB-ACA6-5B54A7E40B5F"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

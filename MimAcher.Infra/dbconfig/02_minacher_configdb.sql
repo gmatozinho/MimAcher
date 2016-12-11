@@ -25,6 +25,6 @@ insert into ma_campus values('Guarapari')
 insert into ma_campus values('Colatina')
 insert into ma_campus values('São Mateus')
 
---Tabela Status de Relação
-insert into ma_status_relacao values('Ativo')
-insert into ma_status_relacao values('Inativo')
+--Tabela Status
+insert into ma_status values('Ativo')
+insert into ma_status values('Inativo')

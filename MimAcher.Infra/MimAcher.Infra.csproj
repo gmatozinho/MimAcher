@@ -64,7 +64,7 @@
     <Compile Include="RepositorioDeImagemDeParticipante.cs" />
     <Compile Include="RepositorioDeItem.cs" />
     <Compile Include="RepositorioDeNAC.cs" />
-    <Compile Include="RepositorioDeStatusDeRelacao.cs" />
+    <Compile Include="RepositorioDeStatus.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
   </ItemGroup>
   <ItemGroup>

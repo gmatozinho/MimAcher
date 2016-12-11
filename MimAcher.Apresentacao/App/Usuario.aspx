@@ -5,7 +5,7 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 	<%-- Window --%>
-	<ext:Window ID="UsuarioWindowId" Width="540" Height="230" Modal="true" runat="server" Hidden="true">
+	<ext:Window ID="UsuarioWindowId" Width="540" Height="260" Modal="true" runat="server" Hidden="true">
 		<Items>
 
 		<%-- Form --%>
@@ -39,6 +39,22 @@
 										<ext:Model ID="ModelAcessoId" runat="server">
 											<Fields>
 												<ext:ModelField Name="cod_acesso_combo" Mapping="cod_acesso" />
+												<ext:ModelField Name="nome_combo" Mapping="nome" />
+											</Fields>
+										</ext:Model>
+									</Model>
+								</ext:Store>
+							</Store>
+						</ext:ComboBox> 
+
+						<%-- Combobox de Status --%>
+						<ext:ComboBox ID="cod_statusId" Width="470" Name="cod_status" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_status_combo" DisplayField="nome_combo">
+							<Store>
+								<ext:Store ID="StoreStatusId" runat="server">
+									<Model>
+										<ext:Model ID="ModelStatusId" runat="server">
+											<Fields>
+												<ext:ModelField Name="cod_status_combo" Mapping="cod_status" />
 												<ext:ModelField Name="nome_combo" Mapping="nome" />
 											</Fields>
 										</ext:Model>
@@ -84,6 +100,8 @@
 						<ext:ModelField Name="senha" Type="String" />
 						<ext:ModelField Name="cod_acesso" Type="Int" />
 						<ext:ModelField Name="nome" Type="String" ServerMapping="MA_ACESSO.nome" />
+						<ext:ModelField Name="cod_status" Type="Int" />
+						<ext:ModelField Name="nome_status" Mapping="nome_status"  Type="String" ServerMapping="MA_STATUS.nome" />
 					</Fields>
 				</ext:Model>
 			</Model>
@@ -104,6 +122,7 @@
 				<ext:Column ID="e_mailColumnId" runat="server" Text="Login" Flex="1" DataIndex="e_mail" />                  
 				<ext:Column ID="senhaColumnId" runat="server" Text="Senha" Flex="1" DataIndex="senha" Visible="false" />                                                                  
 				<ext:Column ID="nomeColumnId" runat="server" Text="Acesso" Flex="1" DataIndex="nome" />                  
+				<ext:Column ID="nome_statusColumnId" runat="server" Text="Status" Flex="1" DataIndex="nome_status" />                  
 			</Columns>            
 		</ColumnModel>    
 		   
