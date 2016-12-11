@@ -52,6 +52,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.ToList();
         }
 
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistrosAtivos()
+        {
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_status == 1).ToList();
+        }
+
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteHobbie(hobbieparticipante))

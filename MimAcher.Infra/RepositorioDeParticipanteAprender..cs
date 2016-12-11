@@ -52,6 +52,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_APRENDER.ToList();
         }
 
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistrosAtivos()
+        {
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_status == 1).ToList();
+        }
+
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
             if (!VerificarSeExisteRelacaoDeParticipanteAprender(participanteaprender))
