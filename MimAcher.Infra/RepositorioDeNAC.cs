@@ -20,6 +20,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC.Find(id);
         }
 
+        public MA_NAC ObterNACDeUsuarioAtivoPorId(int id)
+        {
+            return this.Contexto.MA_NAC.Where(l => l.cod_nac == id && l.MA_USUARIO.cod_status == 1).SingleOrDefault();
+        }
+
         public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
         {
             return this.Contexto.MA_NAC.SingleOrDefault(l => l.MA_USUARIO.cod_usuario == idUsuario);
@@ -28,6 +33,11 @@ namespace MimAcher.Infra
         public List<MA_NAC> ObterTodosOsNAC()
         {
             return this.Contexto.MA_NAC.ToList();
+        }
+
+        public List<MA_NAC> ObterTodosOsNACDeUsuariosAtivos()
+        {
+            return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_status == 1).ToList();
         }
 
         public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
