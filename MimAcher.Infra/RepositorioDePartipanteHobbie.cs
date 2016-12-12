@@ -149,7 +149,9 @@ namespace MimAcher.Infra
 
                 if (participantehobbieconferencia.cod_status != hobbieparticipante.cod_status)
                 {
-                    return AtualizarAprendizadoDeHobbieComRetorno(hobbieparticipante);                    
+                    AtualizarAprendizadoDeHobbieSemConferencia(hobbieparticipante);
+
+                    return true;
                 }
                 else
                 {
@@ -160,12 +162,12 @@ namespace MimAcher.Infra
 
         public void AtualizarAprendizadoDeHobbieSemConferencia(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
-
+            MIMACHEREntities Contexto = new MIMACHEREntities();
+            
             try
             {
-                this.Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-                this.Contexto.SaveChanges();
+                Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                Contexto.SaveChanges();
             }
             catch(Exception e)
             {
