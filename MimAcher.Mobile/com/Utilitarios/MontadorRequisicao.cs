@@ -194,5 +194,14 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return requisicao;
         }
+
+        public static WebRequest MontarRequisicaoErro()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "erro/add");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
     }
 }

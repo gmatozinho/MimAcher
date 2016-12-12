@@ -239,5 +239,11 @@ namespace MimAcher.Mobile.com.Utilitarios
             return "{ \"listausuario\": [{ \"cod_usuario\": "+ participante.CodigoUsuario + ", \"e_mail\": \"" + participante.Email +
                 "\", \"senha\": \"" + participante.Senha + "\" }] }";
         }
+
+        public static string MontarJsonErro(string oQue, string quando, int quantos)
+        {
+            return "{ \"listerro\": [{ \"cod_erro\": 0, \"tipo\": \"" + oQue + 
+                "\", \"aconteceu\": \"" + quando + "\", \"incidencia\": " + quantos + " }] }";
+        }
     }
 }

@@ -334,9 +334,12 @@ namespace MimAcher.Mobile.com.Utilitarios
             ObterResposta(requisicao);
         }
 
-        public static void EnviarErro(int codErro)
+        public static void EnviarErro(string oQue, string quando, int quantos)
         {
-
+            var json = JsonParser.MontarJsonErro(oQue, quando, quantos);
+            var requisicao = MontadorRequisicao.MontarRequisicaoErro();
+            EnviarJson(json, requisicao);
+            ObterResposta(requisicao);
         }
     }
 }
