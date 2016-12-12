@@ -197,6 +197,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante">
+          <End Role="MA_PARTICIPANTE" Type="Self.MA_PARTICIPANTE" Multiplicity="1" />
+          <End Role="MA_PARTICIPANTE_APRENDER" Type="Self.MA_PARTICIPANTE_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_APRENDER">
+              <PropertyRef Name="cod_participante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_cod_status">
           <End Role="MA_STATUS" Type="Self.MA_STATUS" Multiplicity="1" />
           <End Role="MA_PARTICIPANTE_APRENDER" Type="Self.MA_PARTICIPANTE_APRENDER" Multiplicity="*" />
@@ -221,6 +233,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante">
+          <End Role="MA_PARTICIPANTE" Type="Self.MA_PARTICIPANTE" Multiplicity="1" />
+          <End Role="MA_PARTICIPANTE_ENSINAR" Type="Self.MA_PARTICIPANTE_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_ENSINAR">
+              <PropertyRef Name="cod_participante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_cod_status">
           <End Role="MA_STATUS" Type="Self.MA_STATUS" Multiplicity="1" />
           <End Role="MA_PARTICIPANTE_ENSINAR" Type="Self.MA_PARTICIPANTE_ENSINAR" Multiplicity="*" />
@@ -242,6 +266,18 @@
             </Principal>
             <Dependent Role="MA_PARTICIPANTE_HOBBIE">
               <PropertyRef Name="cod_item" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante">
+          <End Role="MA_PARTICIPANTE" Type="Self.MA_PARTICIPANTE" Multiplicity="1" />
+          <End Role="MA_PARTICIPANTE_HOBBIE" Type="Self.MA_PARTICIPANTE_HOBBIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_HOBBIE">
+              <PropertyRef Name="cod_participante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -344,6 +380,10 @@
             <End Role="MA_ITEM" EntitySet="MA_ITEM" />
             <End Role="MA_PARTICIPANTE_APRENDER" EntitySet="MA_PARTICIPANTE_APRENDER" />
           </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" Association="Self.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
+            <End Role="MA_PARTICIPANTE_APRENDER" EntitySet="MA_PARTICIPANTE_APRENDER" />
+          </AssociationSet>
           <AssociationSet Name="FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_cod_status" Association="Self.FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_cod_status">
             <End Role="MA_STATUS" EntitySet="MA_STATUS" />
             <End Role="MA_PARTICIPANTE_APRENDER" EntitySet="MA_PARTICIPANTE_APRENDER" />
@@ -352,12 +392,20 @@
             <End Role="MA_ITEM" EntitySet="MA_ITEM" />
             <End Role="MA_PARTICIPANTE_ENSINAR" EntitySet="MA_PARTICIPANTE_ENSINAR" />
           </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" Association="Self.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
+            <End Role="MA_PARTICIPANTE_ENSINAR" EntitySet="MA_PARTICIPANTE_ENSINAR" />
+          </AssociationSet>
           <AssociationSet Name="FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_cod_status" Association="Self.FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_cod_status">
             <End Role="MA_STATUS" EntitySet="MA_STATUS" />
             <End Role="MA_PARTICIPANTE_ENSINAR" EntitySet="MA_PARTICIPANTE_ENSINAR" />
           </AssociationSet>
           <AssociationSet Name="FK_MA_PARTICIPANTE_HOBBIE_MA_ITEM_cod_item" Association="Self.FK_MA_PARTICIPANTE_HOBBIE_MA_ITEM_cod_item">
             <End Role="MA_ITEM" EntitySet="MA_ITEM" />
+            <End Role="MA_PARTICIPANTE_HOBBIE" EntitySet="MA_PARTICIPANTE_HOBBIE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" Association="Self.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
             <End Role="MA_PARTICIPANTE_HOBBIE" EntitySet="MA_PARTICIPANTE_HOBBIE" />
           </AssociationSet>
           <AssociationSet Name="FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_cod_status" Association="Self.FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_cod_status">
@@ -439,6 +487,18 @@
           <AssociationSet Name="FK_MA_NAC_MA_USUARIO_cod_usuario" Association="MIMACHERModel.FK_MA_NAC_MA_USUARIO_cod_usuario">
             <End Role="MA_USUARIO" EntitySet="MA_USUARIO" />
             <End Role="MA_NAC" EntitySet="MA_NAC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" Association="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
+            <End Role="MA_PARTICIPANTE_APRENDER" EntitySet="MA_PARTICIPANTE_APRENDER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" Association="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
+            <End Role="MA_PARTICIPANTE_ENSINAR" EntitySet="MA_PARTICIPANTE_ENSINAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" Association="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante">
+            <End Role="MA_PARTICIPANTE" EntitySet="MA_PARTICIPANTE" />
+            <End Role="MA_PARTICIPANTE_HOBBIE" EntitySet="MA_PARTICIPANTE_HOBBIE" />
           </AssociationSet>
           <AssociationSet Name="FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" Association="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario">
             <End Role="MA_USUARIO" EntitySet="MA_USUARIO" />
@@ -551,6 +611,9 @@
           <Property Name="geolocalizacao" Type="Geography" />
           <NavigationProperty Name="MA_CAMPUS" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus" FromRole="MA_PARTICIPANTE" ToRole="MA_CAMPUS" />
           <NavigationProperty Name="MA_IMAGEM_PARTICIPANTE" Relationship="MIMACHERModel.FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" FromRole="MA_PARTICIPANTE" ToRole="MA_IMAGEM_PARTICIPANTE" />
+          <NavigationProperty Name="MA_PARTICIPANTE_APRENDER" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE" ToRole="MA_PARTICIPANTE_APRENDER" />
+          <NavigationProperty Name="MA_PARTICIPANTE_ENSINAR" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE" ToRole="MA_PARTICIPANTE_ENSINAR" />
+          <NavigationProperty Name="MA_PARTICIPANTE_HOBBIE" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE" ToRole="MA_PARTICIPANTE_HOBBIE" />
           <NavigationProperty Name="MA_USUARIO" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" FromRole="MA_PARTICIPANTE" ToRole="MA_USUARIO" />
         </EntityType>
         <EntityType Name="MA_PARTICIPANTE_APRENDER">
@@ -562,6 +625,7 @@
           <Property Name="cod_participante" Type="Int32" Nullable="false" />
           <Property Name="cod_status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MA_ITEM" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_ITEM_cod_item" FromRole="MA_PARTICIPANTE_APRENDER" ToRole="MA_ITEM" />
+          <NavigationProperty Name="MA_PARTICIPANTE" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE_APRENDER" ToRole="MA_PARTICIPANTE" />
           <NavigationProperty Name="MA_STATUS" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_APRENDER_MA_STATUS_cod_status" FromRole="MA_PARTICIPANTE_APRENDER" ToRole="MA_STATUS" />
         </EntityType>
         <EntityType Name="MA_PARTICIPANTE_ENSINAR">
@@ -573,6 +637,7 @@
           <Property Name="cod_participante" Type="Int32" Nullable="false" />
           <Property Name="cod_status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MA_ITEM" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_ITEM_cod_item" FromRole="MA_PARTICIPANTE_ENSINAR" ToRole="MA_ITEM" />
+          <NavigationProperty Name="MA_PARTICIPANTE" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE_ENSINAR" ToRole="MA_PARTICIPANTE" />
           <NavigationProperty Name="MA_STATUS" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_cod_status" FromRole="MA_PARTICIPANTE_ENSINAR" ToRole="MA_STATUS" />
         </EntityType>
         <EntityType Name="MA_PARTICIPANTE_HOBBIE">
@@ -584,6 +649,7 @@
           <Property Name="cod_participante" Type="Int32" Nullable="false" />
           <Property Name="cod_status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="MA_ITEM" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_ITEM_cod_item" FromRole="MA_PARTICIPANTE_HOBBIE" ToRole="MA_ITEM" />
+          <NavigationProperty Name="MA_PARTICIPANTE" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" FromRole="MA_PARTICIPANTE_HOBBIE" ToRole="MA_PARTICIPANTE" />
           <NavigationProperty Name="MA_STATUS" Relationship="MIMACHERModel.FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_cod_status" FromRole="MA_PARTICIPANTE_HOBBIE" ToRole="MA_STATUS" />
         </EntityType>
         <EntityType Name="MA_STATUS">
@@ -728,6 +794,42 @@
             </Principal>
             <Dependent Role="MA_NAC">
               <PropertyRef Name="cod_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MA_PARTICIPANTE_APRENDER_MA_PARTIPANTE_cod_participante">
+          <End Type="MIMACHERModel.MA_PARTICIPANTE" Role="MA_PARTICIPANTE" Multiplicity="1" />
+          <End Type="MIMACHERModel.MA_PARTICIPANTE_APRENDER" Role="MA_PARTICIPANTE_APRENDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_APRENDER">
+              <PropertyRef Name="cod_participante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MA_PARTICIPANTE_ENSINAR_MA_PARTIPANTE_cod_participante">
+          <End Type="MIMACHERModel.MA_PARTICIPANTE" Role="MA_PARTICIPANTE" Multiplicity="1" />
+          <End Type="MIMACHERModel.MA_PARTICIPANTE_ENSINAR" Role="MA_PARTICIPANTE_ENSINAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_ENSINAR">
+              <PropertyRef Name="cod_participante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante">
+          <End Type="MIMACHERModel.MA_PARTICIPANTE" Role="MA_PARTICIPANTE" Multiplicity="1" />
+          <End Type="MIMACHERModel.MA_PARTICIPANTE_HOBBIE" Role="MA_PARTICIPANTE_HOBBIE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MA_PARTICIPANTE">
+              <PropertyRef Name="cod_participante" />
+            </Principal>
+            <Dependent Role="MA_PARTICIPANTE_HOBBIE">
+              <PropertyRef Name="cod_participante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
