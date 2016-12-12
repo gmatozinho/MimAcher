@@ -141,7 +141,7 @@ namespace MimAcher.WebService.Controllers
 
                             try
                             {
-                                Boolean resultado = this.GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinar);
+                                Boolean resultado = this.GestorDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinarmodificado);
 
                                 if (resultado)
                                 {

@@ -127,7 +127,7 @@ namespace MimAcher.Infra
             }
             else
             {
-                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar);
+                MA_PARTICIPANTE_ENSINAR participanteensinarconferencia = ObterEnsinoDeParticipantePorItemEParticipante(participanteensinar.cod_item, participanteensinar.cod_participante);
 
                 if (participanteensinarconferencia.cod_status != participanteensinar.cod_status)
                 {

@@ -145,7 +145,7 @@ namespace MimAcher.Infra
             }
             else
             {
-                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante);
+                MA_PARTICIPANTE_HOBBIE participantehobbieconferencia = ObterParticipanteHobbiePorItemEParticipante(hobbieparticipante.cod_item, hobbieparticipante.cod_participante);
 
                 if (participantehobbieconferencia.cod_status != hobbieparticipante.cod_status)
                 {

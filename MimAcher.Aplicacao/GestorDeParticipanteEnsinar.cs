@@ -89,7 +89,7 @@ namespace MimAcher.Aplicacao
 
         public Boolean AtualizarEnsinamentoDeParticipanteComRetorno(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            return this.AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinar);
+            return this.RepositorioDeParticipanteEnsinar.AtualizarEnsinamentoDeParticipanteComRetorno(participanteensinar);
         }
 
         public Boolean VerificarSeExisteRelacaoUsuarioEnsinarPorIdDaRelacao(int id_usuarioensinar)
