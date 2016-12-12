@@ -127,17 +127,50 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonMatchHobbie(int codigoItem)
         {
-            return "{ \"listaparticipantehobbie\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + "\"}] }";
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_p_hobbie", 0);
+            objetojsonauxiliar.Put("cod_participante", 0);
+            objetojsonauxiliar.Put("cod_item", codigoItem);
+
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listaparticipantehobbie", jsonArray);
+
+            return jsonObject.ToString();
         }
 
         public static string MontarJsonMatchAprender(int codigoItem)
         {
-            return "{ \"listaparticipanteaprender\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + "\"}] }";
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_p_aprender", 0);
+            objetojsonauxiliar.Put("cod_participante", 0);
+            objetojsonauxiliar.Put("cod_item", codigoItem);
+
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listaparticipanteaprender", jsonArray);
+
+            return jsonObject.ToString();
         }
 
         public static string MontarJsonMatchEnsinar(int codigoItem)
         {
-            return "{ \"listaparticipanteensinar\": [{ \"cod_p_aprender\": 0, \"cod_participante\": 0, \"cod_item\": " + codigoItem + "\"}] }";
+            var jsonObject = new JSONObject();
+            var jsonArray = new JSONArray();
+            var objetojsonauxiliar = new JSONObject();
+            objetojsonauxiliar.Put("cod_p_ensinar", 0);
+            objetojsonauxiliar.Put("cod_participante", 0);
+            objetojsonauxiliar.Put("cod_item", codigoItem);
+
+
+            jsonArray.Put(objetojsonauxiliar);
+            jsonObject.Put("listaparticipanteensinar", jsonArray);
+
+            return jsonObject.ToString();
         }
         public static string MontarJsonGetParticipante(int codigoParticipante)
         {
