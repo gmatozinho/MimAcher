@@ -326,12 +326,17 @@ namespace MimAcher.Mobile.com.Utilitarios
             ObterResposta(requisicao);
         }
 
-        public static void DeletarEnsinar(Participante participante)
+        public static void DeletarUsuario(Participante participante)
         {
             var json = JsonParser.MontarJsonDeleteUsuario(participante);
             var requisicao = MontadorRequisicao.MontarRequisicaoDeleteUsuario();
             EnviarJson(json, requisicao);
             ObterResposta(requisicao);
+        }
+
+        public static void EnviarErro(int codErro)
+        {
+
         }
     }
 }
