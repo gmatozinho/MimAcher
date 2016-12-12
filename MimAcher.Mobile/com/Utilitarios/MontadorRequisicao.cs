@@ -185,5 +185,14 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return requisicao;
         }
+
+        public static WebRequest MontarRequisicaoDeleteUsuario()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "usuario/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
     }
 }

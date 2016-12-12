@@ -200,5 +200,11 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return jsonObject.ToString();
         }
+
+        public static string MontarJsonDeleteUsuario(Participante participante)
+        {
+            return "{ \"listausuario\": [{ \"cod_usuario\": "+ participante.CodigoUsuario + ", \"e_mail\": \"" + participante.Email +
+                "\", \"senha\": \"" + participante.Senha + "\" }] }";
+        }
     }
 }
