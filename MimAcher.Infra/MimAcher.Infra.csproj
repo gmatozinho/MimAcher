@@ -56,14 +56,14 @@
     <Compile Include="RepositorioDeAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeCampus.cs" />
     <Compile Include="RepositorioDeErro.cs" />
-    <Compile Include="RepositorioDeNACAreaDeAtuacao.cs" />
+    <Compile Include="RepositorioDeNacAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeParticipante.cs" />
     <Compile Include="RepositorioDeParticipanteAprender..cs" />
     <Compile Include="RepositorioDeParticipanteEnsinar.cs" />
     <Compile Include="RepositorioDePartipanteHobbie.cs" />
     <Compile Include="RepositorioDeImagemDeParticipante.cs" />
     <Compile Include="RepositorioDeItem.cs" />
-    <Compile Include="RepositorioDeNAC.cs" />
+    <Compile Include="RepositorioDeNac.cs" />
     <Compile Include="RepositorioDeStatus.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
   </ItemGroup>

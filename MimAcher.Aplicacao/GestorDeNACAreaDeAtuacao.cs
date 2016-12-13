@@ -7,11 +7,11 @@ namespace MimAcher.Aplicacao
 {
     public class GestorDeNACAreaDeAtuacao
     {
-        public RepositorioDeNACAreaDeAtuacao RepositorioDeNACAreaDeAtuacao { get; set; }
+        public RepositorioDeNacAreaDeAtuacao RepositorioDeNACAreaDeAtuacao { get; set; }
 
         public GestorDeNACAreaDeAtuacao()
         {
-            this.RepositorioDeNACAreaDeAtuacao = new RepositorioDeNACAreaDeAtuacao();
+            this.RepositorioDeNACAreaDeAtuacao = new RepositorioDeNacAreaDeAtuacao();
         }
 
         public MA_NAC_AREA_ATUACAO ObterNACAreaDeAtuacaoPorId(int id)

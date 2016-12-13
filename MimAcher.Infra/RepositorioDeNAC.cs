@@ -6,57 +6,57 @@ using MimAcher.Dominio;
 
 namespace MimAcher.Infra
 {
-    public class RepositorioDeNAC
+    public class RepositorioDeNac
     {
         public MIMACHEREntities Contexto { get; set; }
 
-        public RepositorioDeNAC()
+        public RepositorioDeNac()
         {
             this.Contexto = new MIMACHEREntities();
         }
 
-        public MA_NAC ObterNACPorId(int id)
+        public MA_NAC ObterNacPorId(int id)
         {
             return this.Contexto.MA_NAC.Find(id);
         }
 
-        public MA_NAC ObterNACDeUsuarioAtivoPorId(int id)
+        public MA_NAC ObterNacDeUsuarioAtivoPorId(int id)
         {
             return this.Contexto.MA_NAC.Where(l => l.cod_nac == id && l.MA_USUARIO.cod_status == 1).SingleOrDefault();
         }
 
-        public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
+        public MA_NAC ObterNacPorIdDeUsuario(int idUsuario)
         {
             return this.Contexto.MA_NAC.SingleOrDefault(l => l.MA_USUARIO.cod_usuario == idUsuario);
         }
 
-        public List<MA_NAC> ObterTodosOsNAC()
+        public List<MA_NAC> ObterTodosOsNac()
         {
             return this.Contexto.MA_NAC.ToList();
         }
 
-        public List<MA_NAC> ObterTodosOsNACDeUsuariosAtivos()
+        public List<MA_NAC> ObterTodosOsNacDeUsuariosAtivos()
         {
             return this.Contexto.MA_NAC.Where(l => l.MA_USUARIO.cod_status == 1).ToList();
         }
 
-        public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
+        public List<MA_NAC> ObterTodosOsNacPorNomeDoRepresentante(String nomerepresentante)
         {
             return this.Contexto.MA_NAC.Where(l => l.nome_representante.Equals(nomerepresentante)).ToList();
         }
 
-        public void InserirNAC(MA_NAC nac)
+        public void InserirNac(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
             {
                 this.Contexto.MA_NAC.Add(nac);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirNACComRetorno(MA_NAC nac)
+        public Boolean InserirNacComRetorno(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
             {
                 try
                 {
@@ -81,17 +81,17 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC.Count();
         }
 
-        public void RemoverNAC(MA_NAC nac)
+        public void RemoverNac(MA_NAC nac)
         {
             this.Contexto.MA_NAC.Remove(nac);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarNAC(MA_NAC nac)
+        public void AtualizarNac(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
             {
-                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
                 {
                     this.Contexto.Entry(nac).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
@@ -99,9 +99,9 @@ namespace MimAcher.Infra
             }
             else
             {
-                MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
+                MA_NAC nacjaexistente = ObterNacPorIdDeUsuario(nac.cod_usuario);
 
-                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
                 {
                     this.Contexto.Entry(nac).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
@@ -111,9 +111,9 @@ namespace MimAcher.Infra
 
         public Boolean AtualizarNACComRetorno(MA_NAC nac)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
             {
-                if (!VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
                 {
                     try
                     {
@@ -134,9 +134,9 @@ namespace MimAcher.Infra
             }
             else
             {
-                MA_NAC nacjaexistente = ObterNACPorIdDeUsuario(nac.cod_usuario);
+                MA_NAC nacjaexistente = ObterNacPorIdDeUsuario(nac.cod_usuario);
 
-                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNAC(nac))
+                if (nacjaexistente.nome_representante.ToLowerInvariant().Equals(nac.nome_representante.ToLowerInvariant()) && !VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
                 {
                     try
                     {
@@ -157,9 +157,9 @@ namespace MimAcher.Infra
             }
         }
 
-        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumNAC(MA_NAC nac)
+        public Boolean VerificarSeUsuarioJaTemVinculoComAlgumNac(MA_NAC nac)
         {
-            if (ObterNACPorIdDeUsuario(nac.cod_usuario) != null)
+            if (ObterNacPorIdDeUsuario(nac.cod_usuario) != null)
             {
                 return true;
             }

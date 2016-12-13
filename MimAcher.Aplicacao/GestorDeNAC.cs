@@ -7,11 +7,11 @@ namespace MimAcher.Aplicacao
 {
     public class GestorDeNAC
     {
-        public RepositorioDeNAC RepositorioDeNAC { get; set; }
+        public RepositorioDeNac RepositorioDeNAC { get; set; }
 
         public GestorDeNAC()
         {
-            this.RepositorioDeNAC = new RepositorioDeNAC();
+            this.RepositorioDeNAC = new RepositorioDeNac();
         }
 
         public MA_NAC ObterNACPorId(int id)
