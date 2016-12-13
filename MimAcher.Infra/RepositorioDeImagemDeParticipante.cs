@@ -24,14 +24,14 @@ namespace MimAcher.Infra
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.ToList();
         }
 
-        public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
+        public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int idParticipante)
         {
-            return this.Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == id_participante).SingleOrDefault();
+            return this.Contexto.MA_IMAGEM_PARTICIPANTE.Where(l => l.cod_participante == idParticipante).SingleOrDefault();
         }
 
-        public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void InserirImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.Contexto.MA_IMAGEM_PARTICIPANTE.Add(Imagem);
+            this.Contexto.MA_IMAGEM_PARTICIPANTE.Add(imagem);
             this.Contexto.SaveChanges();
         }
 
@@ -40,15 +40,15 @@ namespace MimAcher.Infra
             return this.Contexto.MA_IMAGEM_PARTICIPANTE.Count();
         }
 
-        public void RemoverImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void RemoverImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.Contexto.MA_IMAGEM_PARTICIPANTE.Remove(Imagem);
+            this.Contexto.MA_IMAGEM_PARTICIPANTE.Remove(imagem);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.Contexto.Entry(Imagem).State = EntityState.Modified;
+            this.Contexto.Entry(imagem).State = EntityState.Modified;
             this.Contexto.SaveChanges();
         }
     }

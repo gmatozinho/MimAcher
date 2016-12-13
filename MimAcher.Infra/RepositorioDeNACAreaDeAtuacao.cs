@@ -40,22 +40,22 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC_AREA_ATUACAO.Where(l => l.MA_NAC.nome_representante.Equals(nomerepresentante)).ToList();
         }
 
-        public void InserirNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void InserirNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(nacAreaDeAtuacao))
             {
-                this.Contexto.MA_NAC_AREA_ATUACAO.Add(NacAreaDeAtuacao);
+                this.Contexto.MA_NAC_AREA_ATUACAO.Add(nacAreaDeAtuacao);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public Boolean InserirNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(nacAreaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.MA_NAC_AREA_ATUACAO.Add(NacAreaDeAtuacao);
+                    this.Contexto.MA_NAC_AREA_ATUACAO.Add(nacAreaDeAtuacao);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -76,28 +76,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC_AREA_ATUACAO.Count();
         }
 
-        public void RemoverNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void RemoverNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            this.Contexto.MA_NAC_AREA_ATUACAO.Remove(NacAreaDeAtuacao);
+            this.Contexto.MA_NAC_AREA_ATUACAO.Remove(nacAreaDeAtuacao);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void AtualizarNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(nacAreaDeAtuacao))
             {
-                this.Contexto.Entry(NacAreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.Entry(nacAreaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public Boolean AtualizarNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(nacAreaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.Entry(NacAreaDeAtuacao).State = EntityState.Modified;
+                    this.Contexto.Entry(nacAreaDeAtuacao).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;

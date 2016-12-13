@@ -8,13 +8,13 @@ namespace MimAcher.GeradorDados.Geradores
 {
     class GeradorSenha
     {
-        private static Random random = new Random();
-        private static string caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        private static Random _random = new Random();
+        private static string _caracteresValidos = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
         public string GerarSenha(int length)
         {
-            return new string(Enumerable.Repeat(caracteresValidos, length)
-              .Select(s => s[random.Next(s.Length)]).ToArray());
+            return new string(Enumerable.Repeat(_caracteresValidos, length)
+              .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
     }
 }

@@ -47,8 +47,8 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_USUARIO usuario = new MA_USUARIO();
 
-                usuario.e_mail = listausuarioparticipante[0].e_mail;
-                usuario.senha = listausuarioparticipante[0].senha;
+                usuario.e_mail = listausuarioparticipante[0].EMail;
+                usuario.senha = listausuarioparticipante[0].Senha;
                 //Torna o usuário com acesso mobile no sistema
                 usuario.cod_acesso = 1;
                 //Torna o usuário ativo no sistema
@@ -61,11 +61,11 @@ namespace MimAcher.WebService.Controllers
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
                                         
                     participante.cod_usuario = usuario.cod_usuario;
-                    participante.cod_campus = listausuarioparticipante[0].cod_campus;
-                    participante.nome = listausuarioparticipante[0].nome;
-                    participante.telefone = listausuarioparticipante[0].telefone;
-                    participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
+                    participante.cod_campus = listausuarioparticipante[0].CodCampus;
+                    participante.nome = listausuarioparticipante[0].Nome;
+                    participante.telefone = listausuarioparticipante[0].Telefone;
+                    participante.dt_nascimento = (DateTime)listausuarioparticipante[0].DtNascimento;
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].Latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].Longitude.ToString()) + ")");
 
                     try
                     {
@@ -131,8 +131,8 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_USUARIO usuario = new MA_USUARIO();
 
-                usuario.e_mail = listausuarioparticipante[0].e_mail;
-                usuario.senha = listausuarioparticipante[0].senha;
+                usuario.e_mail = listausuarioparticipante[0].EMail;
+                usuario.senha = listausuarioparticipante[0].Senha;
                 //O código de acesso é 1 para determinar que é só ACesso Mobile
                 usuario.cod_acesso = 1;
                 //Torna o usuário ativo no sistema
@@ -145,11 +145,11 @@ namespace MimAcher.WebService.Controllers
                     MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
                     
                     participante.cod_usuario = usuario.cod_usuario;
-                    participante.cod_campus = listausuarioparticipante[0].cod_participante;
-                    participante.nome = listausuarioparticipante[0].nome;
-                    participante.telefone = listausuarioparticipante[0].telefone;
-                    participante.dt_nascimento = (DateTime)listausuarioparticipante[0].dt_nascimento;
-                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].longitude.ToString()) + ")");
+                    participante.cod_campus = listausuarioparticipante[0].CodParticipante;
+                    participante.nome = listausuarioparticipante[0].Nome;
+                    participante.telefone = listausuarioparticipante[0].Telefone;
+                    participante.dt_nascimento = (DateTime)listausuarioparticipante[0].DtNascimento;
+                    participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].Latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listausuarioparticipante[0].Longitude.ToString()) + ")");
 
                     try
                     {

@@ -35,22 +35,22 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ITEM.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
 
-        public void InserirItem(MA_ITEM Item)
+        public void InserirItem(MA_ITEM item)
         {
-            if (VerificarSeNomeDeItemJaExiste(Item))
+            if (VerificarSeNomeDeItemJaExiste(item))
             {
-                this.Contexto.MA_ITEM.Add(Item);
+                this.Contexto.MA_ITEM.Add(item);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirItemComRetorno(MA_ITEM Item)
+        public Boolean InserirItemComRetorno(MA_ITEM item)
         {
-            if (VerificarSeNomeDeItemJaExiste(Item))
+            if (VerificarSeNomeDeItemJaExiste(item))
             {
                 try
                 {
-                    this.Contexto.MA_ITEM.Add(Item);
+                    this.Contexto.MA_ITEM.Add(item);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -71,28 +71,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ITEM.Count();
         }
 
-        public void RemoverItem(MA_ITEM Item)
+        public void RemoverItem(MA_ITEM item)
         {
-            this.Contexto.MA_ITEM.Remove(Item);
+            this.Contexto.MA_ITEM.Remove(item);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarItem(MA_ITEM Item)
+        public void AtualizarItem(MA_ITEM item)
         {
-            if (VerificarSeNomeDeItemJaExiste(Item))
+            if (VerificarSeNomeDeItemJaExiste(item))
             {
-                this.Contexto.Entry(Item).State = EntityState.Modified;
+                this.Contexto.Entry(item).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarItemComRetorno(MA_ITEM Item)
+        public Boolean AtualizarItemComRetorno(MA_ITEM item)
         {
-            if (VerificarSeNomeDeItemJaExiste(Item))
+            if (VerificarSeNomeDeItemJaExiste(item))
             {
                 try
                 {
-                    this.Contexto.Entry(Item).State = EntityState.Modified;
+                    this.Contexto.Entry(item).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;

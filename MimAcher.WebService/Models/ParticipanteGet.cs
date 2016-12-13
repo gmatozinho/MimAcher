@@ -7,15 +7,15 @@ namespace MimAcher.WebService.Models
 {
     public class ParticipanteGet
     {
-        public int cod_participante { get; set; }
-        public String nome_participante { get; set; }
-        public int cod_campus { get; set; }
-        public String nome_campus { get; set; }
-        public int cod_usuario { get; set; }
-        public String e_mail { get; set; }
-        public String telefone { get; set; }
-        public String dt_nascimento { get; set; }
-        public String latitude { get; set; }
-        public String longitude { get; set; }                
+        public int CodParticipante { get; set; }
+        public String NomeParticipante { get; set; }
+        public int CodCampus { get; set; }
+        public String NomeCampus { get; set; }
+        public int CodUsuario { get; set; }
+        public String EMail { get; set; }
+        public String Telefone { get; set; }
+        public String DtNascimento { get; set; }
+        public String Latitude { get; set; }
+        public String Longitude { get; set; }                
     }
 }

@@ -32,9 +32,9 @@ namespace MimAcher.WebService.Controllers
             {
                 ParticipanteEnsinar participanteensinar = new ParticipanteEnsinar();
 
-                participanteensinar.cod_p_ensinar = pe.cod_p_ensinar;
-                participanteensinar.cod_participante = pe.cod_participante;
-                participanteensinar.cod_item = pe.cod_item;
+                participanteensinar.CodPEnsinar = pe.cod_p_ensinar;
+                participanteensinar.CodParticipante = pe.cod_participante;
+                participanteensinar.CodItem = pe.cod_item;
 
                 listaparticipanteensinar.Add(participanteensinar);
             }
@@ -68,8 +68,8 @@ namespace MimAcher.WebService.Controllers
             {                
                 MA_PARTICIPANTE_ENSINAR participanteensinar = new MA_PARTICIPANTE_ENSINAR();
 
-                participanteensinar.cod_participante = listaparticipanteensinar[0].cod_participante;
-                participanteensinar.cod_item = listaparticipanteensinar[0].cod_item;
+                participanteensinar.cod_participante = listaparticipanteensinar[0].CodParticipante;
+                participanteensinar.cod_item = listaparticipanteensinar[0].CodItem;
 
                 //Informa que a relação estará ativa
                 participanteensinar.cod_status = 1;
@@ -124,11 +124,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteEnsinar.VerificarSeExisteRelacaoUsuarioEnsinarPorItemEParticipante(listaparticipanteensinar[0].cod_item, listaparticipanteensinar[0].cod_participante))
+                if (this.GestorDeParticipanteEnsinar.VerificarSeExisteRelacaoUsuarioEnsinarPorItemEParticipante(listaparticipanteensinar[0].CodItem, listaparticipanteensinar[0].CodParticipante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(listaparticipanteensinar[0].cod_item, listaparticipanteensinar[0].cod_participante);
+                        MA_PARTICIPANTE_ENSINAR participanteensinar = this.GestorDeParticipanteEnsinar.ObterEnsinoDeParticipantePorItemEParticipante(listaparticipanteensinar[0].CodItem, listaparticipanteensinar[0].CodParticipante);
 
                         if (participanteensinar.cod_status == 1)
                         {
@@ -215,11 +215,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteEnsinar.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteensinar[0].cod_item))
+                if (this.GestorDeParticipanteEnsinar.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteensinar[0].CodItem))
                 {
                     try
                     {
-                        List<MA_PARTICIPANTE_ENSINAR> listapensinar = this.GestorDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteensinar[0].cod_item);
+                        List<MA_PARTICIPANTE_ENSINAR> listapensinar = this.GestorDeParticipanteEnsinar.ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteensinar[0].CodItem);
 
                         //Reinicia lista de aprendizado de participante
                         listaparticipanteensinar = new List<ParticipanteEnsinar>();
@@ -228,9 +228,9 @@ namespace MimAcher.WebService.Controllers
                         {
                             ParticipanteEnsinar pa = new ParticipanteEnsinar();
 
-                            pa.cod_p_ensinar = mapa.cod_p_ensinar;
-                            pa.cod_item = mapa.cod_item;
-                            pa.cod_participante = mapa.cod_participante;
+                            pa.CodPEnsinar = mapa.cod_p_ensinar;
+                            pa.CodItem = mapa.cod_item;
+                            pa.CodParticipante = mapa.cod_participante;
 
                             listaparticipanteensinar.Add(pa);
                         }

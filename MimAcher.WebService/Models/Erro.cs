@@ -7,9 +7,9 @@ namespace MimAcher.WebService.Models
 {
     public class Erro
     {
-        public string tipo { get; set; }
-        public string aconteceu { get; set; }
-        public int incidencia { get; set; }
-        public String dt_acontecimento { get; set; }
+        public string Tipo { get; set; }
+        public string Aconteceu { get; set; }
+        public int Incidencia { get; set; }
+        public String DtAcontecimento { get; set; }
     }
 }

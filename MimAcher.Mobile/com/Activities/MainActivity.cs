@@ -18,11 +18,9 @@ namespace MimAcher.Mobile.com.Activities
         
         //Variaveis globais
         //até comunicar com o banco informações hipotéticas
-        private string _codigoParticipante;
         private string _emailInserido;
         private string _senhaInserida;
-        private TelaENomeParaLoading _telaENome;
-        Stopwatch stopwatch = new Stopwatch();
+        private readonly Stopwatch _stopwatch = new Stopwatch();
 
 
         //Metodos do controlador
@@ -39,10 +37,10 @@ namespace MimAcher.Mobile.com.Activities
 
             //pra verificar o tempo de checagem de conexao com o servidor
             
-            stopwatch.Start();
+            _stopwatch.Start();
             ChecagemConexao.ChecarConexão(this, connectivityManager);
-            stopwatch.Stop();
-            var tempoIniciarMain = stopwatch;
+            _stopwatch.Stop();
+            var tempoIniciarMain = _stopwatch;
             EnviarErro.EnviandoTempoIniciarMain(tempoIniciarMain);
 
             //Iniciando as variaveis do contexto
@@ -65,23 +63,23 @@ namespace MimAcher.Mobile.com.Activities
 
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
-            stopwatch.Restart();
-            _telaENome = new TelaENomeParaLoading(this,"IniciarInscrever");
-            Loading.MyButtonClicked(_telaENome);
+            _stopwatch.Restart();
+            var telaENome = new TelaENomeParaLoading(this,"IniciarInscrever");
+            Loading.MyButtonClicked(telaENome);
             OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
-            stopwatch.Stop();
-            var tempoIniciarInscrever = stopwatch;
+            _stopwatch.Stop();
+            var tempoIniciarInscrever = _stopwatch;
             EnviarErro.EnviandoTempoIniciarInscrever(tempoIniciarInscrever);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            stopwatch.Restart();
-            _telaENome = new TelaENomeParaLoading(this, "Entrar");
-            Loading.MyButtonClicked(_telaENome);
+            _stopwatch.Restart();
+            var telaENome = new TelaENomeParaLoading(this, "Entrar");
+            Loading.MyButtonClicked(telaENome);
             OverridePendingTransition(0, 0);
-            stopwatch.Stop();
-            var tempoLogar = stopwatch;
+            _stopwatch.Stop();
+            var tempoLogar = _stopwatch;
             EnviarErro.EnviandoTempoIniciarEntrar(tempoLogar);
         }
 
@@ -96,18 +94,18 @@ namespace MimAcher.Mobile.com.Activities
 
         public void EventoEntrar(IFabricaTelas tela,ProgressDialog progressDialog)
         {
-            _codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
+            var codigoParticipante = Usuario.Login(this, MontarDicionarioLogin());
             progressDialog.Dismiss();
-            if (_codigoParticipante == "-1")
+            if (codigoParticipante == "-1")
             {
                 Mensagens.MensagemErroLogin(this);
                 return;
             }
-            if (_codigoParticipante == "-2")
+            if (codigoParticipante == "-2")
             {
                 return;
             }
-            var participante = CursorBd.ObterDadosParticipante(Convert.ToInt32(_codigoParticipante));
+            var participante = CursorBd.ObterDadosParticipante(Convert.ToInt32(codigoParticipante));
             tela.IniciarHome((Activity)tela, participante);
         }
 

@@ -7,9 +7,9 @@ namespace MimAcher.Dominio.Model
 {
     public class ErroImpressao
     {
-        public String tipo { get; set; }
-        public String aconteceu { get; set; }
-        public String incidencia { get; set; }
-        public String dt_acontecimento { get; set; }
+        public String Tipo { get; set; }
+        public String Aconteceu { get; set; }
+        public String Incidencia { get; set; }
+        public String DtAcontecimento { get; set; }
     }
 }

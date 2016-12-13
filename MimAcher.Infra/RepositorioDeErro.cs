@@ -32,17 +32,17 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ERRO.Where(l => l.tipo.ToLowerInvariant().Equals(tipo.ToLowerInvariant())).ToList();
         }
 
-        public void InserirErro(MA_ERRO Erro)
+        public void InserirErro(MA_ERRO erro)
         {
-            this.Contexto.MA_ERRO.Add(Erro);
+            this.Contexto.MA_ERRO.Add(erro);
             this.Contexto.SaveChanges();
         }
 
-        public Boolean InserirErroComRetorno(MA_ERRO Erro)
+        public Boolean InserirErroComRetorno(MA_ERRO erro)
         {
             try
             {
-                this.Contexto.MA_ERRO.Add(Erro);
+                this.Contexto.MA_ERRO.Add(erro);
                 this.Contexto.SaveChanges();
 
                 return true;
@@ -58,23 +58,23 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ERRO.Count();
         }
 
-        public void RemoverErro(MA_ERRO Erro)
+        public void RemoverErro(MA_ERRO erro)
         {
-            this.Contexto.MA_ERRO.Remove(Erro);
+            this.Contexto.MA_ERRO.Remove(erro);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarErro(MA_ERRO Erro)
+        public void AtualizarErro(MA_ERRO erro)
         {        
-            this.Contexto.Entry(Erro).State = EntityState.Modified;
+            this.Contexto.Entry(erro).State = EntityState.Modified;
             this.Contexto.SaveChanges();        
         }
 
-        public Boolean AtualizarErroComRetorno(MA_ERRO Erro)
+        public Boolean AtualizarErroComRetorno(MA_ERRO erro)
         {
             try
             {
-                this.Contexto.Entry(Erro).State = EntityState.Modified;
+                this.Contexto.Entry(erro).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
 
                 return true;

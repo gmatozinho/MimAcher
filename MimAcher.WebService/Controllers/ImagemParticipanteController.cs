@@ -41,9 +41,9 @@ namespace MimAcher.WebService.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload(System.Web.HttpPostedFileBase arquivo, int codigo_participante)
+        public ActionResult Upload(System.Web.HttpPostedFileBase arquivo, int codigoParticipante)
         {   
-            MA_IMAGEM_PARTICIPANTE imagem_participante = new MA_IMAGEM_PARTICIPANTE();
+            MA_IMAGEM_PARTICIPANTE imagemParticipante = new MA_IMAGEM_PARTICIPANTE();
 
             JsonResult jsonResult;
 
@@ -57,34 +57,34 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (GestorDeParticipante.VerificarSeParticipanteExiste(codigo_participante)){
+                if (GestorDeParticipante.VerificarSeParticipanteExiste(codigoParticipante)){
 
                     
                     MemoryStream target = new MemoryStream();
                     arquivo.InputStream.CopyTo(target);
                                         
                     //Define o nome do diretório para a imagem do participante
-                    String diretorio = @"\\w7v\AspNetSites\mimacherforms\App\Upload" + @"\" + codigo_participante.ToString();
+                    String diretorio = @"\\w7v\AspNetSites\mimacherforms\App\Upload" + @"\" + codigoParticipante.ToString();
 
                     //Cria o diretório para o participante
                     Directory.CreateDirectory(diretorio);
 
                     //Cria o nome do arquivo a partir do código do participante
-                    String nomearquivo = codigo_participante.ToString() + "." + arquivo.GetType();
+                    String nomearquivo = codigoParticipante.ToString() + "." + arquivo.GetType();
 
                     //Salva o arquivo no diretório
                     arquivo.SaveAs(Path.Combine(diretorio, nomearquivo));
 
                     //Configura o registro de imagem de participante para ser inserido no banco de dados
-                    imagem_participante.cod_participante = codigo_participante;
-                    imagem_participante.imagem = diretorio + nomearquivo;
+                    imagemParticipante.cod_participante = codigoParticipante;
+                    imagemParticipante.imagem = diretorio + nomearquivo;
 
                     //Salva o registro de imagem do participante
-                    GestorDeImagemDeParticipante.InserirImagem(imagem_participante);
+                    GestorDeImagemDeParticipante.InserirImagem(imagemParticipante);
 
                     jsonResult = Json(new
                     {
-                        codigo = codigo_participante
+                        codigo = codigoParticipante
                     }, JsonRequestBehavior.AllowGet);
 
                 }

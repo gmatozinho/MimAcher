@@ -14,11 +14,11 @@ namespace MimAcher.Postgres.Conexao
             string username = "postgres",
                                 password = "ifes",
                                 database = "mimacher";
-            stringConexao = string.Format("Server = 127.0.0.1; User Id = {0};" +
+            StringConexao = string.Format("Server = 127.0.0.1; User Id = {0};" +
                                                               "Password = {1}; Database = {2}; ",
                                                                username, password, database);
-            conexao = new NpgsqlConnection(stringConexao);
-            conexao.Open();
+            Conexao = new NpgsqlConnection(StringConexao);
+            Conexao.Open();
 
             BuscaCampi();
         }
@@ -28,26 +28,26 @@ namespace MimAcher.Postgres.Conexao
         {
             try
             {
-                if (conexao.State == ConnectionState.Closed)
-                    conexao.Open();
+                if (Conexao.State == ConnectionState.Closed)
+                    Conexao.Open();
 
-                NpgsqlCommand comandoSQL = new NpgsqlCommand("inserir_participante", (NpgsqlConnection) conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                NpgsqlCommand comandoSql = new NpgsqlCommand("inserir_participante", (NpgsqlConnection) Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosParticipante(comandoSQL, participante, campi);
+                FabricaParametros.CriarParametrosParticipante(comandoSql, participante, Campi);
 
-                comandoSQL.Prepare();
-                NpgsqlDataReader leitor = comandoSQL.ExecuteReader();
-                int codigo_participante = -1;
+                comandoSql.Prepare();
+                NpgsqlDataReader leitor = comandoSql.ExecuteReader();
+                int codigoParticipante = -1;
                 while (leitor.Read())
                 {
-                    codigo_participante = Int32.Parse(leitor[0].ToString());
+                    codigoParticipante = Int32.Parse(leitor[0].ToString());
                 }
 
                 leitor.Close();
                 leitor.Dispose();
 
-                InserirConteudo(participante, codigo_participante);
+                InserirConteudo(participante, codigoParticipante);
             }
 
             catch (Exception ex)
@@ -57,51 +57,51 @@ namespace MimAcher.Postgres.Conexao
         }
 
         override
-        public void InserirConteudo(Participante participante, int codigo_participante)
+        public void InserirConteudo(Participante participante, int codigoParticipante)
         {
-            NpgsqlCommand comandoSQL;
+            NpgsqlCommand comandoSql;
 
             foreach (string hobbie in participante.Hobbies.Conteudo)
             {
-                comandoSQL = new NpgsqlCommand("inserir_hobbie", (NpgsqlConnection) conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new NpgsqlCommand("inserir_hobbie", (NpgsqlConnection) Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, hobbie, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, hobbie, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
 
             foreach (string ensinar in participante.Ensinar.Conteudo)
             {
-                comandoSQL = new NpgsqlCommand("inserir_ensinar", (NpgsqlConnection) conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new NpgsqlCommand("inserir_ensinar", (NpgsqlConnection) Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, ensinar, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, ensinar, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
 
             foreach (string aprender in participante.Aprender.Conteudo)
             {
-                comandoSQL = new NpgsqlCommand("inserir_aprender", (NpgsqlConnection) conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new NpgsqlCommand("inserir_aprender", (NpgsqlConnection) Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, aprender, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, aprender, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
         }
 
         override
         protected void BuscaCampi()
         {
-            campi = new Dictionary<string, int>();
-            NpgsqlCommand comandoSQL = new NpgsqlCommand("SELECT local, cod_campus FROM ma_campus;", (NpgsqlConnection) conexao);
-            NpgsqlDataReader leitor = comandoSQL.ExecuteReader();
+            Campi = new Dictionary<string, int>();
+            NpgsqlCommand comandoSql = new NpgsqlCommand("SELECT local, cod_campus FROM ma_campus;", (NpgsqlConnection) Conexao);
+            NpgsqlDataReader leitor = comandoSql.ExecuteReader();
 
             while (leitor.Read())
             {
-                campi[leitor[0].ToString()] = Int32.Parse(leitor[1].ToString());
+                Campi[leitor[0].ToString()] = Int32.Parse(leitor[1].ToString());
             }
 
             leitor.Close();

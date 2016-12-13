@@ -34,14 +34,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(participanteaprender);
         }
 
-        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int idItem)
         {
-            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
+            return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(idItem);
         }
                 
-        public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(int idItem, int idParticipante)
         {
-            return this.RepositorioDeAprendizadoDeParticipante.ObterAprendizadoDeParticipantePorItemEParticipante(id_item, id_participante);
+            return this.RepositorioDeAprendizadoDeParticipante.ObterAprendizadoDeParticipantePorItemEParticipante(idItem, idParticipante);
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
@@ -74,9 +74,9 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAprendizadoDeParticipante.AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
         }
 
-        public Boolean VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(int id_usuarioaprender)
+        public Boolean VerificarSeExisteRelacaoUsuarioAprenderPorIdDaRelacao(int idUsuarioaprender)
         {
-            if(ObterAprendizadoDoParticipantePorId(id_usuarioaprender) != null)
+            if(ObterAprendizadoDoParticipantePorId(idUsuarioaprender) != null)
             {
                 return true;
             }
@@ -86,9 +86,9 @@ namespace MimAcher.Aplicacao
             }
         }
 
-        public Boolean VerificarSeExisteRelacaoUsuarioPorItemEParticipante(int id_item, int id_participante)
+        public Boolean VerificarSeExisteRelacaoUsuarioPorItemEParticipante(int idItem, int idParticipante)
         {
-            if(ObterAprendizadoDeParticipantePorItemEParticipante(id_item, id_participante) != null)
+            if(ObterAprendizadoDeParticipantePorItemEParticipante(idItem, idParticipante) != null)
             {
                 return true;
             }
@@ -98,9 +98,9 @@ namespace MimAcher.Aplicacao
             }
         }
 
-        public Boolean VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(int id_item)
+        public Boolean VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(int idItem)
         {
-            return this.RepositorioDeAprendizadoDeParticipante.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(id_item);
+            return this.RepositorioDeAprendizadoDeParticipante.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(idItem);
         }
     }
 

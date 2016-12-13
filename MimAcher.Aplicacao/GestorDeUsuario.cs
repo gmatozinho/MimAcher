@@ -82,9 +82,9 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeUsuario.AtualizarUsuarioComRetorno(usuario);
         }
 
-        public Boolean VerificarSeExisteUsuarioPorId(int id_usuario)
+        public Boolean VerificarSeExisteUsuarioPorId(int idUsuario)
         {
-            if(ObterUsuarioPorId(id_usuario) != null)
+            if(ObterUsuarioPorId(idUsuario) != null)
             {
                 return true;
             }

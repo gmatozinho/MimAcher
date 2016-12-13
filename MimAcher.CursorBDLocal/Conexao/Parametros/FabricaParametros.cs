@@ -18,10 +18,10 @@ namespace MimAcher.Postgres.Conexao.Parametros
             FabricaInt.MontarParametroCampus(comando, campi[participante.Campus]);
         }
 
-        public static void CriarParametrosItem(DbCommand comando, string nome_item, int codigo_participante)
+        public static void CriarParametrosItem(DbCommand comando, string nomeItem, int codigoParticipante)
         {
-            FabricaString.MontarParametroItem(comando, nome_item);
-            FabricaInt.MontarParametroCodigoParticipante(comando, codigo_participante);
+            FabricaString.MontarParametroItem(comando, nomeItem);
+            FabricaInt.MontarParametroCodigoParticipante(comando, codigoParticipante);
         }
     }
 }

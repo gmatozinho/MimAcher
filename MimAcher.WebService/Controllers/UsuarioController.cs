@@ -32,9 +32,9 @@ namespace MimAcher.WebService.Controllers
             {
                 Usuario usuario = new Usuario();
 
-                usuario.cod_usuario = u.cod_usuario;
-                usuario.e_mail = u.e_mail;
-                usuario.senha = u.senha;
+                usuario.CodUsuario = u.cod_usuario;
+                usuario.EMail = u.e_mail;
+                usuario.Senha = u.senha;
                 
                 listausuario.Add(usuario);
             }
@@ -64,8 +64,8 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_USUARIO usuario = new MA_USUARIO();
 
-                usuario.e_mail = listausuario[0].e_mail;
-                usuario.senha = listausuario[0].senha;
+                usuario.e_mail = listausuario[0].EMail;
+                usuario.senha = listausuario[0].Senha;
 
                 //Parametriza o usuário com nivel de acesso web e código de status 1
                 usuario.cod_acesso = 1;
@@ -131,9 +131,9 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_USUARIO usuario = new MA_USUARIO();
 
-                usuario.cod_usuario = listausuario[0].cod_usuario;
-                usuario.e_mail = listausuario[0].e_mail;
-                usuario.senha = listausuario[0].senha;
+                usuario.cod_usuario = listausuario[0].CodUsuario;
+                usuario.e_mail = listausuario[0].EMail;
+                usuario.senha = listausuario[0].Senha;
                 usuario.cod_acesso = 1;
                 usuario.cod_status = 1;
 
@@ -189,9 +189,9 @@ namespace MimAcher.WebService.Controllers
             {
                 try
                 {
-                    if (GestorDeUsuario.VerificarSeExisteUsuarioPorId(listausuario[0].cod_usuario))
+                    if (GestorDeUsuario.VerificarSeExisteUsuarioPorId(listausuario[0].CodUsuario))
                     {
-                        MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(listausuario[0].cod_usuario);
+                        MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(listausuario[0].CodUsuario);
 
                         MA_USUARIO usuariomodificado = new MA_USUARIO();
 

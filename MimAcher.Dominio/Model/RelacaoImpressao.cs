@@ -7,8 +7,8 @@ namespace MimAcher.Dominio.Model
 {
     public class RelacaoImpressao
     {
-        public String tiporelacao { get; set; }
-        public String nomeitem { get; set; }
-        public String quantidade { get; set; }
+        public String Tiporelacao { get; set; }
+        public String Nomeitem { get; set; }
+        public String Quantidade { get; set; }
     }
 }

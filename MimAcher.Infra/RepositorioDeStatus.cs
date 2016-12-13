@@ -37,23 +37,23 @@ namespace MimAcher.Infra
             return this.Contexto.MA_STATUS.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
 
-        public void InserirStatus(MA_STATUS Status)
+        public void InserirStatus(MA_STATUS status)
         {
-            if (VerificarSeNomeDeStatusJaExiste(Status))
+            if (VerificarSeNomeDeStatusJaExiste(status))
             {
-                this.Contexto.MA_STATUS.Add(Status);
+                this.Contexto.MA_STATUS.Add(status);
                 this.Contexto.SaveChanges();
             }
 
         }
 
-        public Boolean InserirStatusComRetorno(MA_STATUS Status)
+        public Boolean InserirStatusComRetorno(MA_STATUS status)
         {
-            if (VerificarSeNomeDeStatusJaExiste(Status))
+            if (VerificarSeNomeDeStatusJaExiste(status))
             {
                 try
                 {
-                    this.Contexto.MA_STATUS.Add(Status);
+                    this.Contexto.MA_STATUS.Add(status);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -74,28 +74,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_STATUS.Count();
         }
 
-        public void RemoverStatus(MA_STATUS Status)
+        public void RemoverStatus(MA_STATUS status)
         {
-            this.Contexto.MA_STATUS.Remove(Status);
+            this.Contexto.MA_STATUS.Remove(status);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarStatus(MA_STATUS Status)
+        public void AtualizarStatus(MA_STATUS status)
         {
-            if (VerificarSeNomeDeStatusJaExiste(Status))
+            if (VerificarSeNomeDeStatusJaExiste(status))
             {
-                this.Contexto.Entry(Status).State = EntityState.Modified;
+                this.Contexto.Entry(status).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarStatusComRetorno(MA_STATUS Status)
+        public Boolean AtualizarStatusComRetorno(MA_STATUS status)
         {
-            if (VerificarSeNomeDeStatusJaExiste(Status))
+            if (VerificarSeNomeDeStatusJaExiste(status))
             {
                 try
                 {
-                    this.Contexto.Entry(Status).State = EntityState.Modified;
+                    this.Contexto.Entry(status).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;

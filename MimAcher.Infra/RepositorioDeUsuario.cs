@@ -86,7 +86,7 @@ namespace MimAcher.Infra
         {
             MA_USUARIO usuarioaconferir = new MA_USUARIO();
 
-            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+            MIMACHEREntities contextoModificado = new MIMACHEREntities();
 
             if (VerificarSeEmailDeUsuarioJaExiste(usuario))
             {
@@ -94,14 +94,14 @@ namespace MimAcher.Infra
 
                 if (usuarioaconferir.cod_usuario == usuario.cod_usuario)
                 {
-                    ContextoModificado.Entry(usuario).State = EntityState.Modified;
-                    ContextoModificado.SaveChanges();
+                    contextoModificado.Entry(usuario).State = EntityState.Modified;
+                    contextoModificado.SaveChanges();
                 }
             }
             else
             {
-                ContextoModificado.Entry(usuario).State = EntityState.Modified;
-                ContextoModificado.SaveChanges();
+                contextoModificado.Entry(usuario).State = EntityState.Modified;
+                contextoModificado.SaveChanges();
             }
             
         }
@@ -110,7 +110,7 @@ namespace MimAcher.Infra
         {
             MA_USUARIO usuarioaconferir = new MA_USUARIO();
 
-            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+            MIMACHEREntities contextoModificado = new MIMACHEREntities();
 
             if (VerificarSeEmailDeUsuarioJaExiste(usuario))
             {
@@ -118,8 +118,8 @@ namespace MimAcher.Infra
 
                 if (usuarioaconferir.cod_usuario == usuario.cod_usuario)
                 {
-                    ContextoModificado.Entry(usuario).State = EntityState.Modified;
-                    ContextoModificado.SaveChanges();
+                    contextoModificado.Entry(usuario).State = EntityState.Modified;
+                    contextoModificado.SaveChanges();
 
                     return true;
                 }
@@ -131,8 +131,8 @@ namespace MimAcher.Infra
             }
             else
             {
-                ContextoModificado.Entry(usuario).State = EntityState.Modified;
-                ContextoModificado.SaveChanges();
+                contextoModificado.Entry(usuario).State = EntityState.Modified;
+                contextoModificado.SaveChanges();
 
                 return true;
             }

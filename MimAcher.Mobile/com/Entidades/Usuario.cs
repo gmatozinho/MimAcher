@@ -32,11 +32,6 @@ namespace MimAcher.Mobile.com.Entidades
             Senha = novaSenha;
         }
 
-        //TODO desativar conta
-        public void DesativarConta()
-        {
-            //código para excluir o usuário do banco
-        }
         
 
     }

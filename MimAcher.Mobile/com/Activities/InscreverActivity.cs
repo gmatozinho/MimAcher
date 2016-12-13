@@ -32,7 +32,6 @@ namespace MimAcher.Mobile.com.Activities
         private readonly Stopwatch _stopwatch = new Stopwatch();
         private Dictionary<int, string> _campusComCod;
         private Spinner _spinnerCampus;
-        private TelaENomeParaLoading _telaENome;
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -110,9 +109,8 @@ namespace MimAcher.Mobile.com.Activities
             {
                 case Resource.Id.menu_done:
                     GetCampus();
-                    _telaENome = new TelaENomeParaLoading(this, "InscreverUsuario");
-                    Loading.MyButtonClicked(_telaENome);
-                    //InscreverParticipante(this);
+                    var telaENome = new TelaENomeParaLoading(this, "InscreverUsuario");
+                    Loading.MyButtonClicked(telaENome);
                     return true;
             }
             return base.OnOptionsItemSelected(item);
@@ -135,7 +133,6 @@ namespace MimAcher.Mobile.com.Activities
             participante.CodigoParticipante = codigoParticipanteInscrito;
             IniciarEscolherFoto(this, participante);
             _stopwatch.Stop();
-            //TODO enviar stopwatch
             Mensagens.MensagemCadastroBemSucedido(this);
             Finish();
         }

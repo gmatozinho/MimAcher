@@ -4,8 +4,8 @@ namespace MimAcher.WebService.Models
 {
     public class Usuario
     {
-        public int cod_usuario { get; set; }
-        public String e_mail { get; set; }
-        public String senha { get; set; }        
+        public int CodUsuario { get; set; }
+        public String EMail { get; set; }
+        public String Senha { get; set; }        
     }
 }

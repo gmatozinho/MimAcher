@@ -31,8 +31,8 @@ namespace MimAcher.WebService.Controllers
             {
                 Item item = new Item();
 
-                item.cod_item = it.cod_item;
-                item.nome = it.nome;
+                item.CodItem = it.cod_item;
+                item.Nome = it.nome;
 
                 listaitem.Add(item);
             }
@@ -68,7 +68,7 @@ namespace MimAcher.WebService.Controllers
                 foreach (Item it in listaitem)
                 {
                     MA_ITEM item = new MA_ITEM();
-                    item.nome = it.nome;
+                    item.nome = it.Nome;
 
                     this.GestorDeItem.InserirItem(item);
 
@@ -106,8 +106,8 @@ namespace MimAcher.WebService.Controllers
             foreach (Item it in listaitem)
             {
                 MA_ITEM item = new MA_ITEM();
-                item.cod_item = it.cod_item;
-                item.nome = it.nome;
+                item.cod_item = it.CodItem;
+                item.nome = it.Nome;
 
                 this.GestorDeItem.InserirItem(item);
 

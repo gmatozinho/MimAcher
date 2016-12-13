@@ -25,7 +25,7 @@ namespace MimAcher.Apresentacao.Tests
         }
         
         [Then(@"A tela deverá fechar e o resultado aparecerá na grid")]
-        public void ThenATelaDeveraFecharEOResultadoApareceraNaGrid()
+        public void ThenATelaDeveraFecharEoResultadoApareceraNaGrid()
         {
             ScenarioContext.Current.Pending();
         }

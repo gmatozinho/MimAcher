@@ -35,22 +35,22 @@ namespace MimAcher.Infra
             return this.Contexto.MA_AREA_ATUACAO.Where(l => l.nome.Equals(nome)).ToList();
         }
 
-        public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void InserirAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(areaDeAtuacao))
             {
-                this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                this.Contexto.MA_AREA_ATUACAO.Add(areaDeAtuacao);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        public Boolean InserirAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(areaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.MA_AREA_ATUACAO.Add(AreaDeAtuacao);
+                    this.Contexto.MA_AREA_ATUACAO.Add(areaDeAtuacao);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -71,28 +71,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_AREA_ATUACAO.Count();
         }
 
-        public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            this.Contexto.MA_AREA_ATUACAO.Remove(AreaDeAtuacao);
+            this.Contexto.MA_AREA_ATUACAO.Remove(areaDeAtuacao);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(areaDeAtuacao))
             {
-                this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.Entry(areaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        public Boolean AtualizarAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(AreaDeAtuacao))
+            if (!VerificarSeDescricaoDeAreaDeAtuacaoJaExiste(areaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.Entry(AreaDeAtuacao).State = EntityState.Modified;
+                    this.Contexto.Entry(areaDeAtuacao).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;
