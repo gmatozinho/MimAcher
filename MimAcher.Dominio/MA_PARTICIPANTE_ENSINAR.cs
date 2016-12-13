@@ -17,10 +17,10 @@ namespace MimAcher.Dominio
         public int cod_p_ensinar { get; set; }
         public int cod_item { get; set; }
         public int cod_participante { get; set; }
-        public int cod_s_relacao { get; set; }
+        public int cod_status { get; set; }
     
         public virtual MA_ITEM MA_ITEM { get; set; }
         public virtual MA_PARTICIPANTE MA_PARTICIPANTE { get; set; }
-        public virtual MA_STATUS_RELACAO MA_STATUS_RELACAO { get; set; }
+        public virtual MA_STATUS MA_STATUS { get; set; }
     }
 }

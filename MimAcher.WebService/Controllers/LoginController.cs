@@ -46,12 +46,23 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(listausuario[0].e_mail, listausuario[0].senha);
 
-                    if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
+                    //Verifica se o usuário está ativo
+                    if(usuario.cod_status == 1)
                     {
-                        jsonResult = Json(new
+                        if (GestorDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(usuario.cod_usuario))
                         {
-                            codigo = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).cod_participante
-                        }, JsonRequestBehavior.AllowGet);
+                            jsonResult = Json(new
+                            {
+                                codigo = GestorDeParticipante.ObterParticipantePorIdDeUsuario(usuario.cod_usuario).cod_participante
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
                     }
                     else
                     {

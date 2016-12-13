@@ -37,6 +37,7 @@ namespace MimAcher.WebService.Controllers
                 erro.tipo = er.tipo;
                 erro.aconteceu = er.aconteceu;
                 erro.incidencia = er.incidencia;
+                erro.dt_acontecimento = er.dt_acontecimento.ToString();
 
                 listaerro.Add(erro);
             }
@@ -68,25 +69,38 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                int codigo_erro = -1;
-
-                foreach (Erro er in listaerro)
+                try
                 {
                     MA_ERRO erro = new MA_ERRO();
-                    erro.tipo = er.tipo;
-                    erro.aconteceu = er.aconteceu;
-                    erro.incidencia = er.incidencia;
+
+                    erro.tipo = listaerro[0].tipo;
+                    erro.aconteceu = listaerro[0].aconteceu;
+                    erro.incidencia = listaerro[0].incidencia;
                     erro.dt_acontecimento = DateTime.Now;
 
-                    this.GestorDeErro.InserirErro(erro);
-
-                    codigo_erro = erro.cod_erro;
+                    if (GestorDeErro.InserirErroComRetorno(erro))
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = erro.cod_erro
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
                 }
-
-                jsonResult = Json(new
+                catch(Exception e)
                 {
-                    codigo = codigo_erro
-                }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
 
             jsonResult.MaxJsonLength = int.MaxValue;

@@ -51,6 +51,8 @@ namespace MimAcher.WebService.Controllers
                 usuario.senha = listausuarioparticipante[0].senha;
                 //Torna o usuário com acesso mobile no sistema
                 usuario.cod_acesso = 1;
+                //Torna o usuário ativo no sistema
+                usuario.cod_status = 1;
 
                 Boolean resultado = this.GestorDeUsuario.InserirUsuarioComRetorno(usuario);
 
@@ -133,6 +135,8 @@ namespace MimAcher.WebService.Controllers
                 usuario.senha = listausuarioparticipante[0].senha;
                 //O código de acesso é 1 para determinar que é só ACesso Mobile
                 usuario.cod_acesso = 1;
+                //Torna o usuário ativo no sistema
+                usuario.cod_status = 1;
 
                 Boolean resultado = this.GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(usuario.e_mail, usuario.senha);
 

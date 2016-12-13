@@ -25,6 +25,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE.Find(id);
         }
 
+        public MA_PARTICIPANTE ObterUsuarioAtivoDeParticipantePorId(int id)
+        {
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_participante == id && l.MA_USUARIO.cod_status == 1).SingleOrDefault();
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
             return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
@@ -33,6 +38,11 @@ namespace MimAcher.Infra
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {
             return this.Contexto.MA_PARTICIPANTE.ToList();
+        }
+
+        public List<MA_PARTICIPANTE> ObterTodosOsParticipantesDeUsuariosAtivos()
+        {
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_status == 1).ToList();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)

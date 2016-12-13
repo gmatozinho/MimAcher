@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Erro.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.Erro" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+    Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
@@ -35,7 +37,7 @@
                         <ext:TextField ID="incidenciaId" Name="incidencia" AllowBlank="false" runat="server" FieldLabel="Incidência" Width="350"/>
 
                         <%-- Data do Acontecimento --%>
-                        <ext:DateField ID="dt_acontecimentoId" Name="dt_acontecimento" AllowBlank="false" runat="server" FieldLabel="Data" />
+                        <ext:DateField ID="dt_acontecimentoId" Name="dt_acontecimento" AllowBlank="false" runat="server" FieldLabel="Data" Width="350" />
                         
                     </Items>
                 </ext:FieldSet>
@@ -53,6 +55,17 @@
 
             </ext:FormPanel>
         </Items>   
+    </ext:Window>
+
+    <%-- Área de Impressão --%>
+    <ext:Window ID="ReportErroWindowId" Width="900" Height="700" Modal="true" runat="server" Hidden="true">
+        <Items>
+            <ext:Panel ID="ReportErroPanelId" runat="server">
+                <Content>                    
+                    <rsweb:ReportViewer ID="ReportViewerErro" AsyncRendering="true" runat="server"></rsweb:ReportViewer>        
+                </Content>    
+            </ext:Panel>
+        </Items>    
     </ext:Window>
 
     <%-- Store da Grid --%>
@@ -101,7 +114,8 @@
                     <Listeners>                        
                         <Select Handler="#{ErroFormPanelId}.getForm().loadRecord(record); 
                                          #{EditButtonId}.setDisabled(false);
-                                         #{DeleteButtonId}.setDisabled(false);" />                      
+                                         #{DeleteButtonId}.setDisabled(false);
+                                         #{ImprimirButtonId}.setDisabled(false);" />                      
                     </Listeners>                    
             </ext:RowSelectionModel>                        
         </SelectionModel>  
@@ -135,6 +149,9 @@
 
                     <%-- Atualizar --%>
                     <ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
+
+                    <%--Imprimir Relatório --%>
+                    <ext:Button ID="ImprimirButtonId" runat="server" Text="Imprimir Relatório" Icon="Printer" OnDirectClick="Imprimir" /> 
                 </Items>
             </ext:Toolbar>
         </TopBar>

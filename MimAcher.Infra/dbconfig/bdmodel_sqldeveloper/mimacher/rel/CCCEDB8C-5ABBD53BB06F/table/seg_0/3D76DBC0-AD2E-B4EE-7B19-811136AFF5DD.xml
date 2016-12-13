@@ -47,21 +47,6 @@
 <colAssociation fkAssociation="03519B53-8C2E-9394-1A44-ED900B27C024" referredColumn="A2B24694-565F-9D84-EB45-4D1BBF6561B0"/>
 </associations>
 </Column>
-<Column name="cod_s_relacao" id="0890DFD0-85C5-5D1C-8F2B-4876E7B15713">
-<createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:40:35 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>293E1DED-8C05-FC16-CAEF-88E80CBF6AB5</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="580E4F4F-E20A-30C0-326D-7A07FE2FA113" referredColumn="293E1DED-8C05-FC16-CAEF-88E80CBF6AB5"/>
-</associations>
-</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="4D4E5C0B-274F-8252-B03B-1C7BE0C0101A" name="PK_MA_PARTICIPANTE_ENSINAR_cod_p_ensinar">
@@ -96,17 +81,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1CB633D7-1338-3269-8583-991F3FB20BBD"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="41C1982C-F2C8-74F0-9EBB-302A35BD70E2" name="FK_MA_PARTICIPANTE_ENSINAR_MA_STATUS_RELACAO_cod_s_relacao">
-<createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:40:35 UTC</createdTime>
-<generatorID>Gerado pelo usuário</generatorID>
-<ownerDesignName>mimacher</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="0890DFD0-85C5-5D1C-8F2B-4876E7B15713"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

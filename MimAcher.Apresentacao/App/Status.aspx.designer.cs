@@ -10,43 +10,43 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class StatusRelacao {
+    public partial class Status {
         
         /// <summary>
-        /// StatusRelacaoWindowId control.
+        /// StatusWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window StatusRelacaoWindowId;
+        protected global::Ext.Net.Window StatusWindowId;
         
         /// <summary>
-        /// StatusRelacaoFormPanelId control.
+        /// StatusFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel StatusRelacaoFormPanelId;
+        protected global::Ext.Net.FormPanel StatusFormPanelId;
         
         /// <summary>
-        /// StatusRelacaoFieldSetId control.
+        /// StatusFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet StatusRelacaoFieldSetId;
+        protected global::Ext.Net.FieldSet StatusFieldSetId;
         
         /// <summary>
-        /// cod_status_relacaoId control.
+        /// cod_statusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.TextField cod_status_relacaoId;
+        protected global::Ext.Net.TextField cod_statusId;
         
         /// <summary>
         /// nomeId control.
@@ -58,13 +58,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.TextField nomeId;
         
         /// <summary>
-        /// StatusRelacaoBarId control.
+        /// StatusBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.StatusBar StatusRelacaoBarId;
+        protected global::Ext.Net.StatusBar StatusBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -85,31 +85,31 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StatusRelacaoGridPanelId control.
+        /// StatusGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel StatusRelacaoGridPanelId;
+        protected global::Ext.Net.GridPanel StatusGridPanelId;
         
         /// <summary>
-        /// StoreStatusRelacaoId control.
+        /// StoreStatusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreStatusRelacaoId;
+        protected global::Ext.Net.Store StoreStatusId;
         
         /// <summary>
-        /// ModelStatusRelacaoId control.
+        /// ModelStatusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelStatusRelacaoId;
+        protected global::Ext.Net.Model ModelStatusId;
         
         /// <summary>
         /// nomeColumnId control.
@@ -121,13 +121,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Column nomeColumnId;
         
         /// <summary>
-        /// StatusRelacaoRowSelectionModelId control.
+        /// StatusRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.RowSelectionModel StatusRelacaoRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel StatusRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.

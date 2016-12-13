@@ -5,73 +5,83 @@ using MimAcher.Infra;
 
 namespace MimAcher.Aplicacao
 {
-    public class GestorDeNAC
+    public class GestorDeNac
     {
-        public RepositorioDeNAC RepositorioDeNAC { get; set; }
+        public RepositorioDeNac RepositorioDeNac { get; set; }
 
-        public GestorDeNAC()
+        public GestorDeNac()
         {
-            this.RepositorioDeNAC = new RepositorioDeNAC();
+            this.RepositorioDeNac = new RepositorioDeNac();
         }
 
-        public MA_NAC ObterNACPorId(int id)
+        public MA_NAC ObterNacPorId(int id)
         {
-            return this.RepositorioDeNAC.ObterNACPorId(id);
+            return this.RepositorioDeNac.ObterNacPorId(id);
         }
 
-        public MA_NAC ObterNACPorIdDeUsuario(int idUsuario)
+        public MA_NAC ObterNacPorIdDeUsuario(int idUsuario)
         {
-            return this.RepositorioDeNAC.ObterNACPorIdDeUsuario(idUsuario);
+            return this.RepositorioDeNac.ObterNacPorIdDeUsuario(idUsuario);
         }
 
-        public List<MA_NAC> ObterTodosOsNAC()
+        public MA_NAC ObterNacDeUsuarioAtivoPorId(int idUsuario)
         {
-            return this.RepositorioDeNAC.ObterTodosOsNAC();
+            return this.RepositorioDeNac.ObterNacDeUsuarioAtivoPorId(idUsuario);
         }
 
-        public List<MA_NAC> ObterTodosOsNACPorNomeDoRepresentante(String nomerepresentante)
+        public List<MA_NAC> ObterTodosOsNac()
         {
-            return this.RepositorioDeNAC.ObterTodosOsNACPorNomeDoRepresentante(nomerepresentante);
+            return this.RepositorioDeNac.ObterTodosOsNac();
         }
 
-        public void InserirNAC(MA_NAC nac)
+        public List<MA_NAC> ObterTodosOsNacDeUsuariosAtivos()
         {
-            this.RepositorioDeNAC.InserirNAC(nac);
+            return this.RepositorioDeNac.ObterTodosOsNacDeUsuariosAtivos();
         }
 
-        public Boolean InserirNACComRetorno(MA_NAC nac)
+        public List<MA_NAC> ObterTodosOsNacPorNomeDoRepresentante(String nomerepresentante)
         {
-            return this.RepositorioDeNAC.InserirNACComRetorno(nac);
+            return this.RepositorioDeNac.ObterTodosOsNacPorNomeDoRepresentante(nomerepresentante);
+        }
+
+        public void InserirNac(MA_NAC nac)
+        {
+            this.RepositorioDeNac.InserirNac(nac);
+        }
+
+        public Boolean InserirNacComRetorno(MA_NAC nac)
+        {
+            return this.RepositorioDeNac.InserirNacComRetorno(nac);
         }
 
         public int BuscarQuantidadeRegistros()
         {
-            return this.RepositorioDeNAC.BuscarQuantidadeRegistros();
+            return this.RepositorioDeNac.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverNAC(MA_NAC nac)
+        public void RemoverNac(MA_NAC nac)
         {
-            this.RepositorioDeNAC.RemoverNAC(nac);
+            this.RepositorioDeNac.RemoverNac(nac);
         }
 
-        public void AtualizarNAC(MA_NAC nac)
+        public void AtualizarNac(MA_NAC nac)
         {
-            this.RepositorioDeNAC.AtualizarNAC(nac);
+            this.RepositorioDeNac.AtualizarNac(nac);
         }
 
-        public Boolean AtualizarNACComRetorno(MA_NAC nac)
+        public Boolean AtualizarNacComRetorno(MA_NAC nac)
         {
-            return this.RepositorioDeNAC.AtualizarNACComRetorno(nac);
+            return this.RepositorioDeNac.AtualizarNacComRetorno(nac);
         }
 
         public Boolean VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(MA_NAC nac)
         {
-            return this.RepositorioDeNAC.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
+            return this.RepositorioDeNac.VerificarSeParticipanteTemAlgumParticipanteComMesmoUsuario(nac);
         }
 
-        public Boolean VerificarSeNACTemAlgumParticipanteComMesmoUsuario(int idUsuario)
+        public Boolean VerificarSeNacTemAlgumParticipanteComMesmoUsuario(int idUsuario)
         {
-            List<MA_NAC> listanac = ObterTodosOsNAC();
+            List<MA_NAC> listanac = ObterTodosOsNac();
 
             foreach (MA_NAC nac in listanac)
             {
@@ -82,6 +92,18 @@ namespace MimAcher.Aplicacao
             }
 
             return false;
+        }
+
+        public Boolean VerificarSeNacPorId(int idNac)
+        {
+            if(ObterNacPorId(idNac) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

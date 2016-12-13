@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0F3F075E-C0C8-89C9-CC93-1CDD4494A9B9" name="STATUS_RELACAO">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="298650E2-1F99-B70F-DD6A-FE16A2F30F71" name="Status">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:36:33 UTC</createdTime>
+<createdTime>2016-12-11 02:11:07 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="cod_s_relacao" id="293E1DED-8C05-FC16-CAEF-88E80CBF6AB5">
+<Column name="cod_status" id="E3CFA43F-C754-F3C0-AC2B-53248684F883">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:37:27 UTC</createdTime>
+<createdTime>2016-12-11 02:11:46 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -17,9 +17,9 @@
 <logicalDatatype>LOGDT011</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="nome" id="3326B170-3C5E-0746-186E-4EB516D25883">
+<Column name="nome" id="DC7D221B-EF1A-1D99-E3F5-3EEE7AE4D66A">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:37:27 UTC</createdTime>
+<createdTime>2016-12-11 02:11:46 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -31,16 +31,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="D66F6146-0335-F4DB-A02C-621652F1ACFD" name="STATUS_RELACAO_PK">
+<ind_PK_UK id="4F993C32-D35C-8021-3CF2-549D8DBB9E99" name="PK_MA_PARTICIPANTE_cod_status">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:37:27 UTC</createdTime>
+<createdTime>2016-12-11 02:11:46 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="293E1DED-8C05-FC16-CAEF-88E80CBF6AB5"/>
+<colUsage columnID="E3CFA43F-C754-F3C0-AC2B-53248684F883"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

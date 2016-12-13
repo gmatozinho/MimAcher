@@ -58,15 +58,15 @@
 							</Store>
 						</ext:ComboBox>   
 
-						<%-- Combobox do Status da Relação --%>
-						<ext:ComboBox ID="cod_s_relacaoId" Width="300" Name="cod_s_relacao" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_s_relacao_combo" DisplayField="nome_combo">
+						<%-- Combobox do Status --%>
+						<ext:ComboBox ID="cod_statusId" Width="300" Name="cod_status" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_status_combo" DisplayField="nome_status_combo">
 							<Store>
-								<ext:Store ID="StoreStatusRelacaoId" runat="server">
+								<ext:Store ID="StoreStatusId" runat="server">
 									<Model>
-										<ext:Model ID="ModelStatusRelacaoId" runat="server">
+										<ext:Model ID="ModelStatusId" runat="server">
 											<Fields>
-												<ext:ModelField Name="cod_s_relacao_combo" Mapping="cod_s_relacao" />
-												<ext:ModelField Name="nome_combo" Mapping="nome" />
+												<ext:ModelField Name="cod_status_combo" Mapping="cod_status" />
+												<ext:ModelField Name="nome_status_combo" Mapping="nome" />
 											</Fields>
 										</ext:Model>
 									</Model>
@@ -109,8 +109,8 @@
 						<ext:ModelField Name="nome_participante" Mapping="nome_participante" ServerMapping="MA_PARTICIPANTE.nome" />                                                                                
 						<ext:ModelField Name="cod_item" Type="Int" />
 						<ext:ModelField Name="nome_item" Mapping="nome_item" ServerMapping="MA_ITEM.nome" />  
-						<ext:ModelField Name="cod_s_relacao" Type="Int" />
-						<ext:ModelField Name="nome_statusrelacao" Mapping="nome_statusrelacao" ServerMapping="MA_STATUS_RELACAO.nome" />                                                                                                                                                              
+						<ext:ModelField Name="cod_status" Type="Int" />
+						<ext:ModelField Name="nome_statusrelacao" Mapping="nome_statusrelacao" ServerMapping="MA_STATUS.nome" />                                                                                                                                                              
 					</Fields>
 				</ext:Model>
 			</Model>

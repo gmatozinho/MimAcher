@@ -12,11 +12,13 @@ namespace MimAcher.WebService.Controllers
     {
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeAplicacao GestorDeAplicacao { get; set; }
+        public GestorDeUsuario GestorDeUsuario { get; set; }
 
         public ParticipanteController()
         {
             GestorDeParticipante = new GestorDeParticipante();
             GestorDeAplicacao = new GestorDeAplicacao();
+            GestorDeUsuario = new GestorDeUsuario();
         }
 
         // GET: Participante
@@ -28,7 +30,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantes();
+            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantesDeUsuariosAtivos();
             List<Participante> listaparticipante = new List<Participante>();
 
             foreach (MA_PARTICIPANTE pt in listaparticipanteoriginal)
@@ -219,6 +221,75 @@ namespace MimAcher.WebService.Controllers
                     jsonResult = Json(new
                     {
                         participante = listaparticipanteretorno
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Delete(List<Participante> listaparticipante)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipante == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+
+                participante.cod_participante = listaparticipante[0].cod_participante;                
+
+                try
+                {
+                    if (GestorDeParticipante.VerificarSeExisteParticipantePorId(participante.cod_participante))
+                    {
+                        participante = GestorDeParticipante.ObterParticipantePorId(participante.cod_participante);
+
+                        MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(participante.cod_usuario);
+
+                        //Inativa o usuário associado a este Participante
+                        usuario.cod_status = 2;
+
+                        Boolean resultado = GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
+                        
+                        if (resultado)
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = participante.cod_participante
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
                     }, JsonRequestBehavior.AllowGet);
                 }
             }

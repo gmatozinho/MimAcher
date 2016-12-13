@@ -24,6 +24,13 @@ namespace MimAcher.Infra
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == participanteaprender.cod_participante && l.cod_item == participanteaprender.cod_item).SingleOrDefault();
         }
+        
+        public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        {
+            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+            
+            return ContextoModificado.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
+        }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterAprendizadoDeParticipantePorIdDeItem(int id_item)
         {
@@ -32,17 +39,22 @@ namespace MimAcher.Infra
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_APRENDER participanteaprender)
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == participanteaprender.cod_item && l.cod_s_relacao == 1).Skip(participanteaprender.cod_p_aprender).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == participanteaprender.cod_item && l.cod_status == 1).Skip(participanteaprender.cod_p_aprender).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
         {
-            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == id_item && l.cod_s_relacao == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_item == id_item && l.cod_status == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistros()
         {
             return this.Contexto.MA_PARTICIPANTE_APRENDER.ToList();
+        }
+
+        public List<MA_PARTICIPANTE_APRENDER> ObterTodosOsRegistrosAtivos()
+        {
+            return this.Contexto.MA_PARTICIPANTE_APRENDER.Where(l => l.cod_status == 1).ToList();
         }
 
         public void InserirNovoAprendizadoDeParticipante(MA_PARTICIPANTE_APRENDER participanteaprender)
@@ -56,7 +68,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
 
-                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                if (participanteaprenderconferencia.cod_status != participanteaprender.cod_status)
                 {
                     AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
                 }
@@ -76,7 +88,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
 
-                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                if (participanteaprenderconferencia.cod_status != participanteaprender.cod_status)
                 {
                     return AtualizarAprendizadoDeParticipanteComRetorno(participanteaprender);
                 }
@@ -108,9 +120,9 @@ namespace MimAcher.Infra
             }
             else
             {
-                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
+                MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender.cod_item, participanteaprender.cod_participante);
 
-                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                if (participanteaprenderconferencia.cod_status != participanteaprender.cod_status)
                 {
                     AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
 
@@ -133,7 +145,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE_APRENDER participanteaprenderconferencia = ObterAprendizadoDeParticipantePorItemEParticipante(participanteaprender);
 
-                if (participanteaprenderconferencia.cod_s_relacao != participanteaprender.cod_s_relacao)
+                if (participanteaprenderconferencia.cod_status != participanteaprender.cod_status)
                 {
                     AtualizarAprendizadoDeParticipanteSemConferencia(participanteaprender);
                 }

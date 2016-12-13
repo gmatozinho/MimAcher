@@ -47,19 +47,19 @@
 <colAssociation fkAssociation="3499CDC9-FD04-2CCA-52E6-54A68F60AA68" referredColumn="A2B24694-565F-9D84-EB45-4D1BBF6561B0"/>
 </associations>
 </Column>
-<Column name="cod_s_relacao" id="C551401B-6D19-7DC9-0FBD-4B0486DF1DBC">
+<Column name="cod_status" id="98900A98-27C7-D170-888D-57E7D9C08116">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:38:28 UTC</createdTime>
+<createdTime>2016-12-11 02:15:47 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT011</logicalDatatype>
-<delegate>293E1DED-8C05-FC16-CAEF-88E80CBF6AB5</delegate>
+<delegate>E3CFA43F-C754-F3C0-AC2B-53248684F883</delegate>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="4979AB00-EB88-796D-BCC0-8E9FE23A9A79" referredColumn="293E1DED-8C05-FC16-CAEF-88E80CBF6AB5"/>
+<colAssociation fkAssociation="703F551B-3399-CCCF-25A0-5CA34D794893" referredColumn="E3CFA43F-C754-F3C0-AC2B-53248684F883"/>
 </associations>
 </Column>
 </columns>
@@ -98,15 +98,15 @@
 <colUsage columnID="CF068D4B-5A13-0F99-D748-14E4251672EB"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="101FC6F1-7408-34E3-16BA-9E12A8A87C3C" name="FK_MA_PARTICIPANTE_HOBBIE_MA_STATUS_RELACAO_cod_s_relacao">
+<ind_PK_UK id="27D73414-CE42-7D5D-830F-D8A286A08F7B" name="PARTICIPANTE_HOBBIE_Status_FK">
 <createdBy>pchan</createdBy>
-<createdTime>2016-11-14 09:38:28 UTC</createdTime>
+<createdTime>2016-12-11 02:15:47 UTC</createdTime>
 <generatorID>Gerado pelo usuário</generatorID>
 <ownerDesignName>mimacher</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="C551401B-6D19-7DC9-0FBD-4B0486DF1DBC"/>
+<colUsage columnID="98900A98-27C7-D170-888D-57E7D9C08116"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

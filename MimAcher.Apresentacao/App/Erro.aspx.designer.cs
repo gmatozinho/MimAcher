@@ -112,6 +112,33 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
+        /// ReportErroWindowId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Window ReportErroWindowId;
+        
+        /// <summary>
+        /// ReportErroPanelId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Panel ReportErroPanelId;
+        
+        /// <summary>
+        /// ReportViewerErro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewerErro;
+        
+        /// <summary>
         /// StoreErroId control.
         /// </summary>
         /// <remarks>
@@ -227,6 +254,15 @@ namespace MimAcher.Apresentacao.App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Ext.Net.Button AtualizarButtonId;
+        
+        /// <summary>
+        /// ImprimirButtonId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Ext.Net.Button ImprimirButtonId;
         
         /// <summary>
         /// PagingToolbarId control.

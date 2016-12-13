@@ -10,34 +10,34 @@
 namespace MimAcher.Apresentacao.App {
     
     
-    public partial class NAC {
+    public partial class Nac {
         
         /// <summary>
-        /// NACWindowId control.
+        /// NacWindowId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Window NACWindowId;
+        protected global::Ext.Net.Window NacWindowId;
         
         /// <summary>
-        /// NACFormPanelId control.
+        /// NacFormPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FormPanel NACFormPanelId;
+        protected global::Ext.Net.FormPanel NacFormPanelId;
         
         /// <summary>
-        /// NACFieldSetId control.
+        /// NacFieldSetId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.FieldSet NACFieldSetId;
+        protected global::Ext.Net.FieldSet NacFieldSetId;
         
         /// <summary>
         /// cod_nacId control.
@@ -121,13 +121,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Model ModelCampusId;
         
         /// <summary>
-        /// NACBarId control.
+        /// NacBarId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.StatusBar NACBarId;
+        protected global::Ext.Net.StatusBar NacBarId;
         
         /// <summary>
         /// SaveButtonId control.
@@ -148,31 +148,31 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Button CancelButtonId;
         
         /// <summary>
-        /// StoreNACId control.
+        /// StoreNacId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreNACId;
+        protected global::Ext.Net.Store StoreNacId;
         
         /// <summary>
-        /// ModelNACId control.
+        /// ModelNacId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelNACId;
+        protected global::Ext.Net.Model ModelNacId;
         
         /// <summary>
-        /// NACGridPanelId control.
+        /// NacGridPanelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.GridPanel NACGridPanelId;
+        protected global::Ext.Net.GridPanel NacGridPanelId;
         
         /// <summary>
         /// cod_nacColumnId control.
@@ -220,13 +220,13 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Column telefoneColumnId;
         
         /// <summary>
-        /// NACRowSelectionModelId control.
+        /// NacRowSelectionModelId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.RowSelectionModel NACRowSelectionModelId;
+        protected global::Ext.Net.RowSelectionModel NacRowSelectionModelId;
         
         /// <summary>
         /// ToolbarId control.

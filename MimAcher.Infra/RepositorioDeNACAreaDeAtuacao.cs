@@ -6,56 +6,56 @@ using MimAcher.Dominio;
 
 namespace MimAcher.Infra
 {
-    public class RepositorioDeNACAreaDeAtuacao
+    public class RepositorioDeNacAreaDeAtuacao
     {
         public MIMACHEREntities Contexto { get; set; }
 
-        public RepositorioDeNACAreaDeAtuacao()
+        public RepositorioDeNacAreaDeAtuacao()
         {
             this.Contexto = new MIMACHEREntities();
         }
 
-        public MA_NAC_AREA_ATUACAO ObterNACAreaDeAtuacaoPorId(int id)
+        public MA_NAC_AREA_ATUACAO ObterNacAreaDeAtuacaoPorId(int id)
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.Find(id);
         }
 
-        public MA_NAC_AREA_ATUACAO ObterNACAreaAtuacaoPorNACEAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
+        public MA_NAC_AREA_ATUACAO ObterNacAreaAtuacaoPorNacEAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.Where(l => l.cod_nac == nacareaatuacao.cod_nac && l.cod_nac_area_atuacao == nacareaatuacao.cod_nac_area_atuacao).SingleOrDefault();
         }
 
-        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACAreasDeAtuacao()
+        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNacAreasDeAtuacao()
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.ToList();
         }
 
-        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACSAreasDeAtuacaosPorNomeDeAreaDeAtuacao(String nome)
+        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNacsAreasDeAtuacaosPorNomeDeAreaDeAtuacao(String nome)
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.Where(l => l.MA_AREA_ATUACAO.nome.Equals(nome)).ToList();
         }
 
-        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNACSAreasDeAtuacaosPorNomeDeRepresentanteDoNAC(String nomerepresentante)
+        public List<MA_NAC_AREA_ATUACAO> ObterTodasAsNacsAreasDeAtuacaosPorNomeDeRepresentanteDoNac(String nomerepresentante)
         {
             return this.Contexto.MA_NAC_AREA_ATUACAO.Where(l => l.MA_NAC.nome_representante.Equals(nomerepresentante)).ToList();
         }
 
-        public void InserirNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        public void InserirNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
             {
-                this.Contexto.MA_NAC_AREA_ATUACAO.Add(NACAreaDeAtuacao);
+                this.Contexto.MA_NAC_AREA_ATUACAO.Add(NacAreaDeAtuacao);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirNACAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        public Boolean InserirNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.MA_NAC_AREA_ATUACAO.Add(NACAreaDeAtuacao);
+                    this.Contexto.MA_NAC_AREA_ATUACAO.Add(NacAreaDeAtuacao);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -76,28 +76,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_NAC_AREA_ATUACAO.Count();
         }
 
-        public void RemoverNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        public void RemoverNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
         {
-            this.Contexto.MA_NAC_AREA_ATUACAO.Remove(NACAreaDeAtuacao);
+            this.Contexto.MA_NAC_AREA_ATUACAO.Remove(NacAreaDeAtuacao);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        public void AtualizarNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
             {
-                this.Contexto.Entry(NACAreaDeAtuacao).State = EntityState.Modified;
+                this.Contexto.Entry(NacAreaDeAtuacao).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarNACAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NACAreaDeAtuacao)
+        public Boolean AtualizarNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
         {
-            if (!VerificarSeExisteRelacaoDeNACAreaDeAtuacao(NACAreaDeAtuacao))
+            if (!VerificarSeExisteRelacaoDeNacAreaDeAtuacao(NacAreaDeAtuacao))
             {
                 try
                 {
-                    this.Contexto.Entry(NACAreaDeAtuacao).State = EntityState.Modified;
+                    this.Contexto.Entry(NacAreaDeAtuacao).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -113,9 +113,9 @@ namespace MimAcher.Infra
             }
         }
 
-        public Boolean VerificarSeExisteRelacaoDeNACAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
+        public Boolean VerificarSeExisteRelacaoDeNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacareaatuacao)
         {
-            if (ObterNACAreaAtuacaoPorNACEAreaDeAtuacao(nacareaatuacao) != null)
+            if (ObterNacAreaAtuacaoPorNacEAreaDeAtuacao(nacareaatuacao) != null)
             {
                 return true;
             }

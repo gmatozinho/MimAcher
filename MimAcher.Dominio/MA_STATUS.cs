@@ -12,17 +12,18 @@ namespace MimAcher.Dominio
     using System;
     using System.Collections.Generic;
     
-    public partial class MA_STATUS_RELACAO
+    public partial class MA_STATUS
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MA_STATUS_RELACAO()
+        public MA_STATUS()
         {
             this.MA_PARTICIPANTE_APRENDER = new HashSet<MA_PARTICIPANTE_APRENDER>();
             this.MA_PARTICIPANTE_ENSINAR = new HashSet<MA_PARTICIPANTE_ENSINAR>();
             this.MA_PARTICIPANTE_HOBBIE = new HashSet<MA_PARTICIPANTE_HOBBIE>();
+            this.MA_USUARIO = new HashSet<MA_USUARIO>();
         }
     
-        public int cod_s_relacao { get; set; }
+        public int cod_status { get; set; }
         public string nome { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -31,5 +32,7 @@ namespace MimAcher.Dominio
         public virtual ICollection<MA_PARTICIPANTE_ENSINAR> MA_PARTICIPANTE_ENSINAR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MA_PARTICIPANTE_HOBBIE> MA_PARTICIPANTE_HOBBIE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MA_USUARIO> MA_USUARIO { get; set; }
     }
 }

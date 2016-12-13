@@ -25,7 +25,7 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = GestorDeHobbieDeParticipante.ObterTodosOsRegistros();
+            List<MA_PARTICIPANTE_HOBBIE> listaparticipantehobbieoriginal = GestorDeHobbieDeParticipante.ObterTodosOsRegistrosAtivos();
             List<ParticipanteHobbie> listaparticipantehobbie = new List<ParticipanteHobbie>();
 
             foreach (MA_PARTICIPANTE_HOBBIE pe in listaparticipantehobbieoriginal)
@@ -72,7 +72,7 @@ namespace MimAcher.WebService.Controllers
                 participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
 
                 //Informa que a relação estará ativa
-                participantehobbie.cod_s_relacao = 1;
+                participantehobbie.cod_status = 1;
 
                 try
                 {
@@ -108,76 +108,7 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-
-        [HttpPost]
-        public ActionResult Update(List<ParticipanteHobbie> listaparticipantehobbie)
-        {
-            JsonResult jsonResult;
-
-            //Verifica se o registro é inválido e se sim, retorna com erro.
-            if (listaparticipantehobbie == null)
-            {
-                jsonResult = Json(new
-                {
-                    codigo = -1
-                }, JsonRequestBehavior.AllowGet);
-            }
-            else
-            {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
-                {
-                    MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
-
-                    participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
-                    participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                    participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
-                    //Permanece a relação como ativa
-                    participantehobbie.cod_s_relacao = 1;
-
-                    try
-                    {
-                        Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
-
-                        if (resultado)
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = participantehobbie.cod_p_hobbie
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                        else
-                        {
-                            jsonResult = Json(new
-                            {
-                                codigo = -1
-                            }, JsonRequestBehavior.AllowGet);
-                        }
-                    }
-                    catch(Exception e)
-                    {
-                        jsonResult = Json(new
-                        {
-                            erro = e.InnerException.ToString(),
-                            codigo = -1
-                        }, JsonRequestBehavior.AllowGet);
-
-                    }
-
-                }
-                else
-                {
-                    jsonResult = Json(new
-                    {
-                        codigo = -1
-                    }, JsonRequestBehavior.AllowGet);
-                }
-
-            }
-
-            jsonResult.MaxJsonLength = int.MaxValue;
-            return jsonResult;
-        }
-
+        
         [HttpPost]
         public ActionResult Delete(List<ParticipanteHobbie> listaparticipantehobbie)
         {
@@ -193,29 +124,32 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(listaparticipantehobbie[0].cod_p_hobbie))
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterHobbieDoParticipantePorId(listaparticipantehobbie[0].cod_p_hobbie);
+                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterParticipanteHobbiePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante);
 
-                        if (participantehobbie.cod_s_relacao == 1)
+                        if (participantehobbie.cod_status == 1)
                         {
-                            participantehobbie.cod_p_hobbie = listaparticipantehobbie[0].cod_p_hobbie;
-                            participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                            participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                            MA_PARTICIPANTE_HOBBIE participantehobbiemodificado = new MA_PARTICIPANTE_HOBBIE();
+
+                            participantehobbiemodificado.cod_p_hobbie = participantehobbie.cod_p_hobbie;
+                            participantehobbiemodificado.cod_participante = participantehobbie.cod_participante;
+                            participantehobbiemodificado.cod_item = participantehobbie.cod_item;
+
                             //Marca a relação como inativa
-                            participantehobbie.cod_s_relacao = 2;
+                            participantehobbiemodificado.cod_status = 2;
 
                             try
                             {
-                                Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbie);
+                                Boolean resultado = this.GestorDeHobbieDeParticipante.AtualizarHobbieDoParticipanteComRetorno(participantehobbiemodificado);
 
                                 if (resultado)
                                 {
                                     jsonResult = Json(new
                                     {
-                                        codigo = participantehobbie.cod_p_hobbie
+                                        codigo = participantehobbiemodificado.cod_p_hobbie
                                     }, JsonRequestBehavior.AllowGet);
                                 }
                                 else
@@ -286,7 +220,7 @@ namespace MimAcher.WebService.Controllers
                 {
                     try
                     {
-                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterHobbiesDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item);
+                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipantehobbie[0].cod_item);
 
                         //Reinicia lista de aprendizado de participante
                         listaparticipantehobbie = new List<ParticipanteHobbie>();
