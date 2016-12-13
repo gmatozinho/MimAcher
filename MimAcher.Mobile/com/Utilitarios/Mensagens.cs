@@ -229,6 +229,23 @@ namespace MimAcher.Mobile.com.Utilitarios
             }
             
         }
-        
+
+        public static void MensagemDesativarConta(EditarPerfilActivity editarPerfilActivity, Participante participante)
+        {
+            
+            var alert = new AlertDialog.Builder(editarPerfilActivity);
+            alert.SetTitle("Desativar Conta!");
+            alert.SetMessage("Esta conta será desativa, você tem certeza que deseja desativar esta conta?\n");
+            alert.SetPositiveButton("Sim", (senderAlert, args) =>
+            {
+                CursorBd.DeletarUsuario(participante);
+                Toast.MakeText(editarPerfilActivity, "Conta Desativada", ToastLength.Short).Show();
+                editarPerfilActivity.IniciarMain(editarPerfilActivity);
+            });
+            alert.SetNegativeButton("Não", (senderAlert, args) =>
+            {
+            });
+            alert.Show();
+        }
     }
 }

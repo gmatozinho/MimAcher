@@ -19,9 +19,10 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
                 if(!comparacao) Write(activity);
                 return comparacao;
             }
-            catch
+            catch (System.Exception)
             {
                 Write(activity);
+                EnviarErro.EnviandoErroValidadores("Erro Senha");
                 return false;
             }
         }

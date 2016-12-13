@@ -22,9 +22,10 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
                 }
                 return true;
             }
-            catch
+            catch (System.Exception)
             {
                 Write(activity);
+                EnviarErro.EnviandoErroValidadores("Erro Nome");
                 return false;
             }
         }

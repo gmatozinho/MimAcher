@@ -22,7 +22,8 @@ namespace MimAcher.Mobile.com.Activities
         private string _emailInserido;
         private string _senhaInserida;
         private TelaENomeParaLoading _telaENome;
-        
+        Stopwatch stopwatch = new Stopwatch();
+
 
         //Metodos do controlador
         //Cria e controla a activity
@@ -37,11 +38,12 @@ namespace MimAcher.Mobile.com.Activities
             var connectivityManager = (ConnectivityManager)GetSystemService(ConnectivityService);
 
             //pra verificar o tempo de checagem de conexao com o servidor
-            var stopwatch = new Stopwatch();
+            
             stopwatch.Start();
             ChecagemConexao.ChecarConexão(this, connectivityManager);
             stopwatch.Stop();
-            var tempoIniciarMain = stopwatch.ToString();
+            var tempoIniciarMain = stopwatch;
+            EnviarErro.EnviandoTempoIniciarMain(tempoIniciarMain);
 
             //Iniciando as variaveis do contexto
             var campoEmail = FindViewById<EditText>(Resource.Id.email);
@@ -54,30 +56,33 @@ namespace MimAcher.Mobile.com.Activities
             campoEmail.TextChanged += (sender, texto) => _emailInserido = texto.Text.ToString();
             campoSenha.TextChanged += (sender, texto) => _senhaInserida = texto.Text.ToString();
 
-            stopwatch.Restart();
+
             entrar.Click += BotaoEntrarClique;
-            stopwatch.Stop();
-            var tempoLogar = stopwatch.ToString();
             
-            stopwatch.Restart();
-            inscrevase.Click += BotaoInscreverClique;
-            stopwatch.Stop();
-            var tempoIniciarInscrever = stopwatch.ToString();
+            inscrevase.Click += BotaoInscreverClique; 
+            
         }
-        
+
         private void BotaoInscreverClique(object sender, EventArgs e)
         {
+            stopwatch.Restart();
             _telaENome = new TelaENomeParaLoading(this,"IniciarInscrever");
             Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, Android.Resource.Animation.FadeIn);
+            stopwatch.Stop();
+            var tempoIniciarInscrever = stopwatch;
+            EnviarErro.EnviandoTempoIniciarInscrever(tempoIniciarInscrever);
         }
 
         private void BotaoEntrarClique(object sender, EventArgs e)
         {
-            
+            stopwatch.Restart();
             _telaENome = new TelaENomeParaLoading(this, "Entrar");
             Loading.MyButtonClicked(_telaENome);
             OverridePendingTransition(0, 0);
+            stopwatch.Stop();
+            var tempoLogar = stopwatch;
+            EnviarErro.EnviandoTempoIniciarEntrar(tempoLogar);
         }
 
         private Dictionary<string, string> MontarDicionarioLogin()

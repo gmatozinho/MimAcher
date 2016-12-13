@@ -30,9 +30,10 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
                 return comparacao ;
 
             }
-            catch
+            catch(System.Exception)
             {
                 Write(activity);
+                EnviarErro.EnviandoErroValidadores("Erro Email");
                 return false;
             }
         }

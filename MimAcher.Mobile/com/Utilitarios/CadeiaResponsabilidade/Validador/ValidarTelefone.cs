@@ -25,9 +25,10 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador
                     Write(activity);
                 return comparacao;
             }
-            catch
+            catch (System.Exception)
             {
                 Write(activity);
+                EnviarErro.EnviandoErroValidadores("Erro Telefone");
                 return false;
             }
         }

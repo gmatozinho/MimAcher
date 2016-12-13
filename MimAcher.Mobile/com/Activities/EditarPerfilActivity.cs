@@ -37,6 +37,7 @@ namespace MimAcher.Mobile.com.Activities
             //Iniciando as variaveis do contexto
             var salvar = FindViewById<Button>(Resource.Id.salvar);
             var alterarSenha = FindViewById<TextView>(Resource.Id.alterar_senha);
+            var desativarUsuario = FindViewById<TextView>(Resource.Id.desativar_usuario);
             var telefoneInfoUser = FindViewById<EditText>(Resource.Id.tel_number_user);
             var nomeInfoUser = FindViewById<EditText>(Resource.Id.nome_info_user);
             var dtNascimentoInfoUser = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
@@ -62,6 +63,13 @@ namespace MimAcher.Mobile.com.Activities
             //Pegar as informações inseridas
             dtNascimentoInfoUser.TextChanged += (sender, nascimentocapturado) => _nascimento = nascimentocapturado.Text.ToString();
             telefoneInfoUser.TextChanged += (sender, telefonecapturado) => _telefone = telefonecapturado.Text.ToString();
+
+
+
+            desativarUsuario.Click += delegate
+            {
+                Mensagens.MensagemDesativarConta(this,_participante);
+            };
 
             alterarSenha.Click += delegate
             {

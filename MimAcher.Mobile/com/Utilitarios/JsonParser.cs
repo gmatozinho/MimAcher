@@ -242,7 +242,7 @@ namespace MimAcher.Mobile.com.Utilitarios
 
         public static string MontarJsonErro(string oQue, string quando, int quantos)
         {
-            return "{ \"listerro\": [{ \"cod_erro\": 0, \"tipo\": \"" + oQue + 
+            return "{ \"listaerro\": [{ \"cod_erro\": 0, \"tipo\": \"" + oQue + 
                 "\", \"aconteceu\": \"" + quando + "\", \"incidencia\": " + quantos + " }] }";
         }
     }
