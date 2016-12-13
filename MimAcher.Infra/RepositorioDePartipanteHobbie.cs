@@ -86,7 +86,7 @@ namespace MimAcher.Infra
 
                     return true;
                 }
-                catch(Exception e)
+                catch(Exception)
                 {
                     return false;
                 }
@@ -186,7 +186,7 @@ namespace MimAcher.Infra
 
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
