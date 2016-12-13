@@ -76,6 +76,8 @@ namespace MimAcher.WebService.Controllers
 
                 try
                 {
+                    //if
+
                     Boolean resultado = GestorDeParticipanteEnsinar.InserirNovoEnsinamentoDeParticipanteComRetorno(participanteensinar);
 
                     if (resultado)
