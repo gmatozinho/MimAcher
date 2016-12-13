@@ -151,9 +151,7 @@ namespace MimAcher.Apresentacao.App
         protected void Imprimir(object sender, DirectEventArgs e)
         {
             List<RelacaoImpressao> listaimpressaopersonalizada = new List<RelacaoImpressao>();
-
-            //List<MA_ERRO> listaerros = GestorDeErro.ObterTodosOsErros();
-            
+                        
             //Define que que o tipo de processamento do Report será local
             ReportViewerRelacao.ProcessingMode = ProcessingMode.Local;
 
