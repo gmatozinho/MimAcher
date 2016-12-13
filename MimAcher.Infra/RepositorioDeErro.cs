@@ -49,7 +49,7 @@ namespace MimAcher.Infra
             }
             catch(Exception e)
             {
-                return false;
+                throw e;
             }
         }
 
