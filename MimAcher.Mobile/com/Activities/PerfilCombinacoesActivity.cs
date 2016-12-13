@@ -15,7 +15,6 @@ namespace MimAcher.Mobile.com.Activities
     {
         //Variaveis globais
         private Participante _participante;
-        private PacoteAbstrato _pacote;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -55,13 +54,6 @@ namespace MimAcher.Mobile.com.Activities
 
         }
 
-        //fazermenu
-        public override bool OnCreateOptionsMenu(IMenu menu)
-        {
-            MenuInflater.Inflate(Resource.Drawable.top_menus_only_home, menu);
-            return base.OnCreateOptionsMenu(menu);
-        }
-
         private void PreencherPreferenciasParticipante()
         {
             //Obter lista de itens do sistema
@@ -72,17 +64,6 @@ namespace MimAcher.Mobile.com.Activities
             _participante.Aprender.Conteudo = relacoesdoparticipantecomitens["aprender"];
             _participante.Ensinar.Conteudo = relacoesdoparticipantecomitens["ensinar"];
         }
-
-        public override bool OnOptionsItemSelected(IMenuItem item)
-        {
-            switch (item.ItemId)
-            {
-                case Resource.Id.menu_home:
-                    _pacote = _participante;
-                    IniciarHome(this, _pacote);
-                    return true;
-            }
-            return base.OnOptionsItemSelected(item);
-        }
+        
     }
 }

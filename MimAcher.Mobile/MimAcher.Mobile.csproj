@@ -163,6 +163,7 @@
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarNome.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarSenha.cs" />
     <Compile Include="com\Utilitarios\CadeiaResponsabilidade\Validador\ValidarTelefone.cs" />
+    <Compile Include="com\Utilitarios\EnviarErro.cs" />
     <Compile Include="com\Utilitarios\Geolocalizacao.cs" />
     <Compile Include="com\Utilitarios\Loading.cs" />
     <Compile Include="com\Utilitarios\Mascara.cs" />

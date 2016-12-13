@@ -29,7 +29,8 @@
             android:singleLine="true"
             android:lines="1"
             android:textColorHint="#A9A9A9"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:inputType="textEmailSubject" />
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
@@ -83,5 +84,4 @@
         android:clickable="true"
         android:textStyle="normal"
         android:background="#DCDCDC" />
-    
 </LinearLayout>

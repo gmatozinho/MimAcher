@@ -100,6 +100,23 @@
         android:backgroundTint="#00000000"
         android:clickable="true"
         android:layout_marginTop="12dp" />
+    <TextView
+        android:id="@+id/desativar_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:text="Desativar Usuario"
+        android:layout_below="@+id/alterar_senha"
+        android:layout_marginLeft="15dp"
+        android:background="@android:color/white"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#000000"
+        android:textColorLink="#000000"
+        android:backgroundTint="#00000000"
+        android:clickable="true"
+        android:layout_marginTop="20dp" />
     <Button
         android:text="Salvar"
         android:textColor="@android:color/black"
