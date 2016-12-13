@@ -10,5 +10,6 @@ namespace MimAcher.WebService.Models
         public string tipo { get; set; }
         public string aconteceu { get; set; }
         public int incidencia { get; set; }
+        public String dt_acontecimento { get; set; }
     }
 }

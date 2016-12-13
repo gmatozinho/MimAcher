@@ -37,6 +37,7 @@ namespace MimAcher.WebService.Controllers
                 erro.tipo = er.tipo;
                 erro.aconteceu = er.aconteceu;
                 erro.incidencia = er.incidencia;
+                erro.dt_acontecimento = er.dt_acontecimento.ToString();
 
                 listaerro.Add(erro);
             }

@@ -171,5 +171,77 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
+
+        public ActionResult Delete(List<Usuario> listausuario)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listausuario == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+
+            }
+            else
+            {
+                try
+                {
+                    if (GestorDeUsuario.VerificarSeExisteUsuarioPorId(listausuario[0].cod_usuario))
+                    {
+                        MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(listausuario[0].cod_usuario);
+
+                        MA_USUARIO usuariomodificado = new MA_USUARIO();
+
+                        usuariomodificado.cod_usuario = usuario.cod_usuario;
+                        usuariomodificado.e_mail = usuario.e_mail;
+                        usuariomodificado.senha = usuario.senha;
+
+                        //Código acesso padrão para mobile
+                        usuariomodificado.cod_acesso = 1;
+
+                        //Inativa o usuário
+                        usuariomodificado.cod_status = 2;
+
+                        if (this.GestorDeUsuario.AtualizarUsuarioComRetorno(usuariomodificado))
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = usuariomodificado.cod_usuario
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+
+
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
     }
 }

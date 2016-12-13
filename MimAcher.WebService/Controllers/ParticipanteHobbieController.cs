@@ -220,7 +220,7 @@ namespace MimAcher.WebService.Controllers
                 {
                     try
                     {
-                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterHobbiesDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item);
+                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipantehobbie[0].cod_item);
 
                         //Reinicia lista de aprendizado de participante
                         listaparticipantehobbie = new List<ParticipanteHobbie>();

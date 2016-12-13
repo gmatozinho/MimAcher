@@ -38,7 +38,7 @@ namespace MimAcher.Aplicacao
         {
             return this.RepositorioDeAprendizadoDeParticipante.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
         }
-
+                
         public MA_PARTICIPANTE_APRENDER ObterAprendizadoDeParticipantePorItemEParticipante(int id_item, int id_participante)
         {
             return this.RepositorioDeAprendizadoDeParticipante.ObterAprendizadoDeParticipantePorItemEParticipante(id_item, id_participante);
