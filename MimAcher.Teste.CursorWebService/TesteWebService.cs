@@ -13,20 +13,11 @@ namespace MimAcher.Teste.CursorWebService
     {
         private static void Main(string[] args)
         {
-            var dir = new DiretorGeradores();
 
-            for (var i = 0; i < 10; i++)
-            {
-                var p = (Participante)dir.GerarParticipante();
-
-                p.Localizacao = "-13.23416/16.514";
-
-                Console.WriteLine("Nome: " + p.Nome + "\nCodigo: " + CursorBd.EnviarParticipante(p));
-                Console.WriteLine("--------------------------------------------------------------------");
-            }
+            var x = CursorBd.ObterDadosParticipante(1);
 
             Console.ReadLine();
-
+            
         }
     }
 }

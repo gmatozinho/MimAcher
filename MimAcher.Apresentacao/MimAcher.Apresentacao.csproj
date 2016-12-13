@@ -97,6 +97,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.0.5797.27534, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.0.0\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
@@ -157,22 +169,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Upload\" />
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Acesso.aspx" />
     <Content Include="App\AreaAtuacao.aspx" />
     <Content Include="App\Campus.aspx" />
+    <Content Include="App\Erro.aspx" />
     <Content Include="App\ImagemParticipante.aspx" />
+    <Content Include="App\ImpressaoErro.aspx" />
+    <Content Include="App\ImpressaoRelacao.aspx" />
     <Content Include="App\Item.aspx" />
     <Content Include="App\Mapa\PontoMapa.aspx" />
-    <Content Include="App\NAC.aspx" />
-    <Content Include="App\NACAreaAtuacao.aspx" />
+    <Content Include="App\Nac.aspx" />
+    <Content Include="App\NacAreaAtuacao.aspx" />
     <Content Include="App\Participante.aspx" />
     <Content Include="App\ParticipanteAprender.aspx" />
     <Content Include="App\ParticipanteEnsinar.aspx" />
     <Content Include="App\ParticipanteHobbie.aspx" />
-    <Content Include="App\StatusRelacao.aspx" />
+    <Content Include="App\Status.aspx" />
     <Content Include="App\Usuario.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -184,6 +201,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Impressao\Imagem\logo.gif" />
     <Content Include="Login.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Styles\customizado.css" />
@@ -194,6 +212,34 @@
     </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
+    <Content Include="Impressao\DataSetErro.xsc">
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Impressao\DataSetErro.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetErro.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Impressao\DataSetErro.xss">
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Impressao\DataSetRelacao.xsc">
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Impressao\DataSetRelacao.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetRelacao.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Impressao\DataSetRelacao.xss">
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\IIS Servidor.pubxml" />
     <None Include="Web.Debug.config">
@@ -204,6 +250,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\Acesso.aspx.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Acesso.aspx.designer.cs">
+      <DependentUpon>Acesso.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App\AreaAtuacao.aspx.cs">
       <DependentUpon>AreaAtuacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -218,12 +271,33 @@
     <Compile Include="App\Campus.aspx.designer.cs">
       <DependentUpon>Campus.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App\Erro.aspx.cs">
+      <DependentUpon>Erro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\Erro.aspx.designer.cs">
+      <DependentUpon>Erro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App\ImagemParticipante.aspx.cs">
       <DependentUpon>ImagemParticipante.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="App\ImagemParticipante.aspx.designer.cs">
       <DependentUpon>ImagemParticipante.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ImpressaoErro.aspx.cs">
+      <DependentUpon>ImpressaoErro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ImpressaoErro.aspx.designer.cs">
+      <DependentUpon>ImpressaoErro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App\ImpressaoRelacao.aspx.cs">
+      <DependentUpon>ImpressaoRelacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App\ImpressaoRelacao.aspx.designer.cs">
+      <DependentUpon>ImpressaoRelacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Item.aspx.cs">
       <DependentUpon>Item.aspx</DependentUpon>
@@ -239,19 +313,19 @@
     <Compile Include="App\Mapa\PontoMapa.aspx.designer.cs">
       <DependentUpon>PontoMapa.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\NAC.aspx.cs">
-      <DependentUpon>NAC.aspx</DependentUpon>
+    <Compile Include="App\Nac.aspx.cs">
+      <DependentUpon>Nac.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\NAC.aspx.designer.cs">
-      <DependentUpon>NAC.aspx</DependentUpon>
+    <Compile Include="App\Nac.aspx.designer.cs">
+      <DependentUpon>Nac.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\NACAreaAtuacao.aspx.cs">
-      <DependentUpon>NACAreaAtuacao.aspx</DependentUpon>
+    <Compile Include="App\NacAreaAtuacao.aspx.cs">
+      <DependentUpon>NacAreaAtuacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\NACAreaAtuacao.aspx.designer.cs">
-      <DependentUpon>NACAreaAtuacao.aspx</DependentUpon>
+    <Compile Include="App\NacAreaAtuacao.aspx.designer.cs">
+      <DependentUpon>NacAreaAtuacao.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Participante.aspx.cs">
       <DependentUpon>Participante.aspx</DependentUpon>
@@ -281,12 +355,12 @@
     <Compile Include="App\ParticipanteHobbie.aspx.designer.cs">
       <DependentUpon>ParticipanteHobbie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App\StatusRelacao.aspx.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
+    <Compile Include="App\Status.aspx.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App\StatusRelacao.aspx.designer.cs">
-      <DependentUpon>StatusRelacao.aspx</DependentUpon>
+    <Compile Include="App\Status.aspx.designer.cs">
+      <DependentUpon>Status.aspx</DependentUpon>
     </Compile>
     <Compile Include="App\Usuario.aspx.cs">
       <DependentUpon>Usuario.aspx</DependentUpon>
@@ -304,6 +378,18 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Impressao\DataSetErro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetErro.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Impressao\DataSetRelacao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetRelacao.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -330,6 +416,17 @@
       <Project>{cadca1c1-7eac-4695-8f7a-43863db2b982}</Project>
       <Name>MimAcher.Dominio</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Impressao\ErroReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Impressao\RelacaoReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

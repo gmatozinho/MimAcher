@@ -2,15 +2,19 @@
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="Table" objectID="86D6F499-3806-4BE0-E927-8A8FD177B45A" name="AREA_ATUACAO" seqName="seg_0"/>
    <object objectType="Table" objectID="4F4426B5-4A1E-4532-FBF0-1D3F26187E98" name="CAMPUS" seqName="seg_0"/>
+   <object objectType="Table" objectID="6171E4E3-0AD8-6457-2FF8-64D67CFE3DD8" name="Erro" seqName="seg_0"/>
    <object objectType="Table" objectID="2C656C49-7736-46B4-E0B2-DC14147D818C" name="IMAGEM_PARTICIPANTE" seqName="seg_0"/>
    <object objectType="Table" objectID="25A142D8-8B56-671F-CBA5-66FC61B3BFB7" name="ITEM" seqName="seg_0"/>
    <object objectType="Table" objectID="FE71FCEB-545C-2FED-1275-4B3F197D52D5" name="NAC" seqName="seg_0"/>
    <object objectType="Table" objectID="0A792E9D-54FE-25BC-6EEA-361E1EDE11B7" name="NAC_AREA_ATUACAO" seqName="seg_0"/>
+   <object objectType="Table" objectID="20B4744A-30B1-E6C0-BB55-737BAE8ECB84" name="NIVEL_ACESSO" seqName="seg_0"/>
    <object objectType="Table" objectID="39576DCE-BE13-2FE1-387F-1C1079C27711" name="PARTICIPANTE" seqName="seg_0"/>
    <object objectType="Table" objectID="F0F34C89-273B-A122-040C-D897993E7DB7" name="PARTICIPANTE_APRENDER" seqName="seg_0"/>
    <object objectType="Table" objectID="3D76DBC0-AD2E-B4EE-7B19-811136AFF5DD" name="PARTICIPANTE_ENSINAR" seqName="seg_0"/>
    <object objectType="Table" objectID="BB6DC990-1E62-2BB4-896A-BDD78779A152" name="PARTICIPANTE_HOBBIE" seqName="seg_0"/>
+   <object objectType="Table" objectID="298650E2-1F99-B70F-DD6A-FE16A2F30F71" name="Status" seqName="seg_0"/>
    <object objectType="Table" objectID="B23E5C4B-FBF3-494B-D715-573451046073" name="USUARIO" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="8678EE88-49FE-16FE-3C52-F7910265E99C" name="PARTICIPANTE_APRENDER_Status_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="B68CE974-A658-4790-2359-4E0207D81727" name="FK_MA_IMAGEM_PARTICIPANTE_MA_PARTICIPANTE_cod_participante" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0421EF11-8B61-65C1-AB7B-D485E2A77E48" name="FK_MA_NAC_AREA_ATUACAO_MA_AREA_ATUACAO_cod_area_atuacao" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="E031269F-8259-B871-C9C8-146E6EDFF6E7" name="FK_MA_NAC_AREA_ATUACAO_MA_NAC_cod_nac" seqName="seg_0"/>
@@ -24,4 +28,8 @@
    <object objectType="FKIndexAssociation" objectID="5F388E86-9E58-3372-0FB0-297EBA578E24" name="FK_MA_PARTICIPANTE_HOBBIE_MA_PARTIPANTE_cod_participante" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="0C214C0F-D38D-14A2-0891-3A1EAE9B808F" name="FK_MA_PARTICIPANTE_MA_CAMPUS_cod_campus" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="550F4EEB-C4A7-230C-4DB6-9341CF3381F1" name="FK_MA_PARTICIPANTE_MA_USUARIO_cod_usuario" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="4610C931-FAD4-ACCF-E7AB-D86D066C06E2" name="FK_MA_USUARIO_MA_NIVEL_ACESSO_cod_n_acesso" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="99AFAB57-0177-3C69-78ED-B8EA0C9703D3" name="ITEM_Status_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="703F551B-3399-CCCF-25A0-5CA34D794893" name="PARTICIPANTE_HOBBIE_Status_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C94D1A47-85E1-3D74-A40F-6776CC2B5727" name="USUARIO_Status_FK" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

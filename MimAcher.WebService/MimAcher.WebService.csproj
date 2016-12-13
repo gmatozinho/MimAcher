@@ -157,11 +157,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AreaAtuacaoController.cs" />
     <Compile Include="Controllers\CampusController.cs" />
+    <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagemParticipanteController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\NACAreaAtuacaoController.cs" />
-    <Compile Include="Controllers\NACController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NacAreaAtuacaoController.cs" />
+    <Compile Include="Controllers\NacController.cs" />
     <Compile Include="Controllers\ParticipanteAprenderController.cs" />
     <Compile Include="Controllers\ParticipanteEnsinarController.cs" />
     <Compile Include="Controllers\ParticipanteHobbieController.cs" />
@@ -172,13 +174,15 @@
     </Compile>
     <Compile Include="Models\AreaAtuacao.cs" />
     <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\Erro.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\NAC.cs" />
-    <Compile Include="Models\NACAreaAtuacao.cs" />
+    <Compile Include="Models\Nac.cs" />
+    <Compile Include="Models\NacAreaAtuacao.cs" />
     <Compile Include="Models\Participante.cs" />
     <Compile Include="Controllers\ParticipanteController.cs" />
     <Compile Include="Models\ParticipanteAprender.cs" />
     <Compile Include="Models\ParticipanteEnsinar.cs" />
+    <Compile Include="Models\ParticipanteGet.cs" />
     <Compile Include="Models\ParticipanteHobbie.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\UsuarioParticipante.cs" />
@@ -212,7 +216,9 @@
     <Folder Include="Scripts\" />
     <Folder Include="Views\AreaAtuacao\" />
     <Folder Include="Views\Campus\" />
+    <Folder Include="Views\Erro\" />
     <Folder Include="Views\Item\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\NACAreaAtuacao\" />
     <Folder Include="Views\NAC\" />
     <Folder Include="Views\ParticipanteAprender\" />

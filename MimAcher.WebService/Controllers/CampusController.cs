@@ -5,7 +5,7 @@ using MimAcher.Dominio;
 using MimAcher.WebService.Models;
 
 namespace MimAcher.WebService.Controllers
-{
+{    
     public class CampusController : Controller
     {
         public GestorDeCampus GestorDeCampus { get; set; }
@@ -14,13 +14,7 @@ namespace MimAcher.WebService.Controllers
         {
             this.GestorDeCampus = new GestorDeCampus();
         }
-
-        // GET: Campus
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        
         [HttpGet]
         public ActionResult List()
         {
@@ -45,7 +39,7 @@ namespace MimAcher.WebService.Controllers
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
         }
-
+                
         [HttpPost]
         public ActionResult Add(List<Campus> listacampus)
         {
@@ -56,24 +50,32 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = 1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (Campus cp in listacampus)
+            else
             {
-                MA_CAMPUS campus = new MA_CAMPUS();
-                campus.local = cp.local;
+                int codigocadastrado = -1;
 
-                this.GestorDeCampus.InserirCampus(campus);
+                foreach (Campus cp in listacampus)
+                {
+                    MA_CAMPUS campus = new MA_CAMPUS();
+                    campus.local = cp.local;
+
+                    this.GestorDeCampus.InserirCampus(campus);
+
+                    codigocadastrado = campus.cod_campus;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
+
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -89,25 +91,32 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (Campus cp in listacampus)
+            else
             {
-                MA_CAMPUS campus = new MA_CAMPUS();
-                campus.cod_campus = cp.cod_campus;
-                campus.local = cp.local;
+                int codigocadastrado = -1;
 
-                this.GestorDeCampus.InserirCampus(campus);
+                foreach (Campus cp in listacampus)
+                {
+                    MA_CAMPUS campus = new MA_CAMPUS();
+                    campus.local = cp.local;
+
+                    this.GestorDeCampus.AtualizarCampus(campus);
+
+                    codigocadastrado = campus.cod_campus;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
+
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

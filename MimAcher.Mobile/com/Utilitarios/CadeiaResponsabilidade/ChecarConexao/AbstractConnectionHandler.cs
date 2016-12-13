@@ -5,11 +5,11 @@ namespace MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.ChecarConexao
 {
     public abstract class AbstractConnectionHandler
     {
-        protected ChecagemEnum Checagem;
+        protected ChecagemTipos Checagem;
         private AbstractConnectionHandler _proximaOpcao;
-        public enum ChecagemEnum { ConexaoServidor, RedeStatus, ConexaoInternet };
+        public enum ChecagemTipos { ConexaoServidor, RedeStatus, ConexaoInternet };
 
-        protected AbstractConnectionHandler(ChecagemEnum checagem)
+        protected AbstractConnectionHandler(ChecagemTipos checagem)
         {
             Checagem = checagem;
         }

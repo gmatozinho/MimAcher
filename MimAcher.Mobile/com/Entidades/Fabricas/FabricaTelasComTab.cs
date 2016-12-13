@@ -64,5 +64,21 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         {
             throw new NotImplementedException();
         }
+
+        //Cria os tabs
+        protected void CreateTab(Type activityType, string label, Participante participante)
+        {
+
+            var intent = new Intent(this, activityType);
+            intent.AddFlags(ActivityFlags.NewTask);
+            intent.PutExtra("member", participante.ParticipanteToBundle());
+            var spec = TabHost.NewTabSpec(label);
+#pragma warning disable CS0618 // O tipo ou membro é obsoleto
+            var drawableIcon = Resources.GetDrawable(Resource.Drawable.abc_tab_indicator_material);
+#pragma warning restore CS0618 // O tipo ou membro é obsoleto
+            spec.SetIndicator(label, drawableIcon);
+            spec.SetContent(intent);
+            TabHost.AddTab(spec);
+        }
     }
 }

@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using Android.App;
 using Android.OS;
 using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -48,7 +50,7 @@ namespace MimAcher.Mobile.com.Activities
 
         private void ChecarAlteracao()
         {
-            if (Validador.ValidarConfirmarSenha(_novasenha, _repitasenha))
+            if (Validacao.ValidarConfirmarSenha(this,SenhasParaValidar()))
                 SalvarAlteracao();
             else
                 ManterUsuarioNaTela();
@@ -56,10 +58,10 @@ namespace MimAcher.Mobile.com.Activities
 
         private void SalvarAlteracao()
         {
-            _participante.AlterarSenha(_participante.Senha, _novasenha);
+            _participante.AlterarSenha(_novasenha);
+            CursorBd.AtualizarUsuario(_participante);
             const string toast = ("Senha Alterada");
             Toast.MakeText(this, toast, ToastLength.Long).Show();
-
             PacoteAbstrato pacote = _participante;
             IniciarEditarPerfil(this,pacote);
         }
@@ -71,6 +73,15 @@ namespace MimAcher.Mobile.com.Activities
 
             PacoteAbstrato pacote = _participante;
             IniciarAlterarSenha(this, pacote);
+        }
+
+        private Dictionary<string, string> SenhasParaValidar()
+        {
+            return new Dictionary<string, string>
+            {
+                ["senha"] = _novasenha,
+                ["confirmarSenha"] = _repitasenha
+            };
         }
     }
 }

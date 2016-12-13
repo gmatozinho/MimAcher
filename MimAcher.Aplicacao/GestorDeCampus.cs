@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using MimAcher.Dominio;
 using MimAcher.Infra;
+using System;
 
 namespace MimAcher.Aplicacao
 {
@@ -28,6 +29,11 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeCampus.InserirCampus(naccampus);
         }
 
+        public Boolean InserirCampusRetorno(MA_CAMPUS naccampus)
+        {
+            return this.RepositorioDeCampus.InserirCampusComRetorno(naccampus);
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.RepositorioDeCampus.BuscarQuantidadeRegistros();
@@ -41,6 +47,11 @@ namespace MimAcher.Aplicacao
         public void AtualizarCampus(MA_CAMPUS naccampus)
         {
             this.RepositorioDeCampus.AtualizarCampus(naccampus);
+        }
+
+        public Boolean AtualizarCampusComRetorno(MA_CAMPUS naccampus)
+        {
+            return this.RepositorioDeCampus.AtualizarCampusComRetorno(naccampus);
         }
     }
 }

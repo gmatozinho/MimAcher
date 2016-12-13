@@ -51,10 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MA_ACESSO.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
     <Compile Include="MA_AREA_ATUACAO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_CAMPUS.cs">
+      <DependentUpon>MimAcher.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MA_ERRO.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_IMAGEM_PARTICIPANTE.cs">
@@ -81,7 +87,7 @@
     <Compile Include="MA_PARTICIPANTE_HOBBIE.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
-    <Compile Include="MA_STATUS_RELACAO.cs">
+    <Compile Include="MA_STATUS.cs">
       <DependentUpon>MimAcher.tt</DependentUpon>
     </Compile>
     <Compile Include="MA_USUARIO.cs">
@@ -102,6 +108,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MimAcher.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\ErroImpressao.cs" />
+    <Compile Include="Model\RelacaoImpressao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

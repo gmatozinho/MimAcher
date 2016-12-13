@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.Content;
 using Android.Widget;
 using MimAcher.Mobile.com.Activities;
+using MimAcher.Mobile.com.Utilitarios;
 
 namespace MimAcher.Mobile.com.Entidades.Fabricas
 {
@@ -19,21 +21,18 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         public override void IniciarQueroAprenderActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroaprenderactivity = new Intent(contexto, typeof(QueroAprenderActivity));
-            //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroaprenderactivity,pacote);
         }
 
         public override void IniciarQueroEnsinarActivity(Context contexto, PacoteAbstrato pacote)
         {
             var queroensinaractivity = new Intent(contexto, typeof(QueroEnsinarActivity));
-            //TODO mudar para trabalhar com objeto do banco
             IniciarOutraTela(queroensinaractivity, pacote);
         }
 
         private static void ProcedimentoPadrao(PacoteCompleto pacote)
         {
-            //TODO mudar para enviar item do
-            //pacote.Participante.Commit();
+
             pacote.ListaItens.Clear();
             pacote.ListView.Adapter = null;
         }
@@ -58,6 +57,64 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
                     LimparEListar(campo,pacoteCompleto.ListView,pacoteCompleto.ListaItens);
                     break;
             }
+            RegistrarRelacao(mensagemEItem, pacoteCompleto.Participante.CodigoParticipante);
+        }
+
+        private static int RegistrarItem(string item)
+        {
+            return Convert.ToInt32(CursorBd.EnviarItem(item));
+        }
+
+        private static void RegistrarRelacao(IReadOnlyList<string> mensagemEItem, string codigoParticipante)
+        {
+            var itemInserido = mensagemEItem[1];
+            var relacao = mensagemEItem[0];
+            var codigoParticipanteInt = Convert.ToInt32(codigoParticipante);
+
+            var codigoItem = RecuperarCodItem(itemInserido);
+
+            switch (relacao)
+            {
+                case "Hobbie":
+                    CursorBd.EnviarHobbie(codigoParticipanteInt, codigoItem);
+                    break;
+                case "Algo para Aprender":
+                    CursorBd.EnviarAprender(codigoParticipanteInt, codigoItem);
+                    break;
+                case "Algo para Ensinar":
+                    CursorBd.EnviarEnsinar(codigoParticipanteInt, codigoItem);
+                    break;
+
+            }
+        }
+
+        private static int PesquisarItemLista(string itemInserido)
+        {
+            var codigoItem = -1;
+            var itensRegistrados = CursorBd.ObterItens();
+            if (!itensRegistrados.ContainsValue(itemInserido)) return codigoItem;
+            foreach (var itemChave in itensRegistrados)
+            {
+                if (itemChave.Value == itemInserido)
+                {
+                    codigoItem = itemChave.Key;
+                }
+            }
+
+            return codigoItem;
+        }
+
+        //Pesquiso na lista ja existente no banco, se o item tiver la retorno o código, senao cadastro o item e retorno o codigo
+        private static int RecuperarCodItem(string itemInserido)
+        {
+            var codigoItem = PesquisarItemLista(itemInserido);
+
+            if (codigoItem == -1)
+            {
+                codigoItem = RegistrarItem(itemInserido);
+            }
+
+            return codigoItem;
         }
 
 

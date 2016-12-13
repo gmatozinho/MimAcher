@@ -4,5 +4,5 @@
        android:id="@+id/menu_done"
        android:icon="@drawable/ic_done_white_36dp"
        android:showAsAction="ifRoom"
-       android:title="Avançar" />  
+       android:title="avancar" />  
 </menu>

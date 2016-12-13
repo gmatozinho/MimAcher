@@ -43,6 +43,15 @@ namespace MimAcher.Aplicacao
             return false;
         }
 
+        public Boolean VerificarExistenciaDeUsuarioPorEmail(String email)
+        {
+            if (ObterUsuarioPorEmail(email) != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public void InserirUsuario(MA_USUARIO usuario)
         {
             this.RepositorioDeUsuario.InserirUsuario(usuario);
@@ -71,6 +80,18 @@ namespace MimAcher.Aplicacao
         public Boolean AtualizarUsuarioComRetorno(MA_USUARIO usuario)
         {
             return this.RepositorioDeUsuario.AtualizarUsuarioComRetorno(usuario);
+        }
+
+        public Boolean VerificarSeExisteUsuarioPorId(int id_usuario)
+        {
+            if(ObterUsuarioPorId(id_usuario) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

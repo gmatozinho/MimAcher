@@ -41,6 +41,36 @@
 <dataTypeSize>50</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="cod_n_acesso" id="A43487AC-3CE1-17DB-649D-7BB9AA309B51">
+<createdBy>pchan</createdBy>
+<createdTime>2016-11-14 09:45:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>5FD63390-4C9C-46D2-B2E8-8E8588A3D4FF</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4610C931-FAD4-ACCF-E7AB-D86D066C06E2" referredColumn="5FD63390-4C9C-46D2-B2E8-8E8588A3D4FF"/>
+</associations>
+</Column>
+<Column name="cod_status" id="9B0D0052-830D-A0A7-A705-D6506A79382E">
+<createdBy>pchan</createdBy>
+<createdTime>2016-12-11 02:16:34 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<delegate>E3CFA43F-C754-F3C0-AC2B-53248684F883</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C94D1A47-85E1-3D74-A40F-6776CC2B5727" referredColumn="E3CFA43F-C754-F3C0-AC2B-53248684F883"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="5FEA9926-B573-3280-E89D-1A1AFEB8B3ED" name="PK_MA_USUARIO_cod_usuario">
@@ -53,6 +83,28 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="61F41A19-7A2C-DE54-0D69-0A63D3BB839E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1754AA1D-06EB-AC63-575E-B0630FED83D2" name="FK_MA_USUARIO_MA_NIVEL_ACESSO_cod_n_acesso">
+<createdBy>pchan</createdBy>
+<createdTime>2016-11-14 09:45:45 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A43487AC-3CE1-17DB-649D-7BB9AA309B51"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A50675AA-9C51-CC9C-4AEA-73E78428C9D2" name="USUARIO_Status_FK">
+<createdBy>pchan</createdBy>
+<createdTime>2016-12-11 02:16:34 UTC</createdTime>
+<generatorID>Gerado pelo usuário</generatorID>
+<ownerDesignName>mimacher</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B0D0052-830D-A0A7-A705-D6506A79382E"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

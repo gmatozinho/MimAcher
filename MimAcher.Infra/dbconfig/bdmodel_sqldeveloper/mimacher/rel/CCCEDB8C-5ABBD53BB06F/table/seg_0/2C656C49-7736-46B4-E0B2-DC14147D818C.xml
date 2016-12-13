@@ -41,7 +41,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>100</dataTypeSize>
+<dataTypeSize>200</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

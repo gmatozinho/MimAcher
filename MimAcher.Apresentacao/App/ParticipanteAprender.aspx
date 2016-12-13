@@ -9,13 +9,13 @@
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="ParticipanteAprenderFormPanelId" runat="server" Title="ParticipanteAprender" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="ParticipanteAprenderFormPanelId" runat="server" Title="Inserir/Editar Aprendizado de Participante" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
 			<Items> 
 			
-				<ext:FieldSet ID="ParticipanteAprenderFieldSetId" runat="server" Title="ParticipanteAprender" MarginSpec="0 0 0 10">                                                      
+				<ext:FieldSet ID="ParticipanteAprenderFieldSetId" runat="server" Title="Aprendizado de Participante" MarginSpec="0 0 0 10">                                                      
 					<Defaults>
 						<ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
 						<ext:Parameter Name="MsgTarget" Value="side" />                                
@@ -23,7 +23,7 @@
 					<Items>
 
 						<%-- Código do Participante Aprender --%>
-						<ext:TextField ID="cod_p_aprenderId" Name="cod_p_aprender"  runat="server" FieldLabel="Código" />
+						<ext:TextField ID="cod_p_aprenderId" Name="cod_p_aprender"  runat="server" FieldLabel="Código" ReadOnly="true" />
 
 
 						<%-- Combobox do Participante --%>
@@ -58,14 +58,14 @@
 							</Store>
 						</ext:ComboBox>   
 
-						<%-- Combobox do Status da Relação --%>
-						<ext:ComboBox ID="cod_s_relacaoId" Width="300" Name="cod_s_relacao" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_s_relacao_combo" DisplayField="nome_combo">
+						<%-- Combobox do Status --%>
+						<ext:ComboBox ID="cod_statusId" Width="300" Name="cod_status" AllowBlank="false" runat="server" FieldLabel="Status" ValueField="cod_status_combo" DisplayField="nome_combo">
 							<Store>
-								<ext:Store ID="StoreStatusRelacaoId" runat="server">
+								<ext:Store ID="StoreStatusId" runat="server">
 									<Model>
-										<ext:Model ID="ModelStatusRelacaoId" runat="server">
+										<ext:Model ID="ModelStatusId" runat="server">
 											<Fields>
-												<ext:ModelField Name="cod_s_relacao_combo" Mapping="cod_s_relacao" />
+												<ext:ModelField Name="cod_status_combo" Mapping="cod_status" />
 												<ext:ModelField Name="nome_combo" Mapping="nome" />
 											</Fields>
 										</ext:Model>
@@ -109,8 +109,8 @@
 						<ext:ModelField Name="nome_participante" Mapping="nome_participante" ServerMapping="MA_PARTICIPANTE.nome" />                                                                                
 						<ext:ModelField Name="cod_item" Type="Int" />
 						<ext:ModelField Name="nome_item" Mapping="nome_item" ServerMapping="MA_ITEM.nome" />                                                                                
-						<ext:ModelField Name="cod_s_relacao" Type="Int" />
-						<ext:ModelField Name="nome_statusrelacao" Mapping="nome_statusrelacao" ServerMapping="MA_STATUS_RELACAO.nome" />                                                                                
+						<ext:ModelField Name="cod_status" Type="Int" />
+						<ext:ModelField Name="nome_statusrelacao" Mapping="nome_statusrelacao" ServerMapping="MA_STATUS.nome" />                                                                                
 					</Fields>
 				</ext:Model>
 			</Model>
@@ -121,7 +121,7 @@
  <ext:GridPanel 
 		ID="ParticipanteAprenderGridPanelId"
 		runat="server" 
-		Title="Gerenciamento de Participante Aprender"
+		Title="Gerenciamento de Aprendizado de Participante"
 		StoreID="StoreParticipanteAprenderId">         
 		<%--Height="1500"--%>    
 
@@ -131,7 +131,7 @@
 				<ext:Column ID="codParticipanteAprenderColumnId" runat="server" Text="Código" DataIndex="cod_p_aprender" Visible="false" />
 				<ext:Column ID="nomeParticipanteColumnId" runat="server" Text="Participante" Flex="2" DataIndex="nome_participante" />                                  
 				<ext:Column ID="nomeItemColumnId" runat="server" Text="Item" Flex="2" DataIndex="nome_item" />                                  								
-				<ext:Column ID="nomeStatusRelacaoColumnId" runat="server" Text="Item" Flex="2" DataIndex="nome_statusrelacao" />                                  								
+				<ext:Column ID="nomeStatusRelacaoColumnId" runat="server" Text="Status" Flex="2" DataIndex="nome_statusrelacao" />                                  								
 			</Columns>            
 		</ColumnModel>    
 		   

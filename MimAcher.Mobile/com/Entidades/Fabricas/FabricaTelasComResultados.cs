@@ -15,6 +15,7 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         //Variaveis globais
         protected List<string> Items;
         protected Participante Participante;
+        private static readonly Dictionary<int,string> Itens = CursorBd.ObterItens();
 
         public void IniciarHome(Context contexto, PacoteAbstrato pacote)
         {
@@ -33,13 +34,33 @@ namespace MimAcher.Mobile.com.Entidades.Fabricas
         protected override void OnListItemClick(ListView l, View v, int position, long id)
         {
             var itemSelecionado = Items[position];
-            //Toast.MakeText(this, itemSelecionado, ToastLength.Short).Show();
-            Mensagens.MensagemOpcoes(itemSelecionado,this);
+            var codItemSelecionado = RetornaCodItemLista(itemSelecionado);
+            var listNomeCodItem = new List<string> {codItemSelecionado.ToString(), itemSelecionado};
+            Mensagens.MensagemOpcoes(listNomeCodItem,Convert.ToInt32(Participante.CodigoParticipante), this);
         }
 
-        internal void VerCombinacoes(string itemSelecionado)
+        private static int RetornaCodItemLista(string itemInserido)
         {
-            //TODO pesquisar o item no banco, buscando as combinações
+            var codigoItem = -1;
+            foreach (var itemChave in Itens)
+            {
+                if (itemChave.Value == itemInserido)
+                {
+                    codigoItem = itemChave.Key;
+                }
+            }
+
+            return codigoItem;
+        }
+
+        internal void VerCombinacoes(int itemSelecionado,int codParticipanteAtivo, Context context)
+        {
+            var combinacoesactivity = new Intent(context, typeof(CombinacoesActivity));
+            var tipocombinacao = context.GetType().ToString();
+            combinacoesactivity.PutExtra("item", itemSelecionado);
+            combinacoesactivity.PutExtra("tipocombinacao", tipocombinacao);
+            combinacoesactivity.PutExtra("codParticipanteAtivo", codParticipanteAtivo);
+            StartActivity(combinacoesactivity);
             Toast.MakeText(this, "Voce está na tela de exibição de combinações", ToastLength.Short).Show();
         }
 

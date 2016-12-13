@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetErro" targetNamespace="http://tempuri.org/DataSetErro.xsd" xmlns:mstns="http://tempuri.org/DataSetErro.xsd" xmlns="http://tempuri.org/DataSetErro.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetErro" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetErro" msprop:Generator_UserDSName="DataSetErro">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTableErro" msprop:Generator_TableClassName="DataTableErroDataTable" msprop:Generator_TableVarName="tableDataTableErro" msprop:Generator_TablePropName="DataTableErro" msprop:Generator_RowDeletingName="DataTableErroRowDeleting" msprop:Generator_RowChangingName="DataTableErroRowChanging" msprop:Generator_RowEvHandlerName="DataTableErroRowChangeEventHandler" msprop:Generator_RowDeletedName="DataTableErroRowDeleted" msprop:Generator_UserTableName="DataTableErro" msprop:Generator_RowChangedName="DataTableErroRowChanged" msprop:Generator_RowEvArgName="DataTableErroRowChangeEvent" msprop:Generator_RowClassName="DataTableErroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="tipo" msprop:Generator_ColumnVarNameInTable="columntipo" msprop:Generator_ColumnPropNameInRow="tipo" msprop:Generator_ColumnPropNameInTable="tipoColumn" msprop:Generator_UserColumnName="tipo" type="xs:string" minOccurs="0" />
+              <xs:element name="aconteceu" msprop:Generator_ColumnVarNameInTable="columnaconteceu" msprop:Generator_ColumnPropNameInRow="aconteceu" msprop:Generator_ColumnPropNameInTable="aconteceuColumn" msprop:Generator_UserColumnName="aconteceu" type="xs:string" minOccurs="0" />
+              <xs:element name="incidencia" msprop:Generator_ColumnVarNameInTable="columnincidencia" msprop:Generator_ColumnPropNameInRow="incidencia" msprop:Generator_ColumnPropNameInTable="incidenciaColumn" msprop:Generator_UserColumnName="incidencia" type="xs:string" minOccurs="0" />
+              <xs:element name="dt_acontecimento" msprop:Generator_ColumnVarNameInTable="columndt_acontecimento" msprop:Generator_ColumnPropNameInRow="dt_acontecimento" msprop:Generator_ColumnPropNameInTable="dt_acontecimentoColumn" msprop:Generator_UserColumnName="dt_acontecimento" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

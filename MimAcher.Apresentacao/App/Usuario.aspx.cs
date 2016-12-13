@@ -14,11 +14,15 @@ namespace MimAcher.Apresentacao.App
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
+        public GestorDeAcesso GestorDeAcesso { get; set; }
+        public GestorDeStatus GestorDeStatus { get; set; }
 
         public Usuario()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
+            this.GestorDeAcesso = new GestorDeAcesso();
+            this.GestorDeStatus = new GestorDeStatus();
         }
 
 
@@ -28,6 +32,12 @@ namespace MimAcher.Apresentacao.App
             {
                 this.StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 this.StoreUsuarioId.DataBind();
+
+                this.StoreAcessoId.DataSource = this.GestorDeAcesso.ObterTodosOsAcessos();
+                this.StoreAcessoId.DataBind();
+
+                this.StoreStatusId.DataSource = this.GestorDeStatus.ObterTodosOsStatus();
+                this.StoreStatusId.DataBind();
             }
         }
 
@@ -59,7 +69,9 @@ namespace MimAcher.Apresentacao.App
 
             usuario.e_mail = this.e_mailId.Text;
             usuario.senha = this.senhaId.Text;
-            
+            usuario.cod_acesso = Int32.Parse(this.cod_acessoId.Text);
+            usuario.cod_status = Int32.Parse(this.cod_statusId.Text);
+
             //Caso o form não possui código, será inserido um novo usuário
             if (this.cod_usuarioId.Text == "")
             {

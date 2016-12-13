@@ -103,31 +103,31 @@ namespace MimAcher.Apresentacao.App {
         protected global::Ext.Net.Model ModelItemId;
         
         /// <summary>
-        /// cod_s_relacaoId control.
+        /// cod_statusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cod_s_relacaoId;
+        protected global::Ext.Net.ComboBox cod_statusId;
         
         /// <summary>
-        /// StoreStatusRelacaoId control.
+        /// StoreStatusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Store StoreStatusRelacaoId;
+        protected global::Ext.Net.Store StoreStatusId;
         
         /// <summary>
-        /// ModelStatusRelacaoId control.
+        /// ModelStatusId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Ext.Net.Model ModelStatusRelacaoId;
+        protected global::Ext.Net.Model ModelStatusId;
         
         /// <summary>
         /// ParticipanteHobbieBarId control.

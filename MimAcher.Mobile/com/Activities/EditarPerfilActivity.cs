@@ -7,6 +7,7 @@ using Android.Widget;
 using MimAcher.Mobile.com.Entidades;
 using MimAcher.Mobile.com.Entidades.Fabricas;
 using MimAcher.Mobile.com.Utilitarios;
+using MimAcher.Mobile.com.Utilitarios.CadeiaResponsabilidade.Validador;
 
 namespace MimAcher.Mobile.com.Activities
 {
@@ -36,6 +37,7 @@ namespace MimAcher.Mobile.com.Activities
             //Iniciando as variaveis do contexto
             var salvar = FindViewById<Button>(Resource.Id.salvar);
             var alterarSenha = FindViewById<TextView>(Resource.Id.alterar_senha);
+            var desativarUsuario = FindViewById<TextView>(Resource.Id.desativar_usuario);
             var telefoneInfoUser = FindViewById<EditText>(Resource.Id.tel_number_user);
             var nomeInfoUser = FindViewById<EditText>(Resource.Id.nome_info_user);
             var dtNascimentoInfoUser = FindViewById<EditText>(Resource.Id.dt_nascimento_info_user);
@@ -61,6 +63,13 @@ namespace MimAcher.Mobile.com.Activities
             //Pegar as informações inseridas
             dtNascimentoInfoUser.TextChanged += (sender, nascimentocapturado) => _nascimento = nascimentocapturado.Text.ToString();
             telefoneInfoUser.TextChanged += (sender, telefonecapturado) => _telefone = telefonecapturado.Text.ToString();
+
+
+
+            desativarUsuario.Click += delegate
+            {
+                Mensagens.MensagemDesativarConta(this,_participante);
+            };
 
             alterarSenha.Click += delegate
             {
@@ -96,6 +105,7 @@ namespace MimAcher.Mobile.com.Activities
         {
             var resultadoactivity = new Intent(this, typeof(HomeActivity));
             AlterarParticipante(_participante);
+            CursorBd.AtualizarParticipante(_participante);
             _pacote = _participante;
             IniciarOutraTela(resultadoactivity,_pacote);
             Mensagens.MensagemDeInformacoesEditadasComSucesso(this);
@@ -113,14 +123,14 @@ namespace MimAcher.Mobile.com.Activities
             return new Dictionary<string, string>
             {
                 ["nome"] = _nome,
-                ["data"] = _nascimento,
+                ["nascimento"] = _nascimento,
                 ["telefone"] = _telefone
             };
         }
 
         private void SalvarClick()
         {
-            if(Validador.ValidarEditarPerfil(this,EntradasParaValidar())) { SalvarPerfilEditado();}
+            if(Validacao.ValidarEditarPerfil(this,EntradasParaValidar())) { SalvarPerfilEditado();}
         }
 
     }

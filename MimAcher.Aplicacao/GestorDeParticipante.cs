@@ -24,6 +24,11 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParticipante.ObterParticipantePorId(id);
         }
 
+        public MA_PARTICIPANTE ObterUsuarioAtivoDeParticipantePorId(int id)
+        {
+            return this.RepositorioDeParticipante.ObterUsuarioAtivoDeParticipantePorId(id);
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
             return this.RepositorioDeParticipante.ObterParticipantePorIdDeUsuario(idUsuario);
@@ -32,6 +37,11 @@ namespace MimAcher.Aplicacao
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {
             return this.RepositorioDeParticipante.ObterTodosOsParticipantes();
+        }
+
+        public List<MA_PARTICIPANTE> ObterTodosOsParticipantesDeUsuariosAtivos()
+        {
+            return this.RepositorioDeParticipante.ObterTodosOsParticipantesDeUsuariosAtivos();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
@@ -47,6 +57,11 @@ namespace MimAcher.Aplicacao
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
             this.RepositorioDeParticipante.InserirParticipante(participante);
+        }
+        
+        public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            return this.RepositorioDeParticipante.InserirParticipanteComRetorno(participante);            
         }
 
         public int BuscarQuantidadeRegistros()
@@ -64,9 +79,19 @@ namespace MimAcher.Aplicacao
             this.RepositorioDeParticipante.AtualizarParticipante(participante);
         }
 
+        public Boolean AtualizarParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            return this.RepositorioDeParticipante.AtualizarParticipanteComRetorno(participante);
+        }
+
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)
         {
             return this.RepositorioDeParticipante.VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante);
+        }
+
+        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        {
+            return this.RepositorioDeParticipante.VerificarSeParticipanteExiste(cod_participante);
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(int idUsuario)
@@ -81,6 +106,18 @@ namespace MimAcher.Aplicacao
                 }
             }
             return false;
+        }
+
+        public Boolean VerificarSeExisteParticipantePorId(int idParticipante)
+        {
+            if (ObterParticipantePorId(idParticipante) != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

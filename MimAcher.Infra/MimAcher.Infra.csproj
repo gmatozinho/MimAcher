@@ -52,17 +52,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositorioDeAcesso.cs" />
     <Compile Include="RepositorioDeAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeCampus.cs" />
-    <Compile Include="RepositorioDeNACAreaDeAtuacao.cs" />
+    <Compile Include="RepositorioDeErro.cs" />
+    <Compile Include="RepositorioDeNacAreaDeAtuacao.cs" />
     <Compile Include="RepositorioDeParticipante.cs" />
     <Compile Include="RepositorioDeParticipanteAprender..cs" />
     <Compile Include="RepositorioDeParticipanteEnsinar.cs" />
     <Compile Include="RepositorioDePartipanteHobbie.cs" />
     <Compile Include="RepositorioDeImagemDeParticipante.cs" />
     <Compile Include="RepositorioDeItem.cs" />
-    <Compile Include="RepositorioDeNAC.cs" />
-    <Compile Include="RepositorioDeStatusDeRelacao.cs" />
+    <Compile Include="RepositorioDeNac.cs" />
+    <Compile Include="RepositorioDeStatus.cs" />
     <Compile Include="RepositorioDeUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,7 +78,7 @@
     <Content Include="dbconfig\02_minacher_configdb.sql" />
     <Content Include="dbconfig\03_mimacher_restartdb.sql" />
     <Content Include="dbconfig\diagrama_bd_sql_developer.png" />
-    <Content Include="dbconfig\EntityDesignerDiagram.png" />
+    <Content Include="dbconfig\diagrama_entity_framework.png" />
     <Content Include="dbconfig\inf.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,6 @@ namespace MimAcher.Mobile.com.Activities
 #pragma warning restore CS0618 // O tipo ou membro é obsoleto
     {
         //Variaveis globais
-        private SearchView _searchView;
         private Participante _participante;
         private FloatingActionButton _fab;
 
@@ -43,14 +42,18 @@ namespace MimAcher.Mobile.com.Activities
             //Modificando a parte textual
             ActionBar.SetTitle(Resource.String.TitleHome);
 
+            PreencherPreferenciasParticipante();
+            //ChecarPreferenciasParticipante();
+
             //Criando os tabs
-            CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies));
-            CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender));
-            CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar));
+            CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);
+            CreateTab(typeof(ResultAprenderActivity), GetString(Resource.String.TitleAprender), _participante);
+            CreateTab(typeof(ResultEnsinarActivity), GetString(Resource.String.TitleEnsinar), _participante);
 
             //Iniciando o botão flutuante
             BotaoFlutanteOpcoes();
 
+            
         }
 
         private void BotaoFlutanteOpcoes()
@@ -83,7 +86,23 @@ namespace MimAcher.Mobile.com.Activities
             };
 
         }
-        public override void OnBackPressed() { }
+
+        private void PreencherPreferenciasParticipante()
+        {
+            //Obter lista de itens do sistema
+            var itens = CursorBd.ObterItens();
+            //Montar hobbies, aprender e ensinar
+            var relacoesdoparticipantecomitens = CursorBd.ObterParticipanteItens(Convert.ToInt32(_participante.CodigoParticipante), itens);
+            _participante.Hobbies.Conteudo = relacoesdoparticipantecomitens["hobbie"];
+            _participante.Aprender.Conteudo = relacoesdoparticipantecomitens["aprender"];
+            _participante.Ensinar.Conteudo = relacoesdoparticipantecomitens["ensinar"];
+        }
+
+        public override void OnBackPressed()
+        {
+            OnPause();
+        }
+
         //Cria o menu de opções
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
@@ -97,8 +116,8 @@ namespace MimAcher.Mobile.com.Activities
             switch (item.ItemId)
             {
                 case Resource.Id.menu_search:
-                    _searchView = new SearchView(this);
-                    _searchView.SetQuery("Pesquisar",true);
+                    var searchView = new SearchView(this);
+                    searchView.SetQuery("Pesquisar",true);
                     break;
                 case Resource.Id.menu_location:
                     RegistrarLocalizacao();
@@ -108,27 +127,10 @@ namespace MimAcher.Mobile.com.Activities
                     break;
                 case Resource.Id.menu_preferences:
                     IniciarEditarPerfil(this, _participante);
-                    //TestarGeolocalizacao();
                     break;
             }
 
             return base.OnOptionsItemSelected(item);
-        }
-        
-        //Cria os tabs
-        private void CreateTab(Type activityType, string label)
-        {
-
-            var intent = new Intent(this, activityType);
-            intent.AddFlags(ActivityFlags.NewTask);
-            intent.PutExtra("member", _participante.ParticipanteToBundle());
-            var spec = TabHost.NewTabSpec(label);
-#pragma warning disable CS0618 // O tipo ou membro é obsoleto
-            var drawableIcon = Resources.GetDrawable(Resource.Drawable.abc_tab_indicator_material);
-#pragma warning restore CS0618 // O tipo ou membro é obsoleto
-            spec.SetIndicator(label, drawableIcon);
-            spec.SetContent(intent);
-            TabHost.AddTab(spec);
         }
 
         private void RegistrarLocalizacao()
@@ -140,13 +142,6 @@ namespace MimAcher.Mobile.com.Activities
         {
             IniciarMain(this);
             Finish();
-        }
-
-        private void TestarGeolocalizacao()
-        {
-            var localizacao = _participante.Localizacao.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
-            var toast = $"Coordenadas:\n lat{localizacao[0]} long{localizacao[1]}";
-            Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
         
     }

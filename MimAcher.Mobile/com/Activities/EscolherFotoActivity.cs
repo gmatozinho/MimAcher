@@ -25,7 +25,7 @@ namespace MimAcher.Mobile.com.Activities
             SetContentView(Resource.Layout.EscolherFoto);
 
             //Iniciando as variaveis do contexto
-            var avançar = FindViewById<Button>(Resource.Id.avançar);
+            var avancar = FindViewById<Button>(Resource.Id.avancar);
             var escolherFoto = FindViewById<ImageView>(Resource.Id.exibirfoto);
 
             //Funcionalidades
@@ -34,12 +34,15 @@ namespace MimAcher.Mobile.com.Activities
             };
 
             //botar a foto no banco
-            avançar.Click += delegate {
+            avancar.Click += delegate {
                 IniciarHobbies(this,pacote);
             };
         }
 
-        public override void OnBackPressed() {}
+        public override void OnBackPressed()
+        {
+            return;
+        }
 
         private void SelecionarFoto()
         {

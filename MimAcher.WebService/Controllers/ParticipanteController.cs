@@ -4,18 +4,21 @@ using System.Data.Entity.Spatial;
 using System.Web.Mvc;
 using MimAcher.Aplicacao;
 using MimAcher.Dominio;
+using MimAcher.WebService.Models;
 
-namespace MimAcher.WebService.Models
+namespace MimAcher.WebService.Controllers
 {
     public class ParticipanteController : Controller
     {
         public GestorDeParticipante GestorDeParticipante { get; set; }
         public GestorDeAplicacao GestorDeAplicacao { get; set; }
+        public GestorDeUsuario GestorDeUsuario { get; set; }
 
         public ParticipanteController()
         {
             GestorDeParticipante = new GestorDeParticipante();
             GestorDeAplicacao = new GestorDeAplicacao();
+            GestorDeUsuario = new GestorDeUsuario();
         }
 
         // GET: Participante
@@ -27,7 +30,7 @@ namespace MimAcher.WebService.Models
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantes();
+            List<MA_PARTICIPANTE> listaparticipanteoriginal = GestorDeParticipante.ObterTodosOsParticipantesDeUsuariosAtivos();
             List<Participante> listaparticipante = new List<Participante>();
 
             foreach (MA_PARTICIPANTE pt in listaparticipanteoriginal)
@@ -36,7 +39,7 @@ namespace MimAcher.WebService.Models
 
                 participante.cod_participante = pt.cod_participante;
                 participante.cod_usuario = pt.cod_usuario;
-                participante.cod_campus = pt.cod_participante;
+                participante.cod_campus = pt.cod_campus;
                 participante.nome = pt.nome;
                 participante.telefone = pt.telefone;
                 participante.dt_nascimento = pt.dt_nascimento;
@@ -65,30 +68,38 @@ namespace MimAcher.WebService.Models
             {
                 jsonResult = Json(new
                 {   
-                    success = false
-                }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);                
             }
-            foreach (Participante pt in listaparticipante)
-            {
+            else
+            {                   
                 MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                participante.cod_usuario = pt.cod_usuario;
-                participante.cod_campus = pt.cod_participante;
-                participante.nome = pt.nome;
-                participante.telefone = pt.telefone;
-                participante.dt_nascimento = (DateTime) pt.dt_nascimento;                    
-                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
+                participante.cod_usuario = listaparticipante[0].cod_usuario;
+                participante.cod_campus = listaparticipante[0].cod_participante;
+                participante.nome = listaparticipante[0].nome;
+                participante.telefone = listaparticipante[0].telefone;
+                participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
 
-                GestorDeParticipante.InserirParticipante(participante);
-            }
+                try
+                {
+                    Boolean resultado = GestorDeParticipante.InserirParticipanteComRetorno(participante);
 
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
+                    jsonResult = Json(new
+                    {
+                        codigo = participante.cod_participante
+                    }, JsonRequestBehavior.AllowGet);
+                }
+                catch(Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }            
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;
@@ -104,31 +115,184 @@ namespace MimAcher.WebService.Models
             {
                 jsonResult = Json(new
                 {
-                    success = false
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
-
-                jsonResult.MaxJsonLength = int.MaxValue;
-                return jsonResult;
             }
-            foreach (Participante pt in listaparticipante)
+            else
+            {   
+                MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
+
+                participante.cod_participante = listaparticipante[0].cod_participante;
+                participante.cod_usuario = listaparticipante[0].cod_usuario;
+                participante.cod_campus = listaparticipante[0].cod_campus;
+                participante.nome = listaparticipante[0].nome;
+                participante.telefone = listaparticipante[0].telefone;
+                participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
+
+                try
+                {
+                    Boolean resultado = GestorDeParticipante.AtualizarParticipanteComRetorno(participante);
+
+                    if (resultado)
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = participante.cod_participante
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {   
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+
+                    }
+                }
+                catch(Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Get(List<Participante> listaparticipante)
+        {
+            JsonResult jsonResult;
+            List<ParticipanteGet> listaparticipanteretorno = new List<ParticipanteGet>();
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipante == null)
+            {
+                jsonResult = Json(new
+                {
+                    participante = listaparticipanteretorno
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                if (GestorDeParticipante.VerificarSeParticipanteExiste(listaparticipante[0].cod_participante))
+                {
+                    try
+                    {
+                        MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].cod_participante);
+
+                        ParticipanteGet pg = new ParticipanteGet();
+
+                        pg.cod_participante = participante.cod_participante;
+                        pg.nome_participante = participante.nome;
+                        pg.cod_campus = participante.cod_campus;
+                        pg.nome_campus = participante.MA_CAMPUS.local;
+                        pg.cod_usuario = participante.cod_usuario;
+                        pg.e_mail = participante.MA_USUARIO.e_mail;                        
+                        pg.telefone = participante.telefone;
+                        pg.dt_nascimento = participante.dt_nascimento.ToString();
+                        pg.latitude = participante.geolocalizacao.Latitude.ToString();
+                        pg.longitude = participante.geolocalizacao.Longitude.ToString();
+                                                
+                        listaparticipanteretorno.Add(pg);
+
+                        jsonResult = Json(new
+                        {
+                            participante = listaparticipanteretorno
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    catch(Exception e)
+                    {
+                        jsonResult = Json(new
+                        {
+                            erro = e.InnerException.ToString(),
+                            participante = ""
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                    
+                }
+                else
+                {
+                    jsonResult = Json(new
+                    {
+                        participante = listaparticipanteretorno
+                    }, JsonRequestBehavior.AllowGet);
+                }
+            }
+
+            jsonResult.MaxJsonLength = int.MaxValue;
+            return jsonResult;
+        }
+
+        [HttpPost]
+        public ActionResult Delete(List<Participante> listaparticipante)
+        {
+            JsonResult jsonResult;
+
+            //Verifica se o registro é inválido e se sim, retorna com erro.
+            if (listaparticipante == null)
+            {
+                jsonResult = Json(new
+                {
+                    codigo = -1
+                }, JsonRequestBehavior.AllowGet);
+            }
+            else
             {
                 MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                participante.cod_participante = pt.cod_participante;
-                participante.cod_usuario = pt.cod_usuario;
-                participante.cod_campus = pt.cod_campus;
-                participante.nome = pt.nome;
-                participante.telefone = pt.telefone;
-                participante.dt_nascimento = (DateTime)pt.dt_nascimento;
-                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(pt.latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(pt.longitude.ToString()) + ")");
+                participante.cod_participante = listaparticipante[0].cod_participante;                
 
-                GestorDeParticipante.AtualizarParticipante(participante);
+                try
+                {
+                    if (GestorDeParticipante.VerificarSeExisteParticipantePorId(participante.cod_participante))
+                    {
+                        participante = GestorDeParticipante.ObterParticipantePorId(participante.cod_participante);
+
+                        MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(participante.cod_usuario);
+
+                        //Inativa o usuário associado a este Participante
+                        usuario.cod_status = 2;
+
+                        Boolean resultado = GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
+                        
+                        if (resultado)
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = participante.cod_participante
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            jsonResult = Json(new
+                            {
+                                codigo = -1
+                            }, JsonRequestBehavior.AllowGet);
+                        }
+                    }
+                    else
+                    {
+                        jsonResult = Json(new
+                        {
+                            codigo = -1
+                        }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                catch (Exception e)
+                {
+                    jsonResult = Json(new
+                    {
+                        erro = e.InnerException.ToString(),
+                        codigo = -1
+                    }, JsonRequestBehavior.AllowGet);
+                }
             }
-
-            jsonResult = Json(new
-            {
-                success = true
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

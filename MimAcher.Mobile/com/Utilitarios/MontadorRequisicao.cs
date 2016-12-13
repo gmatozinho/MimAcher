@@ -68,11 +68,136 @@ namespace MimAcher.Mobile.com.Utilitarios
 
             return requisicao;
         }
-
-        //NãoFinalizado
+        
         public static WebRequest MontarRequisicaoPostLogin()
         {
-            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "login");
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "login/login");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoUpdateParticipante()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participante/update");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetParticipanteHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participantehobbie/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetParticipanteAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteaprender/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetParticipanteEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/list");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Get;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoMatchHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participantehobbie/match");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoMatchAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteaprender/match");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoMatchEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/match");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoGetParticipante()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participante/get");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoUpdateUsuario()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "usuario/update");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteHobbie()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participantehobbie/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteAprender()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteaprender/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteEnsinar()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "participanteensinar/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoDeleteUsuario()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "usuario/delete");
+            requisicao.ContentType = "application/json";
+            requisicao.Method = WebRequestMethods.Http.Post;
+
+            return requisicao;
+        }
+
+        public static WebRequest MontarRequisicaoErro()
+        {
+            var requisicao = (HttpWebRequest)WebRequest.Create(Url + "erro/add");
             requisicao.ContentType = "application/json";
             requisicao.Method = WebRequestMethods.Http.Post;
 

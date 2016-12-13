@@ -57,26 +57,30 @@ namespace MimAcher.WebService.Controllers
             {
                 jsonResult = Json(new
                 {
-                    codigo = codigocadastrado
+                    codigo = -1
                 }, JsonRequestBehavior.AllowGet);
 
                 jsonResult.MaxJsonLength = int.MaxValue;
                 return jsonResult;
             }
-            foreach (Item it in listaitem)
+            else
             {
-                MA_ITEM item = new MA_ITEM();
-                item.nome = it.nome;
+                foreach (Item it in listaitem)
+                {
+                    MA_ITEM item = new MA_ITEM();
+                    item.nome = it.nome;
 
-                this.GestorDeItem.InserirItem(item);
+                    this.GestorDeItem.InserirItem(item);
 
-                codigocadastrado = item.cod_item;
+                    codigocadastrado = item.cod_item;
+                }
+
+                jsonResult = Json(new
+                {
+                    codigo = codigocadastrado
+                }, JsonRequestBehavior.AllowGet);
             }
 
-            jsonResult = Json(new
-            {
-                codigo = codigocadastrado
-            }, JsonRequestBehavior.AllowGet);
 
             jsonResult.MaxJsonLength = int.MaxValue;
             return jsonResult;

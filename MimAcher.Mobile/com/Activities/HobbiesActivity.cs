@@ -38,7 +38,7 @@ namespace MimAcher.Mobile.com.Activities
             var addHobbie = FindViewById<FloatingActionButton>(Resource.Id.add_algo);
             _campoHobbie = FindViewById<EditText>(Resource.Id.digite_algo);
             _listView = FindViewById<ListView>(Resource.Id.list);
-            
+
             SetActionBar(toolbar);
 
             //Modificando a parte textual
@@ -50,7 +50,7 @@ namespace MimAcher.Mobile.com.Activities
             _campoHobbie.TextChanged += (sender, hobbiecapturado) => _hobbie = hobbiecapturado.Text.ToString();
             
             addHobbie.Click += delegate {
-                string[] values = {"Hobbie", _hobbie};
+                string[] values = {GetString(Resource.String.MsgCadastroHobbie), _hobbie};
                 _pacoteCompleto = new PacoteCompleto(_hobbies, _participante, _listView);
                 InserirItem(_campoHobbie,_pacoteCompleto,values);
             };

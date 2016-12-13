@@ -25,6 +25,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE.Find(id);
         }
 
+        public MA_PARTICIPANTE ObterUsuarioAtivoDeParticipantePorId(int id)
+        {
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.cod_participante == id && l.MA_USUARIO.cod_status == 1).SingleOrDefault();
+        }
+
         public MA_PARTICIPANTE ObterParticipantePorIdDeUsuario(int idUsuario)
         {
             return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_usuario == idUsuario).SingleOrDefault();
@@ -33,6 +38,11 @@ namespace MimAcher.Infra
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantes()
         {
             return this.Contexto.MA_PARTICIPANTE.ToList();
+        }
+
+        public List<MA_PARTICIPANTE> ObterTodosOsParticipantesDeUsuariosAtivos()
+        {
+            return this.Contexto.MA_PARTICIPANTE.Where(l => l.MA_USUARIO.cod_status == 1).ToList();
         }
 
         public List<MA_PARTICIPANTE> ObterTodosOsParticipantesPorNome(String nome)
@@ -54,6 +64,27 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            {
+                try
+                {
+                    this.Contexto.MA_PARTICIPANTE.Add(participante);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public int BuscarQuantidadeRegistros()
         {
@@ -86,13 +117,84 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean AtualizarParticipanteComRetorno(MA_PARTICIPANTE participante)
+        {
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
+            {
+                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                {
+                    try
+                    {
+                        Atualizar(participante);
+
+                        return true;
+                    }
+                    catch(Exception)
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                try
+                {
+                    MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
+
+                    if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                    {
+                        try
+                        {
+                            Atualizar(participante);
+
+                            return true;
+                        }
+                        catch(Exception)
+                        {
+                            return false;
+                        }
+                        
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch(Exception)
+                {
+                    return false;
+                }                
+            }
+        }
+
         public void Atualizar(MA_PARTICIPANTE participante)
         {
             MIMACHEREntities Contexto = new MIMACHEREntities();
 
-            Contexto.Entry(participante).State = EntityState.Modified;
-            Contexto.SaveChanges();
+            try
+            {
+                Contexto.Entry(participante).State = EntityState.Modified;
+                Contexto.SaveChanges();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
 
+        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        {
+            if(ObterParticipantePorId(cod_participante) != null)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
         }
 
         public Boolean VerificarSeUsuarioJaTemVinculoComAlgumParticipante(MA_PARTICIPANTE participante)

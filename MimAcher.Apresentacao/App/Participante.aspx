@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Participante.aspx.cs"  MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.Participante" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+	Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
@@ -9,7 +11,7 @@
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="ParticipanteFormPanelId" runat="server" Title="Participante" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="ParticipanteFormPanelId" runat="server" Title="Inserir/Editar Participante" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
@@ -23,7 +25,7 @@
 					<Items>
 
 						<%-- Código do Participante --%>
-						<ext:TextField ID="cod_participanteId" Name="cod_participante"  runat="server" FieldLabel="Código" />
+						<ext:TextField ID="cod_participanteId" Name="cod_participante" runat="server" FieldLabel="Código" ReadOnly="true" />
 
 						<%-- Nome do Participante --%>
 						<ext:TextField ID="nomeId" Name="nome" AllowBlank="false" runat="server" FieldLabel="Nome" />
@@ -91,6 +93,17 @@
 		</Items>   
 	</ext:Window>
 
+	<%-- Área de Impressão --%>
+	<ext:Window ID="ReportRelacaoWindowId" Width="900" Height="700" Modal="true" runat="server" Hidden="true">
+		<Items>
+			<ext:Panel ID="ReportRelacaoPanelId" runat="server">
+				<Content>                    
+					<rsweb:ReportViewer ID="ReportViewerRelacao" AsyncRendering="true" runat="server"></rsweb:ReportViewer>        
+				</Content>    
+			</ext:Panel>
+		</Items>    
+	</ext:Window>
+
 	<%-- Store da Grid --%>
 	<Store>
 		<ext:Store 
@@ -144,7 +157,8 @@
 						<Select Handler="#{ParticipanteFormPanelId}.getForm().loadRecord(record); 
 										 #{EditButtonId}.setDisabled(false);
 										 #{DeleteButtonId}.setDisabled(false);
-                                         #{ExibirPontoNoMapaButtonId}.setDisabled(false);" />                      
+										 #{ExibirPontoNoMapaButtonId}.setDisabled(false);
+										 #{ImprimirButtonId}.setDisabled(false);" />                      
 					</Listeners>                    
 			</ext:RowSelectionModel>                        
 		</SelectionModel>  
@@ -179,7 +193,7 @@
 					<%-- Atualizar --%>
 					<ext:Button ID="AtualizarButtonId" runat="server" Text="Atualizar" Icon="Reload" OnDirectClick="List" /> 
 
-                    <%-- Exibir Participante no Mapa --%>
+					<%-- Exibir Participante no Mapa --%>
 					<ext:Button ID="ExibirPontoNoMapaButtonId" runat="server" Text="Exibir Participante no Mapa" Icon="PageAdd" Disabled="true">
 						<DirectEvents>
 							<Click OnEvent="CarregarPontoNoMapa">
@@ -190,6 +204,8 @@
 						</DirectEvents>
 					</ext:Button>
 
+					<%--Imprimir Relatório --%>
+					<ext:Button ID="ImprimirButtonId" runat="server" Text="Imprimir Relatório" Icon="Printer" OnDirectClick="Imprimir" /> 
 
 				</Items>
 			</ext:Toolbar>

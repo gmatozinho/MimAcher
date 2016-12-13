@@ -40,6 +40,28 @@ namespace MimAcher.Infra
             }
         }
 
+        public Boolean InserirCampusComRetorno(MA_CAMPUS campus)
+        {
+            if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
+            {
+                try
+                {
+                    this.Contexto.MA_CAMPUS.Add(campus);
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public int BuscarQuantidadeRegistros()
         {
             return this.Contexto.MA_CAMPUS.Count();
@@ -57,6 +79,28 @@ namespace MimAcher.Infra
             {
                 this.Contexto.Entry(campus).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
+            }
+        }
+
+        public Boolean AtualizarCampusComRetorno(MA_CAMPUS campus)
+        {
+            if (!VerificarSeNomeDeLocalDeCampusJaExiste(campus))
+            {
+                try
+                {
+                    this.Contexto.Entry(campus).State = EntityState.Modified;
+                    this.Contexto.SaveChanges();
+
+                    return true;
+                }
+                catch(Exception)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
             }
         }
 
