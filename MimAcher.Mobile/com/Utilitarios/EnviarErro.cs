@@ -1,9 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Globalization;
-using System.Threading.Tasks;
-using Java.Sql;
-using Void = Java.Lang.Void;
+﻿using System.Diagnostics;
 
 namespace MimAcher.Mobile.com.Utilitarios
 {

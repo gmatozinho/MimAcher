@@ -1,7 +1,6 @@
 using System;
 using Android.App;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
 using MimAcher.Mobile.com.Activities.TAB;
 using MimAcher.Mobile.com.Entidades;
