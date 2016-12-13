@@ -1,28 +1,28 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NACAreaAtuacao.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.NACAreaAtuacao" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NacAreaAtuacao.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.NacAreaAtuacao" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-	<ext:Window ID="NACAreaAtuacaoWindowId" Width="600" Height="220" Modal="true" runat="server" Hidden="true">
+	<ext:Window ID="NacAreaAtuacaoWindowId" Width="600" Height="220" Modal="true" runat="server" Hidden="true">
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="NACAreaAtuacaoFormPanelId" runat="server" Title="Inserir/Editar relação de NAC e Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="NacAreaAtuacaoFormPanelId" runat="server" Title="Inserir/Editar relação de Nac e Área de Atuação" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
 			<Items> 
 			
-				<ext:FieldSet ID="NACAreaAtuacaoFieldSetId" runat="server" Title="NAC de Área de Atuação" MarginSpec="0 0 0 10">                                                      
+				<ext:FieldSet ID="NacAreaAtuacaoFieldSetId" runat="server" Title="Nac de Área de Atuação" MarginSpec="0 0 0 10">                                                      
 					<Defaults>
 						<ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
 						<ext:Parameter Name="MsgTarget" Value="side" />                                
 					</Defaults>
 					<Items>
 
-						<%-- Código da relação de NAC e Área de Atuação --%>
+						<%-- Código da relação de Nac e Área de Atuação --%>
 						<ext:TextField ID="cod_nac_area_atuacaoId" Name="cod_nac_area_atuacao" runat="server" FieldLabel="Código" ReadOnly="true" />
 
 
@@ -42,12 +42,12 @@
 							</Store>
 						</ext:ComboBox>   
 
-						<%-- Combobox de NAC --%>
+						<%-- Combobox de Nac --%>
 						<ext:ComboBox ID="cod_nacId" Width="300" Name="cod_nac" AllowBlank="false" runat="server" FieldLabel="Representante" ValueField="cod_nac_combo" DisplayField="nome_representante_combo">
 							<Store>
-								<ext:Store ID="StoreNACId" runat="server">
+								<ext:Store ID="StoreNacId" runat="server">
 									<Model>
-										<ext:Model ID="ModelNACId" runat="server">
+										<ext:Model ID="ModelNacId" runat="server">
 											<Fields>
 												<ext:ModelField Name="cod_nac_combo" Mapping="cod_nac" />
 												<ext:ModelField Name="nome_representante_combo" Mapping="nome_representante" />
@@ -63,13 +63,13 @@
 			</Items>
 
 			<BottomBar>
-				<ext:StatusBar ID="NACAreaAtuacaoBarId" runat="server" />
+				<ext:StatusBar ID="NacAreaAtuacaoBarId" runat="server" />
 			</BottomBar>
 
 			<%-- Botões do Form --%>
 			<Buttons>
 				<ext:Button ID="SaveButtonId" runat="server" Text="Save" Disabled="false" FormBind="true" OnDirectClick="Save" />
-				<ext:Button ID="CancelButtonId" runat="server" Text="Cancel" OnClientClick="#{NACAreaAtuacaoWindowId}.hide()"/>
+				<ext:Button ID="CancelButtonId" runat="server" Text="Cancel" OnClientClick="#{NacAreaAtuacaoWindowId}.hide()"/>
 			</Buttons>
 
 			</ext:FormPanel>
@@ -78,27 +78,27 @@
 	
  <%-- Grid --%> 
  <ext:GridPanel 
-		ID="NACAreaAtuacaoGridPanelId"
+		ID="NacAreaAtuacaoGridPanelId"
 		runat="server" 
-		Title="Gerenciamento de NAC e Área de Atuação">         
+		Title="Gerenciamento de Nac e Área de Atuação">         
 		<%--Height="1500"--%>    
 
 		 <Store>
 			<ext:Store 
-				ID="StoreNACAreaAtuacaoId" 
+				ID="StoreNacAreaAtuacaoId" 
 				runat="server" 
 				PageSize="31" 
 				OnReadData="List" 
 				RemoteSort="true" 
 				AutoLoad="true">
 				<Model>
-					<ext:Model ID="ModelNACAreaAtuacaoId" runat="server" IDProperty="cod_nac_area_atuacao">
+					<ext:Model ID="ModelNacAreaAtuacaoId" runat="server" IDProperty="cod_nac_area_atuacao">
 						<Fields>
 							<ext:ModelField Name="cod_nac_area_atuacao" Type="Int" />												
 							<ext:ModelField Name="cod_area_atuacao"  Type="Int" />
 							<ext:ModelField Name="nome" ServerMapping="MA_AREA_ATUACAO.nome" />                                                                                
 							<ext:ModelField Name="cod_nac" Type="Int" />
-							<ext:ModelField Name="nome_representante" ServerMapping="MA_NAC.nome_representante" />                                                                                
+							<ext:ModelField Name="nome_representante" ServerMapping="MA_Nac.nome_representante" />                                                                                
 						</Fields>
 					</ext:Model>
 				</Model>
@@ -108,16 +108,16 @@
 		<%-- Colunas da Grid --%>
 		<ColumnModel>
 			<Columns>
-				<ext:Column ID="codNACAreaAtuacaoColumnId" runat="server" Text="Código" DataIndex="cod_nac_area_atuacao" Visible="false" />
+				<ext:Column ID="codNacAreaAtuacaoColumnId" runat="server" Text="Código" DataIndex="cod_nac_area_atuacao" Visible="false" />
 				<ext:Column ID="nomeAreaAtuacaoColumnId" runat="server" Text="Área de Atuação" Flex="2" DataIndex="nome" />                                  
-				<ext:Column ID="nomeRepresentanteColumnId" runat="server" Text="Nome Representante do NAC" Flex="2" DataIndex="nome_representante" />                                  								
+				<ext:Column ID="nomeRepresentanteColumnId" runat="server" Text="Nome Representante do Nac" Flex="2" DataIndex="nome_representante" />                                  								
 			</Columns>            
 		</ColumnModel>    
 		   
 		<SelectionModel>
-			<ext:RowSelectionModel ID="NACAreaAtuacaoRowSelectionModelId" Mode="Single" runat="server" >
+			<ext:RowSelectionModel ID="NacAreaAtuacaoRowSelectionModelId" Mode="Single" runat="server" >
 					<Listeners>                        
-						<Select Handler="#{NACAreaAtuacaoFormPanelId}.getForm().loadRecord(record); 
+						<Select Handler="#{NacAreaAtuacaoFormPanelId}.getForm().loadRecord(record); 
 										 #{EditButtonId}.setDisabled(false);
 										 #{DeleteButtonId}.setDisabled(false);" />                      
 					</Listeners>                    
@@ -129,14 +129,14 @@
 			<ext:Toolbar ID="ToolbarId" runat="server">
 				<Items>
 					<%-- Incluir --%>
-					<ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{NACAreaAtuacaoWindowId}.show();#{NACAreaAtuacaoFormPanelId}.getForm().reset();" />
+					<ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{NacAreaAtuacaoWindowId}.show();#{NacAreaAtuacaoFormPanelId}.getForm().reset();" />
 
 					<%-- Edit --%>
 					<ext:Button ID="EditButtonId" runat="server" Text="Editar" Icon="PageEdit" Disabled="true" >
 						<DirectEvents>
 							<Click OnEvent="Edit">
 								<ExtraParams>
-									<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NACAreaAtuacaoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac_area_atuacao" />                                
+									<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NacAreaAtuacaoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac_area_atuacao" />                                
 								</ExtraParams>
 							</Click>
 						</DirectEvents>
@@ -161,7 +161,7 @@
 		<DirectEvents>
 			<ItemDblClick OnEvent="Edit">
 				<ExtraParams>                    
-					<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NACAreaAtuacaoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac_area_atuacao" />                                
+					<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NacAreaAtuacaoGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac_area_atuacao" />                                
 				</ExtraParams>
 			</ItemDblClick>
 		</DirectEvents>

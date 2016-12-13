@@ -2,7 +2,7 @@
 
 namespace MimAcher.WebService.Models
 {
-    public class NAC
+    public class Nac
     {
         public int cod_nac { get; set; }
         public int cd_usuario { get; set; }

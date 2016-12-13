@@ -1,31 +1,31 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NAC.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.NAC" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Nac.aspx.cs" MasterPageFile="~/Site.Master" Inherits="MimAcher.Apresentacao.App.Nac" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="main">
    
 <%-- Window --%>
-	<ext:Window ID="NACWindowId" Width="600" Height="275" Modal="true" runat="server" Hidden="true">
+	<ext:Window ID="NacWindowId" Width="600" Height="275" Modal="true" runat="server" Hidden="true">
 		<Items>
 
 		<%-- Form --%>
-		<ext:FormPanel ID="NACFormPanelId" runat="server" Title="Inserir/Editar NAC" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
+		<ext:FormPanel ID="NacFormPanelId" runat="server" Title="Inserir/Editar Nac" BodyPadding="5" ButtonAlign="Right" Layout="Column">    
 							   
 			<FieldDefaults LabelAlign="Left" MsgTarget="Side" Size="100"  AllowBlank="false" />
 														
 			<Items> 
 			
-				<ext:FieldSet ID="NACFieldSetId" runat="server" Title="NAC" MarginSpec="0 0 0 10">                                                      
+				<ext:FieldSet ID="NacFieldSetId" runat="server" Title="Nac" MarginSpec="0 0 0 10">                                                      
 					<Defaults>
 						<ext:Parameter Name="AllowBlank" Value="true" Mode="Raw" />
 						<ext:Parameter Name="MsgTarget" Value="side" />                                
 					</Defaults>
 					<Items>
 
-						<%-- Código do NAC --%>
+						<%-- Código do Nac --%>
 						<ext:TextField ID="cod_nacId" Name="cod_nac"  runat="server" FieldLabel="Código" ReadOnly="true"/>
 
-						<%-- Nome do representante do NAC --%>
+						<%-- Nome do representante do Nac --%>
 						<ext:TextField ID="nome_representanteId" Name="nome_representante" AllowBlank="false" runat="server" FieldLabel="Nome do Representante" />
 
 						<%-- Telefone --%>
@@ -68,13 +68,13 @@
 			</Items>
 
 			<BottomBar>
-				<ext:StatusBar ID="NACBarId" runat="server" />
+				<ext:StatusBar ID="NacBarId" runat="server" />
 			</BottomBar>
 
 			<%-- Botões do Form --%>
 			<Buttons>
 				<ext:Button ID="SaveButtonId" runat="server" Text="Save" Disabled="false" FormBind="true" OnDirectClick="Save" />
-				<ext:Button ID="CancelButtonId" runat="server" Text="Cancel" OnClientClick="#{NACWindowId}.hide()"/>
+				<ext:Button ID="CancelButtonId" runat="server" Text="Cancel" OnClientClick="#{NacWindowId}.hide()"/>
 			</Buttons>
 
 			</ext:FormPanel>
@@ -84,14 +84,14 @@
 	<%-- Store da Grid --%>
 	<Store>
 		<ext:Store 
-			ID="StoreNACId" 
+			ID="StoreNacId" 
 			runat="server" 
 			PageSize="31" 
 			OnReadData="List" 
 			RemoteSort="true" 
 			AutoLoad="true">
 			<Model>
-				<ext:Model ID="ModelNACId" runat="server" IDProperty="cod_nac">
+				<ext:Model ID="ModelNacId" runat="server" IDProperty="cod_nac">
 					<Fields>
 						<ext:ModelField Name="cod_nac" Type="Int" />
 						<ext:ModelField Name="nome_representante" Type="String" />
@@ -108,10 +108,10 @@
 
  <%-- Grid --%> 
  <ext:GridPanel 
-		ID="NACGridPanelId"
+		ID="NacGridPanelId"
 		runat="server" 
-		Title="Gerenciamento de NAC"
-		StoreID="StoreNACId">         
+		Title="Gerenciamento de Nac"
+		StoreID="StoreNacId">         
 		<%--Height="1500"--%>    
 
 		<%-- Colunas da Grid --%>
@@ -126,9 +126,9 @@
 		</ColumnModel>    
 		   
 		<SelectionModel>
-			<ext:RowSelectionModel ID="NACRowSelectionModelId" Mode="Single" runat="server" >
+			<ext:RowSelectionModel ID="NacRowSelectionModelId" Mode="Single" runat="server" >
 					<Listeners>                        
-						<Select Handler="#{NACFormPanelId}.getForm().loadRecord(record); 
+						<Select Handler="#{NacFormPanelId}.getForm().loadRecord(record); 
 										 #{EditButtonId}.setDisabled(false);
 										 #{DeleteButtonId}.setDisabled(false);" />                      
 					</Listeners>                    
@@ -140,14 +140,14 @@
 			<ext:Toolbar ID="ToolbarId" runat="server">
 				<Items>
 					<%-- Incluir --%>
-					<ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{NACWindowId}.show();#{NACFormPanelId}.getForm().reset();" />
+					<ext:Button ID="IncluirButtonId" runat="server" Text="Novo Registro" Icon="PageAdd" OnClientClick="#{NacWindowId}.show();#{NacFormPanelId}.getForm().reset();" />
 
 					<%-- Edit --%>
 					<ext:Button ID="EditButtonId" runat="server" Text="Editar" Icon="PageEdit" Disabled="true" >
 						<DirectEvents>
 							<Click OnEvent="Edit">
 								<ExtraParams>
-									<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NACGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac" />                                
+									<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NacGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac" />                                
 								</ExtraParams>
 							</Click>
 						</DirectEvents>
@@ -172,7 +172,7 @@
 		<DirectEvents>
 			<ItemDblClick OnEvent="Edit">
 				<ExtraParams>                    
-					<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NACGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac" />                                
+					<ext:Parameter Name="RecordGrid" Mode="Raw" Value="#{NacGridPanelId}.getRowsValues({selectedOnly : true})[0].cod_nac" />                                
 				</ExtraParams>
 			</ItemDblClick>
 		</DirectEvents>

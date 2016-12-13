@@ -109,7 +109,7 @@ namespace MimAcher.Infra
             }
         }
 
-        public Boolean AtualizarNACComRetorno(MA_NAC nac)
+        public Boolean AtualizarNacComRetorno(MA_NAC nac)
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumNac(nac))
             {

@@ -50,7 +50,7 @@
     <Compile Include="GestorDeAplicacao.cs" />
     <Compile Include="GestorDeErro.cs" />
     <Compile Include="GestorDeItem.cs" />
-    <Compile Include="GestorDeNACAreaDeAtuacao.cs" />
+    <Compile Include="GestorDeNacAreaDeAtuacao.cs" />
     <Compile Include="GestorDeCampus.cs" />
     <Compile Include="GestorDeParticipante.cs" />
     <Compile Include="GestorDeParticipanteAprender.cs" />
@@ -58,7 +58,7 @@
     <Compile Include="GestorDeParticipanteEnsinar.cs" />
     <Compile Include="GestorDeHobbieDeParticipante.cs" />
     <Compile Include="GestorDeImagemDeParticipante.cs" />
-    <Compile Include="GestorDeNAC.cs" />
+    <Compile Include="GestorDeNac.cs" />
     <Compile Include="GestorDeStatus.cs" />
     <Compile Include="GestorDeUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

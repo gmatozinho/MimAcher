@@ -7,18 +7,18 @@ using MimAcher.Dominio;
 
 namespace MimAcher.Apresentacao.App
 {
-    public partial class NAC : Page
+    public partial class Nac : Page
     {
         //Declaração dos Gestores
         public GestorDeUsuario GestorDeUsuario { get; set; }
-        public GestorDeNAC GestorDeNAC { get; set; }
+        public GestorDeNac GestorDeNac { get; set; }
         public GestorDeCampus GestorDeCampus { get; set; }
 
-        public NAC()
+        public Nac()
         {
             //Inicialização dos Gestores
             this.GestorDeUsuario = new GestorDeUsuario();
-            this.GestorDeNAC = new GestorDeNAC();
+            this.GestorDeNac = new GestorDeNac();
             this.GestorDeCampus = new GestorDeCampus();
         }
 
@@ -29,8 +29,8 @@ namespace MimAcher.Apresentacao.App
                 StoreUsuarioId.DataSource = this.GestorDeUsuario.ObterTodosOsUsuarios().OrderBy(l => l.e_mail);
                 StoreUsuarioId.DataBind();
 
-                StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-                StoreNACId.DataBind();
+                StoreNacId.DataSource = this.GestorDeNac.ObterTodosOsNac().OrderBy(l => l.nome_representante);
+                StoreNacId.DataBind();
 
                 StoreCampusId.DataSource = this.GestorDeCampus.ObterTodosOsCampus().OrderBy(l => l.local);
                 StoreCampusId.DataBind();
@@ -40,29 +40,29 @@ namespace MimAcher.Apresentacao.App
         //Inicializa a tela de cadastro de usuário
         protected void Add(object sender, DirectEventArgs e)
         {
-            NACWindowId.Show();
+            NacWindowId.Show();
         }
 
         //Faz a sobrecarga de List para a paginação
         protected void List(object sender, EventArgs e)
         {
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            StoreNacId.DataSource = this.GestorDeNac.ObterTodosOsNac().OrderBy(l => l.nome_representante);
+            StoreNacId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List(object sender, DirectEventArgs e)
         {
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            StoreNacId.DataSource = this.GestorDeNac.ObterTodosOsNac().OrderBy(l => l.nome_representante);
+            StoreNacId.DataBind();
         }
 
         //Lista os nacs do banco de dados na grid
         protected void List()
         {
-            this.GestorDeNAC = new GestorDeNAC();
-            StoreNACId.DataSource = this.GestorDeNAC.ObterTodosOsNAC().OrderBy(l => l.nome_representante);
-            StoreNACId.DataBind();
+            this.GestorDeNac = new GestorDeNac();
+            StoreNacId.DataSource = this.GestorDeNac.ObterTodosOsNac().OrderBy(l => l.nome_representante);
+            StoreNacId.DataBind();
         }
 
         //Cadastro do nac no banco
@@ -78,16 +78,16 @@ namespace MimAcher.Apresentacao.App
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_nacId.Text == "")
             {
-                GestorDeNAC.InserirNAC(nac);
-                NACWindowId.Close();
+                GestorDeNac.InserirNac(nac);
+                NacWindowId.Close();
                 LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
                 nac.cod_nac = Int32.Parse(cod_nacId.Text);
-                GestorDeNAC.AtualizarNAC(nac);
-                NACWindowId.Close();
+                GestorDeNac.AtualizarNac(nac);
+                NacWindowId.Close();
                 LimpaForm();
             }
         }
@@ -95,14 +95,14 @@ namespace MimAcher.Apresentacao.App
         //Abre a janela de edição
         protected void Edit(object sender, DirectEventArgs e)
         {
-            NACWindowId.Show();
+            NacWindowId.Show();
         }
 
         //Exclui determinado nac do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_NAC nac = this.GestorDeNAC.ObterNACPorId(Int32.Parse(cod_nacId.Text));
-            this.GestorDeNAC.RemoverNAC(nac);
+            MA_NAC nac = this.GestorDeNac.ObterNacPorId(Int32.Parse(cod_nacId.Text));
+            this.GestorDeNac.RemoverNac(nac);
             LimpaForm();
         }
 

@@ -7,18 +7,18 @@ using System;
 
 namespace MimAcher.WebService.Controllers
 {
-    public class NACController : Controller
+    public class NacController : Controller
     {
-        public GestorDeNAC GestorDeNAC { get; set; }
+        public GestorDeNac GestorDeNac { get; set; }
         public GestorDeUsuario GestorDeUsuario { get; set; }
 
-        public NACController()
+        public NacController()
         {
-            this.GestorDeNAC = new GestorDeNAC();
+            this.GestorDeNac = new GestorDeNac();
             this.GestorDeUsuario = new GestorDeUsuario();
         }
 
-        // GET: NAC
+        // GET: Nac
         public ActionResult Index()
         {
             return View();
@@ -27,12 +27,12 @@ namespace MimAcher.WebService.Controllers
         [HttpGet]
         public ActionResult List()
         {
-            List<MA_NAC> listanacoriginal = this.GestorDeNAC.ObterTodosOsNACDeUsuariosAtivos();
-            List<NAC> listanac = new List<NAC>();
+            List<MA_NAC> listanacoriginal = this.GestorDeNac.ObterTodosOsNacDeUsuariosAtivos();
+            List<Nac> listanac = new List<Nac>();
 
             foreach (MA_NAC nc in listanacoriginal)
             {
-                NAC nac = new NAC();
+                Nac nac = new Nac();
 
                 nac.cod_nac = nc.cod_nac;
                 nac.nomerepresentante = nc.nome_representante;
@@ -50,7 +50,7 @@ namespace MimAcher.WebService.Controllers
         }
 
         [HttpPost]
-        public ActionResult Add(List<NAC> listanac)
+        public ActionResult Add(List<Nac> listanac)
         {
             JsonResult jsonResult;
 
@@ -75,7 +75,7 @@ namespace MimAcher.WebService.Controllers
 
                 try
                 {
-                    if (this.GestorDeNAC.InserirNACComRetorno(nac))
+                    if (this.GestorDeNac.InserirNacComRetorno(nac))
                     {
                         jsonResult = Json(new
                         {
@@ -105,7 +105,7 @@ namespace MimAcher.WebService.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(List<NAC> listanac)
+        public ActionResult Update(List<Nac> listanac)
         {
             JsonResult jsonResult;
 
@@ -131,7 +131,7 @@ namespace MimAcher.WebService.Controllers
 
                 try
                 {
-                    if (this.GestorDeNAC.AtualizarNACComRetorno(nac))
+                    if (this.GestorDeNac.AtualizarNacComRetorno(nac))
                     {
                         jsonResult = Json(new
                         {
@@ -162,7 +162,7 @@ namespace MimAcher.WebService.Controllers
 
 
         [HttpPost]
-        public ActionResult Delete(List<NAC> listanac)
+        public ActionResult Delete(List<Nac> listanac)
         {
             JsonResult jsonResult;
 
@@ -185,13 +185,13 @@ namespace MimAcher.WebService.Controllers
                 
                 try
                 {
-                    if (GestorDeNAC.VerificarSeNACPorId(nac.cod_nac))
+                    if (GestorDeNac.VerificarSeNacPorId(nac.cod_nac))
                     {
-                        nac = GestorDeNAC.ObterNACPorId(nac.cod_nac);
+                        nac = GestorDeNac.ObterNacPorId(nac.cod_nac);
 
                         MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorId(nac.cod_usuario);
 
-                        //Inativa o usuário associado a este NAC
+                        //Inativa o usuário associado a este Nac
                         usuario.cod_status = 2;
 
                         Boolean resultado = GestorDeUsuario.AtualizarUsuarioComRetorno(usuario);
