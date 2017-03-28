@@ -6,7 +6,7 @@
 
 O projeto Mim Acher procura oferecer um cadastro interativo de alunos e seus hobbies, passatempos, habilidades e interesses, de forma a promover encontros entre usuários parecidos e à possibiliar que o Núcleo de Arte e Cultura (NAC) promova eventos com base no perfil geral dos alunos cadastrados.
 
-##Minimundo
+## Minimundo
 
 O projeto Mim Acher procura efetuar um cadastro de alunos, de forma que seja possível combinar estes alunos com outros que possuem interesses parecidos. De um aluno, deseja-se saber nome, telefone, e-mail, fotografia, endereço da instituição em que estuda e endereço do aluno. Também devem ser registrados seus gostos, o que querem aprender e o que querem ensinar. De cada gosto e competência, deseja-se saber o tipo (futebol, cinema, violão).
 
@@ -19,7 +19,7 @@ Devem ser gerados relatórios que estabeleçam perfis para os alunos cadastrados
 ## PITCH
 [![PITCH](https://img.youtube.com/vi/jpqICXZHj28/0.jpg)](https://www.youtube.com/watch?v=jpqICXZHj28)
 
-#Componentes
+# Componentes
 
 Cayo Donatti - cayopdonatti@gmail.com
 
@@ -27,6 +27,6 @@ Gustavo Matozinho - gmatozinho@mimacher.me
 
 Paulo - paulovianna@yandex.com
 
-#Gráfico de rendimento 
+# Gráfico de rendimento 
 
 [![Throughput Graph](https://graphs.waffle.io/gmatozinho/MimAcher/throughput.svg)](https://waffle.io/gmatozinho/MimAcher/metrics/throughput)
