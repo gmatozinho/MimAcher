@@ -13,13 +13,13 @@ namespace MimAcher.Apresentacao
     {
         public GestorDeUsuario GestorDeUsuario { get; set; }
         public GestorDeParticipante GestorDeParticipante { get; set; }
-        public GestorDeNac GestorDeNAC { get; set; }
+        public GestorDeNac GestorDeNac { get; set; }
 
         public SiteMaster()
         {
             this.GestorDeUsuario = new GestorDeUsuario();
             this.GestorDeParticipante = new GestorDeParticipante();
-            this.GestorDeNAC = new GestorDeNac();
+            this.GestorDeNac = new GestorDeNac();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -39,10 +39,10 @@ namespace MimAcher.Apresentacao
                     this.labelParticipanteNome.Hidden = false;
                 }
 
-                if (GestorDeNAC.VerificarSeNacTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
+                if (GestorDeNac.VerificarSeNacTemAlgumParticipanteComMesmoUsuario(usuario.cod_usuario))
                 {
                     //Coloca a informação com o nome do representante do NAC no cabeçalho
-                    this.labelNACNomeRepresentante.Text = GestorDeNAC.ObterNacPorIdDeUsuario(usuario.cod_usuario).nome_representante;
+                    this.labelNACNomeRepresentante.Text = GestorDeNac.ObterNacPorIdDeUsuario(usuario.cod_usuario).nome_representante;
                     this.labelNACNomeRepresentante.Hidden = false;
                 }
                 

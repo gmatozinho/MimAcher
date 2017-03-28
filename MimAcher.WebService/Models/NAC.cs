@@ -4,10 +4,10 @@ namespace MimAcher.WebService.Models
 {
     public class Nac
     {
-        public int cod_nac { get; set; }
-        public int cd_usuario { get; set; }
-        public int cod_campus { get; set; }
-        public String nomerepresentante { get; set; }
-        public int telefone { get; set; }
+        public int CodNac { get; set; }
+        public int CdUsuario { get; set; }
+        public int CodCampus { get; set; }
+        public String Nomerepresentante { get; set; }
+        public int Telefone { get; set; }
     }
 }

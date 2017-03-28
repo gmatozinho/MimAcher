@@ -43,7 +43,6 @@ namespace MimAcher.Mobile.com.Activities
             ActionBar.SetTitle(Resource.String.TitleHome);
 
             PreencherPreferenciasParticipante();
-            //ChecarPreferenciasParticipante();
 
             //Criando os tabs
             CreateTab(typeof(ResultHobbiesActivity), GetString(Resource.String.TitleHobbies), _participante);

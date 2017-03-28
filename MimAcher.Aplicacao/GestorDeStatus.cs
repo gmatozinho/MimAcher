@@ -37,14 +37,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeStatus.ObterTodosOsStatusPorNome(nome);
         }
 
-        public void InserirStatus(MA_STATUS Status)
+        public void InserirStatus(MA_STATUS status)
         {
-            this.RepositorioDeStatus.InserirStatus(Status);
+            this.RepositorioDeStatus.InserirStatus(status);
         }
 
-        public Boolean InserirStatusComRetorno(MA_STATUS Status)
+        public Boolean InserirStatusComRetorno(MA_STATUS status)
         {
-            return this.RepositorioDeStatus.InserirStatusComRetorno(Status);
+            return this.RepositorioDeStatus.InserirStatusComRetorno(status);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -52,19 +52,19 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeStatus.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverStatus(MA_STATUS Status)
+        public void RemoverStatus(MA_STATUS status)
         {
-            this.RepositorioDeStatus.RemoverStatus(Status);
+            this.RepositorioDeStatus.RemoverStatus(status);
         }
 
-        public void AtualizarStatus(MA_STATUS Status)
+        public void AtualizarStatus(MA_STATUS status)
         {
-            this.RepositorioDeStatus.AtualizarStatus(Status);
+            this.RepositorioDeStatus.AtualizarStatus(status);
         }
 
-        public Boolean AtualizarStatusComRetorno(MA_STATUS Status)
+        public Boolean AtualizarStatusComRetorno(MA_STATUS status)
         {
-            return this.RepositorioDeStatus.AtualizarStatusComRetorno(Status);
+            return this.RepositorioDeStatus.AtualizarStatusComRetorno(status);
         }
     }
 }

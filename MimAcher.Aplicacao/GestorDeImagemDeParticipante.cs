@@ -23,14 +23,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeImagemDeParticipante.ObterTodosOsImagens();
         }
 
-        public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int id_participante)
+        public MA_IMAGEM_PARTICIPANTE ObterImagemPorIdDeParticipante(int idParticipante)
         {
-            return this.RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(id_participante);
+            return this.RepositorioDeImagemDeParticipante.ObterImagemPorIdDeParticipante(idParticipante);
         }
 
-        public void InserirImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void InserirImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.RepositorioDeImagemDeParticipante.InserirImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.InserirImagem(imagem);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -38,14 +38,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeImagemDeParticipante.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void RemoverImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.RepositorioDeImagemDeParticipante.RemoverImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.RemoverImagem(imagem);
         }
 
-        public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE Imagem)
+        public void AtualizarImagem(MA_IMAGEM_PARTICIPANTE imagem)
         {
-            this.RepositorioDeImagemDeParticipante.AtualizarImagem(Imagem);
+            this.RepositorioDeImagemDeParticipante.AtualizarImagem(imagem);
         }
     }
 }

@@ -4,7 +4,7 @@ namespace MimAcher.WebService.Models
 {
     public class AreaAtuacao
     {
-        public int cod_area_atuacao { get; set; }
-        public String nome { get; set; }
+        public int CodAreaAtuacao { get; set; }
+        public String Nome { get; set; }
     }
 }

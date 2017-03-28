@@ -67,9 +67,9 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAcesso.AtualizarAcessoComRetorno(acesso);
         }
 
-        public Boolean VerificarSeUsuarioTemAcessoWeb(int id_acesso)
+        public Boolean VerificarSeUsuarioTemAcessoWeb(int idAcesso)
         {
-            if(id_acesso == 1)
+            if(idAcesso == 1)
             {
                 return false;
             }

@@ -35,14 +35,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeNacAreaDeAtuacao.ObterTodasAsNacsAreasDeAtuacaosPorNomeDeRepresentanteDoNac(nomerepresentante);
         }
 
-        public void InserirNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void InserirNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            this.RepositorioDeNacAreaDeAtuacao.InserirNacAreaDeAtuacao(NacAreaDeAtuacao);
+            this.RepositorioDeNacAreaDeAtuacao.InserirNacAreaDeAtuacao(nacAreaDeAtuacao);
         }
 
-        public Boolean InserirNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public Boolean InserirNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            return this.RepositorioDeNacAreaDeAtuacao.InserirNacAreaDeAtuacaoComRetorno(NacAreaDeAtuacao);
+            return this.RepositorioDeNacAreaDeAtuacao.InserirNacAreaDeAtuacaoComRetorno(nacAreaDeAtuacao);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -50,19 +50,19 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeNacAreaDeAtuacao.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void RemoverNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            this.RepositorioDeNacAreaDeAtuacao.RemoverNacAreaDeAtuacao(NacAreaDeAtuacao);
+            this.RepositorioDeNacAreaDeAtuacao.RemoverNacAreaDeAtuacao(nacAreaDeAtuacao);
         }
 
-        public void AtualizarNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public void AtualizarNacAreaDeAtuacao(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            this.RepositorioDeNacAreaDeAtuacao.AtualizarNacAreaDeAtuacao(NacAreaDeAtuacao);
+            this.RepositorioDeNacAreaDeAtuacao.AtualizarNacAreaDeAtuacao(nacAreaDeAtuacao);
         }
 
-        public Boolean AtualizarNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO NacAreaDeAtuacao)
+        public Boolean AtualizarNacAreaDeAtuacaoComRetorno(MA_NAC_AREA_ATUACAO nacAreaDeAtuacao)
         {
-            return this.RepositorioDeNacAreaDeAtuacao.AtualizarNacAreaDeAtuacaoComRetorno(NacAreaDeAtuacao);
+            return this.RepositorioDeNacAreaDeAtuacao.AtualizarNacAreaDeAtuacaoComRetorno(nacAreaDeAtuacao);
         }
 
     }

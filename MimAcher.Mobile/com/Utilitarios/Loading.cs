@@ -6,7 +6,7 @@ using MimAcher.Mobile.com.Entidades.Fabricas;
 
 namespace MimAcher.Mobile.com.Utilitarios
 {
-    public class Loading
+    public static class Loading
     {
 
         public static void MyButtonClicked(TelaENomeParaLoading telaENome)

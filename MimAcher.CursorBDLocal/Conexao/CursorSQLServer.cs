@@ -11,9 +11,9 @@ namespace MimAcher.Postgres.Conexao
     {
          public CursorSqlServer()
         {
-            stringConexao = "Server = localhost\\SQLEXPRESS;Database=mimacher;Trusted_Connection=True;";
-            conexao = new SqlConnection(stringConexao);
-            conexao.Open();
+            StringConexao = "Server = localhost\\SQLEXPRESS;Database=mimacher;Trusted_Connection=True;";
+            Conexao = new SqlConnection(StringConexao);
+            Conexao.Open();
 
             BuscaCampi();
         }
@@ -23,26 +23,26 @@ namespace MimAcher.Postgres.Conexao
         {
             try
             {
-                if (conexao.State == ConnectionState.Closed)
-                    conexao.Open();
+                if (Conexao.State == ConnectionState.Closed)
+                    Conexao.Open();
 
-                SqlCommand comandoSQL = new SqlCommand("inserir_participante", (SqlConnection) conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                SqlCommand comandoSql = new SqlCommand("inserir_participante", (SqlConnection) Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosParticipante(comandoSQL, participante, campi);
+                FabricaParametros.CriarParametrosParticipante(comandoSql, participante, Campi);
 
                 //Este parâmetro é exlusivo do SQL server
-                var parametro = comandoSQL.CreateParameter();
+                var parametro = comandoSql.CreateParameter();
                 parametro.DbType = DbType.Int32;
                 parametro.ParameterName = "codigo_participante";
                 parametro.Direction = ParameterDirection.Output;
-                comandoSQL.Parameters.Add(parametro);
+                comandoSql.Parameters.Add(parametro);
 
-                comandoSQL.Prepare();
-                comandoSQL.ExecuteNonQuery();
-                int codigo_participante = (int) comandoSQL.Parameters["codigo_participante"].Value;
+                comandoSql.Prepare();
+                comandoSql.ExecuteNonQuery();
+                int codigoParticipante = (int) comandoSql.Parameters["codigo_participante"].Value;
 
-                InserirConteudo(participante, codigo_participante);
+                InserirConteudo(participante, codigoParticipante);
             }
             catch (Exception ex)
             {
@@ -51,51 +51,51 @@ namespace MimAcher.Postgres.Conexao
         }
 
         override
-        public void InserirConteudo(Participante participante, int codigo_participante)
+        public void InserirConteudo(Participante participante, int codigoParticipante)
         {
-            SqlCommand comandoSQL;
+            SqlCommand comandoSql;
 
             foreach (string hobbie in participante.Hobbies.Conteudo)
             {
-                comandoSQL = new SqlCommand("inserir_hobbie", (SqlConnection)conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new SqlCommand("inserir_hobbie", (SqlConnection)Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, hobbie, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, hobbie, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
 
             foreach (string ensinar in participante.Ensinar.Conteudo)
             {
-                comandoSQL = new SqlCommand("inserir_ensinar", (SqlConnection)conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new SqlCommand("inserir_ensinar", (SqlConnection)Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, ensinar, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, ensinar, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
 
             foreach (string aprender in participante.Aprender.Conteudo)
             {
-                comandoSQL = new SqlCommand("inserir_aprender", (SqlConnection)conexao);
-                comandoSQL.CommandType = CommandType.StoredProcedure;
+                comandoSql = new SqlCommand("inserir_aprender", (SqlConnection)Conexao);
+                comandoSql.CommandType = CommandType.StoredProcedure;
 
-                FabricaParametros.CriarParametrosItem(comandoSQL, aprender, codigo_participante);
+                FabricaParametros.CriarParametrosItem(comandoSql, aprender, codigoParticipante);
 
-                comandoSQL.ExecuteNonQuery();
+                comandoSql.ExecuteNonQuery();
             }
         }
         
         override
         protected void BuscaCampi()
         {
-            campi = new Dictionary<string, int>();
-            SqlCommand comandoSQL = new SqlCommand("SELECT local, cod_campus FROM ma_campus;", (SqlConnection)conexao);
-            SqlDataReader leitor = comandoSQL.ExecuteReader();
+            Campi = new Dictionary<string, int>();
+            SqlCommand comandoSql = new SqlCommand("SELECT local, cod_campus FROM ma_campus;", (SqlConnection)Conexao);
+            SqlDataReader leitor = comandoSql.ExecuteReader();
 
             while (leitor.Read())
             {
-                campi[leitor[0].ToString()] = Int32.Parse(leitor[1].ToString());
+                Campi[leitor[0].ToString()] = Int32.Parse(leitor[1].ToString());
             }
 
             leitor.Close();

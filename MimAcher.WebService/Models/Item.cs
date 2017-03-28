@@ -4,7 +4,7 @@ namespace MimAcher.WebService.Models
 {
     public class Item
     {
-        public int cod_item { get; set; }
-        public String nome { get; set; }
+        public int CodItem { get; set; }
+        public String Nome { get; set; }
     }
 }

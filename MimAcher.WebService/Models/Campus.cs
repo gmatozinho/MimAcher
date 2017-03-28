@@ -4,7 +4,7 @@ namespace MimAcher.WebService.Models
 {
     public class Campus
     {
-        public int cod_campus { get; set; }
-        public String local { get; set; }
+        public int CodCampus { get; set; }
+        public String Local { get; set; }
     }
 }

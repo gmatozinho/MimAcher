@@ -8,14 +8,14 @@ namespace MimAcher.GeradorDados.Geradores
 {
     class GeradorNascimento
     {
-        private readonly Random random = new Random();
-        private readonly static DateTime dataInicio = new DateTime(1960, 1, 1);
-        private readonly static DateTime dataFim = new DateTime(2003, 12, 31);
-        private readonly int rangeDias = (dataFim - dataInicio).Days;
+        private readonly Random _random = new Random();
+        private readonly static DateTime DataInicio = new DateTime(1960, 1, 1);
+        private readonly static DateTime DataFim = new DateTime(2003, 12, 31);
+        private readonly int _rangeDias = (DataFim - DataInicio).Days;
 
         public DateTime GerarDia()
         {
-            return (dataInicio.AddDays(random.Next(rangeDias)));
+            return (DataInicio.AddDays(_random.Next(_rangeDias)));
         }
     }
 }

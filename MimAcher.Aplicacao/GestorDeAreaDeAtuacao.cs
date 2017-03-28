@@ -29,14 +29,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAreaDeAtuacao.ObterTodasAsAreasDeAtuacaosPorNome(nome);
         }
 
-        public void InserirAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void InserirAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            this.RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacao(areaDeAtuacao);
         }
 
-        public Boolean InserirAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        public Boolean InserirAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            return this.RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacaoComRetorno(AreaDeAtuacao);
+            return this.RepositorioDeAreaDeAtuacao.InserirAreaDeAtuacaoComRetorno(areaDeAtuacao);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -44,19 +44,19 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeAreaDeAtuacao.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void RemoverAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            this.RepositorioDeAreaDeAtuacao.RemoverAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.RemoverAreaDeAtuacao(areaDeAtuacao);
         }
 
-        public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO AreaDeAtuacao)
+        public void AtualizarAreaDeAtuacao(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            this.RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacao(AreaDeAtuacao);
+            this.RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacao(areaDeAtuacao);
         }
 
-        public Boolean AtualizarAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO AreaDeAtuacao)
+        public Boolean AtualizarAreaDeAtuacaoComRetorno(MA_AREA_ATUACAO areaDeAtuacao)
         {
-            return this.RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacaoComRetorno(AreaDeAtuacao);
+            return this.RepositorioDeAreaDeAtuacao.AtualizarAreaDeAtuacaoComRetorno(areaDeAtuacao);
         }
     }
 }

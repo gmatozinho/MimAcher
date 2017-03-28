@@ -58,22 +58,22 @@ namespace MimAcher.Apresentacao.App
         //Cadastro do area_atuacao no banco
         protected void Save(object sender, DirectEventArgs e)
         {
-            MA_AREA_ATUACAO area_atuacao = new MA_AREA_ATUACAO();
+            MA_AREA_ATUACAO areaAtuacao = new MA_AREA_ATUACAO();
 
-            area_atuacao.nome = nomeId.Text;
+            areaAtuacao.nome = nomeId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_area_atuacaoId.Text == "")
             {
-                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(area_atuacao);
+                this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaAtuacao);
                 AreaAtuacaoWindowId.Close();
                 LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                area_atuacao.cod_area_atuacao = Int32.Parse(cod_area_atuacaoId.Text);
-                this.GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(area_atuacao);
+                areaAtuacao.cod_area_atuacao = Int32.Parse(cod_area_atuacaoId.Text);
+                this.GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(areaAtuacao);
                 AreaAtuacaoWindowId.Close();
                 LimpaForm();
             }
@@ -88,8 +88,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado area_atuacao do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_AREA_ATUACAO area_atuacao = this.GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(cod_area_atuacaoId.Text));
-            this.GestorDeAreaDeAtuacao.RemoverAreaDeAtuacao(area_atuacao);
+            MA_AREA_ATUACAO areaAtuacao = this.GestorDeAreaDeAtuacao.ObterAreaDeAtuacaoPorId(Int32.Parse(cod_area_atuacaoId.Text));
+            this.GestorDeAreaDeAtuacao.RemoverAreaDeAtuacao(areaAtuacao);
             LimpaForm();
         }
 

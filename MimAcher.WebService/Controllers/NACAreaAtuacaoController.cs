@@ -31,9 +31,9 @@ namespace MimAcher.WebService.Controllers
             {
                 NacAreaAtuacao nacareaatuacao = new NacAreaAtuacao();
 
-                nacareaatuacao.cod_nac_area_atuacao = na.cod_nac_area_atuacao;
-                nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
-                nacareaatuacao.cod_nac = na.cod_nac;
+                nacareaatuacao.CodNacAreaAtuacao = na.cod_nac_area_atuacao;
+                nacareaatuacao.CodAreaAtuacao = na.cod_area_atuacao;
+                nacareaatuacao.CodNac = na.cod_nac;
 
                 listanacareaatuacao.Add(nacareaatuacao);
             }
@@ -67,8 +67,8 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
 
-                nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
-                nacareaatuacao.cod_nac = na.cod_nac;
+                nacareaatuacao.cod_area_atuacao = na.CodAreaAtuacao;
+                nacareaatuacao.cod_nac = na.CodNac;
 
                 this.GestorDeNacAreaDeAtuacao.InserirNacAreaDeAtuacao(nacareaatuacao);
             }
@@ -101,9 +101,9 @@ namespace MimAcher.WebService.Controllers
             foreach (NacAreaAtuacao na in listanacareaatuacao)
             {
                 MA_NAC_AREA_ATUACAO nacareaatuacao = new MA_NAC_AREA_ATUACAO();
-                nacareaatuacao.cod_nac_area_atuacao = na.cod_nac_area_atuacao;
-                nacareaatuacao.cod_area_atuacao = na.cod_area_atuacao;
-                nacareaatuacao.cod_nac = na.cod_nac;
+                nacareaatuacao.cod_nac_area_atuacao = na.CodNacAreaAtuacao;
+                nacareaatuacao.cod_area_atuacao = na.CodAreaAtuacao;
+                nacareaatuacao.cod_nac = na.CodNac;
 
                 this.GestorDeNacAreaDeAtuacao.InserirNacAreaDeAtuacao(nacareaatuacao);
             }

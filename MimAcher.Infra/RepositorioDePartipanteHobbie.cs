@@ -25,16 +25,16 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == hobbieparticipante.cod_participante && l.cod_item == hobbieparticipante.cod_item).SingleOrDefault();
         }
 
-        public MA_PARTICIPANTE_HOBBIE ObterParticipanteHobbiePorItemEParticipante(int id_item, int id_participante)
+        public MA_PARTICIPANTE_HOBBIE ObterParticipanteHobbiePorItemEParticipante(int idItem, int idParticipante)
         {
-            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+            MIMACHEREntities contextoModificado = new MIMACHEREntities();
 
-            return ContextoModificado.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
+            return contextoModificado.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_participante == idParticipante && l.cod_item == idItem).SingleOrDefault();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int idItem)
         {
-            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item).ToList();
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == idItem).ToList();
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
@@ -42,9 +42,9 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == participantehobbie.cod_item && l.cod_status == 1).OrderBy(l => l.cod_participante).Skip(participantehobbie.cod_p_hobbie).Take(20).ToList();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int idItem)
         {
-            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == id_item && l.cod_status == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
+            return this.Contexto.MA_PARTICIPANTE_HOBBIE.Where(l => l.cod_item == idItem && l.cod_status == 1).OrderBy(l => l.cod_participante).Take(20).ToList();
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsRegistros()
@@ -162,12 +162,12 @@ namespace MimAcher.Infra
 
         public void AtualizarAprendizadoDeHobbieSemConferencia(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
         {
-            MIMACHEREntities Contexto = new MIMACHEREntities();
+            MIMACHEREntities contexto = new MIMACHEREntities();
             
             try
             {
-                Contexto.Entry(hobbieparticipante).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                contexto.Entry(hobbieparticipante).State = EntityState.Modified;
+                contexto.SaveChanges();
             }
             catch(Exception e)
             {
@@ -204,9 +204,9 @@ namespace MimAcher.Infra
             }            
         }
 
-        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)
+        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int idItem)
         {
-            if(ObterHobbiesDeParticipantePorIdDeItem(id_item).Count() > 0)
+            if(ObterHobbiesDeParticipantePorIdDeItem(idItem).Count() > 0)
             {
                 return true;
             }

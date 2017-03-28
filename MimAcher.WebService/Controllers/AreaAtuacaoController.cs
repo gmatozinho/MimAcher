@@ -31,8 +31,8 @@ namespace MimAcher.WebService.Controllers
             {
                 AreaAtuacao areaatuacao = new AreaAtuacao();
 
-                areaatuacao.cod_area_atuacao = aa.cod_area_atuacao;
-                areaatuacao.nome = aa.nome;
+                areaatuacao.CodAreaAtuacao = aa.cod_area_atuacao;
+                areaatuacao.Nome = aa.nome;
 
                 listaareaatuacao.Add(areaatuacao);
             }
@@ -70,7 +70,7 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                    areaatuacao.nome = aa.nome;
+                    areaatuacao.nome = aa.Nome;
 
                     this.GestorDeAreaDeAtuacao.InserirAreaDeAtuacao(areaatuacao);
 
@@ -111,7 +111,7 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_AREA_ATUACAO areaatuacao = new MA_AREA_ATUACAO();
 
-                    areaatuacao.nome = aa.nome;
+                    areaatuacao.nome = aa.Nome;
 
                     this.GestorDeAreaDeAtuacao.AtualizarAreaDeAtuacao(areaatuacao);
 

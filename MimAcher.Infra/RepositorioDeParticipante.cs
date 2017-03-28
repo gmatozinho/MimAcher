@@ -57,7 +57,7 @@ namespace MimAcher.Infra
 
         public void InserirParticipante(MA_PARTICIPANTE participante)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
             {
                 this.Contexto.MA_PARTICIPANTE.Add(participante);
                 this.Contexto.SaveChanges();
@@ -66,7 +66,7 @@ namespace MimAcher.Infra
 
         public Boolean InserirParticipanteComRetorno(MA_PARTICIPANTE participante)
         {
-            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+            if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante) && !VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
             {
                 try
                 {
@@ -91,9 +91,9 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE.Count();
         }
 
-        public void RemoverParticipante(MA_PARTICIPANTE Participante)
+        public void RemoverParticipante(MA_PARTICIPANTE participante)
         {
-            this.Contexto.MA_PARTICIPANTE.Remove(Participante);
+            this.Contexto.MA_PARTICIPANTE.Remove(participante);
             this.Contexto.SaveChanges();
         }
 
@@ -101,7 +101,7 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
             {
-                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                if (!VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
                 {
                     Atualizar(participante);
                 }
@@ -110,7 +110,7 @@ namespace MimAcher.Infra
             {
                 MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
                 {
                     Atualizar(participante);
                 }
@@ -121,7 +121,7 @@ namespace MimAcher.Infra
         {
             if (!VerificarSeUsuarioJaTemVinculoComAlgumParticipante(participante))
             {
-                if (!VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                if (!VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
                 {
                     try
                     {
@@ -145,7 +145,7 @@ namespace MimAcher.Infra
                 {
                     MA_PARTICIPANTE participantejaexistente = ObterParticipantePorIdDeUsuario(participante.cod_usuario);
 
-                    if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNACTemAlgumNACComMesmoUsuario(participante))
+                    if (participantejaexistente.cod_participante == participante.cod_participante && !VerificarSeNacTemAlgumNacComMesmoUsuario(participante))
                     {
                         try
                         {
@@ -173,12 +173,12 @@ namespace MimAcher.Infra
 
         public void Atualizar(MA_PARTICIPANTE participante)
         {
-            MIMACHEREntities Contexto = new MIMACHEREntities();
+            MIMACHEREntities contexto = new MIMACHEREntities();
 
             try
             {
-                Contexto.Entry(participante).State = EntityState.Modified;
-                Contexto.SaveChanges();
+                contexto.Entry(participante).State = EntityState.Modified;
+                contexto.SaveChanges();
             }
             catch(Exception e)
             {
@@ -186,9 +186,9 @@ namespace MimAcher.Infra
             }
         }
 
-        public Boolean VerificarSeParticipanteExiste(int cod_participante)
+        public Boolean VerificarSeParticipanteExiste(int codParticipante)
         {
-            if(ObterParticipantePorId(cod_participante) != null)
+            if(ObterParticipantePorId(codParticipante) != null)
             {
                 return true;
             }
@@ -206,7 +206,7 @@ namespace MimAcher.Infra
             return false;
         }
 
-        public Boolean VerificarSeNACTemAlgumNACComMesmoUsuario(MA_PARTICIPANTE participante)
+        public Boolean VerificarSeNacTemAlgumNacComMesmoUsuario(MA_PARTICIPANTE participante)
         {
             if (this.Contexto.MA_NAC.Where(l => l.cod_usuario == participante.cod_usuario).SingleOrDefault() != null)
             {

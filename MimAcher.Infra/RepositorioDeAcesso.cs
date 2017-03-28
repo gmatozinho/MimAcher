@@ -37,22 +37,22 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ACESSO.Where(l => l.nome.ToLowerInvariant().Equals(nome.ToLowerInvariant())).ToList();
         }
 
-        public void InserirAcesso(MA_ACESSO Acesso)
+        public void InserirAcesso(MA_ACESSO acesso)
         {
-            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            if (VerificarSeNomeDeAcessoJaExiste(acesso))
             {
-                this.Contexto.MA_ACESSO.Add(Acesso);
+                this.Contexto.MA_ACESSO.Add(acesso);
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean InserirAcessoComRetorno(MA_ACESSO Acesso)
+        public Boolean InserirAcessoComRetorno(MA_ACESSO acesso)
         {
-            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            if (VerificarSeNomeDeAcessoJaExiste(acesso))
             {
                 try
                 {
-                    this.Contexto.MA_ACESSO.Add(Acesso);
+                    this.Contexto.MA_ACESSO.Add(acesso);
                     this.Contexto.SaveChanges();
 
                     return true;
@@ -73,28 +73,28 @@ namespace MimAcher.Infra
             return this.Contexto.MA_ACESSO.Count();
         }
 
-        public void RemoverAcesso(MA_ACESSO Acesso)
+        public void RemoverAcesso(MA_ACESSO acesso)
         {
-            this.Contexto.MA_ACESSO.Remove(Acesso);
+            this.Contexto.MA_ACESSO.Remove(acesso);
             this.Contexto.SaveChanges();
         }
 
-        public void AtualizarAcesso(MA_ACESSO Acesso)
+        public void AtualizarAcesso(MA_ACESSO acesso)
         {
-            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            if (VerificarSeNomeDeAcessoJaExiste(acesso))
             {
-                this.Contexto.Entry(Acesso).State = EntityState.Modified;
+                this.Contexto.Entry(acesso).State = EntityState.Modified;
                 this.Contexto.SaveChanges();
             }
         }
 
-        public Boolean AtualizarAcessoComRetorno(MA_ACESSO Acesso)
+        public Boolean AtualizarAcessoComRetorno(MA_ACESSO acesso)
         {
-            if (VerificarSeNomeDeAcessoJaExiste(Acesso))
+            if (VerificarSeNomeDeAcessoJaExiste(acesso))
             {
                 try
                 {
-                    this.Contexto.Entry(Acesso).State = EntityState.Modified;
+                    this.Contexto.Entry(acesso).State = EntityState.Modified;
                     this.Contexto.SaveChanges();
 
                     return true;

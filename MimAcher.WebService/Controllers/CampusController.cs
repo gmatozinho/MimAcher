@@ -25,8 +25,8 @@ namespace MimAcher.WebService.Controllers
             {
                 Campus campus = new Campus();
 
-                campus.cod_campus = nc.cod_campus;
-                campus.local = nc.local;
+                campus.CodCampus = nc.cod_campus;
+                campus.Local = nc.local;
 
                 listacampus.Add(campus);
             }
@@ -63,7 +63,7 @@ namespace MimAcher.WebService.Controllers
                 foreach (Campus cp in listacampus)
                 {
                     MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.local = cp.local;
+                    campus.local = cp.Local;
 
                     this.GestorDeCampus.InserirCampus(campus);
 
@@ -104,7 +104,7 @@ namespace MimAcher.WebService.Controllers
                 foreach (Campus cp in listacampus)
                 {
                     MA_CAMPUS campus = new MA_CAMPUS();
-                    campus.local = cp.local;
+                    campus.local = cp.Local;
 
                     this.GestorDeCampus.AtualizarCampus(campus);
 

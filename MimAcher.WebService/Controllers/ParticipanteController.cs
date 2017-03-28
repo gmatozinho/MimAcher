@@ -37,14 +37,14 @@ namespace MimAcher.WebService.Controllers
             {
                 Participante participante = new Participante();
 
-                participante.cod_participante = pt.cod_participante;
-                participante.cod_usuario = pt.cod_usuario;
-                participante.cod_campus = pt.cod_campus;
-                participante.nome = pt.nome;
-                participante.telefone = pt.telefone;
-                participante.dt_nascimento = pt.dt_nascimento;
-                participante.latitude = pt.geolocalizacao.Latitude;
-                participante.longitude = pt.geolocalizacao.Longitude;
+                participante.CodParticipante = pt.cod_participante;
+                participante.CodUsuario = pt.cod_usuario;
+                participante.CodCampus = pt.cod_campus;
+                participante.Nome = pt.nome;
+                participante.Telefone = pt.telefone;
+                participante.DtNascimento = pt.dt_nascimento;
+                participante.Latitude = pt.geolocalizacao.Latitude;
+                participante.Longitude = pt.geolocalizacao.Longitude;
 
                 listaparticipante.Add(participante);
             }
@@ -75,12 +75,12 @@ namespace MimAcher.WebService.Controllers
             {                   
                 MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                participante.cod_usuario = listaparticipante[0].cod_usuario;
-                participante.cod_campus = listaparticipante[0].cod_participante;
-                participante.nome = listaparticipante[0].nome;
-                participante.telefone = listaparticipante[0].telefone;
-                participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
-                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
+                participante.cod_usuario = listaparticipante[0].CodUsuario;
+                participante.cod_campus = listaparticipante[0].CodParticipante;
+                participante.nome = listaparticipante[0].Nome;
+                participante.telefone = listaparticipante[0].Telefone;
+                participante.dt_nascimento = (DateTime)listaparticipante[0].DtNascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].Latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].Longitude.ToString()) + ")");
 
                 try
                 {
@@ -122,13 +122,13 @@ namespace MimAcher.WebService.Controllers
             {   
                 MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                participante.cod_participante = listaparticipante[0].cod_participante;
-                participante.cod_usuario = listaparticipante[0].cod_usuario;
-                participante.cod_campus = listaparticipante[0].cod_campus;
-                participante.nome = listaparticipante[0].nome;
-                participante.telefone = listaparticipante[0].telefone;
-                participante.dt_nascimento = (DateTime)listaparticipante[0].dt_nascimento;
-                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].longitude.ToString()) + ")");
+                participante.cod_participante = listaparticipante[0].CodParticipante;
+                participante.cod_usuario = listaparticipante[0].CodUsuario;
+                participante.cod_campus = listaparticipante[0].CodCampus;
+                participante.nome = listaparticipante[0].Nome;
+                participante.telefone = listaparticipante[0].Telefone;
+                participante.dt_nascimento = (DateTime)listaparticipante[0].DtNascimento;
+                participante.geolocalizacao = DbGeography.FromText("POINT(" + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].Latitude.ToString()) + "  " + GestorDeAplicacao.RetornaDadoSemVigurla(listaparticipante[0].Longitude.ToString()) + ")");
 
                 try
                 {
@@ -180,24 +180,24 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (GestorDeParticipante.VerificarSeParticipanteExiste(listaparticipante[0].cod_participante))
+                if (GestorDeParticipante.VerificarSeParticipanteExiste(listaparticipante[0].CodParticipante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].cod_participante);
+                        MA_PARTICIPANTE participante = GestorDeParticipante.ObterParticipantePorId(listaparticipante[0].CodParticipante);
 
                         ParticipanteGet pg = new ParticipanteGet();
 
-                        pg.cod_participante = participante.cod_participante;
-                        pg.nome_participante = participante.nome;
-                        pg.cod_campus = participante.cod_campus;
-                        pg.nome_campus = participante.MA_CAMPUS.local;
-                        pg.cod_usuario = participante.cod_usuario;
-                        pg.e_mail = participante.MA_USUARIO.e_mail;                        
-                        pg.telefone = participante.telefone;
-                        pg.dt_nascimento = participante.dt_nascimento.ToString();
-                        pg.latitude = participante.geolocalizacao.Latitude.ToString();
-                        pg.longitude = participante.geolocalizacao.Longitude.ToString();
+                        pg.CodParticipante = participante.cod_participante;
+                        pg.NomeParticipante = participante.nome;
+                        pg.CodCampus = participante.cod_campus;
+                        pg.NomeCampus = participante.MA_CAMPUS.local;
+                        pg.CodUsuario = participante.cod_usuario;
+                        pg.EMail = participante.MA_USUARIO.e_mail;                        
+                        pg.Telefone = participante.telefone;
+                        pg.DtNascimento = participante.dt_nascimento.ToString();
+                        pg.Latitude = participante.geolocalizacao.Latitude.ToString();
+                        pg.Longitude = participante.geolocalizacao.Longitude.ToString();
                                                 
                         listaparticipanteretorno.Add(pg);
 
@@ -246,7 +246,7 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_PARTICIPANTE participante = new MA_PARTICIPANTE();
 
-                participante.cod_participante = listaparticipante[0].cod_participante;                
+                participante.cod_participante = listaparticipante[0].CodParticipante;                
 
                 try
                 {

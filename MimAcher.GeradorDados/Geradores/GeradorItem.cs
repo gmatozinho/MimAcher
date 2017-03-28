@@ -8,8 +8,8 @@ namespace MimAcher.GeradorDados.Geradores
 {
     class GeradorItem
     {
-        private static Random random = new Random();
-        private static readonly List<string> tipo_item =
+        private static Random _random = new Random();
+        private static readonly List<string> TipoItem =
             new List<string>() { "futebol", "violao", "php", "c#", "xamarin", "teclado", "bateria",
             "uml", "analise de sistemas", "programacao", "cozinha", "cinema", "banco de dados",
             "cachorros", "medicina", "medicina alternativa", "psicologia", "livros de ficcao",
@@ -20,7 +20,7 @@ namespace MimAcher.GeradorDados.Geradores
 
         public string GerarItem()
         {
-            return tipo_item[random.Next(0, tipo_item.Count)];
+            return TipoItem[_random.Next(0, TipoItem.Count)];
         }
     }
 }

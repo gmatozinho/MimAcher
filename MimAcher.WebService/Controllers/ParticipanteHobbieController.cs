@@ -32,9 +32,9 @@ namespace MimAcher.WebService.Controllers
             {
                 ParticipanteHobbie participantehobbie = new ParticipanteHobbie();
 
-                participantehobbie.cod_p_hobbie = pe.cod_p_hobbie;
-                participantehobbie.cod_participante = pe.cod_participante;
-                participantehobbie.cod_item = pe.cod_item;
+                participantehobbie.CodPHobbie = pe.cod_p_hobbie;
+                participantehobbie.CodParticipante = pe.cod_participante;
+                participantehobbie.CodItem = pe.cod_item;
 
                 listaparticipantehobbie.Add(participantehobbie);
             }
@@ -68,8 +68,8 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_PARTICIPANTE_HOBBIE participantehobbie = new MA_PARTICIPANTE_HOBBIE();
 
-                participantehobbie.cod_participante = listaparticipantehobbie[0].cod_participante;
-                participantehobbie.cod_item = listaparticipantehobbie[0].cod_item;
+                participantehobbie.cod_participante = listaparticipantehobbie[0].CodParticipante;
+                participantehobbie.cod_item = listaparticipantehobbie[0].CodItem;
 
                 //Informa que a relação estará ativa
                 participantehobbie.cod_status = 1;
@@ -124,11 +124,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante))
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorItemEParticipante(listaparticipantehobbie[0].CodItem, listaparticipantehobbie[0].CodParticipante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterParticipanteHobbiePorItemEParticipante(listaparticipantehobbie[0].cod_item, listaparticipantehobbie[0].cod_participante);
+                        MA_PARTICIPANTE_HOBBIE participantehobbie = this.GestorDeHobbieDeParticipante.ObterParticipanteHobbiePorItemEParticipante(listaparticipantehobbie[0].CodItem, listaparticipantehobbie[0].CodParticipante);
 
                         if (participantehobbie.cod_status == 1)
                         {
@@ -216,11 +216,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorIdDeItem(listaparticipantehobbie[0].cod_item))
+                if (this.GestorDeHobbieDeParticipante.VerificarSeExisteHobbieDeParticipantePorIdDeItem(listaparticipantehobbie[0].CodItem))
                 {
                     try
                     {
-                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipantehobbie[0].cod_item);
+                        List<MA_PARTICIPANTE_HOBBIE> listaphobbie = this.GestorDeHobbieDeParticipante.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipantehobbie[0].CodItem);
 
                         //Reinicia lista de aprendizado de participante
                         listaparticipantehobbie = new List<ParticipanteHobbie>();
@@ -229,9 +229,9 @@ namespace MimAcher.WebService.Controllers
                         {
                             ParticipanteHobbie pa = new ParticipanteHobbie();
 
-                            pa.cod_p_hobbie = mapa.cod_p_hobbie;
-                            pa.cod_item = mapa.cod_item;
-                            pa.cod_participante = mapa.cod_participante;
+                            pa.CodPHobbie = mapa.cod_p_hobbie;
+                            pa.CodItem = mapa.cod_item;
+                            pa.CodParticipante = mapa.cod_participante;
 
                             listaparticipantehobbie.Add(pa);
                         }

@@ -29,9 +29,9 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.ObterTodosOsRegistrosAtivos();
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int id_item)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterHobbiesDeParticipantePorIdDeItem(int idItem)
         {
-            return this.RepositorioDeParcipanteHobbie.ObterHobbiesDeParticipantePorIdDeItem(id_item);
+            return this.RepositorioDeParcipanteHobbie.ObterHobbiesDeParticipantePorIdDeItem(idItem);
         }
 
         public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_HOBBIE participantehobbie)
@@ -39,14 +39,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(participantehobbie);
         }
 
-        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        public List<MA_PARTICIPANTE_HOBBIE> ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(int idItem)
         {
-            return this.RepositorioDeParcipanteHobbie.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(id_item);
+            return this.RepositorioDeParcipanteHobbie.ObterTodosOsHobbiesDeParticipantePorPorItemPaginadosPorVinteRegistros(idItem);
         }
 
-        public MA_PARTICIPANTE_HOBBIE ObterParticipanteHobbiePorItemEParticipante(int id_item, int id_participante)
+        public MA_PARTICIPANTE_HOBBIE ObterParticipanteHobbiePorItemEParticipante(int idItem, int idParticipante)
         {
-            return this.RepositorioDeParcipanteHobbie.ObterParticipanteHobbiePorItemEParticipante(id_item, id_participante);
+            return this.RepositorioDeParcipanteHobbie.ObterParticipanteHobbiePorItemEParticipante(idItem, idParticipante);
         }
 
         public void InserirNovoParticipanteHobbie(MA_PARTICIPANTE_HOBBIE hobbieparticipante)
@@ -79,9 +79,9 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeParcipanteHobbie.AtualizarHobbieDoParticipanteComRetorno(hobbieparticipante);
         }
 
-        public Boolean VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(int id_usuarioahobbie)
+        public Boolean VerificarSeExisteRelacaoUsuarioHobbiePorIdDaRelacao(int idUsuarioahobbie)
         {
-            if (ObterHobbieDoParticipantePorId(id_usuarioahobbie) != null)
+            if (ObterHobbieDoParticipantePorId(idUsuarioahobbie) != null)
             {
                 return true;
             }
@@ -91,9 +91,9 @@ namespace MimAcher.Aplicacao
             }
         }
 
-        public Boolean VerificarSeExisteHobbieDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        public Boolean VerificarSeExisteHobbieDeParticipantePorItemEParticipante(int idItem, int idParticipante)
         {
-            if(ObterParticipanteHobbiePorItemEParticipante(id_item,id_participante) != null)
+            if(ObterParticipanteHobbiePorItemEParticipante(idItem,idParticipante) != null)
             {
                 return true;
             }
@@ -103,9 +103,9 @@ namespace MimAcher.Aplicacao
             }
         }
 
-        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int id_item)
+        public Boolean VerificarSeExisteHobbieDeParticipantePorIdDeItem(int idItem)
         {
-            return this.RepositorioDeParcipanteHobbie.VerificarSeExisteHobbieDeParticipantePorIdDeItem(id_item);
+            return this.RepositorioDeParcipanteHobbie.VerificarSeExisteHobbieDeParticipantePorIdDeItem(idItem);
         }
     }
 }

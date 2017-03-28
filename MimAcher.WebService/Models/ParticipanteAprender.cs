@@ -2,8 +2,8 @@
 {
     public class ParticipanteAprender
     {
-        public int cod_p_aprender { get; set; }
-        public int cod_participante { get; set; }
-        public int cod_item { get; set; }
+        public int CodPAprender { get; set; }
+        public int CodParticipante { get; set; }
+        public int CodItem { get; set; }
     }
 }

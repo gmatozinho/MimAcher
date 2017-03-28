@@ -114,10 +114,10 @@ namespace MimAcher.Apresentacao.App
             {
                 ErroImpressao erroimpressao = new ErroImpressao();
 
-                erroimpressao.tipo = erro.tipo;
-                erroimpressao.aconteceu = erro.aconteceu;
-                erroimpressao.incidencia = erro.incidencia.ToString();
-                erroimpressao.dt_acontecimento = erro.dt_acontecimento.ToString();
+                erroimpressao.Tipo = erro.tipo;
+                erroimpressao.Aconteceu = erro.aconteceu;
+                erroimpressao.Incidencia = erro.incidencia.ToString();
+                erroimpressao.DtAcontecimento = erro.dt_acontecimento.ToString();
 
                 listaimpressaopersonalizada.Add(erroimpressao);
             }

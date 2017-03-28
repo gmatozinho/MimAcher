@@ -61,22 +61,22 @@ namespace MimAcher.Apresentacao.App
         //Cadastro do status_relacao no banco
         protected void Save(object sender, DirectEventArgs e)
         {
-            MA_STATUS status_relacao = new MA_STATUS();
+            MA_STATUS statusRelacao = new MA_STATUS();
 
-            status_relacao.nome = nomeId.Text;
+            statusRelacao.nome = nomeId.Text;
 
             //Caso o form não possui código, será inserido um novo usuário
             if (cod_statusId.Text == "")
             {
-                this.GestorDeStatus.InserirStatus(status_relacao);
+                this.GestorDeStatus.InserirStatus(statusRelacao);
                 StatusWindowId.Close();
                 LimpaForm();
             }
             //Caso contrário, o form será atualizado
             else
             {
-                status_relacao.cod_status = Int32.Parse(cod_statusId.Text);
-                this.GestorDeStatus.AtualizarStatus(status_relacao);
+                statusRelacao.cod_status = Int32.Parse(cod_statusId.Text);
+                this.GestorDeStatus.AtualizarStatus(statusRelacao);
                 StatusWindowId.Close();
                 LimpaForm();
             }
@@ -91,8 +91,8 @@ namespace MimAcher.Apresentacao.App
         //Exclui determinado status_relacao do banco de dados
         protected void Delete(object sender, DirectEventArgs e)
         {
-            MA_STATUS status_relacao = this.GestorDeStatus.ObterStatusPorId(Int32.Parse(cod_statusId.Text));
-            this.GestorDeStatus.RemoverStatus(status_relacao);
+            MA_STATUS statusRelacao = this.GestorDeStatus.ObterStatusPorId(Int32.Parse(cod_statusId.Text));
+            this.GestorDeStatus.RemoverStatus(statusRelacao);
             LimpaForm();
         }
 

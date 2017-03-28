@@ -34,10 +34,10 @@ namespace MimAcher.WebService.Controllers
             {
                 Erro erro = new Erro();
 
-                erro.tipo = er.tipo;
-                erro.aconteceu = er.aconteceu;
-                erro.incidencia = er.incidencia;
-                erro.dt_acontecimento = er.dt_acontecimento.ToString();
+                erro.Tipo = er.tipo;
+                erro.Aconteceu = er.aconteceu;
+                erro.Incidencia = er.incidencia;
+                erro.DtAcontecimento = er.dt_acontecimento.ToString();
 
                 listaerro.Add(erro);
             }
@@ -73,9 +73,9 @@ namespace MimAcher.WebService.Controllers
                 {
                     MA_ERRO erro = new MA_ERRO();
 
-                    erro.tipo = listaerro[0].tipo;
-                    erro.aconteceu = listaerro[0].aconteceu;
-                    erro.incidencia = listaerro[0].incidencia;
+                    erro.tipo = listaerro[0].Tipo;
+                    erro.aconteceu = listaerro[0].Aconteceu;
+                    erro.incidencia = listaerro[0].Incidencia;
                     erro.dt_acontecimento = DateTime.Now;
 
                     if (GestorDeErro.InserirErroComRetorno(erro))

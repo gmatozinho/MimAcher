@@ -2,8 +2,8 @@
 {
     public class NacAreaAtuacao
     {
-        public int cod_nac_area_atuacao { get; set; }
-        public int cod_area_atuacao { get; set; }
-        public int cod_nac { get; set; }
+        public int CodNacAreaAtuacao { get; set; }
+        public int CodAreaAtuacao { get; set; }
+        public int CodNac { get; set; }
     }
 }

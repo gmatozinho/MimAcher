@@ -29,14 +29,14 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeItem.ObterTodosOsItemsPorNome(nome);
         }
 
-        public void InserirItem(MA_ITEM Item)
+        public void InserirItem(MA_ITEM item)
         {
-            this.RepositorioDeItem.InserirItem(Item);
+            this.RepositorioDeItem.InserirItem(item);
         }
 
-        public Boolean InserirItemComRetorno(MA_ITEM Item)
+        public Boolean InserirItemComRetorno(MA_ITEM item)
         {
-            return this.RepositorioDeItem.InserirItemComRetorno(Item);
+            return this.RepositorioDeItem.InserirItemComRetorno(item);
         }
 
         public int BuscarQuantidadeRegistros()
@@ -44,19 +44,19 @@ namespace MimAcher.Aplicacao
             return this.RepositorioDeItem.BuscarQuantidadeRegistros();
         }
 
-        public void RemoverItem(MA_ITEM Item)
+        public void RemoverItem(MA_ITEM item)
         {
-            this.RepositorioDeItem.RemoverItem(Item);
+            this.RepositorioDeItem.RemoverItem(item);
         }
 
-        public void AtualizarItem(MA_ITEM Item)
+        public void AtualizarItem(MA_ITEM item)
         {
-            this.RepositorioDeItem.AtualizarItem(Item);
+            this.RepositorioDeItem.AtualizarItem(item);
         }
 
-        public Boolean AtualizarItemComRetorno(MA_ITEM Item)
+        public Boolean AtualizarItemComRetorno(MA_ITEM item)
         {
-            return this.RepositorioDeItem.AtualizarItemComRetorno(Item);
+            return this.RepositorioDeItem.AtualizarItemComRetorno(item);
         }
     }
 }

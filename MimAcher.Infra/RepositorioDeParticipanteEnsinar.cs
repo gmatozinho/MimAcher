@@ -20,9 +20,9 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Find(id);
         }
 
-        public List<MA_PARTICIPANTE_ENSINAR> ObterEnsinosDeParticipantePorIdDeItem(int id_item)
+        public List<MA_PARTICIPANTE_ENSINAR> ObterEnsinosDeParticipantePorIdDeItem(int idItem)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item).ToList();
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == idItem).ToList();
         }
 
         public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(MA_PARTICIPANTE_ENSINAR participanteensinar)
@@ -30,11 +30,11 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == participanteensinar.cod_participante && l.cod_item == participanteensinar.cod_item).SingleOrDefault();
         }
 
-        public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int id_item, int id_participante)
+        public MA_PARTICIPANTE_ENSINAR ObterEnsinoDeParticipantePorItemEParticipante(int idItem, int idParticipante)
         {
-            MIMACHEREntities ContextoModificado = new MIMACHEREntities();
+            MIMACHEREntities contextoModificado = new MIMACHEREntities();
 
-            return ContextoModificado.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == id_participante && l.cod_item == id_item).SingleOrDefault();
+            return contextoModificado.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_participante == idParticipante && l.cod_item == idItem).SingleOrDefault();
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(MA_PARTICIPANTE_ENSINAR participanteensinar)
@@ -42,9 +42,9 @@ namespace MimAcher.Infra
             return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == participanteensinar.cod_item && l.cod_status == 1).Skip(participanteensinar.cod_p_ensinar).Take(20).ToList();
         }
 
-        public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int id_item)
+        public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsEnsinamentosDeParticipantePorPorItemPaginadosPorVinteRegistros(int idItem)
         {
-            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == id_item && l.cod_status == 1).Take(20).ToList();        
+            return this.Contexto.MA_PARTICIPANTE_ENSINAR.Where(l => l.cod_item == idItem && l.cod_status == 1).Take(20).ToList();        
         }
 
         public List<MA_PARTICIPANTE_ENSINAR> ObterTodosOsRegistros()
@@ -161,10 +161,10 @@ namespace MimAcher.Infra
 
         public void AtualizarEnsinamentoDeParticipanteSemConferencia(MA_PARTICIPANTE_ENSINAR participanteensinar)
         {
-            MIMACHEREntities Contexto = new MIMACHEREntities();
+            MIMACHEREntities contexto = new MIMACHEREntities();
 
-            Contexto.Entry(participanteensinar).State = EntityState.Modified;
-            Contexto.SaveChanges();
+            contexto.Entry(participanteensinar).State = EntityState.Modified;
+            contexto.SaveChanges();
         }
 
         public Boolean VerificarSeExisteRelacaoDeParticipanteAprender(MA_PARTICIPANTE_ENSINAR participanteensinar)
@@ -176,9 +176,9 @@ namespace MimAcher.Infra
             return false;
         }
 
-        public Boolean VerificarSeExisteEnsinoDeParticipantePorIdDeItem(int id_item)
+        public Boolean VerificarSeExisteEnsinoDeParticipantePorIdDeItem(int idItem)
         {
-            if (ObterEnsinosDeParticipantePorIdDeItem(id_item).Count() > 0)
+            if (ObterEnsinosDeParticipantePorIdDeItem(idItem).Count() > 0)
             {
                 return true;
             }

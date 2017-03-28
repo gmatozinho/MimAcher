@@ -42,9 +42,9 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if(GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(listausuario[0].e_mail, listausuario[0].senha))
+                if(GestorDeUsuario.VerificarExistenciaDeUsuarioPorEmailESenha(listausuario[0].EMail, listausuario[0].Senha))
                 {
-                    MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(listausuario[0].e_mail, listausuario[0].senha);
+                    MA_USUARIO usuario = GestorDeUsuario.ObterUsuarioPorEmailESenha(listausuario[0].EMail, listausuario[0].Senha);
 
                     //Verifica se o usuário está ativo
                     if(usuario.cod_status == 1)

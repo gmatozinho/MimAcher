@@ -34,8 +34,8 @@ namespace MimAcher.WebService.Controllers
             {
                 Nac nac = new Nac();
 
-                nac.cod_nac = nc.cod_nac;
-                nac.nomerepresentante = nc.nome_representante;
+                nac.CodNac = nc.cod_nac;
+                nac.Nomerepresentante = nc.nome_representante;
 
                 listanac.Add(nac);
             }
@@ -68,10 +68,10 @@ namespace MimAcher.WebService.Controllers
             else
             {
                 MA_NAC nac = new MA_NAC();
-                nac.cod_usuario = listanac[0].cd_usuario;
-                nac.cod_campus = listanac[0].cod_campus;
-                nac.nome_representante = listanac[0].nomerepresentante;
-                nac.telefone = listanac[0].telefone;
+                nac.cod_usuario = listanac[0].CdUsuario;
+                nac.cod_campus = listanac[0].CodCampus;
+                nac.nome_representante = listanac[0].Nomerepresentante;
+                nac.telefone = listanac[0].Telefone;
 
                 try
                 {
@@ -123,11 +123,11 @@ namespace MimAcher.WebService.Controllers
             else
             {
                 MA_NAC nac = new MA_NAC();
-                nac.cod_nac = listanac[0].cod_nac;
-                nac.cod_usuario = listanac[0].cd_usuario;
-                nac.cod_campus = listanac[0].cod_campus;
-                nac.nome_representante = listanac[0].nomerepresentante;
-                nac.telefone = listanac[0].telefone;
+                nac.cod_nac = listanac[0].CodNac;
+                nac.cod_usuario = listanac[0].CdUsuario;
+                nac.cod_campus = listanac[0].CodCampus;
+                nac.nome_representante = listanac[0].Nomerepresentante;
+                nac.telefone = listanac[0].Telefone;
 
                 try
                 {
@@ -181,7 +181,7 @@ namespace MimAcher.WebService.Controllers
             {
                 MA_NAC nac = new MA_NAC();
 
-                nac.cod_nac = listanac[0].cod_nac;
+                nac.cod_nac = listanac[0].CodNac;
                 
                 try
                 {

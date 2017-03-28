@@ -32,9 +32,9 @@ namespace MimAcher.WebService.Controllers
             {
                 ParticipanteAprender participanteaprender = new ParticipanteAprender();
 
-                participanteaprender.cod_p_aprender = pe.cod_p_aprender;
-                participanteaprender.cod_participante = pe.cod_participante;
-                participanteaprender.cod_item = pe.cod_item;
+                participanteaprender.CodPAprender = pe.cod_p_aprender;
+                participanteaprender.CodParticipante = pe.cod_participante;
+                participanteaprender.CodItem = pe.cod_item;
                 
                 listaparticipanteaprender.Add(participanteaprender);
             }
@@ -68,8 +68,8 @@ namespace MimAcher.WebService.Controllers
             {   
                 MA_PARTICIPANTE_APRENDER participanteaprender = new MA_PARTICIPANTE_APRENDER();
 
-                participanteaprender.cod_participante = listaparticipanteaprender[0].cod_participante;
-                participanteaprender.cod_item = listaparticipanteaprender[0].cod_item;
+                participanteaprender.cod_participante = listaparticipanteaprender[0].CodParticipante;
+                participanteaprender.cod_item = listaparticipanteaprender[0].CodItem;
 
                 //Informa que a relação estará ativa
                 participanteaprender.cod_status = 1;
@@ -122,11 +122,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioPorItemEParticipante(listaparticipanteaprender[0].cod_item, listaparticipanteaprender[0].cod_participante))
+                if (this.GestorDeParticipanteAprender.VerificarSeExisteRelacaoUsuarioPorItemEParticipante(listaparticipanteaprender[0].CodItem, listaparticipanteaprender[0].CodParticipante))
                 {
                     try
                     {
-                        MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDeParticipantePorItemEParticipante(listaparticipanteaprender[0].cod_item, listaparticipanteaprender[0].cod_participante);
+                        MA_PARTICIPANTE_APRENDER participanteaprender = this.GestorDeParticipanteAprender.ObterAprendizadoDeParticipantePorItemEParticipante(listaparticipanteaprender[0].CodItem, listaparticipanteaprender[0].CodParticipante);
 
                         if (participanteaprender.cod_status == 1)
                         {
@@ -213,11 +213,11 @@ namespace MimAcher.WebService.Controllers
             }
             else
             {
-                if (this.GestorDeParticipanteAprender.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteaprender[0].cod_item))
+                if (this.GestorDeParticipanteAprender.VerificarSeExisteAprendizadoDeParticipantePorIdDeItem(listaparticipanteaprender[0].CodItem))
                 {
                     try
                     {
-                        List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteaprender[0].cod_item);
+                        List<MA_PARTICIPANTE_APRENDER> listapaprender = this.GestorDeParticipanteAprender.ObterTodosOsAprendizadoDeParticipantePorPorItemPaginadosPorVinteRegistros(listaparticipanteaprender[0].CodItem);
 
                         //Reinicia lista de aprendizado de participante
                         listaparticipanteaprender = new List<ParticipanteAprender>();
@@ -226,9 +226,9 @@ namespace MimAcher.WebService.Controllers
                         {
                             ParticipanteAprender pa = new ParticipanteAprender();
 
-                            pa.cod_p_aprender = mapa.cod_p_aprender;
-                            pa.cod_item = mapa.cod_item;
-                            pa.cod_participante = mapa.cod_participante;
+                            pa.CodPAprender = mapa.cod_p_aprender;
+                            pa.CodItem = mapa.cod_item;
+                            pa.CodParticipante = mapa.cod_participante;
 
                             listaparticipanteaprender.Add(pa);
                         }
