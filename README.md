@@ -23,7 +23,7 @@ Devem ser gerados relatórios que estabeleçam perfis para os alunos cadastrados
 
 Cayo Donatti - cayopdonatti@gmail.com
 
-Gustavo Matozinho - gmatozinho@mimacher.me
+Gustavo Matozinho - gustavomatozinho@gmail.com
 
 Paulo - paulovianna@yandex.com
 
